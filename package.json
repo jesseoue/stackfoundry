@@ -9,19 +9,21 @@
   },
   "packageManager": "pnpm@10.11.0",
   "engines": {
-    "node": ">=22.0.0",
+    "node": ">=22.0.0 <25",
     "pnpm": ">=10.11.0"
   },
   "scripts": {
-    "check": "pnpm validate && pnpm lint && pnpm test && pnpm registry:build",
+    "check": "pnpm registry:doctor && pnpm lint && pnpm test && pnpm registry:build",
     "validate": "node apps/cli/src/cli.mjs validate",
     "registry:build": "node apps/cli/src/cli.mjs build",
     "lint": "node --check apps/cli/src/cli.mjs",
-    "test": "rm -rf /tmp/stackfoundry-test && mkdir -p /tmp/stackfoundry-test && node apps/cli/src/cli.mjs list >/dev/null && node apps/cli/src/cli.mjs presets >/dev/null && node apps/cli/src/cli.mjs add api-keys --target /tmp/stackfoundry-test >/dev/null && node apps/cli/src/cli.mjs diff api-keys --target /tmp/stackfoundry-test >/dev/null && node apps/cli/src/cli.mjs add preset next-saas --target /tmp/stackfoundry-test --dry-run >/dev/null",
-    "build": "pnpm validate",
+    "test": "rm -rf /tmp/stackfoundry-test && mkdir -p /tmp/stackfoundry-test && node apps/cli/src/cli.mjs list >/dev/null && node apps/cli/src/cli.mjs presets >/dev/null && node apps/cli/src/cli.mjs add api-keys --target /tmp/stackfoundry-test >/dev/null && node apps/cli/src/cli.mjs diff api-keys --target /tmp/stackfoundry-test >/dev/null && node apps/cli/src/cli.mjs add preset next-saas --target /tmp/stackfoundry-test --dry-run >/dev/null && node apps/cli/src/cli.mjs add preset vendor-examples --target /tmp/stackfoundry-test --dry-run >/dev/null",
+    "build": "pnpm --filter @stackfoundry/web build",
     "dev:web": "pnpm --dir apps/web dev",
-    "build:web": "pnpm --dir apps/web build",
-    "start:web": "pnpm --dir apps/web start"
+    "build:web": "pnpm --filter @stackfoundry/web build",
+    "start:web": "pnpm --dir apps/web start",
+    "registry:doctor": "node apps/cli/src/cli.mjs doctor",
+    "registry:verify": "pnpm registry:doctor && pnpm registry:build"
   },
   "dependencies": {
     "next": "latest",

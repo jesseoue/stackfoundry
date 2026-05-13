@@ -1,4 +1,4 @@
-# Cursor Pagination Checklist
+# Keyset Pagination Checklist
 
 - [ ] module manifest validates
 - [ ] install path is verified in a fresh app

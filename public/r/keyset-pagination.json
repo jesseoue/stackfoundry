@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "keyset-pagination",
+  "type": "registry:item",
+  "title": "Keyset Pagination",
+  "description": "Keyset pagination helpers for stable API lists.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/keyset-pagination.ts",
+      "type": "registry:file",
+      "content": "export type KeysetPaginationConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createKeysetPaginationConfig(config: KeysetPaginationConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const keysetPaginationProductionChecks = [\n  \"Confirm access control\",\n  \"Record audit events for sensitive changes\",\n  \"Document rollback or recovery steps\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/developers/pagination/page.tsx",
+      "type": "registry:page",
+      "content": "const tasks = [\n  \"Configure defaults\",\n  \"Connect persistence or provider adapter\",\n  \"Verify production checklist\",\n];\n\nexport default function KeysetPaginationPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Keyset Pagination</h1>\n        <p className=\"text-muted-foreground\">Keyset pagination helpers for stable API lists.</p>\n      </div>\n      <ul className=\"grid gap-3\">\n        {tasks.map((task) => (\n          <li key={task} className=\"rounded-lg border p-4 text-sm\">{task}</li>\n        ))}\n      </ul>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "meta": {
+    "category": "developer-platform",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "keyset-pagination"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "audit-sensitive-actions"
+      ]
+    }
+  }
+}

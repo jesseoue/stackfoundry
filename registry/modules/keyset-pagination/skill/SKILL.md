@@ -1,9 +1,9 @@
 ---
-name: cursor-pagination
-description: Maintain the Cursor Pagination module installed by StackFoundry.
+name: keyset-pagination
+description: Maintain the Keyset Pagination module installed by StackFoundry.
 ---
 
-# Cursor Pagination Maintenance Instructions
+# Keyset Pagination Maintenance Instructions
 
 - Preserve the ownership and setup guidance in `docs.md`.
 - Keep source templates small and provider-neutral.

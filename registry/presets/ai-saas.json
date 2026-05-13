@@ -20,7 +20,7 @@
     "security-headers",
     "cors-policy",
     "api-errors",
-    "cursor-pagination",
+    "keyset-pagination",
     "quota-enforcement",
     "email-templates",
     "inngest-functions",

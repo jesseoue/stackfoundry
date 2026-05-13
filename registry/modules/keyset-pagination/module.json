@@ -1,16 +1,16 @@
 {
-  "name": "cursor-pagination",
+  "name": "keyset-pagination",
   "type": "module",
   "category": "developer-platform",
-  "title": "Cursor Pagination",
-  "description": "Cursor-based pagination helpers for stable API lists.",
+  "title": "Keyset Pagination",
+  "description": "Keyset pagination helpers for stable API lists.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "env": [],
   "files": [
     {
-      "path": "apps/web/src/lib/cursor-pagination.ts",
+      "path": "apps/web/src/lib/keyset-pagination.ts",
       "type": "registry:file"
     },
     {
@@ -20,7 +20,7 @@
   ],
   "agents": {
     "skills": [
-      "cursor-pagination"
+      "keyset-pagination"
     ],
     "rules": [
       "document-invariants",

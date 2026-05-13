@@ -29,7 +29,7 @@
     "security-headers",
     "cors-policy",
     "api-errors",
-    "cursor-pagination",
+    "keyset-pagination",
     "email-templates",
     "contact-forms",
     "newsletter-signups",

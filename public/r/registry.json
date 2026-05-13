@@ -322,10 +322,10 @@
       "description": "Allowed origin configuration, preflight helpers, and deployment checklist."
     },
     {
-      "name": "cursor-pagination",
+      "name": "keyset-pagination",
       "type": "registry:item",
-      "title": "Cursor Pagination",
-      "description": "Cursor-based pagination helpers for stable API lists."
+      "title": "Keyset Pagination",
+      "description": "Keyset pagination helpers for stable API lists."
     },
     {
       "name": "data-export",

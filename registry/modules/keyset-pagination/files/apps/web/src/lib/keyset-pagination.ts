@@ -1,10 +1,10 @@
-export type CursorPaginationConfig = {
+export type KeysetPaginationConfig = {
   key: string;
   enabled?: boolean;
   metadata?: Record<string, unknown>;
 };
 
-export function createCursorPaginationConfig(config: CursorPaginationConfig) {
+export function createKeysetPaginationConfig(config: KeysetPaginationConfig) {
   return {
     key: config.key,
     enabled: config.enabled ?? true,
@@ -12,7 +12,7 @@ export function createCursorPaginationConfig(config: CursorPaginationConfig) {
   };
 }
 
-export const cursorPaginationProductionChecks = [
+export const keysetPaginationProductionChecks = [
   "Confirm access control",
   "Record audit events for sensitive changes",
   "Document rollback or recovery steps",
