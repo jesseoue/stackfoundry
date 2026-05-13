@@ -1,0 +1,34 @@
+name: Provider request
+description: Request support for a SaaS provider or platform.
+title: "provider: "
+labels: ["provider-request"]
+body:
+  - type: input
+    id: provider
+    attributes:
+      label: Provider
+      placeholder: "Paddle"
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - auth
+        - billing
+        - database
+        - analytics
+        - observability
+        - email
+        - storage
+        - deploy
+        - ai
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: What should the adapter do?

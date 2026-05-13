@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+.turbo/
+dist/
+build/
+coverage/
+
+# Env and secrets
+.env
+.env.*
+!.env.example
+
+# Local provider metadata
+.vercel/*
+!.vercel/README.md
+
+# Logs
+*.log
+
+# Local planning / assistant artifacts
+.cursor/
+.agents/
+agent-transcripts/
+plans/
+.plans/
+*.plan.md
+docs/plan.md
+
+# Legacy local bootstrap prototype
+go.sh
+
+# OS/editor
+.DS_Store

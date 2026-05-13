@@ -1,0 +1,30 @@
+{
+	"name": "stripe-billing",
+	"type": "module",
+	"category": "billing",
+	"title": "Stripe Billing",
+	"description": "Stripe checkout, billing portal, subscription sync, webhook dedupe, and entitlement mapping.",
+	"dependencies": ["stripe"],
+	"devDependencies": [],
+	"registryDependencies": ["drizzle-postgres", "webhook-inbox", "audit-log"],
+	"env": [
+		"STRIPE_SECRET_KEY",
+		"STRIPE_WEBHOOK_SECRET",
+		"NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"
+	],
+	"files": [],
+	"drizzle": {
+		"schemaExports": ["billingCustomers", "subscriptions", "webhookEvents"],
+		"migrationRecommended": true
+	},
+	"agents": {
+		"skills": ["stripe-billing"],
+		"rules": [
+			"verify-webhooks",
+			"dedupe-events",
+			"map-entitlements",
+			"never-trust-client-prices"
+		]
+	},
+	"status": "planned"
+}

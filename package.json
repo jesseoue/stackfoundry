@@ -1,0 +1,39 @@
+{
+  "name": "stackfoundry",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Source registry for production SaaS and AI modules.",
+  "type": "module",
+  "packageManager": "pnpm@10.11.0",
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=10.11.0"
+  },
+  "scripts": {
+    "check": "pnpm lint && pnpm test",
+    "lint": "echo \"lint placeholder\"",
+    "test": "echo \"test placeholder\"",
+    "build": "echo \"build placeholder\""
+  },
+  "keywords": [
+    "nextjs",
+    "typescript",
+    "drizzle",
+    "saas",
+    "registry",
+    "cli",
+    "ai-sdk",
+    "stripe",
+    "clerk",
+    "vercel"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesseoue/stackfoundry.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jesseoue/stackfoundry/issues"
+  },
+  "homepage": "https://github.com/jesseoue/stackfoundry#readme",
+  "license": "MIT"
+}

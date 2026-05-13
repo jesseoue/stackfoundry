@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "stackfoundry",
+  "homepage": "https://github.com/jesseoue/stackfoundry",
+  "items": [
+    {
+      "name": "drizzle-postgres",
+      "type": "registry:item",
+      "title": "Drizzle Postgres",
+      "description": "Postgres + Drizzle package, schema barrel, migrations, and server-only DB access.",
+      "files": [
+        {
+          "path": "registry/modules/drizzle-postgres/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "api-keys",
+      "type": "registry:item",
+      "title": "API Keys",
+      "description": "API key lifecycle, scopes, hashed storage, usage metadata, and agent operating instructions.",
+      "files": [
+        {
+          "path": "registry/modules/api-keys/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "stripe-billing",
+      "type": "registry:item",
+      "title": "Stripe Billing",
+      "description": "Billing core, Stripe checkout, portal, webhooks, entitlement mapping, and verification checklist.",
+      "files": [
+        {
+          "path": "registry/modules/stripe-billing/module.json",
+          "type": "registry:file"
+        }
+      ]
+    }
+  ]
+}

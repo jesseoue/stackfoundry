@@ -1,0 +1,21 @@
+{
+	"name": "drizzle-postgres",
+	"type": "module",
+	"category": "database",
+	"title": "Drizzle Postgres",
+	"description": "Postgres + Drizzle package, schema barrel, migrations, and server-only DB access.",
+	"dependencies": ["drizzle-orm", "postgres"],
+	"devDependencies": ["drizzle-kit", "dotenv"],
+	"registryDependencies": [],
+	"env": ["DATABASE_URL"],
+	"files": [],
+	"drizzle": {
+		"schemaExports": [],
+		"migrationRecommended": true
+	},
+	"agents": {
+		"skills": ["drizzle-postgres"],
+		"rules": ["server-only", "schema-barrel", "commit-migrations"]
+	},
+	"status": "planned"
+}

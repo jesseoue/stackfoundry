@@ -1,0 +1,26 @@
+{
+	"name": "api-keys",
+	"type": "module",
+	"category": "developer-platform",
+	"title": "API Keys",
+	"description": "API key lifecycle, scopes, hashed storage, usage metadata, and management UI.",
+	"dependencies": [],
+	"devDependencies": [],
+	"registryDependencies": ["drizzle-postgres", "audit-log"],
+	"env": [],
+	"files": [],
+	"drizzle": {
+		"schemaExports": ["apiKeys"],
+		"migrationRecommended": true
+	},
+	"agents": {
+		"skills": ["api-keys"],
+		"rules": [
+			"hash-keys",
+			"never-store-plaintext",
+			"scope-checks",
+			"audit-key-events"
+		]
+	},
+	"status": "planned"
+}

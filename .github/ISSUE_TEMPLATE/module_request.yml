@@ -1,0 +1,24 @@
+name: Module request
+description: Request a new StackFoundry module.
+title: "module: "
+labels: ["module-request"]
+body:
+  - type: input
+    id: module
+    attributes:
+      label: Module name
+      placeholder: "stripe-billing"
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case
+      description: What should this module install and why?
+    validations:
+      required: true
+  - type: textarea
+    id: systems
+    attributes:
+      label: Systems involved
+      description: UI, routes, schemas, env, docs, tests, agent skills, providers.
