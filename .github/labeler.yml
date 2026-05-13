@@ -1,0 +1,22 @@
+docs:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "docs/**"
+          - "*.md"
+
+registry:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "registry.json"
+          - "registry/**"
+          - "public/r/**"
+
+cli:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "apps/cli/**"
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**"

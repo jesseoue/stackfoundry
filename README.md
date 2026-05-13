@@ -2,6 +2,10 @@
 
 Install production SaaS modules as editable source code.
 
+[![CI](https://github.com/jesseoue/stackfoundry/actions/workflows/ci.yml/badge.svg)](https://github.com/jesseoue/stackfoundry/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+[![Status: Experimental](https://img.shields.io/badge/status-experimental-orange.svg)](./ROADMAP.md)
+
 StackFoundry is a source registry for full-stack app modules: auth, billing, API keys, webhooks, analytics, docs, Drizzle schemas, tests, and deployment workflows.
 
 Every module ships with the code and the operating instructions needed to maintain it.
@@ -10,7 +14,7 @@ No black boxes. No locked framework. Copy the code. Own the code.
 
 ## Status
 
-This repository is the public seed for StackFoundry. The product is the registry and module installer. Presets are only bundles of modules.
+StackFoundry is experimental. The current repository contains the registry, the first installable modules, and a local CLI prototype. Presets are bundles of modules; modules are the product.
 
 StackFoundry sits between three familiar ideas:
 
@@ -43,6 +47,36 @@ The demo should show each module adding:
 - tests or verification checklist
 - maintenance guidance
 - install metadata for future diff/update safety
+
+## What Works Today
+
+```bash
+node apps/cli/src/cli.mjs list
+node apps/cli/src/cli.mjs presets
+node apps/cli/src/cli.mjs validate
+node apps/cli/src/cli.mjs build
+node apps/cli/src/cli.mjs add api-keys --target ../some-app --dry-run
+node apps/cli/src/cli.mjs add preset next-saas --target ../some-app --dry-run
+node apps/cli/src/cli.mjs diff api-keys --target ../some-app
+```
+
+Current installable modules:
+
+- `drizzle-postgres`
+- `api-keys`
+- `stripe-billing`
+- `ai-chat`
+
+Current presets:
+
+- `next-saas`
+- `developer-platform`
+- `b2b-saas`
+- `ai-saas`
+- `internal-admin`
+- `free-tier-saas`
+- `vercel-native`
+- `cloudflare-native`
 
 ## V1 Golden Path
 
@@ -104,6 +138,19 @@ examples/
 docs/
 ```
 
+## Registry Output
+
+The registry build writes public item JSON to:
+
+```text
+public/r/
+  registry.json
+  api-keys.json
+  drizzle-postgres.json
+  stripe-billing.json
+  presets/
+```
+
 ## Development
 
 The current milestone is to make the first modules installable and safe to diff.
@@ -111,15 +158,17 @@ The current milestone is to make the first modules installable and safe to diff.
 Current local prototype:
 
 ```bash
-node apps/cli/src/cli.mjs list
-node apps/cli/src/cli.mjs presets
-node apps/cli/src/cli.mjs validate
-node apps/cli/src/cli.mjs build
-node apps/cli/src/cli.mjs add api-keys --target ../some-app --dry-run
-node apps/cli/src/cli.mjs add preset next-saas --target ../some-app --dry-run
-node apps/cli/src/cli.mjs diff api-keys --target ../some-app
+pnpm check
 ```
 
 ## Roadmap
 
 See [`ROADMAP.md`](./ROADMAP.md).
+
+## Contributing
+
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md). Module requests are welcome through GitHub issues.
+
+## Security
+
+See [`SECURITY.md`](./SECURITY.md).

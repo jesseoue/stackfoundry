@@ -30,7 +30,11 @@
     "ai-sdk",
     "stripe",
     "clerk",
-    "vercel"
+    "vercel",
+    "open-source",
+    "developer-tools",
+    "starter-kit",
+    "fullstack"
   ],
   "repository": {
     "type": "git",
