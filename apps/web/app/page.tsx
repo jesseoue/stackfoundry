@@ -1,152 +1,341 @@
-const readyModules = ["drizzle-postgres", "api-keys", "stripe-billing", "ai-chat"];
+const siteUrl = "https://stackfoundry.dev/";
 
-const plannedModules = [
-  "clerk-auth",
-  "orgs-rbac",
-  "webhook-inbox",
-  "audit-log",
-  "posthog-analytics",
-  "sentry-monitoring",
-  "resend-email",
-  "public-api-orpc",
-  "cloudflare-workers",
-  "convex-backend",
-  "unkey-api-keys",
-  "autumn-entitlements",
+const stats = [
+  { value: "140+", label: "Modules" },
+  { value: "8", label: "Presets" },
+  { value: "12", label: "Categories" },
+  { value: "MIT", label: "License" },
 ];
+
+const installSteps = [
+  {
+    number: "01",
+    title: "Source files",
+    description: "Routes, components, helpers, and server code land in canonical project paths.",
+  },
+  {
+    number: "02",
+    title: "Drizzle schema",
+    description: "Schema slices are delivered with migration guidance. Migrations are never applied silently.",
+  },
+  {
+    number: "03",
+    title: "Env notes",
+    description: "Required keys and provider setup notes are documented alongside the installed code.",
+  },
+  {
+    number: "04",
+    title: "Verification",
+    description: "Each module ships tests or a focused checklist so maintainers know what to prove.",
+  },
+];
+
+const moduleCards = [
+  {
+    name: "stripe-billing",
+    title: "Stripe Billing",
+    category: "billing",
+    status: "installable",
+    description: "Checkout, billing portal, subscription sync, webhook dedupe, and entitlement mapping.",
+    files: ["schema/billing.ts", "api/webhooks/stripe", "(console)/billing"],
+  },
+  {
+    name: "drizzle-postgres",
+    title: "Drizzle Postgres",
+    category: "database",
+    status: "installable",
+    description: "Postgres package, schema barrel, migrations, and server-only database access.",
+    files: ["packages/db", "apps/web/src/lib/db.ts", "drizzle.config.ts"],
+  },
+  {
+    name: "api-keys",
+    title: "API Keys",
+    category: "developer platform",
+    status: "installable",
+    description: "Key lifecycle, hashed storage, scopes, usage metadata, and management UI.",
+    files: ["schema/api-keys.ts", "lib/api-keys.ts", "(console)/api-keys"],
+  },
+  {
+    name: "webhook-inbox",
+    title: "Webhook Inbox",
+    category: "operations",
+    status: "planned",
+    description: "Received webhook table, status, retry controls, signature metadata, and detail UI.",
+    files: ["schema/webhooks.ts", "api/webhooks/*", "(console)/webhooks"],
+  },
+];
+
+const backlog = [
+  ["audit-log", "operations"],
+  ["posthog-analytics", "analytics"],
+  ["sentry-monitoring", "observability"],
+  ["resend-email", "lifecycle"],
+  ["public-api-orpc", "developer platform"],
+  ["clerk-auth", "auth"],
+  ["orgs-rbac", "tenancy"],
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "StackFoundry",
+  applicationCategory: "DeveloperApplication",
+  operatingSystem: "Any",
+  description: "Install production SaaS modules as editable source code.",
+  url: siteUrl,
+  codeRepository: "https://github.com/jesseoue/stackfoundry",
+  license: "https://github.com/jesseoue/stackfoundry/blob/main/LICENSE",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+};
 
 export default function Page() {
   return (
     <main className="page">
-      <div className="shell">
-        <nav className="nav" aria-label="Main navigation">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+        }}
+      />
+      <nav className="nav" aria-label="Main navigation">
+        <div className="container nav-inner">
+          <a className="brand" href="/" aria-label="stackfoundry home">
+            <span className="mark" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </span>
+            <span className="wordmark">stackfoundry</span>
+          </a>
+          <div className="nav-links">
+            <a href="#modules">Modules</a>
+            <a href="#how">Install</a>
+            <a href="#registry">Registry</a>
+            <a href="#sponsors">Sponsors</a>
+          </div>
+          <a className="button" href="https://github.com/jesseoue/stackfoundry">
+            GitHub
+          </a>
+        </div>
+      </nav>
+
+      <header className="hero">
+        <div className="container hero-inner">
+          <div className="eyebrow">
+            <span className="dot" aria-hidden="true" />
+            <span>v0.1 public preview</span>
+            <span className="muted-label">for Next.js, Drizzle, Vercel</span>
+          </div>
+
+          <h1 className="display">
+            Copy the code.
+            <br />
+            <span>Own the code.</span>
+          </h1>
+
+          <p className="lede">
+            StackFoundry is a public source registry for production SaaS modules. Install billing,
+            API keys, database wiring, webhooks, analytics, and operations surfaces as editable code
+            with schemas, env notes, tests, docs, and maintenance guidance.
+          </p>
+
+          <div className="install">
+            <span className="prompt">$</span>
+            <code>
+              pnpm dlx <span>stackfoundry</span> add stripe-billing
+            </code>
+          </div>
+
+          <div className="actions">
+            <a className="button primary" href="https://github.com/jesseoue/stackfoundry">
+              View the registry
+            </a>
+            <a className="button ghost" href="#modules">
+              Browse modules
+            </a>
+          </div>
+
+          <div className="hero-meta">
+            {stats.map((stat) => (
+              <div className="metric" key={stat.label}>
+                <div className="metric-value">{stat.value}</div>
+                <div className="metric-label">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </header>
+
+      <div className="container">
+        <section className="section" id="how">
+          <div className="section-head">
+            <div className="section-eyebrow">Install</div>
+            <h2>One command. The full module lands in your repo.</h2>
+            <p>
+              A base app stays small. Registry modules add production capabilities in the same
+              source paths your team already reviews and maintains.
+            </p>
+          </div>
+
+          <div className="how-grid">
+            <div className="steps">
+              {installSteps.map((step) => (
+                <article className="step" key={step.number}>
+                  <span>{step.number}</span>
+                  <div>
+                    <h3>{step.title}</h3>
+                    <p>{step.description}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <aside className="terminal" aria-label="Terminal install demo">
+              <div className="terminal-bar">
+                <span />
+                <span />
+                <span />
+                <strong>~/apps/web - main</strong>
+              </div>
+              <div className="terminal-body">
+                <div>
+                  <span className="prompt">$</span> pnpm dlx stackfoundry add stripe-billing
+                </div>
+                <div>
+                  <span className="muted">.</span> Resolving{" "}
+                  <span className="muted">registry.json - stripe-billing</span>
+                </div>
+                <div>
+                  <span className="muted">.</span> Registry deps{" "}
+                  <span className="muted">drizzle-postgres</span>
+                </div>
+                <br />
+                <div>
+                  <span className="ok">+</span> packages/db/src/schema/billing.ts
+                </div>
+                <div>
+                  <span className="ok">+</span> apps/web/src/lib/stripe/client.ts
+                </div>
+                <div>
+                  <span className="ok">+</span> apps/web/src/app/api/webhooks/stripe/route.ts
+                </div>
+                <div>
+                  <span className="ok">+</span> registry/modules/stripe-billing/docs.md
+                </div>
+                <br />
+                <div>
+                  <span className="ok">done</span> Installed source files, env notes, and checklist
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section className="section" id="modules">
+          <div className="section-head">
+            <div className="section-eyebrow">Modules</div>
+            <h2>Source modules, not opaque boilerplate.</h2>
+            <p>
+              Each module owns one capability. Provider modules stay adapters around shared domain
+              interfaces, so base scaffolds stay small.
+            </p>
+          </div>
+
+          <div className="modules-grid">
+            {moduleCards.map((module, index) => (
+              <article className={index === 0 ? "module-card featured" : "module-card"} key={module.name}>
+                <div className="module-head">
+                  <span className="module-icon" aria-hidden="true" />
+                  <span className="module-name">{module.name}</span>
+                </div>
+                <h3>{module.title}</h3>
+                <p>{module.description}</p>
+                <div className="module-meta">
+                  <span>{module.category}</span>
+                  <span>{module.status}</span>
+                </div>
+                <ul className="file-list">
+                  {module.files.map((file) => (
+                    <li key={file}>
+                      <code>{file}</code>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          <ul className="backlog">
+            {backlog.map(([name, category]) => (
+              <li className="module-pill" key={name}>
+                <span>{name}</span>
+                <span>{category}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="section" id="registry">
+          <div className="manifest-block">
+            <div className="section-head compact">
+              <div className="section-eyebrow">Registry</div>
+              <h2>Every module is a manifest. Every manifest is a contract.</h2>
+              <p>
+                Module metadata declares source paths, dependencies, environment requirements,
+                schema exports, and verification guidance so installs and diffs stay reviewable.
+              </p>
+            </div>
+
+            <div className="code-block">
+              <div className="code-head">
+                <span />
+                registry/modules/stripe-billing/module.json
+              </div>
+              <pre>{`{
+  "name": "stripe-billing",
+  "type": "module",
+  "category": "billing",
+  "registryDependencies": ["drizzle-postgres"],
+  "env": [
+    "STRIPE_SECRET_KEY",
+    "STRIPE_WEBHOOK_SECRET"
+  ],
+  "status": "experimental"
+}`}</pre>
+            </div>
+          </div>
+        </section>
+
+        <section className="sponsor-strip" id="sponsors">
+          <div>
+            <h2>Sponsors</h2>
+            <p>
+              StackFoundry is open source and free to use. Sponsors fund module maintenance,
+              provider adapters, and higher-quality examples.
+            </p>
+          </div>
+          <div className="sponsor-slots">
+            <span>your logo</span>
+            <span>your logo</span>
+            <span>open</span>
+            <span>open</span>
+          </div>
+        </section>
+
+        <footer className="footer">
           <a className="brand" href="/">
             <span className="mark" aria-hidden="true">
               <span />
               <span />
               <span />
             </span>
-            <span>stackfoundry</span>
+            <span className="wordmark">stackfoundry</span>
           </a>
-          <div className="navlinks">
-            <a href="#modules">modules</a>
-            <a href="#registry">registry</a>
-            <a href="https://github.com/jesseoue/stackfoundry">github</a>
-          </div>
-        </nav>
-
-        <section className="hero">
-          <div>
-            <div className="eyebrow">source registry for production SaaS</div>
-            <h1>Install the parts of a SaaS app you actually need.</h1>
-            <p className="lead">
-              StackFoundry delivers full-stack modules as editable source code: routes, components,
-              Drizzle schemas, environment notes, tests, docs, and maintenance guidance.
-            </p>
-            <div className="actions">
-              <a className="button primary" href="https://github.com/jesseoue/stackfoundry">
-                View on GitHub
-              </a>
-              <a className="button" href="#registry">
-                See the registry
-              </a>
-            </div>
-          </div>
-
-          <aside className="terminal" aria-label="StackFoundry terminal demo">
-            <div className="terminal-header">
-              <span>stackfoundry</span>
-              <span>module install</span>
-            </div>
-            <div className="terminal-body">
-              <div>
-                <span className="prompt">$</span> pnpm create stackfoundry my-app
-              </div>
-              <div className="muted">created base app</div>
-              <br />
-              <div>
-                <span className="prompt">$</span> stackfoundry add drizzle-postgres
-              </div>
-              <div className="ok">wrote packages/db/src/client.ts</div>
-              <div className="ok">wrote drizzle.config.ts</div>
-              <br />
-              <div>
-                <span className="prompt">$</span> stackfoundry add api-keys
-              </div>
-              <div className="ok">wrote api key schema</div>
-              <div className="ok">wrote maintenance instructions</div>
-              <br />
-              <div>
-                <span className="prompt">$</span> stackfoundry diff api-keys
-              </div>
-              <div className="muted">same apps/web/src/lib/api-keys.ts</div>
-            </div>
-          </aside>
-        </section>
-
-        <section className="grid" aria-label="StackFoundry promises">
-          <div className="card featured">
-            <h2>Copy the code</h2>
-            <p>Modules install source files into your app. No opaque package wrappers. No black boxes.</p>
-          </div>
-          <div className="card">
-            <h2>Own the system</h2>
-            <p>Each module includes schemas, docs, setup notes, and checklists so the code can evolve.</p>
-          </div>
-          <div className="card">
-            <h2>Update safely</h2>
-            <p>Installed file hashes power diff and update workflows without silently overwriting changes.</p>
-          </div>
-        </section>
-
-        <section className="section" id="modules">
-          <div className="section-title">
-            <h2>Production modules</h2>
-            <p>
-              Start with the core SaaS systems, then layer in providers, growth, observability, and optional AI.
-            </p>
-          </div>
-          <div className="modules">
-            {readyModules.map((module) => (
-              <div className="module ready" key={module}>
-                {module}
-              </div>
-            ))}
-            {plannedModules.map((module) => (
-              <div className="module" key={module}>
-                {module}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="section" id="registry">
-          <div className="section-title">
-            <h2>Registry-first</h2>
-            <p>
-              The CLI is only the delivery mechanism. The registry is the product: modules, presets,
-              provider adapters, and generated public item JSON.
-            </p>
-          </div>
-          <div className="grid">
-            <div className="card">
-              <h3>Modules</h3>
-              <p>Install one production capability at a time: billing, API keys, webhooks, analytics, docs.</p>
-            </div>
-            <div className="card">
-              <h3>Presets</h3>
-              <p>Bundle modules into opinionated paths like next-saas, developer-platform, and b2b-saas.</p>
-            </div>
-            <div className="card">
-              <h3>Providers</h3>
-              <p>Keep Stripe, Vercel, PostHog, Sentry, Resend, and others behind clean adapter boundaries.</p>
-            </div>
-          </div>
-        </section>
-
-        <footer className="footer">
-          <span>stackfoundry</span>
-          <span>source-delivered modules</span>
+          <span>Source-delivered modules for production SaaS.</span>
         </footer>
       </div>
     </main>

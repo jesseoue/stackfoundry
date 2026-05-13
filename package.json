@@ -2,7 +2,7 @@
   "name": "stackfoundry",
   "version": "0.0.0",
   "private": true,
-  "description": "Source registry for production SaaS and AI modules.",
+  "description": "Source registry for production SaaS modules.",
   "type": "module",
   "bin": {
     "stackfoundry": "./apps/cli/src/cli.mjs"

@@ -173,6 +173,10 @@ Production build:
 pnpm build:web
 ```
 
+The website lives in `apps/web` and is configured for Vercel through the root `vercel.json`.
+Set `NEXT_PUBLIC_SITE_URL` when deploying a custom domain so metadata, sitemap, and Open Graph
+URLs resolve to the canonical production origin.
+
 ## Roadmap
 
 See [`ROADMAP.md`](./ROADMAP.md).
