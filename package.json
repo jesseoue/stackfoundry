@@ -23,6 +23,11 @@
     "build:web": "pnpm --dir apps/web build",
     "start:web": "pnpm --dir apps/web start"
   },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
   "keywords": [
     "nextjs",
     "typescript",
