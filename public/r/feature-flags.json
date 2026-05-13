@@ -7,22 +7,25 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [
-    "drizzle-postgres"
+    "https://stackfoundry.dev/r/drizzle-postgres.json"
   ],
   "files": [
     {
       "path": "packages/db/src/schema/feature-flags.ts",
       "type": "registry:file",
+      "target": "packages/db/src/schema/feature-flags.ts",
       "content": "import { boolean, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const featureFlags = pgTable(\"feature_flags\", {\n  id: uuid(\"id\").primaryKey().defaultRandom(),\n  key: text(\"key\").notNull().unique(),\n  description: text(\"description\"),\n  enabled: boolean(\"enabled\").notNull().default(false),\n  rules: jsonb(\"rules\").$type<Array<{ organizationId?: string; percentage?: number }>>().notNull().default([]),\n  createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n  updatedAt: timestamp(\"updated_at\", { withTimezone: true }).defaultNow().notNull(),\n});\n"
     },
     {
       "path": "apps/web/src/lib/feature-flags.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/feature-flags.ts",
       "content": "import \"server-only\";\n\nexport type FeatureFlag = {\n  key: string;\n  enabled: boolean;\n  rules?: Array<{ organizationId?: string; percentage?: number }>;\n};\n\nexport type FeatureFlagContext = {\n  organizationId?: string;\n  stableId?: string;\n};\n\nexport function evaluateFeatureFlag(flag: FeatureFlag | undefined, context: FeatureFlagContext = {}) {\n  if (!flag?.enabled) return false;\n  if (!flag.rules?.length) return true;\n\n  return flag.rules.some((rule) => {\n    if (rule.organizationId) return rule.organizationId === context.organizationId;\n    if (typeof rule.percentage === \"number\" && context.stableId) {\n      return bucketStableId(context.stableId, flag.key) < rule.percentage;\n    }\n    return false;\n  });\n}\n\nfunction bucketStableId(stableId: string, salt: string) {\n  let hash = 0;\n  for (const char of salt + \":\" + stableId) hash = (hash * 31 + char.charCodeAt(0)) >>> 0;\n  return hash % 100;\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/feature-flags/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/feature-flags/page.tsx",
       "content": "const flags = [\n  { key: \"new_onboarding\", enabled: true, scope: \"20% rollout\" },\n  { key: \"admin_console_v2\", enabled: false, scope: \"staff only\" },\n];\n\nexport default function FeatureFlagsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Feature Flags</h1>\n        <p className=\"text-muted-foreground\">Control progressive rollouts without adding a provider dependency.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {flags.map((flag) => (\n          <div key={flag.key} className=\"flex items-center justify-between rounded-lg border p-4\">\n            <div>\n              <p className=\"font-medium\">{flag.key}</p>\n              <p className=\"text-sm text-muted-foreground\">{flag.scope}</p>\n            </div>\n            <span className=\"text-sm\">{flag.enabled ? \"Enabled\" : \"Disabled\"}</span>\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],

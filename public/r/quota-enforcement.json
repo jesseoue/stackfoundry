@@ -7,18 +7,20 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [
-    "entitlements",
-    "usage-metering"
+    "https://stackfoundry.dev/r/entitlements.json",
+    "https://stackfoundry.dev/r/usage-metering.json"
   ],
   "files": [
     {
       "path": "apps/web/src/lib/quota-enforcement.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/quota-enforcement.ts",
       "content": "export type QuotaEnforcementConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createQuotaEnforcementConfig(config: QuotaEnforcementConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const quotaEnforcementProductionChecks = [\n  \"Confirm access control\",\n  \"Record audit events for sensitive changes\",\n  \"Document rollback or recovery steps\",\n] as const;\n"
     },
     {
       "path": "apps/web/src/app/(console)/billing/quotas/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/billing/quotas/page.tsx",
       "content": "const tasks = [\n  \"Configure defaults\",\n  \"Connect persistence or provider adapter\",\n  \"Verify production checklist\",\n];\n\nexport default function QuotaEnforcementPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Quota Enforcement</h1>\n        <p className=\"text-muted-foreground\">Plan quota definitions, usage checks, and limit messaging.</p>\n      </div>\n      <ul className=\"grid gap-3\">\n        {tasks.map((task) => (\n          <li key={task} className=\"rounded-lg border p-4 text-sm\">{task}</li>\n        ))}\n      </ul>\n    </main>\n  );\n}\n"
     }
   ],

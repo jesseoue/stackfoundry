@@ -151,6 +151,23 @@ public/r/
   presets/
 ```
 
+StackFoundry also emits shadcn-compatible `registry:block` items. You can install a
+single block with the shadcn CLI:
+
+```bash
+pnpm dlx shadcn@latest add https://stackfoundry.dev/r/api-keys.json
+```
+
+Preset bundles that do not conflict with module names are emitted as aggregate
+registry blocks too:
+
+```bash
+pnpm dlx shadcn@latest add https://stackfoundry.dev/r/vendor-examples.json
+```
+
+See [`docs/shadcn.md`](./docs/shadcn.md) for local registry development and install
+details.
+
 ## Development
 
 The current milestone is to make the first modules installable and safe to diff.

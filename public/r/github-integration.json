@@ -9,22 +9,25 @@
   ],
   "devDependencies": [],
   "registryDependencies": [
-    "webhook-inbox"
+    "https://stackfoundry.dev/r/webhook-inbox.json"
   ],
   "files": [
     {
       "path": "apps/web/src/lib/github/app.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/github/app.ts",
       "content": "import \"server-only\";\n\nimport { App } from \"octokit\";\n\nexport function createGitHubApp() {\n  return new App({\n    appId: process.env.GITHUB_APP_ID!,\n    privateKey: process.env.GITHUB_PRIVATE_KEY!.replace(/\\\\n/g, \"\\n\"),\n  });\n}\n"
     },
     {
       "path": "apps/web/src/app/api/webhooks/github/route.ts",
       "type": "registry:file",
+      "target": "apps/web/src/app/api/webhooks/github/route.ts",
       "content": "export async function POST(request: Request) {\n  const event = request.headers.get(\"x-github-event\");\n  const delivery = request.headers.get(\"x-github-delivery\");\n  const payload = await request.text();\n\n  console.log(\"verify GitHub webhook before processing\", { event, delivery, bytes: payload.length });\n\n  return new Response(\"ok\");\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/vendors/github/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/vendors/github/page.tsx",
       "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function GitHubIntegrationPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">GitHub Integration</h1>\n        <p className=\"text-muted-foreground\">GitHub App auth, signed webhooks, and repository automation patterns.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],

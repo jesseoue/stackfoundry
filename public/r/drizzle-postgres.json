@@ -17,31 +17,37 @@
     {
       "path": "packages/db/package.json",
       "type": "registry:file",
+      "target": "packages/db/package.json",
       "content": "{\n  \"name\": \"@workspace/db\",\n  \"private\": true,\n  \"type\": \"module\",\n  \"exports\": {\n    \".\": \"./src/index.ts\",\n    \"./schema\": \"./src/schema/index.ts\"\n  }\n}\n"
     },
     {
       "path": "packages/db/src/client.ts",
       "type": "registry:file",
+      "target": "packages/db/src/client.ts",
       "content": "import { drizzle } from \"drizzle-orm/postgres-js\";\nimport postgres from \"postgres\";\nimport * as schema from \"./schema\";\n\nexport function createDb(connectionString: string) {\n  const client = postgres(connectionString, { max: 1 });\n  return drizzle(client, { schema });\n}\n"
     },
     {
       "path": "packages/db/src/index.ts",
       "type": "registry:file",
+      "target": "packages/db/src/index.ts",
       "content": "export { createDb } from \"./client\";\nexport * from \"./schema\";\n"
     },
     {
       "path": "packages/db/src/schema/index.ts",
       "type": "registry:file",
+      "target": "packages/db/src/schema/index.ts",
       "content": "/**\n * Export every table from this barrel so Drizzle Kit and createDb share one schema graph.\n */\n"
     },
     {
       "path": "apps/web/src/lib/db.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/db.ts",
       "content": "import \"server-only\";\n\nimport { createDb } from \"@workspace/db\";\n\nconst globalForDb = globalThis as typeof globalThis & {\n  __stackfoundryDb?: ReturnType<typeof createDb>;\n};\n\nfunction getConnectionString() {\n  const url = process.env.DATABASE_URL;\n  if (!url) {\n    throw new Error(\"DATABASE_URL is not set.\");\n  }\n  return url;\n}\n\nexport function getDb() {\n  if (!globalForDb.__stackfoundryDb) {\n    globalForDb.__stackfoundryDb = createDb(getConnectionString());\n  }\n  return globalForDb.__stackfoundryDb;\n}\n"
     },
     {
       "path": "drizzle.config.ts",
       "type": "registry:file",
+      "target": "drizzle.config.ts",
       "content": "import { config } from \"dotenv\";\nimport { defineConfig } from \"drizzle-kit\";\n\nconfig({ path: \".env\" });\nconfig({ path: \".env.local\", override: true });\n\nexport default defineConfig({\n  schema: \"./packages/db/src/schema/index.ts\",\n  out: \"./packages/db/drizzle\",\n  dialect: \"postgresql\",\n  dbCredentials: {\n    url: process.env.DATABASE_URL ?? \"\",\n  },\n});\n"
     }
   ],

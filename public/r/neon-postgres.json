@@ -9,22 +9,25 @@
   ],
   "devDependencies": [],
   "registryDependencies": [
-    "drizzle-postgres"
+    "https://stackfoundry.dev/r/drizzle-postgres.json"
   ],
   "files": [
     {
       "path": "apps/web/src/lib/neon/client.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/neon/client.ts",
       "content": "import \"server-only\";\n\nimport { neon } from \"@neondatabase/serverless\";\n\nexport function createNeonSql() {\n  if (!process.env.DATABASE_URL) {\n    throw new Error(\"DATABASE_URL is required for Neon Postgres\");\n  }\n\n  return neon(process.env.DATABASE_URL);\n}\n"
     },
     {
       "path": "apps/web/src/lib/neon/branching.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/neon/branching.ts",
       "content": "export const neonBranchingChecklist = [\n  \"Use preview branches for pull requests\",\n  \"Run migrations before promoting a branch\",\n  \"Keep pooled and direct connection strings separate when needed\",\n] as const;\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/data/neon/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/data/neon/page.tsx",
       "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function NeonPostgresPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Neon Postgres</h1>\n        <p className=\"text-muted-foreground\">Serverless Postgres wiring with branch-aware development guidance.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],

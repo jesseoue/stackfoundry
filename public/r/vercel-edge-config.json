@@ -9,22 +9,25 @@
   ],
   "devDependencies": [],
   "registryDependencies": [
-    "feature-flags"
+    "https://stackfoundry.dev/r/feature-flags.json"
   ],
   "files": [
     {
       "path": "apps/web/src/lib/vercel/edge-config.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/vercel/edge-config.ts",
       "content": "import \"server-only\";\n\nimport { get } from \"@vercel/edge-config\";\n\nexport async function getEdgeConfigValue<T>(key: string, fallback: T) {\n  const value = await get<T>(key);\n  return value ?? fallback;\n}\n"
     },
     {
       "path": "apps/web/src/app/api/vendor/vercel/edge-config/route.ts",
       "type": "registry:file",
+      "target": "apps/web/src/app/api/vendor/vercel/edge-config/route.ts",
       "content": "import { NextResponse } from \"next/server\";\n\nimport { getEdgeConfigValue } from \"@/lib/vercel/edge-config\";\n\nexport async function GET() {\n  const maintenance = await getEdgeConfigValue(\"maintenance\", false);\n  return NextResponse.json({ maintenance });\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/vendors/vercel-edge-config/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/vendors/vercel-edge-config/page.tsx",
       "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function VercelEdgeConfigPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Vercel Edge Config</h1>\n        <p className=\"text-muted-foreground\">Low-latency global reads for flags, maintenance mode, and routing config.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],

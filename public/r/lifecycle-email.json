@@ -7,17 +7,19 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [
-    "notifications"
+    "https://stackfoundry.dev/r/notifications.json"
   ],
   "files": [
     {
       "path": "apps/web/src/lib/lifecycle-email.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/lifecycle-email.ts",
       "content": "export type LifecycleEmailItem = {\n  key: string;\n  title: string;\n  status?: \"active\" | \"draft\" | \"archived\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createLifecycleEmailItem(item: LifecycleEmailItem) {\n  return {\n    key: item.key,\n    title: item.title,\n    status: item.status ?? \"active\",\n    metadata: item.metadata ?? {},\n  };\n}\n\nexport const lifecycleEmailChecklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence or provider adapter\",\n  \"Add audit events for sensitive changes\",\n] as const;\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/lifecycle-email/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/lifecycle-email/page.tsx",
       "content": "const items = [\n  { title: \"Configure\", description: \"Set ownership, defaults, and permissions.\" },\n  { title: \"Operate\", description: \"Review status, recent activity, and unresolved work.\" },\n  { title: \"Verify\", description: \"Run the checklist before enabling this module in production.\" },\n];\n\nexport default function LifecycleEmailPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Lifecycle Email</h1>\n        <p className=\"text-muted-foreground\">Lifecycle email campaign definitions, audience rules, and delivery checklist.</p>\n      </div>\n      <div className=\"grid gap-3 md:grid-cols-3\">\n        {items.map((item) => (\n          <section key={item.title} className=\"rounded-lg border p-4\">\n            <h2 className=\"font-medium\">{item.title}</h2>\n            <p className=\"text-sm text-muted-foreground\">{item.description}</p>\n          </section>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],

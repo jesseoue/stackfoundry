@@ -9,22 +9,25 @@
   ],
   "devDependencies": [],
   "registryDependencies": [
-    "background-jobs"
+    "https://stackfoundry.dev/r/background-jobs.json"
   ],
   "files": [
     {
       "path": "apps/web/src/workflows/welcome.ts",
       "type": "registry:file",
+      "target": "apps/web/src/workflows/welcome.ts",
       "content": "async function createWorkspace(userId: string) {\n  \"use step\";\n  console.log(\"create workspace\", userId);\n  return { workspaceId: \"workspace_\" + userId };\n}\n\nasync function sendWelcomeEmail(email: string) {\n  \"use step\";\n  console.log(\"send welcome email\", email);\n}\n\nexport async function welcomeWorkflow(input: { userId: string; email: string }) {\n  \"use workflow\";\n  console.log(\"start welcome workflow\", input.userId);\n\n  const workspace = await createWorkspace(input.userId);\n  await sendWelcomeEmail(input.email);\n\n  return workspace;\n}\n"
     },
     {
       "path": "apps/web/src/app/api/workflows/welcome/route.ts",
       "type": "registry:file",
+      "target": "apps/web/src/app/api/workflows/welcome/route.ts",
       "content": "import { start } from \"workflow/api\";\nimport { NextResponse } from \"next/server\";\n\nimport { welcomeWorkflow } from \"@/workflows/welcome\";\n\nexport async function POST(request: Request) {\n  const input = await request.json();\n  const run = await start(welcomeWorkflow, [input]);\n\n  return NextResponse.json({ runId: run.runId });\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/workflows/vercel/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/workflows/vercel/page.tsx",
       "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function VercelWorkflowsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Vercel Workflows</h1>\n        <p className=\"text-muted-foreground\">Durable functions with step boundaries, retries, logging, and run IDs.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],

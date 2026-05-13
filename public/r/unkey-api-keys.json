@@ -9,27 +9,31 @@
   ],
   "devDependencies": [],
   "registryDependencies": [
-    "api-keys"
+    "https://stackfoundry.dev/r/api-keys.json"
   ],
   "files": [
     {
       "path": "apps/web/src/lib/unkey/client.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/unkey/client.ts",
       "content": "import \"server-only\";\n\nimport { Unkey } from \"@unkey/api\";\n\nexport const unkey = new Unkey({ rootKey: process.env.UNKEY_ROOT_KEY! });\n"
     },
     {
       "path": "apps/web/src/lib/unkey/api-keys.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/unkey/api-keys.ts",
       "content": "import { unkey } from \"./client\";\n\nexport async function createUnkeyApiKey(ownerId: string) {\n  return unkey.keys.create({\n    apiId: process.env.UNKEY_API_ID!,\n    ownerId,\n    prefix: \"sf\",\n  });\n}\n\nexport async function verifyUnkeyApiKey(key: string) {\n  return unkey.keys.verify({ key });\n}\n"
     },
     {
       "path": "apps/web/src/app/api/vendor/unkey/verify/route.ts",
       "type": "registry:file",
+      "target": "apps/web/src/app/api/vendor/unkey/verify/route.ts",
       "content": "import { NextResponse } from \"next/server\";\n\nimport { verifyUnkeyApiKey } from \"@/lib/unkey/api-keys\";\n\nexport async function POST(request: Request) {\n  const { key } = await request.json();\n  const result = await verifyUnkeyApiKey(key);\n  return NextResponse.json(result);\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/vendors/unkey/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/vendors/unkey/page.tsx",
       "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function UnkeyAPIKeysPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Unkey API Keys</h1>\n        <p className=\"text-muted-foreground\">Managed API key lifecycle and verification for developer platforms.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],

@@ -9,17 +9,19 @@
     "wrangler"
   ],
   "registryDependencies": [
-    "cloudflare-workers"
+    "https://stackfoundry.dev/r/cloudflare-workers.json"
   ],
   "files": [
     {
       "path": "cloudflare/workflows/onboarding.ts",
       "type": "registry:file",
+      "target": "cloudflare/workflows/onboarding.ts",
       "content": "import { WorkflowEntrypoint, type WorkflowStep, type WorkflowEvent } from \"cloudflare:workers\";\n\nexport type OnboardingParams = { userId: string; email: string };\n\nexport class OnboardingWorkflow extends WorkflowEntrypoint<Env, OnboardingParams> {\n  async run(event: WorkflowEvent<OnboardingParams>, step: WorkflowStep) {\n    await step.do(\"create workspace\", async () => {\n      console.log(\"create workspace\", event.payload.userId);\n    });\n\n    await step.do(\"send welcome email\", async () => {\n      console.log(\"send welcome email\", event.payload.email);\n    });\n  }\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/cloudflare/workflows/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/cloudflare/workflows/page.tsx",
       "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function CloudflareWorkflowsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Cloudflare Workflows</h1>\n        <p className=\"text-muted-foreground\">Workers-native durable steps for onboarding, billing sync, and backfills.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],

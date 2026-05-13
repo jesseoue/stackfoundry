@@ -7,22 +7,25 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [
-    "drizzle-postgres"
+    "https://stackfoundry.dev/r/drizzle-postgres.json"
   ],
   "files": [
     {
       "path": "packages/db/src/schema/usage-metering.ts",
       "type": "registry:file",
+      "target": "packages/db/src/schema/usage-metering.ts",
       "content": "import { index, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const usageMetering = pgTable(\n  \"usage_metering\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    ownerId: text(\"owner_id\"),\n    organizationId: text(\"organization_id\"),\n    key: text(\"key\").notNull(),\n    title: text(\"title\").notNull(),\n    status: text(\"status\").notNull().default(\"active\"),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n    updatedAt: timestamp(\"updated_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (item) => [\n    index(\"usage_metering_owner_idx\").on(item.ownerId),\n    index(\"usage_metering_organization_idx\").on(item.organizationId),\n  ]\n);\n"
     },
     {
       "path": "apps/web/src/lib/usage-metering.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/usage-metering.ts",
       "content": "export type UsageMeteringItem = {\n  key: string;\n  title: string;\n  status?: \"active\" | \"draft\" | \"archived\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createUsageMeteringItem(item: UsageMeteringItem) {\n  return {\n    key: item.key,\n    title: item.title,\n    status: item.status ?? \"active\",\n    metadata: item.metadata ?? {},\n  };\n}\n\nexport const usageMeteringChecklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence or provider adapter\",\n  \"Add audit events for sensitive changes\",\n] as const;\n"
     },
     {
       "path": "apps/web/src/app/(console)/usage/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/usage/page.tsx",
       "content": "const items = [\n  { title: \"Configure\", description: \"Set ownership, defaults, and permissions.\" },\n  { title: \"Operate\", description: \"Review status, recent activity, and unresolved work.\" },\n  { title: \"Verify\", description: \"Run the checklist before enabling this module in production.\" },\n];\n\nexport default function UsageMeteringPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Usage Metering</h1>\n        <p className=\"text-muted-foreground\">Usage event capture, aggregation helpers, and billing-ready usage UI.</p>\n      </div>\n      <div className=\"grid gap-3 md:grid-cols-3\">\n        {items.map((item) => (\n          <section key={item.title} className=\"rounded-lg border p-4\">\n            <h2 className=\"font-medium\">{item.title}</h2>\n            <p className=\"text-sm text-muted-foreground\">{item.description}</p>\n          </section>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],

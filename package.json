@@ -16,7 +16,7 @@
     "dev": "pnpm dev:web",
     "build": "pnpm build:web",
     "check": "pnpm check:registry && pnpm check:web",
-    "check:registry": "pnpm registry:doctor && pnpm lint:cli && pnpm test:registry && pnpm registry:build",
+    "check:registry": "pnpm registry:doctor && pnpm lint:cli && pnpm test:registry && pnpm registry:build && pnpm shadcn:verify",
     "check:web": "pnpm build:web",
     "lint": "pnpm lint:cli",
     "lint:cli": "node --check apps/cli/src/cli.mjs",
@@ -39,7 +39,12 @@
     "dev:web": "pnpm --dir apps/web dev",
     "build:web": "pnpm --filter @stackfoundry/web build",
     "start:web": "pnpm --dir apps/web start",
-    "clean": "rm -rf apps/web/.next public/r /tmp/stackfoundry-test /tmp/stackfoundry-install"
+    "clean": "rm -rf apps/web/.next public/r /tmp/stackfoundry-test /tmp/stackfoundry-install",
+    "shadcn:registry": "pnpm registry:build",
+    "shadcn:add:api-keys": "pnpm dlx shadcn@latest add https://stackfoundry.dev/r/api-keys.json",
+    "shadcn:add:stripe-billing": "pnpm dlx shadcn@latest add https://stackfoundry.dev/r/stripe-billing.json",
+    "shadcn:add:vendor-examples": "pnpm dlx shadcn@latest add https://stackfoundry.dev/r/vendor-examples.json",
+    "shadcn:verify": "node --input-type=module -e \"import { readFile } from 'node:fs/promises'; const vendor = JSON.parse(await readFile('public/r/vendor-examples.json', 'utf8')); if (vendor.type !== 'registry:block') throw new Error('vendor-examples must be registry:block'); if (!vendor.registryDependencies?.every((dep) => dep.startsWith('https://stackfoundry.dev/r/'))) throw new Error('preset dependencies must be absolute registry URLs'); const apiKeys = JSON.parse(await readFile('public/r/api-keys.json', 'utf8')); if (!apiKeys.files?.every((file) => file.target)) throw new Error('registry files must include target');\""
   },
   "dependencies": {
     "next": "latest",

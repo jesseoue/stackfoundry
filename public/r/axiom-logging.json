@@ -13,16 +13,19 @@
     {
       "path": "apps/web/src/lib/axiom/logger.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/axiom/logger.ts",
       "content": "import \"server-only\";\n\nimport { Axiom } from \"@axiomhq/js\";\n\nconst axiom = new Axiom({ token: process.env.AXIOM_TOKEN });\n\nexport async function logAxiomEvent(event: Record<string, unknown>) {\n  if (!process.env.AXIOM_DATASET) throw new Error(\"AXIOM_DATASET is required\");\n  await axiom.ingest(process.env.AXIOM_DATASET, [{ ...event, timestamp: new Date().toISOString() }]);\n}\n"
     },
     {
       "path": "apps/web/src/app/api/vendor/axiom/log/route.ts",
       "type": "registry:file",
+      "target": "apps/web/src/app/api/vendor/axiom/log/route.ts",
       "content": "import { NextResponse } from \"next/server\";\n\nimport { logAxiomEvent } from \"@/lib/axiom/logger\";\n\nexport async function POST() {\n  await logAxiomEvent({ event: \"stackfoundry.smoke\", source: \"registry\" });\n  return NextResponse.json({ ok: true });\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/vendors/axiom/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/vendors/axiom/page.tsx",
       "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function AxiomLoggingPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Axiom Logging</h1>\n        <p className=\"text-muted-foreground\">Structured logs for requests, jobs, webhooks, and operator actions.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],

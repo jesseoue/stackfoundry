@@ -15,21 +15,25 @@
     {
       "path": "apps/web/src/app/api/ai/chat/route.ts",
       "type": "registry:file",
+      "target": "apps/web/src/app/api/ai/chat/route.ts",
       "content": "import { convertToModelMessages, streamText, type UIMessage } from \"ai\";\n\nimport { getSelectedModel } from \"@/lib/ai/models\";\nimport { chatSystemPrompt } from \"@/lib/ai/prompts\";\n\nexport const maxDuration = 60;\n\ntype ChatRequest = {\n  messages?: UIMessage[];\n  message?: UIMessage;\n  model?: string;\n};\n\nexport async function POST(request: Request) {\n  const body = (await request.json()) as ChatRequest;\n  const messages = body.messages ?? (body.message ? [body.message] : []);\n\n  try {\n    const result = streamText({\n      model: getSelectedModel(body.model),\n      system: chatSystemPrompt,\n      messages: convertToModelMessages(messages),\n    });\n\n    return result.toUIMessageStreamResponse();\n  } catch (error) {\n    return Response.json(\n      { error: error instanceof Error ? error.message : \"Unable to start chat stream.\" },\n      { status: 400 },\n    );\n  }\n}\n"
     },
     {
       "path": "apps/web/src/components/ai/chat-box.tsx",
       "type": "registry:component",
+      "target": "apps/web/src/components/ai/chat-box.tsx",
       "content": "\"use client\";\n\nimport { useChat } from \"@ai-sdk/react\";\nimport { DefaultChatTransport } from \"ai\";\nimport { ArrowUpIcon, SquareIcon } from \"lucide-react\";\nimport { useMemo, useState } from \"react\";\n\nexport function ChatBox() {\n  const [input, setInput] = useState(\"\");\n  const transport = useMemo(() => new DefaultChatTransport({ api: \"/api/ai/chat\" }), []);\n  const { messages, sendMessage, status, stop } = useChat({ transport });\n  const running = status === \"submitted\" || status === \"streaming\";\n\n  function submit() {\n    const text = input.trim();\n    if (!text || running) return;\n    sendMessage({ text });\n    setInput(\"\");\n  }\n\n  return (\n    <div className=\"flex flex-col gap-4 rounded-lg border p-4\">\n      <div className=\"flex flex-col gap-3\">\n        {messages.map((message) => (\n          <div key={message.id} className=\"rounded-md bg-muted p-3 text-sm\">\n            <div className=\"mb-1 font-medium\">{message.role}</div>\n            {message.parts.map((part, index) =>\n              part.type === \"text\" ? <p key={index}>{part.text}</p> : null,\n            )}\n          </div>\n        ))}\n      </div>\n      <div className=\"flex gap-2\">\n        <textarea\n          className=\"min-h-24 flex-1 rounded-md border bg-background p-3 text-sm\"\n          value={input}\n          onChange={(event) => setInput(event.target.value)}\n          placeholder=\"Ask a question...\"\n        />\n        {running ? (\n          <button className=\"rounded-md border px-3\" type=\"button\" onClick={stop}>\n            <SquareIcon />\n          </button>\n        ) : (\n          <button className=\"rounded-md border px-3\" type=\"button\" onClick={submit}>\n            <ArrowUpIcon />\n          </button>\n        )}\n      </div>\n    </div>\n  );\n}\n"
     },
     {
       "path": "apps/web/src/lib/ai/prompts.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/ai/prompts.ts",
       "content": "export const chatSystemPrompt = `You are a concise assistant inside a production SaaS application.\n\nAnswer directly, ask for missing critical context only when necessary, and avoid exposing internal implementation details.`;\n"
     },
     {
       "path": "apps/web/src/lib/ai/models.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/ai/models.ts",
       "content": "export const DEFAULT_AI_MODEL = process.env.AI_GATEWAY_MODEL;\n\nexport function getSelectedModel(model?: string) {\n  const selected = model || DEFAULT_AI_MODEL;\n  if (!selected) {\n    throw new Error(\"AI_GATEWAY_MODEL is not set.\");\n  }\n  return selected;\n}\n"
     }
   ],

@@ -11,11 +11,13 @@
     {
       "path": "apps/web/src/app/(console)/settings/account/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/settings/account/page.tsx",
       "content": "const sections = [\n  { title: \"Profile\", description: \"Name, avatar, and public identity.\" },\n  { title: \"Security\", description: \"Password, passkeys, and two-factor settings.\" },\n  { title: \"Notifications\", description: \"Product, billing, and security email preferences.\" },\n];\n\nexport default function AccountSettingsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Account Settings</h1>\n        <p className=\"text-muted-foreground\">Give users a clear home for personal settings.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {sections.map((section) => (\n          <section key={section.title} className=\"rounded-lg border p-4\">\n            <h2 className=\"font-medium\">{section.title}</h2>\n            <p className=\"text-sm text-muted-foreground\">{section.description}</p>\n          </section>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     },
     {
       "path": "apps/web/src/lib/account-settings.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/account-settings.ts",
       "content": "export type AccountSettingsSection = {\n  id: string;\n  title: string;\n  href: string;\n};\n\nexport const accountSettingsSections: AccountSettingsSection[] = [\n  { id: \"profile\", title: \"Profile\", href: \"/settings/account\" },\n  { id: \"security\", title: \"Security\", href: \"/settings/account/security\" },\n  { id: \"notifications\", title: \"Notifications\", href: \"/settings/account/notifications\" },\n];\n"
     }
   ],

@@ -9,17 +9,19 @@
     "wrangler"
   ],
   "registryDependencies": [
-    "file-uploads"
+    "https://stackfoundry.dev/r/file-uploads.json"
   ],
   "files": [
     {
       "path": "cloudflare/r2/storage.ts",
       "type": "registry:file",
+      "target": "cloudflare/r2/storage.ts",
       "content": "export interface Env {\n  FILES: R2Bucket;\n}\n\nexport async function putObject(env: Env, key: string, body: ReadableStream | ArrayBuffer | string) {\n  await env.FILES.put(key, body);\n  return { key };\n}\n\nexport async function getObject(env: Env, key: string) {\n  const object = await env.FILES.get(key);\n  if (!object) return new Response(\"Not found\", { status: 404 });\n  return new Response(object.body, { headers: object.httpMetadata });\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/cloudflare/r2/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/cloudflare/r2/page.tsx",
       "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function CloudflareR2Page() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Cloudflare R2</h1>\n        <p className=\"text-muted-foreground\">Object storage adapter for files, exports, and generated assets.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],

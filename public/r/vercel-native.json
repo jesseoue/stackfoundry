@@ -1,0 +1,39 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "vercel-native",
+  "type": "registry:block",
+  "title": "Vercel Native",
+  "description": "Vercel deploy, Blob, Edge Config, marketplace storage, and AI Gateway modules.",
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/vercel-deploy.json",
+    "https://stackfoundry.dev/r/vercel-blob.json",
+    "https://stackfoundry.dev/r/vercel-edge-config.json",
+    "https://stackfoundry.dev/r/vercel-marketplace-storage.json",
+    "https://stackfoundry.dev/r/ai-chat.json",
+    "https://stackfoundry.dev/r/vercel-workflows.json",
+    "https://stackfoundry.dev/r/neon-postgres.json",
+    "https://stackfoundry.dev/r/inngest-functions.json",
+    "https://stackfoundry.dev/r/trigger-dev-jobs.json",
+    "https://stackfoundry.dev/r/upstash-redis.json",
+    "https://stackfoundry.dev/r/sentry-monitoring.json"
+  ],
+  "files": [],
+  "docs": "Installs the Vercel Native preset from StackFoundry.",
+  "meta": {
+    "category": "preset",
+    "status": "planned",
+    "modules": [
+      "vercel-deploy",
+      "vercel-blob",
+      "vercel-edge-config",
+      "vercel-marketplace-storage",
+      "ai-chat",
+      "vercel-workflows",
+      "neon-postgres",
+      "inngest-functions",
+      "trigger-dev-jobs",
+      "upstash-redis",
+      "sentry-monitoring"
+    ]
+  }
+}

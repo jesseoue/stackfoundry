@@ -9,22 +9,25 @@
   ],
   "devDependencies": [],
   "registryDependencies": [
-    "security-headers"
+    "https://stackfoundry.dev/r/security-headers.json"
   ],
   "files": [
     {
       "path": "apps/web/src/lib/arcjet.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/arcjet.ts",
       "content": "import arcjet, { shield, tokenBucket } from \"@arcjet/next\";\n\nexport const aj = arcjet({\n  key: process.env.ARCJET_KEY!,\n  rules: [\n    shield({ mode: \"LIVE\" }),\n    tokenBucket({ mode: \"LIVE\", refillRate: 10, interval: 60, capacity: 20 }),\n  ],\n});\n"
     },
     {
       "path": "apps/web/src/app/api/vendor/arcjet/protected/route.ts",
       "type": "registry:file",
+      "target": "apps/web/src/app/api/vendor/arcjet/protected/route.ts",
       "content": "import { NextResponse } from \"next/server\";\n\nimport { aj } from \"@/lib/arcjet\";\n\nexport async function GET(request: Request) {\n  const decision = await aj.protect(request);\n  if (decision.isDenied()) return NextResponse.json({ error: \"Denied\" }, { status: 429 });\n\n  return NextResponse.json({ ok: true });\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/vendors/arcjet/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/vendors/arcjet/page.tsx",
       "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function ArcjetSecurityPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Arcjet Security</h1>\n        <p className=\"text-muted-foreground\">Application-layer protection for bots, abuse, and expensive endpoints.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],

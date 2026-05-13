@@ -409,6 +409,8 @@ async function buildRegistry() {
   await mkdir(outputDir, { recursive: true });
 
   const registry = await readJson(path.join(repoRoot, "registry.json"));
+  const registryBaseUrl = registry.homepage?.startsWith("http") ? registry.homepage.replace(/\/$/, "") : undefined;
+  const toRegistryDependency = (name) => (registryBaseUrl ? `${registryBaseUrl}/r/${name}.json` : name);
   const builtItems = [];
 
   for (const item of registry.items) {
@@ -420,8 +422,8 @@ async function buildRegistry() {
       description: manifest.description,
       dependencies: manifest.dependencies,
       devDependencies: manifest.devDependencies,
-      registryDependencies: manifest.registryDependencies,
-      files: manifest.files,
+      registryDependencies: manifest.registryDependencies.map(toRegistryDependency),
+      files: manifest.files.map((file) => ({ ...file, target: file.path })),
       meta: {
         category: manifest.category,
         env: manifest.env,
@@ -438,8 +440,36 @@ async function buildRegistry() {
   await mkdir(presetsOutputDir, { recursive: true });
   if (existsSync(presetsRoot)) {
     for (const file of (await readdir(presetsRoot)).filter((entry) => entry.endsWith(".json")).sort()) {
+      const preset = await readJson(path.join(presetsRoot, file));
       await copyFile(path.join(presetsRoot, file), path.join(presetsOutputDir, file));
       console.log(`built public/r/presets/${file}`);
+
+      const presetOutputPath = path.join(outputDir, `${preset.name}.json`);
+      if (!existsSync(path.join(modulesRoot, preset.name, "module.json"))) {
+        await writeFile(
+          presetOutputPath,
+          `${JSON.stringify(
+            {
+              "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+              name: preset.name,
+              type: "registry:block",
+              title: preset.title,
+              description: preset.description,
+              registryDependencies: preset.modules.map(toRegistryDependency),
+              files: [],
+              docs: `Installs the ${preset.title} preset from StackFoundry.`,
+              meta: {
+                category: "preset",
+                status: preset.status,
+                modules: preset.modules,
+              },
+            },
+            null,
+            2
+          )}\n`
+        );
+        console.log(`built public/r/${preset.name}.json`);
+      }
     }
   }
 
@@ -454,6 +484,7 @@ async function buildRegistry() {
       files.push({
         path: file.path,
         type: file.type,
+        target: file.path,
         content: await readFile(source, "utf8"),
       });
     }
@@ -466,7 +497,7 @@ async function buildRegistry() {
       description: manifest.description,
       dependencies: manifest.dependencies,
       devDependencies: manifest.devDependencies,
-      registryDependencies: manifest.registryDependencies,
+      registryDependencies: manifest.registryDependencies.map(toRegistryDependency),
       files,
       envVars: Object.fromEntries(manifest.env.map((key) => [key, ""])),
       docs: existsSync(docsPath) ? await readFile(docsPath, "utf8") : undefined,

@@ -10,27 +10,31 @@
   ],
   "devDependencies": [],
   "registryDependencies": [
-    "email-templates"
+    "https://stackfoundry.dev/r/email-templates.json"
   ],
   "files": [
     {
       "path": "apps/web/src/lib/resend/client.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/resend/client.ts",
       "content": "import \"server-only\";\n\nimport { Resend } from \"resend\";\n\nexport const resend = new Resend(process.env.RESEND_API_KEY);\n"
     },
     {
       "path": "apps/web/src/emails/welcome-email.tsx",
       "type": "registry:file",
+      "target": "apps/web/src/emails/welcome-email.tsx",
       "content": "import { Body, Button, Container, Head, Heading, Html, Preview, Text } from \"@react-email/components\";\n\nexport function WelcomeEmail({ name, actionUrl }: { name: string; actionUrl: string }) {\n  return (\n    <Html lang=\"en\">\n      <Head />\n      <Preview>Welcome to your workspace</Preview>\n      <Body style={{ background: \"#ffffff\", fontFamily: \"sans-serif\" }}>\n        <Container>\n          <Heading>Welcome, {name}</Heading>\n          <Text>Your account is ready. Open the dashboard to finish setup.</Text>\n          <Button href={actionUrl}>Open dashboard</Button>\n        </Container>\n      </Body>\n    </Html>\n  );\n}\n"
     },
     {
       "path": "apps/web/src/app/api/vendor/resend/send-welcome/route.ts",
       "type": "registry:file",
+      "target": "apps/web/src/app/api/vendor/resend/send-welcome/route.ts",
       "content": "import { randomUUID } from \"node:crypto\";\nimport { NextResponse } from \"next/server\";\n\nimport { WelcomeEmail } from \"@/emails/welcome-email\";\nimport { resend } from \"@/lib/resend/client\";\n\nexport async function POST(request: Request) {\n  const { email, name = \"there\" } = await request.json();\n  if (!email) return NextResponse.json({ error: \"email is required\" }, { status: 400 });\n\n  const result = await resend.emails.send({\n    from: process.env.RESEND_FROM_EMAIL ?? \"StackFoundry <onboarding@resend.dev>\",\n    to: [email],\n    subject: \"Welcome\",\n    react: WelcomeEmail({ name, actionUrl: \"/\" }),\n    headers: { \"X-Entity-Ref-ID\": randomUUID() },\n  });\n\n  return NextResponse.json(result);\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/vendors/resend/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/vendors/resend/page.tsx",
       "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function ResendEmailPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Resend Email</h1>\n        <p className=\"text-muted-foreground\">Transactional email delivery with React Email templates and verified sender domains.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cloudflare-native",
+  "type": "registry:block",
+  "title": "Cloudflare Native",
+  "description": "Workers, Pages, D1, R2, KV, Queues, Turnstile, and Workers AI modules.",
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/cloudflare-pages.json",
+    "https://stackfoundry.dev/r/cloudflare-workers.json",
+    "https://stackfoundry.dev/r/cloudflare-d1.json",
+    "https://stackfoundry.dev/r/cloudflare-r2.json",
+    "https://stackfoundry.dev/r/cloudflare-kv.json",
+    "https://stackfoundry.dev/r/cloudflare-queues.json",
+    "https://stackfoundry.dev/r/cloudflare-turnstile.json",
+    "https://stackfoundry.dev/r/cloudflare-workers-ai.json",
+    "https://stackfoundry.dev/r/cloudflare-workflows.json"
+  ],
+  "files": [],
+  "docs": "Installs the Cloudflare Native preset from StackFoundry.",
+  "meta": {
+    "category": "preset",
+    "status": "planned",
+    "modules": [
+      "cloudflare-pages",
+      "cloudflare-workers",
+      "cloudflare-d1",
+      "cloudflare-r2",
+      "cloudflare-kv",
+      "cloudflare-queues",
+      "cloudflare-turnstile",
+      "cloudflare-workers-ai",
+      "cloudflare-workflows"
+    ]
+  }
+}

@@ -14,21 +14,25 @@
     {
       "path": "apps/web/src/lib/supabase/server.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/supabase/server.ts",
       "content": "import \"server-only\";\n\nimport { createServerClient } from \"@supabase/ssr\";\nimport { cookies } from \"next/headers\";\n\nexport async function createSupabaseServerClient() {\n  const cookieStore = await cookies();\n\n  return createServerClient(\n    process.env.NEXT_PUBLIC_SUPABASE_URL!,\n    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,\n    {\n      cookies: {\n        getAll() {\n          return cookieStore.getAll();\n        },\n        setAll(cookiesToSet) {\n          for (const cookie of cookiesToSet) {\n            cookieStore.set(cookie.name, cookie.value, cookie.options);\n          }\n        },\n      },\n    }\n  );\n}\n"
     },
     {
       "path": "apps/web/src/lib/supabase/admin.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/supabase/admin.ts",
       "content": "import \"server-only\";\n\nimport { createClient } from \"@supabase/supabase-js\";\n\nexport function createSupabaseAdminClient() {\n  return createClient(\n    process.env.NEXT_PUBLIC_SUPABASE_URL!,\n    process.env.SUPABASE_SERVICE_ROLE_KEY!,\n    { auth: { persistSession: false } }\n  );\n}\n"
     },
     {
       "path": "supabase/rls-notes.sql",
       "type": "registry:file",
+      "target": "supabase/rls-notes.sql",
       "content": "-- Enable RLS on exposed tables and write policies for your real access model.\n-- Do not authorize from user-editable metadata. Prefer app metadata or app-owned tables.\n\nalter table if exists public.workspace_members enable row level security;\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/data/supabase/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/data/supabase/page.tsx",
       "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function SupabasePostgresPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Supabase Postgres</h1>\n        <p className=\"text-muted-foreground\">Postgres, Auth-compatible SSR clients, service-role boundaries, and RLS notes.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],

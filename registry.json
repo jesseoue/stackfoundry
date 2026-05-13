@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "stackfoundry",
-  "homepage": "https://github.com/jesseoue/stackfoundry",
+  "homepage": "https://stackfoundry.dev",
   "items": [
     {
       "name": "aarrr-dashboard",

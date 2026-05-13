@@ -13,21 +13,25 @@
     {
       "path": "apps/web/src/lib/auth.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/auth.ts",
       "content": "import { betterAuth } from \"better-auth\";\n\nexport const auth = betterAuth({\n  emailAndPassword: { enabled: true },\n  socialProviders: {},\n});\n"
     },
     {
       "path": "apps/web/src/lib/auth-client.ts",
       "type": "registry:file",
+      "target": "apps/web/src/lib/auth-client.ts",
       "content": "import { createAuthClient } from \"better-auth/react\";\n\nexport const authClient = createAuthClient({\n  baseURL: process.env.NEXT_PUBLIC_APP_URL,\n});\n"
     },
     {
       "path": "apps/web/src/app/api/auth/[...all]/route.ts",
       "type": "registry:file",
+      "target": "apps/web/src/app/api/auth/[...all]/route.ts",
       "content": "import { toNextJsHandler } from \"better-auth/next-js\";\n\nimport { auth } from \"@/lib/auth\";\n\nexport const { GET, POST } = toNextJsHandler(auth);\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/auth/better-auth/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/auth/better-auth/page.tsx",
       "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function BetterAuthPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Better Auth</h1>\n        <p className=\"text-muted-foreground\">Self-hosted TypeScript auth with email/password, plugins, and App Router handlers.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],

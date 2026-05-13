@@ -9,17 +9,19 @@
     "wrangler"
   ],
   "registryDependencies": [
-    "feature-flags"
+    "https://stackfoundry.dev/r/feature-flags.json"
   ],
   "files": [
     {
       "path": "cloudflare/kv/config.ts",
       "type": "registry:file",
+      "target": "cloudflare/kv/config.ts",
       "content": "export interface Env {\n  CONFIG: KVNamespace;\n}\n\nexport async function getConfigValue(env: Env, key: string) {\n  return env.CONFIG.get(key, \"json\");\n}\n\nexport async function setConfigValue(env: Env, key: string, value: unknown) {\n  await env.CONFIG.put(key, JSON.stringify(value));\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/cloudflare/kv/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/cloudflare/kv/page.tsx",
       "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function CloudflareKVPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Cloudflare KV</h1>\n        <p className=\"text-muted-foreground\">Low-write edge configuration and cached metadata patterns.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],

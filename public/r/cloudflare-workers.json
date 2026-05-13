@@ -13,16 +13,19 @@
     {
       "path": "cloudflare/workers/api-worker.ts",
       "type": "registry:file",
+      "target": "cloudflare/workers/api-worker.ts",
       "content": "export interface Env {\n  APP_NAME: string;\n}\n\nexport default {\n  async fetch(request: Request, env: Env) {\n    const url = new URL(request.url);\n    if (url.pathname === \"/health\") {\n      return Response.json({ ok: true, app: env.APP_NAME });\n    }\n\n    return new Response(\"Not found\", { status: 404 });\n  },\n};\n"
     },
     {
       "path": "cloudflare/workers/wrangler.example.jsonc",
       "type": "registry:file",
+      "target": "cloudflare/workers/wrangler.example.jsonc",
       "content": "{\n  \"name\": \"stackfoundry-api\",\n  \"main\": \"./api-worker.ts\",\n  \"compatibility_date\": \"2026-01-01\",\n  \"vars\": {\n    \"APP_NAME\": \"stackfoundry\"\n  }\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/cloudflare/workers/page.tsx",
       "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/cloudflare/workers/page.tsx",
       "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function CloudflareWorkersPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Cloudflare Workers</h1>\n        <p className=\"text-muted-foreground\">Edge compute examples for API routes, health checks, and bindings.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
