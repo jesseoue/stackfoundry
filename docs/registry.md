@@ -41,6 +41,21 @@ Installers must not overwrite modified user files silently. The installer should
 ```bash
 node apps/cli/src/cli.mjs list
 node apps/cli/src/cli.mjs validate
+node apps/cli/src/cli.mjs build
 node apps/cli/src/cli.mjs add drizzle-postgres --target /path/to/app
 node apps/cli/src/cli.mjs diff drizzle-postgres --target /path/to/app
 ```
+
+## Public Build Output
+
+The `build` command generates registry-compatible JSON files under:
+
+```text
+public/r/
+  registry.json
+  drizzle-postgres.json
+  api-keys.json
+  stripe-billing.json
+```
+
+This mirrors the source-registry pattern: the registry item JSON embeds file contents while module metadata stays in `registry/modules/<module>/module.json`.

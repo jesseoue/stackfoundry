@@ -113,6 +113,7 @@ Current local prototype:
 ```bash
 node apps/cli/src/cli.mjs list
 node apps/cli/src/cli.mjs validate
+node apps/cli/src/cli.mjs build
 node apps/cli/src/cli.mjs add api-keys --target ../some-app --dry-run
 node apps/cli/src/cli.mjs diff api-keys --target ../some-app
 ```

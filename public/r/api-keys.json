@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "api-keys",
+  "type": "registry:item",
+  "title": "API Keys",
+  "description": "API key lifecycle, scopes, hashed storage, usage metadata, and management UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/api-keys.ts",
+      "type": "registry:file",
+      "content": "import { pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const apiKeys = pgTable(\"api_keys\", {\n  id: uuid(\"id\").primaryKey().defaultRandom(),\n  ownerId: text(\"owner_id\").notNull(),\n  name: text(\"name\").notNull(),\n  prefix: text(\"prefix\").notNull(),\n  hash: text(\"hash\").notNull(),\n  scopes: text(\"scopes\").array().notNull().default([]),\n  lastUsedAt: timestamp(\"last_used_at\", { withTimezone: true }),\n  revokedAt: timestamp(\"revoked_at\", { withTimezone: true }),\n  createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n});\n"
+    },
+    {
+      "path": "apps/web/src/lib/api-keys.ts",
+      "type": "registry:file",
+      "content": "import \"server-only\";\n\nimport { createHash, randomBytes, timingSafeEqual } from \"node:crypto\";\n\nconst KEY_PREFIX = \"sf\";\n\nexport function createApiKeySecret() {\n  const secret = randomBytes(32).toString(\"base64url\");\n  return `${KEY_PREFIX}_${secret}`;\n}\n\nexport function getApiKeyPrefix(secret: string) {\n  return secret.slice(0, 12);\n}\n\nexport function hashApiKey(secret: string) {\n  return createHash(\"sha256\").update(secret).digest(\"hex\");\n}\n\nexport function safeCompareHash(secret: string, expectedHash: string) {\n  const actual = Buffer.from(hashApiKey(secret));\n  const expected = Buffer.from(expectedHash);\n  return actual.length === expected.length && timingSafeEqual(actual, expected);\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/api-keys/page.tsx",
+      "type": "registry:page",
+      "content": "export default function ApiKeysPage() {\n  return (\n    <main className=\"flex flex-col gap-4 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">API Keys</h1>\n        <p className=\"text-muted-foreground\">Create, scope, rotate, and revoke API keys.</p>\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "meta": {
+    "category": "developer-platform",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "api-keys"
+      ],
+      "rules": [
+        "hash-keys",
+        "never-store-plaintext",
+        "scope-checks",
+        "audit-key-events"
+      ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "apiKeys"
+      ],
+      "migrationRecommended": true
+    }
+  }
+}

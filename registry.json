@@ -10,7 +10,27 @@
       "description": "Postgres + Drizzle package, schema barrel, migrations, and server-only DB access.",
       "files": [
         {
-          "path": "registry/modules/drizzle-postgres/module.json",
+          "path": "packages/db/package.json",
+          "type": "registry:file"
+        },
+        {
+          "path": "packages/db/src/client.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "packages/db/src/index.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "packages/db/src/schema/index.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/db.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "drizzle.config.ts",
           "type": "registry:file"
         }
       ]
@@ -20,9 +40,22 @@
       "type": "registry:item",
       "title": "API Keys",
       "description": "API key lifecycle, scopes, hashed storage, usage metadata, and maintenance instructions.",
+      "registryDependencies": ["drizzle-postgres"],
       "files": [
         {
-          "path": "registry/modules/api-keys/module.json",
+          "path": "packages/db/src/schema/api-keys.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/api-keys.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/api-keys/page.tsx",
+          "type": "registry:page"
+        },
+        {
+          "path": ".agents/skills/api-keys/SKILL.md",
           "type": "registry:file"
         }
       ]
@@ -32,9 +65,27 @@
       "type": "registry:item",
       "title": "Stripe Billing",
       "description": "Billing core, Stripe checkout, portal, webhooks, entitlement mapping, and verification checklist.",
+      "dependencies": ["stripe"],
+      "registryDependencies": ["drizzle-postgres"],
       "files": [
         {
-          "path": "registry/modules/stripe-billing/module.json",
+          "path": "packages/db/src/schema/billing.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/stripe/client.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/api/webhooks/stripe/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/page.tsx",
+          "type": "registry:page"
+        },
+        {
+          "path": ".agents/skills/stripe-billing/SKILL.md",
           "type": "registry:file"
         }
       ]

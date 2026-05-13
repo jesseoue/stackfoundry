@@ -1,0 +1,64 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stripe-billing",
+  "type": "registry:item",
+  "title": "Stripe Billing",
+  "description": "Stripe checkout, billing portal, subscription sync, webhook dedupe, and entitlement mapping.",
+  "dependencies": [
+    "stripe"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/billing.ts",
+      "type": "registry:file",
+      "content": "import { pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const billingCustomers = pgTable(\"billing_customers\", {\n  id: uuid(\"id\").primaryKey().defaultRandom(),\n  ownerId: text(\"owner_id\").notNull(),\n  provider: text(\"provider\").notNull().default(\"stripe\"),\n  providerCustomerId: text(\"provider_customer_id\").notNull(),\n  createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n});\n\nexport const subscriptions = pgTable(\"subscriptions\", {\n  id: uuid(\"id\").primaryKey().defaultRandom(),\n  ownerId: text(\"owner_id\").notNull(),\n  provider: text(\"provider\").notNull().default(\"stripe\"),\n  providerSubscriptionId: text(\"provider_subscription_id\").notNull(),\n  status: text(\"status\").notNull(),\n  currentPeriodEndsAt: timestamp(\"current_period_ends_at\", { withTimezone: true }),\n  createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n});\n\nexport const webhookEvents = pgTable(\"webhook_events\", {\n  id: uuid(\"id\").primaryKey().defaultRandom(),\n  provider: text(\"provider\").notNull(),\n  providerEventId: text(\"provider_event_id\").notNull(),\n  eventType: text(\"event_type\").notNull(),\n  processedAt: timestamp(\"processed_at\", { withTimezone: true }),\n  createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n});\n"
+    },
+    {
+      "path": "apps/web/src/lib/stripe/client.ts",
+      "type": "registry:file",
+      "content": "import \"server-only\";\n\nimport Stripe from \"stripe\";\n\nexport function getStripe() {\n  const secretKey = process.env.STRIPE_SECRET_KEY;\n  if (!secretKey) {\n    throw new Error(\"STRIPE_SECRET_KEY is not set.\");\n  }\n\n  return new Stripe(secretKey);\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/api/webhooks/stripe/route.ts",
+      "type": "registry:file",
+      "content": "import { headers } from \"next/headers\";\n\nimport { getStripe } from \"@/lib/stripe/client\";\n\nexport async function POST(request: Request) {\n  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;\n  if (!webhookSecret) {\n    return Response.json({ error: \"STRIPE_WEBHOOK_SECRET is not set.\" }, { status: 500 });\n  }\n\n  const signature = (await headers()).get(\"stripe-signature\");\n  if (!signature) {\n    return Response.json({ error: \"Missing stripe-signature header.\" }, { status: 400 });\n  }\n\n  const body = await request.text();\n  const event = getStripe().webhooks.constructEvent(body, signature, webhookSecret);\n\n  // TODO: Dedupe event.id before applying side effects.\n  return Response.json({ received: true, id: event.id, type: event.type });\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/page.tsx",
+      "type": "registry:page",
+      "content": "export default function BillingPage() {\n  return (\n    <main className=\"flex flex-col gap-4 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Billing</h1>\n        <p className=\"text-muted-foreground\">Manage checkout, subscriptions, invoices, and entitlements.</p>\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "meta": {
+    "category": "billing",
+    "env": [
+      "STRIPE_SECRET_KEY",
+      "STRIPE_WEBHOOK_SECRET",
+      "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"
+    ],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "stripe-billing"
+      ],
+      "rules": [
+        "verify-webhooks",
+        "dedupe-events",
+        "map-entitlements",
+        "never-trust-client-prices"
+      ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "billingCustomers",
+        "subscriptions",
+        "webhookEvents"
+      ],
+      "migrationRecommended": true
+    }
+  }
+}

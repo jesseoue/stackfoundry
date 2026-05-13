@@ -18,6 +18,7 @@ function usage() {
 Usage:
   stackfoundry list
   stackfoundry validate
+  stackfoundry build
   stackfoundry add <module> [--target <dir>] [--dry-run] [--force]
   stackfoundry diff <module> [--target <dir>]
 `);
@@ -241,6 +242,63 @@ async function diffModule(name, flags) {
   process.exitCode = changes > 0 ? 1 : 0;
 }
 
+async function buildRegistry() {
+  const outputDir = path.join(repoRoot, "public", "r");
+  await mkdir(outputDir, { recursive: true });
+
+  const registry = await readJson(path.join(repoRoot, "registry.json"));
+  const builtRegistry = {
+    ...registry,
+    items: registry.items.map((item) => ({
+      name: item.name,
+      type: item.type,
+      title: item.title,
+      description: item.description,
+    })),
+  };
+
+  await writeFile(path.join(outputDir, "registry.json"), `${JSON.stringify(builtRegistry, null, 2)}\n`);
+
+  for (const item of registry.items) {
+    const { dir, manifest } = await getModule(item.name);
+    const filesDir = path.join(dir, "files");
+    const files = [];
+
+    for (const file of manifest.files) {
+      const source = path.join(filesDir, file.path);
+      files.push({
+        path: file.path,
+        type: file.type,
+        content: await readFile(source, "utf8"),
+      });
+    }
+
+    const registryItem = {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      name: manifest.name,
+      type: item.type,
+      title: manifest.title,
+      description: manifest.description,
+      dependencies: manifest.dependencies,
+      devDependencies: manifest.devDependencies,
+      registryDependencies: manifest.registryDependencies,
+      files,
+      meta: {
+        category: manifest.category,
+        env: manifest.env,
+        status: manifest.status,
+        agents: manifest.agents,
+        drizzle: manifest.drizzle,
+      },
+    };
+
+    await writeFile(path.join(outputDir, `${manifest.name}.json`), `${JSON.stringify(registryItem, null, 2)}\n`);
+    console.log(`built public/r/${manifest.name}.json`);
+  }
+
+  console.log("built public/r/registry.json");
+}
+
 async function main() {
   const { command, moduleName, flags } = parseArgs(process.argv.slice(2));
 
@@ -250,6 +308,7 @@ async function main() {
   }
 
   if (command === "list") return listModules();
+  if (command === "build") return buildRegistry();
   if (command === "validate") {
     const errors = await validateRegistry();
     if (errors.length > 0) {
