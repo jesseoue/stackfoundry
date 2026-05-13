@@ -1,12 +1,12 @@
-# Agent Operating Instructions
+# Maintenance Instructions
 
-Every module can include agent operating instructions in:
+Every module can include maintenance instructions in:
 
 ```text
 registry/modules/<module>/skill/SKILL.md
 ```
 
-These files teach maintainers and coding agents:
+These files teach maintainers:
 
 - which files own the module
 - which environment variables matter

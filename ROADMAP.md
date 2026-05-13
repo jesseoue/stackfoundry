@@ -9,6 +9,9 @@
 - [x] `stackfoundry add <module>` prototype
 - [x] file hash manifest
 - [x] `stackfoundry diff <module>` prototype
+- [ ] overwrite conflict UI
+- [ ] generated install report
+- [ ] public demo app
 
 ## Wave 2
 
@@ -16,14 +19,20 @@
 - [ ] `orgs-rbac`
 - [ ] `unkey-api-keys`
 - [ ] `unkey-rate-limits`
-- [ ] `ai-chat`
-- [ ] `ai-artifacts`
 - [ ] `usage-metering`
 - [ ] `public-api-orpc`
 - [ ] `vercel-blob`
 - [ ] `vercel-edge-config`
 - [ ] `upstash-redis`
 - [ ] `feature-flags`
+- [ ] `posthog-analytics`
+- [ ] `sentry-monitoring`
+- [ ] `resend-email`
+- [ ] `webhook-inbox`
+- [ ] `audit-log`
+- [ ] `plg-metrics`
+- [ ] `aarrr-dashboard`
+- [ ] `activation-onboarding`
 
 ## Wave 3
 
@@ -34,6 +43,21 @@
 - [ ] `convex-backend`
 - [ ] `paddle-billing`
 - [ ] Cloudflare provider modules
+- [ ] optional AI modules
+- [ ] docs/help center modules
+- [ ] search provider modules
+
+## Module System
+
+- [ ] module manifest schema package
+- [ ] registry loader package
+- [ ] generator package
+- [ ] file hash diff/update engine
+- [ ] module dependency resolver
+- [ ] `.env.example` patcher
+- [ ] AGENTS/maintenance-guidance patcher
+- [ ] registry build command
+- [ ] hosted registry docs site
 
 ## Launch Readiness
 

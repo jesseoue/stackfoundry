@@ -19,7 +19,7 @@
       "name": "api-keys",
       "type": "registry:item",
       "title": "API Keys",
-      "description": "API key lifecycle, scopes, hashed storage, usage metadata, and agent operating instructions.",
+      "description": "API key lifecycle, scopes, hashed storage, usage metadata, and maintenance instructions.",
       "files": [
         {
           "path": "registry/modules/api-keys/module.json",

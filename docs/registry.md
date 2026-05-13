@@ -21,8 +21,16 @@ Each module has:
 - `env`: required environment variables
 - `files`: files installed into the target app
 - `drizzle`: schema/migration metadata
-- `agents`: agent operating instructions metadata
+- `agents`: maintenance instruction metadata
 - `status`: planned, experimental, stable
+
+## Registry Principles
+
+- Modules install source code, not opaque package wrappers.
+- Presets only compose modules.
+- Provider modules adapt services into shared domain systems.
+- Installers must produce enough metadata for safe diff/update workflows.
+- Public modules should avoid private assumptions about a single company or app.
 
 ## Safety
 

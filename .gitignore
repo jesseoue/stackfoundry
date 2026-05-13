@@ -20,8 +20,8 @@ coverage/
 # Logs
 *.log
 
-# Local planning / assistant artifacts
-.cursor/
+# Local planning / scratch artifacts
+.local/
 .agents/
 agent-transcripts/
 plans/
