@@ -1,0 +1,44 @@
+{
+  "name": "mfa-security",
+  "type": "module",
+  "category": "auth",
+  "title": "MFA Security",
+  "description": "Multi-factor authentication recovery, enforcement, and settings surfaces.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/mfa-security.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/mfa-security.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/settings/account/mfa/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "mfaSecurity"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "mfa-security"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "audit-sensitive-actions"
+    ]
+  },
+  "status": "experimental"
+}

@@ -3,20 +3,34 @@
   "type": "integration",
   "category": "workflow",
   "title": "Cloudflare Workflows",
-  "description": "Durable multi-step background jobs and human-in-the-loop flows.",
+  "description": "Cloudflare Workflows durable step starter for Workers-native orchestration.",
   "dependencies": [],
-  "devDependencies": [],
-  "registryDependencies": [],
+  "devDependencies": [
+    "wrangler"
+  ],
+  "registryDependencies": [
+    "cloudflare-workers"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "cloudflare/workflows/onboarding.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/cloudflare/workflows/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "cloudflare-workflows"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "keep-steps-idempotent",
+      "log-workflow-progress",
+      "test-with-wrangler"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

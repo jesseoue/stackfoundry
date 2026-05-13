@@ -3,20 +3,39 @@
   "type": "integration",
   "category": "edge",
   "title": "Cloudflare Workers",
-  "description": "Worker API module, queues, cron, and Durable Objects guidance.",
+  "description": "Cloudflare Worker entrypoint, Wrangler config example, and edge API route starter.",
   "dependencies": [],
-  "devDependencies": [],
+  "devDependencies": [
+    "wrangler"
+  ],
   "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "env": [
+    "CLOUDFLARE_ACCOUNT_ID",
+    "CLOUDFLARE_API_TOKEN"
+  ],
+  "files": [
+    {
+      "path": "cloudflare/workers/api-worker.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "cloudflare/workers/wrangler.example.jsonc",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/cloudflare/workers/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "cloudflare-workers"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "no-floating-promises",
+      "use-wrangler-config",
+      "keep-secrets-out-of-vars"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

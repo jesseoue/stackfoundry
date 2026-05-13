@@ -15,7 +15,19 @@
     "webhook-delivery",
     "developer-portal",
     "api-usage-dashboard",
-    "sdk-snippets"
+    "sdk-snippets",
+    "security-headers",
+    "cors-policy",
+    "api-errors",
+    "cursor-pagination",
+    "quota-enforcement",
+    "inngest-functions",
+    "trigger-dev-jobs",
+    "vercel-workflows",
+    "unkey-api-keys",
+    "unkey-rate-limits",
+    "github-integration",
+    "axiom-logging"
   ],
   "status": "planned"
 }

@@ -3,20 +3,34 @@
   "type": "integration",
   "category": "storage",
   "title": "Cloudflare R2",
-  "description": "Object storage adapter, zero-egress positioning, and file UI.",
+  "description": "R2 object storage adapter example for uploads and private object reads.",
   "dependencies": [],
-  "devDependencies": [],
-  "registryDependencies": [],
+  "devDependencies": [
+    "wrangler"
+  ],
+  "registryDependencies": [
+    "file-uploads"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "cloudflare/r2/storage.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/cloudflare/r2/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "cloudflare-r2"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "private-by-default",
+      "validate-object-keys",
+      "document-bucket-bindings"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

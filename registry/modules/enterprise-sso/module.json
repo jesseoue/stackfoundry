@@ -1,0 +1,44 @@
+{
+  "name": "enterprise-sso",
+  "type": "module",
+  "category": "auth",
+  "title": "Enterprise SSO",
+  "description": "SAML/OIDC connection metadata, enforcement policy, and setup checklist.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/enterprise-sso.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/enterprise-sso.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/settings/workspace/sso/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "enterpriseSso"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "enterprise-sso"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "audit-sensitive-actions"
+    ]
+  },
+  "status": "experimental"
+}

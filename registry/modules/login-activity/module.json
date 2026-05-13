@@ -1,0 +1,44 @@
+{
+  "name": "login-activity",
+  "type": "module",
+  "category": "auth",
+  "title": "Login Activity",
+  "description": "Login history, device metadata, and suspicious sign-in review UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/login-activity.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/login-activity.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/settings/account/login-activity/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "loginActivity"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "login-activity"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "audit-sensitive-actions"
+    ]
+  },
+  "status": "experimental"
+}

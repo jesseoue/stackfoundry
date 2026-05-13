@@ -3,22 +3,45 @@
   "name": "vercel-blob",
   "type": "registry:item",
   "title": "Vercel Blob",
-  "description": "File uploads, signed upload/download helpers, and file browser UI.",
-  "dependencies": [],
+  "description": "Vercel Blob upload route, list helper, and file storage dashboard starter.",
+  "dependencies": [
+    "@vercel/blob"
+  ],
   "devDependencies": [],
-  "registryDependencies": [],
-  "files": [],
+  "registryDependencies": [
+    "file-uploads"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/vercel/blob.ts",
+      "type": "registry:file",
+      "content": "import \"server-only\";\n\nimport { list, put } from \"@vercel/blob\";\n\nexport async function uploadBlob(name: string, body: Blob | Buffer) {\n  return put(name, body, { access: \"public\" });\n}\n\nexport async function listBlobs(prefix?: string) {\n  return list({ prefix });\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/api/vendor/vercel/blob/route.ts",
+      "type": "registry:file",
+      "content": "import { NextResponse } from \"next/server\";\n\nimport { uploadBlob } from \"@/lib/vercel/blob\";\n\nexport async function POST(request: Request) {\n  const formData = await request.formData();\n  const file = formData.get(\"file\");\n  if (!(file instanceof Blob)) return NextResponse.json({ error: \"file is required\" }, { status: 400 });\n\n  const blob = await uploadBlob(\"uploads/\" + crypto.randomUUID(), file);\n  return NextResponse.json(blob);\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/vercel-blob/page.tsx",
+      "type": "registry:page",
+      "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function VercelBlobPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Vercel Blob</h1>\n        <p className=\"text-muted-foreground\">File and asset storage with deploy-ready upload route examples.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
   "meta": {
     "category": "storage",
-    "env": [],
-    "status": "planned",
+    "env": [
+      "BLOB_READ_WRITE_TOKEN"
+    ],
+    "status": "experimental",
     "agents": {
       "skills": [
         "vercel-blob"
       ],
       "rules": [
-        "document-invariants",
-        "verify-before-release"
+        "validate-file-size",
+        "choose-public-vs-private-explicitly",
+        "store-metadata-in-db"
       ]
     }
   }

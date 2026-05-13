@@ -16,6 +16,18 @@
       ]
     },
     {
+      "name": "account-deletion",
+      "type": "registry:item",
+      "title": "Account Deletion",
+      "description": "Account deletion requests, grace windows, and cleanup checklist.",
+      "files": [
+        {
+          "path": "registry/modules/account-deletion/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "account-settings",
       "type": "registry:item",
       "title": "Account Settings",
@@ -112,6 +124,18 @@
       ]
     },
     {
+      "name": "api-errors",
+      "type": "registry:item",
+      "title": "API Errors",
+      "description": "Machine-readable API error shape, code catalog, and response helpers.",
+      "files": [
+        {
+          "path": "registry/modules/api-errors/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "api-keys",
       "type": "registry:item",
       "title": "API Keys",
@@ -131,6 +155,18 @@
       "files": [
         {
           "path": "registry/modules/api-usage-dashboard/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "arcjet-security",
+      "type": "registry:item",
+      "title": "Arcjet Security",
+      "description": "Arcjet request protection starter for bot detection, shielding, and rate limits.",
+      "files": [
+        {
+          "path": "registry/modules/arcjet-security/module.json",
           "type": "registry:file"
         }
       ]
@@ -163,7 +199,7 @@
       "name": "auth-better-auth",
       "type": "registry:item",
       "title": "Better Auth",
-      "description": "Better Auth setup for teams that want open-source auth in-app.",
+      "description": "Better Auth server config, Next.js route handler, and typed client starter.",
       "files": [
         {
           "path": "registry/modules/auth-better-auth/module.json",
@@ -199,7 +235,7 @@
       "name": "axiom-logging",
       "type": "registry:item",
       "title": "Axiom Logging",
-      "description": "Logs and analytics adapter for teams preferring Axiom.",
+      "description": "Axiom structured event logger and server route for deployment smoke checks.",
       "files": [
         {
           "path": "registry/modules/axiom-logging/module.json",
@@ -215,6 +251,18 @@
       "files": [
         {
           "path": "registry/modules/background-jobs/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "backup-restore",
+      "type": "registry:item",
+      "title": "Backup Restore",
+      "description": "Backup run records, restore checklist, and continuity dashboard.",
+      "files": [
+        {
+          "path": "registry/modules/backup-restore/module.json",
           "type": "registry:file"
         }
       ]
@@ -247,7 +295,7 @@
       "name": "clerk-auth",
       "type": "registry:item",
       "title": "Clerk Auth",
-      "description": "Clerk sign-in/sign-up, middleware, server auth helpers, env, and protected routes.",
+      "description": "Clerk sign-in/sign-up pages, middleware, server auth helper, and webhook starter.",
       "files": [
         {
           "path": "registry/modules/clerk-auth/module.json",
@@ -271,7 +319,7 @@
       "name": "cloudflare-d1",
       "type": "registry:item",
       "title": "Cloudflare D1",
-      "description": "D1 SQLite module, migrations, bindings, local dev, and Drizzle/D1 notes.",
+      "description": "D1 binding usage, SQLite schema starter, and Wrangler database notes.",
       "files": [
         {
           "path": "registry/modules/cloudflare-d1/module.json",
@@ -307,7 +355,7 @@
       "name": "cloudflare-kv",
       "type": "registry:item",
       "title": "Cloudflare KV",
-      "description": "KV bindings for low-write config, cache, and session-adjacent state.",
+      "description": "KV binding adapter for low-write configuration, flags, and cached metadata.",
       "files": [
         {
           "path": "registry/modules/cloudflare-kv/module.json",
@@ -367,7 +415,7 @@
       "name": "cloudflare-r2",
       "type": "registry:item",
       "title": "Cloudflare R2",
-      "description": "Object storage adapter, zero-egress positioning, and file UI.",
+      "description": "R2 object storage adapter example for uploads and private object reads.",
       "files": [
         {
           "path": "registry/modules/cloudflare-r2/module.json",
@@ -427,7 +475,7 @@
       "name": "cloudflare-workers",
       "type": "registry:item",
       "title": "Cloudflare Workers",
-      "description": "Worker API module, queues, cron, and Durable Objects guidance.",
+      "description": "Cloudflare Worker entrypoint, Wrangler config example, and edge API route starter.",
       "files": [
         {
           "path": "registry/modules/cloudflare-workers/module.json",
@@ -451,7 +499,7 @@
       "name": "cloudflare-workflows",
       "type": "registry:item",
       "title": "Cloudflare Workflows",
-      "description": "Durable multi-step background jobs and human-in-the-loop flows.",
+      "description": "Cloudflare Workflows durable step starter for Workers-native orchestration.",
       "files": [
         {
           "path": "registry/modules/cloudflare-workflows/module.json",
@@ -508,6 +556,30 @@
       ]
     },
     {
+      "name": "connected-accounts",
+      "type": "registry:item",
+      "title": "Connected Accounts",
+      "description": "OAuth account linking, provider metadata, and disconnect controls.",
+      "files": [
+        {
+          "path": "registry/modules/connected-accounts/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "contact-forms",
+      "type": "registry:item",
+      "title": "Contact Forms",
+      "description": "Contact form submissions, spam review, and routing workflow.",
+      "files": [
+        {
+          "path": "registry/modules/contact-forms/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "convex-backend",
       "type": "registry:item",
       "title": "Convex Backend",
@@ -539,6 +611,42 @@
       "files": [
         {
           "path": "registry/modules/convex-realtime/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cookie-consent",
+      "type": "registry:item",
+      "title": "Cookie Consent",
+      "description": "Cookie category preferences and consent banner state.",
+      "files": [
+        {
+          "path": "registry/modules/cookie-consent/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cors-policy",
+      "type": "registry:item",
+      "title": "CORS Policy",
+      "description": "Allowed origin configuration, preflight helpers, and deployment checklist.",
+      "files": [
+        {
+          "path": "registry/modules/cors-policy/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cursor-pagination",
+      "type": "registry:item",
+      "title": "Cursor Pagination",
+      "description": "Cursor-based pagination helpers for stable API lists.",
+      "files": [
+        {
+          "path": "registry/modules/cursor-pagination/module.json",
           "type": "registry:file"
         }
       ]
@@ -736,6 +844,42 @@
       ]
     },
     {
+      "name": "email-templates",
+      "type": "registry:item",
+      "title": "Email Templates",
+      "description": "Transactional email template catalog with plain-text fallback guidance.",
+      "files": [
+        {
+          "path": "registry/modules/email-templates/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "email-verification",
+      "type": "registry:item",
+      "title": "Email Verification",
+      "description": "Email verification token helpers and verification state UI.",
+      "files": [
+        {
+          "path": "registry/modules/email-verification/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "enterprise-sso",
+      "type": "registry:item",
+      "title": "Enterprise SSO",
+      "description": "SAML/OIDC connection metadata, enforcement policy, and setup checklist.",
+      "files": [
+        {
+          "path": "registry/modules/enterprise-sso/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "entitlements",
       "type": "registry:item",
       "title": "Entitlements",
@@ -871,7 +1015,7 @@
       "name": "github-integration",
       "type": "registry:item",
       "title": "GitHub Integration",
-      "description": "Repo picker, GitHub app/token config, PR links, and webhook ingestion.",
+      "description": "GitHub App Octokit client, webhook route starter, and repository action example.",
       "files": [
         {
           "path": "registry/modules/github-integration/module.json",
@@ -923,6 +1067,18 @@
       "files": [
         {
           "path": "registry/modules/incident-management/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "inngest-functions",
+      "type": "registry:item",
+      "title": "Inngest Functions",
+      "description": "Inngest durable functions, event triggers, steps, and Next.js serve route.",
+      "files": [
+        {
+          "path": "registry/modules/inngest-functions/module.json",
           "type": "registry:file"
         }
       ]
@@ -1012,6 +1168,30 @@
       ]
     },
     {
+      "name": "login-activity",
+      "type": "registry:item",
+      "title": "Login Activity",
+      "description": "Login history, device metadata, and suspicious sign-in review UI.",
+      "files": [
+        {
+          "path": "registry/modules/login-activity/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "maintenance-mode",
+      "type": "registry:item",
+      "title": "Maintenance Mode",
+      "description": "Maintenance windows, banner state, and operator controls.",
+      "files": [
+        {
+          "path": "registry/modules/maintenance-mode/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "marketing-pages",
       "type": "registry:item",
       "title": "Marketing Pages",
@@ -1036,6 +1216,18 @@
       ]
     },
     {
+      "name": "mfa-security",
+      "type": "registry:item",
+      "title": "MFA Security",
+      "description": "Multi-factor authentication recovery, enforcement, and settings surfaces.",
+      "files": [
+        {
+          "path": "registry/modules/mfa-security/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "model-router",
       "type": "registry:item",
       "title": "Model Router",
@@ -1051,10 +1243,22 @@
       "name": "neon-postgres",
       "type": "registry:item",
       "title": "Neon Postgres",
-      "description": "Neon project/env wiring, branching guidance, and Drizzle connection docs.",
+      "description": "Neon serverless Postgres client, Drizzle-compatible env wiring, and branching notes.",
       "files": [
         {
           "path": "registry/modules/neon-postgres/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "newsletter-signups",
+      "type": "registry:item",
+      "title": "Newsletter Signups",
+      "description": "Newsletter signup capture, double opt-in state, and export workflow.",
+      "files": [
+        {
+          "path": "registry/modules/newsletter-signups/module.json",
           "type": "registry:file"
         }
       ]
@@ -1132,6 +1336,18 @@
       ]
     },
     {
+      "name": "password-reset",
+      "type": "registry:item",
+      "title": "Password Reset",
+      "description": "Expiring reset token helpers and password recovery page templates.",
+      "files": [
+        {
+          "path": "registry/modules/password-reset/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "plan-gating",
       "type": "registry:item",
       "title": "Plan Gating",
@@ -1171,7 +1387,7 @@
       "name": "posthog-analytics",
       "type": "registry:item",
       "title": "PostHog Analytics",
-      "description": "Client/server capture, event catalog, feature flag adapter, and replay notes.",
+      "description": "PostHog Next.js provider, pageview tracking, and event capture helper.",
       "files": [
         {
           "path": "registry/modules/posthog-analytics/module.json",
@@ -1240,6 +1456,18 @@
       ]
     },
     {
+      "name": "quota-enforcement",
+      "type": "registry:item",
+      "title": "Quota Enforcement",
+      "description": "Plan quota definitions, usage checks, and limit messaging.",
+      "files": [
+        {
+          "path": "registry/modules/quota-enforcement/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "rag-starter",
       "type": "registry:item",
       "title": "RAG Starter",
@@ -1303,10 +1531,22 @@
       "name": "resend-email",
       "type": "registry:item",
       "title": "Resend Email",
-      "description": "React Email templates, send helper, preview route, and email log table.",
+      "description": "Resend transactional email client, React Email welcome template, and send route.",
       "files": [
         {
           "path": "registry/modules/resend-email/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "scim-provisioning",
+      "type": "registry:item",
+      "title": "SCIM Provisioning",
+      "description": "SCIM token records, provisioning events, and directory sync status.",
+      "files": [
+        {
+          "path": "registry/modules/scim-provisioning/module.json",
           "type": "registry:file"
         }
       ]
@@ -1372,6 +1612,18 @@
       ]
     },
     {
+      "name": "security-headers",
+      "type": "registry:item",
+      "title": "Security Headers",
+      "description": "Content security policy, frame, referrer, and transport header helpers.",
+      "files": [
+        {
+          "path": "registry/modules/security-headers/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "seed-data",
       "type": "registry:item",
       "title": "Seed Data",
@@ -1387,7 +1639,7 @@
       "name": "sentry-monitoring",
       "type": "registry:item",
       "title": "Sentry Monitoring",
-      "description": "Next SDK setup, release tags, source maps, and issue links.",
+      "description": "Sentry Next.js config files, manual capture helper, and release deployment notes.",
       "files": [
         {
           "path": "registry/modules/sentry-monitoring/module.json",
@@ -1471,7 +1723,7 @@
       "name": "supabase-postgres",
       "type": "registry:item",
       "title": "Supabase Postgres",
-      "description": "Supabase Postgres wiring, optional RLS guidance, storage/auth compatibility notes.",
+      "description": "Supabase SSR clients, Postgres env wiring, and RLS-first setup notes.",
       "files": [
         {
           "path": "registry/modules/supabase-postgres/module.json",
@@ -1552,10 +1804,22 @@
       ]
     },
     {
+      "name": "trigger-dev-jobs",
+      "type": "registry:item",
+      "title": "Trigger.dev Jobs",
+      "description": "Trigger.dev task definitions, run triggering route, and job dashboard starter.",
+      "files": [
+        {
+          "path": "registry/modules/trigger-dev-jobs/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "unkey-api-keys",
       "type": "registry:item",
       "title": "Unkey API Keys",
-      "description": "Unkey key creation, verification, revocation, metadata, expiration, and usage limits.",
+      "description": "Unkey key creation and verification helpers with protected route example.",
       "files": [
         {
           "path": "registry/modules/unkey-api-keys/module.json",
@@ -1567,7 +1831,7 @@
       "name": "unkey-rate-limits",
       "type": "registry:item",
       "title": "Unkey Rate Limits",
-      "description": "Unkey limits by key, user, IP, endpoint, org, or custom identifier.",
+      "description": "Unkey rate limit namespace helper and protected route example.",
       "files": [
         {
           "path": "registry/modules/unkey-rate-limits/module.json",
@@ -1579,7 +1843,7 @@
       "name": "upstash-redis",
       "type": "registry:item",
       "title": "Upstash Redis",
-      "description": "Redis/KV cache, rate limits, queues, and ephemeral state integration.",
+      "description": "Upstash Redis client, serverless rate limiter, and deployment smoke route.",
       "files": [
         {
           "path": "registry/modules/upstash-redis/module.json",
@@ -1615,7 +1879,7 @@
       "name": "vercel-blob",
       "type": "registry:item",
       "title": "Vercel Blob",
-      "description": "File uploads, signed upload/download helpers, and file browser UI.",
+      "description": "Vercel Blob upload route, list helper, and file storage dashboard starter.",
       "files": [
         {
           "path": "registry/modules/vercel-blob/module.json",
@@ -1639,7 +1903,7 @@
       "name": "vercel-edge-config",
       "type": "registry:item",
       "title": "Vercel Edge Config",
-      "description": "Feature flags, config reads, A/B testing, and dynamic model routing.",
+      "description": "Edge Config read helper for low-latency flags, redirects, and rollout config.",
       "files": [
         {
           "path": "registry/modules/vercel-edge-config/module.json",
@@ -1667,6 +1931,18 @@
       "files": [
         {
           "path": "registry/modules/vercel-marketplace-storage/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "vercel-workflows",
+      "type": "registry:item",
+      "title": "Vercel Workflows",
+      "description": "Vercel Workflow DevKit durable workflow and Next.js route starter.",
+      "files": [
+        {
+          "path": "registry/modules/vercel-workflows/module.json",
           "type": "registry:file"
         }
       ]
@@ -1703,6 +1979,18 @@
       "files": [
         {
           "path": "registry/modules/webhook-inbox/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "workspace-branding",
+      "type": "registry:item",
+      "title": "Workspace Branding",
+      "description": "Workspace logo, color, domain, and branded experience settings.",
+      "files": [
+        {
+          "path": "registry/modules/workspace-branding/module.json",
           "type": "registry:file"
         }
       ]

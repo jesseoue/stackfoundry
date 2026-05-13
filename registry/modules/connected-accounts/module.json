@@ -1,0 +1,44 @@
+{
+  "name": "connected-accounts",
+  "type": "module",
+  "category": "auth",
+  "title": "Connected Accounts",
+  "description": "OAuth account linking, provider metadata, and disconnect controls.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/connected-accounts.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/connected-accounts.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/settings/account/connected-accounts/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "connectedAccounts"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "connected-accounts"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "audit-sensitive-actions"
+    ]
+  },
+  "status": "experimental"
+}

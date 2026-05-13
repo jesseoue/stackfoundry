@@ -1,0 +1,44 @@
+{
+  "name": "account-deletion",
+  "type": "module",
+  "category": "compliance",
+  "title": "Account Deletion",
+  "description": "Account deletion requests, grace windows, and cleanup checklist.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/account-deletion.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/account-deletion.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/settings/account/deletion/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "accountDeletion"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "account-deletion"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "audit-sensitive-actions"
+    ]
+  },
+  "status": "experimental"
+}

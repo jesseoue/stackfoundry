@@ -1,0 +1,50 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "backup-restore",
+  "type": "registry:item",
+  "title": "Backup Restore",
+  "description": "Backup run records, restore checklist, and continuity dashboard.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/backup-restore.ts",
+      "type": "registry:file",
+      "content": "import { index, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const backupRestore = pgTable(\n  \"backup_restore\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    ownerId: text(\"owner_id\"),\n    organizationId: text(\"organization_id\"),\n    key: text(\"key\").notNull(),\n    status: text(\"status\").notNull().default(\"pending\"),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    expiresAt: timestamp(\"expires_at\", { withTimezone: true }),\n    completedAt: timestamp(\"completed_at\", { withTimezone: true }),\n    createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (item) => [\n    index(\"backup_restore_owner_idx\").on(item.ownerId),\n    index(\"backup_restore_organization_idx\").on(item.organizationId),\n  ]\n);\n"
+    },
+    {
+      "path": "apps/web/src/lib/backup-restore.ts",
+      "type": "registry:file",
+      "content": "export type BackupRestoreConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createBackupRestoreConfig(config: BackupRestoreConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const backupRestoreProductionChecks = [\n  \"Confirm access control\",\n  \"Record audit events for sensitive changes\",\n  \"Document rollback or recovery steps\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/backups/page.tsx",
+      "type": "registry:page",
+      "content": "const tasks = [\n  \"Configure defaults\",\n  \"Connect persistence or provider adapter\",\n  \"Verify production checklist\",\n];\n\nexport default function BackupRestorePage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Backup Restore</h1>\n        <p className=\"text-muted-foreground\">Backup run records, restore checklist, and continuity dashboard.</p>\n      </div>\n      <ul className=\"grid gap-3\">\n        {tasks.map((task) => (\n          <li key={task} className=\"rounded-lg border p-4 text-sm\">{task}</li>\n        ))}\n      </ul>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "meta": {
+    "category": "operations",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "backup-restore"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "audit-sensitive-actions"
+      ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "backupRestore"
+      ],
+      "migrationRecommended": true
+    }
+  }
+}

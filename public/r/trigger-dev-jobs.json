@@ -1,0 +1,56 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "trigger-dev-jobs",
+  "type": "registry:item",
+  "title": "Trigger.dev Jobs",
+  "description": "Trigger.dev task definitions, run triggering route, and job dashboard starter.",
+  "dependencies": [
+    "@trigger.dev/sdk"
+  ],
+  "devDependencies": [
+    "trigger.dev"
+  ],
+  "registryDependencies": [
+    "background-jobs"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/trigger/example.ts",
+      "type": "registry:file",
+      "content": "import { task } from \"@trigger.dev/sdk\";\n\nexport const syncWorkspaceUsage = task({\n  id: \"sync-workspace-usage\",\n  run: async (payload: { workspaceId: string }) => {\n    console.log(\"sync usage\", payload.workspaceId);\n    return { synced: true, workspaceId: payload.workspaceId };\n  },\n});\n"
+    },
+    {
+      "path": "apps/web/src/app/api/tasks/trigger-dev/route.ts",
+      "type": "registry:file",
+      "content": "import { tasks } from \"@trigger.dev/sdk\";\nimport { NextResponse } from \"next/server\";\n\nimport type { syncWorkspaceUsage } from \"@/trigger/example\";\n\nexport async function POST(request: Request) {\n  const payload = await request.json();\n  const handle = await tasks.trigger<typeof syncWorkspaceUsage>(\"sync-workspace-usage\", payload);\n\n  return NextResponse.json(handle);\n}\n"
+    },
+    {
+      "path": "trigger.config.ts",
+      "type": "registry:file",
+      "content": "import { defineConfig } from \"@trigger.dev/sdk\";\n\nexport default defineConfig({\n  project: process.env.TRIGGER_PROJECT_ID ?? \"proj_replace_me\",\n  dirs: [\"./apps/web/src/trigger\"],\n});\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/workflows/trigger-dev/page.tsx",
+      "type": "registry:page",
+      "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function TriggerdevJobsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Trigger.dev Jobs</h1>\n        <p className=\"text-muted-foreground\">Background tasks with managed runs, retries, and operational visibility.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "meta": {
+    "category": "workflow",
+    "env": [
+      "TRIGGER_SECRET_KEY",
+      "TRIGGER_PROJECT_ID"
+    ],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "trigger-dev-jobs"
+      ],
+      "rules": [
+        "validate-trigger-payloads",
+        "avoid-request-blocking-work",
+        "monitor-failed-runs"
+      ]
+    }
+  }
+}

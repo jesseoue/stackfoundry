@@ -3,20 +3,46 @@
   "type": "integration",
   "category": "email",
   "title": "Resend Email",
-  "description": "React Email templates, send helper, preview route, and email log table.",
-  "dependencies": [],
+  "description": "Resend transactional email client, React Email welcome template, and send route.",
+  "dependencies": [
+    "resend",
+    "@react-email/components"
+  ],
   "devDependencies": [],
-  "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "registryDependencies": [
+    "email-templates"
+  ],
+  "env": [
+    "RESEND_API_KEY",
+    "RESEND_FROM_EMAIL"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/resend/client.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/emails/welcome-email.tsx",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/api/vendor/resend/send-welcome/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/resend/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "resend-email"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "verify-sender-domain",
+      "include-plain-text-fallback",
+      "avoid-email-threading"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

@@ -1,0 +1,31 @@
+{
+  "name": "vendor-examples",
+  "title": "Vendor Examples",
+  "description": "Concrete registry blocks for common SaaS vendors across auth, data, workflows, and Cloudflare.",
+  "modules": [
+    "clerk-auth",
+    "auth-better-auth",
+    "supabase-postgres",
+    "neon-postgres",
+    "inngest-functions",
+    "trigger-dev-jobs",
+    "vercel-workflows",
+    "cloudflare-workers",
+    "cloudflare-d1",
+    "cloudflare-r2",
+    "cloudflare-kv",
+    "cloudflare-workflows",
+    "upstash-redis",
+    "resend-email",
+    "posthog-analytics",
+    "sentry-monitoring",
+    "axiom-logging",
+    "unkey-api-keys",
+    "unkey-rate-limits",
+    "vercel-blob",
+    "vercel-edge-config",
+    "github-integration",
+    "arcjet-security"
+  ],
+  "status": "experimental"
+}

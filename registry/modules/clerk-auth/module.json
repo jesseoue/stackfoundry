@@ -3,20 +3,52 @@
   "type": "integration",
   "category": "auth",
   "title": "Clerk Auth",
-  "description": "Clerk sign-in/sign-up, middleware, server auth helpers, env, and protected routes.",
-  "dependencies": [],
+  "description": "Clerk sign-in/sign-up pages, middleware, server auth helper, and webhook starter.",
+  "dependencies": [
+    "@clerk/nextjs"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "env": [
+    "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
+    "CLERK_SECRET_KEY",
+    "CLERK_WEBHOOK_SECRET"
+  ],
+  "files": [
+    {
+      "path": "middleware.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/clerk/authorization.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(auth)/sign-in/[[...sign-in]]/page.tsx",
+      "type": "registry:page"
+    },
+    {
+      "path": "apps/web/src/app/(auth)/sign-up/[[...sign-up]]/page.tsx",
+      "type": "registry:page"
+    },
+    {
+      "path": "apps/web/src/app/api/webhooks/clerk/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/auth/clerk/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "clerk-auth"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "verify-webhooks",
+      "server-first-auth",
+      "keep-authorization-in-app-code"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

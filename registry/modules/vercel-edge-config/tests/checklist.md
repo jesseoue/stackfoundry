@@ -1,6 +1,8 @@
 # Vercel Edge Config Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] vendor resource exists in preview and production
+- [ ] env vars are configured in deployment platform
+- [ ] smoke route/helper is verified after deploy
+- [ ] logs do not include secrets or user-sensitive payloads
+- [ ] rollback and alerting behavior is documented

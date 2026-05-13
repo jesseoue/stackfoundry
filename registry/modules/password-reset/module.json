@@ -1,0 +1,44 @@
+{
+  "name": "password-reset",
+  "type": "module",
+  "category": "auth",
+  "title": "Password Reset",
+  "description": "Expiring reset token helpers and password recovery page templates.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/password-reset.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/password-reset.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(auth)/password-reset/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "passwordReset"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "password-reset"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "audit-sensitive-actions"
+    ]
+  },
+  "status": "experimental"
+}

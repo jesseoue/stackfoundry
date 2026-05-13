@@ -1,6 +1,7 @@
 # Cloudflare KV Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] vendor env example is generated
+- [ ] example source path installs without collisions
+- [ ] local route, task, or worker is smoke-tested
+- [ ] production auth, retry, and audit behavior is documented

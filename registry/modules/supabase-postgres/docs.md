@@ -1,7 +1,27 @@
-# Supabase Postgres
+# Supabase Postgres Module
 
-Supabase Postgres wiring, optional RLS guidance, storage/auth compatibility notes.
+Supabase SSR clients, Postgres env wiring, and RLS-first setup notes.
 
-## Status
+## Owns
 
-Planned module. Source files will be added as this module graduates into active development.
+- `apps/web/src/lib/supabase/server.ts`
+- `apps/web/src/lib/supabase/admin.ts`
+- `supabase/rls-notes.sql`
+- `apps/web/src/app/(console)/admin/data/supabase/page.tsx`
+
+## Dependencies
+
+`@supabase/ssr`, `@supabase/supabase-js`
+
+## Environment
+
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+- `SUPABASE_SERVICE_ROLE_KEY`
+
+## Maintenance
+
+- Keep this module focused on the vendor integration boundary.
+- Keep secrets in environment variables and never commit local credentials.
+- Verify the example route or worker path before promoting this module beyond experimental.
+- Update docs, checklist, and manifest metadata when vendor APIs change.

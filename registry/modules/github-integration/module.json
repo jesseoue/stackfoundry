@@ -1,22 +1,44 @@
 {
   "name": "github-integration",
   "type": "integration",
-  "category": "developer-platform",
+  "category": "integrations",
   "title": "GitHub Integration",
-  "description": "Repo picker, GitHub app/token config, PR links, and webhook ingestion.",
-  "dependencies": [],
+  "description": "GitHub App Octokit client, webhook route starter, and repository action example.",
+  "dependencies": [
+    "octokit"
+  ],
   "devDependencies": [],
-  "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "registryDependencies": [
+    "webhook-inbox"
+  ],
+  "env": [
+    "GITHUB_APP_ID",
+    "GITHUB_PRIVATE_KEY",
+    "GITHUB_WEBHOOK_SECRET"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/github/app.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/api/webhooks/github/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/github/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "github-integration"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "verify-webhook-signatures",
+      "store-private-key-safely",
+      "dedupe-deliveries"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

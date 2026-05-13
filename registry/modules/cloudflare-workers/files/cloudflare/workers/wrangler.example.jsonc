@@ -1,0 +1,8 @@
+{
+  "name": "stackfoundry-api",
+  "main": "./api-worker.ts",
+  "compatibility_date": "2026-01-01",
+  "vars": {
+    "APP_NAME": "stackfoundry"
+  }
+}

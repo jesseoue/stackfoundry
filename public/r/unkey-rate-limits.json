@@ -3,22 +3,45 @@
   "name": "unkey-rate-limits",
   "type": "registry:item",
   "title": "Unkey Rate Limits",
-  "description": "Unkey limits by key, user, IP, endpoint, org, or custom identifier.",
-  "dependencies": [],
+  "description": "Unkey rate limit namespace helper and protected route example.",
+  "dependencies": [
+    "@unkey/ratelimit"
+  ],
   "devDependencies": [],
-  "registryDependencies": [],
-  "files": [],
+  "registryDependencies": [
+    "rate-limits"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/unkey/ratelimit.ts",
+      "type": "registry:file",
+      "content": "import \"server-only\";\n\nimport { Ratelimit } from \"@unkey/ratelimit\";\n\nexport const unkeyRatelimit = new Ratelimit({\n  rootKey: process.env.UNKEY_ROOT_KEY!,\n  namespace: \"stackfoundry.api\",\n  limit: 60,\n  duration: \"1m\",\n});\n"
+    },
+    {
+      "path": "apps/web/src/app/api/vendor/unkey/ratelimit/route.ts",
+      "type": "registry:file",
+      "content": "import { NextResponse } from \"next/server\";\n\nimport { unkeyRatelimit } from \"@/lib/unkey/ratelimit\";\n\nexport async function POST(request: Request) {\n  const { identifier = \"anonymous\" } = await request.json();\n  const result = await unkeyRatelimit.limit(identifier);\n  return NextResponse.json(result);\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/unkey-rate-limits/page.tsx",
+      "type": "registry:page",
+      "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function UnkeyRateLimitsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Unkey Rate Limits</h1>\n        <p className=\"text-muted-foreground\">Managed rate limits for APIs, auth endpoints, and expensive AI calls.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
   "meta": {
-    "category": "developer-platform",
-    "env": [],
-    "status": "planned",
+    "category": "operations",
+    "env": [
+      "UNKEY_ROOT_KEY"
+    ],
+    "status": "experimental",
     "agents": {
       "skills": [
         "unkey-rate-limits"
       ],
       "rules": [
-        "document-invariants",
-        "verify-before-release"
+        "namespace-limits",
+        "return-standard-limit-headers",
+        "avoid-client-side-root-key"
       ]
     }
   }

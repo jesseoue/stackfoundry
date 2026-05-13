@@ -1,0 +1,50 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "newsletter-signups",
+  "type": "registry:item",
+  "title": "Newsletter Signups",
+  "description": "Newsletter signup capture, double opt-in state, and export workflow.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/newsletter-signups.ts",
+      "type": "registry:file",
+      "content": "import { index, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const newsletterSignups = pgTable(\n  \"newsletter_signups\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    ownerId: text(\"owner_id\"),\n    organizationId: text(\"organization_id\"),\n    key: text(\"key\").notNull(),\n    status: text(\"status\").notNull().default(\"pending\"),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    expiresAt: timestamp(\"expires_at\", { withTimezone: true }),\n    completedAt: timestamp(\"completed_at\", { withTimezone: true }),\n    createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (item) => [\n    index(\"newsletter_signups_owner_idx\").on(item.ownerId),\n    index(\"newsletter_signups_organization_idx\").on(item.organizationId),\n  ]\n);\n"
+    },
+    {
+      "path": "apps/web/src/lib/newsletter-signups.ts",
+      "type": "registry:file",
+      "content": "export type NewsletterSignupsConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createNewsletterSignupsConfig(config: NewsletterSignupsConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const newsletterSignupsProductionChecks = [\n  \"Confirm access control\",\n  \"Record audit events for sensitive changes\",\n  \"Document rollback or recovery steps\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/newsletter/page.tsx",
+      "type": "registry:page",
+      "content": "const tasks = [\n  \"Configure defaults\",\n  \"Connect persistence or provider adapter\",\n  \"Verify production checklist\",\n];\n\nexport default function NewsletterSignupsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Newsletter Signups</h1>\n        <p className=\"text-muted-foreground\">Newsletter signup capture, double opt-in state, and export workflow.</p>\n      </div>\n      <ul className=\"grid gap-3\">\n        {tasks.map((task) => (\n          <li key={task} className=\"rounded-lg border p-4 text-sm\">{task}</li>\n        ))}\n      </ul>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "meta": {
+    "category": "marketing",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "newsletter-signups"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "audit-sensitive-actions"
+      ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "newsletterSignups"
+      ],
+      "migrationRecommended": true
+    }
+  }
+}

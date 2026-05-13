@@ -1,7 +1,29 @@
-# Clerk Auth
+# Clerk Auth Module
 
-Clerk sign-in/sign-up, middleware, server auth helpers, env, and protected routes.
+Clerk sign-in/sign-up pages, middleware, server auth helper, and webhook starter.
 
-## Status
+## Owns
 
-Planned module. Source files will be added as this module graduates into active development.
+- `middleware.ts`
+- `apps/web/src/lib/clerk/authorization.ts`
+- `apps/web/src/app/(auth)/sign-in/[[...sign-in]]/page.tsx`
+- `apps/web/src/app/(auth)/sign-up/[[...sign-up]]/page.tsx`
+- `apps/web/src/app/api/webhooks/clerk/route.ts`
+- `apps/web/src/app/(console)/admin/auth/clerk/page.tsx`
+
+## Dependencies
+
+`@clerk/nextjs`
+
+## Environment
+
+- `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`
+- `CLERK_SECRET_KEY`
+- `CLERK_WEBHOOK_SECRET`
+
+## Maintenance
+
+- Keep this module focused on the vendor integration boundary.
+- Keep secrets in environment variables and never commit local credentials.
+- Verify the example route or worker path before promoting this module beyond experimental.
+- Update docs, checklist, and manifest metadata when vendor APIs change.

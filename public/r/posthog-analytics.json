@@ -3,22 +3,47 @@
   "name": "posthog-analytics",
   "type": "registry:item",
   "title": "PostHog Analytics",
-  "description": "Client/server capture, event catalog, feature flag adapter, and replay notes.",
-  "dependencies": [],
+  "description": "PostHog Next.js provider, pageview tracking, and event capture helper.",
+  "dependencies": [
+    "posthog-js",
+    "@posthog/next"
+  ],
   "devDependencies": [],
-  "registryDependencies": [],
-  "files": [],
+  "registryDependencies": [
+    "feature-flags"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/components/providers/posthog-provider.tsx",
+      "type": "registry:file",
+      "content": "\"use client\";\n\nimport { PostHogPageView, PostHogProvider as Provider } from \"@posthog/next\";\nimport posthog from \"posthog-js\";\n\nif (typeof window !== \"undefined\" && process.env.NEXT_PUBLIC_POSTHOG_KEY) {\n  posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {\n    api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST ?? \"https://app.posthog.com\",\n    capture_pageview: false,\n  });\n}\n\nexport function PostHogProvider({ children }: { children: React.ReactNode }) {\n  return (\n    <Provider client={posthog}>\n      <PostHogPageView />\n      {children}\n    </Provider>\n  );\n}\n"
+    },
+    {
+      "path": "apps/web/src/components/analytics/track-button.tsx",
+      "type": "registry:file",
+      "content": "\"use client\";\n\nimport { usePostHog } from \"@posthog/next\";\n\nexport function TrackButton() {\n  const posthog = usePostHog();\n  return <button onClick={() => posthog.capture(\"example_clicked\")}>Track event</button>;\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/posthog/page.tsx",
+      "type": "registry:page",
+      "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function PostHogAnalyticsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">PostHog Analytics</h1>\n        <p className=\"text-muted-foreground\">Product analytics, feature flags, and session behavior tracking.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
   "meta": {
     "category": "analytics",
-    "env": [],
-    "status": "planned",
+    "env": [
+      "NEXT_PUBLIC_POSTHOG_KEY",
+      "NEXT_PUBLIC_POSTHOG_HOST"
+    ],
+    "status": "experimental",
     "agents": {
       "skills": [
         "posthog-analytics"
       ],
       "rules": [
-        "document-invariants",
-        "verify-before-release"
+        "load-client-only",
+        "respect-consent",
+        "disable-automatic-pageview-duplicates"
       ]
     }
   }

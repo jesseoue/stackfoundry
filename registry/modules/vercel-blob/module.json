@@ -3,20 +3,40 @@
   "type": "integration",
   "category": "storage",
   "title": "Vercel Blob",
-  "description": "File uploads, signed upload/download helpers, and file browser UI.",
-  "dependencies": [],
+  "description": "Vercel Blob upload route, list helper, and file storage dashboard starter.",
+  "dependencies": [
+    "@vercel/blob"
+  ],
   "devDependencies": [],
-  "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "registryDependencies": [
+    "file-uploads"
+  ],
+  "env": [
+    "BLOB_READ_WRITE_TOKEN"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/vercel/blob.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/api/vendor/vercel/blob/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/vercel-blob/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "vercel-blob"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "validate-file-size",
+      "choose-public-vs-private-explicitly",
+      "store-metadata-in-db"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

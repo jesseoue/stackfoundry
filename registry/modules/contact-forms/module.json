@@ -1,0 +1,44 @@
+{
+  "name": "contact-forms",
+  "type": "module",
+  "category": "marketing",
+  "title": "Contact Forms",
+  "description": "Contact form submissions, spam review, and routing workflow.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/contact-forms.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/contact-forms.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/contact-forms/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "contactForms"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "contact-forms"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "audit-sensitive-actions"
+    ]
+  },
+  "status": "experimental"
+}

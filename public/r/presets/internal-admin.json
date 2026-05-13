@@ -16,7 +16,15 @@
     "status-page",
     "data-export",
     "data-retention",
-    "webhook-inbox"
+    "webhook-inbox",
+    "security-headers",
+    "cors-policy",
+    "maintenance-mode",
+    "backup-restore",
+    "login-activity",
+    "axiom-logging",
+    "sentry-monitoring",
+    "github-integration"
   ],
   "status": "planned"
 }

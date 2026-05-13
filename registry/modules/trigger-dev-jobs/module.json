@@ -1,0 +1,49 @@
+{
+  "name": "trigger-dev-jobs",
+  "type": "integration",
+  "category": "workflow",
+  "title": "Trigger.dev Jobs",
+  "description": "Trigger.dev task definitions, run triggering route, and job dashboard starter.",
+  "dependencies": [
+    "@trigger.dev/sdk"
+  ],
+  "devDependencies": [
+    "trigger.dev"
+  ],
+  "registryDependencies": [
+    "background-jobs"
+  ],
+  "env": [
+    "TRIGGER_SECRET_KEY",
+    "TRIGGER_PROJECT_ID"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/trigger/example.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/api/tasks/trigger-dev/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "trigger.config.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/workflows/trigger-dev/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "trigger-dev-jobs"
+    ],
+    "rules": [
+      "validate-trigger-payloads",
+      "avoid-request-blocking-work",
+      "monitor-failed-runs"
+    ]
+  },
+  "status": "experimental"
+}

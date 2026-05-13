@@ -3,20 +3,45 @@
   "type": "integration",
   "category": "developer-platform",
   "title": "Unkey API Keys",
-  "description": "Unkey key creation, verification, revocation, metadata, expiration, and usage limits.",
-  "dependencies": [],
+  "description": "Unkey key creation and verification helpers with protected route example.",
+  "dependencies": [
+    "@unkey/api"
+  ],
   "devDependencies": [],
-  "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "registryDependencies": [
+    "api-keys"
+  ],
+  "env": [
+    "UNKEY_ROOT_KEY",
+    "UNKEY_API_ID"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/unkey/client.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/unkey/api-keys.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/api/vendor/unkey/verify/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/unkey/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "unkey-api-keys"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "never-log-keys",
+      "scope-keys-by-owner",
+      "verify-on-server"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

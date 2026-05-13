@@ -1,22 +1,42 @@
 {
   "name": "vercel-edge-config",
   "type": "integration",
-  "category": "platform",
+  "category": "storage",
   "title": "Vercel Edge Config",
-  "description": "Feature flags, config reads, A/B testing, and dynamic model routing.",
-  "dependencies": [],
+  "description": "Edge Config read helper for low-latency flags, redirects, and rollout config.",
+  "dependencies": [
+    "@vercel/edge-config"
+  ],
   "devDependencies": [],
-  "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "registryDependencies": [
+    "feature-flags"
+  ],
+  "env": [
+    "EDGE_CONFIG"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/vercel/edge-config.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/api/vendor/vercel/edge-config/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/vercel-edge-config/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "vercel-edge-config"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "read-only-at-runtime",
+      "keep-values-small",
+      "document-fallbacks"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

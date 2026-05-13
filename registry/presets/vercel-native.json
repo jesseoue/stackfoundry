@@ -7,7 +7,13 @@
     "vercel-blob",
     "vercel-edge-config",
     "vercel-marketplace-storage",
-    "ai-chat"
+    "ai-chat",
+    "vercel-workflows",
+    "neon-postgres",
+    "inngest-functions",
+    "trigger-dev-jobs",
+    "upstash-redis",
+    "sentry-monitoring"
   ],
   "status": "planned"
 }

@@ -1,0 +1,44 @@
+{
+  "name": "newsletter-signups",
+  "type": "module",
+  "category": "marketing",
+  "title": "Newsletter Signups",
+  "description": "Newsletter signup capture, double opt-in state, and export workflow.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/newsletter-signups.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/newsletter-signups.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/newsletter/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "newsletterSignups"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "newsletter-signups"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "audit-sensitive-actions"
+    ]
+  },
+  "status": "experimental"
+}

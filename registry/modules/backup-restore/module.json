@@ -1,0 +1,44 @@
+{
+  "name": "backup-restore",
+  "type": "module",
+  "category": "operations",
+  "title": "Backup Restore",
+  "description": "Backup run records, restore checklist, and continuity dashboard.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/backup-restore.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/backup-restore.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/backups/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "backupRestore"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "backup-restore"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "audit-sensitive-actions"
+    ]
+  },
+  "status": "experimental"
+}

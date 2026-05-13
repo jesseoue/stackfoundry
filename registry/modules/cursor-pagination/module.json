@@ -1,0 +1,32 @@
+{
+  "name": "cursor-pagination",
+  "type": "module",
+  "category": "developer-platform",
+  "title": "Cursor Pagination",
+  "description": "Cursor-based pagination helpers for stable API lists.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/cursor-pagination.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/developers/pagination/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "cursor-pagination"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "audit-sensitive-actions"
+    ]
+  },
+  "status": "experimental"
+}

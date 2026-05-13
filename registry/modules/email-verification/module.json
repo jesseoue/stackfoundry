@@ -1,0 +1,44 @@
+{
+  "name": "email-verification",
+  "type": "module",
+  "category": "auth",
+  "title": "Email Verification",
+  "description": "Email verification token helpers and verification state UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/email-verification.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/email-verification.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(auth)/email-verification/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "emailVerification"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "email-verification"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "audit-sensitive-actions"
+    ]
+  },
+  "status": "experimental"
+}

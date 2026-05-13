@@ -1,0 +1,44 @@
+{
+  "name": "maintenance-mode",
+  "type": "module",
+  "category": "operations",
+  "title": "Maintenance Mode",
+  "description": "Maintenance windows, banner state, and operator controls.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/maintenance-mode.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/maintenance-mode.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/maintenance/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "maintenanceMode"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "maintenance-mode"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "audit-sensitive-actions"
+    ]
+  },
+  "status": "experimental"
+}

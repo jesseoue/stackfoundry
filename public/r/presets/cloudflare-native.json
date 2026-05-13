@@ -10,7 +10,8 @@
     "cloudflare-kv",
     "cloudflare-queues",
     "cloudflare-turnstile",
-    "cloudflare-workers-ai"
+    "cloudflare-workers-ai",
+    "cloudflare-workflows"
   ],
   "status": "planned"
 }

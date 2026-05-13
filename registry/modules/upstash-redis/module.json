@@ -1,22 +1,48 @@
 {
   "name": "upstash-redis",
   "type": "integration",
-  "category": "infrastructure",
+  "category": "storage",
   "title": "Upstash Redis",
-  "description": "Redis/KV cache, rate limits, queues, and ephemeral state integration.",
-  "dependencies": [],
+  "description": "Upstash Redis client, serverless rate limiter, and deployment smoke route.",
+  "dependencies": [
+    "@upstash/redis",
+    "@upstash/ratelimit"
+  ],
   "devDependencies": [],
-  "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "registryDependencies": [
+    "rate-limits"
+  ],
+  "env": [
+    "UPSTASH_REDIS_REST_URL",
+    "UPSTASH_REDIS_REST_TOKEN"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/upstash/redis.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/upstash/ratelimit.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/api/vendor/upstash/health/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/upstash/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "upstash-redis"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "use-rest-env-vars",
+      "namespace-keys",
+      "set-rate-limit-headers"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

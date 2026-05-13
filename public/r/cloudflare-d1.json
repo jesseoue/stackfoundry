@@ -3,22 +3,43 @@
   "name": "cloudflare-d1",
   "type": "registry:item",
   "title": "Cloudflare D1",
-  "description": "D1 SQLite module, migrations, bindings, local dev, and Drizzle/D1 notes.",
+  "description": "D1 binding usage, SQLite schema starter, and Wrangler database notes.",
   "dependencies": [],
-  "devDependencies": [],
-  "registryDependencies": [],
-  "files": [],
+  "devDependencies": [
+    "wrangler"
+  ],
+  "registryDependencies": [
+    "cloudflare-workers"
+  ],
+  "files": [
+    {
+      "path": "cloudflare/d1/schema.sql",
+      "type": "registry:file",
+      "content": "create table if not exists audit_events (\n  id text primary key,\n  action text not null,\n  created_at text not null default current_timestamp\n);\n"
+    },
+    {
+      "path": "cloudflare/d1/queries.ts",
+      "type": "registry:file",
+      "content": "export interface Env {\n  DB: D1Database;\n}\n\nexport async function listAuditEvents(env: Env) {\n  return env.DB.prepare(\"select id, action, created_at from audit_events order by created_at desc limit 50\").all();\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/cloudflare/d1/page.tsx",
+      "type": "registry:page",
+      "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function CloudflareD1Page() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Cloudflare D1</h1>\n        <p className=\"text-muted-foreground\">SQLite at the edge with explicit bindings and migration files.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
   "meta": {
     "category": "database",
     "env": [],
-    "status": "planned",
+    "status": "experimental",
     "agents": {
       "skills": [
         "cloudflare-d1"
       ],
       "rules": [
-        "document-invariants",
-        "verify-before-release"
+        "commit-sql-migrations",
+        "bind-d1-explicitly",
+        "test-with-wrangler"
       ]
     }
   }

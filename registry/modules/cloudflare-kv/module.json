@@ -3,20 +3,34 @@
   "type": "integration",
   "category": "storage",
   "title": "Cloudflare KV",
-  "description": "KV bindings for low-write config, cache, and session-adjacent state.",
+  "description": "KV binding adapter for low-write configuration, flags, and cached metadata.",
   "dependencies": [],
-  "devDependencies": [],
-  "registryDependencies": [],
+  "devDependencies": [
+    "wrangler"
+  ],
+  "registryDependencies": [
+    "feature-flags"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "cloudflare/kv/config.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/cloudflare/kv/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "cloudflare-kv"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "avoid-high-write-counters",
+      "namespace-keys",
+      "document-eventual-consistency"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

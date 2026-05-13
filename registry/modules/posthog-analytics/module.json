@@ -3,20 +3,42 @@
   "type": "integration",
   "category": "analytics",
   "title": "PostHog Analytics",
-  "description": "Client/server capture, event catalog, feature flag adapter, and replay notes.",
-  "dependencies": [],
+  "description": "PostHog Next.js provider, pageview tracking, and event capture helper.",
+  "dependencies": [
+    "posthog-js",
+    "@posthog/next"
+  ],
   "devDependencies": [],
-  "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "registryDependencies": [
+    "feature-flags"
+  ],
+  "env": [
+    "NEXT_PUBLIC_POSTHOG_KEY",
+    "NEXT_PUBLIC_POSTHOG_HOST"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/components/providers/posthog-provider.tsx",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/components/analytics/track-button.tsx",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/posthog/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "posthog-analytics"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "load-client-only",
+      "respect-consent",
+      "disable-automatic-pageview-duplicates"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

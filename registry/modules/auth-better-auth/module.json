@@ -3,20 +3,43 @@
   "type": "integration",
   "category": "auth",
   "title": "Better Auth",
-  "description": "Better Auth setup for teams that want open-source auth in-app.",
-  "dependencies": [],
+  "description": "Better Auth server config, Next.js route handler, and typed client starter.",
+  "dependencies": [
+    "better-auth"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "env": [
+    "BETTER_AUTH_SECRET",
+    "BETTER_AUTH_URL"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/auth.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/auth-client.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/api/auth/[...all]/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/auth/better-auth/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "auth-better-auth"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "run-auth-migrations",
+      "protect-secret",
+      "document-enabled-plugins"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

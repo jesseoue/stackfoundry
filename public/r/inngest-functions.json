@@ -1,0 +1,54 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "inngest-functions",
+  "type": "registry:item",
+  "title": "Inngest Functions",
+  "description": "Inngest durable functions, event triggers, steps, and Next.js serve route.",
+  "dependencies": [
+    "inngest"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "background-jobs"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/inngest/client.ts",
+      "type": "registry:file",
+      "content": "import { Inngest } from \"inngest\";\n\nexport const inngest = new Inngest({ id: \"stackfoundry-app\" });\n"
+    },
+    {
+      "path": "apps/web/src/inngest/functions/user-onboarding.ts",
+      "type": "registry:file",
+      "content": "import { inngest } from \"../client\";\n\nexport const userOnboarding = inngest.createFunction(\n  {\n    id: \"user-onboarding\",\n    retries: { attempts: 3 },\n    triggers: [{ event: \"app/user.created\" }],\n  },\n  async ({ event, step }) => {\n    const profile = await step.run(\"create-profile\", async () => ({\n      userId: event.data.userId,\n      email: event.data.email,\n    }));\n\n    await step.run(\"send-welcome-email\", async () => {\n      console.log(\"send welcome email\", profile.email);\n    });\n\n    return { ok: true, userId: profile.userId };\n  }\n);\n"
+    },
+    {
+      "path": "apps/web/src/app/api/inngest/route.ts",
+      "type": "registry:file",
+      "content": "import { serve } from \"inngest/next\";\n\nimport { inngest } from \"@/inngest/client\";\nimport { userOnboarding } from \"@/inngest/functions/user-onboarding\";\n\nexport const { GET, POST, PUT } = serve({\n  client: inngest,\n  functions: [userOnboarding],\n});\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/workflows/inngest/page.tsx",
+      "type": "registry:page",
+      "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function InngestFunctionsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Inngest Functions</h1>\n        <p className=\"text-muted-foreground\">Durable event-driven functions with steps, retries, and scheduled work.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "meta": {
+    "category": "workflow",
+    "env": [
+      "INNGEST_EVENT_KEY",
+      "INNGEST_SIGNING_KEY"
+    ],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "inngest-functions"
+      ],
+      "rules": [
+        "verify-signing-key",
+        "keep-steps-idempotent",
+        "log-run-ids"
+      ]
+    }
+  }
+}

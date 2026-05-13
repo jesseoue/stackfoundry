@@ -1,7 +1,23 @@
-# Cloudflare R2
+# Cloudflare R2 Module
 
-Object storage adapter, zero-egress positioning, and file UI.
+R2 object storage adapter example for uploads and private object reads.
 
-## Status
+## Owns
 
-Planned module. Source files will be added as this module graduates into active development.
+- `cloudflare/r2/storage.ts`
+- `apps/web/src/app/(console)/admin/cloudflare/r2/page.tsx`
+
+## Dependencies
+
+No package dependencies.
+
+## Environment
+
+No environment variables are required by default.
+
+## Maintenance
+
+- Keep this module focused on the vendor integration boundary.
+- Keep secrets in environment variables and never commit local credentials.
+- Verify the example route or worker path before promoting this module beyond experimental.
+- Update docs, checklist, and manifest metadata when vendor APIs change.

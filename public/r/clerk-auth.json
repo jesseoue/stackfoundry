@@ -3,22 +3,60 @@
   "name": "clerk-auth",
   "type": "registry:item",
   "title": "Clerk Auth",
-  "description": "Clerk sign-in/sign-up, middleware, server auth helpers, env, and protected routes.",
-  "dependencies": [],
+  "description": "Clerk sign-in/sign-up pages, middleware, server auth helper, and webhook starter.",
+  "dependencies": [
+    "@clerk/nextjs"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
-  "files": [],
+  "files": [
+    {
+      "path": "middleware.ts",
+      "type": "registry:file",
+      "content": "import { clerkMiddleware } from \"@clerk/nextjs/server\";\n\nexport default clerkMiddleware();\n\nexport const config = {\n  matcher: [\"/((?!_next|.*\\..*).*)\"],\n};\n"
+    },
+    {
+      "path": "apps/web/src/lib/clerk/authorization.ts",
+      "type": "registry:file",
+      "content": "import \"server-only\";\n\nimport { auth } from \"@clerk/nextjs/server\";\n\nexport async function requireClerkUser() {\n  const session = await auth();\n  if (!session.userId) throw new Error(\"Authentication required\");\n  return session;\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(auth)/sign-in/[[...sign-in]]/page.tsx",
+      "type": "registry:page",
+      "content": "import { SignIn } from \"@clerk/nextjs\";\n\nexport default function SignInPage() {\n  return <SignIn />;\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(auth)/sign-up/[[...sign-up]]/page.tsx",
+      "type": "registry:page",
+      "content": "import { SignUp } from \"@clerk/nextjs\";\n\nexport default function SignUpPage() {\n  return <SignUp />;\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/api/webhooks/clerk/route.ts",
+      "type": "registry:file",
+      "content": "export async function POST(request: Request) {\n  const signature = request.headers.get(\"svix-signature\");\n  if (!signature) return new Response(\"Missing signature\", { status: 400 });\n\n  const payload = await request.text();\n  console.log(\"verify Clerk webhook before processing\", payload.length);\n\n  return new Response(\"ok\");\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/auth/clerk/page.tsx",
+      "type": "registry:page",
+      "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function ClerkAuthPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Clerk Auth</h1>\n        <p className=\"text-muted-foreground\">Hosted auth UI, server auth helpers, middleware, organizations, and webhook sync.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
   "meta": {
     "category": "auth",
-    "env": [],
-    "status": "planned",
+    "env": [
+      "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
+      "CLERK_SECRET_KEY",
+      "CLERK_WEBHOOK_SECRET"
+    ],
+    "status": "experimental",
     "agents": {
       "skills": [
         "clerk-auth"
       ],
       "rules": [
-        "document-invariants",
-        "verify-before-release"
+        "verify-webhooks",
+        "server-first-auth",
+        "keep-authorization-in-app-code"
       ]
     }
   }

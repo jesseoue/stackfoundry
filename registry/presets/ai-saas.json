@@ -16,7 +16,23 @@
     "notifications",
     "background-jobs",
     "pricing-page",
-    "plan-gating"
+    "plan-gating",
+    "security-headers",
+    "cors-policy",
+    "api-errors",
+    "cursor-pagination",
+    "quota-enforcement",
+    "email-templates",
+    "inngest-functions",
+    "trigger-dev-jobs",
+    "vercel-workflows",
+    "cloudflare-workers-ai",
+    "cloudflare-vectorize",
+    "upstash-redis",
+    "resend-email",
+    "posthog-analytics",
+    "sentry-monitoring",
+    "arcjet-security"
   ],
   "status": "planned"
 }

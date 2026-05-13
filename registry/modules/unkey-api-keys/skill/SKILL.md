@@ -1,11 +1,11 @@
 ---
 name: unkey-api-keys
-description: Maintain the Unkey API Keys module installed by StackFoundry.
+description: Maintain the Unkey API Keys vendor module installed by StackFoundry.
 ---
 
 # Unkey API Keys Maintenance Instructions
 
-- Keep module ownership clear.
-- Update docs with behavior changes.
-- Add verification steps before release.
-- Do not introduce provider lock-in outside the module boundary.
+- Preserve the vendor-specific deployment notes in `docs.md`.
+- Keep secrets server-only and out of generated examples.
+- Update dependencies, env vars, and smoke checks together.
+- Verify preview and production behavior before marking this module stable.

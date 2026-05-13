@@ -3,22 +3,51 @@
   "name": "sentry-monitoring",
   "type": "registry:item",
   "title": "Sentry Monitoring",
-  "description": "Next SDK setup, release tags, source maps, and issue links.",
-  "dependencies": [],
+  "description": "Sentry Next.js config files, manual capture helper, and release deployment notes.",
+  "dependencies": [
+    "@sentry/nextjs"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/sentry/capture.ts",
+      "type": "registry:file",
+      "content": "export async function captureVendorException(error: unknown, context?: Record<string, unknown>) {\n  const Sentry = await import(\"@sentry/nextjs\");\n  Sentry.captureException(error, { extra: context });\n}\n"
+    },
+    {
+      "path": "apps/web/sentry.client.config.ts",
+      "type": "registry:file",
+      "content": "import * as Sentry from \"@sentry/nextjs\";\n\nSentry.init({\n  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,\n  tracesSampleRate: 0.1,\n});\n"
+    },
+    {
+      "path": "apps/web/sentry.server.config.ts",
+      "type": "registry:file",
+      "content": "import * as Sentry from \"@sentry/nextjs\";\n\nSentry.init({\n  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,\n  tracesSampleRate: 0.1,\n});\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/sentry/page.tsx",
+      "type": "registry:page",
+      "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function SentryMonitoringPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Sentry Monitoring</h1>\n        <p className=\"text-muted-foreground\">Error monitoring and release-aware diagnostics for Next.js deployments.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
   "meta": {
     "category": "observability",
-    "env": [],
-    "status": "planned",
+    "env": [
+      "NEXT_PUBLIC_SENTRY_DSN",
+      "SENTRY_AUTH_TOKEN",
+      "SENTRY_ORG",
+      "SENTRY_PROJECT"
+    ],
+    "status": "experimental",
     "agents": {
       "skills": [
         "sentry-monitoring"
       ],
       "rules": [
-        "document-invariants",
-        "verify-before-release"
+        "upload-source-maps-in-ci",
+        "filter-sensitive-context",
+        "set-sampling-by-env"
       ]
     }
   }

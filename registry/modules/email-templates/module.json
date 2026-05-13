@@ -1,0 +1,34 @@
+{
+  "name": "email-templates",
+  "type": "module",
+  "category": "communications",
+  "title": "Email Templates",
+  "description": "Transactional email template catalog with plain-text fallback guidance.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "notifications"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/email-templates.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/email-templates/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "email-templates"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "audit-sensitive-actions"
+    ]
+  },
+  "status": "experimental"
+}

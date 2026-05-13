@@ -1,0 +1,44 @@
+{
+  "name": "workspace-branding",
+  "type": "module",
+  "category": "auth",
+  "title": "Workspace Branding",
+  "description": "Workspace logo, color, domain, and branded experience settings.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/workspace-branding.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/workspace-branding.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/settings/workspace/branding/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "workspaceBranding"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "workspace-branding"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "audit-sensitive-actions"
+    ]
+  },
+  "status": "experimental"
+}

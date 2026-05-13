@@ -3,20 +3,45 @@
   "type": "integration",
   "category": "database",
   "title": "Supabase Postgres",
-  "description": "Supabase Postgres wiring, optional RLS guidance, storage/auth compatibility notes.",
-  "dependencies": [],
+  "description": "Supabase SSR clients, Postgres env wiring, and RLS-first setup notes.",
+  "dependencies": [
+    "@supabase/ssr",
+    "@supabase/supabase-js"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "env": [
+    "NEXT_PUBLIC_SUPABASE_URL",
+    "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY",
+    "SUPABASE_SERVICE_ROLE_KEY"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/supabase/server.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/supabase/admin.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "supabase/rls-notes.sql",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/data/supabase/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "supabase-postgres"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "rls-by-default",
+      "never-expose-service-role",
+      "server-only-admin-client"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

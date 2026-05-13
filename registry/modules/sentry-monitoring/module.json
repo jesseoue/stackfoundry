@@ -3,20 +3,45 @@
   "type": "integration",
   "category": "observability",
   "title": "Sentry Monitoring",
-  "description": "Next SDK setup, release tags, source maps, and issue links.",
-  "dependencies": [],
+  "description": "Sentry Next.js config files, manual capture helper, and release deployment notes.",
+  "dependencies": [
+    "@sentry/nextjs"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "env": [
+    "NEXT_PUBLIC_SENTRY_DSN",
+    "SENTRY_AUTH_TOKEN",
+    "SENTRY_ORG",
+    "SENTRY_PROJECT"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/sentry/capture.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/sentry.client.config.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/sentry.server.config.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/sentry/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "sentry-monitoring"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "upload-source-maps-in-ci",
+      "filter-sensitive-context",
+      "set-sampling-by-env"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

@@ -3,20 +3,39 @@
   "type": "integration",
   "category": "observability",
   "title": "Axiom Logging",
-  "description": "Logs and analytics adapter for teams preferring Axiom.",
-  "dependencies": [],
+  "description": "Axiom structured event logger and server route for deployment smoke checks.",
+  "dependencies": [
+    "@axiomhq/js"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "env": [
+    "AXIOM_TOKEN",
+    "AXIOM_DATASET"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/axiom/logger.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/api/vendor/axiom/log/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/axiom/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "axiom-logging"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "use-structured-events",
+      "avoid-logging-secrets",
+      "sample-noisy-events"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

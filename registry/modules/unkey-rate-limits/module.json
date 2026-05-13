@@ -1,22 +1,42 @@
 {
   "name": "unkey-rate-limits",
   "type": "integration",
-  "category": "developer-platform",
+  "category": "operations",
   "title": "Unkey Rate Limits",
-  "description": "Unkey limits by key, user, IP, endpoint, org, or custom identifier.",
-  "dependencies": [],
+  "description": "Unkey rate limit namespace helper and protected route example.",
+  "dependencies": [
+    "@unkey/ratelimit"
+  ],
   "devDependencies": [],
-  "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "registryDependencies": [
+    "rate-limits"
+  ],
+  "env": [
+    "UNKEY_ROOT_KEY"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/unkey/ratelimit.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/api/vendor/unkey/ratelimit/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/unkey-rate-limits/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "unkey-rate-limits"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "namespace-limits",
+      "return-standard-limit-headers",
+      "avoid-client-side-root-key"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

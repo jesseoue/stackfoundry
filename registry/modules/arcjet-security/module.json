@@ -1,0 +1,42 @@
+{
+  "name": "arcjet-security",
+  "type": "integration",
+  "category": "security",
+  "title": "Arcjet Security",
+  "description": "Arcjet request protection starter for bot detection, shielding, and rate limits.",
+  "dependencies": [
+    "@arcjet/next"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "security-headers"
+  ],
+  "env": [
+    "ARCJET_KEY"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/arcjet.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/api/vendor/arcjet/protected/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/arcjet/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "arcjet-security"
+    ],
+    "rules": [
+      "protect-expensive-routes",
+      "test-deny-paths",
+      "document-mode-live-vs-dry-run"
+    ]
+  },
+  "status": "experimental"
+}

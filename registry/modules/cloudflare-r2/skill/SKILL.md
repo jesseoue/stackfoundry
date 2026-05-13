@@ -1,11 +1,11 @@
 ---
 name: cloudflare-r2
-description: Maintain the Cloudflare R2 module installed by StackFoundry.
+description: Maintain the Cloudflare R2 vendor module installed by StackFoundry.
 ---
 
 # Cloudflare R2 Maintenance Instructions
 
-- Keep module ownership clear.
-- Update docs with behavior changes.
-- Add verification steps before release.
-- Do not introduce provider lock-in outside the module boundary.
+- Preserve the vendor boundary documented in `docs.md`.
+- Keep example code compact and easy to replace with production logic.
+- Never commit provider secrets, local tokens, or generated vendor state.
+- Update `module.json` when dependencies, env vars, or install paths change.

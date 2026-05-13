@@ -1,0 +1,47 @@
+{
+  "name": "inngest-functions",
+  "type": "integration",
+  "category": "workflow",
+  "title": "Inngest Functions",
+  "description": "Inngest durable functions, event triggers, steps, and Next.js serve route.",
+  "dependencies": [
+    "inngest"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "background-jobs"
+  ],
+  "env": [
+    "INNGEST_EVENT_KEY",
+    "INNGEST_SIGNING_KEY"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/inngest/client.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/inngest/functions/user-onboarding.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/api/inngest/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/workflows/inngest/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "inngest-functions"
+    ],
+    "rules": [
+      "verify-signing-key",
+      "keep-steps-idempotent",
+      "log-run-ids"
+    ]
+  },
+  "status": "experimental"
+}

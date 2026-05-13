@@ -1,0 +1,40 @@
+{
+  "name": "vercel-workflows",
+  "type": "integration",
+  "category": "workflow",
+  "title": "Vercel Workflows",
+  "description": "Vercel Workflow DevKit durable workflow and Next.js route starter.",
+  "dependencies": [
+    "workflow"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "background-jobs"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/workflows/welcome.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/api/workflows/welcome/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/workflows/vercel/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "vercel-workflows"
+    ],
+    "rules": [
+      "use-workflow-directive",
+      "use-step-for-node-logic",
+      "start-workflows-from-routes"
+    ]
+  },
+  "status": "experimental"
+}

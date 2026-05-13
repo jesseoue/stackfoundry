@@ -1,0 +1,44 @@
+{
+  "name": "cookie-consent",
+  "type": "module",
+  "category": "compliance",
+  "title": "Cookie Consent",
+  "description": "Cookie category preferences and consent banner state.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/cookie-consent.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/cookie-consent.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(marketing)/privacy/cookies/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "cookieConsent"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "cookie-consent"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "audit-sensitive-actions"
+    ]
+  },
+  "status": "experimental"
+}

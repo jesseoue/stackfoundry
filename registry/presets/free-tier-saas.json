@@ -22,7 +22,25 @@
     "upstash-redis",
     "resend-email",
     "posthog-analytics",
-    "sentry-monitoring"
+    "sentry-monitoring",
+    "email-verification",
+    "password-reset",
+    "account-deletion",
+    "security-headers",
+    "cors-policy",
+    "api-errors",
+    "cursor-pagination",
+    "email-templates",
+    "contact-forms",
+    "newsletter-signups",
+    "cookie-consent",
+    "supabase-postgres",
+    "auth-better-auth",
+    "inngest-functions",
+    "unkey-api-keys",
+    "vercel-blob",
+    "vercel-edge-config",
+    "arcjet-security"
   ],
   "status": "planned"
 }

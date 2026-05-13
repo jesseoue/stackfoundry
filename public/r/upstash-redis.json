@@ -3,22 +3,52 @@
   "name": "upstash-redis",
   "type": "registry:item",
   "title": "Upstash Redis",
-  "description": "Redis/KV cache, rate limits, queues, and ephemeral state integration.",
-  "dependencies": [],
+  "description": "Upstash Redis client, serverless rate limiter, and deployment smoke route.",
+  "dependencies": [
+    "@upstash/redis",
+    "@upstash/ratelimit"
+  ],
   "devDependencies": [],
-  "registryDependencies": [],
-  "files": [],
+  "registryDependencies": [
+    "rate-limits"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/upstash/redis.ts",
+      "type": "registry:file",
+      "content": "import \"server-only\";\n\nimport { Redis } from \"@upstash/redis\";\n\nexport const redis = Redis.fromEnv();\n\nexport async function pingRedis() {\n  return redis.ping();\n}\n"
+    },
+    {
+      "path": "apps/web/src/lib/upstash/ratelimit.ts",
+      "type": "registry:file",
+      "content": "import \"server-only\";\n\nimport { Ratelimit } from \"@upstash/ratelimit\";\nimport { Redis } from \"@upstash/redis\";\n\nexport const apiRatelimit = new Ratelimit({\n  redis: Redis.fromEnv(),\n  limiter: Ratelimit.slidingWindow(60, \"1 m\"),\n  analytics: true,\n  prefix: \"stackfoundry:api\",\n});\n"
+    },
+    {
+      "path": "apps/web/src/app/api/vendor/upstash/health/route.ts",
+      "type": "registry:file",
+      "content": "import { NextResponse } from \"next/server\";\n\nimport { pingRedis } from \"@/lib/upstash/redis\";\n\nexport async function GET() {\n  const pong = await pingRedis();\n  return NextResponse.json({ ok: pong === \"PONG\" });\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/upstash/page.tsx",
+      "type": "registry:page",
+      "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function UpstashRedisPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Upstash Redis</h1>\n        <p className=\"text-muted-foreground\">Serverless Redis for rate limits, cache, queues, and resumable state.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
   "meta": {
-    "category": "infrastructure",
-    "env": [],
-    "status": "planned",
+    "category": "storage",
+    "env": [
+      "UPSTASH_REDIS_REST_URL",
+      "UPSTASH_REDIS_REST_TOKEN"
+    ],
+    "status": "experimental",
     "agents": {
       "skills": [
         "upstash-redis"
       ],
       "rules": [
-        "document-invariants",
-        "verify-before-release"
+        "use-rest-env-vars",
+        "namespace-keys",
+        "set-rate-limit-headers"
       ]
     }
   }

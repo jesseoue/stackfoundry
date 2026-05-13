@@ -1,7 +1,7 @@
 const siteUrl = "https://stackfoundry.dev/";
 
 const stats = [
-  { value: "140+", label: "Modules" },
+  { value: "160+", label: "Modules" },
   { value: "8", label: "Presets" },
   { value: "12", label: "Categories" },
   { value: "MIT", label: "License" },
@@ -59,7 +59,7 @@ const moduleCards = [
     name: "webhook-inbox",
     title: "Webhook Inbox",
     category: "operations",
-    status: "planned",
+    status: "installable",
     description: "Received webhook table, status, retry controls, signature metadata, and detail UI.",
     files: ["schema/webhooks.ts", "api/webhooks/*", "(console)/webhooks"],
   },
@@ -67,12 +67,65 @@ const moduleCards = [
 
 const backlog = [
   ["audit-log", "operations"],
-  ["posthog-analytics", "analytics"],
-  ["sentry-monitoring", "observability"],
-  ["resend-email", "lifecycle"],
+  ["security-headers", "security"],
+  ["quota-enforcement", "billing"],
+  ["email-templates", "comms"],
   ["public-api-orpc", "developer platform"],
-  ["clerk-auth", "auth"],
-  ["orgs-rbac", "tenancy"],
+  ["enterprise-sso", "auth"],
+  ["backup-restore", "operations"],
+];
+
+const commandGroups = [
+  {
+    label: "Core SaaS",
+    items: [
+      ["account-settings", "Profile, security, notifications"],
+      ["workspace-settings", "Members, billing, security"],
+      ["invites", "Expiring invitation tokens"],
+      ["audit-log", "Append-only event history"],
+    ],
+  },
+  {
+    label: "Developer Platform",
+    items: [
+      ["api-keys", "Hashed keys and scopes"],
+      ["api-docs", "Reference shell and examples"],
+      ["webhook-delivery", "Signed outbound events"],
+      ["api-errors", "Machine-readable error codes"],
+    ],
+  },
+  {
+    label: "Launch Readiness",
+    items: [
+      ["security-headers", "CSP and browser hardening"],
+      ["cookie-consent", "Preference capture"],
+      ["backup-restore", "Recovery checklist"],
+      ["maintenance-mode", "Operator-controlled downtime"],
+    ],
+  },
+];
+
+const presetRows = [
+  ["next-saas", "Product teams", "Billing, auth surfaces, ops, legal, docs"],
+  ["b2b-saas", "Team products", "RBAC, invites, audit, SSO, SCIM"],
+  ["developer-platform", "API-first apps", "Keys, docs, webhooks, usage"],
+  ["internal-admin", "Operators", "Support, health, incidents, backups"],
+  ["ai-saas", "AI products", "Chat, model routing, quotas, metering"],
+];
+
+const assuranceRows = [
+  {
+    title: "What installs?",
+    body: "Source files, route shells, helpers, schema slices, docs, skill guidance, and verification checklists.",
+  },
+  {
+    title: "What stays out?",
+    body: "Secrets, local metadata, generated caches, and provider lock-in outside explicit provider adapter modules.",
+  },
+  {
+    title: "How do teams review it?",
+    body: "Every module is declared in a manifest with files, dependencies, env notes, schema exports, and status.",
+  },
 ];
 
 const structuredData = {
@@ -113,6 +166,7 @@ export default function Page() {
           </a>
           <div className="nav-links">
             <a href="#modules">Modules</a>
+            <a href="#explore">Explore</a>
             <a href="#how">Install</a>
             <a href="#registry">Registry</a>
             <a href="#sponsors">Sponsors</a>
@@ -277,6 +331,81 @@ export default function Page() {
               </li>
             ))}
           </ul>
+        </section>
+
+        <section className="section" id="explore">
+          <div className="section-head">
+            <div className="section-eyebrow">Explore</div>
+            <h2>Give users more than a wall of cards.</h2>
+            <p>
+              The registry now presents modules as searchable commands, preset comparison rows,
+              and review prompts. These patterns borrow from product UI conventions without hiding
+              the source-first model.
+            </p>
+          </div>
+
+          <div className="showcase-grid">
+            <aside className="command-panel" aria-label="Module discovery preview">
+              <div className="command-input">
+                <span aria-hidden="true">⌘K</span>
+                <span>Search modules, presets, docs...</span>
+              </div>
+              <div className="command-list">
+                {commandGroups.map((group) => (
+                  <div className="command-group" key={group.label}>
+                    <div className="command-label">{group.label}</div>
+                    {group.items.map(([name, description]) => (
+                      <div className="command-item" key={name}>
+                        <span>{name}</span>
+                        <small>{description}</small>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </aside>
+
+            <div className="data-panel">
+              <div className="panel-head">
+                <div>
+                  <h3>Preset Fit</h3>
+                  <p>Compare bundles by use case before installing.</p>
+                </div>
+                <span className="panel-badge">5 active</span>
+              </div>
+              <div className="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Preset</th>
+                      <th>Best for</th>
+                      <th>Includes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {presetRows.map(([preset, audience, includes]) => (
+                      <tr key={preset}>
+                        <td>
+                          <code>{preset}</code>
+                        </td>
+                        <td>{audience}</td>
+                        <td>{includes}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div className="assurance-list">
+            {assuranceRows.map((row) => (
+              <details className="assurance-item" key={row.title} open={row.title === "What installs?"}>
+                <summary>{row.title}</summary>
+                <p>{row.body}</p>
+              </details>
+            ))}
+          </div>
         </section>
 
         <section className="section" id="registry">

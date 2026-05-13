@@ -1,0 +1,44 @@
+{
+  "name": "scim-provisioning",
+  "type": "module",
+  "category": "auth",
+  "title": "SCIM Provisioning",
+  "description": "SCIM token records, provisioning events, and directory sync status.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/scim-provisioning.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/scim-provisioning.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/settings/workspace/scim/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "scimProvisioning"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "scim-provisioning"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "audit-sensitive-actions"
+    ]
+  },
+  "status": "experimental"
+}

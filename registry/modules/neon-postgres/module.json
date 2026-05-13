@@ -3,20 +3,40 @@
   "type": "integration",
   "category": "database",
   "title": "Neon Postgres",
-  "description": "Neon project/env wiring, branching guidance, and Drizzle connection docs.",
-  "dependencies": [],
+  "description": "Neon serverless Postgres client, Drizzle-compatible env wiring, and branching notes.",
+  "dependencies": [
+    "@neondatabase/serverless"
+  ],
   "devDependencies": [],
-  "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [
+    "DATABASE_URL"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/neon/client.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/neon/branching.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/data/neon/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "neon-postgres"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "separate-preview-branches",
+      "keep-migrations-committed",
+      "validate-database-url"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }
