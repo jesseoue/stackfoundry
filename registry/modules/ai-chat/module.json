@@ -1,0 +1,22 @@
+{
+  "name": "ai-chat",
+  "type": "module",
+  "category": "ai",
+  "title": "AI Chat",
+  "description": "AI SDK chat route, model selector, message persistence, and prompt input.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "ai-chat"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

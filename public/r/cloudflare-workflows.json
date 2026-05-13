@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cloudflare-workflows",
+  "type": "registry:item",
+  "title": "Cloudflare Workflows",
+  "description": "Durable multi-step background jobs and human-in-the-loop flows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "workflow",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "cloudflare-workflows"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

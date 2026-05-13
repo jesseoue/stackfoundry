@@ -1,0 +1,22 @@
+{
+  "name": "vercel-edge-config",
+  "type": "integration",
+  "category": "platform",
+  "title": "Vercel Edge Config",
+  "description": "Feature flags, config reads, A/B testing, and dynamic model routing.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "vercel-edge-config"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

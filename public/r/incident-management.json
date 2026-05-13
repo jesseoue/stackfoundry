@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "incident-management",
+  "type": "registry:item",
+  "title": "Incident Management",
+  "description": "Internal incidents, timeline, owner, and postmortem.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "operations",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "incident-management"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

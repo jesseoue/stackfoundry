@@ -1,0 +1,22 @@
+{
+  "name": "drizzle-multitenancy",
+  "type": "schema",
+  "category": "database",
+  "title": "Drizzle Multitenancy",
+  "description": "Org/account ids on core tables, indexes, relations, and cache-tag rules.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "drizzle-multitenancy"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "docs-help-center",
+  "type": "registry:item",
+  "title": "Help Center",
+  "description": "MDX docs, search, categories, and article pages.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "content",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "docs-help-center"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "evals",
+  "type": "registry:item",
+  "title": "Evals",
+  "description": "Prompt eval cases, pass/fail scoring UI, and regression tracking.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "ai",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "evals"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

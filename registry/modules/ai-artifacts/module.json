@@ -1,0 +1,22 @@
+{
+  "name": "ai-artifacts",
+  "type": "module",
+  "category": "ai",
+  "title": "AI Artifacts",
+  "description": "Document/code/sheet artifacts, side panel, and persistence.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "ai-artifacts"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

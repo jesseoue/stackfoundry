@@ -1,0 +1,22 @@
+{
+  "name": "playwright-e2e",
+  "type": "module",
+  "category": "foundation",
+  "title": "Playwright E2E",
+  "description": "Browser smoke tests for auth, billing, dashboard, and installed module flows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "playwright-e2e"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

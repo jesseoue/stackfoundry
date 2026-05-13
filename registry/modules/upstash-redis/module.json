@@ -1,0 +1,22 @@
+{
+  "name": "upstash-redis",
+  "type": "integration",
+  "category": "infrastructure",
+  "title": "Upstash Redis",
+  "description": "Redis/KV cache, rate limits, queues, and ephemeral state integration.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "upstash-redis"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

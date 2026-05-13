@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cloudflare-workers-ai",
+  "type": "registry:item",
+  "title": "Cloudflare Workers AI",
+  "description": "Workers AI inference, embeddings, and image generation examples.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "ai",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "cloudflare-workers-ai"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

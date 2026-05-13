@@ -1,0 +1,22 @@
+{
+  "name": "data-import-export",
+  "type": "module",
+  "category": "operations",
+  "title": "Data Import Export",
+  "description": "CSV import/export, background processing, and error report UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "data-import-export"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

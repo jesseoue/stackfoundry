@@ -1,0 +1,22 @@
+{
+  "name": "invites",
+  "type": "module",
+  "category": "auth",
+  "title": "Invites",
+  "description": "Email invitations, pending invitation state, role assignment, and resend/cancel flows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "invites"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "seo",
+  "type": "module",
+  "category": "marketing",
+  "title": "SEO",
+  "description": "Sitemap, robots, OG image defaults, and metadata helpers.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "seo"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

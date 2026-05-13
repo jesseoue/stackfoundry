@@ -1,0 +1,22 @@
+{
+  "name": "neon-postgres",
+  "type": "integration",
+  "category": "database",
+  "title": "Neon Postgres",
+  "description": "Neon project/env wiring, branching guidance, and Drizzle connection docs.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "neon-postgres"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

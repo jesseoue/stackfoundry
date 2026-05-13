@@ -1,0 +1,22 @@
+{
+  "name": "docs-help-center",
+  "type": "module",
+  "category": "content",
+  "title": "Help Center",
+  "description": "MDX docs, search, categories, and article pages.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "docs-help-center"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

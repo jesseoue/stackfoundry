@@ -1,0 +1,22 @@
+{
+  "name": "cloudflare-tunnel",
+  "type": "integration",
+  "category": "networking",
+  "title": "Cloudflare Tunnel",
+  "description": "Secure tunnel module for exposing local/internal services.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cloudflare-tunnel"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

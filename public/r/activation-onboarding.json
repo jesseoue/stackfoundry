@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "activation-onboarding",
+  "type": "registry:item",
+  "title": "Activation Onboarding",
+  "description": "Onboarding checklist, first-value milestones, and time-to-value tracking.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "growth",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "activation-onboarding"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

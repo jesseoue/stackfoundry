@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sentry-monitoring",
+  "type": "registry:item",
+  "title": "Sentry Monitoring",
+  "description": "Next SDK setup, release tags, source maps, and issue links.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "observability",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "sentry-monitoring"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

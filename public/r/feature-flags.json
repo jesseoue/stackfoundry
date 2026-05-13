@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-flags",
+  "type": "registry:item",
+  "title": "Feature Flags",
+  "description": "Flag table, evaluation helper, admin UI, and per-org targeting.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "growth",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "feature-flags"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "rag-starter",
+  "type": "module",
+  "category": "ai",
+  "title": "RAG Starter",
+  "description": "Embeddings, document ingestion, and vector search adapter.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "rag-starter"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

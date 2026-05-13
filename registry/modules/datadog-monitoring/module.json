@@ -1,0 +1,22 @@
+{
+  "name": "datadog-monitoring",
+  "type": "integration",
+  "category": "observability",
+  "title": "Datadog Monitoring",
+  "description": "Enterprise observability adapter.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "datadog-monitoring"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

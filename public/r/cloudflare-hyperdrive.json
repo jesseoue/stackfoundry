@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cloudflare-hyperdrive",
+  "type": "registry:item",
+  "title": "Cloudflare Hyperdrive",
+  "description": "Postgres/MySQL connection acceleration for Workers.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "database",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "cloudflare-hyperdrive"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

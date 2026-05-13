@@ -1,0 +1,22 @@
+{
+  "name": "cloudflare-workers-ai",
+  "type": "integration",
+  "category": "ai",
+  "title": "Cloudflare Workers AI",
+  "description": "Workers AI inference, embeddings, and image generation examples.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cloudflare-workers-ai"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

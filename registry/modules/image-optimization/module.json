@@ -1,0 +1,22 @@
+{
+  "name": "image-optimization",
+  "type": "module",
+  "category": "media",
+  "title": "Image Optimization",
+  "description": "Image upload, transformation, metadata, and storage adapter.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "image-optimization"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "drizzle-multitenancy",
+  "type": "registry:item",
+  "title": "Drizzle Multitenancy",
+  "description": "Org/account ids on core tables, indexes, relations, and cache-tag rules.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "database",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "drizzle-multitenancy"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

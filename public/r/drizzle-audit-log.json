@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "drizzle-audit-log",
+  "type": "registry:item",
+  "title": "Drizzle Audit Log",
+  "description": "Common activity/event schema, actor/resource modeling, and admin timeline UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "database",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "drizzle-audit-log"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "internal-api-trpc",
+  "type": "registry:item",
+  "title": "Internal API tRPC",
+  "description": "Optional tRPC module for TypeScript-only internal APIs.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "api",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "internal-api-trpc"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+---
+name: drizzle-multitenancy
+description: Maintain the Drizzle Multitenancy module installed by StackFoundry.
+---
+
+# Drizzle Multitenancy Maintenance Instructions
+
+- Keep module ownership clear.
+- Update docs with behavior changes.
+- Add verification steps before release.
+- Do not introduce provider lock-in outside the module boundary.

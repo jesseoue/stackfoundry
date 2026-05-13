@@ -1,0 +1,22 @@
+{
+  "name": "api-usage-dashboard",
+  "type": "module",
+  "category": "api",
+  "title": "API Usage Dashboard",
+  "description": "Per-key usage charts, recent requests, errors, and limits.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "api-usage-dashboard"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

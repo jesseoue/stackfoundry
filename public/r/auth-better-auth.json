@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "auth-better-auth",
+  "type": "registry:item",
+  "title": "Better Auth",
+  "description": "Better Auth setup for teams that want open-source auth in-app.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "auth",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "auth-better-auth"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

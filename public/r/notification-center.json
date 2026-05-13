@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "notification-center",
+  "type": "registry:item",
+  "title": "Notification Center",
+  "description": "In-app notifications, preferences, read/unread state, and digests.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "notifications",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "notification-center"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

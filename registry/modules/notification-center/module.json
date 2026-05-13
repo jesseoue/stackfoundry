@@ -1,0 +1,22 @@
+{
+  "name": "notification-center",
+  "type": "module",
+  "category": "notifications",
+  "title": "Notification Center",
+  "description": "In-app notifications, preferences, read/unread state, and digests.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "notification-center"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

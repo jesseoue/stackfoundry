@@ -1,0 +1,22 @@
+{
+  "name": "lemon-squeezy-billing",
+  "type": "integration",
+  "category": "billing",
+  "title": "Lemon Squeezy Billing",
+  "description": "Creator/digital product checkout and license key workflows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "lemon-squeezy-billing"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

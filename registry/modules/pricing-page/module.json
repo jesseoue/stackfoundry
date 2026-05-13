@@ -1,0 +1,22 @@
+{
+  "name": "pricing-page",
+  "type": "page",
+  "category": "billing",
+  "title": "Pricing Page",
+  "description": "Public pricing table, plan comparison, and CTA wiring.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "pricing-page"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "file-uploads",
+  "type": "registry:item",
+  "title": "File Uploads",
+  "description": "Vercel Blob/S3 adapter, upload UI, and file browser.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "storage",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "file-uploads"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

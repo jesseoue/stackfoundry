@@ -1,0 +1,22 @@
+{
+  "name": "fly-deploy",
+  "type": "integration",
+  "category": "deploy",
+  "title": "Fly Deploy",
+  "description": "App and worker deployment with regionality notes and templates.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "fly-deploy"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

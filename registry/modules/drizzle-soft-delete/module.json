@@ -1,0 +1,22 @@
+{
+  "name": "drizzle-soft-delete",
+  "type": "schema",
+  "category": "database",
+  "title": "Drizzle Soft Delete",
+  "description": "deletedAt conventions, restore flows, and filtered query helpers.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "drizzle-soft-delete"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

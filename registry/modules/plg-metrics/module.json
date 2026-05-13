@@ -1,0 +1,22 @@
+{
+  "name": "plg-metrics",
+  "type": "module",
+  "category": "growth",
+  "title": "PLG Metrics",
+  "description": "Canonical event taxonomy, user/account traits, product events, and tracking helpers.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "plg-metrics"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

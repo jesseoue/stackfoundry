@@ -1,0 +1,22 @@
+{
+  "name": "api-docs",
+  "type": "module",
+  "category": "api",
+  "title": "API Docs",
+  "description": "OpenAPI docs, auth examples, error catalog, and changelog.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "api-docs"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

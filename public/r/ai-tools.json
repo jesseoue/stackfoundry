@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-tools",
+  "type": "registry:item",
+  "title": "AI Tools",
+  "description": "Tool definitions, typed tool rendering, and approval flows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "ai",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "ai-tools"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

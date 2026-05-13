@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cloudflare-kv",
+  "type": "registry:item",
+  "title": "Cloudflare KV",
+  "description": "KV bindings for low-write config, cache, and session-adjacent state.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "storage",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "cloudflare-kv"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

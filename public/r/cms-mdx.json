@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cms-mdx",
+  "type": "registry:item",
+  "title": "MDX Content",
+  "description": "File-based docs, blog, and changelog collections.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "content",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "cms-mdx"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

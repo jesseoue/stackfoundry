@@ -1,0 +1,22 @@
+{
+  "name": "billing-core",
+  "type": "module",
+  "category": "billing",
+  "title": "Billing Core",
+  "description": "Shared customers, subscriptions, plans, products, entitlements, and provider mapping.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "billing-core"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

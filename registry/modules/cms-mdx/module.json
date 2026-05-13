@@ -1,0 +1,22 @@
+{
+  "name": "cms-mdx",
+  "type": "module",
+  "category": "content",
+  "title": "MDX Content",
+  "description": "File-based docs, blog, and changelog collections.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cms-mdx"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

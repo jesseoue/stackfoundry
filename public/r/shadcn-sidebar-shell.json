@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-sidebar-shell",
+  "type": "registry:item",
+  "title": "Sidebar Shell",
+  "description": "shadcn-compatible Sidebar shell with navigation, header, responsive layout, and product config.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "foundation",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "shadcn-sidebar-shell"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

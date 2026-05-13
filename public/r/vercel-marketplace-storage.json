@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "vercel-marketplace-storage",
+  "type": "registry:item",
+  "title": "Vercel Marketplace Storage",
+  "description": "Guided setup for Neon, Supabase, Upstash, AWS, and marketplace integrations.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "platform",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "vercel-marketplace-storage"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

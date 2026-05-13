@@ -1,0 +1,22 @@
+{
+  "name": "firebase-backend",
+  "type": "integration",
+  "category": "backend",
+  "title": "Firebase Backend",
+  "description": "Optional mobile-first backend module for Firestore/auth/storage apps.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "firebase-backend"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

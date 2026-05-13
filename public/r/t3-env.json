@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "t3-env",
+  "type": "registry:item",
+  "title": "T3 Env",
+  "description": "Type-safe server/client environment validation and .env.example management.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "foundation",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "t3-env"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

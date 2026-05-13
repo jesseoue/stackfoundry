@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "background-jobs",
+  "type": "registry:item",
+  "title": "Background Jobs",
+  "description": "Job table, queue abstraction, retry/cancel UI, and worker handoff patterns.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "operations",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "background-jobs"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

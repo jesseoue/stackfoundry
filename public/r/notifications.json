@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "notifications",
+  "type": "registry:item",
+  "title": "Notifications",
+  "description": "In-app notifications, email preferences, and delivery table.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "notifications",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "notifications"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fly-deploy",
+  "type": "registry:item",
+  "title": "Fly Deploy",
+  "description": "App and worker deployment with regionality notes and templates.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "deploy",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "fly-deploy"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

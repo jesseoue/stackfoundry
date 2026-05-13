@@ -1,0 +1,22 @@
+{
+  "name": "model-router",
+  "type": "module",
+  "category": "ai",
+  "title": "Model Router",
+  "description": "Model catalog, provider ordering, fallback rules, and AI Gateway config.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "model-router"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

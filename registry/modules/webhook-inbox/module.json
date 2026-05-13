@@ -1,0 +1,22 @@
+{
+  "name": "webhook-inbox",
+  "type": "module",
+  "category": "operations",
+  "title": "Webhook Inbox",
+  "description": "Received webhook table, status, retry, signature metadata, and event detail UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "webhook-inbox"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

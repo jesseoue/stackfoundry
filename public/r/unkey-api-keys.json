@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "unkey-api-keys",
+  "type": "registry:item",
+  "title": "Unkey API Keys",
+  "description": "Unkey key creation, verification, revocation, metadata, expiration, and usage limits.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "developer-platform",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "unkey-api-keys"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

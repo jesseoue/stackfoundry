@@ -1,0 +1,22 @@
+{
+  "name": "trial-management",
+  "type": "module",
+  "category": "billing",
+  "title": "Trial Management",
+  "description": "Trial start/end, grace periods, and upgrade prompts.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "trial-management"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

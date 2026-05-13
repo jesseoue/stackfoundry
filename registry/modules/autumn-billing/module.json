@@ -1,0 +1,22 @@
+{
+  "name": "autumn-billing",
+  "type": "integration",
+  "category": "billing",
+  "title": "Autumn Billing",
+  "description": "Autumn + Stripe usage billing, overages, spend caps, and plan changes.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "autumn-billing"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

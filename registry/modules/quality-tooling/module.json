@@ -1,0 +1,22 @@
+{
+  "name": "quality-tooling",
+  "type": "module",
+  "category": "foundation",
+  "title": "Quality Tooling",
+  "description": "Biome, Vitest, Testing Library, Knip, Lefthook, and CI defaults.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "quality-tooling"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "theme-system",
+  "type": "module",
+  "category": "foundation",
+  "title": "Theme System",
+  "description": "Product tokens, light/dark mode, density settings, and nav configuration.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "theme-system"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

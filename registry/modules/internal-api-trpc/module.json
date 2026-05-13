@@ -1,0 +1,22 @@
+{
+  "name": "internal-api-trpc",
+  "type": "module",
+  "category": "api",
+  "title": "Internal API tRPC",
+  "description": "Optional tRPC module for TypeScript-only internal APIs.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "internal-api-trpc"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

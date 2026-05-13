@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "plan-gating",
+  "type": "registry:item",
+  "title": "Plan Gating",
+  "description": "Route/component helpers for feature gates and plan limits.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "billing",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "plan-gating"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

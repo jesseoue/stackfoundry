@@ -1,0 +1,22 @@
+{
+  "name": "vercel-marketplace-storage",
+  "type": "integration",
+  "category": "platform",
+  "title": "Vercel Marketplace Storage",
+  "description": "Guided setup for Neon, Supabase, Upstash, AWS, and marketplace integrations.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "vercel-marketplace-storage"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "audit-log",
+  "type": "registry:item",
+  "title": "Audit Log",
+  "description": "Append-only activity table, event helpers, and admin timeline UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "operations",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "audit-log"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "cloudflare-observability",
+  "type": "integration",
+  "category": "observability",
+  "title": "Cloudflare Observability",
+  "description": "Workers logs, traces, analytics, and tail workers.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cloudflare-observability"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

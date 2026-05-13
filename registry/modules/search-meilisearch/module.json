@@ -1,0 +1,22 @@
+{
+  "name": "search-meilisearch",
+  "type": "integration",
+  "category": "search",
+  "title": "Meilisearch",
+  "description": "Meilisearch adapter and sync jobs.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "search-meilisearch"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "convex-backend",
+  "type": "integration",
+  "category": "backend",
+  "title": "Convex Backend",
+  "description": "Convex project setup, generated functions, provider wrapper, and deployment docs.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "convex-backend"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

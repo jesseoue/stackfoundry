@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "auth-authjs",
+  "type": "registry:item",
+  "title": "Auth.js",
+  "description": "Auth.js setup for teams that prefer classic Next auth flows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "auth",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "auth-authjs"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "drizzle-relations",
+  "type": "registry:item",
+  "title": "Drizzle Relations",
+  "description": "Relations helpers, type-safe joins, query examples, and seed patterns.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "database",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "drizzle-relations"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

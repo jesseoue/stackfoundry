@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "upstash-redis",
+  "type": "registry:item",
+  "title": "Upstash Redis",
+  "description": "Redis/KV cache, rate limits, queues, and ephemeral state integration.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "infrastructure",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "upstash-redis"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

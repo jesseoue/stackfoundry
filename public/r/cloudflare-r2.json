@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cloudflare-r2",
+  "type": "registry:item",
+  "title": "Cloudflare R2",
+  "description": "Object storage adapter, zero-egress positioning, and file UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "storage",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "cloudflare-r2"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "referral-loops",
+  "type": "module",
+  "category": "growth",
+  "title": "Referral Loops",
+  "description": "Invite/referral codes, viral coefficient tracking, and reward state.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "referral-loops"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

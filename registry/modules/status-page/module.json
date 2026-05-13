@@ -1,0 +1,22 @@
+{
+  "name": "status-page",
+  "type": "module",
+  "category": "operations",
+  "title": "Status Page",
+  "description": "Incident model, public status page, and subscriptions.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "status-page"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

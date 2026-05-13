@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "product-qualified-leads",
+  "type": "registry:item",
+  "title": "Product Qualified Leads",
+  "description": "PQL scoring, activation thresholds, sales handoff flags, and CRM hooks.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "growth",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "product-qualified-leads"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

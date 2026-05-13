@@ -1,0 +1,22 @@
+{
+  "name": "auth-better-auth",
+  "type": "integration",
+  "category": "auth",
+  "title": "Better Auth",
+  "description": "Better Auth setup for teams that want open-source auth in-app.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "auth-better-auth"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

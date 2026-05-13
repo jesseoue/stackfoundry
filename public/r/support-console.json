@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "support-console",
+  "type": "registry:item",
+  "title": "Support Console",
+  "description": "Customer lookup, account timeline, and support notes.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "operations",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "support-console"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

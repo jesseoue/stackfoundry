@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "playwright-e2e",
+  "type": "registry:item",
+  "title": "Playwright E2E",
+  "description": "Browser smoke tests for auth, billing, dashboard, and installed module flows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "foundation",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "playwright-e2e"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

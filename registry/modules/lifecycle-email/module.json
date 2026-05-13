@@ -1,0 +1,22 @@
+{
+  "name": "lifecycle-email",
+  "type": "module",
+  "category": "growth",
+  "title": "Lifecycle Email",
+  "description": "Behavior-triggered onboarding, activation nudges, reactivation, and upgrade emails.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "lifecycle-email"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

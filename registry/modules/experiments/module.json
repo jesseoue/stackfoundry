@@ -1,0 +1,22 @@
+{
+  "name": "experiments",
+  "type": "module",
+  "category": "growth",
+  "title": "Experiments",
+  "description": "A/B test model, exposure tracking, conversion events, and results UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "experiments"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

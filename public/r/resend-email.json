@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "resend-email",
+  "type": "registry:item",
+  "title": "Resend Email",
+  "description": "React Email templates, send helper, preview route, and email log table.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "email",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "resend-email"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

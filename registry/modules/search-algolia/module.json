@@ -1,0 +1,22 @@
+{
+  "name": "search-algolia",
+  "type": "integration",
+  "category": "search",
+  "title": "Algolia",
+  "description": "Algolia indexing, keys, and autocomplete UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "search-algolia"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

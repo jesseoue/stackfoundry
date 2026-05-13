@@ -1,0 +1,22 @@
+{
+  "name": "convex-integration",
+  "type": "integration",
+  "category": "backend",
+  "title": "Convex Integration",
+  "description": "Convex dashboard links, deployment status, and schema/function notes.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "convex-integration"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

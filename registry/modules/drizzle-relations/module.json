@@ -1,0 +1,22 @@
+{
+  "name": "drizzle-relations",
+  "type": "schema",
+  "category": "database",
+  "title": "Drizzle Relations",
+  "description": "Relations helpers, type-safe joins, query examples, and seed patterns.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "drizzle-relations"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

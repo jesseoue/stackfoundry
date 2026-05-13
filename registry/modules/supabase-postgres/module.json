@@ -1,0 +1,22 @@
+{
+  "name": "supabase-postgres",
+  "type": "integration",
+  "category": "database",
+  "title": "Supabase Postgres",
+  "description": "Supabase Postgres wiring, optional RLS guidance, storage/auth compatibility notes.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "supabase-postgres"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

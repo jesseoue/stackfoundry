@@ -1,0 +1,22 @@
+{
+  "name": "flags-statsig",
+  "type": "integration",
+  "category": "growth",
+  "title": "Statsig Flags",
+  "description": "Statsig provider adapter.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "flags-statsig"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

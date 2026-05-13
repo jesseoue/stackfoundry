@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "webhook-delivery",
+  "type": "registry:item",
+  "title": "Webhook Delivery",
+  "description": "Outbound webhooks, endpoint secrets, delivery attempts, and retry logs.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "api",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "webhook-delivery"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

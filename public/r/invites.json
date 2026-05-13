@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "invites",
+  "type": "registry:item",
+  "title": "Invites",
+  "description": "Email invitations, pending invitation state, role assignment, and resend/cancel flows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "auth",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "invites"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

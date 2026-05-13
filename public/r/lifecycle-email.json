@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lifecycle-email",
+  "type": "registry:item",
+  "title": "Lifecycle Email",
+  "description": "Behavior-triggered onboarding, activation nudges, reactivation, and upgrade emails.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "growth",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "lifecycle-email"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "session-management",
+  "type": "module",
+  "category": "auth",
+  "title": "Session Management",
+  "description": "Active sessions/devices view, revoke sessions, and security event history.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "session-management"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

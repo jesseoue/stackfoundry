@@ -1,0 +1,22 @@
+{
+  "name": "geist-nova-theme",
+  "type": "module",
+  "category": "foundation",
+  "title": "Geist Nova Theme",
+  "description": "Geist typography and Tailwind v4 theme tokens for a polished SaaS console.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "geist-nova-theme"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

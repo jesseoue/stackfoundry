@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "waitlist",
+  "type": "registry:item",
+  "title": "Waitlist",
+  "description": "Waitlist form, referral code, and invite state.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "marketing",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "waitlist"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

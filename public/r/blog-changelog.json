@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blog-changelog",
+  "type": "registry:item",
+  "title": "Blog and Changelog",
+  "description": "MDX blog/changelog, RSS, and SEO metadata.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "content",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "blog-changelog"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

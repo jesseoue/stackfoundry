@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "axiom-logging",
+  "type": "registry:item",
+  "title": "Axiom Logging",
+  "description": "Logs and analytics adapter for teams preferring Axiom.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "observability",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "axiom-logging"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

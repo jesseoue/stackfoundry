@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "search-postgres",
+  "type": "registry:item",
+  "title": "Postgres Search",
+  "description": "Postgres full-text search, ranking, indexes, and query UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "search",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "search-postgres"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

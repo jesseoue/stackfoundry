@@ -1,0 +1,22 @@
+{
+  "name": "plan-gating",
+  "type": "module",
+  "category": "billing",
+  "title": "Plan Gating",
+  "description": "Route/component helpers for feature gates and plan limits.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "plan-gating"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

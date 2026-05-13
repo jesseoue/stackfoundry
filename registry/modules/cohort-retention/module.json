@@ -1,0 +1,22 @@
+{
+  "name": "cohort-retention",
+  "type": "module",
+  "category": "growth",
+  "title": "Cohort Retention",
+  "description": "Cohort tables, retention curves, saved segments, and plan/channel filters.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cohort-retention"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

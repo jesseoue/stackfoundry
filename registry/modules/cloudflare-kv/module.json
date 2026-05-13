@@ -1,0 +1,22 @@
+{
+  "name": "cloudflare-kv",
+  "type": "integration",
+  "category": "storage",
+  "title": "Cloudflare KV",
+  "description": "KV bindings for low-write config, cache, and session-adjacent state.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cloudflare-kv"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

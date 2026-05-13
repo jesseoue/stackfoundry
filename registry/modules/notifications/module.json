@@ -1,0 +1,22 @@
+{
+  "name": "notifications",
+  "type": "module",
+  "category": "notifications",
+  "title": "Notifications",
+  "description": "In-app notifications, email preferences, and delivery table.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "notifications"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

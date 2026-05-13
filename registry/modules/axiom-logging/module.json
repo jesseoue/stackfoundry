@@ -1,0 +1,22 @@
+{
+  "name": "axiom-logging",
+  "type": "integration",
+  "category": "observability",
+  "title": "Axiom Logging",
+  "description": "Logs and analytics adapter for teams preferring Axiom.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "axiom-logging"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

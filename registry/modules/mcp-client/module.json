@@ -1,0 +1,22 @@
+{
+  "name": "mcp-client",
+  "type": "module",
+  "category": "ai",
+  "title": "MCP Client",
+  "description": "MCP server config UI, server registry, and auth metadata.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "mcp-client"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

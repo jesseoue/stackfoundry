@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "entitlements",
+  "type": "registry:item",
+  "title": "Entitlements",
+  "description": "Feature gates, plan limits, hasFeature helpers, and UI badges.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "billing",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "entitlements"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "sdk-snippets",
+  "type": "module",
+  "category": "api",
+  "title": "SDK Snippets",
+  "description": "Generated examples for curl, TypeScript, Python, and HTTP clients.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "sdk-snippets"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

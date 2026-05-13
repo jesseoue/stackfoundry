@@ -1,0 +1,22 @@
+{
+  "name": "cloudflare-r2",
+  "type": "integration",
+  "category": "storage",
+  "title": "Cloudflare R2",
+  "description": "Object storage adapter, zero-egress positioning, and file UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cloudflare-r2"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "next-saas",
+  "type": "preset",
+  "category": "foundation",
+  "title": "Next SaaS",
+  "description": "Base Next.js SaaS preset module with app shell, dashboard routes, and product configuration.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "next-saas"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

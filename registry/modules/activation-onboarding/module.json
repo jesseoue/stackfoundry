@@ -1,0 +1,22 @@
+{
+  "name": "activation-onboarding",
+  "type": "module",
+  "category": "growth",
+  "title": "Activation Onboarding",
+  "description": "Onboarding checklist, first-value milestones, and time-to-value tracking.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "activation-onboarding"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

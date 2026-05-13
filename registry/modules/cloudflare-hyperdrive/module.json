@@ -1,0 +1,22 @@
+{
+  "name": "cloudflare-hyperdrive",
+  "type": "integration",
+  "category": "database",
+  "title": "Cloudflare Hyperdrive",
+  "description": "Postgres/MySQL connection acceleration for Workers.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cloudflare-hyperdrive"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

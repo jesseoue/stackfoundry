@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "next-saas",
+  "type": "registry:item",
+  "title": "Next SaaS",
+  "description": "Base Next.js SaaS preset module with app shell, dashboard routes, and product configuration.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "foundation",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "next-saas"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

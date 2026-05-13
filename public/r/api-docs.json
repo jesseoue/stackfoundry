@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "api-docs",
+  "type": "registry:item",
+  "title": "API Docs",
+  "description": "OpenAPI docs, auth examples, error catalog, and changelog.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "api",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "api-docs"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

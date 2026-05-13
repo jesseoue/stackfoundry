@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-chat",
+  "type": "registry:item",
+  "title": "AI Chat",
+  "description": "AI SDK chat route, model selector, message persistence, and prompt input.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "ai",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "ai-chat"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "vercel-deploy",
+  "type": "integration",
+  "category": "deploy",
+  "title": "Vercel Deploy",
+  "description": "Vercel project linking, env pull, preview/prod scripts, and deployment docs.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "vercel-deploy"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

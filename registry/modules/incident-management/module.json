@@ -1,0 +1,22 @@
+{
+  "name": "incident-management",
+  "type": "module",
+  "category": "operations",
+  "title": "Incident Management",
+  "description": "Internal incidents, timeline, owner, and postmortem.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "incident-management"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

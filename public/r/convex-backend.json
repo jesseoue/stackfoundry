@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "convex-backend",
+  "type": "registry:item",
+  "title": "Convex Backend",
+  "description": "Convex project setup, generated functions, provider wrapper, and deployment docs.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "backend",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "convex-backend"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

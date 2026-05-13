@@ -1,0 +1,22 @@
+{
+  "name": "workspace-settings",
+  "type": "page",
+  "category": "auth",
+  "title": "Workspace Settings",
+  "description": "Organization billing, members, API keys, and security settings.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "workspace-settings"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

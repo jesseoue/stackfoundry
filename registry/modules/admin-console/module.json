@@ -1,0 +1,22 @@
+{
+  "name": "admin-console",
+  "type": "module",
+  "category": "operations",
+  "title": "Admin Console",
+  "description": "Super-admin shell, user/org management, and metrics.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "admin-console"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "usage-based-billing",
+  "type": "registry:item",
+  "title": "Usage Based Billing",
+  "description": "Metered usage, Stripe meter events, threshold alerts, and billing hooks.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "billing",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "usage-based-billing"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

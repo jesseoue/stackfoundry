@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "usage-metering",
+  "type": "registry:item",
+  "title": "Usage Metering",
+  "description": "Usage events, aggregation helpers, and billing integration hooks.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "billing",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "usage-metering"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

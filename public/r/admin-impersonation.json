@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "admin-impersonation",
+  "type": "registry:item",
+  "title": "Admin Impersonation",
+  "description": "Support/admin impersonation flows with audit logging and clear safety boundaries.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "auth",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "admin-impersonation"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

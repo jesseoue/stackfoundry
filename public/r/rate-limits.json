@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "rate-limits",
+  "type": "registry:item",
+  "title": "Rate Limits",
+  "description": "Limit tables or provider adapter, middleware helpers, and UI cards.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "operations",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "rate-limits"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

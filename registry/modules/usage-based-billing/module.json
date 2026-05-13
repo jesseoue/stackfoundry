@@ -1,0 +1,22 @@
+{
+  "name": "usage-based-billing",
+  "type": "module",
+  "category": "billing",
+  "title": "Usage Based Billing",
+  "description": "Metered usage, Stripe meter events, threshold alerts, and billing hooks.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "usage-based-billing"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

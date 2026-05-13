@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "search-meilisearch",
+  "type": "registry:item",
+  "title": "Meilisearch",
+  "description": "Meilisearch adapter and sync jobs.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "search",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "search-meilisearch"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

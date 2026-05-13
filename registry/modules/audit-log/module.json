@@ -1,0 +1,22 @@
+{
+  "name": "audit-log",
+  "type": "module",
+  "category": "operations",
+  "title": "Audit Log",
+  "description": "Append-only activity table, event helpers, and admin timeline UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "audit-log"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

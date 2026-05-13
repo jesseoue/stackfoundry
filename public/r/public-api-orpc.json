@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "public-api-orpc",
+  "type": "registry:item",
+  "title": "Public API oRPC",
+  "description": "oRPC router, OpenAPI output, docs route, and typed client.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "api",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "public-api-orpc"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

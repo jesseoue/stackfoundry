@@ -1,0 +1,22 @@
+{
+  "name": "public-api-orpc",
+  "type": "module",
+  "category": "api",
+  "title": "Public API oRPC",
+  "description": "oRPC router, OpenAPI output, docs route, and typed client.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "public-api-orpc"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

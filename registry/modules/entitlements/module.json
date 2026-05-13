@@ -1,0 +1,22 @@
+{
+  "name": "entitlements",
+  "type": "module",
+  "category": "billing",
+  "title": "Entitlements",
+  "description": "Feature gates, plan limits, hasFeature helpers, and UI badges.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "entitlements"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

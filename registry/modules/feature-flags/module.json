@@ -1,0 +1,22 @@
+{
+  "name": "feature-flags",
+  "type": "module",
+  "category": "growth",
+  "title": "Feature Flags",
+  "description": "Flag table, evaluation helper, admin UI, and per-org targeting.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "feature-flags"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

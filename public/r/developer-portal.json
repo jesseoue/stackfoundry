@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "developer-portal",
+  "type": "registry:item",
+  "title": "Developer Portal",
+  "description": "Docs layout, API reference, quickstarts, and token examples.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "api",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "developer-portal"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

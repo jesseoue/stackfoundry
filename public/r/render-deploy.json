@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "render-deploy",
+  "type": "registry:item",
+  "title": "Render Deploy",
+  "description": "Simple web service deploy templates and environment docs.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "deploy",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "render-deploy"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

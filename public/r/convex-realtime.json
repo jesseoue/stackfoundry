@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "convex-realtime",
+  "type": "registry:item",
+  "title": "Convex Realtime",
+  "description": "Live queries, subscriptions, realtime dashboards, and optimistic update examples.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "backend",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "convex-realtime"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

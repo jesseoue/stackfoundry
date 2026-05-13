@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-system",
+  "type": "registry:item",
+  "title": "Theme System",
+  "description": "Product tokens, light/dark mode, density settings, and nav configuration.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "foundation",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "theme-system"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

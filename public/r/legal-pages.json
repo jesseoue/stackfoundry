@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "legal-pages",
+  "type": "registry:item",
+  "title": "Legal Pages",
+  "description": "Privacy, terms, DPA placeholders, and cookie policy scaffolds.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "compliance",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "legal-pages"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

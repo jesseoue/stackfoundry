@@ -1,0 +1,22 @@
+{
+  "name": "docker-compose-local",
+  "type": "module",
+  "category": "devops",
+  "title": "Docker Compose Local",
+  "description": "Local Postgres, Redis, Mailpit, and provider-mock services.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "docker-compose-local"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "cloudflare-pages",
+  "type": "integration",
+  "category": "deploy",
+  "title": "Cloudflare Pages",
+  "description": "Alternate deploy path for static and edge-friendly apps.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cloudflare-pages"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

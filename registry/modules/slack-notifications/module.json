@@ -1,0 +1,22 @@
+{
+  "name": "slack-notifications",
+  "type": "integration",
+  "category": "notifications",
+  "title": "Slack Notifications",
+  "description": "Slack webhook/app integration, alerts, and admin settings.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "slack-notifications"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

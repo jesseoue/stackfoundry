@@ -1,0 +1,22 @@
+{
+  "name": "invoices",
+  "type": "page",
+  "category": "billing",
+  "title": "Invoices",
+  "description": "Invoice list, invoice detail, and payment method settings.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "invoices"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

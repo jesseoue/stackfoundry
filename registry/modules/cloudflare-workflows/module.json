@@ -1,0 +1,22 @@
+{
+  "name": "cloudflare-workflows",
+  "type": "integration",
+  "category": "workflow",
+  "title": "Cloudflare Workflows",
+  "description": "Durable multi-step background jobs and human-in-the-loop flows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cloudflare-workflows"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "convex-integration",
+  "type": "registry:item",
+  "title": "Convex Integration",
+  "description": "Convex dashboard links, deployment status, and schema/function notes.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "backend",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "convex-integration"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "vercel-integration",
+  "type": "integration",
+  "category": "deploy",
+  "title": "Vercel Integration",
+  "description": "Deployments list, env sync docs, and preview links.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "vercel-integration"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

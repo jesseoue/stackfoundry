@@ -1,0 +1,22 @@
+{
+  "name": "cloudflare-queues",
+  "type": "integration",
+  "category": "queue",
+  "title": "Cloudflare Queues",
+  "description": "Async jobs, producer/consumer Workers, retries, and DLQ guidance.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cloudflare-queues"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

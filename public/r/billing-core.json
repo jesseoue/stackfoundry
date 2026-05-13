@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "billing-core",
+  "type": "registry:item",
+  "title": "Billing Core",
+  "description": "Shared customers, subscriptions, plans, products, entitlements, and provider mapping.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "billing",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "billing-core"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

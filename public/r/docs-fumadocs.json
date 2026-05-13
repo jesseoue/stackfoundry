@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "docs-fumadocs",
+  "type": "registry:item",
+  "title": "Fumadocs Docs",
+  "description": "Fumadocs docs site module.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "docs",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "docs-fumadocs"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

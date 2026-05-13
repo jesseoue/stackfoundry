@@ -1,0 +1,22 @@
+{
+  "name": "cms-sanity",
+  "type": "integration",
+  "category": "content",
+  "title": "Sanity CMS",
+  "description": "Sanity integration and preview mode.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cms-sanity"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

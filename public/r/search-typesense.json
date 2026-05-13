@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "search-typesense",
+  "type": "registry:item",
+  "title": "Typesense",
+  "description": "Typesense adapter and collection schema.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "search",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "search-typesense"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

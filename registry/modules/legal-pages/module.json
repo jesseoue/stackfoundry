@@ -1,0 +1,22 @@
+{
+  "name": "legal-pages",
+  "type": "module",
+  "category": "compliance",
+  "title": "Legal Pages",
+  "description": "Privacy, terms, DPA placeholders, and cookie policy scaffolds.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "legal-pages"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

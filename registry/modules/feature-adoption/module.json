@@ -1,0 +1,22 @@
+{
+  "name": "feature-adoption",
+  "type": "module",
+  "category": "growth",
+  "title": "Feature Adoption",
+  "description": "Feature usage tracking, adoption cohorts, and release impact views.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "feature-adoption"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

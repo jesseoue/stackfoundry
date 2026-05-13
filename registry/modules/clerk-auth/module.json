@@ -1,0 +1,22 @@
+{
+  "name": "clerk-auth",
+  "type": "integration",
+  "category": "auth",
+  "title": "Clerk Auth",
+  "description": "Clerk sign-in/sign-up, middleware, server auth helpers, env, and protected routes.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "clerk-auth"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

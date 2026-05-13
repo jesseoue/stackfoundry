@@ -1,0 +1,22 @@
+{
+  "name": "cloudflare-workers",
+  "type": "integration",
+  "category": "edge",
+  "title": "Cloudflare Workers",
+  "description": "Worker API module, queues, cron, and Durable Objects guidance.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cloudflare-workers"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

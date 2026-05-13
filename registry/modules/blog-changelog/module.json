@@ -1,0 +1,22 @@
+{
+  "name": "blog-changelog",
+  "type": "module",
+  "category": "content",
+  "title": "Blog and Changelog",
+  "description": "MDX blog/changelog, RSS, and SEO metadata.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "blog-changelog"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

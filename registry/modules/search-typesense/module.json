@@ -1,0 +1,22 @@
+{
+  "name": "search-typesense",
+  "type": "integration",
+  "category": "search",
+  "title": "Typesense",
+  "description": "Typesense adapter and collection schema.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "search-typesense"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

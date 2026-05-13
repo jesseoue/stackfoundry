@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "search-algolia",
+  "type": "registry:item",
+  "title": "Algolia",
+  "description": "Algolia indexing, keys, and autocomplete UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "search",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "search-algolia"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

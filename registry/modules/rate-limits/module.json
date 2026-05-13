@@ -1,0 +1,22 @@
+{
+  "name": "rate-limits",
+  "type": "module",
+  "category": "operations",
+  "title": "Rate Limits",
+  "description": "Limit tables or provider adapter, middleware helpers, and UI cards.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "rate-limits"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

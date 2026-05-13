@@ -1,0 +1,22 @@
+{
+  "name": "seed-data",
+  "type": "module",
+  "category": "foundation",
+  "title": "Seed Data",
+  "description": "Typed seed scripts and demo records for screenshots, tests, and local demos.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "seed-data"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

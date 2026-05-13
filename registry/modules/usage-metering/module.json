@@ -1,0 +1,22 @@
+{
+  "name": "usage-metering",
+  "type": "module",
+  "category": "billing",
+  "title": "Usage Metering",
+  "description": "Usage events, aggregation helpers, and billing integration hooks.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "usage-metering"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "paddle-billing",
+  "type": "integration",
+  "category": "billing",
+  "title": "Paddle Billing",
+  "description": "Merchant of Record checkout, subscription sync, webhook mapping, and tax docs.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "paddle-billing"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

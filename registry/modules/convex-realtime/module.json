@@ -1,0 +1,22 @@
+{
+  "name": "convex-realtime",
+  "type": "integration",
+  "category": "backend",
+  "title": "Convex Realtime",
+  "description": "Live queries, subscriptions, realtime dashboards, and optimistic update examples.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "convex-realtime"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

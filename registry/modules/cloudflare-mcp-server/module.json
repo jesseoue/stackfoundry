@@ -1,0 +1,22 @@
+{
+  "name": "cloudflare-mcp-server",
+  "type": "integration",
+  "category": "ai",
+  "title": "Cloudflare MCP Server",
+  "description": "Remote MCP server on Workers with OAuth/auth guidance.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cloudflare-mcp-server"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

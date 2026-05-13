@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "email-postmark",
+  "type": "registry:item",
+  "title": "Postmark Email",
+  "description": "Transactional email adapter and template mapping.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "email",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "email-postmark"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "marketing-pages",
+  "type": "module",
+  "category": "marketing",
+  "title": "Marketing Pages",
+  "description": "Landing, features, pricing, FAQ, and CTA sections.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "marketing-pages"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

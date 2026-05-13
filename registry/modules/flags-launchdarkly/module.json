@@ -1,0 +1,22 @@
+{
+  "name": "flags-launchdarkly",
+  "type": "integration",
+  "category": "growth",
+  "title": "LaunchDarkly Flags",
+  "description": "LaunchDarkly provider adapter.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "flags-launchdarkly"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

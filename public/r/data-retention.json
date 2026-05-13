@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-retention",
+  "type": "registry:item",
+  "title": "Data Retention",
+  "description": "Retention policies, cleanup jobs, export/delete requests, and admin controls.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "compliance",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "data-retention"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

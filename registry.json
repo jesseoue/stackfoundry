@@ -4,33 +4,109 @@
   "homepage": "https://github.com/jesseoue/stackfoundry",
   "items": [
     {
-      "name": "drizzle-postgres",
+      "name": "aarrr-dashboard",
       "type": "registry:item",
-      "title": "Drizzle Postgres",
-      "description": "Postgres + Drizzle package, schema barrel, migrations, and server-only DB access.",
+      "title": "AARRR Dashboard",
+      "description": "Acquisition, activation, retention, referral, revenue dashboard with cohort filters.",
       "files": [
         {
-          "path": "packages/db/package.json",
+          "path": "registry/modules/aarrr-dashboard/module.json",
           "type": "registry:file"
-        },
+        }
+      ]
+    },
+    {
+      "name": "account-settings",
+      "type": "registry:item",
+      "title": "Account Settings",
+      "description": "Profile, security, sessions, and notification preference pages.",
+      "files": [
         {
-          "path": "packages/db/src/client.ts",
+          "path": "registry/modules/account-settings/module.json",
           "type": "registry:file"
-        },
+        }
+      ]
+    },
+    {
+      "name": "activation-onboarding",
+      "type": "registry:item",
+      "title": "Activation Onboarding",
+      "description": "Onboarding checklist, first-value milestones, and time-to-value tracking.",
+      "files": [
         {
-          "path": "packages/db/src/index.ts",
+          "path": "registry/modules/activation-onboarding/module.json",
           "type": "registry:file"
-        },
+        }
+      ]
+    },
+    {
+      "name": "admin-console",
+      "type": "registry:item",
+      "title": "Admin Console",
+      "description": "Super-admin shell, user/org management, and metrics.",
+      "files": [
         {
-          "path": "packages/db/src/schema/index.ts",
+          "path": "registry/modules/admin-console/module.json",
           "type": "registry:file"
-        },
+        }
+      ]
+    },
+    {
+      "name": "admin-impersonation",
+      "type": "registry:item",
+      "title": "Admin Impersonation",
+      "description": "Support/admin impersonation flows with audit logging and clear safety boundaries.",
+      "files": [
         {
-          "path": "apps/web/src/lib/db.ts",
+          "path": "registry/modules/admin-impersonation/module.json",
           "type": "registry:file"
-        },
+        }
+      ]
+    },
+    {
+      "name": "ai-artifacts",
+      "type": "registry:item",
+      "title": "AI Artifacts",
+      "description": "Document/code/sheet artifacts, side panel, and persistence.",
+      "files": [
         {
-          "path": "drizzle.config.ts",
+          "path": "registry/modules/ai-artifacts/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "ai-chat",
+      "type": "registry:item",
+      "title": "AI Chat",
+      "description": "AI SDK chat route, model selector, message persistence, and prompt input.",
+      "files": [
+        {
+          "path": "registry/modules/ai-chat/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "ai-tools",
+      "type": "registry:item",
+      "title": "AI Tools",
+      "description": "Tool definitions, typed tool rendering, and approval flows.",
+      "files": [
+        {
+          "path": "registry/modules/ai-tools/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "api-docs",
+      "type": "registry:item",
+      "title": "API Docs",
+      "description": "OpenAPI docs, auth examples, error catalog, and changelog.",
+      "files": [
+        {
+          "path": "registry/modules/api-docs/module.json",
           "type": "registry:file"
         }
       ]
@@ -39,23 +115,1342 @@
       "name": "api-keys",
       "type": "registry:item",
       "title": "API Keys",
-      "description": "API key lifecycle, scopes, hashed storage, usage metadata, and maintenance instructions.",
-      "registryDependencies": ["drizzle-postgres"],
+      "description": "API key lifecycle, scopes, hashed storage, usage metadata, and management UI.",
       "files": [
         {
-          "path": "packages/db/src/schema/api-keys.ts",
+          "path": "registry/modules/api-keys/module.json",
           "type": "registry:file"
-        },
+        }
+      ]
+    },
+    {
+      "name": "api-usage-dashboard",
+      "type": "registry:item",
+      "title": "API Usage Dashboard",
+      "description": "Per-key usage charts, recent requests, errors, and limits.",
+      "files": [
         {
-          "path": "apps/web/src/lib/api-keys.ts",
+          "path": "registry/modules/api-usage-dashboard/module.json",
           "type": "registry:file"
-        },
+        }
+      ]
+    },
+    {
+      "name": "audit-log",
+      "type": "registry:item",
+      "title": "Audit Log",
+      "description": "Append-only activity table, event helpers, and admin timeline UI.",
+      "files": [
         {
-          "path": "apps/web/src/app/(console)/api-keys/page.tsx",
-          "type": "registry:page"
-        },
+          "path": "registry/modules/audit-log/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "auth-authjs",
+      "type": "registry:item",
+      "title": "Auth.js",
+      "description": "Auth.js setup for teams that prefer classic Next auth flows.",
+      "files": [
         {
-          "path": ".agents/skills/api-keys/SKILL.md",
+          "path": "registry/modules/auth-authjs/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "auth-better-auth",
+      "type": "registry:item",
+      "title": "Better Auth",
+      "description": "Better Auth setup for teams that want open-source auth in-app.",
+      "files": [
+        {
+          "path": "registry/modules/auth-better-auth/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "autumn-billing",
+      "type": "registry:item",
+      "title": "Autumn Billing",
+      "description": "Autumn + Stripe usage billing, overages, spend caps, and plan changes.",
+      "files": [
+        {
+          "path": "registry/modules/autumn-billing/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "autumn-entitlements",
+      "type": "registry:item",
+      "title": "Autumn Entitlements",
+      "description": "Autumn check API, boolean and metered features, credit ledgers, and plan gates.",
+      "files": [
+        {
+          "path": "registry/modules/autumn-entitlements/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "axiom-logging",
+      "type": "registry:item",
+      "title": "Axiom Logging",
+      "description": "Logs and analytics adapter for teams preferring Axiom.",
+      "files": [
+        {
+          "path": "registry/modules/axiom-logging/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "background-jobs",
+      "type": "registry:item",
+      "title": "Background Jobs",
+      "description": "Job table, queue abstraction, retry/cancel UI, and worker handoff patterns.",
+      "files": [
+        {
+          "path": "registry/modules/background-jobs/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "billing-core",
+      "type": "registry:item",
+      "title": "Billing Core",
+      "description": "Shared customers, subscriptions, plans, products, entitlements, and provider mapping.",
+      "files": [
+        {
+          "path": "registry/modules/billing-core/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "blog-changelog",
+      "type": "registry:item",
+      "title": "Blog and Changelog",
+      "description": "MDX blog/changelog, RSS, and SEO metadata.",
+      "files": [
+        {
+          "path": "registry/modules/blog-changelog/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "clerk-auth",
+      "type": "registry:item",
+      "title": "Clerk Auth",
+      "description": "Clerk sign-in/sign-up, middleware, server auth helpers, env, and protected routes.",
+      "files": [
+        {
+          "path": "registry/modules/clerk-auth/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-agents-sdk",
+      "type": "registry:item",
+      "title": "Cloudflare Agents SDK",
+      "description": "Stateful AI agents on Workers, React hooks, WebSocket/RPC surface.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-agents-sdk/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-d1",
+      "type": "registry:item",
+      "title": "Cloudflare D1",
+      "description": "D1 SQLite module, migrations, bindings, local dev, and Drizzle/D1 notes.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-d1/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-durable-objects",
+      "type": "registry:item",
+      "title": "Cloudflare Durable Objects",
+      "description": "Stateful coordination, realtime rooms, per-tenant state, and DO storage.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-durable-objects/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-hyperdrive",
+      "type": "registry:item",
+      "title": "Cloudflare Hyperdrive",
+      "description": "Postgres/MySQL connection acceleration for Workers.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-hyperdrive/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-kv",
+      "type": "registry:item",
+      "title": "Cloudflare KV",
+      "description": "KV bindings for low-write config, cache, and session-adjacent state.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-kv/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-mcp-server",
+      "type": "registry:item",
+      "title": "Cloudflare MCP Server",
+      "description": "Remote MCP server on Workers with OAuth/auth guidance.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-mcp-server/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-observability",
+      "type": "registry:item",
+      "title": "Cloudflare Observability",
+      "description": "Workers logs, traces, analytics, and tail workers.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-observability/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-pages",
+      "type": "registry:item",
+      "title": "Cloudflare Pages",
+      "description": "Alternate deploy path for static and edge-friendly apps.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-pages/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-queues",
+      "type": "registry:item",
+      "title": "Cloudflare Queues",
+      "description": "Async jobs, producer/consumer Workers, retries, and DLQ guidance.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-queues/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-r2",
+      "type": "registry:item",
+      "title": "Cloudflare R2",
+      "description": "Object storage adapter, zero-egress positioning, and file UI.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-r2/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-terraform",
+      "type": "registry:item",
+      "title": "Cloudflare Terraform",
+      "description": "IaC module for zones, Workers, R2, D1, Queues, and secrets.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-terraform/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-tunnel",
+      "type": "registry:item",
+      "title": "Cloudflare Tunnel",
+      "description": "Secure tunnel module for exposing local/internal services.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-tunnel/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-turnstile",
+      "type": "registry:item",
+      "title": "Cloudflare Turnstile",
+      "description": "Bot protection for signup, contact, waitlist, and abuse-sensitive forms.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-turnstile/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-vectorize",
+      "type": "registry:item",
+      "title": "Cloudflare Vectorize",
+      "description": "Vector search and RAG provider module.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-vectorize/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-workers",
+      "type": "registry:item",
+      "title": "Cloudflare Workers",
+      "description": "Worker API module, queues, cron, and Durable Objects guidance.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-workers/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-workers-ai",
+      "type": "registry:item",
+      "title": "Cloudflare Workers AI",
+      "description": "Workers AI inference, embeddings, and image generation examples.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-workers-ai/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-workflows",
+      "type": "registry:item",
+      "title": "Cloudflare Workflows",
+      "description": "Durable multi-step background jobs and human-in-the-loop flows.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-workflows/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cms-contentful",
+      "type": "registry:item",
+      "title": "Contentful CMS",
+      "description": "Contentful integration and content model docs.",
+      "files": [
+        {
+          "path": "registry/modules/cms-contentful/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cms-mdx",
+      "type": "registry:item",
+      "title": "MDX Content",
+      "description": "File-based docs, blog, and changelog collections.",
+      "files": [
+        {
+          "path": "registry/modules/cms-mdx/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cms-sanity",
+      "type": "registry:item",
+      "title": "Sanity CMS",
+      "description": "Sanity integration and preview mode.",
+      "files": [
+        {
+          "path": "registry/modules/cms-sanity/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cohort-retention",
+      "type": "registry:item",
+      "title": "Cohort Retention",
+      "description": "Cohort tables, retention curves, saved segments, and plan/channel filters.",
+      "files": [
+        {
+          "path": "registry/modules/cohort-retention/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "convex-backend",
+      "type": "registry:item",
+      "title": "Convex Backend",
+      "description": "Convex project setup, generated functions, provider wrapper, and deployment docs.",
+      "files": [
+        {
+          "path": "registry/modules/convex-backend/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "convex-integration",
+      "type": "registry:item",
+      "title": "Convex Integration",
+      "description": "Convex dashboard links, deployment status, and schema/function notes.",
+      "files": [
+        {
+          "path": "registry/modules/convex-integration/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "convex-realtime",
+      "type": "registry:item",
+      "title": "Convex Realtime",
+      "description": "Live queries, subscriptions, realtime dashboards, and optimistic update examples.",
+      "files": [
+        {
+          "path": "registry/modules/convex-realtime/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "data-export",
+      "type": "registry:item",
+      "title": "Data Export",
+      "description": "CSV export, background job, and download links.",
+      "files": [
+        {
+          "path": "registry/modules/data-export/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "data-import-export",
+      "type": "registry:item",
+      "title": "Data Import Export",
+      "description": "CSV import/export, background processing, and error report UI.",
+      "files": [
+        {
+          "path": "registry/modules/data-import-export/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "data-retention",
+      "type": "registry:item",
+      "title": "Data Retention",
+      "description": "Retention policies, cleanup jobs, export/delete requests, and admin controls.",
+      "files": [
+        {
+          "path": "registry/modules/data-retention/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "datadog-monitoring",
+      "type": "registry:item",
+      "title": "Datadog Monitoring",
+      "description": "Enterprise observability adapter.",
+      "files": [
+        {
+          "path": "registry/modules/datadog-monitoring/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "developer-portal",
+      "type": "registry:item",
+      "title": "Developer Portal",
+      "description": "Docs layout, API reference, quickstarts, and token examples.",
+      "files": [
+        {
+          "path": "registry/modules/developer-portal/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "docker-compose-local",
+      "type": "registry:item",
+      "title": "Docker Compose Local",
+      "description": "Local Postgres, Redis, Mailpit, and provider-mock services.",
+      "files": [
+        {
+          "path": "registry/modules/docker-compose-local/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "docs-fumadocs",
+      "type": "registry:item",
+      "title": "Fumadocs Docs",
+      "description": "Fumadocs docs site module.",
+      "files": [
+        {
+          "path": "registry/modules/docs-fumadocs/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "docs-help-center",
+      "type": "registry:item",
+      "title": "Help Center",
+      "description": "MDX docs, search, categories, and article pages.",
+      "files": [
+        {
+          "path": "registry/modules/docs-help-center/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "docs-starlight",
+      "type": "registry:item",
+      "title": "Starlight Docs",
+      "description": "Astro Starlight docs module for separate documentation sites.",
+      "files": [
+        {
+          "path": "registry/modules/docs-starlight/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "drizzle-audit-log",
+      "type": "registry:item",
+      "title": "Drizzle Audit Log",
+      "description": "Common activity/event schema, actor/resource modeling, and admin timeline UI.",
+      "files": [
+        {
+          "path": "registry/modules/drizzle-audit-log/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "drizzle-multitenancy",
+      "type": "registry:item",
+      "title": "Drizzle Multitenancy",
+      "description": "Org/account ids on core tables, indexes, relations, and cache-tag rules.",
+      "files": [
+        {
+          "path": "registry/modules/drizzle-multitenancy/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "drizzle-postgres",
+      "type": "registry:item",
+      "title": "Drizzle Postgres",
+      "description": "Postgres + Drizzle package, schema barrel, migrations, and server-only DB access.",
+      "files": [
+        {
+          "path": "registry/modules/drizzle-postgres/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "drizzle-relations",
+      "type": "registry:item",
+      "title": "Drizzle Relations",
+      "description": "Relations helpers, type-safe joins, query examples, and seed patterns.",
+      "files": [
+        {
+          "path": "registry/modules/drizzle-relations/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "drizzle-soft-delete",
+      "type": "registry:item",
+      "title": "Drizzle Soft Delete",
+      "description": "deletedAt conventions, restore flows, and filtered query helpers.",
+      "files": [
+        {
+          "path": "registry/modules/drizzle-soft-delete/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "email-nodemailer",
+      "type": "registry:item",
+      "title": "Nodemailer Email",
+      "description": "SMTP email adapter for teams avoiding provider lock-in.",
+      "files": [
+        {
+          "path": "registry/modules/email-nodemailer/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "email-postmark",
+      "type": "registry:item",
+      "title": "Postmark Email",
+      "description": "Transactional email adapter and template mapping.",
+      "files": [
+        {
+          "path": "registry/modules/email-postmark/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "entitlements",
+      "type": "registry:item",
+      "title": "Entitlements",
+      "description": "Feature gates, plan limits, hasFeature helpers, and UI badges.",
+      "files": [
+        {
+          "path": "registry/modules/entitlements/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "evals",
+      "type": "registry:item",
+      "title": "Evals",
+      "description": "Prompt eval cases, pass/fail scoring UI, and regression tracking.",
+      "files": [
+        {
+          "path": "registry/modules/evals/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "experiments",
+      "type": "registry:item",
+      "title": "Experiments",
+      "description": "A/B test model, exposure tracking, conversion events, and results UI.",
+      "files": [
+        {
+          "path": "registry/modules/experiments/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "feature-adoption",
+      "type": "registry:item",
+      "title": "Feature Adoption",
+      "description": "Feature usage tracking, adoption cohorts, and release impact views.",
+      "files": [
+        {
+          "path": "registry/modules/feature-adoption/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "feature-flags",
+      "type": "registry:item",
+      "title": "Feature Flags",
+      "description": "Flag table, evaluation helper, admin UI, and per-org targeting.",
+      "files": [
+        {
+          "path": "registry/modules/feature-flags/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "file-uploads",
+      "type": "registry:item",
+      "title": "File Uploads",
+      "description": "Vercel Blob/S3 adapter, upload UI, and file browser.",
+      "files": [
+        {
+          "path": "registry/modules/file-uploads/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "firebase-backend",
+      "type": "registry:item",
+      "title": "Firebase Backend",
+      "description": "Optional mobile-first backend module for Firestore/auth/storage apps.",
+      "files": [
+        {
+          "path": "registry/modules/firebase-backend/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "flags-launchdarkly",
+      "type": "registry:item",
+      "title": "LaunchDarkly Flags",
+      "description": "LaunchDarkly provider adapter.",
+      "files": [
+        {
+          "path": "registry/modules/flags-launchdarkly/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "flags-statsig",
+      "type": "registry:item",
+      "title": "Statsig Flags",
+      "description": "Statsig provider adapter.",
+      "files": [
+        {
+          "path": "registry/modules/flags-statsig/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "fly-deploy",
+      "type": "registry:item",
+      "title": "Fly Deploy",
+      "description": "App and worker deployment with regionality notes and templates.",
+      "files": [
+        {
+          "path": "registry/modules/fly-deploy/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "geist-nova-theme",
+      "type": "registry:item",
+      "title": "Geist Nova Theme",
+      "description": "Geist typography and Tailwind v4 theme tokens for a polished SaaS console.",
+      "files": [
+        {
+          "path": "registry/modules/geist-nova-theme/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "github-integration",
+      "type": "registry:item",
+      "title": "GitHub Integration",
+      "description": "Repo picker, GitHub app/token config, PR links, and webhook ingestion.",
+      "files": [
+        {
+          "path": "registry/modules/github-integration/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "growth-alerts",
+      "type": "registry:item",
+      "title": "Growth Alerts",
+      "description": "Activation drop, churn risk, usage spike, and expansion opportunity notifications.",
+      "files": [
+        {
+          "path": "registry/modules/growth-alerts/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "i18n",
+      "type": "registry:item",
+      "title": "Internationalization",
+      "description": "Locale routing, translations, and language switcher.",
+      "files": [
+        {
+          "path": "registry/modules/i18n/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "image-optimization",
+      "type": "registry:item",
+      "title": "Image Optimization",
+      "description": "Image upload, transformation, metadata, and storage adapter.",
+      "files": [
+        {
+          "path": "registry/modules/image-optimization/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "incident-management",
+      "type": "registry:item",
+      "title": "Incident Management",
+      "description": "Internal incidents, timeline, owner, and postmortem.",
+      "files": [
+        {
+          "path": "registry/modules/incident-management/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "internal-api-trpc",
+      "type": "registry:item",
+      "title": "Internal API tRPC",
+      "description": "Optional tRPC module for TypeScript-only internal APIs.",
+      "files": [
+        {
+          "path": "registry/modules/internal-api-trpc/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "invites",
+      "type": "registry:item",
+      "title": "Invites",
+      "description": "Email invitations, pending invitation state, role assignment, and resend/cancel flows.",
+      "files": [
+        {
+          "path": "registry/modules/invites/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "invoices",
+      "type": "registry:item",
+      "title": "Invoices",
+      "description": "Invoice list, invoice detail, and payment method settings.",
+      "files": [
+        {
+          "path": "registry/modules/invoices/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "legal-pages",
+      "type": "registry:item",
+      "title": "Legal Pages",
+      "description": "Privacy, terms, DPA placeholders, and cookie policy scaffolds.",
+      "files": [
+        {
+          "path": "registry/modules/legal-pages/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "lemon-squeezy-billing",
+      "type": "registry:item",
+      "title": "Lemon Squeezy Billing",
+      "description": "Creator/digital product checkout and license key workflows.",
+      "files": [
+        {
+          "path": "registry/modules/lemon-squeezy-billing/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "lifecycle-email",
+      "type": "registry:item",
+      "title": "Lifecycle Email",
+      "description": "Behavior-triggered onboarding, activation nudges, reactivation, and upgrade emails.",
+      "files": [
+        {
+          "path": "registry/modules/lifecycle-email/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "linear-integration",
+      "type": "registry:item",
+      "title": "Linear Integration",
+      "description": "Issue creation, Linear links, and incident/project workflows.",
+      "files": [
+        {
+          "path": "registry/modules/linear-integration/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "marketing-pages",
+      "type": "registry:item",
+      "title": "Marketing Pages",
+      "description": "Landing, features, pricing, FAQ, and CTA sections.",
+      "files": [
+        {
+          "path": "registry/modules/marketing-pages/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "mcp-client",
+      "type": "registry:item",
+      "title": "MCP Client",
+      "description": "MCP server config UI, server registry, and auth metadata.",
+      "files": [
+        {
+          "path": "registry/modules/mcp-client/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "model-router",
+      "type": "registry:item",
+      "title": "Model Router",
+      "description": "Model catalog, provider ordering, fallback rules, and AI Gateway config.",
+      "files": [
+        {
+          "path": "registry/modules/model-router/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "neon-postgres",
+      "type": "registry:item",
+      "title": "Neon Postgres",
+      "description": "Neon project/env wiring, branching guidance, and Drizzle connection docs.",
+      "files": [
+        {
+          "path": "registry/modules/neon-postgres/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "next-saas",
+      "type": "registry:item",
+      "title": "Next SaaS",
+      "description": "Base Next.js SaaS preset module with app shell, dashboard routes, and product configuration.",
+      "files": [
+        {
+          "path": "registry/modules/next-saas/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "notification-center",
+      "type": "registry:item",
+      "title": "Notification Center",
+      "description": "In-app notifications, preferences, read/unread state, and digests.",
+      "files": [
+        {
+          "path": "registry/modules/notification-center/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "notifications",
+      "type": "registry:item",
+      "title": "Notifications",
+      "description": "In-app notifications, email preferences, and delivery table.",
+      "files": [
+        {
+          "path": "registry/modules/notifications/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "openfeature-flags",
+      "type": "registry:item",
+      "title": "OpenFeature Flags",
+      "description": "OpenFeature-compatible flag interface and provider adapter pattern.",
+      "files": [
+        {
+          "path": "registry/modules/openfeature-flags/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "orgs-rbac",
+      "type": "registry:item",
+      "title": "Organizations and RBAC",
+      "description": "Organization switcher, roles, permissions, invitations, and member management.",
+      "files": [
+        {
+          "path": "registry/modules/orgs-rbac/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "paddle-billing",
+      "type": "registry:item",
+      "title": "Paddle Billing",
+      "description": "Merchant of Record checkout, subscription sync, webhook mapping, and tax docs.",
+      "files": [
+        {
+          "path": "registry/modules/paddle-billing/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "plan-gating",
+      "type": "registry:item",
+      "title": "Plan Gating",
+      "description": "Route/component helpers for feature gates and plan limits.",
+      "files": [
+        {
+          "path": "registry/modules/plan-gating/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "playwright-e2e",
+      "type": "registry:item",
+      "title": "Playwright E2E",
+      "description": "Browser smoke tests for auth, billing, dashboard, and installed module flows.",
+      "files": [
+        {
+          "path": "registry/modules/playwright-e2e/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "plg-metrics",
+      "type": "registry:item",
+      "title": "PLG Metrics",
+      "description": "Canonical event taxonomy, user/account traits, product events, and tracking helpers.",
+      "files": [
+        {
+          "path": "registry/modules/plg-metrics/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "posthog-analytics",
+      "type": "registry:item",
+      "title": "PostHog Analytics",
+      "description": "Client/server capture, event catalog, feature flag adapter, and replay notes.",
+      "files": [
+        {
+          "path": "registry/modules/posthog-analytics/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "pricing-page",
+      "type": "registry:item",
+      "title": "Pricing Page",
+      "description": "Public pricing table, plan comparison, and CTA wiring.",
+      "files": [
+        {
+          "path": "registry/modules/pricing-page/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "product-qualified-leads",
+      "type": "registry:item",
+      "title": "Product Qualified Leads",
+      "description": "PQL scoring, activation thresholds, sales handoff flags, and CRM hooks.",
+      "files": [
+        {
+          "path": "registry/modules/product-qualified-leads/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "prompt-library",
+      "type": "registry:item",
+      "title": "Prompt Library",
+      "description": "Reusable prompts, variable interpolation, and prompt versioning.",
+      "files": [
+        {
+          "path": "registry/modules/prompt-library/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "public-api-orpc",
+      "type": "registry:item",
+      "title": "Public API oRPC",
+      "description": "oRPC router, OpenAPI output, docs route, and typed client.",
+      "files": [
+        {
+          "path": "registry/modules/public-api-orpc/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "quality-tooling",
+      "type": "registry:item",
+      "title": "Quality Tooling",
+      "description": "Biome, Vitest, Testing Library, Knip, Lefthook, and CI defaults.",
+      "files": [
+        {
+          "path": "registry/modules/quality-tooling/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "rag-starter",
+      "type": "registry:item",
+      "title": "RAG Starter",
+      "description": "Embeddings, document ingestion, and vector search adapter.",
+      "files": [
+        {
+          "path": "registry/modules/rag-starter/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "railway-deploy",
+      "type": "registry:item",
+      "title": "Railway Deploy",
+      "description": "Full-stack deploy option for Node apps, workers, and databases.",
+      "files": [
+        {
+          "path": "registry/modules/railway-deploy/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "rate-limits",
+      "type": "registry:item",
+      "title": "Rate Limits",
+      "description": "Limit tables or provider adapter, middleware helpers, and UI cards.",
+      "files": [
+        {
+          "path": "registry/modules/rate-limits/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "referral-loops",
+      "type": "registry:item",
+      "title": "Referral Loops",
+      "description": "Invite/referral codes, viral coefficient tracking, and reward state.",
+      "files": [
+        {
+          "path": "registry/modules/referral-loops/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "render-deploy",
+      "type": "registry:item",
+      "title": "Render Deploy",
+      "description": "Simple web service deploy templates and environment docs.",
+      "files": [
+        {
+          "path": "registry/modules/render-deploy/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "resend-email",
+      "type": "registry:item",
+      "title": "Resend Email",
+      "description": "React Email templates, send helper, preview route, and email log table.",
+      "files": [
+        {
+          "path": "registry/modules/resend-email/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "sdk-snippets",
+      "type": "registry:item",
+      "title": "SDK Snippets",
+      "description": "Generated examples for curl, TypeScript, Python, and HTTP clients.",
+      "files": [
+        {
+          "path": "registry/modules/sdk-snippets/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "search-algolia",
+      "type": "registry:item",
+      "title": "Algolia",
+      "description": "Algolia indexing, keys, and autocomplete UI.",
+      "files": [
+        {
+          "path": "registry/modules/search-algolia/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "search-meilisearch",
+      "type": "registry:item",
+      "title": "Meilisearch",
+      "description": "Meilisearch adapter and sync jobs.",
+      "files": [
+        {
+          "path": "registry/modules/search-meilisearch/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "search-postgres",
+      "type": "registry:item",
+      "title": "Postgres Search",
+      "description": "Postgres full-text search, ranking, indexes, and query UI.",
+      "files": [
+        {
+          "path": "registry/modules/search-postgres/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "search-typesense",
+      "type": "registry:item",
+      "title": "Typesense",
+      "description": "Typesense adapter and collection schema.",
+      "files": [
+        {
+          "path": "registry/modules/search-typesense/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "seed-data",
+      "type": "registry:item",
+      "title": "Seed Data",
+      "description": "Typed seed scripts and demo records for screenshots, tests, and local demos.",
+      "files": [
+        {
+          "path": "registry/modules/seed-data/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "sentry-monitoring",
+      "type": "registry:item",
+      "title": "Sentry Monitoring",
+      "description": "Next SDK setup, release tags, source maps, and issue links.",
+      "files": [
+        {
+          "path": "registry/modules/sentry-monitoring/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "seo",
+      "type": "registry:item",
+      "title": "SEO",
+      "description": "Sitemap, robots, OG image defaults, and metadata helpers.",
+      "files": [
+        {
+          "path": "registry/modules/seo/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "session-management",
+      "type": "registry:item",
+      "title": "Session Management",
+      "description": "Active sessions/devices view, revoke sessions, and security event history.",
+      "files": [
+        {
+          "path": "registry/modules/session-management/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-sidebar-shell",
+      "type": "registry:item",
+      "title": "Sidebar Shell",
+      "description": "shadcn-compatible Sidebar shell with navigation, header, responsive layout, and product config.",
+      "files": [
+        {
+          "path": "registry/modules/shadcn-sidebar-shell/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "slack-notifications",
+      "type": "registry:item",
+      "title": "Slack Notifications",
+      "description": "Slack webhook/app integration, alerts, and admin settings.",
+      "files": [
+        {
+          "path": "registry/modules/slack-notifications/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "status-page",
+      "type": "registry:item",
+      "title": "Status Page",
+      "description": "Incident model, public status page, and subscriptions.",
+      "files": [
+        {
+          "path": "registry/modules/status-page/module.json",
           "type": "registry:file"
         }
       ]
@@ -64,28 +1459,262 @@
       "name": "stripe-billing",
       "type": "registry:item",
       "title": "Stripe Billing",
-      "description": "Billing core, Stripe checkout, portal, webhooks, entitlement mapping, and verification checklist.",
-      "dependencies": ["stripe"],
-      "registryDependencies": ["drizzle-postgres"],
+      "description": "Stripe checkout, billing portal, subscription sync, webhook dedupe, and entitlement mapping.",
       "files": [
         {
-          "path": "packages/db/src/schema/billing.ts",
+          "path": "registry/modules/stripe-billing/module.json",
           "type": "registry:file"
-        },
+        }
+      ]
+    },
+    {
+      "name": "supabase-postgres",
+      "type": "registry:item",
+      "title": "Supabase Postgres",
+      "description": "Supabase Postgres wiring, optional RLS guidance, storage/auth compatibility notes.",
+      "files": [
         {
-          "path": "apps/web/src/lib/stripe/client.ts",
+          "path": "registry/modules/supabase-postgres/module.json",
           "type": "registry:file"
-        },
+        }
+      ]
+    },
+    {
+      "name": "support-console",
+      "type": "registry:item",
+      "title": "Support Console",
+      "description": "Customer lookup, account timeline, and support notes.",
+      "files": [
         {
-          "path": "apps/web/src/app/api/webhooks/stripe/route.ts",
+          "path": "registry/modules/support-console/module.json",
           "type": "registry:file"
-        },
+        }
+      ]
+    },
+    {
+      "name": "surveys-nps",
+      "type": "registry:item",
+      "title": "Surveys and NPS",
+      "description": "NPS/CSAT surveys, in-app prompts, response tables, and segmentation.",
+      "files": [
         {
-          "path": "apps/web/src/app/(console)/billing/page.tsx",
-          "type": "registry:page"
-        },
+          "path": "registry/modules/surveys-nps/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "system-health",
+      "type": "registry:item",
+      "title": "System Health",
+      "description": "Env checks, provider connectivity, DB migration status, and queue lag.",
+      "files": [
         {
-          "path": ".agents/skills/stripe-billing/SKILL.md",
+          "path": "registry/modules/system-health/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "t3-env",
+      "type": "registry:item",
+      "title": "T3 Env",
+      "description": "Type-safe server/client environment validation and .env.example management.",
+      "files": [
+        {
+          "path": "registry/modules/t3-env/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "theme-system",
+      "type": "registry:item",
+      "title": "Theme System",
+      "description": "Product tokens, light/dark mode, density settings, and nav configuration.",
+      "files": [
+        {
+          "path": "registry/modules/theme-system/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "trial-management",
+      "type": "registry:item",
+      "title": "Trial Management",
+      "description": "Trial start/end, grace periods, and upgrade prompts.",
+      "files": [
+        {
+          "path": "registry/modules/trial-management/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "unkey-api-keys",
+      "type": "registry:item",
+      "title": "Unkey API Keys",
+      "description": "Unkey key creation, verification, revocation, metadata, expiration, and usage limits.",
+      "files": [
+        {
+          "path": "registry/modules/unkey-api-keys/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "unkey-rate-limits",
+      "type": "registry:item",
+      "title": "Unkey Rate Limits",
+      "description": "Unkey limits by key, user, IP, endpoint, org, or custom identifier.",
+      "files": [
+        {
+          "path": "registry/modules/unkey-rate-limits/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "upstash-redis",
+      "type": "registry:item",
+      "title": "Upstash Redis",
+      "description": "Redis/KV cache, rate limits, queues, and ephemeral state integration.",
+      "files": [
+        {
+          "path": "registry/modules/upstash-redis/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "usage-based-billing",
+      "type": "registry:item",
+      "title": "Usage Based Billing",
+      "description": "Metered usage, Stripe meter events, threshold alerts, and billing hooks.",
+      "files": [
+        {
+          "path": "registry/modules/usage-based-billing/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "usage-metering",
+      "type": "registry:item",
+      "title": "Usage Metering",
+      "description": "Usage events, aggregation helpers, and billing integration hooks.",
+      "files": [
+        {
+          "path": "registry/modules/usage-metering/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "vercel-blob",
+      "type": "registry:item",
+      "title": "Vercel Blob",
+      "description": "File uploads, signed upload/download helpers, and file browser UI.",
+      "files": [
+        {
+          "path": "registry/modules/vercel-blob/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "vercel-deploy",
+      "type": "registry:item",
+      "title": "Vercel Deploy",
+      "description": "Vercel project linking, env pull, preview/prod scripts, and deployment docs.",
+      "files": [
+        {
+          "path": "registry/modules/vercel-deploy/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "vercel-edge-config",
+      "type": "registry:item",
+      "title": "Vercel Edge Config",
+      "description": "Feature flags, config reads, A/B testing, and dynamic model routing.",
+      "files": [
+        {
+          "path": "registry/modules/vercel-edge-config/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "vercel-integration",
+      "type": "registry:item",
+      "title": "Vercel Integration",
+      "description": "Deployments list, env sync docs, and preview links.",
+      "files": [
+        {
+          "path": "registry/modules/vercel-integration/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "vercel-marketplace-storage",
+      "type": "registry:item",
+      "title": "Vercel Marketplace Storage",
+      "description": "Guided setup for Neon, Supabase, Upstash, AWS, and marketplace integrations.",
+      "files": [
+        {
+          "path": "registry/modules/vercel-marketplace-storage/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "waitlist",
+      "type": "registry:item",
+      "title": "Waitlist",
+      "description": "Waitlist form, referral code, and invite state.",
+      "files": [
+        {
+          "path": "registry/modules/waitlist/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "webhook-delivery",
+      "type": "registry:item",
+      "title": "Webhook Delivery",
+      "description": "Outbound webhooks, endpoint secrets, delivery attempts, and retry logs.",
+      "files": [
+        {
+          "path": "registry/modules/webhook-delivery/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "webhook-inbox",
+      "type": "registry:item",
+      "title": "Webhook Inbox",
+      "description": "Received webhook table, status, retry, signature metadata, and event detail UI.",
+      "files": [
+        {
+          "path": "registry/modules/webhook-inbox/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "workspace-settings",
+      "type": "registry:item",
+      "title": "Workspace Settings",
+      "description": "Organization billing, members, API keys, and security settings.",
+      "files": [
+        {
+          "path": "registry/modules/workspace-settings/module.json",
           "type": "registry:file"
         }
       ]

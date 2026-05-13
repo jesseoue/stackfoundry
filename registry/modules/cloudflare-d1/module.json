@@ -1,0 +1,22 @@
+{
+  "name": "cloudflare-d1",
+  "type": "integration",
+  "category": "database",
+  "title": "Cloudflare D1",
+  "description": "D1 SQLite module, migrations, bindings, local dev, and Drizzle/D1 notes.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cloudflare-d1"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

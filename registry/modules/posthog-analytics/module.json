@@ -1,0 +1,22 @@
+{
+  "name": "posthog-analytics",
+  "type": "integration",
+  "category": "analytics",
+  "title": "PostHog Analytics",
+  "description": "Client/server capture, event catalog, feature flag adapter, and replay notes.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "posthog-analytics"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

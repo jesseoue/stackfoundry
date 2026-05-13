@@ -1,0 +1,22 @@
+{
+  "name": "data-retention",
+  "type": "module",
+  "category": "compliance",
+  "title": "Data Retention",
+  "description": "Retention policies, cleanup jobs, export/delete requests, and admin controls.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "data-retention"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

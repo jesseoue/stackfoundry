@@ -1,0 +1,22 @@
+{
+  "name": "data-export",
+  "type": "module",
+  "category": "operations",
+  "title": "Data Export",
+  "description": "CSV export, background job, and download links.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "data-export"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

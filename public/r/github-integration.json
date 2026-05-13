@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "github-integration",
+  "type": "registry:item",
+  "title": "GitHub Integration",
+  "description": "Repo picker, GitHub app/token config, PR links, and webhook ingestion.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "developer-platform",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "github-integration"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

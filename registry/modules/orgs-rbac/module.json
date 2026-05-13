@@ -1,0 +1,22 @@
+{
+  "name": "orgs-rbac",
+  "type": "module",
+  "category": "auth",
+  "title": "Organizations and RBAC",
+  "description": "Organization switcher, roles, permissions, invitations, and member management.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "orgs-rbac"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

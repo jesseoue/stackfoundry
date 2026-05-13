@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "docker-compose-local",
+  "type": "registry:item",
+  "title": "Docker Compose Local",
+  "description": "Local Postgres, Redis, Mailpit, and provider-mock services.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "devops",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "docker-compose-local"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

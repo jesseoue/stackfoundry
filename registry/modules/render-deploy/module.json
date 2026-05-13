@@ -1,0 +1,22 @@
+{
+  "name": "render-deploy",
+  "type": "integration",
+  "category": "deploy",
+  "title": "Render Deploy",
+  "description": "Simple web service deploy templates and environment docs.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "render-deploy"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

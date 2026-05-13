@@ -1,0 +1,22 @@
+{
+  "name": "system-health",
+  "type": "module",
+  "category": "operations",
+  "title": "System Health",
+  "description": "Env checks, provider connectivity, DB migration status, and queue lag.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "system-health"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

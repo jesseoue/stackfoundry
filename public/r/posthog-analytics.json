@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "posthog-analytics",
+  "type": "registry:item",
+  "title": "PostHog Analytics",
+  "description": "Client/server capture, event catalog, feature flag adapter, and replay notes.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "analytics",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "posthog-analytics"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

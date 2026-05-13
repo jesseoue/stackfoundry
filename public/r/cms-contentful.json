@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cms-contentful",
+  "type": "registry:item",
+  "title": "Contentful CMS",
+  "description": "Contentful integration and content model docs.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "content",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "cms-contentful"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

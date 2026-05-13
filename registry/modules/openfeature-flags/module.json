@@ -1,0 +1,22 @@
+{
+  "name": "openfeature-flags",
+  "type": "module",
+  "category": "growth",
+  "title": "OpenFeature Flags",
+  "description": "OpenFeature-compatible flag interface and provider adapter pattern.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "openfeature-flags"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

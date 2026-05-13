@@ -1,0 +1,22 @@
+{
+  "name": "aarrr-dashboard",
+  "type": "module",
+  "category": "growth",
+  "title": "AARRR Dashboard",
+  "description": "Acquisition, activation, retention, referral, revenue dashboard with cohort filters.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "aarrr-dashboard"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

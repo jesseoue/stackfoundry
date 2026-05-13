@@ -1,0 +1,22 @@
+{
+  "name": "unkey-rate-limits",
+  "type": "integration",
+  "category": "developer-platform",
+  "title": "Unkey Rate Limits",
+  "description": "Unkey limits by key, user, IP, endpoint, org, or custom identifier.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "unkey-rate-limits"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

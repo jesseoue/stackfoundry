@@ -1,0 +1,22 @@
+{
+  "name": "cloudflare-durable-objects",
+  "type": "integration",
+  "category": "edge",
+  "title": "Cloudflare Durable Objects",
+  "description": "Stateful coordination, realtime rooms, per-tenant state, and DO storage.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cloudflare-durable-objects"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

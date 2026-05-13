@@ -1,0 +1,22 @@
+{
+  "name": "cloudflare-turnstile",
+  "type": "integration",
+  "category": "security",
+  "title": "Cloudflare Turnstile",
+  "description": "Bot protection for signup, contact, waitlist, and abuse-sensitive forms.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cloudflare-turnstile"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

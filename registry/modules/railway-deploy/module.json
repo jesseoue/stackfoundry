@@ -1,0 +1,22 @@
+{
+  "name": "railway-deploy",
+  "type": "integration",
+  "category": "deploy",
+  "title": "Railway Deploy",
+  "description": "Full-stack deploy option for Node apps, workers, and databases.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "railway-deploy"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

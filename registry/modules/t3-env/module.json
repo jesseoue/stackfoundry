@@ -1,0 +1,22 @@
+{
+  "name": "t3-env",
+  "type": "module",
+  "category": "foundation",
+  "title": "T3 Env",
+  "description": "Type-safe server/client environment validation and .env.example management.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "t3-env"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

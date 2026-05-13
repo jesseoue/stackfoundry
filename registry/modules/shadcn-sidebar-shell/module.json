@@ -1,0 +1,22 @@
+{
+  "name": "shadcn-sidebar-shell",
+  "type": "module",
+  "category": "foundation",
+  "title": "Sidebar Shell",
+  "description": "shadcn-compatible Sidebar shell with navigation, header, responsive layout, and product config.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "shadcn-sidebar-shell"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

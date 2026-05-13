@@ -1,0 +1,22 @@
+{
+  "name": "prompt-library",
+  "type": "module",
+  "category": "ai",
+  "title": "Prompt Library",
+  "description": "Reusable prompts, variable interpolation, and prompt versioning.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "prompt-library"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

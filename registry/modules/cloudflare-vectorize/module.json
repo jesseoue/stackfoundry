@@ -1,0 +1,22 @@
+{
+  "name": "cloudflare-vectorize",
+  "type": "integration",
+  "category": "ai",
+  "title": "Cloudflare Vectorize",
+  "description": "Vector search and RAG provider module.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cloudflare-vectorize"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "email-postmark",
+  "type": "integration",
+  "category": "email",
+  "title": "Postmark Email",
+  "description": "Transactional email adapter and template mapping.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "email-postmark"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

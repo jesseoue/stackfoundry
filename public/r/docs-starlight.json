@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "docs-starlight",
+  "type": "registry:item",
+  "title": "Starlight Docs",
+  "description": "Astro Starlight docs module for separate documentation sites.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "docs",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "docs-starlight"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

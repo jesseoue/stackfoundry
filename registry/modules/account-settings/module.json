@@ -1,0 +1,22 @@
+{
+  "name": "account-settings",
+  "type": "page",
+  "category": "auth",
+  "title": "Account Settings",
+  "description": "Profile, security, sessions, and notification preference pages.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "account-settings"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

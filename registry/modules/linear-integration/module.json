@@ -1,0 +1,22 @@
+{
+  "name": "linear-integration",
+  "type": "integration",
+  "category": "project-management",
+  "title": "Linear Integration",
+  "description": "Issue creation, Linear links, and incident/project workflows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "linear-integration"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "drizzle-audit-log",
+  "type": "schema",
+  "category": "database",
+  "title": "Drizzle Audit Log",
+  "description": "Common activity/event schema, actor/resource modeling, and admin timeline UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "drizzle-audit-log"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

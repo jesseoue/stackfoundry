@@ -1,0 +1,22 @@
+{
+  "name": "file-uploads",
+  "type": "module",
+  "category": "storage",
+  "title": "File Uploads",
+  "description": "Vercel Blob/S3 adapter, upload UI, and file browser.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "file-uploads"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

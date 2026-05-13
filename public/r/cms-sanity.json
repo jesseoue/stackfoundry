@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cms-sanity",
+  "type": "registry:item",
+  "title": "Sanity CMS",
+  "description": "Sanity integration and preview mode.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "content",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "cms-sanity"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

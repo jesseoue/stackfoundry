@@ -1,0 +1,22 @@
+{
+  "name": "surveys-nps",
+  "type": "module",
+  "category": "growth",
+  "title": "Surveys and NPS",
+  "description": "NPS/CSAT surveys, in-app prompts, response tables, and segmentation.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "surveys-nps"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

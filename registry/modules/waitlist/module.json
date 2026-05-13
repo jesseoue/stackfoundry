@@ -1,0 +1,22 @@
+{
+  "name": "waitlist",
+  "type": "module",
+  "category": "marketing",
+  "title": "Waitlist",
+  "description": "Waitlist form, referral code, and invite state.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "waitlist"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "vercel-blob",
+  "type": "registry:item",
+  "title": "Vercel Blob",
+  "description": "File uploads, signed upload/download helpers, and file browser UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "meta": {
+    "category": "storage",
+    "env": [],
+    "status": "planned",
+    "agents": {
+      "skills": [
+        "vercel-blob"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release"
+      ]
+    }
+  }
+}

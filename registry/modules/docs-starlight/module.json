@@ -1,0 +1,22 @@
+{
+  "name": "docs-starlight",
+  "type": "module",
+  "category": "docs",
+  "title": "Starlight Docs",
+  "description": "Astro Starlight docs module for separate documentation sites.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "docs-starlight"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

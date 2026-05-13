@@ -1,0 +1,22 @@
+{
+  "name": "auth-authjs",
+  "type": "integration",
+  "category": "auth",
+  "title": "Auth.js",
+  "description": "Auth.js setup for teams that prefer classic Next auth flows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "auth-authjs"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

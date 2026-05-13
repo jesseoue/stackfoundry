@@ -1,0 +1,22 @@
+{
+  "name": "support-console",
+  "type": "module",
+  "category": "operations",
+  "title": "Support Console",
+  "description": "Customer lookup, account timeline, and support notes.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "support-console"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "autumn-entitlements",
+  "type": "integration",
+  "category": "billing",
+  "title": "Autumn Entitlements",
+  "description": "Autumn check API, boolean and metered features, credit ledgers, and plan gates.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "autumn-entitlements"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

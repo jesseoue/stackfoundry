@@ -1,0 +1,22 @@
+{
+  "name": "cloudflare-agents-sdk",
+  "type": "integration",
+  "category": "ai",
+  "title": "Cloudflare Agents SDK",
+  "description": "Stateful AI agents on Workers, React hooks, WebSocket/RPC surface.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "cloudflare-agents-sdk"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

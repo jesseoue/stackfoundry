@@ -1,0 +1,22 @@
+{
+  "name": "github-integration",
+  "type": "integration",
+  "category": "developer-platform",
+  "title": "GitHub Integration",
+  "description": "Repo picker, GitHub app/token config, PR links, and webhook ingestion.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "github-integration"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "background-jobs",
+  "type": "module",
+  "category": "operations",
+  "title": "Background Jobs",
+  "description": "Job table, queue abstraction, retry/cancel UI, and worker handoff patterns.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": [
+      "background-jobs"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
+  },
+  "status": "planned"
+}
