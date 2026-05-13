@@ -32,3 +32,4 @@ jobs:
       - run: corepack enable
       - run: pnpm install --ignore-scripts
       - run: pnpm check
+      - run: pnpm build:web

@@ -161,6 +161,18 @@ Current local prototype:
 pnpm check
 ```
 
+Website:
+
+```bash
+pnpm dev:web
+```
+
+Production build:
+
+```bash
+pnpm build:web
+```
+
 ## Roadmap
 
 See [`ROADMAP.md`](./ROADMAP.md).
