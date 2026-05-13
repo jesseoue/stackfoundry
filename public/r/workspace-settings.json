@@ -3,22 +3,34 @@
   "name": "workspace-settings",
   "type": "registry:item",
   "title": "Workspace Settings",
-  "description": "Organization billing, members, API keys, and security settings.",
+  "description": "Organization members, roles, API keys, billing, and security settings.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/app/(console)/settings/workspace/page.tsx",
+      "type": "registry:page",
+      "content": "const sections = [\n  { title: \"Members\", description: \"Manage teammates, roles, and pending invites.\" },\n  { title: \"Billing\", description: \"Plan, invoices, payment method, and usage limits.\" },\n  { title: \"Security\", description: \"Domains, SSO, audit log, and API access.\" },\n];\n\nexport default function WorkspaceSettingsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Workspace Settings</h1>\n        <p className=\"text-muted-foreground\">Centralize organization controls without coupling to a specific auth provider.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {sections.map((section) => (\n          <section key={section.title} className=\"rounded-lg border p-4\">\n            <h2 className=\"font-medium\">{section.title}</h2>\n            <p className=\"text-sm text-muted-foreground\">{section.description}</p>\n          </section>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    },
+    {
+      "path": "apps/web/src/lib/workspace-settings.ts",
+      "type": "registry:file",
+      "content": "export type WorkspaceSettingsSection = {\n  id: string;\n  title: string;\n  href: string;\n};\n\nexport const workspaceSettingsSections: WorkspaceSettingsSection[] = [\n  { id: \"members\", title: \"Members\", href: \"/settings/workspace\" },\n  { id: \"billing\", title: \"Billing\", href: \"/settings/workspace/billing\" },\n  { id: \"security\", title: \"Security\", href: \"/settings/workspace/security\" },\n];\n"
+    }
+  ],
   "meta": {
     "category": "auth",
     "env": [],
-    "status": "planned",
+    "status": "experimental",
     "agents": {
       "skills": [
         "workspace-settings"
       ],
       "rules": [
-        "document-invariants",
-        "verify-before-release"
+        "enforce-org-membership",
+        "scope-settings-by-workspace",
+        "audit-sensitive-changes"
       ]
     }
   }

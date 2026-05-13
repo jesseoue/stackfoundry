@@ -6,17 +6,39 @@
   "description": "Append-only activity table, event helpers, and admin timeline UI.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/audit-log.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/audit-log.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/audit-log/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "auditLogEvents"
+    ],
+    "migrationRecommended": true
+  },
   "agents": {
     "skills": [
       "audit-log"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "append-only-events",
+      "namespace-actions",
+      "avoid-sensitive-metadata"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

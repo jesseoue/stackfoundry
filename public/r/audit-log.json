@@ -6,20 +6,45 @@
   "description": "Append-only activity table, event helpers, and admin timeline UI.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
-  "files": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/audit-log.ts",
+      "type": "registry:file",
+      "content": "import { index, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const auditLogEvents = pgTable(\n  \"audit_log_events\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    actorId: text(\"actor_id\"),\n    actorType: text(\"actor_type\").notNull().default(\"user\"),\n    action: text(\"action\").notNull(),\n    resourceType: text(\"resource_type\").notNull(),\n    resourceId: text(\"resource_id\"),\n    organizationId: text(\"organization_id\"),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (table) => [\n    index(\"audit_log_events_org_idx\").on(table.organizationId),\n    index(\"audit_log_events_resource_idx\").on(table.resourceType, table.resourceId),\n  ]\n);\n"
+    },
+    {
+      "path": "apps/web/src/lib/audit-log.ts",
+      "type": "registry:file",
+      "content": "import \"server-only\";\n\nexport type AuditLogEventInput = {\n  actorId?: string | null;\n  actorType?: \"user\" | \"system\" | \"service\";\n  action: string;\n  resourceType: string;\n  resourceId?: string | null;\n  organizationId?: string | null;\n  metadata?: Record<string, unknown>;\n};\n\nexport function buildAuditLogEvent(input: AuditLogEventInput) {\n  return {\n    actorId: input.actorId ?? null,\n    actorType: input.actorType ?? \"user\",\n    action: input.action,\n    resourceType: input.resourceType,\n    resourceId: input.resourceId ?? null,\n    organizationId: input.organizationId ?? null,\n    metadata: input.metadata ?? {},\n  };\n}\n\nexport function assertAuditAction(action: string) {\n  if (!/^[a-z]+(?:\\.[a-z]+)+$/.test(action)) {\n    throw new Error(\"Audit actions should use a namespaced form like billing.subscription_updated\");\n  }\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/audit-log/page.tsx",
+      "type": "registry:page",
+      "content": "const exampleEvents = [\n  { action: \"billing.subscription_updated\", actor: \"system\", resource: \"subscription\" },\n  { action: \"api_key.created\", actor: \"user_123\", resource: \"api_key\" },\n  { action: \"workspace.member_invited\", actor: \"user_456\", resource: \"invite\" },\n];\n\nexport default function AuditLogPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Audit Log</h1>\n        <p className=\"text-muted-foreground\">Review sensitive account, workspace, and system events.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {exampleEvents.map((event) => (\n          <div key={event.action} className=\"rounded-lg border p-4\">\n            <p className=\"font-medium\">{event.action}</p>\n            <p className=\"text-sm text-muted-foreground\">{event.actor} changed {event.resource}</p>\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
   "meta": {
     "category": "operations",
     "env": [],
-    "status": "planned",
+    "status": "experimental",
     "agents": {
       "skills": [
         "audit-log"
       ],
       "rules": [
-        "document-invariants",
-        "verify-before-release"
+        "append-only-events",
+        "namespace-actions",
+        "avoid-sensitive-metadata"
       ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "auditLogEvents"
+      ],
+      "migrationRecommended": true
     }
   }
 }

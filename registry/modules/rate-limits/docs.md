@@ -1,7 +1,19 @@
-# Rate Limits
+# Rate Limits Module
 
-Limit tables or provider adapter, middleware helpers, and UI cards.
+Database-backed limit definitions, fixed-window helper, and UI cards.
 
-## Status
+## Owns
 
-Planned module. Source files will be added as this module graduates into active development.
+- `packages/db/src/schema/rate-limits.ts`
+- `apps/web/src/lib/rate-limits.ts`
+- `apps/web/src/app/(console)/rate-limits/page.tsx`
+
+## Environment
+
+Requires `DATABASE_URL` through the `drizzle-postgres` dependency.
+
+## Maintenance
+
+- Keep this module provider-neutral unless a provider-specific adapter is added as a separate module.
+- Update the manifest when source files, schema exports, dependencies, or environment variables change.
+- Verify install output with `stackfoundry add rate-limits --target <app> --dry-run` before promoting status.

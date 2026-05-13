@@ -8,15 +8,25 @@
   "devDependencies": [],
   "registryDependencies": [],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/app/(console)/settings/account/page.tsx",
+      "type": "registry:page"
+    },
+    {
+      "path": "apps/web/src/lib/account-settings.ts",
+      "type": "registry:file"
+    }
+  ],
   "agents": {
     "skills": [
       "account-settings"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "separate-user-and-workspace-settings",
+      "protect-security-actions",
+      "confirm-destructive-actions"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

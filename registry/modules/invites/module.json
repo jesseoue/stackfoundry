@@ -6,17 +6,39 @@
   "description": "Email invitations, pending invitation state, role assignment, and resend/cancel flows.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/invites.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/invites.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/settings/workspace/invites/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "workspaceInvites"
+    ],
+    "migrationRecommended": true
+  },
   "agents": {
     "skills": [
       "invites"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "hash-invite-tokens",
+      "expire-pending-invites",
+      "audit-membership-changes"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

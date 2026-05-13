@@ -6,20 +6,45 @@
   "description": "Job table, queue abstraction, retry/cancel UI, and worker handoff patterns.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
-  "files": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/background-jobs.ts",
+      "type": "registry:file",
+      "content": "import { integer, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const backgroundJobs = pgTable(\"background_jobs\", {\n  id: uuid(\"id\").primaryKey().defaultRandom(),\n  name: text(\"name\").notNull(),\n  status: text(\"status\").notNull().default(\"queued\"),\n  payload: jsonb(\"payload\").$type<Record<string, unknown>>().notNull().default({}),\n  attempts: integer(\"attempts\").notNull().default(0),\n  maxAttempts: integer(\"max_attempts\").notNull().default(3),\n  runAfter: timestamp(\"run_after\", { withTimezone: true }).defaultNow().notNull(),\n  lockedAt: timestamp(\"locked_at\", { withTimezone: true }),\n  completedAt: timestamp(\"completed_at\", { withTimezone: true }),\n  failedAt: timestamp(\"failed_at\", { withTimezone: true }),\n  createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n});\n"
+    },
+    {
+      "path": "apps/web/src/lib/background-jobs.ts",
+      "type": "registry:file",
+      "content": "import \"server-only\";\n\nexport type BackgroundJobInput = {\n  name: string;\n  payload?: Record<string, unknown>;\n  maxAttempts?: number;\n  runAfter?: Date;\n};\n\nexport function createBackgroundJob(input: BackgroundJobInput) {\n  return {\n    name: input.name,\n    payload: input.payload ?? {},\n    maxAttempts: input.maxAttempts ?? 3,\n    runAfter: input.runAfter ?? new Date(),\n  };\n}\n\nexport function shouldRetryJob(attempts: number, maxAttempts: number) {\n  return attempts < maxAttempts;\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/jobs/page.tsx",
+      "type": "registry:page",
+      "content": "const jobs = [\n  { name: \"send_lifecycle_email\", status: \"queued\", attempts: 0 },\n  { name: \"sync_billing_subscription\", status: \"completed\", attempts: 1 },\n];\n\nexport default function JobsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Background Jobs</h1>\n        <p className=\"text-muted-foreground\">Track queued work, retries, and worker handoffs.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {jobs.map((job) => (\n          <div key={job.name} className=\"rounded-lg border p-4\">\n            <p className=\"font-medium\">{job.name}</p>\n            <p className=\"text-sm text-muted-foreground\">{job.status} - {job.attempts} attempts</p>\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
   "meta": {
     "category": "operations",
     "env": [],
-    "status": "planned",
+    "status": "experimental",
     "agents": {
       "skills": [
         "background-jobs"
       ],
       "rules": [
-        "document-invariants",
-        "verify-before-release"
+        "idempotent-handlers",
+        "bounded-retries",
+        "record-failures"
       ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "backgroundJobs"
+      ],
+      "migrationRecommended": true
     }
   }
 }

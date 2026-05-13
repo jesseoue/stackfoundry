@@ -3,20 +3,43 @@
   "type": "module",
   "category": "operations",
   "title": "Rate Limits",
-  "description": "Limit tables or provider adapter, middleware helpers, and UI cards.",
+  "description": "Database-backed limit definitions, fixed-window helper, and UI cards.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/rate-limits.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/rate-limits.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/rate-limits/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "rateLimitRules",
+      "rateLimitHits"
+    ],
+    "migrationRecommended": true
+  },
   "agents": {
     "skills": [
       "rate-limits"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "fail-closed-for-abuse",
+      "separate-subjects",
+      "document-bypass-rules"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

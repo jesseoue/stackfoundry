@@ -5,7 +5,14 @@
   "modules": [
     "drizzle-postgres",
     "api-keys",
-    "stripe-billing"
+    "stripe-billing",
+    "account-settings",
+    "workspace-settings",
+    "invites",
+    "audit-log",
+    "feature-flags",
+    "rate-limits",
+    "background-jobs"
   ],
   "status": "planned"
 }

@@ -5,6 +5,9 @@
   "modules": [
     "drizzle-postgres",
     "api-keys",
+    "rate-limits",
+    "audit-log",
+    "background-jobs",
     "public-api-orpc",
     "webhook-delivery",
     "developer-portal"

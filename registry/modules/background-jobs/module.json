@@ -6,17 +6,39 @@
   "description": "Job table, queue abstraction, retry/cancel UI, and worker handoff patterns.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/background-jobs.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/background-jobs.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/jobs/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "backgroundJobs"
+    ],
+    "migrationRecommended": true
+  },
   "agents": {
     "skills": [
       "background-jobs"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "idempotent-handlers",
+      "bounded-retries",
+      "record-failures"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

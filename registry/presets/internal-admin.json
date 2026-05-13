@@ -8,6 +8,8 @@
     "support-console",
     "audit-log",
     "feature-flags",
+    "rate-limits",
+    "background-jobs",
     "system-health"
   ],
   "status": "planned"

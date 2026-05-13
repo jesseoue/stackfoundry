@@ -6,17 +6,39 @@
   "description": "Flag table, evaluation helper, admin UI, and per-org targeting.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/feature-flags.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/feature-flags.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/feature-flags/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "featureFlags"
+    ],
+    "migrationRecommended": true
+  },
   "agents": {
     "skills": [
       "feature-flags"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "stable-evaluation",
+      "default-closed",
+      "document-rollouts"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

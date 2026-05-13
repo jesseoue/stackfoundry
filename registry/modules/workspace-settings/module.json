@@ -3,20 +3,30 @@
   "type": "page",
   "category": "auth",
   "title": "Workspace Settings",
-  "description": "Organization billing, members, API keys, and security settings.",
+  "description": "Organization members, roles, API keys, billing, and security settings.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/app/(console)/settings/workspace/page.tsx",
+      "type": "registry:page"
+    },
+    {
+      "path": "apps/web/src/lib/workspace-settings.ts",
+      "type": "registry:file"
+    }
+  ],
   "agents": {
     "skills": [
       "workspace-settings"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "enforce-org-membership",
+      "scope-settings-by-workspace",
+      "audit-sensitive-changes"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

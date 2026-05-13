@@ -3,23 +3,49 @@
   "name": "rate-limits",
   "type": "registry:item",
   "title": "Rate Limits",
-  "description": "Limit tables or provider adapter, middleware helpers, and UI cards.",
+  "description": "Database-backed limit definitions, fixed-window helper, and UI cards.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
-  "files": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/rate-limits.ts",
+      "type": "registry:file",
+      "content": "import { integer, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const rateLimitRules = pgTable(\"rate_limit_rules\", {\n  id: uuid(\"id\").primaryKey().defaultRandom(),\n  key: text(\"key\").notNull().unique(),\n  limit: integer(\"limit\").notNull(),\n  windowSeconds: integer(\"window_seconds\").notNull(),\n  createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n});\n\nexport const rateLimitHits = pgTable(\"rate_limit_hits\", {\n  id: uuid(\"id\").primaryKey().defaultRandom(),\n  ruleKey: text(\"rule_key\").notNull(),\n  subject: text(\"subject\").notNull(),\n  windowStart: timestamp(\"window_start\", { withTimezone: true }).notNull(),\n  count: integer(\"count\").notNull().default(0),\n});\n"
+    },
+    {
+      "path": "apps/web/src/lib/rate-limits.ts",
+      "type": "registry:file",
+      "content": "import \"server-only\";\n\nexport type RateLimitRule = {\n  key: string;\n  limit: number;\n  windowSeconds: number;\n};\n\nexport function getRateLimitWindow(now: Date, windowSeconds: number) {\n  const windowMs = windowSeconds * 1000;\n  return new Date(Math.floor(now.getTime() / windowMs) * windowMs);\n}\n\nexport function describeRateLimit(rule: RateLimitRule) {\n  return rule.limit + \" requests per \" + rule.windowSeconds + \" seconds\";\n}\n\nexport function isRateLimited(count: number, rule: RateLimitRule) {\n  return count >= rule.limit;\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/rate-limits/page.tsx",
+      "type": "registry:page",
+      "content": "const rules = [\n  { key: \"api.public\", limit: 120, window: \"60 seconds\" },\n  { key: \"auth.login\", limit: 10, window: \"5 minutes\" },\n];\n\nexport default function RateLimitsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Rate Limits</h1>\n        <p className=\"text-muted-foreground\">Define and review request limits for product and API surfaces.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {rules.map((rule) => (\n          <div key={rule.key} className=\"rounded-lg border p-4\">\n            <p className=\"font-medium\">{rule.key}</p>\n            <p className=\"text-sm text-muted-foreground\">{rule.limit} requests per {rule.window}</p>\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
   "meta": {
     "category": "operations",
     "env": [],
-    "status": "planned",
+    "status": "experimental",
     "agents": {
       "skills": [
         "rate-limits"
       ],
       "rules": [
-        "document-invariants",
-        "verify-before-release"
+        "fail-closed-for-abuse",
+        "separate-subjects",
+        "document-bypass-rules"
       ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "rateLimitRules",
+        "rateLimitHits"
+      ],
+      "migrationRecommended": true
     }
   }
 }
