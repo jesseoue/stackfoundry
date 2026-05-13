@@ -34,3 +34,4 @@ go.sh
 
 # OS/editor
 .DS_Store
+.vercel

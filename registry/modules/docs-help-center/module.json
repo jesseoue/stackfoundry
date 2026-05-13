@@ -1,22 +1,32 @@
 {
   "name": "docs-help-center",
   "type": "module",
-  "category": "content",
-  "title": "Help Center",
-  "description": "MDX docs, search, categories, and article pages.",
+  "category": "support",
+  "title": "Docs Help Center",
+  "description": "Help center index, article metadata, and support escalation paths.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/docs-help-center.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(marketing)/help/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "docs-help-center"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

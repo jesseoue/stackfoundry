@@ -3,20 +3,32 @@
   "type": "module",
   "category": "billing",
   "title": "Trial Management",
-  "description": "Trial start/end, grace periods, and upgrade prompts.",
+  "description": "Trial windows, conversion state, and expiry handling.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "billing-core"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/trial-management.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/trials/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "trial-management"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

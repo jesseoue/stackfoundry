@@ -6,10 +6,17 @@
     "drizzle-postgres",
     "api-keys",
     "ai-chat",
-    "ai-artifacts",
     "model-router",
     "prompt-library",
-    "evals"
+    "rag-starter",
+    "file-uploads",
+    "usage-metering",
+    "rate-limits",
+    "audit-log",
+    "notifications",
+    "background-jobs",
+    "pricing-page",
+    "plan-gating"
   ],
   "status": "planned"
 }

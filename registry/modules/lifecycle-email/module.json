@@ -3,20 +3,32 @@
   "type": "module",
   "category": "growth",
   "title": "Lifecycle Email",
-  "description": "Behavior-triggered onboarding, activation nudges, reactivation, and upgrade emails.",
+  "description": "Lifecycle email campaign definitions, audience rules, and delivery checklist.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "notifications"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/lifecycle-email.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/lifecycle-email/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "lifecycle-email"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

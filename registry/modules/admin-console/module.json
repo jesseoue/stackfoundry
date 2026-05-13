@@ -3,20 +3,32 @@
   "type": "module",
   "category": "operations",
   "title": "Admin Console",
-  "description": "Super-admin shell, user/org management, and metrics.",
+  "description": "Super-admin shell for users, workspaces, metrics, and operational controls.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "audit-log"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/admin-console.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "admin-console"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

@@ -1,7 +1,20 @@
-# Data Retention
+# Data Retention Module
 
-Retention policies, cleanup jobs, export/delete requests, and admin controls.
+Retention policies, deletion windows, and compliance review UI.
 
-## Status
+## Owns
 
-Planned module. Source files will be added as this module graduates into active development.
+- `packages/db/src/schema/data-retention.ts`
+- `apps/web/src/lib/data-retention.ts`
+- `apps/web/src/app/(console)/data/retention/page.tsx`
+
+## Environment
+
+Requires `DATABASE_URL` through the `drizzle-postgres` dependency.
+
+## Maintenance
+
+- Keep this module provider-neutral unless a provider-specific adapter is added separately.
+- Update source templates, manifest files, and generated registry output together.
+- Add audit events around sensitive changes before promoting this module beyond experimental.
+- Verify with `stackfoundry add data-retention --target <app> --dry-run`.

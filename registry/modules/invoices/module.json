@@ -1,22 +1,34 @@
 {
   "name": "invoices",
-  "type": "page",
+  "type": "module",
   "category": "billing",
   "title": "Invoices",
-  "description": "Invoice list, invoice detail, and payment method settings.",
+  "description": "Invoice records, payment status, and billing history UI.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "billing-core"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/invoices.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/invoices/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "invoices"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

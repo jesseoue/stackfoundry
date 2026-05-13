@@ -1,22 +1,44 @@
 {
   "name": "webhook-inbox",
   "type": "module",
-  "category": "operations",
+  "category": "developer-platform",
   "title": "Webhook Inbox",
-  "description": "Received webhook table, status, retry, signature metadata, and event detail UI.",
+  "description": "Inbound webhook capture, signature metadata, and replay workflow.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/webhook-inbox.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/webhook-inbox.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/webhooks/inbox/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "webhookInbox"
+    ],
+    "migrationRecommended": true
+  },
   "agents": {
     "skills": [
       "webhook-inbox"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

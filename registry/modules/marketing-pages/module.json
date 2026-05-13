@@ -3,20 +3,30 @@
   "type": "module",
   "category": "marketing",
   "title": "Marketing Pages",
-  "description": "Landing, features, pricing, FAQ, and CTA sections.",
+  "description": "Landing page sections, social proof slots, and CTA patterns.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/marketing-pages.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(marketing)/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "marketing-pages"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

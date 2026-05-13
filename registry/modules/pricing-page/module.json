@@ -1,22 +1,32 @@
 {
   "name": "pricing-page",
-  "type": "page",
-  "category": "billing",
+  "type": "module",
+  "category": "marketing",
   "title": "Pricing Page",
-  "description": "Public pricing table, plan comparison, and CTA wiring.",
+  "description": "Plan comparison page with feature groups and call-to-action slots.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/pricing-page.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(marketing)/pricing/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "pricing-page"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

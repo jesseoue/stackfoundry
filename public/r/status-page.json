@@ -3,22 +3,36 @@
   "name": "status-page",
   "type": "registry:item",
   "title": "Status Page",
-  "description": "Incident model, public status page, and subscriptions.",
+  "description": "Public component status and incident update page.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
-  "files": [],
+  "registryDependencies": [
+    "incident-management"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/status-page.ts",
+      "type": "registry:file",
+      "content": "export type StatusPageItem = {\n  key: string;\n  title: string;\n  status?: \"active\" | \"draft\" | \"archived\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createStatusPageItem(item: StatusPageItem) {\n  return {\n    key: item.key,\n    title: item.title,\n    status: item.status ?? \"active\",\n    metadata: item.metadata ?? {},\n  };\n}\n\nexport const statusPageChecklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence or provider adapter\",\n  \"Add audit events for sensitive changes\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/status/page.tsx",
+      "type": "registry:page",
+      "content": "const items = [\n  { title: \"Configure\", description: \"Set ownership, defaults, and permissions.\" },\n  { title: \"Operate\", description: \"Review status, recent activity, and unresolved work.\" },\n  { title: \"Verify\", description: \"Run the checklist before enabling this module in production.\" },\n];\n\nexport default function StatusPagePage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Status Page</h1>\n        <p className=\"text-muted-foreground\">Public component status and incident update page.</p>\n      </div>\n      <div className=\"grid gap-3 md:grid-cols-3\">\n        {items.map((item) => (\n          <section key={item.title} className=\"rounded-lg border p-4\">\n            <h2 className=\"font-medium\">{item.title}</h2>\n            <p className=\"text-sm text-muted-foreground\">{item.description}</p>\n          </section>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
   "meta": {
     "category": "operations",
     "env": [],
-    "status": "planned",
+    "status": "experimental",
     "agents": {
       "skills": [
         "status-page"
       ],
       "rules": [
         "document-invariants",
-        "verify-before-release"
+        "verify-before-release",
+        "keep-provider-boundary"
       ]
     }
   }

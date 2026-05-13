@@ -5,7 +5,7 @@ description: Maintain the Developer Portal module installed by StackFoundry.
 
 # Developer Portal Maintenance Instructions
 
-- Keep module ownership clear.
-- Update docs with behavior changes.
-- Add verification steps before release.
-- Do not introduce provider lock-in outside the module boundary.
+- Preserve the module ownership described in `docs.md`.
+- Keep default source templates compact, typed, and provider-neutral.
+- Update `tests/checklist.md` when behavior changes.
+- Do not commit secrets, local state, or generated machine metadata.

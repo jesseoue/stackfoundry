@@ -1,7 +1,19 @@
-# Help Center
+# Docs Help Center Module
 
-MDX docs, search, categories, and article pages.
+Help center index, article metadata, and support escalation paths.
 
-## Status
+## Owns
 
-Planned module. Source files will be added as this module graduates into active development.
+- `apps/web/src/lib/docs-help-center.ts`
+- `apps/web/src/app/(marketing)/help/page.tsx`
+
+## Environment
+
+No environment variables are required by default.
+
+## Maintenance
+
+- Keep this module provider-neutral unless a provider-specific adapter is added separately.
+- Update source templates, manifest files, and generated registry output together.
+- Add audit events around sensitive changes before promoting this module beyond experimental.
+- Verify with `stackfoundry add docs-help-center --target <app> --dry-run`.

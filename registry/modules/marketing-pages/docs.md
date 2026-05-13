@@ -1,7 +1,19 @@
-# Marketing Pages
+# Marketing Pages Module
 
-Landing, features, pricing, FAQ, and CTA sections.
+Landing page sections, social proof slots, and CTA patterns.
 
-## Status
+## Owns
 
-Planned module. Source files will be added as this module graduates into active development.
+- `apps/web/src/lib/marketing-pages.ts`
+- `apps/web/src/app/(marketing)/page.tsx`
+
+## Environment
+
+No environment variables are required by default.
+
+## Maintenance
+
+- Keep this module provider-neutral unless a provider-specific adapter is added separately.
+- Update source templates, manifest files, and generated registry output together.
+- Add audit events around sensitive changes before promoting this module beyond experimental.
+- Verify with `stackfoundry add marketing-pages --target <app> --dry-run`.

@@ -1,22 +1,32 @@
 {
   "name": "public-api-orpc",
   "type": "module",
-  "category": "api",
-  "title": "Public API oRPC",
-  "description": "oRPC router, OpenAPI output, docs route, and typed client.",
+  "category": "developer-platform",
+  "title": "Public API",
+  "description": "Versioned API response helpers, errors, and pagination primitives.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/public-api-orpc.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/developers/api/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "public-api-orpc"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

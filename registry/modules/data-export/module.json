@@ -1,22 +1,44 @@
 {
   "name": "data-export",
   "type": "module",
-  "category": "operations",
+  "category": "compliance",
   "title": "Data Export",
-  "description": "CSV export, background job, and download links.",
+  "description": "User and workspace export requests with status tracking.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/data-export.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/data-export.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/data/export/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "dataExport"
+    ],
+    "migrationRecommended": true
+  },
   "agents": {
     "skills": [
       "data-export"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

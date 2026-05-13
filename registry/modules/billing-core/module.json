@@ -3,20 +3,42 @@
   "type": "module",
   "category": "billing",
   "title": "Billing Core",
-  "description": "Shared customers, subscriptions, plans, products, entitlements, and provider mapping.",
+  "description": "Provider-neutral customer, plan, and subscription primitives.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/billing-core.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/billing-core.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/core/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "billingCore"
+    ],
+    "migrationRecommended": true
+  },
   "agents": {
     "skills": [
       "billing-core"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

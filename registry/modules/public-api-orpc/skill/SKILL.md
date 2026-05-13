@@ -1,11 +1,11 @@
 ---
 name: public-api-orpc
-description: Maintain the Public API oRPC module installed by StackFoundry.
+description: Maintain the Public API module installed by StackFoundry.
 ---
 
-# Public API oRPC Maintenance Instructions
+# Public API Maintenance Instructions
 
-- Keep module ownership clear.
-- Update docs with behavior changes.
-- Add verification steps before release.
-- Do not introduce provider lock-in outside the module boundary.
+- Preserve the module ownership described in `docs.md`.
+- Keep default source templates compact, typed, and provider-neutral.
+- Update `tests/checklist.md` when behavior changes.
+- Do not commit secrets, local state, or generated machine metadata.

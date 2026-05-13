@@ -3,20 +3,42 @@
   "type": "module",
   "category": "storage",
   "title": "File Uploads",
-  "description": "Vercel Blob/S3 adapter, upload UI, and file browser.",
+  "description": "File metadata, upload policy helpers, and upload management UI.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/file-uploads.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/file-uploads.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/files/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "fileUploads"
+    ],
+    "migrationRecommended": true
+  },
   "agents": {
     "skills": [
       "file-uploads"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

@@ -3,20 +3,42 @@
   "type": "module",
   "category": "billing",
   "title": "Entitlements",
-  "description": "Feature gates, plan limits, hasFeature helpers, and UI badges.",
+  "description": "Feature entitlement definitions, checks, and admin review UI.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/entitlements.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/entitlements.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/entitlements/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "entitlements"
+    ],
+    "migrationRecommended": true
+  },
   "agents": {
     "skills": [
       "entitlements"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

@@ -1,6 +1,7 @@
 # Lifecycle Email Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] install path is verified in a fresh app
+- [ ] docs explain setup, ownership, and maintenance
+- [ ] sensitive actions have auth and audit boundaries
+- [ ] provider-specific behavior is isolated behind adapters

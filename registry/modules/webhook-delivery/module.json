@@ -1,22 +1,44 @@
 {
   "name": "webhook-delivery",
   "type": "module",
-  "category": "api",
+  "category": "developer-platform",
   "title": "Webhook Delivery",
-  "description": "Outbound webhooks, endpoint secrets, delivery attempts, and retry logs.",
+  "description": "Outbound webhook endpoints, signing helpers, retries, and delivery logs.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/webhook-delivery.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/webhook-delivery.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/developers/webhooks/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "webhookDelivery"
+    ],
+    "migrationRecommended": true
+  },
   "agents": {
     "skills": [
       "webhook-delivery"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

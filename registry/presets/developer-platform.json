@@ -8,9 +8,14 @@
     "rate-limits",
     "audit-log",
     "background-jobs",
+    "usage-metering",
     "public-api-orpc",
+    "api-docs",
+    "webhook-inbox",
     "webhook-delivery",
-    "developer-portal"
+    "developer-portal",
+    "api-usage-dashboard",
+    "sdk-snippets"
   ],
   "status": "planned"
 }

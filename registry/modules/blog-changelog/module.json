@@ -1,22 +1,32 @@
 {
   "name": "blog-changelog",
   "type": "module",
-  "category": "content",
-  "title": "Blog and Changelog",
-  "description": "MDX blog/changelog, RSS, and SEO metadata.",
+  "category": "marketing",
+  "title": "Blog Changelog",
+  "description": "Blog and product changelog list pages with release notes helpers.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/blog-changelog.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(marketing)/changelog/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "blog-changelog"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

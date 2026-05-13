@@ -3,23 +3,48 @@
   "name": "notifications",
   "type": "registry:item",
   "title": "Notifications",
-  "description": "In-app notifications, email preferences, and delivery table.",
+  "description": "Notification events, delivery preferences, and provider-neutral send queue.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
-  "files": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/notifications.ts",
+      "type": "registry:file",
+      "content": "import { index, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const notifications = pgTable(\n  \"notifications\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    ownerId: text(\"owner_id\"),\n    organizationId: text(\"organization_id\"),\n    key: text(\"key\").notNull(),\n    title: text(\"title\").notNull(),\n    status: text(\"status\").notNull().default(\"active\"),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n    updatedAt: timestamp(\"updated_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (item) => [\n    index(\"notifications_owner_idx\").on(item.ownerId),\n    index(\"notifications_organization_idx\").on(item.organizationId),\n  ]\n);\n"
+    },
+    {
+      "path": "apps/web/src/lib/notifications.ts",
+      "type": "registry:file",
+      "content": "export type NotificationsItem = {\n  key: string;\n  title: string;\n  status?: \"active\" | \"draft\" | \"archived\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createNotificationsItem(item: NotificationsItem) {\n  return {\n    key: item.key,\n    title: item.title,\n    status: item.status ?? \"active\",\n    metadata: item.metadata ?? {},\n  };\n}\n\nexport const notificationsChecklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence or provider adapter\",\n  \"Add audit events for sensitive changes\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/notifications/page.tsx",
+      "type": "registry:page",
+      "content": "const items = [\n  { title: \"Configure\", description: \"Set ownership, defaults, and permissions.\" },\n  { title: \"Operate\", description: \"Review status, recent activity, and unresolved work.\" },\n  { title: \"Verify\", description: \"Run the checklist before enabling this module in production.\" },\n];\n\nexport default function NotificationsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Notifications</h1>\n        <p className=\"text-muted-foreground\">Notification events, delivery preferences, and provider-neutral send queue.</p>\n      </div>\n      <div className=\"grid gap-3 md:grid-cols-3\">\n        {items.map((item) => (\n          <section key={item.title} className=\"rounded-lg border p-4\">\n            <h2 className=\"font-medium\">{item.title}</h2>\n            <p className=\"text-sm text-muted-foreground\">{item.description}</p>\n          </section>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
   "meta": {
-    "category": "notifications",
+    "category": "operations",
     "env": [],
-    "status": "planned",
+    "status": "experimental",
     "agents": {
       "skills": [
         "notifications"
       ],
       "rules": [
         "document-invariants",
-        "verify-before-release"
+        "verify-before-release",
+        "keep-provider-boundary"
       ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "notifications"
+      ],
+      "migrationRecommended": true
     }
   }
 }

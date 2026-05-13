@@ -1,7 +1,19 @@
-# System Health
+# System Health Module
 
-Env checks, provider connectivity, DB migration status, and queue lag.
+Health checks, dependency status, and incident readiness UI.
 
-## Status
+## Owns
 
-Planned module. Source files will be added as this module graduates into active development.
+- `apps/web/src/lib/system-health.ts`
+- `apps/web/src/app/(console)/admin/system-health/page.tsx`
+
+## Environment
+
+No environment variables are required by default.
+
+## Maintenance
+
+- Keep this module provider-neutral unless a provider-specific adapter is added separately.
+- Update source templates, manifest files, and generated registry output together.
+- Add audit events around sensitive changes before promoting this module beyond experimental.
+- Verify with `stackfoundry add system-health --target <app> --dry-run`.

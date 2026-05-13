@@ -3,20 +3,42 @@
   "type": "module",
   "category": "operations",
   "title": "Incident Management",
-  "description": "Internal incidents, timeline, owner, and postmortem.",
+  "description": "Incident records, severity, status updates, and internal coordination UI.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/incident-management.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/incident-management.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/incidents/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "incidentManagement"
+    ],
+    "migrationRecommended": true
+  },
   "agents": {
     "skills": [
       "incident-management"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

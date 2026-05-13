@@ -1,7 +1,19 @@
-# Notification Center
+# Notification Center Module
 
-In-app notifications, preferences, read/unread state, and digests.
+In-app notification inbox with read state and preference-aware display.
 
-## Status
+## Owns
 
-Planned module. Source files will be added as this module graduates into active development.
+- `apps/web/src/lib/notification-center.ts`
+- `apps/web/src/app/(console)/notifications/center/page.tsx`
+
+## Environment
+
+No environment variables are required by default.
+
+## Maintenance
+
+- Keep this module provider-neutral unless a provider-specific adapter is added separately.
+- Update source templates, manifest files, and generated registry output together.
+- Add audit events around sensitive changes before promoting this module beyond experimental.
+- Verify with `stackfoundry add notification-center --target <app> --dry-run`.

@@ -3,20 +3,32 @@
   "type": "module",
   "category": "operations",
   "title": "Status Page",
-  "description": "Incident model, public status page, and subscriptions.",
+  "description": "Public component status and incident update page.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "incident-management"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/status-page.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/status/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
       "status-page"
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

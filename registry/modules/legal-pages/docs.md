@@ -1,7 +1,19 @@
-# Legal Pages
+# Legal Pages Module
 
-Privacy, terms, DPA placeholders, and cookie policy scaffolds.
+Terms, privacy, cookie, and acceptable-use page templates.
 
-## Status
+## Owns
 
-Planned module. Source files will be added as this module graduates into active development.
+- `apps/web/src/lib/legal-pages.ts`
+- `apps/web/src/app/(marketing)/legal/page.tsx`
+
+## Environment
+
+No environment variables are required by default.
+
+## Maintenance
+
+- Keep this module provider-neutral unless a provider-specific adapter is added separately.
+- Update source templates, manifest files, and generated registry output together.
+- Add audit events around sensitive changes before promoting this module beyond experimental.
+- Verify with `stackfoundry add legal-pages --target <app> --dry-run`.
