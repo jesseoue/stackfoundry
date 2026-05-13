@@ -4,11 +4,28 @@
   "category": "ai",
   "title": "AI Chat",
   "description": "AI SDK chat route, model selector, message persistence, and prompt input.",
-  "dependencies": [],
+  "dependencies": ["ai", "@ai-sdk/react", "@ai-sdk/gateway"],
   "devDependencies": [],
   "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "env": ["AI_GATEWAY_API_KEY", "AI_GATEWAY_MODEL"],
+  "files": [
+    {
+      "path": "apps/web/src/app/api/ai/chat/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/components/ai/chat-box.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "apps/web/src/lib/ai/prompts.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/ai/models.ts",
+      "type": "registry:file"
+    }
+  ],
   "agents": {
     "skills": [
       "ai-chat"
@@ -18,5 +35,5 @@
       "verify-before-release"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

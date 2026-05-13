@@ -1,7 +1,21 @@
-# AI Chat
+# AI Chat Module
 
-AI SDK chat route, model selector, message persistence, and prompt input.
+Adds a minimal AI SDK chat endpoint and client component using current `useChat` semantics.
 
-## Status
+## Owns
 
-Planned module. Source files will be added as this module graduates into active development.
+- `/api/ai/chat` route
+- chat prompt component
+- model/env helper
+- prompt defaults
+
+## Requirements
+
+- `AI_GATEWAY_API_KEY`
+- `AI_GATEWAY_MODEL`
+
+## Verification
+
+- API route returns a UI message stream.
+- Client component sends messages with `DefaultChatTransport`.
+- Missing model returns a readable error instead of a failed stream.

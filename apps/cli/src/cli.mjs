@@ -9,24 +9,36 @@ const __filename = fileURLToPath(import.meta.url);
 const repoRoot = path.resolve(path.dirname(__filename), "../../..");
 const registryRoot = path.join(repoRoot, "registry");
 const modulesRoot = path.join(registryRoot, "modules");
+const presetsRoot = path.join(registryRoot, "presets");
 
 const requiredModuleFields = ["name", "type", "category", "title", "description", "files", "status"];
+const requiredPresetFields = ["name", "title", "description", "modules", "status"];
 
 function usage() {
   console.log(`StackFoundry
 
 Usage:
   stackfoundry list
+  stackfoundry presets
   stackfoundry validate
   stackfoundry build
+  stackfoundry add preset <name> [--target <dir>] [--dry-run] [--force]
   stackfoundry add <module> [--target <dir>] [--dry-run] [--force]
   stackfoundry diff <module> [--target <dir>]
 `);
 }
 
 function parseArgs(argv) {
-  const [command, moduleName, ...rest] = argv;
+  const [command, firstArg, ...tail] = argv;
+  let moduleName = firstArg;
+  let presetName;
+  let rest = tail;
   const flags = { target: process.cwd(), dryRun: false, force: false };
+
+  if (command === "add" && firstArg === "preset") {
+    presetName = rest.shift();
+    moduleName = undefined;
+  }
 
   for (let i = 0; i < rest.length; i += 1) {
     const arg = rest[i];
@@ -41,7 +53,7 @@ function parseArgs(argv) {
     }
   }
 
-  return { command, moduleName, flags };
+  return { command, moduleName, presetName, flags };
 }
 
 async function readJson(filePath) {
@@ -80,6 +92,14 @@ async function getModule(name) {
     dir: path.dirname(modulePath),
     manifest: await readJson(modulePath),
   };
+}
+
+async function getPreset(name) {
+  const presetPath = path.join(presetsRoot, `${name}.json`);
+  if (!existsSync(presetPath)) {
+    throw new Error(`Unknown preset: ${name}`);
+  }
+  return readJson(presetPath);
 }
 
 async function validateModule(moduleDir) {
@@ -132,6 +152,22 @@ async function validateRegistry() {
     }
   }
 
+  if (existsSync(presetsRoot)) {
+    for (const file of await readdir(presetsRoot)) {
+      if (!file.endsWith(".json")) continue;
+      const preset = await readJson(path.join(presetsRoot, file));
+      for (const field of requiredPresetFields) {
+        if (!(field in preset)) errors.push(`${file}: missing field: ${field}`);
+      }
+      if (!Array.isArray(preset.modules)) errors.push(`${file}: modules must be an array`);
+      for (const moduleName of preset.modules ?? []) {
+        if (!existsSync(path.join(modulesRoot, moduleName, "module.json"))) {
+          errors.push(`${file}: unknown module ${moduleName}`);
+        }
+      }
+    }
+  }
+
   return errors;
 }
 
@@ -140,6 +176,15 @@ async function listModules() {
   for (const name of names.sort()) {
     const { manifest } = await getModule(name);
     console.log(`${manifest.name.padEnd(18)} ${manifest.status.padEnd(12)} ${manifest.description}`);
+  }
+}
+
+async function listPresets() {
+  if (!existsSync(presetsRoot)) return;
+  const files = (await readdir(presetsRoot)).filter((file) => file.endsWith(".json")).sort();
+  for (const file of files) {
+    const preset = await readJson(path.join(presetsRoot, file));
+    console.log(`${preset.name.padEnd(18)} ${preset.status.padEnd(12)} ${preset.description}`);
   }
 }
 
@@ -155,8 +200,15 @@ async function saveInstallManifest(target, manifest) {
   await writeFile(path.join(dir, "installed.json"), `${JSON.stringify(manifest, null, 2)}\n`);
 }
 
-async function addModule(name, flags) {
+async function addModule(name, flags, visited = new Set()) {
+  if (visited.has(name)) return;
+  visited.add(name);
+
   const { dir, manifest } = await getModule(name);
+  for (const dependency of manifest.registryDependencies) {
+    await addModule(dependency, flags, visited);
+  }
+
   const filesDir = path.join(dir, "files");
   const sourceFiles = await listFiles(filesDir);
   const installed = await loadInstallManifest(flags.target);
@@ -217,6 +269,16 @@ async function addModule(name, flags) {
   }
 }
 
+async function addPreset(name, flags) {
+  if (!name) throw new Error("add preset requires a preset name");
+  const preset = await getPreset(name);
+  const visited = new Set();
+  console.log(`${flags.dryRun ? "would install" : "installing"} preset ${preset.name}`);
+  for (const moduleName of preset.modules) {
+    await addModule(moduleName, flags, visited);
+  }
+}
+
 async function diffModule(name, flags) {
   const { dir } = await getModule(name);
   const filesDir = path.join(dir, "files");
@@ -259,6 +321,15 @@ async function buildRegistry() {
 
   await writeFile(path.join(outputDir, "registry.json"), `${JSON.stringify(builtRegistry, null, 2)}\n`);
 
+  const presetsOutputDir = path.join(outputDir, "presets");
+  await mkdir(presetsOutputDir, { recursive: true });
+  if (existsSync(presetsRoot)) {
+    for (const file of (await readdir(presetsRoot)).filter((entry) => entry.endsWith(".json")).sort()) {
+      await copyFile(path.join(presetsRoot, file), path.join(presetsOutputDir, file));
+      console.log(`built public/r/presets/${file}`);
+    }
+  }
+
   for (const item of registry.items) {
     const { dir, manifest } = await getModule(item.name);
     const filesDir = path.join(dir, "files");
@@ -300,7 +371,7 @@ async function buildRegistry() {
 }
 
 async function main() {
-  const { command, moduleName, flags } = parseArgs(process.argv.slice(2));
+  const { command, moduleName, presetName, flags } = parseArgs(process.argv.slice(2));
 
   if (!command || command === "help" || command === "--help") {
     usage();
@@ -308,6 +379,7 @@ async function main() {
   }
 
   if (command === "list") return listModules();
+  if (command === "presets") return listPresets();
   if (command === "build") return buildRegistry();
   if (command === "validate") {
     const errors = await validateRegistry();
@@ -320,6 +392,7 @@ async function main() {
     return;
   }
 
+  if (command === "add" && presetName) return addPreset(presetName, flags);
   if (!moduleName) throw new Error(`${command} requires a module name`);
   if (command === "add") return addModule(moduleName, flags);
   if (command === "diff") return diffModule(moduleName, flags);

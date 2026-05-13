@@ -1,0 +1,16 @@
+{
+  "name": "cloudflare-native",
+  "title": "Cloudflare Native",
+  "description": "Workers, Pages, D1, R2, KV, Queues, Turnstile, and Workers AI modules.",
+  "modules": [
+    "cloudflare-pages",
+    "cloudflare-workers",
+    "cloudflare-d1",
+    "cloudflare-r2",
+    "cloudflare-kv",
+    "cloudflare-queues",
+    "cloudflare-turnstile",
+    "cloudflare-workers-ai"
+  ],
+  "status": "planned"
+}

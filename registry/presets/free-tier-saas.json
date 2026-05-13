@@ -1,0 +1,14 @@
+{
+  "name": "free-tier-saas",
+  "title": "Free Tier SaaS",
+  "description": "SaaS stack oriented around generous free tiers and low-cost provider defaults.",
+  "modules": [
+    "drizzle-postgres",
+    "neon-postgres",
+    "upstash-redis",
+    "resend-email",
+    "posthog-analytics",
+    "sentry-monitoring"
+  ],
+  "status": "planned"
+}

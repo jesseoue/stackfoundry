@@ -1,0 +1,14 @@
+{
+  "name": "internal-admin",
+  "title": "Internal Admin",
+  "description": "Admin console, support console, audit log, feature flags, and system health.",
+  "modules": [
+    "drizzle-postgres",
+    "admin-console",
+    "support-console",
+    "audit-log",
+    "feature-flags",
+    "system-health"
+  ],
+  "status": "planned"
+}

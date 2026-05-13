@@ -9,6 +9,9 @@
 - [x] `stackfoundry add <module>` prototype
 - [x] file hash manifest
 - [x] `stackfoundry diff <module>` prototype
+- [x] preset manifests
+- [x] `stackfoundry add preset <name>` prototype
+- [x] `ai-chat` manifest and source template
 - [ ] overwrite conflict UI
 - [ ] generated install report
 - [ ] public demo app

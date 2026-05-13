@@ -17,7 +17,7 @@
     "validate": "node apps/cli/src/cli.mjs validate",
     "registry:build": "node apps/cli/src/cli.mjs build",
     "lint": "node --check apps/cli/src/cli.mjs",
-    "test": "rm -rf /tmp/stackfoundry-test && mkdir -p /tmp/stackfoundry-test && node apps/cli/src/cli.mjs list >/dev/null && node apps/cli/src/cli.mjs add api-keys --target /tmp/stackfoundry-test >/dev/null && node apps/cli/src/cli.mjs diff api-keys --target /tmp/stackfoundry-test >/dev/null",
+    "test": "rm -rf /tmp/stackfoundry-test && mkdir -p /tmp/stackfoundry-test && node apps/cli/src/cli.mjs list >/dev/null && node apps/cli/src/cli.mjs presets >/dev/null && node apps/cli/src/cli.mjs add api-keys --target /tmp/stackfoundry-test >/dev/null && node apps/cli/src/cli.mjs diff api-keys --target /tmp/stackfoundry-test >/dev/null && node apps/cli/src/cli.mjs add preset next-saas --target /tmp/stackfoundry-test --dry-run >/dev/null",
     "build": "pnpm validate"
   },
   "keywords": [

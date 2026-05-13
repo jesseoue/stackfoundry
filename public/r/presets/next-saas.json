@@ -1,0 +1,11 @@
+{
+  "name": "next-saas",
+  "title": "Next SaaS",
+  "description": "Base SaaS stack with Drizzle, API keys, billing, and operating docs.",
+  "modules": [
+    "drizzle-postgres",
+    "api-keys",
+    "stripe-billing"
+  ],
+  "status": "planned"
+}

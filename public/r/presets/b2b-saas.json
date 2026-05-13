@@ -1,0 +1,16 @@
+{
+  "name": "b2b-saas",
+  "title": "B2B SaaS",
+  "description": "Organizations, RBAC, billing, audit log, transactional email, and analytics.",
+  "modules": [
+    "drizzle-postgres",
+    "api-keys",
+    "clerk-auth",
+    "orgs-rbac",
+    "stripe-billing",
+    "audit-log",
+    "resend-email",
+    "posthog-analytics"
+  ],
+  "status": "planned"
+}

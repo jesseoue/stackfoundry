@@ -1,0 +1,13 @@
+{
+  "name": "vercel-native",
+  "title": "Vercel Native",
+  "description": "Vercel deploy, Blob, Edge Config, marketplace storage, and AI Gateway modules.",
+  "modules": [
+    "vercel-deploy",
+    "vercel-blob",
+    "vercel-edge-config",
+    "vercel-marketplace-storage",
+    "ai-chat"
+  ],
+  "status": "planned"
+}

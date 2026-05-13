@@ -1,0 +1,13 @@
+{
+  "name": "developer-platform",
+  "title": "Developer Platform",
+  "description": "API keys, public API foundations, webhook delivery, and developer portal modules.",
+  "modules": [
+    "drizzle-postgres",
+    "api-keys",
+    "public-api-orpc",
+    "webhook-delivery",
+    "developer-portal"
+  ],
+  "status": "planned"
+}

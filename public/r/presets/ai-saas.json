@@ -1,0 +1,15 @@
+{
+  "name": "ai-saas",
+  "title": "AI SaaS",
+  "description": "AI chat, artifacts, model routing, prompt library, and eval foundations.",
+  "modules": [
+    "drizzle-postgres",
+    "api-keys",
+    "ai-chat",
+    "ai-artifacts",
+    "model-router",
+    "prompt-library",
+    "evals"
+  ],
+  "status": "planned"
+}
