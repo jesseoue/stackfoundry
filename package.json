@@ -4,16 +4,20 @@
   "private": true,
   "description": "Source registry for production SaaS and AI modules.",
   "type": "module",
+  "bin": {
+    "stackfoundry": "./apps/cli/src/cli.mjs"
+  },
   "packageManager": "pnpm@10.11.0",
   "engines": {
     "node": ">=22.0.0",
     "pnpm": ">=10.11.0"
   },
   "scripts": {
-    "check": "pnpm lint && pnpm test",
-    "lint": "echo \"lint placeholder\"",
-    "test": "echo \"test placeholder\"",
-    "build": "echo \"build placeholder\""
+    "check": "pnpm validate && pnpm lint && pnpm test",
+    "validate": "node apps/cli/src/cli.mjs validate",
+    "lint": "node --check apps/cli/src/cli.mjs",
+    "test": "rm -rf /tmp/stackfoundry-test && mkdir -p /tmp/stackfoundry-test && node apps/cli/src/cli.mjs list >/dev/null && node apps/cli/src/cli.mjs add api-keys --target /tmp/stackfoundry-test >/dev/null && node apps/cli/src/cli.mjs diff api-keys --target /tmp/stackfoundry-test >/dev/null",
+    "build": "pnpm validate"
   },
   "keywords": [
     "nextjs",

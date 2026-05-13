@@ -85,6 +85,15 @@ docs/
 
 The next milestone is to build `stackfoundry add` for the first production modules.
 
+Current local prototype:
+
+```bash
+node apps/cli/src/cli.mjs list
+node apps/cli/src/cli.mjs validate
+node apps/cli/src/cli.mjs add api-keys --target ../some-app --dry-run
+node apps/cli/src/cli.mjs diff api-keys --target ../some-app
+```
+
 ## Roadmap
 
 See [`ROADMAP.md`](./ROADMAP.md).

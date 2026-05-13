@@ -27,3 +27,12 @@ Each module has:
 ## Safety
 
 Installers must not overwrite modified user files silently. The installer should track file hashes and support diff/update flows.
+
+## Local Prototype
+
+```bash
+node apps/cli/src/cli.mjs list
+node apps/cli/src/cli.mjs validate
+node apps/cli/src/cli.mjs add drizzle-postgres --target /path/to/app
+node apps/cli/src/cli.mjs diff drizzle-postgres --target /path/to/app
+```

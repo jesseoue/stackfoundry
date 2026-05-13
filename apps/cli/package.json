@@ -1,0 +1,12 @@
+{
+  "name": "stackfoundry-cli",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "stackfoundry": "./src/cli.mjs"
+  },
+  "scripts": {
+    "check": "node --check src/cli.mjs"
+  }
+}

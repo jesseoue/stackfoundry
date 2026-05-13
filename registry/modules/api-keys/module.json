@@ -6,9 +6,22 @@
 	"description": "API key lifecycle, scopes, hashed storage, usage metadata, and management UI.",
 	"dependencies": [],
 	"devDependencies": [],
-	"registryDependencies": ["drizzle-postgres", "audit-log"],
+	"registryDependencies": ["drizzle-postgres"],
 	"env": [],
-	"files": [],
+	"files": [
+		{
+			"path": "packages/db/src/schema/api-keys.ts",
+			"type": "registry:file"
+		},
+		{
+			"path": "apps/web/src/lib/api-keys.ts",
+			"type": "registry:file"
+		},
+		{
+			"path": "apps/web/src/app/(console)/api-keys/page.tsx",
+			"type": "registry:page"
+		}
+	],
 	"drizzle": {
 		"schemaExports": ["apiKeys"],
 		"migrationRecommended": true
@@ -22,5 +35,5 @@
 			"audit-key-events"
 		]
 	},
-	"status": "planned"
+	"status": "experimental"
 }

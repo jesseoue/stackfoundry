@@ -8,7 +8,32 @@
 	"devDependencies": ["drizzle-kit", "dotenv"],
 	"registryDependencies": [],
 	"env": ["DATABASE_URL"],
-	"files": [],
+	"files": [
+		{
+			"path": "packages/db/package.json",
+			"type": "registry:file"
+		},
+		{
+			"path": "packages/db/src/client.ts",
+			"type": "registry:file"
+		},
+		{
+			"path": "packages/db/src/index.ts",
+			"type": "registry:file"
+		},
+		{
+			"path": "packages/db/src/schema/index.ts",
+			"type": "registry:file"
+		},
+		{
+			"path": "apps/web/src/lib/db.ts",
+			"type": "registry:file"
+		},
+		{
+			"path": "drizzle.config.ts",
+			"type": "registry:file"
+		}
+	],
 	"drizzle": {
 		"schemaExports": [],
 		"migrationRecommended": true
@@ -17,5 +42,5 @@
 		"skills": ["drizzle-postgres"],
 		"rules": ["server-only", "schema-barrel", "commit-migrations"]
 	},
-	"status": "planned"
+	"status": "experimental"
 }

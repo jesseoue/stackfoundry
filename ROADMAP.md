@@ -2,13 +2,13 @@
 
 ## V1 Golden Path
 
-- [ ] `drizzle-postgres`
-- [ ] `api-keys`
-- [ ] `stripe-billing`
+- [x] `drizzle-postgres` manifest and source template
+- [x] `api-keys` manifest and source template
+- [x] `stripe-billing` manifest and source template
 - [ ] `next-saas` preset
-- [ ] `stackfoundry add <module>` prototype
-- [ ] file hash manifest
-- [ ] `stackfoundry diff <module>` prototype
+- [x] `stackfoundry add <module>` prototype
+- [x] file hash manifest
+- [x] `stackfoundry diff <module>` prototype
 
 ## Wave 2
 
