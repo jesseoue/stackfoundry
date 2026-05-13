@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "notification-center",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Notification Center",
   "description": "In-app notification inbox with read state and preference-aware display.",
   "dependencies": [],
@@ -21,6 +21,8 @@
       "content": "const items = [\n  { title: \"Configure\", description: \"Set ownership, defaults, and permissions.\" },\n  { title: \"Operate\", description: \"Review status, recent activity, and unresolved work.\" },\n  { title: \"Verify\", description: \"Run the checklist before enabling this module in production.\" },\n];\n\nexport default function NotificationCenterPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Notification Center</h1>\n        <p className=\"text-muted-foreground\">In-app notification inbox with read state and preference-aware display.</p>\n      </div>\n      <div className=\"grid gap-3 md:grid-cols-3\">\n        {items.map((item) => (\n          <section key={item.title} className=\"rounded-lg border p-4\">\n            <h2 className=\"font-medium\">{item.title}</h2>\n            <p className=\"text-sm text-muted-foreground\">{item.description}</p>\n          </section>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "envVars": {},
+  "docs": "# Notification Center Module\n\nIn-app notification inbox with read state and preference-aware display.\n\n## Owns\n\n- `apps/web/src/lib/notification-center.ts`\n- `apps/web/src/app/(console)/notifications/center/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider-specific adapter is added separately.\n- Update source templates, manifest files, and generated registry output together.\n- Add audit events around sensitive changes before promoting this module beyond experimental.\n- Verify with `stackfoundry add notification-center --target <app> --dry-run`.\n",
   "meta": {
     "category": "operations",
     "env": [],

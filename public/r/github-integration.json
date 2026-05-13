@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "github-integration",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "GitHub Integration",
   "description": "GitHub App Octokit client, webhook route starter, and repository action example.",
   "dependencies": [
@@ -28,6 +28,12 @@
       "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function GitHubIntegrationPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">GitHub Integration</h1>\n        <p className=\"text-muted-foreground\">GitHub App auth, signed webhooks, and repository automation patterns.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "envVars": {
+    "GITHUB_APP_ID": "",
+    "GITHUB_PRIVATE_KEY": "",
+    "GITHUB_WEBHOOK_SECRET": ""
+  },
+  "docs": "# GitHub Integration Module\n\nGitHub App Octokit client, webhook route starter, and repository action example.\n\n## Owns\n\n- `apps/web/src/lib/github/app.ts`\n- `apps/web/src/app/api/webhooks/github/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/github/page.tsx`\n\n## Dependencies\n\n- `octokit`\n\n## Environment\n\n- `GITHUB_APP_ID`\n- `GITHUB_PRIVATE_KEY`\n- `GITHUB_WEBHOOK_SECRET`\n\n## Deployment Notes\n\n- Create the vendor project/resource before deploying.\n- Add the listed environment variables to preview and production.\n- Smoke-test the included route or helper after deploy.\n- Keep provider secrets out of client components and logs.\n\n## Maintenance\n\n- Keep this module focused on the vendor integration boundary.\n- Update source examples when vendor SDK APIs change.\n- Record production-specific retry, alerting, and rollback behavior before marking stable.\n",
   "meta": {
     "category": "integrations",
     "env": [

@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "search-postgres",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Postgres Search",
   "description": "Postgres full-text search, ranking, indexes, and query UI.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Postgres Search\n\nPostgres full-text search, ranking, indexes, and query UI.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "search",
     "env": [],

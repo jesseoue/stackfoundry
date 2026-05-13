@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cloudflare-queues",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Cloudflare Queues",
   "description": "Async jobs, producer/consumer Workers, retries, and DLQ guidance.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Cloudflare Queues\n\nAsync jobs, producer/consumer Workers, retries, and DLQ guidance.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "queue",
     "env": [],

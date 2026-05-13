@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cloudflare-workers",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Cloudflare Workers",
   "description": "Cloudflare Worker entrypoint, Wrangler config example, and edge API route starter.",
   "dependencies": [],
@@ -26,6 +26,11 @@
       "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function CloudflareWorkersPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Cloudflare Workers</h1>\n        <p className=\"text-muted-foreground\">Edge compute examples for API routes, health checks, and bindings.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "envVars": {
+    "CLOUDFLARE_ACCOUNT_ID": "",
+    "CLOUDFLARE_API_TOKEN": ""
+  },
+  "docs": "# Cloudflare Workers Module\n\nCloudflare Worker entrypoint, Wrangler config example, and edge API route starter.\n\n## Owns\n\n- `cloudflare/workers/api-worker.ts`\n- `cloudflare/workers/wrangler.example.jsonc`\n- `apps/web/src/app/(console)/admin/cloudflare/workers/page.tsx`\n\n## Dependencies\n\nNo package dependencies.\n\n## Environment\n\n- `CLOUDFLARE_ACCOUNT_ID`\n- `CLOUDFLARE_API_TOKEN`\n\n## Maintenance\n\n- Keep this module focused on the vendor integration boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when vendor APIs change.\n",
   "meta": {
     "category": "edge",
     "env": [

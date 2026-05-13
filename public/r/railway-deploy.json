@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "railway-deploy",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Railway Deploy",
   "description": "Full-stack deploy option for Node apps, workers, and databases.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Railway Deploy\n\nFull-stack deploy option for Node apps, workers, and databases.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "deploy",
     "env": [],

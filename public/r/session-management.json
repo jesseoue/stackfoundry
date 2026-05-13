@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "session-management",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Session Management",
   "description": "Active sessions/devices view, revoke sessions, and security event history.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Session Management\n\nActive sessions/devices view, revoke sessions, and security event history.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "auth",
     "env": [],

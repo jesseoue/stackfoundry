@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "aarrr-dashboard",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "AARRR Dashboard",
   "description": "Acquisition, activation, retention, referral, revenue dashboard with cohort filters.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# AARRR Dashboard\n\nAcquisition, activation, retention, referral, revenue dashboard with cohort filters.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "growth",
     "env": [],

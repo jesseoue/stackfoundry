@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "supabase-postgres",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Supabase Postgres",
   "description": "Supabase SSR clients, Postgres env wiring, and RLS-first setup notes.",
   "dependencies": [
@@ -32,6 +32,12 @@
       "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function SupabasePostgresPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Supabase Postgres</h1>\n        <p className=\"text-muted-foreground\">Postgres, Auth-compatible SSR clients, service-role boundaries, and RLS notes.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "envVars": {
+    "NEXT_PUBLIC_SUPABASE_URL": "",
+    "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY": "",
+    "SUPABASE_SERVICE_ROLE_KEY": ""
+  },
+  "docs": "# Supabase Postgres Module\n\nSupabase SSR clients, Postgres env wiring, and RLS-first setup notes.\n\n## Owns\n\n- `apps/web/src/lib/supabase/server.ts`\n- `apps/web/src/lib/supabase/admin.ts`\n- `supabase/rls-notes.sql`\n- `apps/web/src/app/(console)/admin/data/supabase/page.tsx`\n\n## Dependencies\n\n`@supabase/ssr`, `@supabase/supabase-js`\n\n## Environment\n\n- `NEXT_PUBLIC_SUPABASE_URL`\n- `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`\n- `SUPABASE_SERVICE_ROLE_KEY`\n\n## Maintenance\n\n- Keep this module focused on the vendor integration boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when vendor APIs change.\n",
   "meta": {
     "category": "database",
     "env": [

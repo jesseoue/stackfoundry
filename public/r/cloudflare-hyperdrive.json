@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cloudflare-hyperdrive",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Cloudflare Hyperdrive",
   "description": "Postgres/MySQL connection acceleration for Workers.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Cloudflare Hyperdrive\n\nPostgres/MySQL connection acceleration for Workers.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "database",
     "env": [],

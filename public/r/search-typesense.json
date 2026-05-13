@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "search-typesense",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Typesense",
   "description": "Typesense adapter and collection schema.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Typesense\n\nTypesense adapter and collection schema.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "search",
     "env": [],

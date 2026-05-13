@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "arcjet-security",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Arcjet Security",
   "description": "Arcjet request protection starter for bot detection, shielding, and rate limits.",
   "dependencies": [
@@ -28,6 +28,10 @@
       "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function ArcjetSecurityPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Arcjet Security</h1>\n        <p className=\"text-muted-foreground\">Application-layer protection for bots, abuse, and expensive endpoints.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "envVars": {
+    "ARCJET_KEY": ""
+  },
+  "docs": "# Arcjet Security Module\n\nArcjet request protection starter for bot detection, shielding, and rate limits.\n\n## Owns\n\n- `apps/web/src/lib/arcjet.ts`\n- `apps/web/src/app/api/vendor/arcjet/protected/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/arcjet/page.tsx`\n\n## Dependencies\n\n- `@arcjet/next`\n\n## Environment\n\n- `ARCJET_KEY`\n\n## Deployment Notes\n\n- Create the vendor project/resource before deploying.\n- Add the listed environment variables to preview and production.\n- Smoke-test the included route or helper after deploy.\n- Keep provider secrets out of client components and logs.\n\n## Maintenance\n\n- Keep this module focused on the vendor integration boundary.\n- Update source examples when vendor SDK APIs change.\n- Record production-specific retry, alerting, and rollback behavior before marking stable.\n",
   "meta": {
     "category": "security",
     "env": [

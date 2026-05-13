@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cloudflare-agents-sdk",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Cloudflare Agents SDK",
   "description": "Stateful AI agents on Workers, React hooks, WebSocket/RPC surface.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Cloudflare Agents SDK\n\nStateful AI agents on Workers, React hooks, WebSocket/RPC surface.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "ai",
     "env": [],

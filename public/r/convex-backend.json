@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "convex-backend",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Convex Backend",
   "description": "Convex project setup, generated functions, provider wrapper, and deployment docs.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Convex Backend\n\nConvex project setup, generated functions, provider wrapper, and deployment docs.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "backend",
     "env": [],

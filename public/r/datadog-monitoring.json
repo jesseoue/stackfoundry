@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "datadog-monitoring",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Datadog Monitoring",
   "description": "Enterprise observability adapter.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Datadog Monitoring\n\nEnterprise observability adapter.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "observability",
     "env": [],

@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "drizzle-postgres",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Drizzle Postgres",
   "description": "Postgres + Drizzle package, schema barrel, migrations, and server-only DB access.",
   "dependencies": [
@@ -45,6 +45,10 @@
       "content": "import { config } from \"dotenv\";\nimport { defineConfig } from \"drizzle-kit\";\n\nconfig({ path: \".env\" });\nconfig({ path: \".env.local\", override: true });\n\nexport default defineConfig({\n  schema: \"./packages/db/src/schema/index.ts\",\n  out: \"./packages/db/drizzle\",\n  dialect: \"postgresql\",\n  dbCredentials: {\n    url: process.env.DATABASE_URL ?? \"\",\n  },\n});\n"
     }
   ],
+  "envVars": {
+    "DATABASE_URL": ""
+  },
+  "docs": "# Drizzle Postgres Module\n\nInstalls a Postgres + Drizzle data layer with migrations and server-only app access.\n\n## Owns\n\n- `packages/db`\n- root `drizzle.config.ts`\n- app-level `lib/db.ts`\n- `DATABASE_URL` env documentation\n\n## Verification\n\n- Generate migrations.\n- Run migrations or push in a local database.\n- Confirm app server code can import `getDb()`.\n- Confirm no client component imports DB code.\n",
   "meta": {
     "category": "database",
     "env": [

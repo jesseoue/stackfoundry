@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "vercel-deploy",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Vercel Deploy",
   "description": "Vercel project linking, env pull, preview/prod scripts, and deployment docs.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Vercel Deploy\n\nVercel project linking, env pull, preview/prod scripts, and deployment docs.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "deploy",
     "env": [],

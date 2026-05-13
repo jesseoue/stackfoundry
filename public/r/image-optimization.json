@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "image-optimization",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Image Optimization",
   "description": "Image upload, transformation, metadata, and storage adapter.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Image Optimization\n\nImage upload, transformation, metadata, and storage adapter.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "media",
     "env": [],

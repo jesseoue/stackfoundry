@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "convex-integration",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Convex Integration",
   "description": "Convex dashboard links, deployment status, and schema/function notes.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Convex Integration\n\nConvex dashboard links, deployment status, and schema/function notes.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "backend",
     "env": [],

@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "model-router",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Model Router",
   "description": "Model catalog, provider ordering, fallback rules, and AI Gateway config.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Model Router\n\nModel catalog, provider ordering, fallback rules, and AI Gateway config.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "ai",
     "env": [],

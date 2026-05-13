@@ -1,6 +1,6 @@
 {
   "name": "drizzle-multitenancy",
-  "type": "schema",
+  "type": "module",
   "category": "database",
   "title": "Drizzle Multitenancy",
   "description": "Org/account ids on core tables, indexes, relations, and cache-tag rules.",

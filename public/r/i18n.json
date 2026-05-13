@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "i18n",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Internationalization",
   "description": "Locale routing, translations, and language switcher.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Internationalization\n\nLocale routing, translations, and language switcher.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "foundation",
     "env": [],

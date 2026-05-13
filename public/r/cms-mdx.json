@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cms-mdx",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "MDX Content",
   "description": "File-based docs, blog, and changelog collections.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# MDX Content\n\nFile-based docs, blog, and changelog collections.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "content",
     "env": [],

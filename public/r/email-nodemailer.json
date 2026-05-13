@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "email-nodemailer",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Nodemailer Email",
   "description": "SMTP email adapter for teams avoiding provider lock-in.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Nodemailer Email\n\nSMTP email adapter for teams avoiding provider lock-in.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "email",
     "env": [],

@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "lemon-squeezy-billing",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Lemon Squeezy Billing",
   "description": "Creator/digital product checkout and license key workflows.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Lemon Squeezy Billing\n\nCreator/digital product checkout and license key workflows.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "billing",
     "env": [],

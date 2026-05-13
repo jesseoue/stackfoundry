@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "evals",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Evals",
   "description": "Prompt eval cases, pass/fail scoring UI, and regression tracking.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Evals\n\nPrompt eval cases, pass/fail scoring UI, and regression tracking.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "ai",
     "env": [],

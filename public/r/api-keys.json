@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "api-keys",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "API Keys",
   "description": "API key lifecycle, scopes, hashed storage, usage metadata, and management UI.",
   "dependencies": [],
@@ -26,6 +26,8 @@
       "content": "export default function ApiKeysPage() {\n  return (\n    <main className=\"flex flex-col gap-4 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">API Keys</h1>\n        <p className=\"text-muted-foreground\">Create, scope, rotate, and revoke API keys.</p>\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "envVars": {},
+  "docs": "# API Keys Module\n\nAdds API key creation, hashing, scopes, usage metadata, and management UI.\n\n## Owns\n\n- API key schema\n- key creation and revocation actions\n- key verification helper\n- usage/last-used metadata\n- audit log events\n\n## Security\n\nNever store plaintext API keys. Store a prefix for display and a secure hash for verification.\n",
   "meta": {
     "category": "developer-platform",
     "env": [],

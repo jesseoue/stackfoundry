@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "vercel-edge-config",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Vercel Edge Config",
   "description": "Edge Config read helper for low-latency flags, redirects, and rollout config.",
   "dependencies": [
@@ -28,6 +28,10 @@
       "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function VercelEdgeConfigPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Vercel Edge Config</h1>\n        <p className=\"text-muted-foreground\">Low-latency global reads for flags, maintenance mode, and routing config.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "envVars": {
+    "EDGE_CONFIG": ""
+  },
+  "docs": "# Vercel Edge Config Module\n\nEdge Config read helper for low-latency flags, redirects, and rollout config.\n\n## Owns\n\n- `apps/web/src/lib/vercel/edge-config.ts`\n- `apps/web/src/app/api/vendor/vercel/edge-config/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/vercel-edge-config/page.tsx`\n\n## Dependencies\n\n- `@vercel/edge-config`\n\n## Environment\n\n- `EDGE_CONFIG`\n\n## Deployment Notes\n\n- Create the vendor project/resource before deploying.\n- Add the listed environment variables to preview and production.\n- Smoke-test the included route or helper after deploy.\n- Keep provider secrets out of client components and logs.\n\n## Maintenance\n\n- Keep this module focused on the vendor integration boundary.\n- Update source examples when vendor SDK APIs change.\n- Record production-specific retry, alerting, and rollback behavior before marking stable.\n",
   "meta": {
     "category": "storage",
     "env": [

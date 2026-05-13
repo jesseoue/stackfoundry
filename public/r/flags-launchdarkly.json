@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "flags-launchdarkly",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "LaunchDarkly Flags",
   "description": "LaunchDarkly provider adapter.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# LaunchDarkly Flags\n\nLaunchDarkly provider adapter.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "growth",
     "env": [],

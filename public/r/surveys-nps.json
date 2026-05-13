@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "surveys-nps",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Surveys and NPS",
   "description": "NPS/CSAT surveys, in-app prompts, response tables, and segmentation.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Surveys and NPS\n\nNPS/CSAT surveys, in-app prompts, response tables, and segmentation.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "growth",
     "env": [],

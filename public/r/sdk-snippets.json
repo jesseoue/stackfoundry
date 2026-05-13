@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "sdk-snippets",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "SDK Snippets",
   "description": "Generated examples for curl, TypeScript, Python, and HTTP clients.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# SDK Snippets\n\nGenerated examples for curl, TypeScript, Python, and HTTP clients.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "api",
     "env": [],

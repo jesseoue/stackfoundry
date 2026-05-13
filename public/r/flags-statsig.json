@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "flags-statsig",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Statsig Flags",
   "description": "Statsig provider adapter.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Statsig Flags\n\nStatsig provider adapter.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "growth",
     "env": [],

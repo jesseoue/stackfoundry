@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "waitlist",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Waitlist",
   "description": "Waitlist form, referral code, and invite state.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Waitlist\n\nWaitlist form, referral code, and invite state.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "marketing",
     "env": [],

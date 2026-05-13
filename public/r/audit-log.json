@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "audit-log",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Audit Log",
   "description": "Append-only activity table, event helpers, and admin timeline UI.",
   "dependencies": [],
@@ -26,6 +26,8 @@
       "content": "const exampleEvents = [\n  { action: \"billing.subscription_updated\", actor: \"system\", resource: \"subscription\" },\n  { action: \"api_key.created\", actor: \"user_123\", resource: \"api_key\" },\n  { action: \"workspace.member_invited\", actor: \"user_456\", resource: \"invite\" },\n];\n\nexport default function AuditLogPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Audit Log</h1>\n        <p className=\"text-muted-foreground\">Review sensitive account, workspace, and system events.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {exampleEvents.map((event) => (\n          <div key={event.action} className=\"rounded-lg border p-4\">\n            <p className=\"font-medium\">{event.action}</p>\n            <p className=\"text-sm text-muted-foreground\">{event.actor} changed {event.resource}</p>\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "envVars": {},
+  "docs": "# Audit Log Module\n\nAppend-only activity table, event helpers, and admin timeline UI.\n\n## Owns\n\n- `packages/db/src/schema/audit-log.ts`\n- `apps/web/src/lib/audit-log.ts`\n- `apps/web/src/app/(console)/audit-log/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider-specific adapter is added as a separate module.\n- Update the manifest when source files, schema exports, dependencies, or environment variables change.\n- Verify install output with `stackfoundry add audit-log --target <app> --dry-run` before promoting status.\n",
   "meta": {
     "category": "operations",
     "env": [],

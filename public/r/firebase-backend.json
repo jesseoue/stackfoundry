@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "firebase-backend",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Firebase Backend",
   "description": "Optional mobile-first backend module for Firestore/auth/storage apps.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Firebase Backend\n\nOptional mobile-first backend module for Firestore/auth/storage apps.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "backend",
     "env": [],

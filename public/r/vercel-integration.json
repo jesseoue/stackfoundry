@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "vercel-integration",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Vercel Integration",
   "description": "Deployments list, env sync docs, and preview links.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Vercel Integration\n\nDeployments list, env sync docs, and preview links.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "deploy",
     "env": [],

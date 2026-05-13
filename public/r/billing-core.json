@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "billing-core",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Billing Core",
   "description": "Provider-neutral customer, plan, and subscription primitives.",
   "dependencies": [],
@@ -26,6 +26,8 @@
       "content": "const items = [\n  { title: \"Configure\", description: \"Set ownership, defaults, and permissions.\" },\n  { title: \"Operate\", description: \"Review status, recent activity, and unresolved work.\" },\n  { title: \"Verify\", description: \"Run the checklist before enabling this module in production.\" },\n];\n\nexport default function BillingCorePage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Billing Core</h1>\n        <p className=\"text-muted-foreground\">Provider-neutral customer, plan, and subscription primitives.</p>\n      </div>\n      <div className=\"grid gap-3 md:grid-cols-3\">\n        {items.map((item) => (\n          <section key={item.title} className=\"rounded-lg border p-4\">\n            <h2 className=\"font-medium\">{item.title}</h2>\n            <p className=\"text-sm text-muted-foreground\">{item.description}</p>\n          </section>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "envVars": {},
+  "docs": "# Billing Core Module\n\nProvider-neutral customer, plan, and subscription primitives.\n\n## Owns\n\n- `packages/db/src/schema/billing-core.ts`\n- `apps/web/src/lib/billing-core.ts`\n- `apps/web/src/app/(console)/billing/core/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider-specific adapter is added separately.\n- Update source templates, manifest files, and generated registry output together.\n- Add audit events around sensitive changes before promoting this module beyond experimental.\n- Verify with `stackfoundry add billing-core --target <app> --dry-run`.\n",
   "meta": {
     "category": "billing",
     "env": [],

@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cloudflare-workers-ai",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Cloudflare Workers AI",
   "description": "Workers AI inference, embeddings, and image generation examples.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Cloudflare Workers AI\n\nWorkers AI inference, embeddings, and image generation examples.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "ai",
     "env": [],

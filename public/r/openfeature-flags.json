@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "openfeature-flags",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "OpenFeature Flags",
   "description": "OpenFeature-compatible flag interface and provider adapter pattern.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# OpenFeature Flags\n\nOpenFeature-compatible flag interface and provider adapter pattern.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "growth",
     "env": [],

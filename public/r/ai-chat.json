@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ai-chat",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "AI Chat",
   "description": "AI SDK chat route, model selector, message persistence, and prompt input.",
   "dependencies": [
@@ -33,6 +33,11 @@
       "content": "export const DEFAULT_AI_MODEL = process.env.AI_GATEWAY_MODEL;\n\nexport function getSelectedModel(model?: string) {\n  const selected = model || DEFAULT_AI_MODEL;\n  if (!selected) {\n    throw new Error(\"AI_GATEWAY_MODEL is not set.\");\n  }\n  return selected;\n}\n"
     }
   ],
+  "envVars": {
+    "AI_GATEWAY_API_KEY": "",
+    "AI_GATEWAY_MODEL": ""
+  },
+  "docs": "# AI Chat Module\n\nAdds a minimal AI SDK chat endpoint and client component using current `useChat` semantics.\n\n## Owns\n\n- `/api/ai/chat` route\n- chat prompt component\n- model/env helper\n- prompt defaults\n\n## Requirements\n\n- `AI_GATEWAY_API_KEY`\n- `AI_GATEWAY_MODEL`\n\n## Verification\n\n- API route returns a UI message stream.\n- Client component sends messages with `DefaultChatTransport`.\n- Missing model returns a readable error instead of a failed stream.\n",
   "meta": {
     "category": "ai",
     "env": [

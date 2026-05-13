@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "orgs-rbac",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Organizations and RBAC",
   "description": "Organization switcher, roles, permissions, invitations, and member management.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Organizations and RBAC\n\nOrganization switcher, roles, permissions, invitations, and member management.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "auth",
     "env": [],

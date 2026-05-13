@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "slack-notifications",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Slack Notifications",
   "description": "Slack webhook/app integration, alerts, and admin settings.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Slack Notifications\n\nSlack webhook/app integration, alerts, and admin settings.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "notifications",
     "env": [],

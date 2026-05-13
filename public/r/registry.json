@@ -5,1005 +5,3780 @@
   "items": [
     {
       "name": "aarrr-dashboard",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "AARRR Dashboard",
-      "description": "Acquisition, activation, retention, referral, revenue dashboard with cohort filters."
+      "description": "Acquisition, activation, retention, referral, revenue dashboard with cohort filters.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "account-deletion",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Account Deletion",
-      "description": "Account deletion requests, grace windows, and cleanup checklist."
+      "description": "Account deletion requests, grace windows, and cleanup checklist.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/account-deletion.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/account-deletion.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/settings/account/deletion/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "compliance",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "account-settings",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Account Settings",
-      "description": "Profile, security, sessions, and notification preference pages."
+      "description": "Profile, security, sessions, and notification preference pages.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/app/(console)/settings/account/page.tsx",
+          "type": "registry:page"
+        },
+        {
+          "path": "apps/web/src/lib/account-settings.ts",
+          "type": "registry:file"
+        }
+      ],
+      "meta": {
+        "category": "auth",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "activation-onboarding",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Activation Onboarding",
-      "description": "Onboarding checklist, first-value milestones, and time-to-value tracking."
+      "description": "Onboarding checklist, first-value milestones, and time-to-value tracking.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "admin-console",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Admin Console",
-      "description": "Super-admin shell, user/org management, and metrics."
+      "description": "Super-admin shell for users, workspaces, metrics, and operational controls.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "audit-log"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/admin-console.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "admin-impersonation",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Admin Impersonation",
-      "description": "Support/admin impersonation flows with audit logging and clear safety boundaries."
+      "description": "Support/admin impersonation flows with audit logging and clear safety boundaries.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "auth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "ai-artifacts",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "AI Artifacts",
-      "description": "Document/code/sheet artifacts, side panel, and persistence."
+      "description": "Document/code/sheet artifacts, side panel, and persistence.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "ai-chat",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "AI Chat",
-      "description": "AI SDK chat route, model selector, message persistence, and prompt input."
+      "description": "AI SDK chat route, model selector, message persistence, and prompt input.",
+      "dependencies": [
+        "ai",
+        "@ai-sdk/react",
+        "@ai-sdk/gateway"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/app/api/ai/chat/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/components/ai/chat-box.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "apps/web/src/lib/ai/prompts.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/ai/models.ts",
+          "type": "registry:file"
+        }
+      ],
+      "meta": {
+        "category": "ai",
+        "env": [
+          "AI_GATEWAY_API_KEY",
+          "AI_GATEWAY_MODEL"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "ai-tools",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "AI Tools",
-      "description": "Tool definitions, typed tool rendering, and approval flows."
+      "description": "Tool definitions, typed tool rendering, and approval flows.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "api-docs",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "API Docs",
-      "description": "OpenAPI docs, auth examples, error catalog, and changelog."
+      "description": "API reference shell with auth, pagination, and error examples.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/api-docs.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/developers/docs/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "api-errors",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "API Errors",
-      "description": "Machine-readable API error shape, code catalog, and response helpers."
+      "description": "Machine-readable API error shape, code catalog, and response helpers.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/api-errors.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/developers/errors/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "api-keys",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "API Keys",
-      "description": "API key lifecycle, scopes, hashed storage, usage metadata, and management UI."
+      "description": "API key lifecycle, scopes, hashed storage, usage metadata, and management UI.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/api-keys.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/api-keys.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/api-keys/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "api-usage-dashboard",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "API Usage Dashboard",
-      "description": "Per-key usage charts, recent requests, errors, and limits."
+      "description": "Per-key usage cards, request totals, errors, and limit visibility.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "api-keys",
+        "usage-metering"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/api-usage-dashboard.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/developers/usage/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "arcjet-security",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Arcjet Security",
-      "description": "Arcjet request protection starter for bot detection, shielding, and rate limits."
+      "description": "Arcjet request protection starter for bot detection, shielding, and rate limits.",
+      "dependencies": [
+        "@arcjet/next"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [
+        "security-headers"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/arcjet.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/api/vendor/arcjet/protected/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/vendors/arcjet/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "security",
+        "env": [
+          "ARCJET_KEY"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "audit-log",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Audit Log",
-      "description": "Append-only activity table, event helpers, and admin timeline UI."
+      "description": "Append-only activity table, event helpers, and admin timeline UI.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/audit-log.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/audit-log.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/audit-log/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "auth-authjs",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Auth.js",
-      "description": "Auth.js setup for teams that prefer classic Next auth flows."
+      "description": "Auth.js setup for teams that prefer classic Next auth flows.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "auth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "auth-better-auth",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Better Auth",
-      "description": "Better Auth server config, Next.js route handler, and typed client starter."
+      "description": "Better Auth server config, Next.js route handler, and typed client starter.",
+      "dependencies": [
+        "better-auth"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/auth.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/auth-client.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/api/auth/[...all]/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/auth/better-auth/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "auth",
+        "env": [
+          "BETTER_AUTH_SECRET",
+          "BETTER_AUTH_URL"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "autumn-billing",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Autumn Billing",
-      "description": "Autumn + Stripe usage billing, overages, spend caps, and plan changes."
+      "description": "Autumn + Stripe usage billing, overages, spend caps, and plan changes.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "autumn-entitlements",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Autumn Entitlements",
-      "description": "Autumn check API, boolean and metered features, credit ledgers, and plan gates."
+      "description": "Autumn check API, boolean and metered features, credit ledgers, and plan gates.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "axiom-logging",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Axiom Logging",
-      "description": "Axiom structured event logger and server route for deployment smoke checks."
+      "description": "Axiom structured event logger and server route for deployment smoke checks.",
+      "dependencies": [
+        "@axiomhq/js"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/axiom/logger.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/api/vendor/axiom/log/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/vendors/axiom/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "observability",
+        "env": [
+          "AXIOM_TOKEN",
+          "AXIOM_DATASET"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "background-jobs",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Background Jobs",
-      "description": "Job table, queue abstraction, retry/cancel UI, and worker handoff patterns."
+      "description": "Job table, queue abstraction, retry/cancel UI, and worker handoff patterns.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/background-jobs.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/background-jobs.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/jobs/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "backup-restore",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Backup Restore",
-      "description": "Backup run records, restore checklist, and continuity dashboard."
+      "description": "Backup run records, restore checklist, and continuity dashboard.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/backup-restore.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/backup-restore.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/backups/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "billing-core",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Billing Core",
-      "description": "Shared customers, subscriptions, plans, products, entitlements, and provider mapping."
+      "description": "Provider-neutral customer, plan, and subscription primitives.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/billing-core.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/billing-core.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/core/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "blog-changelog",
-      "type": "registry:item",
-      "title": "Blog and Changelog",
-      "description": "MDX blog/changelog, RSS, and SEO metadata."
+      "type": "registry:block",
+      "title": "Blog Changelog",
+      "description": "Blog and product changelog list pages with release notes helpers.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/blog-changelog.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(marketing)/changelog/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "marketing",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "clerk-auth",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Clerk Auth",
-      "description": "Clerk sign-in/sign-up pages, middleware, server auth helper, and webhook starter."
+      "description": "Clerk sign-in/sign-up pages, middleware, server auth helper, and webhook starter.",
+      "dependencies": [
+        "@clerk/nextjs"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "middleware.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/clerk/authorization.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(auth)/sign-in/[[...sign-in]]/page.tsx",
+          "type": "registry:page"
+        },
+        {
+          "path": "apps/web/src/app/(auth)/sign-up/[[...sign-up]]/page.tsx",
+          "type": "registry:page"
+        },
+        {
+          "path": "apps/web/src/app/api/webhooks/clerk/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/auth/clerk/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "auth",
+        "env": [
+          "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
+          "CLERK_SECRET_KEY",
+          "CLERK_WEBHOOK_SECRET"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "cloudflare-agents-sdk",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare Agents SDK",
-      "description": "Stateful AI agents on Workers, React hooks, WebSocket/RPC surface."
+      "description": "Stateful AI agents on Workers, React hooks, WebSocket/RPC surface.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "cloudflare-d1",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare D1",
-      "description": "D1 binding usage, SQLite schema starter, and Wrangler database notes."
+      "description": "D1 binding usage, SQLite schema starter, and Wrangler database notes.",
+      "dependencies": [],
+      "devDependencies": [
+        "wrangler"
+      ],
+      "registryDependencies": [
+        "cloudflare-workers"
+      ],
+      "files": [
+        {
+          "path": "cloudflare/d1/schema.sql",
+          "type": "registry:file"
+        },
+        {
+          "path": "cloudflare/d1/queries.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/cloudflare/d1/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "database",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "cloudflare-durable-objects",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare Durable Objects",
-      "description": "Stateful coordination, realtime rooms, per-tenant state, and DO storage."
+      "description": "Stateful coordination, realtime rooms, per-tenant state, and DO storage.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "edge",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "cloudflare-hyperdrive",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare Hyperdrive",
-      "description": "Postgres/MySQL connection acceleration for Workers."
+      "description": "Postgres/MySQL connection acceleration for Workers.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "database",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "cloudflare-kv",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare KV",
-      "description": "KV binding adapter for low-write configuration, flags, and cached metadata."
+      "description": "KV binding adapter for low-write configuration, flags, and cached metadata.",
+      "dependencies": [],
+      "devDependencies": [
+        "wrangler"
+      ],
+      "registryDependencies": [
+        "feature-flags"
+      ],
+      "files": [
+        {
+          "path": "cloudflare/kv/config.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/cloudflare/kv/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "storage",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "cloudflare-mcp-server",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare MCP Server",
-      "description": "Remote MCP server on Workers with OAuth/auth guidance."
+      "description": "Remote MCP server on Workers with OAuth/auth guidance.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "cloudflare-observability",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare Observability",
-      "description": "Workers logs, traces, analytics, and tail workers."
+      "description": "Workers logs, traces, analytics, and tail workers.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "observability",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "cloudflare-pages",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare Pages",
-      "description": "Alternate deploy path for static and edge-friendly apps."
+      "description": "Alternate deploy path for static and edge-friendly apps.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "deploy",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "cloudflare-queues",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare Queues",
-      "description": "Async jobs, producer/consumer Workers, retries, and DLQ guidance."
+      "description": "Async jobs, producer/consumer Workers, retries, and DLQ guidance.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "queue",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "cloudflare-r2",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare R2",
-      "description": "R2 object storage adapter example for uploads and private object reads."
+      "description": "R2 object storage adapter example for uploads and private object reads.",
+      "dependencies": [],
+      "devDependencies": [
+        "wrangler"
+      ],
+      "registryDependencies": [
+        "file-uploads"
+      ],
+      "files": [
+        {
+          "path": "cloudflare/r2/storage.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/cloudflare/r2/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "storage",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "cloudflare-terraform",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare Terraform",
-      "description": "IaC module for zones, Workers, R2, D1, Queues, and secrets."
+      "description": "IaC module for zones, Workers, R2, D1, Queues, and secrets.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "iac",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "cloudflare-tunnel",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare Tunnel",
-      "description": "Secure tunnel module for exposing local/internal services."
+      "description": "Secure tunnel module for exposing local/internal services.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "networking",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "cloudflare-turnstile",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare Turnstile",
-      "description": "Bot protection for signup, contact, waitlist, and abuse-sensitive forms."
+      "description": "Bot protection for signup, contact, waitlist, and abuse-sensitive forms.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "security",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "cloudflare-vectorize",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare Vectorize",
-      "description": "Vector search and RAG provider module."
+      "description": "Vector search and RAG provider module.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "cloudflare-workers",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare Workers",
-      "description": "Cloudflare Worker entrypoint, Wrangler config example, and edge API route starter."
+      "description": "Cloudflare Worker entrypoint, Wrangler config example, and edge API route starter.",
+      "dependencies": [],
+      "devDependencies": [
+        "wrangler"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "cloudflare/workers/api-worker.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "cloudflare/workers/wrangler.example.jsonc",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/cloudflare/workers/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "edge",
+        "env": [
+          "CLOUDFLARE_ACCOUNT_ID",
+          "CLOUDFLARE_API_TOKEN"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "cloudflare-workers-ai",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare Workers AI",
-      "description": "Workers AI inference, embeddings, and image generation examples."
+      "description": "Workers AI inference, embeddings, and image generation examples.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "cloudflare-workflows",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cloudflare Workflows",
-      "description": "Cloudflare Workflows durable step starter for Workers-native orchestration."
+      "description": "Cloudflare Workflows durable step starter for Workers-native orchestration.",
+      "dependencies": [],
+      "devDependencies": [
+        "wrangler"
+      ],
+      "registryDependencies": [
+        "cloudflare-workers"
+      ],
+      "files": [
+        {
+          "path": "cloudflare/workflows/onboarding.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/cloudflare/workflows/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "workflow",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "cms-contentful",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Contentful CMS",
-      "description": "Contentful integration and content model docs."
+      "description": "Contentful integration and content model docs.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "content",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "cms-mdx",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "MDX Content",
-      "description": "File-based docs, blog, and changelog collections."
+      "description": "File-based docs, blog, and changelog collections.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "content",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "cms-sanity",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Sanity CMS",
-      "description": "Sanity integration and preview mode."
+      "description": "Sanity integration and preview mode.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "content",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "cohort-retention",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cohort Retention",
-      "description": "Cohort tables, retention curves, saved segments, and plan/channel filters."
+      "description": "Cohort tables, retention curves, saved segments, and plan/channel filters.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "connected-accounts",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Connected Accounts",
-      "description": "OAuth account linking, provider metadata, and disconnect controls."
+      "description": "OAuth account linking, provider metadata, and disconnect controls.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/connected-accounts.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/connected-accounts.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/settings/account/connected-accounts/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "auth",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "contact-forms",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Contact Forms",
-      "description": "Contact form submissions, spam review, and routing workflow."
+      "description": "Contact form submissions, spam review, and routing workflow.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/contact-forms.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/contact-forms.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/contact-forms/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "marketing",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "convex-backend",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Convex Backend",
-      "description": "Convex project setup, generated functions, provider wrapper, and deployment docs."
+      "description": "Convex project setup, generated functions, provider wrapper, and deployment docs.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "backend",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "convex-integration",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Convex Integration",
-      "description": "Convex dashboard links, deployment status, and schema/function notes."
+      "description": "Convex dashboard links, deployment status, and schema/function notes.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "backend",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "convex-realtime",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Convex Realtime",
-      "description": "Live queries, subscriptions, realtime dashboards, and optimistic update examples."
+      "description": "Live queries, subscriptions, realtime dashboards, and optimistic update examples.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "backend",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "cookie-consent",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Cookie Consent",
-      "description": "Cookie category preferences and consent banner state."
+      "description": "Cookie category preferences and consent banner state.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/cookie-consent.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/cookie-consent.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(marketing)/privacy/cookies/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "compliance",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "cors-policy",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "CORS Policy",
-      "description": "Allowed origin configuration, preflight helpers, and deployment checklist."
-    },
-    {
-      "name": "keyset-pagination",
-      "type": "registry:item",
-      "title": "Keyset Pagination",
-      "description": "Keyset pagination helpers for stable API lists."
+      "description": "Allowed origin configuration, preflight helpers, and deployment checklist.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/cors-policy.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/security/cors/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "security",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "data-export",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Data Export",
-      "description": "CSV export, background job, and download links."
+      "description": "User and workspace export requests with status tracking.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/data-export.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/data-export.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/data/export/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "compliance",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "data-import-export",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Data Import Export",
-      "description": "CSV import/export, background processing, and error report UI."
+      "description": "CSV import/export, background processing, and error report UI.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "data-retention",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Data Retention",
-      "description": "Retention policies, cleanup jobs, export/delete requests, and admin controls."
+      "description": "Retention policies, deletion windows, and compliance review UI.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/data-retention.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/data-retention.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/data/retention/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "compliance",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "datadog-monitoring",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Datadog Monitoring",
-      "description": "Enterprise observability adapter."
+      "description": "Enterprise observability adapter.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "observability",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "developer-portal",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Developer Portal",
-      "description": "Docs layout, API reference, quickstarts, and token examples."
+      "description": "Developer dashboard shell for keys, docs, webhooks, and usage.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "api-keys"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/developer-portal.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/developers/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "docker-compose-local",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Docker Compose Local",
-      "description": "Local Postgres, Redis, Mailpit, and provider-mock services."
+      "description": "Local Postgres, Redis, Mailpit, and provider-mock services.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "devops",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "docs-fumadocs",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Fumadocs Docs",
-      "description": "Fumadocs docs site module."
+      "description": "Fumadocs docs site module.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "docs",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "docs-help-center",
-      "type": "registry:item",
-      "title": "Help Center",
-      "description": "MDX docs, search, categories, and article pages."
+      "type": "registry:block",
+      "title": "Docs Help Center",
+      "description": "Help center index, article metadata, and support escalation paths.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/docs-help-center.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(marketing)/help/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "support",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "docs-starlight",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Starlight Docs",
-      "description": "Astro Starlight docs module for separate documentation sites."
+      "description": "Astro Starlight docs module for separate documentation sites.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "docs",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "drizzle-audit-log",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Drizzle Audit Log",
-      "description": "Common activity/event schema, actor/resource modeling, and admin timeline UI."
+      "description": "Common activity/event schema, actor/resource modeling, and admin timeline UI.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "database",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "drizzle-multitenancy",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Drizzle Multitenancy",
-      "description": "Org/account ids on core tables, indexes, relations, and cache-tag rules."
+      "description": "Org/account ids on core tables, indexes, relations, and cache-tag rules.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "database",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "drizzle-postgres",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Drizzle Postgres",
-      "description": "Postgres + Drizzle package, schema barrel, migrations, and server-only DB access."
+      "description": "Postgres + Drizzle package, schema barrel, migrations, and server-only DB access.",
+      "dependencies": [
+        "drizzle-orm",
+        "postgres"
+      ],
+      "devDependencies": [
+        "drizzle-kit",
+        "dotenv"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "packages/db/package.json",
+          "type": "registry:file"
+        },
+        {
+          "path": "packages/db/src/client.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "packages/db/src/index.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "packages/db/src/schema/index.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/db.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "drizzle.config.ts",
+          "type": "registry:file"
+        }
+      ],
+      "meta": {
+        "category": "database",
+        "env": [
+          "DATABASE_URL"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "drizzle-relations",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Drizzle Relations",
-      "description": "Relations helpers, type-safe joins, query examples, and seed patterns."
+      "description": "Relations helpers, type-safe joins, query examples, and seed patterns.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "database",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "drizzle-soft-delete",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Drizzle Soft Delete",
-      "description": "deletedAt conventions, restore flows, and filtered query helpers."
+      "description": "deletedAt conventions, restore flows, and filtered query helpers.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "database",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "email-nodemailer",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Nodemailer Email",
-      "description": "SMTP email adapter for teams avoiding provider lock-in."
+      "description": "SMTP email adapter for teams avoiding provider lock-in.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "email",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "email-postmark",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Postmark Email",
-      "description": "Transactional email adapter and template mapping."
+      "description": "Transactional email adapter and template mapping.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "email",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "email-templates",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Email Templates",
-      "description": "Transactional email template catalog with plain-text fallback guidance."
+      "description": "Transactional email template catalog with plain-text fallback guidance.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "notifications"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/email-templates.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/email-templates/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "communications",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "email-verification",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Email Verification",
-      "description": "Email verification token helpers and verification state UI."
+      "description": "Email verification token helpers and verification state UI.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/email-verification.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/email-verification.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(auth)/email-verification/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "auth",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "enterprise-sso",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Enterprise SSO",
-      "description": "SAML/OIDC connection metadata, enforcement policy, and setup checklist."
+      "description": "SAML/OIDC connection metadata, enforcement policy, and setup checklist.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/enterprise-sso.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/enterprise-sso.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/settings/workspace/sso/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "auth",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "entitlements",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Entitlements",
-      "description": "Feature gates, plan limits, hasFeature helpers, and UI badges."
+      "description": "Feature entitlement definitions, checks, and admin review UI.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/entitlements.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/entitlements.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/entitlements/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "evals",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Evals",
-      "description": "Prompt eval cases, pass/fail scoring UI, and regression tracking."
+      "description": "Prompt eval cases, pass/fail scoring UI, and regression tracking.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "experiments",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Experiments",
-      "description": "A/B test model, exposure tracking, conversion events, and results UI."
+      "description": "A/B test model, exposure tracking, conversion events, and results UI.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "feature-adoption",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Feature Adoption",
-      "description": "Feature usage tracking, adoption cohorts, and release impact views."
+      "description": "Feature usage tracking, adoption cohorts, and release impact views.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "feature-flags",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Feature Flags",
-      "description": "Flag table, evaluation helper, admin UI, and per-org targeting."
+      "description": "Flag table, evaluation helper, admin UI, and per-org targeting.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/feature-flags.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/feature-flags.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/feature-flags/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "growth",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "file-uploads",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "File Uploads",
-      "description": "Vercel Blob/S3 adapter, upload UI, and file browser."
+      "description": "File metadata, upload policy helpers, and upload management UI.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/file-uploads.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/file-uploads.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/files/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "storage",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "firebase-backend",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Firebase Backend",
-      "description": "Optional mobile-first backend module for Firestore/auth/storage apps."
+      "description": "Optional mobile-first backend module for Firestore/auth/storage apps.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "backend",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "flags-launchdarkly",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "LaunchDarkly Flags",
-      "description": "LaunchDarkly provider adapter."
+      "description": "LaunchDarkly provider adapter.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "flags-statsig",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Statsig Flags",
-      "description": "Statsig provider adapter."
+      "description": "Statsig provider adapter.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "fly-deploy",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Fly Deploy",
-      "description": "App and worker deployment with regionality notes and templates."
+      "description": "App and worker deployment with regionality notes and templates.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "deploy",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "geist-nova-theme",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Geist Nova Theme",
-      "description": "Geist typography and Tailwind v4 theme tokens for a polished SaaS console."
+      "description": "Geist typography and Tailwind v4 theme tokens for a polished SaaS console.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "github-integration",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "GitHub Integration",
-      "description": "GitHub App Octokit client, webhook route starter, and repository action example."
+      "description": "GitHub App Octokit client, webhook route starter, and repository action example.",
+      "dependencies": [
+        "octokit"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [
+        "webhook-inbox"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/github/app.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/api/webhooks/github/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/vendors/github/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "integrations",
+        "env": [
+          "GITHUB_APP_ID",
+          "GITHUB_PRIVATE_KEY",
+          "GITHUB_WEBHOOK_SECRET"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "growth-alerts",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Growth Alerts",
-      "description": "Activation drop, churn risk, usage spike, and expansion opportunity notifications."
+      "description": "Activation drop, churn risk, usage spike, and expansion opportunity notifications.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "i18n",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Internationalization",
-      "description": "Locale routing, translations, and language switcher."
+      "description": "Locale routing, translations, and language switcher.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "image-optimization",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Image Optimization",
-      "description": "Image upload, transformation, metadata, and storage adapter."
+      "description": "Image upload, transformation, metadata, and storage adapter.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "media",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "incident-management",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Incident Management",
-      "description": "Internal incidents, timeline, owner, and postmortem."
+      "description": "Incident records, severity, status updates, and internal coordination UI.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/incident-management.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/incident-management.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/incidents/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "inngest-functions",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Inngest Functions",
-      "description": "Inngest durable functions, event triggers, steps, and Next.js serve route."
+      "description": "Inngest durable functions, event triggers, steps, and Next.js serve route.",
+      "dependencies": [
+        "inngest"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [
+        "background-jobs"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/inngest/client.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/inngest/functions/user-onboarding.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/api/inngest/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/workflows/inngest/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "workflow",
+        "env": [
+          "INNGEST_EVENT_KEY",
+          "INNGEST_SIGNING_KEY"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "internal-api-trpc",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Internal API tRPC",
-      "description": "Optional tRPC module for TypeScript-only internal APIs."
+      "description": "Optional tRPC module for TypeScript-only internal APIs.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "api",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "invites",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Invites",
-      "description": "Email invitations, pending invitation state, role assignment, and resend/cancel flows."
+      "description": "Email invitations, pending invitation state, role assignment, and resend/cancel flows.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/invites.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/invites.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/settings/workspace/invites/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "auth",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "invoices",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Invoices",
-      "description": "Invoice list, invoice detail, and payment method settings."
+      "description": "Invoice records, payment status, and billing history UI.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "billing-core"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/invoices.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/invoices/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "keyset-pagination",
+      "type": "registry:block",
+      "title": "Keyset Pagination",
+      "description": "Keyset pagination helpers for stable API lists.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/keyset-pagination.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/developers/pagination/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "legal-pages",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Legal Pages",
-      "description": "Privacy, terms, DPA placeholders, and cookie policy scaffolds."
+      "description": "Terms, privacy, cookie, and acceptable-use page templates.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/legal-pages.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(marketing)/legal/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "marketing",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "lemon-squeezy-billing",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Lemon Squeezy Billing",
-      "description": "Creator/digital product checkout and license key workflows."
+      "description": "Creator/digital product checkout and license key workflows.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "lifecycle-email",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Lifecycle Email",
-      "description": "Behavior-triggered onboarding, activation nudges, reactivation, and upgrade emails."
+      "description": "Lifecycle email campaign definitions, audience rules, and delivery checklist.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "notifications"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/lifecycle-email.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/lifecycle-email/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "growth",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "linear-integration",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Linear Integration",
-      "description": "Issue creation, Linear links, and incident/project workflows."
+      "description": "Issue creation, Linear links, and incident/project workflows.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "project-management",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "login-activity",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Login Activity",
-      "description": "Login history, device metadata, and suspicious sign-in review UI."
+      "description": "Login history, device metadata, and suspicious sign-in review UI.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/login-activity.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/login-activity.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/settings/account/login-activity/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "auth",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "maintenance-mode",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Maintenance Mode",
-      "description": "Maintenance windows, banner state, and operator controls."
+      "description": "Maintenance windows, banner state, and operator controls.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/maintenance-mode.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/maintenance-mode.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/maintenance/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "marketing-pages",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Marketing Pages",
-      "description": "Landing, features, pricing, FAQ, and CTA sections."
+      "description": "Landing page sections, social proof slots, and CTA patterns.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/marketing-pages.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(marketing)/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "marketing",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "mcp-client",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "MCP Client",
-      "description": "MCP server config UI, server registry, and auth metadata."
+      "description": "MCP server config UI, server registry, and auth metadata.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "mfa-security",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "MFA Security",
-      "description": "Multi-factor authentication recovery, enforcement, and settings surfaces."
+      "description": "Multi-factor authentication recovery, enforcement, and settings surfaces.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/mfa-security.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/mfa-security.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/settings/account/mfa/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "auth",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "model-router",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Model Router",
-      "description": "Model catalog, provider ordering, fallback rules, and AI Gateway config."
+      "description": "Model catalog, provider ordering, fallback rules, and AI Gateway config.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "neon-postgres",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Neon Postgres",
-      "description": "Neon serverless Postgres client, Drizzle-compatible env wiring, and branching notes."
+      "description": "Neon serverless Postgres client, Drizzle-compatible env wiring, and branching notes.",
+      "dependencies": [
+        "@neondatabase/serverless"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/neon/client.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/neon/branching.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/data/neon/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "database",
+        "env": [
+          "DATABASE_URL"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "newsletter-signups",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Newsletter Signups",
-      "description": "Newsletter signup capture, double opt-in state, and export workflow."
+      "description": "Newsletter signup capture, double opt-in state, and export workflow.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/newsletter-signups.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/newsletter-signups.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/newsletter/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "marketing",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "next-saas",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Next SaaS",
-      "description": "Base Next.js SaaS preset module with app shell, dashboard routes, and product configuration."
+      "description": "Base Next.js SaaS preset module with app shell, dashboard routes, and product configuration.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "notification-center",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Notification Center",
-      "description": "In-app notifications, preferences, read/unread state, and digests."
+      "description": "In-app notification inbox with read state and preference-aware display.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "notifications"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/notification-center.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/notifications/center/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "notifications",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Notifications",
-      "description": "In-app notifications, email preferences, and delivery table."
+      "description": "Notification events, delivery preferences, and provider-neutral send queue.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/notifications.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/notifications.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/notifications/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "openfeature-flags",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "OpenFeature Flags",
-      "description": "OpenFeature-compatible flag interface and provider adapter pattern."
+      "description": "OpenFeature-compatible flag interface and provider adapter pattern.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "orgs-rbac",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Organizations and RBAC",
-      "description": "Organization switcher, roles, permissions, invitations, and member management."
+      "description": "Organization switcher, roles, permissions, invitations, and member management.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "auth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "paddle-billing",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Paddle Billing",
-      "description": "Merchant of Record checkout, subscription sync, webhook mapping, and tax docs."
+      "description": "Merchant of Record checkout, subscription sync, webhook mapping, and tax docs.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "password-reset",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Password Reset",
-      "description": "Expiring reset token helpers and password recovery page templates."
+      "description": "Expiring reset token helpers and password recovery page templates.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/password-reset.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/password-reset.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(auth)/password-reset/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "auth",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "plan-gating",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Plan Gating",
-      "description": "Route/component helpers for feature gates and plan limits."
+      "description": "Server-side plan checks and upgrade prompt surfaces.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "entitlements"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/plan-gating.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/plan-gating/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "playwright-e2e",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Playwright E2E",
-      "description": "Browser smoke tests for auth, billing, dashboard, and installed module flows."
+      "description": "Browser smoke tests for auth, billing, dashboard, and installed module flows.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "plg-metrics",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "PLG Metrics",
-      "description": "Canonical event taxonomy, user/account traits, product events, and tracking helpers."
+      "description": "Canonical event taxonomy, user/account traits, product events, and tracking helpers.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "posthog-analytics",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "PostHog Analytics",
-      "description": "PostHog Next.js provider, pageview tracking, and event capture helper."
+      "description": "PostHog Next.js provider, pageview tracking, and event capture helper.",
+      "dependencies": [
+        "posthog-js",
+        "@posthog/next"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [
+        "feature-flags"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/components/providers/posthog-provider.tsx",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/components/analytics/track-button.tsx",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/vendors/posthog/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "analytics",
+        "env": [
+          "NEXT_PUBLIC_POSTHOG_KEY",
+          "NEXT_PUBLIC_POSTHOG_HOST"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "pricing-page",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Pricing Page",
-      "description": "Public pricing table, plan comparison, and CTA wiring."
+      "description": "Plan comparison page with feature groups and call-to-action slots.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/pricing-page.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(marketing)/pricing/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "marketing",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "product-qualified-leads",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Product Qualified Leads",
-      "description": "PQL scoring, activation thresholds, sales handoff flags, and CRM hooks."
+      "description": "PQL scoring, activation thresholds, sales handoff flags, and CRM hooks.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "prompt-library",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Prompt Library",
-      "description": "Reusable prompts, variable interpolation, and prompt versioning."
+      "description": "Reusable prompts, variable interpolation, and prompt versioning.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "public-api-orpc",
-      "type": "registry:item",
-      "title": "Public API oRPC",
-      "description": "oRPC router, OpenAPI output, docs route, and typed client."
+      "type": "registry:block",
+      "title": "Public API",
+      "description": "Versioned API response helpers, errors, and pagination primitives.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/public-api-orpc.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/developers/api/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "quality-tooling",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Quality Tooling",
-      "description": "Biome, Vitest, Testing Library, Knip, Lefthook, and CI defaults."
+      "description": "Biome, Vitest, Testing Library, Knip, Lefthook, and CI defaults.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "quota-enforcement",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Quota Enforcement",
-      "description": "Plan quota definitions, usage checks, and limit messaging."
+      "description": "Plan quota definitions, usage checks, and limit messaging.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "entitlements",
+        "usage-metering"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/quota-enforcement.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/quotas/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "rag-starter",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "RAG Starter",
-      "description": "Embeddings, document ingestion, and vector search adapter."
+      "description": "Embeddings, document ingestion, and vector search adapter.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "railway-deploy",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Railway Deploy",
-      "description": "Full-stack deploy option for Node apps, workers, and databases."
+      "description": "Full-stack deploy option for Node apps, workers, and databases.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "deploy",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "rate-limits",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Rate Limits",
-      "description": "Limit tables or provider adapter, middleware helpers, and UI cards."
+      "description": "Database-backed limit definitions, fixed-window helper, and UI cards.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/rate-limits.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/rate-limits.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/rate-limits/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "referral-loops",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Referral Loops",
-      "description": "Invite/referral codes, viral coefficient tracking, and reward state."
+      "description": "Invite/referral codes, viral coefficient tracking, and reward state.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "render-deploy",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Render Deploy",
-      "description": "Simple web service deploy templates and environment docs."
+      "description": "Simple web service deploy templates and environment docs.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "deploy",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "resend-email",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Resend Email",
-      "description": "Resend transactional email client, React Email welcome template, and send route."
+      "description": "Resend transactional email client, React Email welcome template, and send route.",
+      "dependencies": [
+        "resend",
+        "@react-email/components"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [
+        "email-templates"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/resend/client.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/emails/welcome-email.tsx",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/api/vendor/resend/send-welcome/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/vendors/resend/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "email",
+        "env": [
+          "RESEND_API_KEY",
+          "RESEND_FROM_EMAIL"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "scim-provisioning",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "SCIM Provisioning",
-      "description": "SCIM token records, provisioning events, and directory sync status."
+      "description": "SCIM token records, provisioning events, and directory sync status.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/scim-provisioning.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/scim-provisioning.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/settings/workspace/scim/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "auth",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "sdk-snippets",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "SDK Snippets",
-      "description": "Generated examples for curl, TypeScript, Python, and HTTP clients."
+      "description": "Generated examples for curl, TypeScript, Python, and HTTP clients.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "api",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "search-algolia",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Algolia",
-      "description": "Algolia indexing, keys, and autocomplete UI."
+      "description": "Algolia indexing, keys, and autocomplete UI.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "search",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "search-meilisearch",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Meilisearch",
-      "description": "Meilisearch adapter and sync jobs."
+      "description": "Meilisearch adapter and sync jobs.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "search",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "search-postgres",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Postgres Search",
-      "description": "Postgres full-text search, ranking, indexes, and query UI."
+      "description": "Postgres full-text search, ranking, indexes, and query UI.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "search",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "search-typesense",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Typesense",
-      "description": "Typesense adapter and collection schema."
+      "description": "Typesense adapter and collection schema.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "search",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "security-headers",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Security Headers",
-      "description": "Content security policy, frame, referrer, and transport header helpers."
+      "description": "Content security policy, frame, referrer, and transport header helpers.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/security-headers.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/security/headers/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "security",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "seed-data",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Seed Data",
-      "description": "Typed seed scripts and demo records for screenshots, tests, and local demos."
+      "description": "Typed seed scripts and demo records for screenshots, tests, and local demos.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "sentry-monitoring",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Sentry Monitoring",
-      "description": "Sentry Next.js config files, manual capture helper, and release deployment notes."
+      "description": "Sentry Next.js config files, manual capture helper, and release deployment notes.",
+      "dependencies": [
+        "@sentry/nextjs"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/sentry/capture.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/sentry.client.config.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/sentry.server.config.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/vendors/sentry/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "observability",
+        "env": [
+          "NEXT_PUBLIC_SENTRY_DSN",
+          "SENTRY_AUTH_TOKEN",
+          "SENTRY_ORG",
+          "SENTRY_PROJECT"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "seo",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "SEO",
-      "description": "Sitemap, robots, OG image defaults, and metadata helpers."
+      "description": "Metadata defaults, structured data helpers, and crawlable sitemap guidance.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/seo.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/seo/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "marketing",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "session-management",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Session Management",
-      "description": "Active sessions/devices view, revoke sessions, and security event history."
+      "description": "Active sessions/devices view, revoke sessions, and security event history.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "auth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "shadcn-sidebar-shell",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Sidebar Shell",
-      "description": "shadcn-compatible Sidebar shell with navigation, header, responsive layout, and product config."
+      "description": "shadcn-compatible Sidebar shell with navigation, header, responsive layout, and product config.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "slack-notifications",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Slack Notifications",
-      "description": "Slack webhook/app integration, alerts, and admin settings."
+      "description": "Slack webhook/app integration, alerts, and admin settings.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "notifications",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "status-page",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Status Page",
-      "description": "Incident model, public status page, and subscriptions."
+      "description": "Public component status and incident update page.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "incident-management"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/status-page.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/status/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "stripe-billing",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Stripe Billing",
-      "description": "Stripe checkout, billing portal, subscription sync, webhook dedupe, and entitlement mapping."
+      "description": "Stripe checkout, billing portal, subscription sync, webhook dedupe, and entitlement mapping.",
+      "dependencies": [
+        "stripe"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/billing.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/stripe/client.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/api/webhooks/stripe/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [
+          "STRIPE_SECRET_KEY",
+          "STRIPE_WEBHOOK_SECRET",
+          "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "supabase-postgres",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Supabase Postgres",
-      "description": "Supabase SSR clients, Postgres env wiring, and RLS-first setup notes."
+      "description": "Supabase SSR clients, Postgres env wiring, and RLS-first setup notes.",
+      "dependencies": [
+        "@supabase/ssr",
+        "@supabase/supabase-js"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/supabase/server.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/supabase/admin.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "supabase/rls-notes.sql",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/data/supabase/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "database",
+        "env": [
+          "NEXT_PUBLIC_SUPABASE_URL",
+          "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY",
+          "SUPABASE_SERVICE_ROLE_KEY"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "support-console",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Support Console",
-      "description": "Customer lookup, account timeline, and support notes."
+      "description": "Support workspace for customer lookup, notes, and escalation state.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "audit-log"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/support-console.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/support/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "surveys-nps",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Surveys and NPS",
-      "description": "NPS/CSAT surveys, in-app prompts, response tables, and segmentation."
+      "description": "NPS/CSAT surveys, in-app prompts, response tables, and segmentation.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "system-health",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "System Health",
-      "description": "Env checks, provider connectivity, DB migration status, and queue lag."
+      "description": "Health checks, dependency status, and incident readiness UI.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/system-health.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/system-health/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "t3-env",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "T3 Env",
-      "description": "Type-safe server/client environment validation and .env.example management."
+      "description": "Type-safe server/client environment validation and .env.example management.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "theme-system",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Theme System",
-      "description": "Product tokens, light/dark mode, density settings, and nav configuration."
+      "description": "Product tokens, light/dark mode, density settings, and nav configuration.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "trial-management",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Trial Management",
-      "description": "Trial start/end, grace periods, and upgrade prompts."
+      "description": "Trial windows, conversion state, and expiry handling.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "billing-core"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/trial-management.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/trials/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "trigger-dev-jobs",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Trigger.dev Jobs",
-      "description": "Trigger.dev task definitions, run triggering route, and job dashboard starter."
+      "description": "Trigger.dev task definitions, run triggering route, and job dashboard starter.",
+      "dependencies": [
+        "@trigger.dev/sdk"
+      ],
+      "devDependencies": [
+        "trigger.dev"
+      ],
+      "registryDependencies": [
+        "background-jobs"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/trigger/example.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/api/tasks/trigger-dev/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "trigger.config.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/workflows/trigger-dev/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "workflow",
+        "env": [
+          "TRIGGER_SECRET_KEY",
+          "TRIGGER_PROJECT_ID"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "unkey-api-keys",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Unkey API Keys",
-      "description": "Unkey key creation and verification helpers with protected route example."
+      "description": "Unkey key creation and verification helpers with protected route example.",
+      "dependencies": [
+        "@unkey/api"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [
+        "api-keys"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/unkey/client.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/unkey/api-keys.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/api/vendor/unkey/verify/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/vendors/unkey/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "env": [
+          "UNKEY_ROOT_KEY",
+          "UNKEY_API_ID"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "unkey-rate-limits",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Unkey Rate Limits",
-      "description": "Unkey rate limit namespace helper and protected route example."
+      "description": "Unkey rate limit namespace helper and protected route example.",
+      "dependencies": [
+        "@unkey/ratelimit"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [
+        "rate-limits"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/unkey/ratelimit.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/api/vendor/unkey/ratelimit/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/vendors/unkey-rate-limits/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [
+          "UNKEY_ROOT_KEY"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "upstash-redis",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Upstash Redis",
-      "description": "Upstash Redis client, serverless rate limiter, and deployment smoke route."
+      "description": "Upstash Redis client, serverless rate limiter, and deployment smoke route.",
+      "dependencies": [
+        "@upstash/redis",
+        "@upstash/ratelimit"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [
+        "rate-limits"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/upstash/redis.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/upstash/ratelimit.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/api/vendor/upstash/health/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/vendors/upstash/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "storage",
+        "env": [
+          "UPSTASH_REDIS_REST_URL",
+          "UPSTASH_REDIS_REST_TOKEN"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "usage-based-billing",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Usage Based Billing",
-      "description": "Metered usage, Stripe meter events, threshold alerts, and billing hooks."
+      "description": "Metered usage, Stripe meter events, threshold alerts, and billing hooks.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "usage-metering",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Usage Metering",
-      "description": "Usage events, aggregation helpers, and billing integration hooks."
+      "description": "Usage event capture, aggregation helpers, and billing-ready usage UI.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/usage-metering.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/usage-metering.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/usage/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "vercel-blob",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Vercel Blob",
-      "description": "Vercel Blob upload route, list helper, and file storage dashboard starter."
+      "description": "Vercel Blob upload route, list helper, and file storage dashboard starter.",
+      "dependencies": [
+        "@vercel/blob"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [
+        "file-uploads"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/vercel/blob.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/api/vendor/vercel/blob/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/vendors/vercel-blob/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "storage",
+        "env": [
+          "BLOB_READ_WRITE_TOKEN"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "vercel-deploy",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Vercel Deploy",
-      "description": "Vercel project linking, env pull, preview/prod scripts, and deployment docs."
+      "description": "Vercel project linking, env pull, preview/prod scripts, and deployment docs.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "deploy",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "vercel-edge-config",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Vercel Edge Config",
-      "description": "Edge Config read helper for low-latency flags, redirects, and rollout config."
+      "description": "Edge Config read helper for low-latency flags, redirects, and rollout config.",
+      "dependencies": [
+        "@vercel/edge-config"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [
+        "feature-flags"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/vercel/edge-config.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/api/vendor/vercel/edge-config/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/vendors/vercel-edge-config/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "storage",
+        "env": [
+          "EDGE_CONFIG"
+        ],
+        "status": "experimental"
+      }
     },
     {
       "name": "vercel-integration",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Vercel Integration",
-      "description": "Deployments list, env sync docs, and preview links."
+      "description": "Deployments list, env sync docs, and preview links.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "deploy",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "vercel-marketplace-storage",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Vercel Marketplace Storage",
-      "description": "Guided setup for Neon, Supabase, Upstash, AWS, and marketplace integrations."
+      "description": "Guided setup for Neon, Supabase, Upstash, AWS, and marketplace integrations.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "platform",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "vercel-workflows",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Vercel Workflows",
-      "description": "Vercel Workflow DevKit durable workflow and Next.js route starter."
+      "description": "Vercel Workflow DevKit durable workflow and Next.js route starter.",
+      "dependencies": [
+        "workflow"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [
+        "background-jobs"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/workflows/welcome.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/api/workflows/welcome/route.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/workflows/vercel/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "workflow",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "waitlist",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Waitlist",
-      "description": "Waitlist form, referral code, and invite state."
+      "description": "Waitlist form, referral code, and invite state.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "marketing",
+        "env": [],
+        "status": "planned"
+      }
     },
     {
       "name": "webhook-delivery",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Webhook Delivery",
-      "description": "Outbound webhooks, endpoint secrets, delivery attempts, and retry logs."
+      "description": "Outbound webhook endpoints, signing helpers, retries, and delivery logs.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/webhook-delivery.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/webhook-delivery.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/developers/webhooks/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "webhook-inbox",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Webhook Inbox",
-      "description": "Received webhook table, status, retry, signature metadata, and event detail UI."
+      "description": "Inbound webhook capture, signature metadata, and replay workflow.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/webhook-inbox.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/webhook-inbox.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/webhooks/inbox/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "workspace-branding",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Workspace Branding",
-      "description": "Workspace logo, color, domain, and branded experience settings."
+      "description": "Workspace logo, color, domain, and branded experience settings.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "drizzle-postgres"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/workspace-branding.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/lib/workspace-branding.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "apps/web/src/app/(console)/settings/workspace/branding/page.tsx",
+          "type": "registry:page"
+        }
+      ],
+      "meta": {
+        "category": "auth",
+        "env": [],
+        "status": "experimental"
+      }
     },
     {
       "name": "workspace-settings",
-      "type": "registry:item",
+      "type": "registry:block",
       "title": "Workspace Settings",
-      "description": "Organization billing, members, API keys, and security settings."
+      "description": "Organization members, roles, API keys, billing, and security settings.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/app/(console)/settings/workspace/page.tsx",
+          "type": "registry:page"
+        },
+        {
+          "path": "apps/web/src/lib/workspace-settings.ts",
+          "type": "registry:file"
+        }
+      ],
+      "meta": {
+        "category": "auth",
+        "env": [],
+        "status": "experimental"
+      }
     }
   ]
 }

@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "search-meilisearch",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Meilisearch",
   "description": "Meilisearch adapter and sync jobs.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Meilisearch\n\nMeilisearch adapter and sync jobs.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "search",
     "env": [],

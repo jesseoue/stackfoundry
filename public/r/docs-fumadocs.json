@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "docs-fumadocs",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Fumadocs Docs",
   "description": "Fumadocs docs site module.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Fumadocs Docs\n\nFumadocs docs site module.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "docs",
     "env": [],

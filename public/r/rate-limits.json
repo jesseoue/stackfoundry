@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "rate-limits",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Rate Limits",
   "description": "Database-backed limit definitions, fixed-window helper, and UI cards.",
   "dependencies": [],
@@ -26,6 +26,8 @@
       "content": "const rules = [\n  { key: \"api.public\", limit: 120, window: \"60 seconds\" },\n  { key: \"auth.login\", limit: 10, window: \"5 minutes\" },\n];\n\nexport default function RateLimitsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Rate Limits</h1>\n        <p className=\"text-muted-foreground\">Define and review request limits for product and API surfaces.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {rules.map((rule) => (\n          <div key={rule.key} className=\"rounded-lg border p-4\">\n            <p className=\"font-medium\">{rule.key}</p>\n            <p className=\"text-sm text-muted-foreground\">{rule.limit} requests per {rule.window}</p>\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "envVars": {},
+  "docs": "# Rate Limits Module\n\nDatabase-backed limit definitions, fixed-window helper, and UI cards.\n\n## Owns\n\n- `packages/db/src/schema/rate-limits.ts`\n- `apps/web/src/lib/rate-limits.ts`\n- `apps/web/src/app/(console)/rate-limits/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider-specific adapter is added as a separate module.\n- Update the manifest when source files, schema exports, dependencies, or environment variables change.\n- Verify install output with `stackfoundry add rate-limits --target <app> --dry-run` before promoting status.\n",
   "meta": {
     "category": "operations",
     "env": [],

@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "search-algolia",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Algolia",
   "description": "Algolia indexing, keys, and autocomplete UI.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Algolia\n\nAlgolia indexing, keys, and autocomplete UI.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "search",
     "env": [],

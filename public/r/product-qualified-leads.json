@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "product-qualified-leads",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Product Qualified Leads",
   "description": "PQL scoring, activation thresholds, sales handoff flags, and CRM hooks.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Product Qualified Leads\n\nPQL scoring, activation thresholds, sales handoff flags, and CRM hooks.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "growth",
     "env": [],

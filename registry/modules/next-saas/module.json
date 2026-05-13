@@ -1,6 +1,6 @@
 {
   "name": "next-saas",
-  "type": "preset",
+  "type": "module",
   "category": "foundation",
   "title": "Next SaaS",
   "description": "Base Next.js SaaS preset module with app shell, dashboard routes, and product configuration.",

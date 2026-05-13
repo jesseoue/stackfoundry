@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cms-contentful",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Contentful CMS",
   "description": "Contentful integration and content model docs.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Contentful CMS\n\nContentful integration and content model docs.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "content",
     "env": [],

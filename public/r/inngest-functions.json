@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "inngest-functions",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Inngest Functions",
   "description": "Inngest durable functions, event triggers, steps, and Next.js serve route.",
   "dependencies": [
@@ -33,6 +33,11 @@
       "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function InngestFunctionsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Inngest Functions</h1>\n        <p className=\"text-muted-foreground\">Durable event-driven functions with steps, retries, and scheduled work.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "envVars": {
+    "INNGEST_EVENT_KEY": "",
+    "INNGEST_SIGNING_KEY": ""
+  },
+  "docs": "# Inngest Functions Module\n\nInngest durable functions, event triggers, steps, and Next.js serve route.\n\n## Owns\n\n- `apps/web/src/inngest/client.ts`\n- `apps/web/src/inngest/functions/user-onboarding.ts`\n- `apps/web/src/app/api/inngest/route.ts`\n- `apps/web/src/app/(console)/admin/workflows/inngest/page.tsx`\n\n## Dependencies\n\n`inngest`\n\n## Environment\n\n- `INNGEST_EVENT_KEY`\n- `INNGEST_SIGNING_KEY`\n\n## Maintenance\n\n- Keep this module focused on the vendor integration boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when vendor APIs change.\n",
   "meta": {
     "category": "workflow",
     "env": [

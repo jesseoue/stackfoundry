@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mcp-client",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "MCP Client",
   "description": "MCP server config UI, server registry, and auth metadata.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# MCP Client\n\nMCP server config UI, server registry, and auth metadata.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "ai",
     "env": [],

@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "autumn-entitlements",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Autumn Entitlements",
   "description": "Autumn check API, boolean and metered features, credit ledgers, and plan gates.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Autumn Entitlements\n\nAutumn check API, boolean and metered features, credit ledgers, and plan gates.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "billing",
     "env": [],

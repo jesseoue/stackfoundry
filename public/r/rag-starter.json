@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "rag-starter",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "RAG Starter",
   "description": "Embeddings, document ingestion, and vector search adapter.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# RAG Starter\n\nEmbeddings, document ingestion, and vector search adapter.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "ai",
     "env": [],

@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cloudflare-turnstile",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Cloudflare Turnstile",
   "description": "Bot protection for signup, contact, waitlist, and abuse-sensitive forms.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Cloudflare Turnstile\n\nBot protection for signup, contact, waitlist, and abuse-sensitive forms.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "security",
     "env": [],

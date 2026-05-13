@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "neon-postgres",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Neon Postgres",
   "description": "Neon serverless Postgres client, Drizzle-compatible env wiring, and branching notes.",
   "dependencies": [
@@ -28,6 +28,10 @@
       "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function NeonPostgresPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Neon Postgres</h1>\n        <p className=\"text-muted-foreground\">Serverless Postgres wiring with branch-aware development guidance.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "envVars": {
+    "DATABASE_URL": ""
+  },
+  "docs": "# Neon Postgres Module\n\nNeon serverless Postgres client, Drizzle-compatible env wiring, and branching notes.\n\n## Owns\n\n- `apps/web/src/lib/neon/client.ts`\n- `apps/web/src/lib/neon/branching.ts`\n- `apps/web/src/app/(console)/admin/data/neon/page.tsx`\n\n## Dependencies\n\n`@neondatabase/serverless`\n\n## Environment\n\n- `DATABASE_URL`\n\n## Maintenance\n\n- Keep this module focused on the vendor integration boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when vendor APIs change.\n",
   "meta": {
     "category": "database",
     "env": [

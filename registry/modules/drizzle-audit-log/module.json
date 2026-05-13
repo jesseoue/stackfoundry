@@ -1,6 +1,6 @@
 {
   "name": "drizzle-audit-log",
-  "type": "schema",
+  "type": "module",
   "category": "database",
   "title": "Drizzle Audit Log",
   "description": "Common activity/event schema, actor/resource modeling, and admin timeline UI.",

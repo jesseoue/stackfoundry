@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cloudflare-terraform",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Cloudflare Terraform",
   "description": "IaC module for zones, Workers, R2, D1, Queues, and secrets.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Cloudflare Terraform\n\nIaC module for zones, Workers, R2, D1, Queues, and secrets.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "iac",
     "env": [],

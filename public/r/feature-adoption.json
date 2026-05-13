@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "feature-adoption",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Feature Adoption",
   "description": "Feature usage tracking, adoption cohorts, and release impact views.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Feature Adoption\n\nFeature usage tracking, adoption cohorts, and release impact views.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "growth",
     "env": [],

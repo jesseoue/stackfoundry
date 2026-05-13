@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "quality-tooling",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Quality Tooling",
   "description": "Biome, Vitest, Testing Library, Knip, Lefthook, and CI defaults.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Quality Tooling\n\nBiome, Vitest, Testing Library, Knip, Lefthook, and CI defaults.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "foundation",
     "env": [],

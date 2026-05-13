@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cloudflare-tunnel",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Cloudflare Tunnel",
   "description": "Secure tunnel module for exposing local/internal services.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Cloudflare Tunnel\n\nSecure tunnel module for exposing local/internal services.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "networking",
     "env": [],

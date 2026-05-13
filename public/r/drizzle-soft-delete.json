@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "drizzle-soft-delete",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Drizzle Soft Delete",
   "description": "deletedAt conventions, restore flows, and filtered query helpers.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Drizzle Soft Delete\n\ndeletedAt conventions, restore flows, and filtered query helpers.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "database",
     "env": [],

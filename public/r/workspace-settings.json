@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "workspace-settings",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Workspace Settings",
   "description": "Organization members, roles, API keys, billing, and security settings.",
   "dependencies": [],
@@ -19,6 +19,8 @@
       "content": "export type WorkspaceSettingsSection = {\n  id: string;\n  title: string;\n  href: string;\n};\n\nexport const workspaceSettingsSections: WorkspaceSettingsSection[] = [\n  { id: \"members\", title: \"Members\", href: \"/settings/workspace\" },\n  { id: \"billing\", title: \"Billing\", href: \"/settings/workspace/billing\" },\n  { id: \"security\", title: \"Security\", href: \"/settings/workspace/security\" },\n];\n"
     }
   ],
+  "envVars": {},
+  "docs": "# Workspace Settings Module\n\nOrganization members, roles, API keys, billing, and security settings.\n\n## Owns\n\n- `apps/web/src/app/(console)/settings/workspace/page.tsx`\n- `apps/web/src/lib/workspace-settings.ts`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider-specific adapter is added as a separate module.\n- Update the manifest when source files, schema exports, dependencies, or environment variables change.\n- Verify install output with `stackfoundry add workspace-settings --target <app> --dry-run` before promoting status.\n",
   "meta": {
     "category": "auth",
     "env": [],

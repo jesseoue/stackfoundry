@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "autumn-billing",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Autumn Billing",
   "description": "Autumn + Stripe usage billing, overages, spend caps, and plan changes.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Autumn Billing\n\nAutumn + Stripe usage billing, overages, spend caps, and plan changes.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "billing",
     "env": [],

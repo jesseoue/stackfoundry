@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "seed-data",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Seed Data",
   "description": "Typed seed scripts and demo records for screenshots, tests, and local demos.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Seed Data\n\nTyped seed scripts and demo records for screenshots, tests, and local demos.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "foundation",
     "env": [],

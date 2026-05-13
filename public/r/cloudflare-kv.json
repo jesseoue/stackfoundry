@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cloudflare-kv",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Cloudflare KV",
   "description": "KV binding adapter for low-write configuration, flags, and cached metadata.",
   "dependencies": [],
@@ -23,6 +23,8 @@
       "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function CloudflareKVPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Cloudflare KV</h1>\n        <p className=\"text-muted-foreground\">Low-write edge configuration and cached metadata patterns.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "envVars": {},
+  "docs": "# Cloudflare KV Module\n\nKV binding adapter for low-write configuration, flags, and cached metadata.\n\n## Owns\n\n- `cloudflare/kv/config.ts`\n- `apps/web/src/app/(console)/admin/cloudflare/kv/page.tsx`\n\n## Dependencies\n\nNo package dependencies.\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module focused on the vendor integration boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when vendor APIs change.\n",
   "meta": {
     "category": "storage",
     "env": [],

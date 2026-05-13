@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cloudflare-durable-objects",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Cloudflare Durable Objects",
   "description": "Stateful coordination, realtime rooms, per-tenant state, and DO storage.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Cloudflare Durable Objects\n\nStateful coordination, realtime rooms, per-tenant state, and DO storage.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "edge",
     "env": [],

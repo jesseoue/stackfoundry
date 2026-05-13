@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "quota-enforcement",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Quota Enforcement",
   "description": "Plan quota definitions, usage checks, and limit messaging.",
   "dependencies": [],
@@ -22,6 +22,8 @@
       "content": "const tasks = [\n  \"Configure defaults\",\n  \"Connect persistence or provider adapter\",\n  \"Verify production checklist\",\n];\n\nexport default function QuotaEnforcementPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Quota Enforcement</h1>\n        <p className=\"text-muted-foreground\">Plan quota definitions, usage checks, and limit messaging.</p>\n      </div>\n      <ul className=\"grid gap-3\">\n        {tasks.map((task) => (\n          <li key={task} className=\"rounded-lg border p-4 text-sm\">{task}</li>\n        ))}\n      </ul>\n    </main>\n  );\n}\n"
     }
   ],
+  "envVars": {},
+  "docs": "# Quota Enforcement Module\n\nPlan quota definitions, usage checks, and limit messaging.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `apps/web/src/lib/quota-enforcement.ts`\n- `apps/web/src/app/(console)/billing/quotas/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider-specific adapters as separate modules.\n- Verify install output with `stackfoundry add quota-enforcement --target <app> --dry-run`.\n",
   "meta": {
     "category": "billing",
     "env": [],

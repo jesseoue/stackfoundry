@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "stripe-billing",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Stripe Billing",
   "description": "Stripe checkout, billing portal, subscription sync, webhook dedupe, and entitlement mapping.",
   "dependencies": [
@@ -33,6 +33,12 @@
       "content": "export default function BillingPage() {\n  return (\n    <main className=\"flex flex-col gap-4 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Billing</h1>\n        <p className=\"text-muted-foreground\">Manage checkout, subscriptions, invoices, and entitlements.</p>\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "envVars": {
+    "STRIPE_SECRET_KEY": "",
+    "STRIPE_WEBHOOK_SECRET": "",
+    "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY": ""
+  },
+  "docs": "# Stripe Billing Module\n\nAdds Stripe checkout, customer portal, subscription sync, webhook handling, and entitlement mapping.\n\n## Owns\n\n- billing tables\n- Stripe client wrapper\n- checkout and portal actions\n- webhook route\n- event dedupe\n- plan/entitlement mapping\n\n## Rules\n\n- Verify webhook signatures.\n- Dedupe events before applying side effects.\n- Never trust plan or price values from the client.\n- Keep billing provider code behind `billing-core`.\n",
   "meta": {
     "category": "billing",
     "env": [

@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "growth-alerts",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Growth Alerts",
   "description": "Activation drop, churn risk, usage spike, and expansion opportunity notifications.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Growth Alerts\n\nActivation drop, churn risk, usage spike, and expansion opportunity notifications.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "growth",
     "env": [],

@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cohort-retention",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Cohort Retention",
   "description": "Cohort tables, retention curves, saved segments, and plan/channel filters.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Cohort Retention\n\nCohort tables, retention curves, saved segments, and plan/channel filters.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "growth",
     "env": [],

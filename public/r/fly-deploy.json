@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "fly-deploy",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Fly Deploy",
   "description": "App and worker deployment with regionality notes and templates.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Fly Deploy\n\nApp and worker deployment with regionality notes and templates.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "deploy",
     "env": [],

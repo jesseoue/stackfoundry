@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "render-deploy",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Render Deploy",
   "description": "Simple web service deploy templates and environment docs.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Render Deploy\n\nSimple web service deploy templates and environment docs.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "deploy",
     "env": [],

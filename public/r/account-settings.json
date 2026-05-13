@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "account-settings",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Account Settings",
   "description": "Profile, security, sessions, and notification preference pages.",
   "dependencies": [],
@@ -19,6 +19,8 @@
       "content": "export type AccountSettingsSection = {\n  id: string;\n  title: string;\n  href: string;\n};\n\nexport const accountSettingsSections: AccountSettingsSection[] = [\n  { id: \"profile\", title: \"Profile\", href: \"/settings/account\" },\n  { id: \"security\", title: \"Security\", href: \"/settings/account/security\" },\n  { id: \"notifications\", title: \"Notifications\", href: \"/settings/account/notifications\" },\n];\n"
     }
   ],
+  "envVars": {},
+  "docs": "# Account Settings Module\n\nProfile, security, sessions, and notification preference pages.\n\n## Owns\n\n- `apps/web/src/app/(console)/settings/account/page.tsx`\n- `apps/web/src/lib/account-settings.ts`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider-specific adapter is added as a separate module.\n- Update the manifest when source files, schema exports, dependencies, or environment variables change.\n- Verify install output with `stackfoundry add account-settings --target <app> --dry-run` before promoting status.\n",
   "meta": {
     "category": "auth",
     "env": [],

@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "auth-authjs",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Auth.js",
   "description": "Auth.js setup for teams that prefer classic Next auth flows.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Auth.js\n\nAuth.js setup for teams that prefer classic Next auth flows.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "auth",
     "env": [],

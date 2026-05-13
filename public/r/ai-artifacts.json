@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ai-artifacts",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "AI Artifacts",
   "description": "Document/code/sheet artifacts, side panel, and persistence.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# AI Artifacts\n\nDocument/code/sheet artifacts, side panel, and persistence.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "ai",
     "env": [],

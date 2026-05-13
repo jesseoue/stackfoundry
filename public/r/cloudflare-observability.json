@@ -1,13 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cloudflare-observability",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "Cloudflare Observability",
   "description": "Workers logs, traces, analytics, and tail workers.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "envVars": {},
+  "docs": "# Cloudflare Observability\n\nWorkers logs, traces, analytics, and tail workers.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {
     "category": "observability",
     "env": [],

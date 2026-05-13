@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "posthog-analytics",
-  "type": "registry:item",
+  "type": "registry:block",
   "title": "PostHog Analytics",
   "description": "PostHog Next.js provider, pageview tracking, and event capture helper.",
   "dependencies": [
@@ -29,6 +29,11 @@
       "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function PostHogAnalyticsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">PostHog Analytics</h1>\n        <p className=\"text-muted-foreground\">Product analytics, feature flags, and session behavior tracking.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "envVars": {
+    "NEXT_PUBLIC_POSTHOG_KEY": "",
+    "NEXT_PUBLIC_POSTHOG_HOST": ""
+  },
+  "docs": "# PostHog Analytics Module\n\nPostHog Next.js provider, pageview tracking, and event capture helper.\n\n## Owns\n\n- `apps/web/src/components/providers/posthog-provider.tsx`\n- `apps/web/src/components/analytics/track-button.tsx`\n- `apps/web/src/app/(console)/admin/vendors/posthog/page.tsx`\n\n## Dependencies\n\n- `posthog-js`\n- `@posthog/next`\n\n## Environment\n\n- `NEXT_PUBLIC_POSTHOG_KEY`\n- `NEXT_PUBLIC_POSTHOG_HOST`\n\n## Deployment Notes\n\n- Create the vendor project/resource before deploying.\n- Add the listed environment variables to preview and production.\n- Smoke-test the included route or helper after deploy.\n- Keep provider secrets out of client components and logs.\n\n## Maintenance\n\n- Keep this module focused on the vendor integration boundary.\n- Update source examples when vendor SDK APIs change.\n- Record production-specific retry, alerting, and rollback behavior before marking stable.\n",
   "meta": {
     "category": "analytics",
     "env": [
