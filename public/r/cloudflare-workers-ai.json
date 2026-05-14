@@ -40,7 +40,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Cloudflare Workers AI\n\nWorkers AI inference, embeddings, and image generation examples.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-workers-ai.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-workers-ai/page.tsx`\n- `docs/providers/cloudflare-workers-ai.md`\n\n## Setup Checklist\n\n- Keep model ids explicit\n- Document prompt and safety boundaries\n- Track usage and failures\n- Verify fallback behavior\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add cloudflare-workers-ai --target /tmp/stackfoundry-cloudflare-workers-ai --dry-run`.\n",
+  "docs": "# Cloudflare Workers AI\n\nWorkers AI inference, embeddings, and image generation examples.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-workers-ai.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-workers-ai/page.tsx`\n- `docs/providers/cloudflare-workers-ai.md`\n\n## Setup Checklist\n\n- Keep model ids explicit\n- Document prompt and safety boundaries\n- Track usage and failures\n- Verify fallback behavior\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm stackfoundry add cloudflare-workers-ai --target /tmp/stackfoundry-cloudflare-workers-ai --dry-run`.\n",
   "meta": {
     "category": "ai",
     "env": [],

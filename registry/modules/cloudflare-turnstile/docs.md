@@ -20,4 +20,4 @@ Bot protection for signup, contact, waitlist, and abuse-sensitive forms.
 - Keep provider setup separate from product domain logic.
 - Do not commit provider credentials or generated deployment state.
 - Update docs, checklist, and source files together when provider behavior changes.
-- Verify with `pnpm cli add cloudflare-turnstile --target /tmp/stackfoundry-cloudflare-turnstile --dry-run`.
+- Verify with `pnpm stackfoundry add cloudflare-turnstile --target /tmp/stackfoundry-cloudflare-turnstile --dry-run`.

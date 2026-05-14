@@ -31,5 +31,5 @@ Prepaid credits, grant/consume ledger, low-balance checks, and AI or usage-based
 ## Verification
 
 - Run `pnpm registry:doctor` after editing the module.
-- Run `pnpm cli add credit-wallet --target /tmp/stackfoundry-credit-wallet --dry-run`.
+- Run `pnpm stackfoundry add credit-wallet --target /tmp/stackfoundry-credit-wallet --dry-run`.
 - Test grant, consume, refund, expiration, and insufficient-credit paths before marking stable.

@@ -17,4 +17,4 @@ CSRF token helpers and unsafe-method protection checklist.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add csrf-protection --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add csrf-protection --target /tmp/app --dry-run`.

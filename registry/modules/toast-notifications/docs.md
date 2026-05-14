@@ -18,4 +18,4 @@ Accessible toast queue component for action feedback.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add toast-notifications --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add toast-notifications --target /tmp/app --dry-run`.

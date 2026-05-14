@@ -18,4 +18,4 @@ React error boundary and fallback component for product pages.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add error-boundaries --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add error-boundaries --target /tmp/app --dry-run`.

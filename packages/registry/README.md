@@ -16,4 +16,4 @@ Registry loading and file-system helpers for StackFoundry.
 
 - Manifest policy.
 - File write safety.
-- CLI argument parsing.
+- command argument parsing.

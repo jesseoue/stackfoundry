@@ -18,4 +18,4 @@ Failed payment recovery sequence with email and in-app notices.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add dunning-recovery --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add dunning-recovery --target /tmp/app --dry-run`.

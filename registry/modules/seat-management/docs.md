@@ -18,4 +18,4 @@ Seat limits, assigned seats, and over-limit handling for B2B billing.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add seat-management --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add seat-management --target /tmp/app --dry-run`.

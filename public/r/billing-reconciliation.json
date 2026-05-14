@@ -48,7 +48,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Billing Reconciliation Module\n\nProvider/database drift checks and reconciliation job status.\n\n## Owns\n\n- `packages/db/src/schema/billing-reconciliation.ts`\n- `apps/web/src/lib/stackfoundry/billing-reconciliation.ts`\n- `apps/web/src/app/(console)/billing/reconciliation/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add billing-reconciliation --target /tmp/app --dry-run`.\n",
+  "docs": "# Billing Reconciliation Module\n\nProvider/database drift checks and reconciliation job status.\n\n## Owns\n\n- `packages/db/src/schema/billing-reconciliation.ts`\n- `apps/web/src/lib/stackfoundry/billing-reconciliation.ts`\n- `apps/web/src/app/(console)/billing/reconciliation/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add billing-reconciliation --target /tmp/app --dry-run`.\n",
   "meta": {
     "category": "billing",
     "env": [],

@@ -14,13 +14,13 @@ This example proves the broad SaaS coverage preset:
 ```bash
 rm -rf /tmp/stackfoundry-saas-coverage
 mkdir -p /tmp/stackfoundry-saas-coverage
-pnpm cli add preset saas-coverage --target /tmp/stackfoundry-saas-coverage
+pnpm stackfoundry add preset saas-coverage --target /tmp/stackfoundry-saas-coverage
 ```
 
 ## Dry Run
 
 ```bash
-pnpm cli add preset saas-coverage --target /tmp/stackfoundry-saas-coverage --dry-run
+pnpm stackfoundry add preset saas-coverage --target /tmp/stackfoundry-saas-coverage --dry-run
 ```
 
 ## What This Proves

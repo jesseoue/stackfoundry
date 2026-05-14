@@ -18,4 +18,4 @@ Skeleton and loading state components for async SaaS surfaces.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add loading-states --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add loading-states --target /tmp/app --dry-run`.

@@ -17,5 +17,5 @@ Install the dependencies declared by this module, then merge the MDX and provide
 ## Verification
 
 - Run `pnpm registry:doctor` after editing the module.
-- Run `pnpm cli add docs-fumadocs --target /tmp/stackfoundry-docs-fumadocs --dry-run`.
+- Run `pnpm stackfoundry add docs-fumadocs --target /tmp/stackfoundry-docs-fumadocs --dry-run`.
 - Verify `/docs`, sitemap behavior, metadata, and the deployment guide before marking stable.

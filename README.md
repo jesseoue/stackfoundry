@@ -108,27 +108,27 @@ pnpm registry:presets
 pnpm stackfoundry add preset next-saas --target ./my-app --dry-run
 ```
 
-## CLI
+## StackFoundry Command
 
-The CLI intentionally stays on Node + pnpm. It is a small registry/install engine, not an interactive component wizard.
+The `stackfoundry` command intentionally stays on Node + pnpm. It is a small registry/install engine, not an interactive component wizard.
 
 ```bash
-pnpm cli categories
-pnpm cli list --category billing
-pnpm cli list --status experimental
-pnpm cli search webhook
-pnpm cli info stripe-billing
-pnpm cli add api-keys --target ./my-app --dry-run
-pnpm cli diff api-keys --target ./my-app
-pnpm cli build
-pnpm cli doctor
+pnpm stackfoundry categories
+pnpm stackfoundry list --category billing
+pnpm stackfoundry list --status experimental
+pnpm stackfoundry search webhook
+pnpm stackfoundry info stripe-billing
+pnpm stackfoundry add api-keys --target ./my-app --dry-run
+pnpm stackfoundry diff api-keys --target ./my-app
+pnpm stackfoundry build
+pnpm stackfoundry doctor
 ```
 
-Why Node instead of Bun or a larger CLI framework:
+Why Node instead of Bun or a larger command framework:
 
 - the repository already targets Node `>=22 <25`
 - Vercel builds use Node and pnpm cleanly
-- the CLI surface is validation, discovery, install, diff, and build
+- the command surface is validation, discovery, install, diff, and build
 - avoiding another runtime keeps module consumption simpler
 
 ## Registry Model
@@ -227,7 +227,7 @@ pnpm build:web
 
 ```text
 apps/
-  cli/                 # StackFoundry CLI
+  cli/                 # StackFoundry command source
   web/                 # public site and registry host
 docs/                  # product, registry, and maintainer docs
 examples/              # reproducible install walkthroughs
@@ -258,7 +258,7 @@ See [`docs/repository.md`](./docs/repository.md) for ownership rules.
 
 ## Status
 
-StackFoundry is experimental. The registry, CLI, public registry output, and website are active. Module APIs and file targets can still change while the registry is being shaped.
+StackFoundry is experimental. The registry, command, public registry output, and website are active. Module APIs and file targets can still change while the registry is being shaped.
 
 ## Contributing
 

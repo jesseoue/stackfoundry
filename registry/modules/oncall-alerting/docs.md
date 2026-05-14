@@ -17,4 +17,4 @@ Alert routing, severity taxonomy, and escalation schedule starter.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add oncall-alerting --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add oncall-alerting --target /tmp/app --dry-run`.

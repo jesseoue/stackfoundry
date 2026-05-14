@@ -20,4 +20,4 @@ Workers AI inference, embeddings, and image generation examples.
 - Keep provider setup separate from product domain logic.
 - Do not commit provider credentials or generated deployment state.
 - Update docs, checklist, and source files together when provider behavior changes.
-- Verify with `pnpm cli add cloudflare-workers-ai --target /tmp/stackfoundry-cloudflare-workers-ai --dry-run`.
+- Verify with `pnpm stackfoundry add cloudflare-workers-ai --target /tmp/stackfoundry-cloudflare-workers-ai --dry-run`.

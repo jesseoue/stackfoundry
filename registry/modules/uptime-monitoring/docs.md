@@ -17,4 +17,4 @@ Public endpoint checks, SLA targets, and status escalation notes.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add uptime-monitoring --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add uptime-monitoring --target /tmp/app --dry-run`.

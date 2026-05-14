@@ -17,4 +17,4 @@ Self-service billing portal link helpers and access checks.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add billing-portal --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add billing-portal --target /tmp/app --dry-run`.

@@ -47,7 +47,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Bug Reports Module\n\nBug report intake, severity, reproduction steps, and triage workflow.\n\n## Owns\n\n- `packages/db/src/schema/bug-reports.ts`\n- `apps/web/src/lib/stackfoundry/bug-reports.ts`\n- `apps/web/src/app/(console)/admin/support/bug-reports/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add bug-reports --target /tmp/app --dry-run`.\n",
+  "docs": "# Bug Reports Module\n\nBug report intake, severity, reproduction steps, and triage workflow.\n\n## Owns\n\n- `packages/db/src/schema/bug-reports.ts`\n- `apps/web/src/lib/stackfoundry/bug-reports.ts`\n- `apps/web/src/app/(console)/admin/support/bug-reports/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add bug-reports --target /tmp/app --dry-run`.\n",
   "meta": {
     "category": "support",
     "env": [],

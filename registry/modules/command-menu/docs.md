@@ -18,4 +18,4 @@ Keyboard-first command menu component for SaaS navigation and actions.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add command-menu --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add command-menu --target /tmp/app --dry-run`.

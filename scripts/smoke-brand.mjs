@@ -12,9 +12,9 @@ function runCli(args) {
 }
 
 const help = runCli(["--help"]);
-assert(help.includes("StackFoundry"), "CLI help must include the StackFoundry brand");
-assert(help.includes("stackfoundry add"), "CLI help must show install usage");
-assert(help.includes("stackfoundry categories"), "CLI help must show category discovery");
+assert(help.includes("StackFoundry"), "command help must include the StackFoundry brand");
+assert(help.includes("stackfoundry add"), "command help must show install usage");
+assert(help.includes("stackfoundry categories"), "command help must show category discovery");
 
 const categories = runCli(["categories"]);
 assert(categories.includes("StackFoundry categories"), "categories output must be branded");

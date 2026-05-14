@@ -47,7 +47,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Custom Domains Module\n\nCustom domain records, status, and tenant-owned routing controls.\n\n## Owns\n\n- `packages/db/src/schema/custom-domains.ts`\n- `apps/web/src/lib/stackfoundry/custom-domains.ts`\n- `apps/web/src/app/(console)/admin/tenancy/custom-domains/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add custom-domains --target /tmp/app --dry-run`.\n",
+  "docs": "# Custom Domains Module\n\nCustom domain records, status, and tenant-owned routing controls.\n\n## Owns\n\n- `packages/db/src/schema/custom-domains.ts`\n- `apps/web/src/lib/stackfoundry/custom-domains.ts`\n- `apps/web/src/app/(console)/admin/tenancy/custom-domains/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add custom-domains --target /tmp/app --dry-run`.\n",
   "meta": {
     "category": "tenancy",
     "env": [],

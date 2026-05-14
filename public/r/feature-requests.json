@@ -47,7 +47,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Feature Requests Module\n\nFeature request intake, status, votes, and roadmap handoff.\n\n## Owns\n\n- `packages/db/src/schema/feature-requests.ts`\n- `apps/web/src/lib/stackfoundry/feature-requests.ts`\n- `apps/web/src/app/(console)/admin/support/feature-requests/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add feature-requests --target /tmp/app --dry-run`.\n",
+  "docs": "# Feature Requests Module\n\nFeature request intake, status, votes, and roadmap handoff.\n\n## Owns\n\n- `packages/db/src/schema/feature-requests.ts`\n- `apps/web/src/lib/stackfoundry/feature-requests.ts`\n- `apps/web/src/app/(console)/admin/support/feature-requests/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add feature-requests --target /tmp/app --dry-run`.\n",
   "meta": {
     "category": "support",
     "env": [],

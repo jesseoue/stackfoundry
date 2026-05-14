@@ -14,7 +14,7 @@ Use this module when docs should live in a dedicated docs workspace and deploy t
 ## Verification
 
 - Run `pnpm registry:doctor` after editing the module.
-- Run `pnpm cli add docs-mintlify --target /tmp/stackfoundry-docs-mintlify --dry-run`.
+- Run `pnpm stackfoundry add docs-mintlify --target /tmp/stackfoundry-docs-mintlify --dry-run`.
 - Run `mint dev` from the directory that contains `docs.json`.
 # Mintlify Docs
 
@@ -24,7 +24,7 @@ Hosted documentation workspace starter with Mintlify configuration, pages, and d
 
 Docs modules help teams ship product documentation with a clear hosting choice and SEO ownership model.
 
-This module has installable source files and can be smoke-tested through the registry CLI.
+This module has installable source files and can be smoke-tested through the StackFoundry command.
 
 ## Owns
 
@@ -58,7 +58,7 @@ This module has installable source files and can be smoke-tested through the reg
 ## Verification
 
 - Run `pnpm registry:doctor` after editing the module.
-- Run `pnpm cli add docs-mintlify --target /tmp/stackfoundry-docs-mintlify --dry-run` before handoff.
+- Run `pnpm stackfoundry add docs-mintlify --target /tmp/stackfoundry-docs-mintlify --dry-run` before handoff.
 - If the module has source files, run a real install into a temporary target before marking it stable.
 - Update `tests/checklist.md` and `skill/SKILL.md` with behavior changes.
 

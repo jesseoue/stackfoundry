@@ -18,7 +18,7 @@
 ## Source Install
 
 - [ ] Source files are declared in `module.json`.
-- [ ] Install dry-run succeeds with `pnpm cli add docs-mintlify --target /tmp/app --dry-run`.
+- [ ] Install dry-run succeeds with `pnpm stackfoundry add docs-mintlify --target /tmp/app --dry-run`.
 - [ ] Real install is tested before moving the module to stable.
 - [ ] Existing target files are not overwritten without explicit `--force`.
 

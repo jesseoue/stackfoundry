@@ -17,4 +17,4 @@ DNS TXT/CNAME verification state for tenant domains.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add domain-verification --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add domain-verification --target /tmp/app --dry-run`.

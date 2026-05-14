@@ -18,4 +18,4 @@ Idempotency-Key storage and replay helpers for mutating endpoints.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add idempotency-keys --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add idempotency-keys --target /tmp/app --dry-run`.

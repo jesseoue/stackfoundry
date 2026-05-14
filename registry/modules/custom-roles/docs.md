@@ -18,4 +18,4 @@ Custom role definitions, role cloning, and permission assignment boundaries.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add custom-roles --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add custom-roles --target /tmp/app --dry-run`.

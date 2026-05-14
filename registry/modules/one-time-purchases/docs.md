@@ -23,5 +23,5 @@ One-off payments, order records, add-ons, lifetime deals, and fulfillment tracki
 ## Verification
 
 - Run `pnpm registry:doctor` after editing the module.
-- Run `pnpm cli add one-time-purchases --target /tmp/stackfoundry-one-time-purchases --dry-run`.
+- Run `pnpm stackfoundry add one-time-purchases --target /tmp/stackfoundry-one-time-purchases --dry-run`.
 - Test checkout completed, payment failed, refunded, and already-fulfilled paths before marking stable.

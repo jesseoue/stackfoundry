@@ -20,4 +20,4 @@ App and worker deployment with regionality notes and templates.
 - Keep provider setup separate from product domain logic.
 - Do not commit provider credentials or generated deployment state.
 - Update docs, checklist, and source files together when provider behavior changes.
-- Verify with `pnpm cli add fly-deploy --target /tmp/stackfoundry-fly-deploy --dry-run`.
+- Verify with `pnpm stackfoundry add fly-deploy --target /tmp/stackfoundry-fly-deploy --dry-run`.

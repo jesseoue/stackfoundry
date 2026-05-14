@@ -18,4 +18,4 @@ Refund request, dispute status, and support handoff workflow.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add refunds-disputes --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add refunds-disputes --target /tmp/app --dry-run`.

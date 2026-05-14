@@ -13,4 +13,4 @@ Install/update generation helpers for StackFoundry.
 
 - Registry graph resolution.
 - Manifest validation.
-- CLI argument parsing.
+- command argument parsing.

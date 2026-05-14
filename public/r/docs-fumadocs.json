@@ -57,7 +57,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Fumadocs Docs\n\nIn-app Next.js documentation starter with Fumadocs setup and deployment guidance.\n\nUse this module when product docs should live inside the app and deploy with the same Next.js host.\n\n## Owns\n\n- `apps/web/src/lib/docs/fumadocs.ts`\n- `apps/web/src/app/(marketing)/docs/page.tsx`\n- `docs/fumadocs-deployment.md`\n\n## Setup\n\nInstall the dependencies declared by this module, then merge the MDX and provider changes into the target app after inspecting its current `next.config.*` and root layout.\n\n## Verification\n\n- Run `pnpm registry:doctor` after editing the module.\n- Run `pnpm cli add docs-fumadocs --target /tmp/stackfoundry-docs-fumadocs --dry-run`.\n- Verify `/docs`, sitemap behavior, metadata, and the deployment guide before marking stable.\n",
+  "docs": "# Fumadocs Docs\n\nIn-app Next.js documentation starter with Fumadocs setup and deployment guidance.\n\nUse this module when product docs should live inside the app and deploy with the same Next.js host.\n\n## Owns\n\n- `apps/web/src/lib/docs/fumadocs.ts`\n- `apps/web/src/app/(marketing)/docs/page.tsx`\n- `docs/fumadocs-deployment.md`\n\n## Setup\n\nInstall the dependencies declared by this module, then merge the MDX and provider changes into the target app after inspecting its current `next.config.*` and root layout.\n\n## Verification\n\n- Run `pnpm registry:doctor` after editing the module.\n- Run `pnpm stackfoundry add docs-fumadocs --target /tmp/stackfoundry-docs-fumadocs --dry-run`.\n- Verify `/docs`, sitemap behavior, metadata, and the deployment guide before marking stable.\n",
   "meta": {
     "category": "docs",
     "env": [],

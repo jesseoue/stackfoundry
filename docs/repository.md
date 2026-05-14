@@ -7,10 +7,10 @@ StackFoundry is a source registry. Every directory should either own product sou
 - `apps/` contains runnable applications.
 - `docs/` contains product and maintainer documentation.
 - `examples/` contains install targets and walkthroughs used to prove registry modules in realistic app shapes.
-- `packages/` is reserved for extracted library packages when CLI, registry loading, schema validation, and shared utilities outgrow `apps/cli`.
+- `packages/` is reserved for extracted library packages when command behavior, registry loading, schema validation, and shared utilities outgrow `apps/cli`.
 - `public/r/` contains generated registry output. Do not edit it by hand.
 - `registry/` contains source modules and presets. This is the product surface.
-- `scripts/` is reserved for standalone maintenance scripts that should not live inside the CLI.
+- `scripts/` is reserved for standalone maintenance scripts that should not live inside the StackFoundry command.
 
 ## Applications
 
@@ -42,4 +42,4 @@ Run:
 pnpm check
 ```
 
-This runs registry validation, CLI syntax checks, dry-run installs, real install smoke tests, registry generation, compatibility verification, and the web build.
+This runs registry validation, command syntax checks, dry-run installs, real install smoke tests, registry generation, compatibility verification, and the web build.

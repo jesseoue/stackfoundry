@@ -40,7 +40,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Empty States Module\n\nReusable empty state component with action and guidance slots.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/empty-states.ts`\n- `apps/web/src/components/stackfoundry/empty-states.tsx`\n- `apps/web/src/app/(console)/components/empty-states/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add empty-states --target /tmp/app --dry-run`.\n",
+  "docs": "# Empty States Module\n\nReusable empty state component with action and guidance slots.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/empty-states.ts`\n- `apps/web/src/components/stackfoundry/empty-states.tsx`\n- `apps/web/src/app/(console)/components/empty-states/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add empty-states --target /tmp/app --dry-run`.\n",
   "meta": {
     "category": "components",
     "env": [],

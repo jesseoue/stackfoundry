@@ -18,4 +18,4 @@ Resolve tenant context once per request and pass it through server code.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add tenant-context --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add tenant-context --target /tmp/app --dry-run`.

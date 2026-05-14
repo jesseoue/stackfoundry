@@ -40,7 +40,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Convex Realtime\n\nLive queries, subscriptions, realtime dashboards, and optimistic update examples.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/convex-realtime.ts`\n- `apps/web/src/app/(console)/admin/providers/convex-realtime/page.tsx`\n- `docs/providers/convex-realtime.md`\n\n## Setup Checklist\n\n- Use Convex live queries for realtime state\n- Keep optimistic updates reversible\n- Document subscription ownership\n- Verify disconnected and reconnect states\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add convex-realtime --target /tmp/stackfoundry-convex-realtime --dry-run`.\n",
+  "docs": "# Convex Realtime\n\nLive queries, subscriptions, realtime dashboards, and optimistic update examples.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/convex-realtime.ts`\n- `apps/web/src/app/(console)/admin/providers/convex-realtime/page.tsx`\n- `docs/providers/convex-realtime.md`\n\n## Setup Checklist\n\n- Use Convex live queries for realtime state\n- Keep optimistic updates reversible\n- Document subscription ownership\n- Verify disconnected and reconnect states\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm stackfoundry add convex-realtime --target /tmp/stackfoundry-convex-realtime --dry-run`.\n",
   "meta": {
     "category": "backend",
     "env": [],

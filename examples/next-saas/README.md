@@ -9,13 +9,13 @@ The example is command-driven so it stays reproducible and does not duplicate a 
 ```bash
 rm -rf /tmp/stackfoundry-next-saas
 mkdir -p /tmp/stackfoundry-next-saas
-pnpm cli add preset next-saas --target /tmp/stackfoundry-next-saas
+pnpm stackfoundry add preset next-saas --target /tmp/stackfoundry-next-saas
 ```
 
 ## Dry Run
 
 ```bash
-pnpm cli add preset next-saas --target /tmp/stackfoundry-next-saas --dry-run
+pnpm stackfoundry add preset next-saas --target /tmp/stackfoundry-next-saas --dry-run
 ```
 
 ## What This Proves

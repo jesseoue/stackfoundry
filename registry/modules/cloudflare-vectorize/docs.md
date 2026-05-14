@@ -20,4 +20,4 @@ Vector search and RAG provider module.
 - Keep provider setup separate from product domain logic.
 - Do not commit provider credentials or generated deployment state.
 - Update docs, checklist, and source files together when provider behavior changes.
-- Verify with `pnpm cli add cloudflare-vectorize --target /tmp/stackfoundry-cloudflare-vectorize --dry-run`.
+- Verify with `pnpm stackfoundry add cloudflare-vectorize --target /tmp/stackfoundry-cloudflare-vectorize --dry-run`.

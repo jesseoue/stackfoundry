@@ -47,7 +47,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Coupons Promotions Module\n\nCoupon, promotion code, and referral discount tracking.\n\n## Owns\n\n- `packages/db/src/schema/coupons-promotions.ts`\n- `apps/web/src/lib/stackfoundry/coupons-promotions.ts`\n- `apps/web/src/app/(console)/billing/coupons/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add coupons-promotions --target /tmp/app --dry-run`.\n",
+  "docs": "# Coupons Promotions Module\n\nCoupon, promotion code, and referral discount tracking.\n\n## Owns\n\n- `packages/db/src/schema/coupons-promotions.ts`\n- `apps/web/src/lib/stackfoundry/coupons-promotions.ts`\n- `apps/web/src/app/(console)/billing/coupons/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add coupons-promotions --target /tmp/app --dry-run`.\n",
   "meta": {
     "category": "billing",
     "env": [],

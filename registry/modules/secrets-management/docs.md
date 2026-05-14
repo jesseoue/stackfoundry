@@ -17,4 +17,4 @@ Secrets inventory, rotation checklist, and provider-neutral access pattern.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add secrets-management --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add secrets-management --target /tmp/app --dry-run`.

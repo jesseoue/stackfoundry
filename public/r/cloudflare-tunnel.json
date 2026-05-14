@@ -40,7 +40,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Cloudflare Tunnel\n\nSecure tunnel module for exposing local/internal services.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-tunnel.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-tunnel/page.tsx`\n- `docs/providers/cloudflare-tunnel.md`\n\n## Setup Checklist\n\n- Use named tunnels and scoped routes\n- Document connector ownership\n- Keep tunnel tokens secret\n- Verify zero-trust access policy\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add cloudflare-tunnel --target /tmp/stackfoundry-cloudflare-tunnel --dry-run`.\n",
+  "docs": "# Cloudflare Tunnel\n\nSecure tunnel module for exposing local/internal services.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-tunnel.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-tunnel/page.tsx`\n- `docs/providers/cloudflare-tunnel.md`\n\n## Setup Checklist\n\n- Use named tunnels and scoped routes\n- Document connector ownership\n- Keep tunnel tokens secret\n- Verify zero-trust access policy\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm stackfoundry add cloudflare-tunnel --target /tmp/stackfoundry-cloudflare-tunnel --dry-run`.\n",
   "meta": {
     "category": "networking",
     "env": [],

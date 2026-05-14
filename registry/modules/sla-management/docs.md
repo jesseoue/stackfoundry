@@ -17,4 +17,4 @@ Customer SLA tiers, response targets, and escalation policies.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add sla-management --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add sla-management --target /tmp/app --dry-run`.

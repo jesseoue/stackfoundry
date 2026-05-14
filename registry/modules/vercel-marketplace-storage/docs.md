@@ -20,4 +20,4 @@ Guided setup for Neon, Supabase, Upstash, AWS, and marketplace integrations.
 - Keep provider setup separate from product domain logic.
 - Do not commit provider credentials or generated deployment state.
 - Update docs, checklist, and source files together when provider behavior changes.
-- Verify with `pnpm cli add vercel-marketplace-storage --target /tmp/stackfoundry-vercel-marketplace-storage --dry-run`.
+- Verify with `pnpm stackfoundry add vercel-marketplace-storage --target /tmp/stackfoundry-vercel-marketplace-storage --dry-run`.

@@ -1,6 +1,6 @@
-# StackFoundry CLI
+# StackFoundry Command
 
-The CLI is the local install engine for StackFoundry registry modules.
+The `stackfoundry` command is the local install engine for StackFoundry registry modules.
 
 ## Responsibilities
 
@@ -23,18 +23,18 @@ Shared logic is imported through workspace package aliases:
 ## Useful Commands
 
 ```bash
-pnpm cli list
-pnpm cli categories
-pnpm cli list --category billing
-pnpm cli search webhook
-pnpm cli info stripe-billing
-pnpm cli presets
-pnpm cli doctor
-pnpm cli build
-pnpm cli add api-keys --target /tmp/app --dry-run
-pnpm cli add preset provider-adapters --target /tmp/app --dry-run
-pnpm cli add https://stackfoundry.dev/r/api-keys.json --target /tmp/app --dry-run
-pnpm cli diff api-keys --target /tmp/app
+pnpm stackfoundry list
+pnpm stackfoundry categories
+pnpm stackfoundry list --category billing
+pnpm stackfoundry search webhook
+pnpm stackfoundry info stripe-billing
+pnpm stackfoundry presets
+pnpm stackfoundry doctor
+pnpm stackfoundry build
+pnpm stackfoundry add api-keys --target /tmp/app --dry-run
+pnpm stackfoundry add preset provider-adapters --target /tmp/app --dry-run
+pnpm stackfoundry add https://stackfoundry.dev/r/api-keys.json --target /tmp/app --dry-run
+pnpm stackfoundry diff api-keys --target /tmp/app
 ```
 
 ## Quality Gate

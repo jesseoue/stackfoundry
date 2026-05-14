@@ -18,4 +18,4 @@ Typed table shell with empty/loading/error slots and row actions.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add data-table --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add data-table --target /tmp/app --dry-run`.

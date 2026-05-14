@@ -18,4 +18,4 @@ Tenant-scoped permission catalog and UI review matrix.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add permission-matrix --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add permission-matrix --target /tmp/app --dry-run`.

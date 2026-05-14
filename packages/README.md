@@ -1,6 +1,6 @@
 # Packages
 
-This directory contains reusable internals for the StackFoundry CLI and registry build pipeline.
+This directory contains reusable internals for the StackFoundry command and registry build pipeline.
 
 The split mirrors the shape of mature source registry CLIs: the executable stays thin, while schema rules, registry IO, generation helpers, and utilities live behind package boundaries.
 
@@ -17,4 +17,4 @@ The split mirrors the shape of mature source registry CLIs: the executable stays
 - Keep IO helpers in `registry`.
 - Keep write safety in `generator`.
 - Keep validation constants in `schema`.
-- Move CLI code into packages only when it reduces coupling or is needed by more than one caller.
+- Move command code into packages only when it reduces coupling or is needed by more than one caller.

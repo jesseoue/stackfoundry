@@ -40,7 +40,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Cloudflare Agents SDK\n\nStateful AI agents on Workers, React hooks, WebSocket/RPC surface.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-agents-sdk.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-agents-sdk/page.tsx`\n- `docs/providers/cloudflare-agents-sdk.md`\n\n## Setup Checklist\n\n- Use Agents SDK for stateful AI interactions\n- Document agent state schema\n- Keep callable methods explicit\n- Verify WebSocket/RPC behavior before launch\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add cloudflare-agents-sdk --target /tmp/stackfoundry-cloudflare-agents-sdk --dry-run`.\n",
+  "docs": "# Cloudflare Agents SDK\n\nStateful AI agents on Workers, React hooks, WebSocket/RPC surface.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-agents-sdk.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-agents-sdk/page.tsx`\n- `docs/providers/cloudflare-agents-sdk.md`\n\n## Setup Checklist\n\n- Use Agents SDK for stateful AI interactions\n- Document agent state schema\n- Keep callable methods explicit\n- Verify WebSocket/RPC behavior before launch\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm stackfoundry add cloudflare-agents-sdk --target /tmp/stackfoundry-cloudflare-agents-sdk --dry-run`.\n",
   "meta": {
     "category": "ai",
     "env": [],

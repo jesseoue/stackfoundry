@@ -17,4 +17,4 @@ Shared Zod validation helpers for server routes and forms.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add input-validation --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add input-validation --target /tmp/app --dry-run`.

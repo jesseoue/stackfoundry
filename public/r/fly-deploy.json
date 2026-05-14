@@ -40,7 +40,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Fly Deploy\n\nApp and worker deployment with regionality notes and templates.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/fly-deploy.ts`\n- `apps/web/src/app/(console)/admin/providers/fly-deploy/page.tsx`\n- `docs/providers/fly-deploy.md`\n\n## Setup Checklist\n\n- Choose primary region intentionally\n- Document app name and machines config\n- Keep tokens out of source\n- Verify health checks and rollback path\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add fly-deploy --target /tmp/stackfoundry-fly-deploy --dry-run`.\n",
+  "docs": "# Fly Deploy\n\nApp and worker deployment with regionality notes and templates.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/fly-deploy.ts`\n- `apps/web/src/app/(console)/admin/providers/fly-deploy/page.tsx`\n- `docs/providers/fly-deploy.md`\n\n## Setup Checklist\n\n- Choose primary region intentionally\n- Document app name and machines config\n- Keep tokens out of source\n- Verify health checks and rollback path\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm stackfoundry add fly-deploy --target /tmp/stackfoundry-fly-deploy --dry-run`.\n",
   "meta": {
     "category": "deploy",
     "env": [],

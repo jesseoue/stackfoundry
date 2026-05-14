@@ -6,7 +6,7 @@ The goal is to publish production SaaS modules as editable source: a registry it
 
 ## Install a StackFoundry Block
 
-With the StackFoundry CLI:
+With the StackFoundry command:
 
 ```bash
 pnpm stackfoundry add https://stackfoundry.dev/r/api-keys.json --target ./my-app
@@ -39,7 +39,7 @@ pnpm stackfoundry add http://localhost:3000/r/api-keys.json --target /tmp/app
 - Internal module dependencies are emitted as full `https://stackfoundry.dev/r/<dependency>.json` registry URLs.
 - Env requirements are emitted as `envVars` and retained in `meta.env`.
 - Module and shared technology skills are emitted as `maintenanceSkills` so registry URL installs include maintenance guidance.
-- StackFoundry CLI can install generated module items directly, including aggregate preset blocks such as `/r/provider-adapters.json`.
+- The StackFoundry command can install generated module items directly, including aggregate preset blocks such as `/r/provider-adapters.json`.
 - `/r/presets/*.json` files are StackFoundry preset manifests for tooling and inspection. They are intentionally not shadcn registry item documents; use `/r/<preset>.json` for installable preset payloads.
 
 ## StackFoundry Rules

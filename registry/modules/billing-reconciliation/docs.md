@@ -18,4 +18,4 @@ Provider/database drift checks and reconciliation job status.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add billing-reconciliation --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add billing-reconciliation --target /tmp/app --dry-run`.

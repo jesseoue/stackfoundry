@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Docs",
   description:
-    "Install production SaaS modules as editable source code with StackFoundry's registry, CLI, presets, and provider adapters.",
+    "Install production SaaS modules as editable source code with StackFoundry's registry, command, presets, and provider adapters.",
   alternates: {
     canonical: "/docs",
   },
@@ -445,7 +445,7 @@ export default function DocsPage() {
             <span className="docs-brand-chip">Docs</span>
           </a>
           <div className="docs-search" aria-hidden="true">
-            <span>Search docs, modules, CLI</span>
+            <span>Search docs, modules, command</span>
             <kbd>⌘</kbd>
             <kbd>K</kbd>
           </div>
@@ -560,9 +560,9 @@ export default function DocsPage() {
               2. Add to an existing app <Anchor id="install-existing" />
             </h2>
             <p>
-              Existing apps should start with a dry run. The CLI resolves registry dependencies,
-              prints the proposed file changes, shows env notes, and leaves the review decision with
-              you. After install, the source is yours to edit like any other code.
+              Existing apps should start with a dry run. The StackFoundry command resolves registry
+              dependencies, prints the proposed file changes, shows env notes, and leaves the review
+              decision with you. After install, the source is yours to edit like any other code.
             </p>
             <CodeBlock label="terminal">{`$ pnpm stackfoundry add stripe-billing --target ./my-app --dry-run
 · resolving registry dependency drizzle-postgres

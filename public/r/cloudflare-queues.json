@@ -40,7 +40,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Cloudflare Queues\n\nAsync jobs, producer/consumer Workers, retries, and DLQ guidance.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-queues.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-queues/page.tsx`\n- `docs/providers/cloudflare-queues.md`\n\n## Setup Checklist\n\n- Define producer and consumer ownership\n- Document retry and dead-letter behavior\n- Keep message payloads bounded\n- Verify idempotent consumers\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add cloudflare-queues --target /tmp/stackfoundry-cloudflare-queues --dry-run`.\n",
+  "docs": "# Cloudflare Queues\n\nAsync jobs, producer/consumer Workers, retries, and DLQ guidance.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-queues.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-queues/page.tsx`\n- `docs/providers/cloudflare-queues.md`\n\n## Setup Checklist\n\n- Define producer and consumer ownership\n- Document retry and dead-letter behavior\n- Keep message payloads bounded\n- Verify idempotent consumers\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm stackfoundry add cloudflare-queues --target /tmp/stackfoundry-cloudflare-queues --dry-run`.\n",
   "meta": {
     "category": "queue",
     "env": [],

@@ -40,7 +40,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Vercel Deploy\n\nVercel project linking, env pull, preview/prod scripts, and deployment docs.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/vercel-deploy.ts`\n- `apps/web/src/app/(console)/admin/providers/vercel-deploy/page.tsx`\n- `docs/providers/vercel-deploy.md`\n\n## Setup Checklist\n\n- Link the Vercel project before pulling env\n- Use preview deployments for review\n- Promote production intentionally\n- Record rollback and inspect commands\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add vercel-deploy --target /tmp/stackfoundry-vercel-deploy --dry-run`.\n",
+  "docs": "# Vercel Deploy\n\nVercel project linking, env pull, preview/prod scripts, and deployment docs.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/vercel-deploy.ts`\n- `apps/web/src/app/(console)/admin/providers/vercel-deploy/page.tsx`\n- `docs/providers/vercel-deploy.md`\n\n## Setup Checklist\n\n- Link the Vercel project before pulling env\n- Use preview deployments for review\n- Promote production intentionally\n- Record rollback and inspect commands\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm stackfoundry add vercel-deploy --target /tmp/stackfoundry-vercel-deploy --dry-run`.\n",
   "meta": {
     "category": "deploy",
     "env": [],

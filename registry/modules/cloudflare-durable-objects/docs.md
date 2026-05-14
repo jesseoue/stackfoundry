@@ -20,4 +20,4 @@ Stateful coordination, realtime rooms, per-tenant state, and DO storage.
 - Keep provider setup separate from product domain logic.
 - Do not commit provider credentials or generated deployment state.
 - Update docs, checklist, and source files together when provider behavior changes.
-- Verify with `pnpm cli add cloudflare-durable-objects --target /tmp/stackfoundry-cloudflare-durable-objects --dry-run`.
+- Verify with `pnpm stackfoundry add cloudflare-durable-objects --target /tmp/stackfoundry-cloudflare-durable-objects --dry-run`.

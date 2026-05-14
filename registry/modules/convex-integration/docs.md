@@ -20,4 +20,4 @@ Convex dashboard links, deployment status, and schema/function notes.
 - Keep provider setup separate from product domain logic.
 - Do not commit provider credentials or generated deployment state.
 - Update docs, checklist, and source files together when provider behavior changes.
-- Verify with `pnpm cli add convex-integration --target /tmp/stackfoundry-convex-integration --dry-run`.
+- Verify with `pnpm stackfoundry add convex-integration --target /tmp/stackfoundry-convex-integration --dry-run`.

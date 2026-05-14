@@ -40,7 +40,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Error Boundaries Module\n\nReact error boundary and fallback component for product pages.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/error-boundaries.ts`\n- `apps/web/src/components/stackfoundry/error-boundaries.tsx`\n- `apps/web/src/app/(console)/components/error-boundaries/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add error-boundaries --target /tmp/app --dry-run`.\n",
+  "docs": "# Error Boundaries Module\n\nReact error boundary and fallback component for product pages.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/error-boundaries.ts`\n- `apps/web/src/components/stackfoundry/error-boundaries.tsx`\n- `apps/web/src/app/(console)/components/error-boundaries/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add error-boundaries --target /tmp/app --dry-run`.\n",
   "meta": {
     "category": "components",
     "env": [],

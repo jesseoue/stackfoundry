@@ -20,4 +20,4 @@ Deployments list, env sync docs, and preview links.
 - Keep provider setup separate from product domain logic.
 - Do not commit provider credentials or generated deployment state.
 - Update docs, checklist, and source files together when provider behavior changes.
-- Verify with `pnpm cli add vercel-integration --target /tmp/stackfoundry-vercel-integration --dry-run`.
+- Verify with `pnpm stackfoundry add vercel-integration --target /tmp/stackfoundry-vercel-integration --dry-run`.

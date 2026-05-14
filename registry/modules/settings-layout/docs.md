@@ -18,4 +18,4 @@ Reusable settings shell for account, workspace, billing, and security pages.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add settings-layout --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add settings-layout --target /tmp/app --dry-run`.

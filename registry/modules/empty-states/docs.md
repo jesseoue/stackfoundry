@@ -18,4 +18,4 @@ Reusable empty state component with action and guidance slots.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add empty-states --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add empty-states --target /tmp/app --dry-run`.

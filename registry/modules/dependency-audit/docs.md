@@ -17,4 +17,4 @@ Dependency scanning, high-severity gate, and release checklist.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add dependency-audit --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add dependency-audit --target /tmp/app --dry-run`.

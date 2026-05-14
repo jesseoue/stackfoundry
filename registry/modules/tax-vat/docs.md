@@ -18,4 +18,4 @@ Tax/VAT collection status, business identifiers, and tax provider adapter bounda
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add tax-vat --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add tax-vat --target /tmp/app --dry-run`.

@@ -18,4 +18,4 @@ Custom domain records, status, and tenant-owned routing controls.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add custom-domains --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add custom-domains --target /tmp/app --dry-run`.

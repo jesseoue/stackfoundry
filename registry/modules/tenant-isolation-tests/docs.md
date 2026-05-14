@@ -17,4 +17,4 @@ Test helpers and checklist for cross-tenant isolation assertions.
 ## Maintenance
 
 - Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
-- Verify install output with `pnpm cli add tenant-isolation-tests --target /tmp/app --dry-run`.
+- Verify install output with `pnpm stackfoundry add tenant-isolation-tests --target /tmp/app --dry-run`.
