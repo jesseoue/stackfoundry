@@ -13,6 +13,11 @@
       "name": "flags-launchdarkly",
       "target": ".agents/skills/flags-launchdarkly/SKILL.md",
       "content": "---\nname: flags-launchdarkly\ndescription: Maintain the LaunchDarkly Flags module installed by StackFoundry.\n---\n\n# LaunchDarkly Flags Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    },
+    {
+      "name": "launchdarkly",
+      "target": ".agents/skills/launchdarkly/SKILL.md",
+      "content": "---\nname: launchdarkly\ndescription: LaunchDarkly flag guidance for installed feature flag modules.\n---\n\n# Launchdarkly Guidance\n\n- Keep SDK keys scoped to server or client intentionally.\n- Document flag keys, environments, and fallbacks.\n- Avoid leaking private targeting traits.\n- Verify offline/default behavior.\n"
     }
   ],
   "envVars": {},
@@ -23,7 +28,8 @@
     "status": "planned",
     "agents": {
       "skills": [
-        "flags-launchdarkly"
+        "flags-launchdarkly",
+        "launchdarkly"
       ],
       "rules": [
         "document-invariants",

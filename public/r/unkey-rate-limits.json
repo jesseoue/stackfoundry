@@ -35,13 +35,18 @@
     {
       "name": "unkey-rate-limits",
       "target": ".agents/skills/unkey-rate-limits/SKILL.md",
-      "content": "---\nname: unkey-rate-limits\ndescription: Maintain the Unkey Rate Limits vendor registry block installed by StackFoundry.\n---\n\n# Unkey Rate Limits Skill\n\n## Boundary\n\nThis block owns the Unkey Rate Limits integration example only. Keep product-specific business logic outside the vendor adapter until the app has chosen this provider.\n\n## Source Files\n\n- `apps/web/src/lib/unkey/ratelimit.ts`\n- `apps/web/src/app/api/vendor/unkey/ratelimit/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/unkey-rate-limits/page.tsx`\n\n## Dependencies\n\n- `@unkey/ratelimit`\n\n## Environment\n\n- `UNKEY_ROOT_KEY`\n\n## Deployment Checks\n\n- Create the vendor project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current vendor docs.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one vendor.\n"
+      "content": "---\nname: unkey-rate-limits\ndescription: Maintain the Unkey Rate Limits vendor registry block installed by StackFoundry.\n---\n\n# Unkey Rate Limits Skill\n\n## Boundary\n\nThis block owns the Unkey Rate Limits integration example only. Keep `rate-limits` as the source-owned default path and keep product-specific business logic outside the vendor adapter until the app has chosen this provider.\n\n## Source Files\n\n- `apps/web/src/lib/unkey/ratelimit.ts`\n- `apps/web/src/app/api/vendor/unkey/ratelimit/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/unkey-rate-limits/page.tsx`\n\n## Dependencies\n\n- `@unkey/ratelimit`\n\n## Environment\n\n- `UNKEY_ROOT_KEY`\n\n## Deployment Checks\n\n- Create the vendor project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current vendor docs.\n- Keep namespaces stable and return rate-limit headers from protected routes.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one vendor.\n"
+    },
+    {
+      "name": "unkey",
+      "target": ".agents/skills/unkey/SKILL.md",
+      "content": "---\nname: unkey\ndescription: Unkey guidance for installed API key and rate-limit modules.\n---\n\n# Unkey Guidance\n\n- Keep root keys server-only.\n- Hash or delegate secret storage; never log plaintext keys.\n- Document key scopes and rate-limit namespaces.\n- Verify revoke, rotate, and limit paths.\n"
     }
   ],
   "envVars": {
     "UNKEY_ROOT_KEY": ""
   },
-  "docs": "# Unkey Rate Limits Module\n\nUnkey rate limit namespace helper and protected route example.\n\n## Owns\n\n- `apps/web/src/lib/unkey/ratelimit.ts`\n- `apps/web/src/app/api/vendor/unkey/ratelimit/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/unkey-rate-limits/page.tsx`\n\n## Dependencies\n\n- `@unkey/ratelimit`\n\n## Environment\n\n- `UNKEY_ROOT_KEY`\n\n## Deployment Notes\n\n- Create the vendor project/resource before deploying.\n- Add the listed environment variables to preview and production.\n- Smoke-test the included route or helper after deploy.\n- Keep provider secrets out of client components and logs.\n\n## Maintenance\n\n- Keep this module focused on the vendor integration boundary.\n- Update source examples when vendor SDK APIs change.\n- Record production-specific retry, alerting, and rollback behavior before marking stable.\n",
+  "docs": "# Unkey Rate Limits Module\n\nOptional Unkey adapter for managed rate-limit namespaces and server-side limit checks.\n\nUse the source-owned `rate-limits` module when you want local database-backed limits by default. Add this module when you want Unkey to enforce limits through its managed rate-limit service.\n\n## Owns\n\n- `apps/web/src/lib/unkey/ratelimit.ts`\n- `apps/web/src/app/api/vendor/unkey/ratelimit/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/unkey-rate-limits/page.tsx`\n\n## Dependencies\n\n- `@unkey/ratelimit`\n\n## Environment\n\n- `UNKEY_ROOT_KEY`\n\n## Deployment Notes\n\n- Create and document the Unkey rate-limit namespace before deploying.\n- Add the listed environment variables to preview and production.\n- Smoke-test the included route or helper after deploy.\n- Keep provider secrets out of client components and logs.\n- Return standard rate-limit headers from protected routes so API clients can back off predictably.\n\n## Maintenance\n\n- Keep this module focused on the vendor integration boundary.\n- Update source examples when vendor SDK APIs change.\n- Preserve the source-owned `rate-limits` module as the default path in base presets.\n- Record production-specific retry, alerting, and rollback behavior before marking stable.\n",
   "meta": {
     "category": "operations",
     "env": [
@@ -50,7 +55,8 @@
     "status": "experimental",
     "agents": {
       "skills": [
-        "unkey-rate-limits"
+        "unkey-rate-limits",
+        "unkey"
       ],
       "rules": [
         "namespace-limits",

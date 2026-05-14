@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "cloudflare-hyperdrive"
+      "cloudflare-hyperdrive",
+      "cloudflare"
     ],
     "rules": [
       "document-invariants",

@@ -11,7 +11,9 @@
   "files": [],
   "agents": {
     "skills": [
-      "cloudflare-mcp-server"
+      "cloudflare-mcp-server",
+      "cloudflare",
+      "mcp"
     ],
     "rules": [
       "document-invariants",

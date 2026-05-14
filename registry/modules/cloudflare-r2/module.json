@@ -24,7 +24,8 @@
   ],
   "agents": {
     "skills": [
-      "cloudflare-r2"
+      "cloudflare-r2",
+      "cloudflare"
     ],
     "rules": [
       "private-by-default",

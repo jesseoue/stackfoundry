@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "openfeature-flags"
+      "openfeature-flags",
+      "openfeature"
     ],
     "rules": [
       "document-invariants",

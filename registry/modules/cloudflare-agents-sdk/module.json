@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "cloudflare-agents-sdk"
+      "cloudflare-agents-sdk",
+      "cloudflare"
     ],
     "rules": [
       "document-invariants",

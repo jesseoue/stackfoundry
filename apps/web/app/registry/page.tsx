@@ -1,0 +1,520 @@
+import type { Metadata } from "next";
+
+const githubUrl = "https://github.com/jesseoue/stackfoundry";
+
+export const metadata: Metadata = {
+  title: "Registry",
+  description:
+    "Browse StackFoundry modules, presets, and optional provider adapters for production SaaS apps.",
+  alternates: {
+    canonical: "/registry",
+  },
+  openGraph: {
+    title: "StackFoundry Registry",
+    description:
+      "A visual catalog of installable SaaS modules, presets, and optional provider adapters.",
+    url: "/registry",
+  },
+};
+
+const featuredPresets = [
+  {
+    name: "next-saas",
+    title: "Next SaaS",
+    description: "The broad app foundation: database, billing, accounts, docs, ops, and growth.",
+    modules: ["drizzle-postgres", "api-keys", "stripe-billing", "audit-log", "resend-email"],
+    tone: "Core",
+  },
+  {
+    name: "developer-platform",
+    title: "Developer Platform",
+    description: "API keys, public API surfaces, webhook delivery, usage, and developer docs.",
+    modules: ["api-keys", "unkey-api-keys", "webhook-inbox", "api-docs", "sdk-snippets"],
+    tone: "API",
+  },
+  {
+    name: "b2b-saas",
+    title: "B2B SaaS",
+    description: "Team workspaces, invites, tenant context, permission models, and audit trails.",
+    modules: ["tenant-context", "invites", "custom-roles", "permission-matrix", "audit-log"],
+    tone: "Teams",
+  },
+  {
+    name: "ai-saas",
+    title: "AI SaaS",
+    description: "Optional AI product modules for chat, routing, prompts, quotas, and metering.",
+    modules: ["ai-chat", "model-router", "prompt-library", "quota-enforcement", "usage-metering"],
+    tone: "AI",
+  },
+  {
+    name: "vercel-native",
+    title: "Vercel Native",
+    description: "Deployment and managed storage adapters for teams building on Vercel.",
+    modules: ["vercel-deploy", "vercel-blob", "vercel-edge-config", "vercel-workflows"],
+    tone: "Vercel",
+  },
+  {
+    name: "cloudflare-native",
+    title: "Cloudflare Native",
+    description: "Worker-first deployment, storage, queues, durable objects, and edge primitives.",
+    modules: ["cloudflare-workers", "cloudflare-d1", "cloudflare-r2", "cloudflare-queues"],
+    tone: "Edge",
+  },
+  {
+    name: "vendor-examples",
+    title: "Vendor Examples",
+    description:
+      "Provider adapter examples that show integration shape without locking in the base.",
+    modules: ["clerk-auth", "resend-email", "posthog-analytics", "sentry-monitoring"],
+    tone: "Adapters",
+  },
+  {
+    name: "saas-coverage",
+    title: "SaaS Coverage",
+    description: "A larger map of launch, security, billing, support, analytics, and ops modules.",
+    modules: ["security-headers", "system-health", "support-widget", "cohort-retention"],
+    tone: "Coverage",
+  },
+];
+
+const moduleFamilies = [
+  {
+    title: "Foundation",
+    description:
+      "Small base building blocks for layout, settings, UX states, and app shell polish.",
+    modules: ["t3-env", "sidebar-shell", "settings-layout", "command-menu", "data-table"],
+  },
+  {
+    title: "Database",
+    description:
+      "Schema slices, migrations guidance, tenant-safe data patterns, and local backing stores.",
+    modules: [
+      "drizzle-postgres",
+      "drizzle-relations",
+      "drizzle-multitenancy",
+      "neon-postgres",
+      "supabase-postgres",
+    ],
+  },
+  {
+    title: "Auth and Tenancy",
+    description:
+      "Account flows, workspaces, tenant context, invitations, roles, and enterprise access.",
+    modules: ["clerk-auth", "account-modes", "tenant-context", "invites", "enterprise-sso"],
+  },
+  {
+    title: "Billing",
+    description:
+      "Subscriptions, entitlements, one-time purchases, credits, invoices, dunning, and taxes.",
+    modules: [
+      "stripe-billing",
+      "autumn-billing",
+      "autumn-entitlements",
+      "credit-wallet",
+      "one-time-purchases",
+    ],
+  },
+  {
+    title: "API Product",
+    description:
+      "Developer-facing controls for keys, rate limits, public APIs, webhooks, and docs.",
+    modules: [
+      "api-keys",
+      "unkey-api-keys",
+      "unkey-rate-limits",
+      "public-api-orpc",
+      "webhook-inbox",
+    ],
+  },
+  {
+    title: "Operations",
+    description:
+      "Auditability, status, health, incident response, background jobs, and support workflows.",
+    modules: [
+      "audit-log",
+      "system-health",
+      "status-page",
+      "background-jobs",
+      "incident-management",
+    ],
+  },
+  {
+    title: "Analytics and Growth",
+    description:
+      "Product analytics, onboarding, lifecycle email, activation, retention, and feedback loops.",
+    modules: [
+      "posthog-analytics",
+      "activation-onboarding",
+      "lifecycle-email",
+      "surveys-nps",
+      "cohort-retention",
+    ],
+  },
+  {
+    title: "Providers",
+    description:
+      "Adapter modules for hosted services, kept optional so the base scaffold stays small.",
+    modules: [
+      "resend-email",
+      "sentry-monitoring",
+      "upstash-redis",
+      "trigger-dev-jobs",
+      "inngest-functions",
+    ],
+  },
+  {
+    title: "Optional AI",
+    description:
+      "AI modules are available when useful, but they are not required for the registry model.",
+    modules: ["ai-chat", "model-router", "ai-tools", "ai-artifacts", "rag-starter"],
+  },
+  {
+    title: "Docs and Deployment",
+    description: "Product docs, provider deploy paths, containers, and production-readiness notes.",
+    modules: [
+      "docs-fumadocs",
+      "docs-starlight",
+      "vercel-deploy",
+      "cloudflare-workers",
+      "docker-compose-local",
+    ],
+  },
+];
+
+const providerOptions = [
+  {
+    name: "Drizzle",
+    domain: "drizzle.team",
+    logo: "drizzle",
+    role: "Database ORM",
+    modules: ["drizzle-postgres", "drizzle-relations"],
+  },
+  {
+    name: "Stripe",
+    domain: "stripe.com",
+    logo: "stripe",
+    role: "Billing adapter",
+    modules: ["stripe-billing", "billing-portal"],
+  },
+  {
+    name: "Autumn",
+    domain: "useautumn.com",
+    logo: "autumn",
+    role: "Billing adapter",
+    modules: ["autumn-billing", "autumn-entitlements"],
+  },
+  {
+    name: "Unkey",
+    domain: "unkey.com",
+    logo: "unkey",
+    role: "API key adapter",
+    modules: ["unkey-api-keys", "unkey-rate-limits"],
+  },
+  {
+    name: "Clerk",
+    domain: "clerk.com",
+    logo: "clerk",
+    role: "Auth adapter",
+    modules: ["clerk-auth", "session-management"],
+  },
+  {
+    name: "Resend",
+    domain: "resend.com",
+    logo: "resend",
+    role: "Email adapter",
+    modules: ["resend-email", "lifecycle-email"],
+  },
+  {
+    name: "PostHog",
+    domain: "posthog.com",
+    logo: "posthog",
+    role: "Analytics adapter",
+    modules: ["posthog-analytics", "feature-adoption"],
+  },
+  {
+    name: "Sentry",
+    domain: "sentry.io",
+    logo: "sentry",
+    role: "Monitoring adapter",
+    modules: ["sentry-monitoring", "error-boundaries"],
+  },
+  {
+    name: "Vercel",
+    domain: "vercel.com",
+    logo: "vercel",
+    role: "Deploy and storage",
+    modules: ["vercel-deploy", "vercel-blob", "vercel-edge-config"],
+  },
+  {
+    name: "Cloudflare",
+    domain: "cloudflare.com",
+    logo: "cloudflare",
+    role: "Edge platform",
+    modules: ["cloudflare-workers", "cloudflare-d1", "cloudflare-r2"],
+  },
+  {
+    name: "Neon",
+    domain: "neon.tech",
+    logo: "neon",
+    role: "Postgres adapter",
+    modules: ["neon-postgres", "drizzle-postgres"],
+  },
+  {
+    name: "Supabase",
+    domain: "supabase.com",
+    logo: "supabase",
+    role: "Postgres adapter",
+    modules: ["supabase-postgres", "file-uploads"],
+  },
+  {
+    name: "Upstash",
+    domain: "upstash.com",
+    logo: "upstash",
+    role: "Redis adapter",
+    modules: ["upstash-redis", "rate-limits"],
+  },
+  {
+    name: "Trigger.dev",
+    domain: "trigger.dev",
+    logo: "trigger",
+    role: "Jobs adapter",
+    modules: ["trigger-dev-jobs", "background-jobs"],
+  },
+  {
+    name: "Inngest",
+    domain: "inngest.com",
+    logo: "inngest",
+    role: "Functions adapter",
+    modules: ["inngest-functions", "background-jobs"],
+  },
+  {
+    name: "Next.js",
+    domain: "nextjs.org",
+    logo: "nextjs",
+    role: "App framework",
+    modules: ["next-saas", "docs-fumadocs"],
+  },
+  {
+    name: "React",
+    domain: "react.dev",
+    logo: "react",
+    role: "UI runtime",
+    modules: ["sidebar-shell", "data-table"],
+  },
+];
+
+const stats = [
+  ["200+", "Module manifests"],
+  ["10", "Preset bundles"],
+  ["17", "Provider cards"],
+  ["0", "Required adapters"],
+];
+
+function ModulePills({ modules }: { modules: string[] }) {
+  return (
+    <div className="registry-pills">
+      {modules.map((module) => (
+        <code key={module}>{module}</code>
+      ))}
+    </div>
+  );
+}
+
+function ProviderLogo({ name, logo }: { name: string; logo: string }) {
+  return (
+    <span className="registry-logo-wrap" aria-hidden="true">
+      <span>{name.slice(0, 1)}</span>
+      <img src={`/registry-logos/${logo}.png`} alt="" width="32" height="32" loading="lazy" />
+    </span>
+  );
+}
+
+export default function RegistryPage() {
+  return (
+    <main className="page registry-page">
+      <nav className="nav" aria-label="Main navigation">
+        <div className="container nav-inner">
+          <a className="brand" href="/" aria-label="stackfoundry home">
+            <span className="mark" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </span>
+            <span className="wordmark">stackfoundry</span>
+          </a>
+          <div className="nav-links">
+            <a href="/registry">Registry</a>
+            <a href="/docs">Docs</a>
+            <a href="/docs#install-existing">Install</a>
+            <a href="/r/registry.json">JSON</a>
+          </div>
+          <a className="button" href={githubUrl}>
+            GitHub
+          </a>
+        </div>
+      </nav>
+
+      <header className="registry-hero">
+        <div className="container">
+          <div className="registry-hero-grid">
+            <div>
+              <div className="eyebrow">
+                <span className="dot" aria-hidden="true" />
+                <span>Public source registry</span>
+              </div>
+              <h1 className="registry-title">
+                Modules, presets, and provider adapters for SaaS apps.
+              </h1>
+              <p className="registry-lede">
+                StackFoundry lets teams install production SaaS modules as editable source code.
+                Modules include source files, docs, env notes, tests or checklists, and maintenance
+                guidance. Presets are curated bundles. Providers stay optional adapters.
+              </p>
+              <div className="registry-actions">
+                <a className="button primary" href="/docs#install-existing">
+                  Install a module
+                </a>
+                <a className="button" href="/docs">
+                  Read the docs
+                </a>
+                <a className="button ghost" href="/r/registry.json">
+                  Open JSON registry
+                </a>
+              </div>
+            </div>
+
+            <aside className="registry-terminal" aria-label="Registry install example">
+              <div className="code-head">
+                <span />
+                registry install
+              </div>
+              <pre>
+                <code>{`pnpm cli presets
+pnpm cli add preset next-saas
+pnpm cli add stripe-billing
+pnpm cli diff api-keys`}</code>
+              </pre>
+              <div className="registry-terminal-foot">
+                Source lands in your repo for review, edits, and ownership.
+              </div>
+            </aside>
+          </div>
+
+          <div className="registry-stats">
+            {stats.map(([value, label]) => (
+              <div key={label}>
+                <strong>{value}</strong>
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </header>
+
+      <div className="container">
+        <section className="registry-section" id="presets">
+          <div className="registry-section-head">
+            <div className="section-eyebrow">Featured Paths</div>
+            <h2>Start with a preset, then swap adapters as your stack settles.</h2>
+            <p>
+              Presets are install paths through the registry, not new frameworks. They collect the
+              modules most teams need for a product shape while keeping provider choices explicit.
+            </p>
+          </div>
+
+          <div className="registry-preset-grid">
+            {featuredPresets.map((preset) => (
+              <article className="registry-preset-card" key={preset.name}>
+                <div className="registry-card-topline">
+                  <code>{preset.name}</code>
+                  <span>{preset.tone}</span>
+                </div>
+                <h3>{preset.title}</h3>
+                <p>{preset.description}</p>
+                <ModulePills modules={preset.modules} />
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="registry-section" id="modules">
+          <div className="registry-section-head">
+            <div className="section-eyebrow">Module Families</div>
+            <h2>The registry is organized around product capabilities.</h2>
+            <p>
+              Each card points at concrete modules you can inspect, install, and maintain as source.
+              The base scaffold stays small; capabilities are added only when the app needs them.
+            </p>
+          </div>
+
+          <div className="registry-family-grid">
+            {moduleFamilies.map((family) => (
+              <article className="registry-family-card" key={family.title}>
+                <h3>{family.title}</h3>
+                <p>{family.description}</p>
+                <ModulePills modules={family.modules} />
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="registry-section" id="providers">
+          <div className="registry-section-head">
+            <div className="section-eyebrow">Provider Options</div>
+            <h2>Recognizable services, modeled as optional adapters.</h2>
+            <p>
+              Use the providers that match your stack. Favicon marks are shown only as compact
+              identifiers for adapter cards; the modules still install as editable code.
+            </p>
+          </div>
+
+          <div className="registry-provider-grid">
+            {providerOptions.map((provider) => (
+              <article className="registry-provider-card" key={provider.name}>
+                <ProviderLogo name={provider.name} logo={provider.logo} />
+                <div>
+                  <div className="registry-provider-head">
+                    <h3>{provider.name}</h3>
+                    <span>{provider.role}</span>
+                  </div>
+                  <p>{provider.domain}</p>
+                  <ModulePills modules={provider.modules} />
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="registry-section registry-cta" id="install">
+          <div>
+            <div className="section-eyebrow">Ship With Ownership</div>
+            <h2>Browse the registry, install a path, and review the source like any other PR.</h2>
+            <p>
+              StackFoundry is designed for teams that want production SaaS capabilities without
+              hiding the code behind generators or hard provider dependencies.
+            </p>
+          </div>
+          <div className="registry-cta-actions">
+            <a className="button primary" href="/docs">
+              Documentation
+            </a>
+            <a className="button" href="/docs#install-existing">
+              Existing app install
+            </a>
+            <a className="button" href={githubUrl}>
+              GitHub
+            </a>
+            <a className="button ghost" href="/r/registry.json">
+              Registry JSON
+            </a>
+          </div>
+        </section>
+
+        <footer className="footer">
+          <span>StackFoundry registry</span>
+          <span>Install production SaaS modules as editable source code.</span>
+        </footer>
+      </div>
+    </main>
+  );
+}

@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "datadog-monitoring"
+      "datadog-monitoring",
+      "datadog"
     ],
     "rules": [
       "document-invariants",

@@ -68,6 +68,22 @@ const moduleCards = [
       "Received webhook table, status, retry controls, signature metadata, and detail UI.",
     files: ["schema/webhooks.ts", "api/webhooks/*", "(console)/webhooks"],
   },
+  {
+    name: "resend-email",
+    title: "Resend Email",
+    category: "comms",
+    status: "planned",
+    description: "Transactional email wiring, provider notes, templates, and delivery checks.",
+    files: ["emails/*", "lib/email.ts", ".env.example notes"],
+  },
+  {
+    name: "posthog-analytics",
+    title: "PostHog Analytics",
+    category: "analytics",
+    status: "planned",
+    description: "Event taxonomy, capture helpers, consent notes, and product analytics surfaces.",
+    files: ["lib/analytics.ts", "components/analytics-provider", "docs/events.md"],
+  },
 ];
 
 const backlog = [
@@ -78,6 +94,16 @@ const backlog = [
   ["public-api-orpc", "developer platform"],
   ["enterprise-sso", "auth"],
   ["backup-restore", "operations"],
+];
+
+const demoModules = [
+  "stripe-billing",
+  "api-keys",
+  "drizzle-postgres",
+  "webhook-inbox",
+  "audit-log",
+  "resend-email",
+  "posthog-analytics",
 ];
 
 const commandGroups = [
@@ -173,7 +199,7 @@ export default function Page() {
             <a href="#modules">Modules</a>
             <a href="#explore">Explore</a>
             <a href="#how">Install</a>
-            <a href="#registry">Registry</a>
+            <a href="/registry">Registry</a>
             <a href="/docs">Docs</a>
             <a href="#sponsors">Sponsors</a>
           </div>
@@ -198,21 +224,30 @@ export default function Page() {
           </h1>
 
           <p className="lede">
-            StackFoundry is a public source registry for production SaaS modules. Install billing,
-            API keys, database wiring, webhooks, analytics, and operations surfaces as editable code
-            with schemas, env notes, tests, docs, and maintenance guidance.
+            StackFoundry is a public registry for installable SaaS modules. Browse production
+            systems, add the ones your app needs, then review the source, schemas, env notes, docs,
+            and verification checklist like any other code change.
           </p>
 
           <div className="install">
             <span className="prompt">$</span>
             <code>
-              pnpm dlx <span>stackfoundry</span> add stripe-billing
+              pnpm <span>cli</span> add{" "}
+              <span className="rotator" aria-hidden="true">
+                {demoModules.map((module) => (
+                  <span key={module}>{module}</span>
+                ))}
+              </span>
+              <span className="sr-only">{demoModules.join(", ")}</span>
             </code>
           </div>
 
           <div className="actions">
-            <a className="button primary" href="https://github.com/jesseoue/stackfoundry">
+            <a className="button primary" href="/registry">
               View the registry
+            </a>
+            <a className="button" href="/docs">
+              Read the docs
             </a>
             <a className="button ghost" href="#modules">
               Browse modules
@@ -263,7 +298,12 @@ export default function Page() {
               </div>
               <div className="terminal-body">
                 <div>
-                  <span className="prompt">$</span> pnpm dlx stackfoundry add stripe-billing
+                  <span className="prompt">$</span> pnpm cli add{" "}
+                  <span className="terminal-rotator" aria-hidden="true">
+                    {demoModules.map((module) => (
+                      <span key={module}>{module}</span>
+                    ))}
+                  </span>
                 </div>
                 <div>
                   <span className="muted">.</span> Resolving{" "}
@@ -298,10 +338,10 @@ export default function Page() {
         <section className="section" id="modules">
           <div className="section-head">
             <div className="section-eyebrow">Modules</div>
-            <h2>Source modules, not opaque boilerplate.</h2>
+            <h2>Browse the building blocks, then open the docs.</h2>
             <p>
-              Each module owns one capability. Provider modules stay adapters around shared domain
-              interfaces, so base scaffolds stay small.
+              The landing page shows the shape of the registry. The docs page explains how to
+              install modules, review diffs, author manifests, and keep modules maintainable.
             </p>
           </div>
 
@@ -334,8 +374,8 @@ export default function Page() {
           </div>
 
           <div className="backlog-head">
-            <span>Next modules</span>
-            <span>planned adapters and product systems</span>
+            <span>Registry modules</span>
+            <span>adapters and product systems</span>
           </div>
           <ul className="backlog">
             {backlog.map(([name, category]) => (
@@ -345,6 +385,11 @@ export default function Page() {
               </li>
             ))}
           </ul>
+          <div className="section-action">
+            <a className="button" href="/docs#modules">
+              Open module docs
+            </a>
+          </div>
         </section>
 
         <section className="section" id="explore">
@@ -435,6 +480,9 @@ export default function Page() {
                 Module metadata declares source paths, dependencies, environment requirements,
                 schema exports, and verification guidance so installs and diffs stay reviewable.
               </p>
+              <a className="button" href="/docs#authoring">
+                Learn the manifest model
+              </a>
             </div>
 
             <div className="code-block">

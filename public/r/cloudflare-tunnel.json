@@ -13,6 +13,11 @@
       "name": "cloudflare-tunnel",
       "target": ".agents/skills/cloudflare-tunnel/SKILL.md",
       "content": "---\nname: cloudflare-tunnel\ndescription: Maintain the Cloudflare Tunnel module installed by StackFoundry.\n---\n\n# Cloudflare Tunnel Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    },
+    {
+      "name": "cloudflare",
+      "target": ".agents/skills/cloudflare/SKILL.md",
+      "content": "---\nname: cloudflare\ndescription: Cloudflare platform guidance for installed Workers, storage, and edge modules.\n---\n\n# Cloudflare Guidance\n\n- Keep bindings explicit in config and docs.\n- Do not commit wrangler secrets or account credentials.\n- Document local dev, preview, and production deployment commands.\n- Verify bindings, routes, and logs after deploy.\n"
     }
   ],
   "envVars": {},
@@ -23,7 +28,8 @@
     "status": "planned",
     "agents": {
       "skills": [
-        "cloudflare-tunnel"
+        "cloudflare-tunnel",
+        "cloudflare"
       ],
       "rules": [
         "document-invariants",

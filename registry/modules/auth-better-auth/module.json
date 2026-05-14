@@ -33,7 +33,9 @@
   ],
   "agents": {
     "skills": [
-      "auth-better-auth"
+      "auth-better-auth",
+      "better-auth",
+      "nextjs"
     ],
     "rules": [
       "run-auth-migrations",

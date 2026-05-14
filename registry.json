@@ -28,6 +28,18 @@
       ]
     },
     {
+      "name": "account-modes",
+      "type": "registry:block",
+      "title": "Account Modes",
+      "description": "Personal, team, and hybrid account mode configuration for SaaS apps.",
+      "files": [
+        {
+          "path": "registry/modules/account-modes/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "account-settings",
       "type": "registry:block",
       "title": "Account Settings",
@@ -695,6 +707,18 @@
       "files": [
         {
           "path": "registry/modules/coupons-promotions/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "credit-wallet",
+      "type": "registry:block",
+      "title": "Credit Wallet",
+      "description": "Prepaid credits, grant/consume ledger, low-balance checks, and AI or usage-based wallet flows.",
+      "files": [
+        {
+          "path": "registry/modules/credit-wallet/module.json",
           "type": "registry:file"
         }
       ]
@@ -1535,6 +1559,18 @@
       "files": [
         {
           "path": "registry/modules/openfeature-flags/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "one-time-purchases",
+      "type": "registry:block",
+      "title": "One-Time Purchases",
+      "description": "One-off payments, order records, add-ons, lifetime deals, and fulfillment tracking.",
+      "files": [
+        {
+          "path": "registry/modules/one-time-purchases/module.json",
           "type": "registry:file"
         }
       ]

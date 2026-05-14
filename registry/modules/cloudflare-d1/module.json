@@ -28,7 +28,8 @@
   ],
   "agents": {
     "skills": [
-      "cloudflare-d1"
+      "cloudflare-d1",
+      "cloudflare"
     ],
     "rules": [
       "commit-sql-migrations",

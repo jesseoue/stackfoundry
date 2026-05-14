@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "flags-launchdarkly"
+      "flags-launchdarkly",
+      "launchdarkly"
     ],
     "rules": [
       "document-invariants",

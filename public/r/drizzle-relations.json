@@ -13,6 +13,11 @@
       "name": "drizzle-relations",
       "target": ".agents/skills/drizzle-relations/SKILL.md",
       "content": "---\nname: drizzle-relations\ndescription: Maintain the Drizzle Relations module installed by StackFoundry.\n---\n\n# Drizzle Relations Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    },
+    {
+      "name": "drizzle",
+      "target": ".agents/skills/drizzle/SKILL.md",
+      "content": "---\nname: drizzle\ndescription: Maintain Drizzle ORM and Postgres code installed by StackFoundry modules.\n---\n\n# Drizzle Operating Instructions\n\n- Keep database access in server-only code.\n- Add schema changes under `packages/db/src/schema` and export shared tables from the schema barrel.\n- Generate and commit migrations when schema changes are intended.\n- Use typed query helpers instead of raw SQL unless the query needs a documented escape hatch.\n- Include tenant, organization, or user scope in queries and cache tags whenever data is not global.\n"
     }
   ],
   "envVars": {},
@@ -23,7 +28,8 @@
     "status": "planned",
     "agents": {
       "skills": [
-        "drizzle-relations"
+        "drizzle-relations",
+        "drizzle"
       ],
       "rules": [
         "document-invariants",

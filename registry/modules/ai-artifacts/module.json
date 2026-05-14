@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "ai-artifacts"
+      "ai-artifacts",
+      "ai-sdk"
     ],
     "rules": [
       "document-invariants",

@@ -7,7 +7,7 @@ description: Maintain the Unkey API Keys vendor registry block installed by Stac
 
 ## Boundary
 
-This block owns the Unkey API Keys integration example only. Keep product-specific business logic outside the vendor adapter until the app has chosen this provider.
+This block owns the Unkey API Keys integration example only. Keep `api-keys` as the source-owned default path and keep product-specific business logic outside the vendor adapter until the app has chosen this provider.
 
 ## Source Files
 
@@ -35,6 +35,7 @@ This block owns the Unkey API Keys integration example only. Keep product-specif
 ## Maintenance Rules
 
 - Keep SDK imports and examples aligned with current vendor docs.
+- Use `verifyKey` for request-time checks and keep permission/role decisions on the server.
 - Keep secrets server-only and out of client components.
 - Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.
 - Prefer small provider adapters over coupling shared domain modules to one vendor.

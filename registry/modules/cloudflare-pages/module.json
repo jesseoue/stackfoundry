@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "cloudflare-pages"
+      "cloudflare-pages",
+      "cloudflare"
     ],
     "rules": [
       "document-invariants",

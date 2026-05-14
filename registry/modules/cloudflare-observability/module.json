@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "cloudflare-observability"
+      "cloudflare-observability",
+      "cloudflare"
     ],
     "rules": [
       "document-invariants",

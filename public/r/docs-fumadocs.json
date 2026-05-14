@@ -13,6 +13,21 @@
       "name": "docs-fumadocs",
       "target": ".agents/skills/docs-fumadocs/SKILL.md",
       "content": "---\nname: docs-fumadocs\ndescription: Maintain the Fumadocs Docs module installed by StackFoundry.\n---\n\n# Fumadocs Docs Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    },
+    {
+      "name": "fumadocs",
+      "target": ".agents/skills/fumadocs/SKILL.md",
+      "content": "---\nname: fumadocs\ndescription: Fumadocs guidance for installed docs modules.\n---\n\n# Fumadocs Guidance\n\n- Use Fumadocs for in-app Next.js docs.\n- Merge MDX config into existing Next config.\n- Inspect root layout before adding providers.\n- Verify docs routes, sitemap, and build output.\n"
+    },
+    {
+      "name": "docs-hosting",
+      "target": ".agents/skills/docs-hosting/SKILL.md",
+      "content": "---\nname: docs-hosting\ndescription: Documentation hosting guidance for installed docs modules.\n---\n\n# Docs Hosting Guidance\n\n- Choose in-app docs or hosted docs explicitly.\n- Record preview URL, production URL, docs root, and owner.\n- Verify local preview and production deploy.\n- Check metadata, sitemap, and broken links.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".agents/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
     }
   ],
   "envVars": {},
@@ -23,7 +38,10 @@
     "status": "planned",
     "agents": {
       "skills": [
-        "docs-fumadocs"
+        "docs-fumadocs",
+        "fumadocs",
+        "docs-hosting",
+        "nextjs"
       ],
       "rules": [
         "document-invariants",

@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "drizzle-relations"
+      "drizzle-relations",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

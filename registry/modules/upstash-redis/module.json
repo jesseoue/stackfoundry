@@ -36,7 +36,8 @@
   ],
   "agents": {
     "skills": [
-      "upstash-redis"
+      "upstash-redis",
+      "upstash"
     ],
     "rules": [
       "use-rest-env-vars",

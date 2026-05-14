@@ -13,6 +13,11 @@
       "name": "openfeature-flags",
       "target": ".agents/skills/openfeature-flags/SKILL.md",
       "content": "---\nname: openfeature-flags\ndescription: Maintain the OpenFeature Flags module installed by StackFoundry.\n---\n\n# OpenFeature Flags Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    },
+    {
+      "name": "openfeature",
+      "target": ".agents/skills/openfeature/SKILL.md",
+      "content": "---\nname: openfeature\ndescription: OpenFeature flag guidance for installed feature flag modules.\n---\n\n# Openfeature Guidance\n\n- Keep provider adapters behind the OpenFeature interface.\n- Document flag keys and fallback values.\n- Avoid evaluating private traits on the client unless intended.\n- Verify default behavior when provider is unavailable.\n"
     }
   ],
   "envVars": {},
@@ -23,7 +28,8 @@
     "status": "planned",
     "agents": {
       "skills": [
-        "openfeature-flags"
+        "openfeature-flags",
+        "openfeature"
       ],
       "rules": [
         "document-invariants",

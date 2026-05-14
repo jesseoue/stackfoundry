@@ -1,0 +1,44 @@
+{
+  "name": "one-time-purchases",
+  "type": "module",
+  "category": "billing",
+  "title": "One-Time Purchases",
+  "description": "One-off payments, order records, add-ons, lifetime deals, and fulfillment tracking.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "billing-core"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/one-time-purchases.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/one-time-purchases.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/purchases/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "oneTimePurchases"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "one-time-purchases"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "fulfill-once"
+    ]
+  },
+  "status": "experimental"
+}

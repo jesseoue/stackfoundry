@@ -1,0 +1,63 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "credit-wallet",
+  "type": "registry:block",
+  "title": "Credit Wallet",
+  "description": "Prepaid credits, grant/consume ledger, low-balance checks, and AI or usage-based wallet flows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/billing-core.json",
+    "https://stackfoundry.dev/r/usage-metering.json"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/credit-wallet.ts",
+      "type": "registry:file",
+      "target": "packages/db/src/schema/credit-wallet.ts",
+      "content": "import { index, integer, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const creditWalletLedger = pgTable(\n  \"credit_wallet_ledger\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    ownerId: text(\"owner_id\"),\n    organizationId: text(\"organization_id\"),\n    idempotencyKey: text(\"idempotency_key\"),\n    direction: text(\"direction\").notNull(),\n    amount: integer(\"amount\").notNull(),\n    reason: text(\"reason\").notNull(),\n    source: text(\"source\"),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    expiresAt: timestamp(\"expires_at\", { withTimezone: true }),\n    createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (item) => [\n    index(\"credit_wallet_owner_idx\").on(item.ownerId),\n    index(\"credit_wallet_organization_idx\").on(item.organizationId),\n    index(\"credit_wallet_idempotency_idx\").on(item.idempotencyKey),\n  ]\n);\n"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/credit-wallet.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/credit-wallet.ts",
+      "content": "export type CreditLedgerEntry = {\n  direction: \"grant\" | \"consume\" | \"refund\" | \"expire\";\n  amount: number;\n  reason: string;\n  idempotencyKey?: string;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createCreditLedgerEntry(entry: CreditLedgerEntry) {\n  if (!Number.isInteger(entry.amount) || entry.amount <= 0) {\n    throw new Error(\"Credit ledger amount must be a positive integer.\");\n  }\n\n  return {\n    direction: entry.direction,\n    amount: entry.amount,\n    reason: entry.reason,\n    idempotencyKey: entry.idempotencyKey,\n    metadata: entry.metadata ?? {},\n  };\n}\n\nexport function calculateCreditBalance(entries: CreditLedgerEntry[]) {\n  return entries.reduce((balance, entry) => {\n    if (entry.direction === \"grant\" || entry.direction === \"refund\") return balance + entry.amount;\n    return balance - entry.amount;\n  }, 0);\n}\n\nexport function assertSufficientCredits(balance: number, amount: number) {\n  if (balance < amount) {\n    throw new Error(\"Insufficient credits.\");\n  }\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/credits/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/billing/credits/page.tsx",
+      "content": "const checklist = [\n  \"Grant credits through checkout, admin action, or promotion.\",\n  \"Consume credits with an idempotency key for every billable action.\",\n  \"Block usage before a balance can become negative.\",\n  \"Show low-balance and upgrade prompts before users get stuck.\",\n];\n\nexport default function CreditWalletPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Credit Wallet</h1>\n        <p className=\"text-muted-foreground\">Prepaid credit ledger for AI, usage, and credit-pack billing.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\nconst checklist = [\n  \"Grant credits through checkout, admin action, or promotion.\",\n  \"Consume credits with an idempotency key for every billable action.\",\n  \"Block usage before a balance can become negative.\",\n  \"Show low-balance and upgrade prompts before users get stuck.\",\n];\n\nexport default function CreditWalletPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Credit Wallet</h1>\n        <p className=\"text-muted-foreground\">Prepaid credit ledger for AI, usage, and credit-pack billing.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">\n            {item}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "credit-wallet",
+      "target": ".agents/skills/credit-wallet/SKILL.md",
+      "content": "---\nname: credit-wallet\ndescription: Maintain the Credit Wallet module installed by StackFoundry.\n---\n\n# Credit Wallet Skill\n\n## Purpose\n\nUse this module for prepaid credit systems, AI token wallets, usage top-ups, and admin-issued credits.\n\n## Safety Rules\n\n- Derive balances from the ledger instead of storing mutable balance as the source of truth.\n- Require idempotency keys for consumption tied to requests, jobs, or inference ids.\n- Never allow silent negative balances.\n- Record source, actor, and expiration for credit grants when available.\n\n## Change Checklist\n\n- Update `module.json`, `docs.md`, and `tests/checklist.md` when file targets or invariants change.\n- Verify grant, consume, refund, expiration, and insufficient-credit paths.\n- Run `pnpm registry:doctor` and a module install dry-run before handoff.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Credit Wallet\n\nPrepaid credits, grant/consume ledger, low-balance checks, and AI or usage-based wallet flows.\n\n## Owns\n\n- `packages/db/src/schema/credit-wallet.ts`\n- `apps/web/src/lib/stackfoundry/credit-wallet.ts`\n- `apps/web/src/app/(console)/billing/credits/page.tsx`\n\n## Dependencies\n\n- `registry:billing-core`\n- `registry:usage-metering`\n\n## Use Cases\n\n- AI token wallets\n- prepaid usage credits\n- one-off credit packs\n- admin-issued promotional credits\n- low-balance upgrade prompts\n\n## Invariants\n\n- Credit balances must be derived from a ledger, not overwritten ad hoc.\n- Consumption must be idempotent when tied to a request, job, or inference id.\n- Credit grants should record source, actor, and expiration when applicable.\n- Never allow a production path to silently create negative balances.\n\n## Verification\n\n- Run `pnpm registry:doctor` after editing the module.\n- Run `pnpm cli add credit-wallet --target /tmp/stackfoundry-credit-wallet --dry-run`.\n- Test grant, consume, refund, expiration, and insufficient-credit paths before marking stable.\n",
+  "meta": {
+    "category": "billing",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "credit-wallet"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "never-allow-negative-balance"
+      ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "creditWalletLedger"
+      ],
+      "migrationRecommended": true
+    }
+  }
+}

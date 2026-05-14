@@ -35,7 +35,8 @@
   ],
   "agents": {
     "skills": [
-      "unkey-api-keys"
+      "unkey-api-keys",
+      "unkey"
     ],
     "rules": [
       "never-log-keys",

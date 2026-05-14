@@ -3,31 +3,61 @@
   "name": "autumn-billing",
   "type": "registry:block",
   "title": "Autumn Billing",
-  "description": "Autumn + Stripe usage billing, overages, spend caps, and plan changes.",
-  "dependencies": [],
+  "description": "Autumn billing adapter for plan attach, checkout redirects, usage billing, and plan changes.",
+  "dependencies": [
+    "autumn-js"
+  ],
   "devDependencies": [],
-  "registryDependencies": [],
-  "files": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/billing-core.json",
+    "https://stackfoundry.dev/r/usage-metering.json"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/autumn/billing.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/autumn/billing.ts",
+      "content": "import \"server-only\";\n\nimport { Autumn } from \"autumn-js\";\n\ntype AttachAutumnPlanInput = {\n  customerId: string;\n  planId: string;\n  featureQuantities?: Record<string, number>;\n  checkoutSessionParams?: Record<string, unknown>;\n};\n\nfunction getAutumn() {\n  return new Autumn({ secretKey: process.env.AUTUMN_SECRET_KEY! });\n}\n\nexport async function attachAutumnPlan(input: AttachAutumnPlanInput) {\n  return getAutumn().billing.attach({\n    customerId: input.customerId,\n    planId: input.planId,\n    featureQuantities: input.featureQuantities,\n    checkoutSessionParams: input.checkoutSessionParams,\n  });\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/autumn-billing/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/vendors/autumn-billing/page.tsx",
+      "content": "const deployChecks = [\n  \"Create Autumn products, plans, and features before wiring production actions\",\n  \"Set AUTUMN_SECRET_KEY in preview and production environments\",\n  \"Validate checkout redirects and saved-payment flows against sandbox customers\",\n  \"Keep plan ids and price decisions in server-owned configuration\",\n];\n\nexport default function AutumnBillingPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Autumn Billing</h1>\n        <p className=\"text-muted-foreground\">\n          Optional Autumn adapter for plan attach, checkout redirects, usage billing, and plan changes.\n        </p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
   "agentSkills": [
     {
       "name": "autumn-billing",
       "target": ".agents/skills/autumn-billing/SKILL.md",
-      "content": "---\nname: autumn-billing\ndescription: Maintain the Autumn Billing module installed by StackFoundry.\n---\n\n# Autumn Billing Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+      "content": "---\nname: autumn-billing\ndescription: Maintain the optional Autumn Billing adapter installed by StackFoundry.\n---\n\n# Autumn Billing Maintenance Instructions\n\n- Treat Autumn as an optional provider adapter. Keep `billing-core` and `usage-metering` as the source-owned default path.\n- Keep Autumn product, plan, and feature ids in server-owned configuration.\n- Validate client-selected plan ids against local allowlists before calling `billing.attach`.\n- Verify checkout redirects, saved-payment plan changes, upgrades, downgrades, and cancellation state mapping in sandbox.\n- Keep `module.json`, `docs.md`, and `tests/checklist.md` aligned when env vars, dependencies, or target files change.\n- Do not introduce provider lock-in outside the adapter boundary.\n"
+    },
+    {
+      "name": "autumn",
+      "target": ".agents/skills/autumn/SKILL.md",
+      "content": "---\nname: autumn\ndescription: Autumn billing and entitlement guidance for installed modules.\n---\n\n# Autumn Guidance\n\n- Keep provider keys server-only.\n- Document entitlement names and metered features.\n- Verify checks before gating user actions.\n- Test plan changes, overages, and credit behavior.\n"
     }
   ],
-  "envVars": {},
-  "docs": "# Autumn Billing\n\nAutumn + Stripe usage billing, overages, spend caps, and plan changes.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "envVars": {
+    "AUTUMN_SECRET_KEY": ""
+  },
+  "docs": "# Autumn Billing\n\nOptional Autumn adapter for plan attach, checkout redirects, usage billing, overages, and plan changes.\n\nAutumn should sit beside the source-owned billing modules, not replace them by default. Use `billing-core` and `usage-metering` for local product state, then map plan ids and usage features into Autumn when the app chooses Autumn for hosted billing logic.\n\n## Owns\n\n- `apps/web/src/lib/autumn/billing.ts`\n- `apps/web/src/app/(console)/admin/vendors/autumn-billing/page.tsx`\n\n## Dependencies\n\n- `autumn-js`\n- `registry:billing-core`\n- `registry:usage-metering`\n\n## Environment\n\n- `AUTUMN_SECRET_KEY`\n\n## Provider Notes\n\n- Autumn's `billing.attach` flow attaches a customer to a plan and may return a `paymentUrl` for hosted checkout.\n- Keep plan ids in server-owned configuration. Do not trust plan ids, prices, or feature quantities from client input without validation.\n- Model products, plans, usage features, included amounts, and overages in Autumn before promoting this adapter.\n\n## Maintenance\n\n- Keep this module focused on the Autumn boundary.\n- Update local billing mappings when Autumn product, plan, or feature ids change.\n- Verify sandbox checkout, upgrade, downgrade, saved-payment, and cancellation paths before marking stable.\n",
   "meta": {
     "category": "billing",
-    "env": [],
-    "status": "planned",
+    "env": [
+      "AUTUMN_SECRET_KEY"
+    ],
+    "status": "experimental",
     "agents": {
       "skills": [
-        "autumn-billing"
+        "autumn-billing",
+        "autumn"
       ],
       "rules": [
-        "document-invariants",
-        "verify-before-release"
+        "keep-provider-boundary",
+        "map-provider-state",
+        "verify-checkout-redirects",
+        "never-trust-client-plan-ids"
       ]
     }
   }

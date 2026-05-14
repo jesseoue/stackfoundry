@@ -47,7 +47,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# API Keys Module\n\nAdds API key creation, hashing, scopes, usage metadata, and management UI.\n\n## Owns\n\n- API key schema\n- key creation and revocation actions\n- key verification helper\n- usage/last-used metadata\n- audit log events\n\n## Security\n\nNever store plaintext API keys. Store a prefix for display and a secure hash for verification.\n",
+  "docs": "# API Keys Module\n\nAdds API key creation, hashing, scopes, usage metadata, and management UI.\n\nThis is the default source-owned API key path. Use it when the application should own key storage and verification in its database. Add `unkey-api-keys` only when the app chooses Unkey as a managed provider adapter.\n\n## Owns\n\n- API key schema\n- key creation and revocation actions\n- key verification helper\n- usage/last-used metadata\n- audit log events\n\n## Security\n\nNever store plaintext API keys. Store a prefix for display and a secure hash for verification.\n\n## Adapter Options\n\n- `unkey-api-keys` for managed key issuance, verification, metadata, permissions, and roles.\n- `unkey-rate-limits` for managed rate limits alongside or instead of local `rate-limits`.\n",
   "meta": {
     "category": "developer-platform",
     "env": [],

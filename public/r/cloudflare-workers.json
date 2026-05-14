@@ -34,6 +34,11 @@
       "name": "cloudflare-workers",
       "target": ".agents/skills/cloudflare-workers/SKILL.md",
       "content": "---\nname: cloudflare-workers\ndescription: Maintain the Cloudflare Workers vendor registry block installed by StackFoundry.\n---\n\n# Cloudflare Workers Skill\n\n## Boundary\n\nThis block owns the Cloudflare Workers integration example only. Keep product-specific business logic outside the vendor adapter until the app has chosen this provider.\n\n## Source Files\n\n- `cloudflare/workers/api-worker.ts`\n- `cloudflare/workers/wrangler.example.jsonc`\n- `apps/web/src/app/(console)/admin/cloudflare/workers/page.tsx`\n\n## Dependencies\n\n- `wrangler (dev)`\n\n## Environment\n\n- `CLOUDFLARE_ACCOUNT_ID`\n- `CLOUDFLARE_API_TOKEN`\n\n## Deployment Checks\n\n- Create the vendor project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current vendor docs.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one vendor.\n"
+    },
+    {
+      "name": "cloudflare",
+      "target": ".agents/skills/cloudflare/SKILL.md",
+      "content": "---\nname: cloudflare\ndescription: Cloudflare platform guidance for installed Workers, storage, and edge modules.\n---\n\n# Cloudflare Guidance\n\n- Keep bindings explicit in config and docs.\n- Do not commit wrangler secrets or account credentials.\n- Document local dev, preview, and production deployment commands.\n- Verify bindings, routes, and logs after deploy.\n"
     }
   ],
   "envVars": {
@@ -50,7 +55,8 @@
     "status": "experimental",
     "agents": {
       "skills": [
-        "cloudflare-workers"
+        "cloudflare-workers",
+        "cloudflare"
       ],
       "rules": [
         "no-floating-promises",

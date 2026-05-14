@@ -11,7 +11,10 @@
   "files": [],
   "agents": {
     "skills": [
-      "docs-fumadocs"
+      "docs-fumadocs",
+      "fumadocs",
+      "docs-hosting",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

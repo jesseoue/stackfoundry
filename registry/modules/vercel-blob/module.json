@@ -30,7 +30,8 @@
   ],
   "agents": {
     "skills": [
-      "vercel-blob"
+      "vercel-blob",
+      "vercel"
     ],
     "rules": [
       "validate-file-size",

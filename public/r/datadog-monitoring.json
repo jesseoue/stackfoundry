@@ -13,6 +13,11 @@
       "name": "datadog-monitoring",
       "target": ".agents/skills/datadog-monitoring/SKILL.md",
       "content": "---\nname: datadog-monitoring\ndescription: Maintain the Datadog Monitoring module installed by StackFoundry.\n---\n\n# Datadog Monitoring Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    },
+    {
+      "name": "datadog",
+      "target": ".agents/skills/datadog/SKILL.md",
+      "content": "---\nname: datadog\ndescription: Datadog monitoring guidance for installed observability modules.\n---\n\n# Datadog Guidance\n\n- Keep API/app keys server-only.\n- Document service, environment, and version tags.\n- Avoid logging secrets and private customer data.\n- Verify logs, traces, and monitors after deploy.\n"
     }
   ],
   "envVars": {},
@@ -23,7 +28,8 @@
     "status": "planned",
     "agents": {
       "skills": [
-        "datadog-monitoring"
+        "datadog-monitoring",
+        "datadog"
       ],
       "rules": [
         "document-invariants",

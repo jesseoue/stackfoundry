@@ -13,6 +13,16 @@
       "name": "model-router",
       "target": ".agents/skills/model-router/SKILL.md",
       "content": "---\nname: model-router\ndescription: Maintain the Model Router module installed by StackFoundry.\n---\n\n# Model Router Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    },
+    {
+      "name": "ai-sdk",
+      "target": ".agents/skills/ai-sdk/SKILL.md",
+      "content": "---\nname: ai-sdk\ndescription: AI SDK guidance for installed AI modules.\n---\n\n# Ai Sdk Guidance\n\n- Keep provider keys server-only.\n- Stream responses deliberately and handle tool errors.\n- Validate tool inputs and outputs.\n- Document model ids, fallback behavior, and cost-sensitive paths.\n"
+    },
+    {
+      "name": "ai-gateway",
+      "target": ".agents/skills/ai-gateway/SKILL.md",
+      "content": "---\nname: ai-gateway\ndescription: AI Gateway guidance for installed model routing modules.\n---\n\n# Ai Gateway Guidance\n\n- Document model routing and provider fallback rules.\n- Keep gateway and provider credentials server-only.\n- Track cost-sensitive calls.\n- Verify fallback and error handling paths.\n"
     }
   ],
   "envVars": {},
@@ -23,7 +33,9 @@
     "status": "planned",
     "agents": {
       "skills": [
-        "model-router"
+        "model-router",
+        "ai-sdk",
+        "ai-gateway"
       ],
       "rules": [
         "document-invariants",

@@ -30,7 +30,8 @@
   ],
   "agents": {
     "skills": [
-      "unkey-rate-limits"
+      "unkey-rate-limits",
+      "unkey"
     ],
     "rules": [
       "namespace-limits",

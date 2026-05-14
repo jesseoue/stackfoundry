@@ -36,7 +36,8 @@
   ],
   "agents": {
     "skills": [
-      "resend-email"
+      "resend-email",
+      "resend"
     ],
     "rules": [
       "verify-sender-domain",

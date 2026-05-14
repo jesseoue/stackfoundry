@@ -2,6 +2,8 @@
 
 Provider-neutral customer, plan, and subscription primitives.
 
+This is the default source-owned billing foundation. Use provider adapters such as `stripe-billing`, `autumn-billing`, or `autumn-entitlements` only when the app chooses those providers.
+
 ## Owns
 
 - `packages/db/src/schema/billing-core.ts`

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "one-time-purchases",
+  "type": "registry:block",
+  "title": "One-Time Purchases",
+  "description": "One-off payments, order records, add-ons, lifetime deals, and fulfillment tracking.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/billing-core.json"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/one-time-purchases.ts",
+      "type": "registry:file",
+      "target": "packages/db/src/schema/one-time-purchases.ts",
+      "content": "import { index, integer, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const oneTimePurchases = pgTable(\n  \"one_time_purchases\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    ownerId: text(\"owner_id\"),\n    organizationId: text(\"organization_id\"),\n    provider: text(\"provider\").notNull(),\n    providerOrderId: text(\"provider_order_id\").notNull(),\n    productKey: text(\"product_key\").notNull(),\n    amount: integer(\"amount\").notNull(),\n    currency: text(\"currency\").notNull(),\n    status: text(\"status\").notNull().default(\"pending\"),\n    fulfillmentStatus: text(\"fulfillment_status\").notNull().default(\"pending\"),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n    updatedAt: timestamp(\"updated_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (item) => [\n    index(\"one_time_purchases_provider_order_idx\").on(item.provider, item.providerOrderId),\n    index(\"one_time_purchases_owner_idx\").on(item.ownerId),\n    index(\"one_time_purchases_organization_idx\").on(item.organizationId),\n  ]\n);\n"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/one-time-purchases.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/one-time-purchases.ts",
+      "content": "export type OneTimePurchase = {\n  provider: string;\n  providerOrderId: string;\n  productKey: string;\n  amount: number;\n  currency: string;\n  status?: \"pending\" | \"paid\" | \"failed\" | \"refunded\" | \"disputed\";\n  fulfillmentStatus?: \"pending\" | \"fulfilled\" | \"failed\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createOneTimePurchase(purchase: OneTimePurchase) {\n  if (!Number.isInteger(purchase.amount) || purchase.amount < 0) {\n    throw new Error(\"Purchase amount must be a non-negative integer in the smallest currency unit.\");\n  }\n\n  return {\n    ...purchase,\n    status: purchase.status ?? \"pending\",\n    fulfillmentStatus: purchase.fulfillmentStatus ?? \"pending\",\n    metadata: purchase.metadata ?? {},\n  };\n}\n\nexport function canFulfillPurchase(purchase: OneTimePurchase) {\n  return purchase.status === \"paid\" && (purchase.fulfillmentStatus ?? \"pending\") === \"pending\";\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/purchases/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/billing/purchases/page.tsx",
+      "content": "const checklist = [\n  \"Create orders server-side before redirecting to checkout.\",\n  \"Mark orders paid from verified provider events.\",\n  \"Fulfill each paid order once.\",\n  \"Link refunds and disputes back to the original order.\",\n];\n\nexport default function OneTimePurchasesPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">One-Time Purchases</h1>\n        <p className=\"text-muted-foreground\">One-off payments, add-ons, lifetime deals, and fulfillment tracking.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "one-time-purchases",
+      "target": ".agents/skills/one-time-purchases/SKILL.md",
+      "content": "---\nname: one-time-purchases\ndescription: Maintain the One-Time Purchases module installed by StackFoundry.\n---\n\n# One-Time Purchases Skill\n\n## Purpose\n\nUse this module for add-ons, credit packs, lifetime deals, and other one-off payment records.\n\n## Safety Rules\n\n- Fulfill only after a verified provider event, not after a redirect.\n- Preserve provider, provider order id, amount, currency, product key, and fulfillment status.\n- Make fulfillment idempotent and safe to retry.\n- Keep refunds and disputes tied back to the original order record.\n\n## Change Checklist\n\n- Update `module.json`, `docs.md`, and `tests/checklist.md` when file targets or invariants change.\n- Test completed, failed, refunded, disputed, and already-fulfilled paths.\n- Run `pnpm registry:doctor` and a module install dry-run before handoff.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# One-Time Purchases\n\nOne-off payments, order records, add-ons, lifetime deals, and fulfillment tracking.\n\n## Owns\n\n- `packages/db/src/schema/one-time-purchases.ts`\n- `apps/web/src/lib/stackfoundry/one-time-purchases.ts`\n- `apps/web/src/app/(console)/billing/purchases/page.tsx`\n\n## Dependencies\n\n- `registry:billing-core`\n\n## Invariants\n\n- Fulfillment must happen once per paid order.\n- Payment provider event ids should be stored and deduped by the billing provider module.\n- Orders should preserve amount, currency, provider, provider object id, and fulfillment status.\n- Refund/dispute modules should reference order records instead of inventing separate commerce state.\n- Do not treat checkout redirects as proof of payment.\n\n## Verification\n\n- Run `pnpm registry:doctor` after editing the module.\n- Run `pnpm cli add one-time-purchases --target /tmp/stackfoundry-one-time-purchases --dry-run`.\n- Test checkout completed, payment failed, refunded, and already-fulfilled paths before marking stable.\n",
+  "meta": {
+    "category": "billing",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "one-time-purchases"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "fulfill-once"
+      ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "oneTimePurchases"
+      ],
+      "migrationRecommended": true
+    }
+  }
+}

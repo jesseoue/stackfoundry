@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "cloudflare-tunnel"
+      "cloudflare-tunnel",
+      "cloudflare"
     ],
     "rules": [
       "document-invariants",

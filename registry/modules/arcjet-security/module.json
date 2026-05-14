@@ -30,7 +30,9 @@
   ],
   "agents": {
     "skills": [
-      "arcjet-security"
+      "arcjet-security",
+      "arcjet",
+      "nextjs"
     ],
     "rules": [
       "protect-expensive-routes",

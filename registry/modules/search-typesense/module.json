@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "search-typesense"
+      "search-typesense",
+      "typesense"
     ],
     "rules": [
       "document-invariants",

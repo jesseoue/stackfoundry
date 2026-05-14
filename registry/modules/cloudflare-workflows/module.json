@@ -24,7 +24,8 @@
   ],
   "agents": {
     "skills": [
-      "cloudflare-workflows"
+      "cloudflare-workflows",
+      "cloudflare"
     ],
     "rules": [
       "keep-steps-idempotent",

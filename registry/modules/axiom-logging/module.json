@@ -29,7 +29,8 @@
   ],
   "agents": {
     "skills": [
-      "axiom-logging"
+      "axiom-logging",
+      "axiom"
     ],
     "rules": [
       "use-structured-events",

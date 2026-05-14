@@ -32,7 +32,8 @@
   ],
   "agents": {
     "skills": [
-      "github-integration"
+      "github-integration",
+      "github"
     ],
     "rules": [
       "verify-webhook-signatures",

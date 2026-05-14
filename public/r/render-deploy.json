@@ -13,6 +13,11 @@
       "name": "render-deploy",
       "target": ".agents/skills/render-deploy/SKILL.md",
       "content": "---\nname: render-deploy\ndescription: Maintain the Render Deploy module installed by StackFoundry.\n---\n\n# Render Deploy Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    },
+    {
+      "name": "render",
+      "target": ".agents/skills/render/SKILL.md",
+      "content": "---\nname: render\ndescription: Render deployment guidance for installed deploy modules.\n---\n\n# Render Guidance\n\n- Document services, env groups, and build/start commands.\n- Keep API keys out of source.\n- Verify health checks and deploy logs.\n- Record production URL and rollback notes.\n"
     }
   ],
   "envVars": {},
@@ -23,7 +28,8 @@
     "status": "planned",
     "agents": {
       "skills": [
-        "render-deploy"
+        "render-deploy",
+        "render"
       ],
       "rules": [
         "document-invariants",

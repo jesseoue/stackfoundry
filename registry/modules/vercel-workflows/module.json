@@ -28,7 +28,8 @@
   ],
   "agents": {
     "skills": [
-      "vercel-workflows"
+      "vercel-workflows",
+      "vercel"
     ],
     "rules": [
       "use-workflow-directive",

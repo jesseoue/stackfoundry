@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "convex-integration"
+      "convex-integration",
+      "convex"
     ],
     "rules": [
       "document-invariants",

@@ -65,15 +65,15 @@
     "registry",
     "source-registry",
     "registry-blocks",
+    "editable-source",
+    "modules",
     "cli",
-    "ai-sdk",
     "stripe",
     "clerk",
     "vercel",
     "open-source",
     "developer-tools",
     "saas-modules",
-    "starter-kit",
     "fullstack"
   ],
   "author": {

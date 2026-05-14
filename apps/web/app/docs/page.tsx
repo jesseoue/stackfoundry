@@ -3,187 +3,565 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Docs",
   description:
-    "Quick start, registry model, modules, presets, and provider adapters for StackFoundry.",
+    "Install production SaaS modules as editable source code with StackFoundry's registry, CLI, presets, and provider adapters.",
   alternates: {
     canonical: "/docs",
   },
 };
 
-const registrySections = [
-  ["Foundation", "Next.js shell, theme, env, quality gates"],
-  ["Database", "Drizzle, Postgres, migrations, relations"],
-  ["Billing", "Stripe, subscriptions, entitlements, usage"],
-  ["API Product", "API keys, public API, webhooks, docs"],
-  ["Operations", "Audit logs, jobs, incidents, health"],
-  ["Providers", "Vercel, Cloudflare, Neon, Supabase, Upstash"],
+const quickStart = [
+  "git clone https://github.com/jesseoue/stackfoundry.git",
+  "cd stackfoundry",
+  "corepack enable && pnpm install",
+  "pnpm registry:doctor",
+  "pnpm cli list",
+  "pnpm cli add api-keys --target ./my-app --dry-run",
 ];
 
-const quickStart = [
-  "pnpm create stackfoundry my-app",
-  "cd my-app",
-  "pnpm dlx stackfoundry add drizzle-postgres",
-  "pnpm dlx stackfoundry add api-keys",
-  "pnpm dlx stackfoundry add stripe-billing",
+const existingAppSteps = [
+  [
+    "Dry-run first",
+    "Preview every file, env note, package dependency, registry dependency, and skill before anything touches your app.",
+  ],
+  [
+    "Install the source",
+    "Run the same command without --dry-run after the diff looks right. Modules land as editable files in normal app paths.",
+  ],
+  [
+    "Review dependencies",
+    "Registry dependencies such as drizzle-postgres install first, while provider adapters remain explicit choices.",
+  ],
+  [
+    "Wire env and migrations",
+    "Copy env notes into your real secrets store, run your migration workflow, and commit only the source you accept.",
+  ],
 ];
+
+const pathCards = [
+  {
+    title: "Billing: source-owned core",
+    eyebrow: "default path",
+    body: "Start with billing-core, entitlements, usage-metering, plan-gating, and stripe-billing when you want subscription primitives, schema, webhook handling, and upgrade surfaces in your codebase.",
+    modules: ["billing-core", "stripe-billing", "entitlements", "usage-metering", "plan-gating"],
+  },
+  {
+    title: "Billing: provider adapters",
+    eyebrow: "optional adapters",
+    body: "Add Autumn, Paddle, Lemon Squeezy, or tax modules when the provider owns a slice of the billing workflow. They adapt around the same product concepts instead of becoming base dependencies.",
+    modules: [
+      "autumn-billing",
+      "autumn-entitlements",
+      "paddle-billing",
+      "lemon-squeezy-billing",
+      "tax-vat",
+    ],
+  },
+  {
+    title: "API keys: source-owned core",
+    eyebrow: "default path",
+    body: "Use api-keys for hashed storage, scopes, management UI, usage metadata, and a clear upgrade path to developer portal and public API modules.",
+    modules: ["api-keys", "api-docs", "public-api-orpc", "webhook-delivery", "api-usage-dashboard"],
+  },
+  {
+    title: "API keys: managed provider",
+    eyebrow: "optional adapters",
+    body: "Use Unkey modules when you want hosted key verification or hosted rate limits. They compose with the source-owned API product modules instead of replacing the registry model.",
+    modules: ["unkey-api-keys", "unkey-rate-limits", "rate-limits", "api-errors", "sdk-snippets"],
+  },
+];
+
+const moduleGroups = [
+  {
+    category: "Foundation",
+    summary: "Small base scaffolds and product shell pieces.",
+    modules: [
+      "next-saas",
+      "sidebar-shell",
+      "t3-env",
+      "theme-system",
+      "quality-tooling",
+      "playwright-e2e",
+      "seed-data",
+    ],
+  },
+  {
+    category: "Database",
+    summary: "Schema, migrations, relations, and hosted Postgres adapters.",
+    modules: [
+      "drizzle-postgres",
+      "drizzle-relations",
+      "drizzle-soft-delete",
+      "neon-postgres",
+      "supabase-postgres",
+      "cloudflare-d1",
+    ],
+  },
+  {
+    category: "Auth & tenancy",
+    summary: "Users, teams, permissions, tenant context, and enterprise controls.",
+    modules: [
+      "clerk-auth",
+      "orgs-rbac",
+      "permission-matrix",
+      "tenant-context",
+      "workspace-settings",
+      "enterprise-sso",
+      "scim-provisioning",
+      "custom-domains",
+    ],
+  },
+  {
+    category: "Billing",
+    summary: "Subscriptions, entitlements, usage, credits, and provider boundaries.",
+    modules: [
+      "billing-core",
+      "stripe-billing",
+      "autumn-billing",
+      "autumn-entitlements",
+      "credit-wallet",
+      "one-time-purchases",
+      "usage-metering",
+      "quota-enforcement",
+      "seat-management",
+    ],
+  },
+  {
+    category: "API product",
+    summary: "Developer-facing APIs, keys, webhooks, docs, and usage visibility.",
+    modules: [
+      "api-keys",
+      "unkey-api-keys",
+      "api-docs",
+      "public-api-orpc",
+      "webhook-inbox",
+      "webhook-delivery",
+      "api-errors",
+      "api-usage-dashboard",
+    ],
+  },
+  {
+    category: "Operations",
+    summary: "Runbooks, support, jobs, incidents, status, and auditability.",
+    modules: [
+      "audit-log",
+      "admin-console",
+      "background-jobs",
+      "support-console",
+      "system-health",
+      "incident-management",
+      "status-page",
+      "sentry-monitoring",
+    ],
+  },
+  {
+    category: "Analytics & growth",
+    summary: "Product analytics, flags, activation, retention, and marketing loops.",
+    modules: [
+      "posthog-analytics",
+      "feature-flags",
+      "experiments",
+      "activation-onboarding",
+      "cohort-retention",
+      "referral-loops",
+      "waitlist",
+      "pricing-page",
+    ],
+  },
+  {
+    category: "Providers & adapters",
+    summary: "Hosted services and deployment surfaces as explicit add-ons.",
+    modules: [
+      "resend-email",
+      "upstash-redis",
+      "vercel-blob",
+      "vercel-deploy",
+      "cloudflare-workers",
+      "cloudflare-r2",
+      "cloudflare-queues",
+      "arcjet-security",
+    ],
+  },
+  {
+    category: "Optional AI",
+    summary: "AI modules are categories in the registry, not the product identity.",
+    modules: [
+      "ai-chat",
+      "model-router",
+      "prompt-library",
+      "rag-starter",
+      "cloudflare-agents-sdk",
+      "cloudflare-mcp-server",
+      "cloudflare-vectorize",
+      "evals",
+    ],
+  },
+  {
+    category: "Docs & deployment",
+    summary: "Documentation sites, content systems, and deploy recipes.",
+    modules: [
+      "docs-fumadocs",
+      "docs-starlight",
+      "docs-help-center",
+      "cms-mdx",
+      "vercel-deploy",
+      "cloudflare-pages",
+      "railway-deploy",
+      "docker-compose-local",
+    ],
+  },
+];
+
+const manifestParts = [
+  [
+    "module.json",
+    "The install contract: name, category, status, files, npm dependencies, registry dependencies, env vars, and maintenance metadata.",
+  ],
+  [
+    "docs.md",
+    "Human docs for the installed capability: setup, concepts, provider notes, operating guidance, and links.",
+  ],
+  [
+    "files/",
+    "The editable source payload. These are app routes, components, helpers, schema slices, configs, and examples.",
+  ],
+  [
+    "skill/SKILL.md",
+    "Agent-facing guidance so future edits understand the module's boundaries, provider assumptions, and verification steps.",
+  ],
+  [
+    "tests/checklist.md",
+    "Focused checks for the maintainer to prove the module works after install, wiring, and local customization.",
+  ],
+];
+
+function Anchor({ id }: { id: string }) {
+  return (
+    <a aria-label={`Link to ${id}`} className="docs-anchor" href={`#${id}`}>
+      #
+    </a>
+  );
+}
+
+function CodeBlock({ label, children }: { label: string; children: string }) {
+  return (
+    <div className="docs-code">
+      <div className="code-head">
+        <span />
+        {label}
+        <em>copy</em>
+      </div>
+      <pre>{children}</pre>
+    </div>
+  );
+}
+
+function moduleHref(module: string) {
+  return `https://github.com/jesseoue/stackfoundry/tree/main/registry/modules/${module}`;
+}
 
 export default function DocsPage() {
   return (
-    <main className="page">
-      <nav className="nav" aria-label="Docs navigation">
-        <div className="container nav-inner">
-          <a className="brand" href="/" aria-label="stackfoundry home">
+    <main className="page docs-page">
+      <nav className="nav docs-nav" aria-label="Docs navigation">
+        <div className="docs-nav-inner">
+          <a className="brand" href="/" aria-label="StackFoundry home">
             <span className="mark" aria-hidden="true">
               <span />
               <span />
               <span />
             </span>
             <span className="wordmark">stackfoundry</span>
+            <span className="docs-brand-chip">Docs</span>
           </a>
-          <div className="nav-links">
-            <a href="/">Home</a>
-            <a href="#quick-start">Quick start</a>
-            <a href="#modules">Modules</a>
-            <a href="#authoring">Authoring</a>
+          <div className="docs-search" aria-hidden="true">
+            <span>Search docs, modules, CLI</span>
+            <kbd>⌘</kbd>
+            <kbd>K</kbd>
           </div>
-          <a className="button" href="https://github.com/jesseoue/stackfoundry">
-            GitHub
-          </a>
+          <div className="docs-nav-links">
+            <a href="/registry.json">registry.json</a>
+            <a href="https://github.com/jesseoue/stackfoundry">GitHub</a>
+          </div>
         </div>
       </nav>
 
-      <div className="container">
-        <section className="docs-preview docs-page-shell">
-          <aside className="docs-sidebar" aria-label="Documentation sections">
-            <div className="docs-side-section">
-              <h4>Get started</h4>
-              <a className="active" href="#quick-start">
+      <div className="docs-layout">
+        <aside className="docs-sidebar" aria-label="Documentation sections">
+          <div className="docs-side-section">
+            <h4>Get started</h4>
+            <a className="active" href="#quick-start">
+              <span />
+              Quick start
+              <em>5min</em>
+            </a>
+            <a href="#install-existing">
+              <span />
+              Existing app
+            </a>
+            <a href="#choose-path">
+              <span />
+              Choose a path
+            </a>
+            <a href="#module-catalog">
+              <span />
+              Module catalog
+            </a>
+          </div>
+          <div className="docs-side-section">
+            <h4>
+              Registry <strong>160+</strong>
+            </h4>
+            {moduleGroups.slice(0, 7).map((group) => (
+              <a href="#module-catalog" key={group.category}>
                 <span />
-                Quick start
-                <em>5min</em>
+                {group.category}
               </a>
-              <a href="#install-existing">
-                <span />
-                Existing app
-              </a>
-              <a href="#project-layout">
-                <span />
-                Project layout
-              </a>
-            </div>
-            <div className="docs-side-section">
-              <h4>Registry</h4>
-              {registrySections.map(([name]) => (
-                <a href="#modules" key={name}>
-                  <span />
-                  {name}
-                </a>
-              ))}
-            </div>
-            <div className="docs-side-section">
-              <h4>Reference</h4>
-              <a href="#authoring">
-                <span />
-                module.json schema
-              </a>
-              <a href="#safety">
-                <span />
-                update safety
-              </a>
-            </div>
-          </aside>
+            ))}
+          </div>
+          <div className="docs-side-section">
+            <h4>Reference</h4>
+            <a href="#authoring">
+              <span />
+              Author modules
+            </a>
+            <a href="#safety">
+              <span />
+              Review safely
+            </a>
+            <a href="#next">
+              <span />
+              Next steps
+            </a>
+          </div>
+        </aside>
 
-          <article className="docs-content">
-            <div className="crumbs">
-              <a href="/">Home</a>
-              <span>/</span>
-              <span>Docs</span>
-              <span>/</span>
-              <strong>Quick start</strong>
-            </div>
+        <article className="docs-content">
+          <div className="crumbs">
+            <a href="/">Home</a>
+            <span>/</span>
+            <a href="/docs">Docs</a>
+            <span>/</span>
+            <strong>Quick start</strong>
+          </div>
 
-            <h1 className="doc-title">Build with modules.</h1>
+          <header className="docs-hero">
+            <p className="docs-kicker">Source registry for production SaaS modules</p>
+            <h1 className="doc-title">Install modules. Own the source.</h1>
             <p className="doc-lede">
-              StackFoundry installs production SaaS capabilities as editable source code. Each
-              module brings implementation files, dependency metadata, environment notes, docs, and
-              a verification checklist.
+              StackFoundry installs production SaaS modules as editable source code. The registry is
+              the product; presets are only bundles of modules you can inspect, dry-run, install,
+              and maintain in your own app.
             </p>
             <div className="doc-meta">
-              <span>source registry</span>
               <span>module-first</span>
-              <span>safe diff/update</span>
+              <span>provider adapters optional</span>
+              <span>diffable source</span>
+              <a href="https://github.com/jesseoue/stackfoundry">Edit on GitHub →</a>
             </div>
+          </header>
 
-            <h2 id="quick-start">1. Create a new app</h2>
+          <section className="docs-callout">
+            <strong>Core rule</strong>
             <p>
-              Start from a preset when you want the fastest path. Presets are just bundles of
-              modules, so they stay transparent and editable.
+              Base scaffolds stay small. Database, auth, billing, API product, operations,
+              analytics, deployment, and AI capabilities are installed as modules. Hosted providers
+              are adapters you choose deliberately, not hard dependencies hidden in a preset.
             </p>
-            <div className="docs-code">
-              <div className="code-head">
-                <span />
-                terminal
-              </div>
-              <pre>{quickStart.map((line) => `$ ${line}`).join("\n")}</pre>
-            </div>
+          </section>
 
-            <h2 id="install-existing">2. Add to an existing app</h2>
+          <section aria-labelledby="quick-start">
+            <h2 id="quick-start">
+              1. Try the registry locally <Anchor id="quick-start" />
+            </h2>
             <p>
-              Install a single capability into an existing codebase. StackFoundry resolves registry
-              dependencies first and records file hashes for future diffs.
+              Clone the repository, validate the manifests, list available modules, then dry-run a
+              module into a target app. Dry runs are the fastest way to understand what StackFoundry
+              will add before you accept any source changes.
             </p>
-            <div className="docs-code">
-              <div className="code-head">
-                <span />
-                terminal
-              </div>
-              <pre>{`$ pnpm dlx stackfoundry add stripe-billing
+            <CodeBlock label="terminal">
+              {quickStart.map((line) => `$ ${line}`).join("\n")}
+            </CodeBlock>
+          </section>
+
+          <section aria-labelledby="install-existing">
+            <h2 id="install-existing">
+              2. Add to an existing app <Anchor id="install-existing" />
+            </h2>
+            <p>
+              Existing apps should start with a dry run. The CLI resolves registry dependencies,
+              prints the proposed file changes, shows env notes, and leaves the review decision with
+              you. After install, the source is yours to edit like any other code.
+            </p>
+            <CodeBlock label="terminal">{`$ pnpm cli add stripe-billing --target ./my-app --dry-run
 · resolving registry dependency drizzle-postgres
+· reading registry/modules/stripe-billing/module.json
 + packages/db/src/schema/billing.ts
-+ apps/web/src/app/api/webhooks/stripe/route.ts
-+ .env.stackfoundry.stripe-billing.example`}</pre>
-            </div>
++ apps/web/app/api/webhooks/stripe/route.ts
++ apps/web/app/(dashboard)/billing/page.tsx
++ .agents/skills/stripe-billing/SKILL.md
++ tests/checklist.md
+! env notes: STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 
-            <h2 id="modules">3. Choose module families</h2>
-            <p>
-              The registry is organized around real SaaS systems, not arbitrary snippets. Provider
-              modules stay adapters around shared domain interfaces.
-            </p>
-            <div className="docs-grid">
-              {registrySections.map(([name, description]) => (
-                <div className="docs-card" key={name}>
-                  <h3>{name}</h3>
-                  <p>{description}</p>
+$ pnpm cli diff stripe-billing --target ./my-app
+$ pnpm cli add stripe-billing --target ./my-app`}</CodeBlock>
+            <div className="docs-steps">
+              {existingAppSteps.map(([title, body], index) => (
+                <div className="docs-step" key={title}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
                 </div>
               ))}
             </div>
+            <section className="docs-callout warn">
+              <strong>Review the source</strong>
+              <p>
+                A module can add routes, schema, dependencies, env documentation, tests/checklists,
+                and agent skills. Run your app's normal lint, typecheck, migration, and test flow
+                after install. Secrets belong in your environment manager, not in committed files.
+              </p>
+            </section>
+          </section>
 
-            <h2 id="authoring">4. Author modules with contracts</h2>
+          <section aria-labelledby="choose-path">
+            <h2 id="choose-path">
+              3. Choose a path <Anchor id="choose-path" />
+            </h2>
             <p>
-              A module manifest declares the contract for installable source: files, dependencies,
-              environment variables, registry dependencies, status, and maintenance metadata.
+              StackFoundry separates source-owned product primitives from provider adapters. That
+              lets a team start simple, add a hosted service when it helps, and still keep the
+              product logic reviewable.
             </p>
-            <div className="docs-code">
-              <div className="code-head">
-                <span />
-                registry/modules/api-keys/module.json
-              </div>
-              <pre>{`{
+            <div className="docs-path-grid">
+              {pathCards.map((card) => (
+                <div className="docs-path-card" key={card.title}>
+                  <p className="docs-card-eyebrow">{card.eyebrow}</p>
+                  <h3>{card.title}</h3>
+                  <p>{card.body}</p>
+                  <div className="docs-chip-row">
+                    {card.modules.map((module) => (
+                      <a href={moduleHref(module)} key={module}>
+                        {module}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section aria-labelledby="module-catalog">
+            <h2 id="module-catalog">
+              4. Module catalog <Anchor id="module-catalog" />
+            </h2>
+            <p>
+              The registry covers foundation, data, auth and tenancy, billing, API product,
+              operations, growth, provider adapters, optional AI, docs, and deployment. The examples
+              below are representative modules, grouped by what they help a SaaS product ship.
+            </p>
+            <div className="docs-catalog-grid">
+              {moduleGroups.map((group) => (
+                <section className="docs-catalog-card" key={group.category}>
+                  <h3>{group.category}</h3>
+                  <p>{group.summary}</p>
+                  <div className="docs-chip-row">
+                    {group.modules.map((module) => (
+                      <a href={moduleHref(module)} key={module}>
+                        {module}
+                      </a>
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          </section>
+
+          <section aria-labelledby="authoring">
+            <h2 id="authoring">
+              5. Author modules with contracts <Anchor id="authoring" />
+            </h2>
+            <p>
+              Every module is more than a code snippet. It ships the implementation, the install
+              contract, human documentation, agent guidance, and verification notes needed to keep
+              it maintainable after it lands in a real app.
+            </p>
+            <CodeBlock label="registry/modules/api-keys/module.json">{`{
   "name": "api-keys",
   "type": "module",
   "category": "developer-platform",
+  "status": "experimental",
   "registryDependencies": ["drizzle-postgres"],
-  "status": "experimental"
-}`}</pre>
+  "dependencies": {
+    "nanoid": "^5.0.0"
+  },
+  "env": [
+    "API_KEY_PEPPER"
+  ],
+  "files": [
+    {
+      "source": "files/packages/db/src/schema/api-keys.ts",
+      "target": "packages/db/src/schema/api-keys.ts"
+    }
+  ]
+}`}</CodeBlock>
+            <div className="docs-manifest-grid">
+              {manifestParts.map(([name, body]) => (
+                <div className="docs-manifest-card" key={name}>
+                  <h3>{name}</h3>
+                  <p>{body}</p>
+                </div>
+              ))}
             </div>
+          </section>
 
-            <h2 id="safety">5. Review and update safely</h2>
+          <section aria-labelledby="safety">
+            <h2 id="safety">
+              6. Review and update safely <Anchor id="safety" />
+            </h2>
             <p>
-              StackFoundry records installed file hashes and refuses to overwrite changed files
-              without explicit `--force`. The goal is to make generated source reviewable like any
-              other app code.
+              StackFoundry is designed for normal code review. Install commands should be paired
+              with diffs, env review, migration review, and focused verification. Provider modules
+              document their required keys and webhook setup, but they should never introduce
+              committed secrets or lock a base preset to a vendor.
             </p>
-          </article>
-        </section>
+            <div className="docs-checklist">
+              <span>Read the manifest and docs before install.</span>
+              <span>Run with --dry-run, then inspect the proposed files.</span>
+              <span>Install registry dependencies intentionally.</span>
+              <span>Copy env notes into your secret manager.</span>
+              <span>Run migrations yourself after reviewing schema slices.</span>
+              <span>Use tests/checklist.md as the module acceptance checklist.</span>
+            </div>
+          </section>
+
+          <section aria-labelledby="next" className="docs-pager" id="next">
+            <a href="/registry.json">
+              <span>Reference</span>
+              <strong>Open registry.json</strong>
+            </a>
+            <a href="https://github.com/jesseoue/stackfoundry">
+              <span>Source</span>
+              <strong>View on GitHub</strong>
+            </a>
+          </section>
+        </article>
+
+        <aside className="docs-toc" aria-label="On this page">
+          <h5>On this page</h5>
+          <a className="active" href="#quick-start">
+            Try locally
+          </a>
+          <a href="#install-existing">Existing app</a>
+          <a href="#choose-path">Choose a path</a>
+          <a href="#module-catalog">Module catalog</a>
+          <a href="#authoring">Authoring</a>
+          <a href="#safety">Safety</a>
+          <div className="docs-toc-meta">
+            <span>Registry-first</span>
+            <span>160+ modules</span>
+            <a href="https://github.com/jesseoue/stackfoundry">GitHub →</a>
+          </div>
+        </aside>
       </div>
     </main>
   );

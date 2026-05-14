@@ -13,6 +13,16 @@
       "name": "auth-authjs",
       "target": ".agents/skills/auth-authjs/SKILL.md",
       "content": "---\nname: auth-authjs\ndescription: Maintain the Auth.js module installed by StackFoundry.\n---\n\n# Auth.js Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    },
+    {
+      "name": "authjs",
+      "target": ".agents/skills/authjs/SKILL.md",
+      "content": "---\nname: authjs\ndescription: Auth.js guidance for installed auth modules.\n---\n\n# Authjs Guidance\n\n- Keep auth configuration server-only.\n- Use provider callbacks deliberately and document session shape.\n- Do not expose OAuth client secrets to client code.\n- Verify protected routes and sign-out behavior.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".agents/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
     }
   ],
   "envVars": {},
@@ -23,7 +33,9 @@
     "status": "planned",
     "agents": {
       "skills": [
-        "auth-authjs"
+        "auth-authjs",
+        "authjs",
+        "nextjs"
       ],
       "rules": [
         "document-invariants",

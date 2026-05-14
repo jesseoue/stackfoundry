@@ -13,6 +13,11 @@
       "name": "lemon-squeezy-billing",
       "target": ".agents/skills/lemon-squeezy-billing/SKILL.md",
       "content": "---\nname: lemon-squeezy-billing\ndescription: Maintain the Lemon Squeezy Billing module installed by StackFoundry.\n---\n\n# Lemon Squeezy Billing Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    },
+    {
+      "name": "lemon-squeezy",
+      "target": ".agents/skills/lemon-squeezy/SKILL.md",
+      "content": "---\nname: lemon-squeezy\ndescription: Lemon Squeezy billing guidance for installed billing modules.\n---\n\n# Lemon Squeezy Guidance\n\n- Verify webhook signatures.\n- Keep store, product, variant, and license ids server-owned.\n- Document checkout and license behavior.\n- Test purchase, subscription, refund, and cancellation flows.\n"
     }
   ],
   "envVars": {},
@@ -23,7 +28,8 @@
     "status": "planned",
     "agents": {
       "skills": [
-        "lemon-squeezy-billing"
+        "lemon-squeezy-billing",
+        "lemon-squeezy"
       ],
       "rules": [
         "document-invariants",

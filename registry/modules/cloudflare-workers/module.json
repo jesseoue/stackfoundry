@@ -29,7 +29,8 @@
   ],
   "agents": {
     "skills": [
-      "cloudflare-workers"
+      "cloudflare-workers",
+      "cloudflare"
     ],
     "rules": [
       "no-floating-promises",

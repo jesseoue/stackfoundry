@@ -24,7 +24,8 @@
   ],
   "agents": {
     "skills": [
-      "cloudflare-kv"
+      "cloudflare-kv",
+      "cloudflare"
     ],
     "rules": [
       "avoid-high-write-counters",

@@ -30,7 +30,9 @@
   ],
   "agents": {
     "skills": [
-      "neon-postgres"
+      "neon-postgres",
+      "neon",
+      "drizzle"
     ],
     "rules": [
       "separate-preview-branches",

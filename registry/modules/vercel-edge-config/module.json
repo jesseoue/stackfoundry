@@ -30,7 +30,8 @@
   ],
   "agents": {
     "skills": [
-      "vercel-edge-config"
+      "vercel-edge-config",
+      "vercel"
     ],
     "rules": [
       "read-only-at-runtime",

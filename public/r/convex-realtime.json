@@ -13,6 +13,11 @@
       "name": "convex-realtime",
       "target": ".agents/skills/convex-realtime/SKILL.md",
       "content": "---\nname: convex-realtime\ndescription: Maintain the Convex Realtime module installed by StackFoundry.\n---\n\n# Convex Realtime Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    },
+    {
+      "name": "convex",
+      "target": ".agents/skills/convex/SKILL.md",
+      "content": "---\nname: convex\ndescription: Convex backend guidance for installed realtime/backend modules.\n---\n\n# Convex Guidance\n\n- Keep Convex env and deployment ownership documented.\n- Use generated types after schema/function changes.\n- Document optimistic update and realtime assumptions.\n- Verify deployed functions before wiring UI.\n"
     }
   ],
   "envVars": {},
@@ -23,7 +28,8 @@
     "status": "planned",
     "agents": {
       "skills": [
-        "convex-realtime"
+        "convex-realtime",
+        "convex"
       ],
       "rules": [
         "document-invariants",

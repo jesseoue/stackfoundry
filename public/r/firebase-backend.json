@@ -13,6 +13,11 @@
       "name": "firebase-backend",
       "target": ".agents/skills/firebase-backend/SKILL.md",
       "content": "---\nname: firebase-backend\ndescription: Maintain the Firebase Backend module installed by StackFoundry.\n---\n\n# Firebase Backend Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    },
+    {
+      "name": "firebase",
+      "target": ".agents/skills/firebase/SKILL.md",
+      "content": "---\nname: firebase\ndescription: Firebase guidance for installed backend modules.\n---\n\n# Firebase Guidance\n\n- Keep service account credentials server-only.\n- Document project, emulator, and production setup.\n- Verify security rules before production.\n- Separate client config from admin credentials.\n"
     }
   ],
   "envVars": {},
@@ -23,7 +28,8 @@
     "status": "planned",
     "agents": {
       "skills": [
-        "firebase-backend"
+        "firebase-backend",
+        "firebase"
       ],
       "rules": [
         "document-invariants",

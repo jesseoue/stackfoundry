@@ -13,6 +13,11 @@
       "name": "cms-sanity",
       "target": ".agents/skills/cms-sanity/SKILL.md",
       "content": "---\nname: cms-sanity\ndescription: Maintain the Sanity CMS module installed by StackFoundry.\n---\n\n# Sanity CMS Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    },
+    {
+      "name": "sanity",
+      "target": ".agents/skills/sanity/SKILL.md",
+      "content": "---\nname: sanity\ndescription: Sanity CMS guidance for installed content modules.\n---\n\n# Sanity Guidance\n\n- Keep write tokens server-only.\n- Document dataset, project id, and preview behavior.\n- Use typed queries or schema-generated types where possible.\n- Verify draft and published content paths.\n"
     }
   ],
   "envVars": {},
@@ -23,7 +28,8 @@
     "status": "planned",
     "agents": {
       "skills": [
-        "cms-sanity"
+        "cms-sanity",
+        "sanity"
       ],
       "rules": [
         "document-invariants",

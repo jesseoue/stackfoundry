@@ -42,7 +42,9 @@
   ],
   "agents": {
     "skills": [
-      "clerk-auth"
+      "clerk-auth",
+      "clerk",
+      "nextjs"
     ],
     "rules": [
       "verify-webhooks",

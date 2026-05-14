@@ -6,9 +6,9 @@ Install production SaaS modules as editable source code.
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![Status: Experimental](https://img.shields.io/badge/status-experimental-orange.svg)](./ROADMAP.md)
 
-StackFoundry is a source registry for production SaaS systems. It publishes installable blocks for auth, billing, API keys, webhooks, analytics, data, operations, vendor integrations, AI features, docs, tests, and deployment workflows.
+StackFoundry is a source registry for production SaaS systems. It publishes installable modules for common product capabilities, provider adapters, docs, tests, and deployment workflows.
 
-Every block includes the source files and operating context needed to maintain it:
+Every module is expected to include the source files and operating context needed to maintain it:
 
 - implementation files
 - package dependency metadata
@@ -35,7 +35,7 @@ The registry publishes JSON-described source blocks with dependencies, file cont
 - GitHub: [github.com/jesseoue/stackfoundry](https://github.com/jesseoue/stackfoundry)
 - Issues: [github.com/jesseoue/stackfoundry/issues](https://github.com/jesseoue/stackfoundry/issues)
 
-## Install Blocks
+## Install Modules
 
 From this repository, use the StackFoundry CLI when you want install metadata and future diff safety:
 
@@ -45,7 +45,7 @@ pnpm cli add preset next-saas --target ./my-app
 pnpm cli diff api-keys --target ./my-app
 ```
 
-The CLI can also install generated registry block JSON:
+The CLI can also install generated public registry JSON:
 
 ```bash
 pnpm cli add https://stackfoundry.dev/r/api-keys.json --target ./my-app
@@ -55,7 +55,7 @@ pnpm cli diff https://stackfoundry.dev/r/api-keys.json --target ./my-app
 
 ## What Is In The Registry
 
-StackFoundry includes 160+ module definitions across:
+StackFoundry includes 160+ module definitions. The first production modules are `drizzle-postgres`, `api-keys`, and `stripe-billing`; the broader registry is organized across:
 
 - foundation: Next.js, app shell, quality tooling, env validation
 - data: Drizzle, Postgres, relations, soft delete, audit schemas
@@ -64,8 +64,8 @@ StackFoundry includes 160+ module definitions across:
 - developer platform: API keys, public API, webhooks, docs, SDK snippets, developer portal
 - operations: admin console, support console, system health, incidents, backups, maintenance mode
 - growth and analytics: PostHog, lifecycle email, surveys, cohorts, AARRR dashboards
-- vendor examples: Vercel, Neon, Supabase, Upstash, Resend, Sentry, Axiom, Unkey, Cloudflare, Trigger.dev, Inngest
-- optional AI: chat, artifacts, model routing, tools, RAG, prompts, evals
+- provider adapters and examples: Vercel, Neon, Supabase, Upstash, Resend, Sentry, Axiom, Unkey, Cloudflare, Trigger.dev, Inngest
+- optional AI modules: chat, artifacts, model routing, tools, RAG, prompts, evals
 
 ## Presets
 

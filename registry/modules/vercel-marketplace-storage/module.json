@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "vercel-marketplace-storage"
+      "vercel-marketplace-storage",
+      "vercel"
     ],
     "rules": [
       "document-invariants",

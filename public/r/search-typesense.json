@@ -13,6 +13,11 @@
       "name": "search-typesense",
       "target": ".agents/skills/search-typesense/SKILL.md",
       "content": "---\nname: search-typesense\ndescription: Maintain the Typesense module installed by StackFoundry.\n---\n\n# Typesense Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    },
+    {
+      "name": "typesense",
+      "target": ".agents/skills/typesense/SKILL.md",
+      "content": "---\nname: typesense\ndescription: Typesense guidance for installed search modules.\n---\n\n# Typesense Guidance\n\n- Keep admin keys server-only.\n- Document collection schema and searchable fields.\n- Use search-only keys on the client.\n- Verify collection migration and reindex paths.\n"
     }
   ],
   "envVars": {},
@@ -23,7 +28,8 @@
     "status": "planned",
     "agents": {
       "skills": [
-        "search-typesense"
+        "search-typesense",
+        "typesense"
       ],
       "rules": [
         "document-invariants",

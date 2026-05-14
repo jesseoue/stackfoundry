@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "search-algolia"
+      "search-algolia",
+      "algolia"
     ],
     "rules": [
       "document-invariants",

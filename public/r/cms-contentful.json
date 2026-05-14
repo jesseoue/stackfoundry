@@ -13,6 +13,11 @@
       "name": "cms-contentful",
       "target": ".agents/skills/cms-contentful/SKILL.md",
       "content": "---\nname: cms-contentful\ndescription: Maintain the Contentful CMS module installed by StackFoundry.\n---\n\n# Contentful CMS Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    },
+    {
+      "name": "contentful",
+      "target": ".agents/skills/contentful/SKILL.md",
+      "content": "---\nname: contentful\ndescription: Contentful CMS guidance for installed content modules.\n---\n\n# Contentful Guidance\n\n- Keep management tokens server-only.\n- Document content model ids and preview behavior.\n- Separate preview from production delivery tokens.\n- Verify fallback behavior when content is missing.\n"
     }
   ],
   "envVars": {},
@@ -23,7 +28,8 @@
     "status": "planned",
     "agents": {
       "skills": [
-        "cms-contentful"
+        "cms-contentful",
+        "contentful"
       ],
       "rules": [
         "document-invariants",

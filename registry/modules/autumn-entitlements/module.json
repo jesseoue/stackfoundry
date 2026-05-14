@@ -3,20 +3,39 @@
   "type": "integration",
   "category": "billing",
   "title": "Autumn Entitlements",
-  "description": "Autumn check API, boolean and metered features, credit ledgers, and plan gates.",
-  "dependencies": [],
+  "description": "Autumn entitlement adapter for feature checks, metered usage, check-and-consume, and upgrade context.",
+  "dependencies": [
+    "autumn-js"
+  ],
   "devDependencies": [],
-  "registryDependencies": [],
-  "env": [],
-  "files": [],
+  "registryDependencies": [
+    "entitlements",
+    "plan-gating"
+  ],
+  "env": [
+    "AUTUMN_SECRET_KEY"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/autumn/entitlements.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/autumn-entitlements/page.tsx",
+      "type": "registry:page"
+    }
+  ],
   "agents": {
     "skills": [
-      "autumn-entitlements"
+      "autumn-entitlements",
+      "autumn"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "keep-provider-boundary",
+      "check-before-consuming",
+      "use-idempotency-keys",
+      "preserve-local-plan-gates"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

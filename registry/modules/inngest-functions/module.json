@@ -35,7 +35,9 @@
   ],
   "agents": {
     "skills": [
-      "inngest-functions"
+      "inngest-functions",
+      "inngest",
+      "nextjs"
     ],
     "rules": [
       "verify-signing-key",

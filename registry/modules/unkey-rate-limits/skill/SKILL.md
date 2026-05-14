@@ -7,7 +7,7 @@ description: Maintain the Unkey Rate Limits vendor registry block installed by S
 
 ## Boundary
 
-This block owns the Unkey Rate Limits integration example only. Keep product-specific business logic outside the vendor adapter until the app has chosen this provider.
+This block owns the Unkey Rate Limits integration example only. Keep `rate-limits` as the source-owned default path and keep product-specific business logic outside the vendor adapter until the app has chosen this provider.
 
 ## Source Files
 
@@ -33,6 +33,7 @@ This block owns the Unkey Rate Limits integration example only. Keep product-spe
 ## Maintenance Rules
 
 - Keep SDK imports and examples aligned with current vendor docs.
+- Keep namespaces stable and return rate-limit headers from protected routes.
 - Keep secrets server-only and out of client components.
 - Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.
 - Prefer small provider adapters over coupling shared domain modules to one vendor.

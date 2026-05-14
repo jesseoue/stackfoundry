@@ -22,7 +22,7 @@
       "path": "apps/web/src/lib/unkey/api-keys.ts",
       "type": "registry:file",
       "target": "apps/web/src/lib/unkey/api-keys.ts",
-      "content": "import { unkey } from \"./client\";\n\nexport async function createUnkeyApiKey(ownerId: string) {\n  return unkey.keys.create({\n    apiId: process.env.UNKEY_API_ID!,\n    ownerId,\n    prefix: \"sf\",\n  });\n}\n\nexport async function verifyUnkeyApiKey(key: string) {\n  return unkey.keys.verify({ key });\n}\n"
+      "content": "import { unkey } from \"./client\";\n\nexport async function createUnkeyApiKey(ownerId: string) {\n  return unkey.keys.create({\n    apiId: process.env.UNKEY_API_ID!,\n    externalId: ownerId,\n    prefix: \"sf\",\n  });\n}\n\nexport async function verifyUnkeyApiKey(key: string) {\n  return unkey.keys.verifyKey({ key });\n}\n"
     },
     {
       "path": "apps/web/src/app/api/vendor/unkey/verify/route.ts",
@@ -41,14 +41,19 @@
     {
       "name": "unkey-api-keys",
       "target": ".agents/skills/unkey-api-keys/SKILL.md",
-      "content": "---\nname: unkey-api-keys\ndescription: Maintain the Unkey API Keys vendor registry block installed by StackFoundry.\n---\n\n# Unkey API Keys Skill\n\n## Boundary\n\nThis block owns the Unkey API Keys integration example only. Keep product-specific business logic outside the vendor adapter until the app has chosen this provider.\n\n## Source Files\n\n- `apps/web/src/lib/unkey/client.ts`\n- `apps/web/src/lib/unkey/api-keys.ts`\n- `apps/web/src/app/api/vendor/unkey/verify/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/unkey/page.tsx`\n\n## Dependencies\n\n- `@unkey/api`\n\n## Environment\n\n- `UNKEY_ROOT_KEY`\n- `UNKEY_API_ID`\n\n## Deployment Checks\n\n- Create the vendor project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current vendor docs.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one vendor.\n"
+      "content": "---\nname: unkey-api-keys\ndescription: Maintain the Unkey API Keys vendor registry block installed by StackFoundry.\n---\n\n# Unkey API Keys Skill\n\n## Boundary\n\nThis block owns the Unkey API Keys integration example only. Keep `api-keys` as the source-owned default path and keep product-specific business logic outside the vendor adapter until the app has chosen this provider.\n\n## Source Files\n\n- `apps/web/src/lib/unkey/client.ts`\n- `apps/web/src/lib/unkey/api-keys.ts`\n- `apps/web/src/app/api/vendor/unkey/verify/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/unkey/page.tsx`\n\n## Dependencies\n\n- `@unkey/api`\n\n## Environment\n\n- `UNKEY_ROOT_KEY`\n- `UNKEY_API_ID`\n\n## Deployment Checks\n\n- Create the vendor project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current vendor docs.\n- Use `verifyKey` for request-time checks and keep permission/role decisions on the server.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one vendor.\n"
+    },
+    {
+      "name": "unkey",
+      "target": ".agents/skills/unkey/SKILL.md",
+      "content": "---\nname: unkey\ndescription: Unkey guidance for installed API key and rate-limit modules.\n---\n\n# Unkey Guidance\n\n- Keep root keys server-only.\n- Hash or delegate secret storage; never log plaintext keys.\n- Document key scopes and rate-limit namespaces.\n- Verify revoke, rotate, and limit paths.\n"
     }
   ],
   "envVars": {
     "UNKEY_ROOT_KEY": "",
     "UNKEY_API_ID": ""
   },
-  "docs": "# Unkey API Keys Module\n\nUnkey key creation and verification helpers with protected route example.\n\n## Owns\n\n- `apps/web/src/lib/unkey/client.ts`\n- `apps/web/src/lib/unkey/api-keys.ts`\n- `apps/web/src/app/api/vendor/unkey/verify/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/unkey/page.tsx`\n\n## Dependencies\n\n- `@unkey/api`\n\n## Environment\n\n- `UNKEY_ROOT_KEY`\n- `UNKEY_API_ID`\n\n## Deployment Notes\n\n- Create the vendor project/resource before deploying.\n- Add the listed environment variables to preview and production.\n- Smoke-test the included route or helper after deploy.\n- Keep provider secrets out of client components and logs.\n\n## Maintenance\n\n- Keep this module focused on the vendor integration boundary.\n- Update source examples when vendor SDK APIs change.\n- Record production-specific retry, alerting, and rollback behavior before marking stable.\n",
+  "docs": "# Unkey API Keys Module\n\nOptional Unkey adapter for managed API key creation, verification, permissions, and metadata.\n\nUse the source-owned `api-keys` module when you want local hashed key storage by default. Add this module when you want Unkey to manage key issuance and verification behind a provider boundary.\n\n## Owns\n\n- `apps/web/src/lib/unkey/client.ts`\n- `apps/web/src/lib/unkey/api-keys.ts`\n- `apps/web/src/app/api/vendor/unkey/verify/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/unkey/page.tsx`\n\n## Dependencies\n\n- `@unkey/api`\n\n## Environment\n\n- `UNKEY_ROOT_KEY`\n- `UNKEY_API_ID`\n\n## Deployment Notes\n\n- Create the Unkey API and root key before deploying.\n- Add the listed environment variables to preview and production.\n- Smoke-test the included route or helper after deploy.\n- Keep provider secrets out of client components and logs.\n- The helper uses `create` for issuing keys and `verifyKey` for request-time verification. Keep permission and role checks server-side.\n- If you prefer framework middleware, Unkey also provides framework-specific wrappers such as `@unkey/nextjs`; keep that as an app choice rather than a hard dependency of this adapter.\n\n## Maintenance\n\n- Keep this module focused on the vendor integration boundary.\n- Update source examples when vendor SDK APIs change.\n- Preserve the source-owned `api-keys` module as the default path in base presets.\n- Record production-specific retry, alerting, and rollback behavior before marking stable.\n",
   "meta": {
     "category": "developer-platform",
     "env": [
@@ -58,7 +63,8 @@
     "status": "experimental",
     "agents": {
       "skills": [
-        "unkey-api-keys"
+        "unkey-api-keys",
+        "unkey"
       ],
       "rules": [
         "never-log-keys",

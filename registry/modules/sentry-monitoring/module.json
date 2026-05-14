@@ -35,7 +35,9 @@
   ],
   "agents": {
     "skills": [
-      "sentry-monitoring"
+      "sentry-monitoring",
+      "sentry",
+      "nextjs"
     ],
     "rules": [
       "upload-source-maps-in-ci",

@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "firebase-backend"
+      "firebase-backend",
+      "firebase"
     ],
     "rules": [
       "document-invariants",

@@ -3,31 +3,61 @@
   "name": "autumn-entitlements",
   "type": "registry:block",
   "title": "Autumn Entitlements",
-  "description": "Autumn check API, boolean and metered features, credit ledgers, and plan gates.",
-  "dependencies": [],
+  "description": "Autumn entitlement adapter for feature checks, metered usage, check-and-consume, and upgrade context.",
+  "dependencies": [
+    "autumn-js"
+  ],
   "devDependencies": [],
-  "registryDependencies": [],
-  "files": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/entitlements.json",
+    "https://stackfoundry.dev/r/plan-gating.json"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/autumn/entitlements.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/autumn/entitlements.ts",
+      "content": "import \"server-only\";\n\nimport { Autumn } from \"autumn-js\";\n\ntype CheckAutumnFeatureInput = {\n  customerId: string;\n  featureId: string;\n  requiredBalance?: number;\n  sendEvent?: boolean;\n};\n\ntype TrackAutumnUsageInput = {\n  customerId: string;\n  featureId: string;\n  value?: number;\n  idempotencyKey?: string;\n  properties?: Record<string, unknown>;\n};\n\nfunction getAutumn() {\n  return new Autumn({ secretKey: process.env.AUTUMN_SECRET_KEY! });\n}\n\nexport async function checkAutumnFeature(input: CheckAutumnFeatureInput) {\n  return getAutumn().check({\n    customerId: input.customerId,\n    featureId: input.featureId,\n    requiredBalance: input.requiredBalance,\n    sendEvent: input.sendEvent,\n  });\n}\n\nexport async function trackAutumnUsage(input: TrackAutumnUsageInput) {\n  return getAutumn().track({\n    customerId: input.customerId,\n    featureId: input.featureId,\n    value: input.value ?? 1,\n    idempotencyKey: input.idempotencyKey,\n    properties: input.properties,\n  });\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/autumn-entitlements/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/vendors/autumn-entitlements/page.tsx",
+      "content": "const deployChecks = [\n  \"Model boolean, metered, and credit features in Autumn before enforcing gates\",\n  \"Use check before work and track after successful work unless check-and-consume is intentional\",\n  \"Set AUTUMN_SECRET_KEY in preview and production environments\",\n  \"Keep local entitlement names mapped to Autumn feature ids\",\n];\n\nexport default function AutumnEntitlementsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Autumn Entitlements</h1>\n        <p className=\"text-muted-foreground\">\n          Optional Autumn adapter for feature checks, metered usage, credits, and upgrade context.\n        </p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
   "agentSkills": [
     {
       "name": "autumn-entitlements",
       "target": ".agents/skills/autumn-entitlements/SKILL.md",
-      "content": "---\nname: autumn-entitlements\ndescription: Maintain the Autumn Entitlements module installed by StackFoundry.\n---\n\n# Autumn Entitlements Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+      "content": "---\nname: autumn-entitlements\ndescription: Maintain the optional Autumn Entitlements adapter installed by StackFoundry.\n---\n\n# Autumn Entitlements Maintenance Instructions\n\n- Treat Autumn as an optional provider adapter. Keep `entitlements` and `plan-gating` as the source-owned default path.\n- Map local entitlement names to Autumn feature ids in one server-side boundary.\n- Use `check` before expensive work and `track` after successful work unless check-and-consume is explicitly required.\n- Include idempotency keys when tracking usage from retryable requests or jobs.\n- Test boolean features, metered features, exhausted included usage, overage-enabled usage, and denied upgrade prompts.\n- Do not introduce provider lock-in outside the adapter boundary.\n"
+    },
+    {
+      "name": "autumn",
+      "target": ".agents/skills/autumn/SKILL.md",
+      "content": "---\nname: autumn\ndescription: Autumn billing and entitlement guidance for installed modules.\n---\n\n# Autumn Guidance\n\n- Keep provider keys server-only.\n- Document entitlement names and metered features.\n- Verify checks before gating user actions.\n- Test plan changes, overages, and credit behavior.\n"
     }
   ],
-  "envVars": {},
-  "docs": "# Autumn Entitlements\n\nAutumn check API, boolean and metered features, credit ledgers, and plan gates.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "envVars": {
+    "AUTUMN_SECRET_KEY": ""
+  },
+  "docs": "# Autumn Entitlements\n\nOptional Autumn adapter for feature checks, metered usage, check-and-consume flows, credit balances, and upgrade context.\n\nAutumn should extend the source-owned entitlement and plan-gating modules. Keep local feature names, UI gates, and fallback behavior clear, then map them to Autumn feature ids when this provider is selected.\n\n## Owns\n\n- `apps/web/src/lib/autumn/entitlements.ts`\n- `apps/web/src/app/(console)/admin/vendors/autumn-entitlements/page.tsx`\n\n## Dependencies\n\n- `autumn-js`\n- `registry:entitlements`\n- `registry:plan-gating`\n\n## Environment\n\n- `AUTUMN_SECRET_KEY`\n\n## Provider Notes\n\n- `check` returns whether a customer can use a feature. It supports required balances for metered features.\n- Use `sendEvent` only when you intentionally want check-and-consume behavior in one operation.\n- Use `track` after successful work for usage events, and include idempotency keys on retryable operations.\n- Usage-based pricing can allow overages even after included usage is consumed, so gates should handle the returned upgrade or balance context explicitly.\n\n## Maintenance\n\n- Keep feature ids, plan gates, and upgrade copy documented together.\n- Test boolean features, metered features, exhausted balances, overage paths, and idempotent retries before marking stable.\n- Keep provider secrets server-only.\n",
   "meta": {
     "category": "billing",
-    "env": [],
-    "status": "planned",
+    "env": [
+      "AUTUMN_SECRET_KEY"
+    ],
+    "status": "experimental",
     "agents": {
       "skills": [
-        "autumn-entitlements"
+        "autumn-entitlements",
+        "autumn"
       ],
       "rules": [
-        "document-invariants",
-        "verify-before-release"
+        "keep-provider-boundary",
+        "check-before-consuming",
+        "use-idempotency-keys",
+        "preserve-local-plan-gates"
       ]
     }
   }

@@ -64,6 +64,47 @@
       }
     },
     {
+      "name": "account-modes",
+      "type": "registry:block",
+      "title": "Account Modes",
+      "description": "Personal, team, and hybrid account mode configuration for SaaS apps.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/drizzle-postgres.json",
+        "https://stackfoundry.dev/r/orgs-rbac.json",
+        "https://stackfoundry.dev/r/tenant-context.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/account-modes.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/account-modes.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/account-modes.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/account-modes.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/settings/account/modes/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/settings/account/modes/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "account-modes",
+          "target": ".agents/skills/account-modes/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "tenancy",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
       "name": "account-settings",
       "type": "registry:block",
       "title": "Account Settings",
@@ -184,6 +225,10 @@
         {
           "name": "ai-artifacts",
           "target": ".agents/skills/ai-artifacts/SKILL.md"
+        },
+        {
+          "name": "ai-sdk",
+          "target": ".agents/skills/ai-sdk/SKILL.md"
         }
       ],
       "meta": {
@@ -230,6 +275,10 @@
         {
           "name": "ai-chat",
           "target": ".agents/skills/ai-chat/SKILL.md"
+        },
+        {
+          "name": "ai-sdk",
+          "target": ".agents/skills/ai-sdk/SKILL.md"
         }
       ],
       "meta": {
@@ -254,6 +303,10 @@
         {
           "name": "ai-tools",
           "target": ".agents/skills/ai-tools/SKILL.md"
+        },
+        {
+          "name": "ai-sdk",
+          "target": ".agents/skills/ai-sdk/SKILL.md"
         }
       ],
       "meta": {
@@ -441,6 +494,14 @@
         {
           "name": "arcjet-security",
           "target": ".agents/skills/arcjet-security/SKILL.md"
+        },
+        {
+          "name": "arcjet",
+          "target": ".agents/skills/arcjet/SKILL.md"
+        },
+        {
+          "name": "nextjs",
+          "target": ".agents/skills/nextjs/SKILL.md"
         }
       ],
       "meta": {
@@ -503,6 +564,14 @@
         {
           "name": "auth-authjs",
           "target": ".agents/skills/auth-authjs/SKILL.md"
+        },
+        {
+          "name": "authjs",
+          "target": ".agents/skills/authjs/SKILL.md"
+        },
+        {
+          "name": "nextjs",
+          "target": ".agents/skills/nextjs/SKILL.md"
         }
       ],
       "meta": {
@@ -547,6 +616,14 @@
         {
           "name": "auth-better-auth",
           "target": ".agents/skills/auth-better-auth/SKILL.md"
+        },
+        {
+          "name": "better-auth",
+          "target": ".agents/skills/better-auth/SKILL.md"
+        },
+        {
+          "name": "nextjs",
+          "target": ".agents/skills/nextjs/SKILL.md"
         }
       ],
       "meta": {
@@ -562,42 +639,86 @@
       "name": "autumn-billing",
       "type": "registry:block",
       "title": "Autumn Billing",
-      "description": "Autumn + Stripe usage billing, overages, spend caps, and plan changes.",
-      "dependencies": [],
+      "description": "Autumn billing adapter for plan attach, checkout redirects, usage billing, and plan changes.",
+      "dependencies": [
+        "autumn-js"
+      ],
       "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/billing-core.json",
+        "https://stackfoundry.dev/r/usage-metering.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/autumn/billing.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/autumn/billing.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/vendors/autumn-billing/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/vendors/autumn-billing/page.tsx"
+        }
+      ],
       "agentSkills": [
         {
           "name": "autumn-billing",
           "target": ".agents/skills/autumn-billing/SKILL.md"
+        },
+        {
+          "name": "autumn",
+          "target": ".agents/skills/autumn/SKILL.md"
         }
       ],
       "meta": {
         "category": "billing",
-        "env": [],
-        "status": "planned"
+        "env": [
+          "AUTUMN_SECRET_KEY"
+        ],
+        "status": "experimental"
       }
     },
     {
       "name": "autumn-entitlements",
       "type": "registry:block",
       "title": "Autumn Entitlements",
-      "description": "Autumn check API, boolean and metered features, credit ledgers, and plan gates.",
-      "dependencies": [],
+      "description": "Autumn entitlement adapter for feature checks, metered usage, check-and-consume, and upgrade context.",
+      "dependencies": [
+        "autumn-js"
+      ],
       "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/entitlements.json",
+        "https://stackfoundry.dev/r/plan-gating.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/autumn/entitlements.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/autumn/entitlements.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/vendors/autumn-entitlements/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/vendors/autumn-entitlements/page.tsx"
+        }
+      ],
       "agentSkills": [
         {
           "name": "autumn-entitlements",
           "target": ".agents/skills/autumn-entitlements/SKILL.md"
+        },
+        {
+          "name": "autumn",
+          "target": ".agents/skills/autumn/SKILL.md"
         }
       ],
       "meta": {
         "category": "billing",
-        "env": [],
-        "status": "planned"
+        "env": [
+          "AUTUMN_SECRET_KEY"
+        ],
+        "status": "experimental"
       }
     },
     {
@@ -631,6 +752,10 @@
         {
           "name": "axiom-logging",
           "target": ".agents/skills/axiom-logging/SKILL.md"
+        },
+        {
+          "name": "axiom",
+          "target": ".agents/skills/axiom/SKILL.md"
         }
       ],
       "meta": {
@@ -950,6 +1075,14 @@
         {
           "name": "clerk-auth",
           "target": ".agents/skills/clerk-auth/SKILL.md"
+        },
+        {
+          "name": "clerk",
+          "target": ".agents/skills/clerk/SKILL.md"
+        },
+        {
+          "name": "nextjs",
+          "target": ".agents/skills/nextjs/SKILL.md"
         }
       ],
       "meta": {
@@ -975,6 +1108,10 @@
         {
           "name": "cloudflare-agents-sdk",
           "target": ".agents/skills/cloudflare-agents-sdk/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
         }
       ],
       "meta": {
@@ -1016,6 +1153,10 @@
         {
           "name": "cloudflare-d1",
           "target": ".agents/skills/cloudflare-d1/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
         }
       ],
       "meta": {
@@ -1037,6 +1178,10 @@
         {
           "name": "cloudflare-durable-objects",
           "target": ".agents/skills/cloudflare-durable-objects/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
         }
       ],
       "meta": {
@@ -1058,6 +1203,10 @@
         {
           "name": "cloudflare-hyperdrive",
           "target": ".agents/skills/cloudflare-hyperdrive/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
         }
       ],
       "meta": {
@@ -1094,6 +1243,10 @@
         {
           "name": "cloudflare-kv",
           "target": ".agents/skills/cloudflare-kv/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
         }
       ],
       "meta": {
@@ -1115,6 +1268,14 @@
         {
           "name": "cloudflare-mcp-server",
           "target": ".agents/skills/cloudflare-mcp-server/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
+        },
+        {
+          "name": "mcp",
+          "target": ".agents/skills/mcp/SKILL.md"
         }
       ],
       "meta": {
@@ -1136,6 +1297,10 @@
         {
           "name": "cloudflare-observability",
           "target": ".agents/skills/cloudflare-observability/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
         }
       ],
       "meta": {
@@ -1157,6 +1322,10 @@
         {
           "name": "cloudflare-pages",
           "target": ".agents/skills/cloudflare-pages/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
         }
       ],
       "meta": {
@@ -1178,6 +1347,10 @@
         {
           "name": "cloudflare-queues",
           "target": ".agents/skills/cloudflare-queues/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
         }
       ],
       "meta": {
@@ -1214,6 +1387,10 @@
         {
           "name": "cloudflare-r2",
           "target": ".agents/skills/cloudflare-r2/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
         }
       ],
       "meta": {
@@ -1235,6 +1412,10 @@
         {
           "name": "cloudflare-terraform",
           "target": ".agents/skills/cloudflare-terraform/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
         }
       ],
       "meta": {
@@ -1256,6 +1437,10 @@
         {
           "name": "cloudflare-tunnel",
           "target": ".agents/skills/cloudflare-tunnel/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
         }
       ],
       "meta": {
@@ -1277,6 +1462,10 @@
         {
           "name": "cloudflare-turnstile",
           "target": ".agents/skills/cloudflare-turnstile/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
         }
       ],
       "meta": {
@@ -1298,6 +1487,10 @@
         {
           "name": "cloudflare-vectorize",
           "target": ".agents/skills/cloudflare-vectorize/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
         }
       ],
       "meta": {
@@ -1337,6 +1530,10 @@
         {
           "name": "cloudflare-workers",
           "target": ".agents/skills/cloudflare-workers/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
         }
       ],
       "meta": {
@@ -1361,6 +1558,10 @@
         {
           "name": "cloudflare-workers-ai",
           "target": ".agents/skills/cloudflare-workers-ai/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
         }
       ],
       "meta": {
@@ -1397,6 +1598,10 @@
         {
           "name": "cloudflare-workflows",
           "target": ".agents/skills/cloudflare-workflows/SKILL.md"
+        },
+        {
+          "name": "cloudflare",
+          "target": ".agents/skills/cloudflare/SKILL.md"
         }
       ],
       "meta": {
@@ -1418,6 +1623,10 @@
         {
           "name": "cms-contentful",
           "target": ".agents/skills/cms-contentful/SKILL.md"
+        },
+        {
+          "name": "contentful",
+          "target": ".agents/skills/contentful/SKILL.md"
         }
       ],
       "meta": {
@@ -1460,6 +1669,10 @@
         {
           "name": "cms-sanity",
           "target": ".agents/skills/cms-sanity/SKILL.md"
+        },
+        {
+          "name": "sanity",
+          "target": ".agents/skills/sanity/SKILL.md"
         }
       ],
       "meta": {
@@ -1617,6 +1830,10 @@
         {
           "name": "convex-backend",
           "target": ".agents/skills/convex-backend/SKILL.md"
+        },
+        {
+          "name": "convex",
+          "target": ".agents/skills/convex/SKILL.md"
         }
       ],
       "meta": {
@@ -1638,6 +1855,10 @@
         {
           "name": "convex-integration",
           "target": ".agents/skills/convex-integration/SKILL.md"
+        },
+        {
+          "name": "convex",
+          "target": ".agents/skills/convex/SKILL.md"
         }
       ],
       "meta": {
@@ -1659,6 +1880,10 @@
         {
           "name": "convex-realtime",
           "target": ".agents/skills/convex-realtime/SKILL.md"
+        },
+        {
+          "name": "convex",
+          "target": ".agents/skills/convex/SKILL.md"
         }
       ],
       "meta": {
@@ -1769,6 +1994,46 @@
         {
           "name": "coupons-promotions",
           "target": ".agents/skills/coupons-promotions/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "credit-wallet",
+      "type": "registry:block",
+      "title": "Credit Wallet",
+      "description": "Prepaid credits, grant/consume ledger, low-balance checks, and AI or usage-based wallet flows.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/billing-core.json",
+        "https://stackfoundry.dev/r/usage-metering.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/credit-wallet.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/credit-wallet.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/credit-wallet.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/credit-wallet.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/credits/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/billing/credits/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "credit-wallet",
+          "target": ".agents/skills/credit-wallet/SKILL.md"
         }
       ],
       "meta": {
@@ -2036,6 +2301,10 @@
         {
           "name": "datadog-monitoring",
           "target": ".agents/skills/datadog-monitoring/SKILL.md"
+        },
+        {
+          "name": "datadog",
+          "target": ".agents/skills/datadog/SKILL.md"
         }
       ],
       "meta": {
@@ -2144,6 +2413,18 @@
         {
           "name": "docs-fumadocs",
           "target": ".agents/skills/docs-fumadocs/SKILL.md"
+        },
+        {
+          "name": "fumadocs",
+          "target": ".agents/skills/fumadocs/SKILL.md"
+        },
+        {
+          "name": "docs-hosting",
+          "target": ".agents/skills/docs-hosting/SKILL.md"
+        },
+        {
+          "name": "nextjs",
+          "target": ".agents/skills/nextjs/SKILL.md"
         }
       ],
       "meta": {
@@ -2252,6 +2533,10 @@
         {
           "name": "drizzle-audit-log",
           "target": ".agents/skills/drizzle-audit-log/SKILL.md"
+        },
+        {
+          "name": "drizzle",
+          "target": ".agents/skills/drizzle/SKILL.md"
         }
       ],
       "meta": {
@@ -2273,6 +2558,10 @@
         {
           "name": "drizzle-multitenancy",
           "target": ".agents/skills/drizzle-multitenancy/SKILL.md"
+        },
+        {
+          "name": "drizzle",
+          "target": ".agents/skills/drizzle/SKILL.md"
         }
       ],
       "meta": {
@@ -2358,6 +2647,10 @@
         {
           "name": "drizzle-relations",
           "target": ".agents/skills/drizzle-relations/SKILL.md"
+        },
+        {
+          "name": "drizzle",
+          "target": ".agents/skills/drizzle/SKILL.md"
         }
       ],
       "meta": {
@@ -2379,6 +2672,10 @@
         {
           "name": "drizzle-soft-delete",
           "target": ".agents/skills/drizzle-soft-delete/SKILL.md"
+        },
+        {
+          "name": "drizzle",
+          "target": ".agents/skills/drizzle/SKILL.md"
         }
       ],
       "meta": {
@@ -2440,6 +2737,10 @@
         {
           "name": "email-nodemailer",
           "target": ".agents/skills/email-nodemailer/SKILL.md"
+        },
+        {
+          "name": "nodemailer",
+          "target": ".agents/skills/nodemailer/SKILL.md"
         }
       ],
       "meta": {
@@ -2461,6 +2762,10 @@
         {
           "name": "email-postmark",
           "target": ".agents/skills/email-postmark/SKILL.md"
+        },
+        {
+          "name": "postmark",
+          "target": ".agents/skills/postmark/SKILL.md"
         }
       ],
       "meta": {
@@ -2887,6 +3192,10 @@
         {
           "name": "firebase-backend",
           "target": ".agents/skills/firebase-backend/SKILL.md"
+        },
+        {
+          "name": "firebase",
+          "target": ".agents/skills/firebase/SKILL.md"
         }
       ],
       "meta": {
@@ -2908,6 +3217,10 @@
         {
           "name": "flags-launchdarkly",
           "target": ".agents/skills/flags-launchdarkly/SKILL.md"
+        },
+        {
+          "name": "launchdarkly",
+          "target": ".agents/skills/launchdarkly/SKILL.md"
         }
       ],
       "meta": {
@@ -2929,6 +3242,10 @@
         {
           "name": "flags-statsig",
           "target": ".agents/skills/flags-statsig/SKILL.md"
+        },
+        {
+          "name": "statsig",
+          "target": ".agents/skills/statsig/SKILL.md"
         }
       ],
       "meta": {
@@ -2950,6 +3267,10 @@
         {
           "name": "fly-deploy",
           "target": ".agents/skills/fly-deploy/SKILL.md"
+        },
+        {
+          "name": "fly",
+          "target": ".agents/skills/fly/SKILL.md"
         }
       ],
       "meta": {
@@ -3012,6 +3333,10 @@
         {
           "name": "github-integration",
           "target": ".agents/skills/github-integration/SKILL.md"
+        },
+        {
+          "name": "github",
+          "target": ".agents/skills/github/SKILL.md"
         }
       ],
       "meta": {
@@ -3203,6 +3528,14 @@
         {
           "name": "inngest-functions",
           "target": ".agents/skills/inngest-functions/SKILL.md"
+        },
+        {
+          "name": "inngest",
+          "target": ".agents/skills/inngest/SKILL.md"
+        },
+        {
+          "name": "nextjs",
+          "target": ".agents/skills/nextjs/SKILL.md"
         }
       ],
       "meta": {
@@ -3419,6 +3752,10 @@
         {
           "name": "lemon-squeezy-billing",
           "target": ".agents/skills/lemon-squeezy-billing/SKILL.md"
+        },
+        {
+          "name": "lemon-squeezy",
+          "target": ".agents/skills/lemon-squeezy/SKILL.md"
         }
       ],
       "meta": {
@@ -3474,6 +3811,10 @@
         {
           "name": "linear-integration",
           "target": ".agents/skills/linear-integration/SKILL.md"
+        },
+        {
+          "name": "linear",
+          "target": ".agents/skills/linear/SKILL.md"
         }
       ],
       "meta": {
@@ -3642,6 +3983,10 @@
         {
           "name": "mcp-client",
           "target": ".agents/skills/mcp-client/SKILL.md"
+        },
+        {
+          "name": "mcp",
+          "target": ".agents/skills/mcp/SKILL.md"
         }
       ],
       "meta": {
@@ -3702,6 +4047,14 @@
         {
           "name": "model-router",
           "target": ".agents/skills/model-router/SKILL.md"
+        },
+        {
+          "name": "ai-sdk",
+          "target": ".agents/skills/ai-sdk/SKILL.md"
+        },
+        {
+          "name": "ai-gateway",
+          "target": ".agents/skills/ai-gateway/SKILL.md"
         }
       ],
       "meta": {
@@ -3743,6 +4096,14 @@
         {
           "name": "neon-postgres",
           "target": ".agents/skills/neon-postgres/SKILL.md"
+        },
+        {
+          "name": "neon",
+          "target": ".agents/skills/neon/SKILL.md"
+        },
+        {
+          "name": "drizzle",
+          "target": ".agents/skills/drizzle/SKILL.md"
         }
       ],
       "meta": {
@@ -3933,12 +4294,55 @@
         {
           "name": "openfeature-flags",
           "target": ".agents/skills/openfeature-flags/SKILL.md"
+        },
+        {
+          "name": "openfeature",
+          "target": ".agents/skills/openfeature/SKILL.md"
         }
       ],
       "meta": {
         "category": "growth",
         "env": [],
         "status": "planned"
+      }
+    },
+    {
+      "name": "one-time-purchases",
+      "type": "registry:block",
+      "title": "One-Time Purchases",
+      "description": "One-off payments, order records, add-ons, lifetime deals, and fulfillment tracking.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/billing-core.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/one-time-purchases.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/one-time-purchases.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/one-time-purchases.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/one-time-purchases.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/purchases/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/billing/purchases/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "one-time-purchases",
+          "target": ".agents/skills/one-time-purchases/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "experimental"
       }
     },
     {
@@ -3975,6 +4379,10 @@
         {
           "name": "paddle-billing",
           "target": ".agents/skills/paddle-billing/SKILL.md"
+        },
+        {
+          "name": "paddle",
+          "target": ".agents/skills/paddle/SKILL.md"
         }
       ],
       "meta": {
@@ -4171,6 +4579,10 @@
         {
           "name": "posthog-analytics",
           "target": ".agents/skills/posthog-analytics/SKILL.md"
+        },
+        {
+          "name": "posthog",
+          "target": ".agents/skills/posthog/SKILL.md"
         }
       ],
       "meta": {
@@ -4391,6 +4803,10 @@
         {
           "name": "rag-starter",
           "target": ".agents/skills/rag-starter/SKILL.md"
+        },
+        {
+          "name": "ai-sdk",
+          "target": ".agents/skills/ai-sdk/SKILL.md"
         }
       ],
       "meta": {
@@ -4412,6 +4828,10 @@
         {
           "name": "railway-deploy",
           "target": ".agents/skills/railway-deploy/SKILL.md"
+        },
+        {
+          "name": "railway",
+          "target": ".agents/skills/railway/SKILL.md"
         }
       ],
       "meta": {
@@ -4533,6 +4953,10 @@
         {
           "name": "render-deploy",
           "target": ".agents/skills/render-deploy/SKILL.md"
+        },
+        {
+          "name": "render",
+          "target": ".agents/skills/render/SKILL.md"
         }
       ],
       "meta": {
@@ -4580,6 +5004,10 @@
         {
           "name": "resend-email",
           "target": ".agents/skills/resend-email/SKILL.md"
+        },
+        {
+          "name": "resend",
+          "target": ".agents/skills/resend/SKILL.md"
         }
       ],
       "meta": {
@@ -4664,6 +5092,10 @@
         {
           "name": "search-algolia",
           "target": ".agents/skills/search-algolia/SKILL.md"
+        },
+        {
+          "name": "algolia",
+          "target": ".agents/skills/algolia/SKILL.md"
         }
       ],
       "meta": {
@@ -4685,6 +5117,10 @@
         {
           "name": "search-meilisearch",
           "target": ".agents/skills/search-meilisearch/SKILL.md"
+        },
+        {
+          "name": "meilisearch",
+          "target": ".agents/skills/meilisearch/SKILL.md"
         }
       ],
       "meta": {
@@ -4727,6 +5163,10 @@
         {
           "name": "search-typesense",
           "target": ".agents/skills/search-typesense/SKILL.md"
+        },
+        {
+          "name": "typesense",
+          "target": ".agents/skills/typesense/SKILL.md"
         }
       ],
       "meta": {
@@ -4896,6 +5336,14 @@
         {
           "name": "sentry-monitoring",
           "target": ".agents/skills/sentry-monitoring/SKILL.md"
+        },
+        {
+          "name": "sentry",
+          "target": ".agents/skills/sentry/SKILL.md"
+        },
+        {
+          "name": "nextjs",
+          "target": ".agents/skills/nextjs/SKILL.md"
         }
       ],
       "meta": {
@@ -5208,6 +5656,10 @@
         {
           "name": "supabase-postgres",
           "target": ".agents/skills/supabase-postgres/SKILL.md"
+        },
+        {
+          "name": "supabase",
+          "target": ".agents/skills/supabase/SKILL.md"
         }
       ],
       "meta": {
@@ -5609,6 +6061,10 @@
         {
           "name": "trigger-dev-jobs",
           "target": ".agents/skills/trigger-dev-jobs/SKILL.md"
+        },
+        {
+          "name": "trigger-dev",
+          "target": ".agents/skills/trigger-dev/SKILL.md"
         }
       ],
       "meta": {
@@ -5658,6 +6114,10 @@
         {
           "name": "unkey-api-keys",
           "target": ".agents/skills/unkey-api-keys/SKILL.md"
+        },
+        {
+          "name": "unkey",
+          "target": ".agents/skills/unkey/SKILL.md"
         }
       ],
       "meta": {
@@ -5702,6 +6162,10 @@
         {
           "name": "unkey-rate-limits",
           "target": ".agents/skills/unkey-rate-limits/SKILL.md"
+        },
+        {
+          "name": "unkey",
+          "target": ".agents/skills/unkey/SKILL.md"
         }
       ],
       "meta": {
@@ -5751,6 +6215,10 @@
         {
           "name": "upstash-redis",
           "target": ".agents/skills/upstash-redis/SKILL.md"
+        },
+        {
+          "name": "upstash",
+          "target": ".agents/skills/upstash/SKILL.md"
         }
       ],
       "meta": {
@@ -5889,6 +6357,10 @@
         {
           "name": "vercel-blob",
           "target": ".agents/skills/vercel-blob/SKILL.md"
+        },
+        {
+          "name": "vercel",
+          "target": ".agents/skills/vercel/SKILL.md"
         }
       ],
       "meta": {
@@ -5912,6 +6384,10 @@
         {
           "name": "vercel-deploy",
           "target": ".agents/skills/vercel-deploy/SKILL.md"
+        },
+        {
+          "name": "vercel",
+          "target": ".agents/skills/vercel/SKILL.md"
         }
       ],
       "meta": {
@@ -5953,6 +6429,10 @@
         {
           "name": "vercel-edge-config",
           "target": ".agents/skills/vercel-edge-config/SKILL.md"
+        },
+        {
+          "name": "vercel",
+          "target": ".agents/skills/vercel/SKILL.md"
         }
       ],
       "meta": {
@@ -5976,6 +6456,10 @@
         {
           "name": "vercel-integration",
           "target": ".agents/skills/vercel-integration/SKILL.md"
+        },
+        {
+          "name": "vercel",
+          "target": ".agents/skills/vercel/SKILL.md"
         }
       ],
       "meta": {
@@ -5997,6 +6481,10 @@
         {
           "name": "vercel-marketplace-storage",
           "target": ".agents/skills/vercel-marketplace-storage/SKILL.md"
+        },
+        {
+          "name": "vercel",
+          "target": ".agents/skills/vercel/SKILL.md"
         }
       ],
       "meta": {
@@ -6038,6 +6526,10 @@
         {
           "name": "vercel-workflows",
           "target": ".agents/skills/vercel-workflows/SKILL.md"
+        },
+        {
+          "name": "vercel",
+          "target": ".agents/skills/vercel/SKILL.md"
         }
       ],
       "meta": {

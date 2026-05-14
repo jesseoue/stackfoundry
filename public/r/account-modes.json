@@ -1,0 +1,64 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "account-modes",
+  "type": "registry:block",
+  "title": "Account Modes",
+  "description": "Personal, team, and hybrid account mode configuration for SaaS apps.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/drizzle-postgres.json",
+    "https://stackfoundry.dev/r/orgs-rbac.json",
+    "https://stackfoundry.dev/r/tenant-context.json"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/account-modes.ts",
+      "type": "registry:file",
+      "target": "packages/db/src/schema/account-modes.ts",
+      "content": "import { index, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const accountModes = pgTable(\n  \"account_modes\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    accountId: text(\"account_id\").notNull(),\n    mode: text(\"mode\").notNull().default(\"personal\"),\n    status: text(\"status\").notNull().default(\"active\"),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n    updatedAt: timestamp(\"updated_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (item) => [index(\"account_modes_account_idx\").on(item.accountId)]\n);\n"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/account-modes.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/account-modes.ts",
+      "content": "export const accountModeValues = [\"personal\", \"team\", \"hybrid\"] as const;\n\nexport type AccountMode = (typeof accountModeValues)[number];\n\nexport type AccountModeConfig = {\n  accountId: string;\n  mode: AccountMode;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createAccountModeConfig(config: AccountModeConfig) {\n  return {\n    accountId: config.accountId,\n    mode: config.mode,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport function supportsOrganizations(mode: AccountMode) {\n  return mode === \"team\" || mode === \"hybrid\";\n}\n\nexport function supportsPersonalWorkspace(mode: AccountMode) {\n  return mode === \"personal\" || mode === \"hybrid\";\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/settings/account/modes/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/settings/account/modes/page.tsx",
+      "content": "const checklist = [\n  \"Choose personal, team, or hybrid defaults\",\n  \"Document billing and invite assumptions\",\n  \"Keep provider adapters outside the shared module\",\n];\n\nexport default function AccountModesPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Account Modes</h1>\n        <p className=\"text-muted-foreground\">\n          Configure personal, team, and hybrid account behavior for SaaS apps.\n        </p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">\n            {item}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "account-modes",
+      "target": ".agents/skills/account-modes/SKILL.md",
+      "content": "---\nname: account-modes\ndescription: Maintain the Account Modes module installed by StackFoundry.\n---\n\n# Account Modes Skill\n\n- Do not mix personal and organization data without an explicit active account context.\n- Hide organization invitations, roles, and seat billing when the app is personal-only.\n- Keep billing customer ownership aligned with the active account mode.\n- Make account switching explicit and auditable.\n- Update onboarding, navigation, and settings together when the account mode changes.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Account Modes\n\nPersonal, team, and hybrid account mode configuration for SaaS apps.\n\n## Owns\n\n- `packages/db/src/schema/account-modes.ts`\n- `apps/web/src/lib/stackfoundry/account-modes.ts`\n- `apps/web/src/app/(console)/settings/account/modes/page.tsx`\n\n## Invariants\n\n- Every data access path must know whether it is scoped to a user or organization.\n- Billing ownership must match the active account mode.\n- Invitations and roles should be disabled or hidden when the app is personal-only.\n- Account switching should never leak data between personal and organization scopes.\n",
+  "meta": {
+    "category": "tenancy",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "account-modes"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "preserve-account-boundaries"
+      ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "accountModes"
+      ],
+      "migrationRecommended": true
+    }
+  }
+}

@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "drizzle-multitenancy"
+      "drizzle-multitenancy",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

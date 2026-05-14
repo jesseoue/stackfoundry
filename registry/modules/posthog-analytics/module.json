@@ -32,7 +32,8 @@
   ],
   "agents": {
     "skills": [
-      "posthog-analytics"
+      "posthog-analytics",
+      "posthog"
     ],
     "rules": [
       "load-client-only",

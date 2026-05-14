@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "drizzle-audit-log"
+      "drizzle-audit-log",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

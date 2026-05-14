@@ -35,7 +35,8 @@
   ],
   "agents": {
     "skills": [
-      "supabase-postgres"
+      "supabase-postgres",
+      "supabase"
     ],
     "rules": [
       "rls-by-default",

@@ -37,7 +37,8 @@
   ],
   "agents": {
     "skills": [
-      "trigger-dev-jobs"
+      "trigger-dev-jobs",
+      "trigger-dev"
     ],
     "rules": [
       "validate-trigger-payloads",

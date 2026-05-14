@@ -1,0 +1,45 @@
+{
+  "name": "credit-wallet",
+  "type": "module",
+  "category": "billing",
+  "title": "Credit Wallet",
+  "description": "Prepaid credits, grant/consume ledger, low-balance checks, and AI or usage-based wallet flows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "billing-core",
+    "usage-metering"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/credit-wallet.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/credit-wallet.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/credits/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "creditWalletLedger"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "credit-wallet"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "never-allow-negative-balance"
+    ]
+  },
+  "status": "experimental"
+}

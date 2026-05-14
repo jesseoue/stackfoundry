@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "convex-backend"
+      "convex-backend",
+      "convex"
     ],
     "rules": [
       "document-invariants",

@@ -42,6 +42,11 @@
       "name": "ai-chat",
       "target": ".agents/skills/ai-chat/SKILL.md",
       "content": "---\nname: ai-chat\ndescription: Maintain the AI Chat module installed by StackFoundry.\n---\n\n# AI Chat Maintenance Instructions\n\n- Keep provider/model selection server-controlled.\n- Use `DefaultChatTransport` with manually managed input state.\n- Return UI message streams from server routes.\n- Keep prompt defaults in `lib/ai/prompts.ts`.\n- Do not hardcode a long-lived provider key in source.\n"
+    },
+    {
+      "name": "ai-sdk",
+      "target": ".agents/skills/ai-sdk/SKILL.md",
+      "content": "---\nname: ai-sdk\ndescription: AI SDK guidance for installed AI modules.\n---\n\n# Ai Sdk Guidance\n\n- Keep provider keys server-only.\n- Stream responses deliberately and handle tool errors.\n- Validate tool inputs and outputs.\n- Document model ids, fallback behavior, and cost-sensitive paths.\n"
     }
   ],
   "envVars": {
@@ -58,7 +63,8 @@
     "status": "experimental",
     "agents": {
       "skills": [
-        "ai-chat"
+        "ai-chat",
+        "ai-sdk"
       ],
       "rules": [
         "document-invariants",

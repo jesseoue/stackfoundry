@@ -21,14 +21,14 @@ The registry now includes core modules, vendor examples, and registry-compatible
 - maintenance guidance
 - install metadata for diff/update safety
 
-## Planned Module Families
+## Module Families
 
 ### Foundation
 
 - `next-saas`
 - `t3-env`
 - `sidebar-shell`
-- `geist-theme`
+- `geist-nova-theme`
 - `quality-tooling`
 - `playwright-e2e`
 

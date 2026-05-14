@@ -43,6 +43,11 @@
       "name": "resend-email",
       "target": ".agents/skills/resend-email/SKILL.md",
       "content": "---\nname: resend-email\ndescription: Maintain the Resend Email vendor registry block installed by StackFoundry.\n---\n\n# Resend Email Skill\n\n## Boundary\n\nThis block owns the Resend Email integration example only. Keep product-specific business logic outside the vendor adapter until the app has chosen this provider.\n\n## Source Files\n\n- `apps/web/src/lib/resend/client.ts`\n- `apps/web/src/emails/welcome-email.tsx`\n- `apps/web/src/app/api/vendor/resend/send-welcome/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/resend/page.tsx`\n\n## Dependencies\n\n- `resend`\n- `@react-email/components`\n\n## Environment\n\n- `RESEND_API_KEY`\n- `RESEND_FROM_EMAIL`\n\n## Deployment Checks\n\n- Create the vendor project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current vendor docs.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one vendor.\n"
+    },
+    {
+      "name": "resend",
+      "target": ".agents/skills/resend/SKILL.md",
+      "content": "---\nname: resend\ndescription: Resend email guidance for installed email modules.\n---\n\n# Resend Guidance\n\n- Keep API keys server-only.\n- Verify sender domain before production send.\n- Provide plain-text fallbacks for transactional email.\n- Document bounce, retry, and suppression behavior.\n"
     }
   ],
   "envVars": {
@@ -59,7 +64,8 @@
     "status": "experimental",
     "agents": {
       "skills": [
-        "resend-email"
+        "resend-email",
+        "resend"
       ],
       "rules": [
         "verify-sender-domain",

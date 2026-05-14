@@ -2,16 +2,14 @@
 
 Provider modules adapt external services into StackFoundry systems.
 
-## Defaults
+## Default Path
 
-- Deploy: Vercel
-- Database: Postgres + Drizzle
-- Email: Resend
-- Analytics: PostHog
-- Observability: Sentry
-- Billing: Stripe
-- API keys: local hashed keys first, Unkey as managed provider
-- Entitlements: local first, Autumn as managed provider
+- Deploy: Vercel for the hosted site and Next.js examples
+- Database: Postgres + Drizzle as the first data module
+- Billing: Stripe as the first billing module
+- API keys: local hashed keys first, with Unkey as a managed adapter
+- Entitlements: local first, with Autumn as a managed adapter
+- Email, analytics, and observability: provider modules stay optional adapters
 
 ## Adapter Rule
 

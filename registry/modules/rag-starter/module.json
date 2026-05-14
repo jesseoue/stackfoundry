@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "rag-starter"
+      "rag-starter",
+      "ai-sdk"
     ],
     "rules": [
       "document-invariants",

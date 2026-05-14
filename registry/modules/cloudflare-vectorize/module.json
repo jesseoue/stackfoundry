@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "cloudflare-vectorize"
+      "cloudflare-vectorize",
+      "cloudflare"
     ],
     "rules": [
       "document-invariants",

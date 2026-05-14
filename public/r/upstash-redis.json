@@ -43,6 +43,11 @@
       "name": "upstash-redis",
       "target": ".agents/skills/upstash-redis/SKILL.md",
       "content": "---\nname: upstash-redis\ndescription: Maintain the Upstash Redis vendor registry block installed by StackFoundry.\n---\n\n# Upstash Redis Skill\n\n## Boundary\n\nThis block owns the Upstash Redis integration example only. Keep product-specific business logic outside the vendor adapter until the app has chosen this provider.\n\n## Source Files\n\n- `apps/web/src/lib/upstash/redis.ts`\n- `apps/web/src/lib/upstash/ratelimit.ts`\n- `apps/web/src/app/api/vendor/upstash/health/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/upstash/page.tsx`\n\n## Dependencies\n\n- `@upstash/redis`\n- `@upstash/ratelimit`\n\n## Environment\n\n- `UPSTASH_REDIS_REST_URL`\n- `UPSTASH_REDIS_REST_TOKEN`\n\n## Deployment Checks\n\n- Create the vendor project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current vendor docs.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one vendor.\n"
+    },
+    {
+      "name": "upstash",
+      "target": ".agents/skills/upstash/SKILL.md",
+      "content": "---\nname: upstash\ndescription: Upstash Redis guidance for installed cache/rate-limit modules.\n---\n\n# Upstash Guidance\n\n- Keep Redis URL and token server-only.\n- Document region and durability assumptions.\n- Use explicit key prefixes for tenant/user scope.\n- Verify rate-limit and cache invalidation behavior.\n"
     }
   ],
   "envVars": {
@@ -59,7 +64,8 @@
     "status": "experimental",
     "agents": {
       "skills": [
-        "upstash-redis"
+        "upstash-redis",
+        "upstash"
       ],
       "rules": [
         "use-rest-env-vars",

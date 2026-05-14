@@ -11,7 +11,8 @@
   "files": [],
   "agents": {
     "skills": [
-      "mcp-client"
+      "mcp-client",
+      "mcp"
     ],
     "rules": [
       "document-invariants",
