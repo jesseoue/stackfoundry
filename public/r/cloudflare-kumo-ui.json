@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cloudflare-kumo-ui",
+  "type": "registry:block",
+  "title": "Cloudflare Kumo UI",
+  "description": "Cloudflare Kumo component-library building blocks for teams that want provider-grade UI primitives.",
+  "dependencies": [
+    "@cloudflare/kumo"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/ui/cloudflare-kumo.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/ui/cloudflare-kumo.ts",
+      "content": "export const cloudflareKumoUi = {\n  packageName: \"@cloudflare/kumo\",\n  installCommand: \"pnpm add @cloudflare/kumo\",\n  docsCommands: [\n    \"pnpm dlx @cloudflare/kumo ls\",\n    \"pnpm dlx @cloudflare/kumo doc Button\",\n    \"pnpm dlx @cloudflare/kumo blocks\",\n  ],\n  componentAreas: [\"Actions\", \"Forms\", \"Data Display\", \"Feedback\", \"Layout\", \"Navigation\"],\n} as const;\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "cloudflare-kumo-ui",
+      "target": ".stackfoundry/skills/cloudflare-kumo-ui/SKILL.md",
+      "content": "---\nname: cloudflare-kumo-ui\ndescription: Maintain the Cloudflare Kumo UI module installed by StackFoundry.\n---\n\n# Cloudflare Kumo UI Maintenance Instructions\n\n- Keep the dependency optional and scoped to projects that explicitly choose Kumo.\n- Check Kumo docs before adding component imports or theme configuration.\n- Document Tailwind, CSS, and theme changes in the module docs.\n- Preserve accessibility behavior when wrapping Kumo primitives.\n\n## Shared Skills\n\nWhen provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\nKeep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Cloudflare Kumo UI\n\nCloudflare Kumo component-library building blocks for teams that want provider-grade UI primitives.\n\nThis module credits Cloudflare Kumo as an optional component library for React, Base UI, and Tailwind CSS applications. It stays optional so StackFoundry's base scaffold remains small.\n\n## Owns\n\n- `apps/web/src/lib/ui/cloudflare-kumo.ts`\n\n## Dependency\n\n- `@cloudflare/kumo`\n\n## Usage\n\nUse this module when a project wants Cloudflare-style building blocks for actions, forms, data display, feedback, layout, or navigation.\n\nHelpful commands:\n\n```sh\npnpm dlx @cloudflare/kumo ls\npnpm dlx @cloudflare/kumo doc Button\npnpm dlx @cloudflare/kumo blocks\n```\n\n## Maintenance\n\n- Keep Kumo optional and provider-scoped.\n- Document theme and Tailwind impact before adopting many components.\n- Do not replace existing app UI primitives unless a project explicitly chooses this provider UI path.\n",
+  "meta": {
+    "category": "components",
+    "env": [],
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
+  }
+}

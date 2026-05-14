@@ -1,6 +1,7 @@
-# Organizations and RBAC Checklist
+# Organizations RBAC Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] roles remain organization-scoped
+- [ ] permission helpers are used instead of scattered string checks
+- [ ] role changes are ready for audit logging before production use
+- [ ] install output includes schema, helper, page, docs, checklist, and maintenance skill

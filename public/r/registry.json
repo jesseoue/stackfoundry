@@ -4,38 +4,6 @@
   "homepage": "https://stackfoundry.dev",
   "items": [
     {
-      "name": "aarrr-dashboard",
-      "type": "registry:block",
-      "title": "AARRR Dashboard",
-      "description": "Acquisition, activation, retention, referral, revenue dashboard with cohort filters.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "access-review",
-      "type": "registry:block",
-      "title": "Access Review",
-      "description": "Periodic workspace access review for members, roles, API keys, and integrations.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "security",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "account-deletion",
       "type": "registry:block",
       "title": "Account Deletion",
@@ -66,22 +34,6 @@
         "category": "compliance",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "account-health",
-      "type": "registry:block",
-      "title": "Account Health",
-      "description": "Health scoring model for customer activation, usage, payment, and support signals.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "operations",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -149,166 +101,6 @@
       }
     },
     {
-      "name": "action-audit-wrapper",
-      "type": "registry:block",
-      "title": "Action Audit Wrapper",
-      "description": "Wrapper for recording action inputs, actor, result, and audit metadata.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "operations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "action-confirmation",
-      "type": "registry:block",
-      "title": "Action Confirmation",
-      "description": "Confirmation dialog pattern for sensitive and irreversible SaaS actions.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "action-confirmation-dialog",
-      "type": "registry:block",
-      "title": "Action Confirmation Dialog",
-      "description": "Dialog component for confirming high-impact account, billing, and security actions.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "action-permissions",
-      "type": "registry:block",
-      "title": "Action Permissions",
-      "description": "Permission checks and policy metadata for operator and customer actions.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "security",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "action-registry",
-      "type": "registry:block",
-      "title": "Action Registry",
-      "description": "Central action registry for typed SaaS operations and audit-aware execution.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "operations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "action-result-toast",
-      "type": "registry:block",
-      "title": "Action Result Toast",
-      "description": "Standard success, failure, and retry feedback for SaaS actions.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "activation-events",
-      "type": "registry:block",
-      "title": "Activation Events",
-      "description": "Activation event taxonomy and tracking hooks for time-to-value reporting.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "activation-onboarding",
-      "type": "registry:block",
-      "title": "Activation Onboarding",
-      "description": "Onboarding checklist, first-value milestones, and time-to-value tracking.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "activation-score",
-      "type": "registry:block",
-      "title": "Activation Score",
-      "description": "Activation score derived from setup, usage, team, and billing milestones.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "activity-feed",
-      "type": "registry:block",
-      "title": "Activity Feed",
-      "description": "Unified feed for customer, billing, support, audit, and product events.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "admin-console",
       "type": "registry:block",
       "title": "Admin Console",
@@ -338,38 +130,6 @@
       }
     },
     {
-      "name": "admin-impersonation",
-      "type": "registry:block",
-      "title": "Admin Impersonation",
-      "description": "Support/admin impersonation flows with audit logging and clear safety boundaries.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "auth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "ai-artifacts",
-      "type": "registry:block",
-      "title": "AI Artifacts",
-      "description": "Document/code/sheet artifacts, side panel, and persistence.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "ai",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "ai-chat",
       "type": "registry:block",
       "title": "AI Chat",
@@ -380,7 +140,9 @@
         "@ai-sdk/gateway"
       ],
       "devDependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/ai-sdk.json"
+      ],
       "files": [
         {
           "path": "apps/web/src/app/api/ai/chat/route.ts",
@@ -401,6 +163,114 @@
           "path": "apps/web/src/lib/ai/models.ts",
           "type": "registry:file",
           "target": "apps/web/src/lib/ai/models.ts"
+        }
+      ],
+      "meta": {
+        "category": "ai",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "ai-chatbot-sdk",
+      "type": "registry:block",
+      "title": "AI Chatbot SDK",
+      "description": "Vercel AI SDK and AI Elements chatbot shell for a source-owned conversational interface.",
+      "dependencies": [
+        "ai",
+        "@ai-sdk/react",
+        "@ai-sdk/gateway"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/ai-chat.json",
+        "https://stackfoundry.dev/r/ai-elements.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/components/ai/chatbot-shell.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/ai/chatbot-shell.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/ai/chatbot/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/ai/chatbot/page.tsx"
+        }
+      ],
+      "meta": {
+        "category": "ai",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "ai-elements",
+      "type": "registry:block",
+      "title": "AI Elements",
+      "description": "Composable AI chat UI primitives inspired by Vercel AI Elements and shadcn/ui conventions.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/ai-sdk.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/components/ai-elements/conversation.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/ai-elements/conversation.tsx"
+        },
+        {
+          "path": "apps/web/src/components/ai-elements/message.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/ai-elements/message.tsx"
+        },
+        {
+          "path": "apps/web/src/components/ai-elements/prompt-input.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/ai-elements/prompt-input.tsx"
+        },
+        {
+          "path": "apps/web/src/components/ai-elements/status.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/ai-elements/status.tsx"
+        },
+        {
+          "path": "apps/web/src/components/ai-elements/index.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/components/ai-elements/index.ts"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "ai-sdk",
+      "type": "registry:block",
+      "title": "AI SDK",
+      "description": "Vercel AI SDK model configuration, streaming helpers, and gateway-ready defaults.",
+      "dependencies": [
+        "ai",
+        "@ai-sdk/gateway"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/ai/ai-sdk.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/ai/ai-sdk.ts"
+        },
+        {
+          "path": "apps/web/src/lib/ai/streaming.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/ai/streaming.ts"
         }
       ],
       "meta": {
@@ -446,22 +316,6 @@
         "category": "marketing",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "ai-tools",
-      "type": "registry:block",
-      "title": "AI Tools",
-      "description": "Tool definitions, typed tool rendering, and approval flows.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "ai",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -520,22 +374,6 @@
       }
     },
     {
-      "name": "api-key-risk-review",
-      "type": "registry:block",
-      "title": "API Key Risk Review",
-      "description": "API key risk review for stale, over-scoped, leaked, or high-volume keys.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "security",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "api-keys",
       "type": "registry:block",
       "title": "API Keys",
@@ -566,22 +404,6 @@
         "category": "developer-platform",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "api-playground",
-      "type": "registry:block",
-      "title": "API Playground",
-      "description": "Interactive API playground for authenticated requests and example responses.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "developer-platform",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -652,22 +474,6 @@
       }
     },
     {
-      "name": "audit-event-conventions",
-      "type": "registry:block",
-      "title": "Audit Event Conventions",
-      "description": "Audit event naming, actor, target, metadata, and retention conventions.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "operations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "audit-log",
       "type": "registry:block",
       "title": "Audit Log",
@@ -698,22 +504,6 @@
         "category": "operations",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "auth-authjs",
-      "type": "registry:block",
-      "title": "Auth.js",
-      "description": "Auth.js setup for teams that prefer classic Next auth flows.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "auth",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -991,22 +781,6 @@
       }
     },
     {
-      "name": "billing-ledger",
-      "type": "registry:block",
-      "title": "Billing Ledger",
-      "description": "Billing ledger for invoices, payments, refunds, disputes, credits, and adjustments.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "billing",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "billing-portal",
       "type": "registry:block",
       "title": "Billing Portal",
@@ -1128,22 +902,6 @@
         "category": "support",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "bulk-actions-bar",
-      "type": "registry:block",
-      "title": "Bulk Actions Bar",
-      "description": "Selection and bulk action controls for admin tables.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -1329,6 +1087,30 @@
       }
     },
     {
+      "name": "cloudflare-kumo-ui",
+      "type": "registry:block",
+      "title": "Cloudflare Kumo UI",
+      "description": "Cloudflare Kumo component-library building blocks for teams that want provider-grade UI primitives.",
+      "dependencies": [
+        "@cloudflare/kumo"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/ui/cloudflare-kumo.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/ui/cloudflare-kumo.ts"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
       "name": "cloudflare-kv",
       "type": "registry:block",
       "title": "Cloudflare KV",
@@ -1433,6 +1215,21 @@
       ],
       "meta": {
         "category": "deploy",
+        "gitignore": [
+          ".open-next/",
+          ".dev.vars",
+          ".dev.vars.*",
+          ".wrangler/"
+        ],
+        "packageScripts": {
+          "apps/web/package.json": {
+            "build:cloudflare": "opennextjs-cloudflare build",
+            "preview:cloudflare": "opennextjs-cloudflare build && opennextjs-cloudflare preview --env preview",
+            "deploy:cloudflare": "opennextjs-cloudflare build && opennextjs-cloudflare deploy --env production",
+            "check:cloudflare": "opennextjs-cloudflare build && wrangler deploy --dry-run --env production",
+            "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+          }
+        },
         "status": "ready",
         "maturity": "ready",
         "recommendedFor": []
@@ -1791,70 +1588,6 @@
       }
     },
     {
-      "name": "cms-contentful",
-      "type": "registry:block",
-      "title": "Contentful CMS",
-      "description": "Contentful integration and content model docs.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "content",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "cms-mdx",
-      "type": "registry:block",
-      "title": "MDX Content",
-      "description": "File-based docs, blog, and changelog collections.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "content",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "cms-sanity",
-      "type": "registry:block",
-      "title": "Sanity CMS",
-      "description": "Sanity integration and preview mode.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "content",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "cohort-retention",
-      "type": "registry:block",
-      "title": "Cohort Retention",
-      "description": "Cohort tables, retention curves, saved segments, and plan/channel filters.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "command-menu",
       "type": "registry:block",
       "title": "Command Menu",
@@ -2085,22 +1818,6 @@
       }
     },
     {
-      "name": "copyable-code-block",
-      "type": "registry:block",
-      "title": "Copyable Code Block",
-      "description": "Copyable code block for API docs, SDK snippets, and setup instructions.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "cors-policy",
       "type": "registry:block",
       "title": "CORS Policy",
@@ -2158,54 +1875,6 @@
         "category": "billing",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "credit-adjustments",
-      "type": "registry:block",
-      "title": "Credit Adjustments",
-      "description": "Manual credit adjustment flow with reason codes, approvals, and audit events.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "billing",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "credit-grants",
-      "type": "registry:block",
-      "title": "Credit Grants",
-      "description": "Credit grant workflow for trials, support adjustments, promotions, and enterprise contracts.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "billing",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "credit-ledger",
-      "type": "registry:block",
-      "title": "Credit Ledger",
-      "description": "Credit ledger for grants, deductions, expirations, refunds, and adjustments.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "billing",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -2340,166 +2009,6 @@
       }
     },
     {
-      "name": "customer-360",
-      "type": "registry:block",
-      "title": "Customer 360",
-      "description": "Unified operator view for customer identity, plan, usage, support, and risk.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "operations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "customer-api-key-risk",
-      "type": "registry:block",
-      "title": "Customer API Key Risk",
-      "description": "Customer API key risk model for stale, leaked, high-volume, and over-scoped keys.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "security",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "customer-billing-profile",
-      "type": "registry:block",
-      "title": "Customer Billing Profile",
-      "description": "Operator billing profile with plan, invoices, credits, and payment state.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "operations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "customer-expansion-score",
-      "type": "registry:block",
-      "title": "Customer Expansion Score",
-      "description": "Expansion readiness scoring from adoption, plan limits, and account health.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "customer-product-adoption",
-      "type": "registry:block",
-      "title": "Customer Product Adoption",
-      "description": "Customer product adoption dashboard by feature, account, cohort, and plan.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "customer-risk-score",
-      "type": "registry:block",
-      "title": "Customer Risk Score",
-      "description": "Churn and operational risk scoring from usage, support, and billing signals.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "operations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "customer-support-profile",
-      "type": "registry:block",
-      "title": "Customer Support Profile",
-      "description": "Support context panel for tickets, incidents, notes, and unresolved work.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "support",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "customer-timeline",
-      "type": "registry:block",
-      "title": "Customer Timeline",
-      "description": "Chronological customer events across billing, usage, support, audit, and product analytics.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "operations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "customer-usage-profile",
-      "type": "registry:block",
-      "title": "Customer Usage Profile",
-      "description": "Customer usage profile across features, API keys, quotas, and adoption.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "operations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "danger-zone-card",
-      "type": "registry:block",
-      "title": "Danger Zone Card",
-      "description": "Destructive action section for delete, revoke, reset, and cancel flows.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "data-export",
       "type": "registry:block",
       "title": "Data Export",
@@ -2530,38 +2039,6 @@
         "category": "compliance",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "data-import-export",
-      "type": "registry:block",
-      "title": "Data Import Export",
-      "description": "CSV import/export, background processing, and error report UI.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "operations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "data-quality-dashboard",
-      "type": "registry:block",
-      "title": "Data Quality Dashboard",
-      "description": "Data quality dashboard for enrichment, sync, freshness, and validation signals.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "operations",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -2632,22 +2109,6 @@
       }
     },
     {
-      "name": "datadog-monitoring",
-      "type": "registry:block",
-      "title": "Datadog Monitoring",
-      "description": "Enterprise observability adapter.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "observability",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "dependency-audit",
       "type": "registry:block",
       "title": "Dependency Audit",
@@ -2671,22 +2132,6 @@
         "category": "security",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "destructive-action-flow",
-      "type": "registry:block",
-      "title": "Destructive Action Flow",
-      "description": "Typed destructive flow for revoke, delete, cancel, archive, and reset actions.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -2716,22 +2161,6 @@
         "category": "developer-platform",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "docker-compose-local",
-      "type": "registry:block",
-      "title": "Docker Compose Local",
-      "description": "Local Postgres, Redis, Mailpit, and provider-mock services.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "devops",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -2841,22 +2270,6 @@
       }
     },
     {
-      "name": "docs-starlight",
-      "type": "registry:block",
-      "title": "Starlight Docs",
-      "description": "Astro Starlight docs module for separate documentation sites.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "docs",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "domain-verification",
       "type": "registry:block",
       "title": "Domain Verification",
@@ -2882,38 +2295,6 @@
         "category": "tenancy",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "drizzle-audit-log",
-      "type": "registry:block",
-      "title": "Drizzle Audit Log",
-      "description": "Common activity/event schema, actor/resource modeling, and admin timeline UI.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "database",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "drizzle-multitenancy",
-      "type": "registry:block",
-      "title": "Drizzle Multitenancy",
-      "description": "Org/account ids on core tables, indexes, relations, and cache-tag rules.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "database",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -2971,38 +2352,6 @@
       }
     },
     {
-      "name": "drizzle-relations",
-      "type": "registry:block",
-      "title": "Drizzle Relations",
-      "description": "Relations helpers, type-safe joins, query examples, and seed patterns.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "database",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "drizzle-soft-delete",
-      "type": "registry:block",
-      "title": "Drizzle Soft Delete",
-      "description": "deletedAt conventions, restore flows, and filtered query helpers.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "database",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "dunning-recovery",
       "type": "registry:block",
       "title": "Dunning Recovery",
@@ -3034,38 +2383,6 @@
         "category": "billing",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "email-nodemailer",
-      "type": "registry:block",
-      "title": "Nodemailer Email",
-      "description": "SMTP email adapter for teams avoiding provider lock-in.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "email",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "email-postmark",
-      "type": "registry:block",
-      "title": "Postmark Email",
-      "description": "Transactional email adapter and template mapping.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "email",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -3133,22 +2450,6 @@
       }
     },
     {
-      "name": "empty-state-onboarding",
-      "type": "registry:block",
-      "title": "Empty State Onboarding",
-      "description": "Empty states that guide users toward setup, activation, and upgrade paths.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "empty-states",
       "type": "registry:block",
       "title": "Empty States",
@@ -3177,22 +2478,6 @@
         "category": "components",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "empty-upgrade-state",
-      "type": "registry:block",
-      "title": "Empty Upgrade State",
-      "description": "Empty state pattern with upgrade or monetization call to action.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -3293,70 +2578,6 @@
         "category": "components",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "evals",
-      "type": "registry:block",
-      "title": "Evals",
-      "description": "Prompt eval cases, pass/fail scoring UI, and regression tracking.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "ai",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "event-taxonomy",
-      "type": "registry:block",
-      "title": "Event Taxonomy",
-      "description": "Product, billing, support, and operational event taxonomy.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "analytics",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "experiments",
-      "type": "registry:block",
-      "title": "Experiments",
-      "description": "A/B test model, exposure tracking, conversion events, and results UI.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "feature-adoption",
-      "type": "registry:block",
-      "title": "Feature Adoption",
-      "description": "Feature usage tracking, adoption cohorts, and release impact views.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -3463,102 +2684,6 @@
       }
     },
     {
-      "name": "filter-bar",
-      "type": "registry:block",
-      "title": "Filter Bar",
-      "description": "Search, status, owner, product, and date range filter controls.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "firebase-backend",
-      "type": "registry:block",
-      "title": "Firebase Backend",
-      "description": "Optional mobile-first backend module for Firestore/auth/storage apps.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "backend",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "first-api-call",
-      "type": "registry:block",
-      "title": "First API Call",
-      "description": "Guided first API request flow for developer-product activation.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "developer-platform",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "first-api-call-guide",
-      "type": "registry:block",
-      "title": "First API Call Guide",
-      "description": "Docs and UI pattern for guiding a developer to a successful first API call.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "developer-platform",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "flags-launchdarkly",
-      "type": "registry:block",
-      "title": "LaunchDarkly Flags",
-      "description": "LaunchDarkly provider adapter.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "flags-statsig",
-      "type": "registry:block",
-      "title": "Statsig Flags",
-      "description": "Statsig provider adapter.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "fly-deploy",
       "type": "registry:block",
       "title": "Fly Deploy",
@@ -3587,22 +2712,6 @@
         "category": "deploy",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "geist-nova-theme",
-      "type": "registry:block",
-      "title": "Geist Nova Theme",
-      "description": "Geist typography and Tailwind v4 theme tokens for a polished SaaS console.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "foundation",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -3643,54 +2752,6 @@
       }
     },
     {
-      "name": "growth-alerts",
-      "type": "registry:block",
-      "title": "Growth Alerts",
-      "description": "Activation drop, churn risk, usage spike, and expansion opportunity notifications.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "i18n",
-      "type": "registry:block",
-      "title": "Internationalization",
-      "description": "Locale routing, translations, and language switcher.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "foundation",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "id-conventions",
-      "type": "registry:block",
-      "title": "ID Conventions",
-      "description": "Identifier conventions for primary keys, external IDs, slugs, and public references.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "database",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "idempotency-keys",
       "type": "registry:block",
       "title": "Idempotency Keys",
@@ -3721,22 +2782,6 @@
         "category": "developer-platform",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "image-optimization",
-      "type": "registry:block",
-      "title": "Image Optimization",
-      "description": "Image upload, transformation, metadata, and storage adapter.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "media",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -3845,166 +2890,6 @@
       }
     },
     {
-      "name": "integration-catalog",
-      "type": "registry:block",
-      "title": "Integration Catalog",
-      "description": "Integration catalog UI for connectable providers, setup status, and ownership.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "integrations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "integration-detail-page",
-      "type": "registry:block",
-      "title": "Integration Detail Page",
-      "description": "Integration detail page for setup steps, permissions, health, and docs.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "integrations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "integration-health",
-      "type": "registry:block",
-      "title": "Integration Health",
-      "description": "Integration health state for auth, sync freshness, webhooks, and failures.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "integrations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "integration-install-flow",
-      "type": "registry:block",
-      "title": "Integration Install Flow",
-      "description": "Provider connection flow with permissions, callback handling, and setup checks.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "integrations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "integration-oauth-callback",
-      "type": "registry:block",
-      "title": "Integration OAuth Callback",
-      "description": "OAuth callback route pattern for connecting external SaaS providers.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "integrations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "integration-permissions",
-      "type": "registry:block",
-      "title": "Integration Permissions",
-      "description": "Permission model for integration scopes, actors, and workspace ownership.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "integrations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "integration-sync-logs",
-      "type": "registry:block",
-      "title": "Integration Sync Logs",
-      "description": "Sync log explorer for integration jobs, failures, retries, and sync checkpoints.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "integrations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "integration-webhook-status",
-      "type": "registry:block",
-      "title": "Integration Webhook Status",
-      "description": "Webhook delivery and signature status for connected integrations.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "integrations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "internal-api-trpc",
-      "type": "registry:block",
-      "title": "Internal API tRPC",
-      "description": "Optional tRPC module for TypeScript-only internal APIs.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "api",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "invite-team-flow",
-      "type": "registry:block",
-      "title": "Invite Team Flow",
-      "description": "Team invitation flow with roles, pending state, and activation nudges.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "tenancy",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "invites",
       "type": "registry:block",
       "title": "Invites",
@@ -4064,22 +2949,6 @@
         "category": "billing",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "job-run-detail",
-      "type": "registry:block",
-      "title": "Job Run Detail",
-      "description": "Job run detail page for attempts, logs, inputs, outputs, retries, and ownership.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "workflow",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -4149,22 +3018,6 @@
       }
     },
     {
-      "name": "kpi-trend-card",
-      "type": "registry:block",
-      "title": "KPI Trend Card",
-      "description": "KPI card with current value, period comparison, and trend state.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "legal-pages",
       "type": "registry:block",
       "title": "Legal Pages",
@@ -4188,22 +3041,6 @@
         "category": "marketing",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "lemon-squeezy-billing",
-      "type": "registry:block",
-      "title": "Lemon Squeezy Billing",
-      "description": "Creator/digital product checkout and license key workflows.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "billing",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -4233,22 +3070,6 @@
         "category": "growth",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "linear-integration",
-      "type": "registry:block",
-      "title": "Linear Integration",
-      "description": "Issue creation, Linear links, and incident/project workflows.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "project-management",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -4380,38 +3201,6 @@
       }
     },
     {
-      "name": "mcp-client",
-      "type": "registry:block",
-      "title": "MCP Client",
-      "description": "MCP server config UI, server registry, and auth metadata.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "ai",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "metric-card-grid",
-      "type": "registry:block",
-      "title": "Metric Card Grid",
-      "description": "Dashboard metric cards for SaaS overview pages.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "mfa-security",
       "type": "registry:block",
       "title": "MFA Security",
@@ -4442,54 +3231,6 @@
         "category": "auth",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "model-router",
-      "type": "registry:block",
-      "title": "Model Router",
-      "description": "Model catalog, provider ordering, fallback rules, and AI Gateway config.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "ai",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "money-amount-conventions",
-      "type": "registry:block",
-      "title": "Money Amount Conventions",
-      "description": "Money and currency amount conventions for billing, invoices, credits, and tax.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "billing",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "money-and-credits-conventions",
-      "type": "registry:block",
-      "title": "Money And Credits Conventions",
-      "description": "Conventions for monetary ledgers, credits, grants, adjustments, and reconciliation.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "billing",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -4669,22 +3410,6 @@
       }
     },
     {
-      "name": "onboarding-checklist",
-      "type": "registry:block",
-      "title": "Onboarding Checklist",
-      "description": "Installable onboarding checklist for first value and setup completion.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "oncall-alerting",
       "type": "registry:block",
       "title": "On-call Alerting",
@@ -4748,66 +3473,37 @@
       }
     },
     {
-      "name": "openfeature-flags",
-      "type": "registry:block",
-      "title": "OpenFeature Flags",
-      "description": "OpenFeature-compatible flag interface and provider adapter pattern.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "operator-dashboard",
-      "type": "registry:block",
-      "title": "Operator Dashboard",
-      "description": "Internal operator dashboard for customer health, incidents, jobs, support, and revenue signals.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "operations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "orgs-rbac",
       "type": "registry:block",
-      "title": "Organizations and RBAC",
-      "description": "Organization switcher, roles, permissions, invitations, and member management.",
+      "title": "Organizations RBAC",
+      "description": "Organization role catalog, permission helpers, and workspace role management surface.",
       "dependencies": [],
       "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/drizzle-postgres.json",
+        "https://stackfoundry.dev/r/tenant-context.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/orgs-rbac.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/orgs-rbac.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/orgs-rbac.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/orgs-rbac.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/settings/workspace/rbac/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/settings/workspace/rbac/page.tsx"
+        }
+      ],
       "meta": {
         "category": "auth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "paddle-billing",
-      "type": "registry:block",
-      "title": "Paddle Billing",
-      "description": "Merchant of Record checkout, subscription sync, webhook mapping, and tax docs.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "billing",
-        "status": "stub",
-        "maturity": "stub",
+        "status": "ready",
+        "maturity": "ready",
         "recommendedFor": []
       }
     },
@@ -4909,34 +3605,36 @@
       }
     },
     {
-      "name": "playwright-e2e",
-      "type": "registry:block",
-      "title": "Playwright E2E",
-      "description": "Browser smoke tests for auth, billing, dashboard, and installed module flows.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "foundation",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "plg-metrics",
       "type": "registry:block",
       "title": "PLG Metrics",
-      "description": "Canonical event taxonomy, user/account traits, product events, and tracking helpers.",
+      "description": "Product-led growth event schema, metric helpers, and activation metrics dashboard starter.",
       "dependencies": [],
       "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/drizzle-postgres.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/plg-metrics.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/plg-metrics.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/plg-metrics.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/plg-metrics.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/analytics/plg/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/analytics/plg/page.tsx"
+        }
+      ],
       "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
+        "category": "analytics",
+        "status": "ready",
+        "maturity": "ready",
         "recommendedFor": []
       }
     },
@@ -5064,70 +3762,6 @@
       }
     },
     {
-      "name": "product-qualified-leads",
-      "type": "registry:block",
-      "title": "Product Qualified Leads",
-      "description": "PQL scoring, activation thresholds, sales handoff flags, and CRM hooks.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "prompt-library",
-      "type": "registry:block",
-      "title": "Prompt Library",
-      "description": "Reusable prompts, variable interpolation, and prompt versioning.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "ai",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "provider-cost-dashboard",
-      "type": "registry:block",
-      "title": "Provider Cost Dashboard",
-      "description": "Provider cost dashboard for usage, spend, margin, and cost anomalies.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "operations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "provider-health",
-      "type": "registry:block",
-      "title": "Provider Health",
-      "description": "Provider health dashboard for APIs, webhooks, queues, auth, storage, and data services.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "operations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "public-api-orpc",
       "type": "registry:block",
       "title": "Public API",
@@ -5184,22 +3818,6 @@
       }
     },
     {
-      "name": "quality-tooling",
-      "type": "registry:block",
-      "title": "Quality Tooling",
-      "description": "Biome, Vitest, Testing Library, Knip, Lefthook, and CI defaults.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "foundation",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "quota-enforcement",
       "type": "registry:block",
       "title": "Quota Enforcement",
@@ -5226,22 +3844,6 @@
         "category": "billing",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "rag-starter",
-      "type": "registry:block",
-      "title": "RAG Starter",
-      "description": "Embeddings, document ingestion, and vector search adapter.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "ai",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -5312,22 +3914,6 @@
       }
     },
     {
-      "name": "referral-loops",
-      "type": "registry:block",
-      "title": "Referral Loops",
-      "description": "Invite/referral codes, viral coefficient tracking, and reward state.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "refunds-disputes",
       "type": "registry:block",
       "title": "Refunds and Disputes",
@@ -5359,54 +3945,6 @@
         "category": "billing",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "render-deploy",
-      "type": "registry:block",
-      "title": "Render Deploy",
-      "description": "Simple web service deploy templates and environment docs.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "deploy",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "replay-center",
-      "type": "registry:block",
-      "title": "Replay Center",
-      "description": "Replay center for failed webhooks, jobs, events, and integration syncs.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "operations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "request-log-explorer",
-      "type": "registry:block",
-      "title": "Request Log Explorer",
-      "description": "Request log explorer for API calls, status, latency, errors, and key attribution.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "developer-platform",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -5453,54 +3991,6 @@
       }
     },
     {
-      "name": "resource-header",
-      "type": "registry:block",
-      "title": "Resource Header",
-      "description": "Header pattern for resource title, status, owner, metadata, and actions.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "saved-views",
-      "type": "registry:block",
-      "title": "Saved Views",
-      "description": "Persisted table/report views for operators and team workflows.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "schema-conventions",
-      "type": "registry:block",
-      "title": "Schema Conventions",
-      "description": "Registry-wide database schema conventions for IDs, tenants, timestamps, and metadata.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "database",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "scim-provisioning",
       "type": "registry:block",
       "title": "SCIM Provisioning",
@@ -5531,86 +4021,6 @@
         "category": "auth",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "sdk-snippets",
-      "type": "registry:block",
-      "title": "SDK Snippets",
-      "description": "Generated examples for curl, TypeScript, Python, and HTTP clients.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "api",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "search-algolia",
-      "type": "registry:block",
-      "title": "Algolia",
-      "description": "Algolia indexing, keys, and autocomplete UI.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "search",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "search-meilisearch",
-      "type": "registry:block",
-      "title": "Meilisearch",
-      "description": "Meilisearch adapter and sync jobs.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "search",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "search-postgres",
-      "type": "registry:block",
-      "title": "Postgres Search",
-      "description": "Postgres full-text search, ranking, indexes, and query UI.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "search",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "search-typesense",
-      "type": "registry:block",
-      "title": "Typesense",
-      "description": "Typesense adapter and collection schema.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "search",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -5650,22 +4060,6 @@
       }
     },
     {
-      "name": "secret-input",
-      "type": "registry:block",
-      "title": "Secret Input",
-      "description": "Masked input and reveal/copy pattern for API keys, webhooks, and env vars.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "secrets-management",
       "type": "registry:block",
       "title": "Secrets Management",
@@ -5693,54 +4087,6 @@
       }
     },
     {
-      "name": "security-center",
-      "type": "registry:block",
-      "title": "Security Center",
-      "description": "Unified security center for workspace posture, access, API keys, events, and controls.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "security",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "security-checklist",
-      "type": "registry:block",
-      "title": "Security Checklist",
-      "description": "Workspace security checklist for launch readiness and enterprise review.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "security",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "security-events",
-      "type": "registry:block",
-      "title": "Security Events",
-      "description": "Security event stream for access, keys, auth, secrets, and suspicious activity.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "security",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "security-headers",
       "type": "registry:block",
       "title": "Security Headers",
@@ -5764,38 +4110,6 @@
         "category": "security",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "security-scorecard",
-      "type": "registry:block",
-      "title": "Security Scorecard",
-      "description": "Security posture scorecard for MFA, SSO, access reviews, secrets, and key hygiene.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "security",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "seed-data",
-      "type": "registry:block",
-      "title": "Seed Data",
-      "description": "Typed seed scripts and demo records for screenshots, tests, and local demos.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "foundation",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -5866,22 +4180,6 @@
       }
     },
     {
-      "name": "session-management",
-      "type": "registry:block",
-      "title": "Session Management",
-      "description": "Active sessions/devices view, revoke sessions, and security event history.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "auth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "settings-layout",
       "type": "registry:block",
       "title": "Settings Layout",
@@ -5914,38 +4212,6 @@
       }
     },
     {
-      "name": "setup-wizard",
-      "type": "registry:block",
-      "title": "Setup Wizard",
-      "description": "Multi-step setup wizard for workspace, provider, billing, and product configuration.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "sidebar-shell",
-      "type": "registry:block",
-      "title": "Sidebar Shell",
-      "description": "Sidebar shell with navigation, header, responsive layout, and product config.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "foundation",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "sla-management",
       "type": "registry:block",
       "title": "SLA Management",
@@ -5971,70 +4237,6 @@
         "category": "operations",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "slack-notifications",
-      "type": "registry:block",
-      "title": "Slack Notifications",
-      "description": "Slack webhook/app integration, alerts, and admin settings.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "notifications",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "soft-delete-conventions",
-      "type": "registry:block",
-      "title": "Soft Delete Conventions",
-      "description": "Soft delete patterns for recoverability, retention, and auditability.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "database",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "status-badge-system",
-      "type": "registry:block",
-      "title": "Status Badge System",
-      "description": "Unified status badge vocabulary for billing, jobs, incidents, and workflows.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "status-enum-conventions",
-      "type": "registry:block",
-      "title": "Status Enum Conventions",
-      "description": "Status enum naming and lifecycle conventions across SaaS modules.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "database",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -6212,22 +4414,6 @@
       }
     },
     {
-      "name": "surveys-nps",
-      "type": "registry:block",
-      "title": "Surveys and NPS",
-      "description": "NPS/CSAT surveys, in-app prompts, response tables, and segmentation.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "system-health",
       "type": "registry:block",
       "title": "System Health",
@@ -6251,22 +4437,6 @@
         "category": "operations",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "t3-env",
-      "type": "registry:block",
-      "title": "T3 Env",
-      "description": "Type-safe server/client environment validation and .env.example management.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "foundation",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -6339,38 +4509,6 @@
       }
     },
     {
-      "name": "tenant-id-conventions",
-      "type": "registry:block",
-      "title": "Tenant ID Conventions",
-      "description": "Tenant and workspace ID conventions for multi-tenant modules.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "tenancy",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "tenant-isolation-policy",
-      "type": "registry:block",
-      "title": "Tenant Isolation Policy",
-      "description": "Tenant isolation policy and review checklist for multi-tenant modules.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "tenancy",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "tenant-isolation-tests",
       "type": "registry:block",
       "title": "Tenant Isolation Tests",
@@ -6394,70 +4532,6 @@
         "category": "tenancy",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "theme-system",
-      "type": "registry:block",
-      "title": "Theme System",
-      "description": "Product tokens, light/dark mode, density settings, and nav configuration.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "foundation",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "time-to-value-tracking",
-      "type": "registry:block",
-      "title": "Time To Value Tracking",
-      "description": "Track elapsed time from signup to meaningful product activation.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "growth",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "timeline",
-      "type": "registry:block",
-      "title": "Timeline",
-      "description": "Timeline UI for incidents, jobs, webhooks, background tasks, and customer events.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "timestamps-conventions",
-      "type": "registry:block",
-      "title": "Timestamp Conventions",
-      "description": "Timestamp conventions for creation, update, deletion, completion, and expiration.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "database",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -6592,22 +4666,6 @@
         "category": "workflow",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "trusted-devices",
-      "type": "registry:block",
-      "title": "Trusted Devices",
-      "description": "Trusted device records and review UI for account and workspace security.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "security",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -6760,70 +4818,6 @@
       }
     },
     {
-      "name": "usage-anomaly-alerts",
-      "type": "registry:block",
-      "title": "Usage Anomaly Alerts",
-      "description": "Usage anomaly alerts for suspicious spikes, drops, cost changes, and abuse.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "operations",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "usage-based-billing",
-      "type": "registry:block",
-      "title": "Usage Based Billing",
-      "description": "Metered usage, Stripe meter events, threshold alerts, and billing hooks.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "billing",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "usage-event-conventions",
-      "type": "registry:block",
-      "title": "Usage Event Conventions",
-      "description": "Usage event conventions for metering, quotas, credits, and analytics.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "developer-platform",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "usage-event-explorer",
-      "type": "registry:block",
-      "title": "Usage Event Explorer",
-      "description": "Usage event explorer for metering, billing, rate limits, and anomalies.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "developer-platform",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "usage-metering",
       "type": "registry:block",
       "title": "Usage Metering",
@@ -6854,22 +4848,6 @@
         "category": "billing",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "usage-progress-meter",
-      "type": "registry:block",
-      "title": "Usage Progress Meter",
-      "description": "Quota, usage, credit, and rate-limit progress display.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "components",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -7078,38 +5056,6 @@
       }
     },
     {
-      "name": "waitlist",
-      "type": "registry:block",
-      "title": "Waitlist",
-      "description": "Waitlist form, referral code, and invite state.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "marketing",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "wallet-reconciliation",
-      "type": "registry:block",
-      "title": "Wallet Reconciliation",
-      "description": "Wallet and credit reconciliation workflow for billing and usage consistency.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "billing",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "webhook-delivery",
       "type": "registry:block",
       "title": "Webhook Delivery",
@@ -7140,22 +5086,6 @@
         "category": "developer-platform",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "webhook-delivery-detail",
-      "type": "registry:block",
-      "title": "Webhook Delivery Detail",
-      "description": "Webhook delivery detail page for payload, signature, attempts, and replay controls.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "developer-platform",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },
@@ -7194,22 +5124,6 @@
       }
     },
     {
-      "name": "workspace-access-review",
-      "type": "registry:block",
-      "title": "Workspace Access Review",
-      "description": "Workspace access review workflow for users, roles, SSO, and external integrations.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "security",
-        "status": "stub",
-        "maturity": "stub",
-        "recommendedFor": []
-      }
-    },
-    {
       "name": "workspace-branding",
       "type": "registry:block",
       "title": "Workspace Branding",
@@ -7240,22 +5154,6 @@
         "category": "auth",
         "status": "ready",
         "maturity": "ready",
-        "recommendedFor": []
-      }
-    },
-    {
-      "name": "workspace-create-flow",
-      "type": "registry:block",
-      "title": "Workspace Create Flow",
-      "description": "Workspace creation flow with owner, slug, defaults, and invite handoff.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
-      "meta": {
-        "category": "tenancy",
-        "status": "stub",
-        "maturity": "stub",
         "recommendedFor": []
       }
     },

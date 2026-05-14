@@ -3,25 +3,56 @@
   "name": "plg-metrics",
   "type": "registry:block",
   "title": "PLG Metrics",
-  "description": "Canonical event taxonomy, user/account traits, product events, and tracking helpers.",
+  "description": "Product-led growth event schema, metric helpers, and activation metrics dashboard starter.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
-  "files": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/drizzle-postgres.json"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/plg-metrics.ts",
+      "type": "registry:file",
+      "target": "packages/db/src/schema/plg-metrics.ts",
+      "content": "import { index, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const productEvents = pgTable(\n  \"product_events\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    organizationId: text(\"organization_id\"),\n    actorId: text(\"actor_id\"),\n    eventType: text(\"event_type\").notNull(),\n    source: text(\"source\").notNull().default(\"app\"),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    occurredAt: timestamp(\"occurred_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (event) => [\n    index(\"product_events_organization_idx\").on(event.organizationId),\n    index(\"product_events_type_idx\").on(event.eventType),\n    index(\"product_events_occurred_at_idx\").on(event.occurredAt),\n  ],\n);\n"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/plg-metrics.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/plg-metrics.ts",
+      "content": "export type ProductEventInput = {\n  eventType: string;\n  actorId?: string;\n  organizationId?: string;\n  source?: string;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createProductEvent(input: ProductEventInput) {\n  return {\n    eventType: input.eventType,\n    actorId: input.actorId,\n    organizationId: input.organizationId,\n    source: input.source ?? \"app\",\n    metadata: input.metadata ?? {},\n  };\n}\n\nexport const activationEventTypes = [\n  \"workspace.created\",\n  \"api_key.created\",\n  \"first_request.succeeded\",\n  \"billing.checkout_started\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/analytics/plg/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/analytics/plg/page.tsx",
+      "content": "import { activationEventTypes } from \"@/lib/stackfoundry/plg-metrics\";\n\nexport default function PLGMetricsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">PLG Metrics</h1>\n        <p className=\"text-muted-foreground\">\n          Track activation events and product-led growth signals across workspaces.\n        </p>\n      </div>\n      <div className=\"grid gap-3\">\n        {activationEventTypes.map((eventType) => (\n          <section key={eventType} className=\"rounded-lg border p-4\">\n            <h2 className=\"font-medium\">{eventType}</h2>\n            <p className=\"text-sm text-muted-foreground\">Activation event</p>\n          </section>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
   "maintenanceSkills": [
     {
       "name": "plg-metrics",
       "target": ".stackfoundry/skills/plg-metrics/SKILL.md",
-      "content": "---\nname: plg-metrics\ndescription: Maintain the PLG Metrics module installed by StackFoundry.\n---\n\n# PLG Metrics Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+      "content": "---\nname: plg-metrics\ndescription: Maintain the PLG Metrics module installed by StackFoundry.\n---\n\n# PLG Metrics Maintenance Instructions\n\n- Keep event names stable, namespaced, and documented.\n- Keep provider ingestion separate from source-owned metric definitions.\n- Keep tenant and actor scope explicit.\n- Avoid private customer data in event metadata.\n\n## Shared Skills\n\nWhen provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/drizzle/SKILL.md` (source: `registry/skills/drizzle/SKILL.md`)\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\nKeep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.\n"
+    },
+    {
+      "name": "drizzle",
+      "target": ".stackfoundry/skills/drizzle/SKILL.md",
+      "content": "---\nname: drizzle\ndescription: Maintain Drizzle ORM and Postgres code installed by StackFoundry modules.\n---\n\n# Drizzle Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/drizzle/SKILL.md`\n- Registry source: `registry/skills/drizzle/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep database access in server-only code.\n- Add schema changes under `packages/db/src/schema` and export shared tables from the schema barrel.\n- Generate and commit migrations when schema changes are intended.\n- Use typed query helpers instead of raw SQL unless the query needs a documented escape hatch.\n- Include tenant, organization, or user scope in queries and cache tags whenever data is not global.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
     }
   ],
   "envVars": {},
-  "docs": "# PLG Metrics\n\nCanonical event taxonomy, user/account traits, product events, and tracking helpers.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "docs": "# PLG Metrics\n\nProduct-led growth event schema, metric helpers, and activation metrics dashboard starter.\n\n## Owns\n\n- `packages/db/src/schema/plg-metrics.ts`\n- `apps/web/src/lib/stackfoundry/plg-metrics.ts`\n- `apps/web/src/app/(console)/analytics/plg/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep event names stable and namespaced.\n- Keep product events tenant-scoped when they represent workspace activity.\n- Keep provider ingestion adapters separate from app-owned metric definitions.\n- Avoid customer-identifying metadata unless the consuming app has a retention policy.\n",
   "meta": {
-    "category": "growth",
+    "category": "analytics",
     "env": [],
-    "status": "stub",
-    "maturity": "stub",
+    "status": "ready",
+    "maturity": "ready",
     "recommendedFor": []
   }
 }

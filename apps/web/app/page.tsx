@@ -22,9 +22,9 @@ type LandingModuleCard = {
 };
 
 const stats = [
-  { value: "160+", label: "Modules" },
-  { value: "9", label: "Presets" },
-  { value: "12", label: "Categories" },
+  { value: "155", label: "Modules" },
+  { value: "13", label: "Presets" },
+  { value: "36", label: "Categories" },
   { value: "MIT", label: "License" },
 ];
 
@@ -125,6 +125,25 @@ const moduleCards: LandingModuleCard[] = [
     footer: {
       summary: "11 files · 1 schema · 1 skill",
       actions: [{ label: "json", href: "/r/webhook-inbox.json" }],
+    },
+  },
+  {
+    name: "ai-chatbot-sdk",
+    title: "AI Chatbot SDK",
+    category: "optional AI",
+    variant: "featured",
+    version: "v0.1.0",
+    description:
+      "Vercel AI SDK chat, AI Elements primitives, gateway-ready model routing, and a source-owned chatbot shell.",
+    tags: [
+      { label: "ai" },
+      { label: "Vercel AI SDK", tone: "provider" },
+      { label: "deps: ai-elements", tone: "dependency" },
+      { label: "maintenance skill", tone: "skill" },
+    ],
+    footer: {
+      summary: "2 files · 2 deps · 1 skill",
+      actions: [{ label: "json", href: "/r/ai-chatbot-sdk.json" }],
     },
   },
   {
@@ -250,7 +269,7 @@ const presetRows = [
 const assuranceRows = [
   {
     title: "What installs?",
-    body: "Source files, route shells, helpers, schema slices, docs, skill guidance, and verification checklists.",
+    body: "Source files, route shells, helpers, schema slices, docs, maintenance skills, and verification checklists.",
   },
   {
     title: "What stays out?",

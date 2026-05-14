@@ -9,7 +9,7 @@ Install production SaaS modules as editable source code.
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 ![Next.js](https://img.shields.io/badge/Next.js-16-black)
 ![Vercel](https://img.shields.io/badge/deploy-Vercel-black)
-![Modules](https://img.shields.io/badge/modules-294-orange)
+![Modules](https://img.shields.io/badge/modules-155-orange)
 ![Recipes](https://img.shields.io/badge/recipes-9-purple)
 ![Presets](https://img.shields.io/badge/presets-13-teal)
 ![Inspired by shadcn](https://img.shields.io/badge/inspired%20by-shadcn-111111)
@@ -85,12 +85,12 @@ Current source registry coverage:
 | Docs and SEO | `docs-fumadocs`, `docs-mintlify`, `docs-help-center`, `seo`, `ai-seo` |
 | Security | `arcjet-security`, `security-headers`, `csrf-protection`, `input-validation`, `secrets-management` |
 | Storage and infra | `vercel-blob`, `vercel-edge-config`, `cloudflare-r2`, `upstash-redis`, `docker-compose-local` |
-| Optional AI | `ai-chat`, `model-router`, `ai-tools`, `rag-starter`, `evals`, `cloudflare-agents-sdk` |
+| Optional AI | `ai-sdk`, `ai-elements`, `ai-chat`, `ai-chatbot-sdk`, `cloudflare-agents-sdk`, `cloudflare-kumo-ui` |
 
 <details>
 <summary>Current scale</summary>
 
-- 294 module manifests
+- 155 ready module manifests
 - 36 canonical categories
 - 13 preset bundles
 - 9 architecture recipes
@@ -105,7 +105,7 @@ Current source registry coverage:
 | `next-saas` | Broad app foundation with database, billing, account surfaces, docs, ops, security, and growth modules |
 | `b2b-saas` | Team workspaces, tenant controls, RBAC, auditability, SSO, and SCIM |
 | `developer-platform` | API keys, public APIs, webhooks, docs, SDK snippets, and developer portal modules |
-| `ai-saas` | Optional AI product modules for chat, model routing, prompts, quotas, RAG, and metering |
+| `ai-saas` | Optional AI product modules for Vercel AI SDK chat, AI Elements, quotas, Cloudflare AI building blocks, and metering |
 | `internal-admin` | Operator consoles, support, health, incidents, jobs, backup, and maintenance controls |
 | `free-tier-saas` | Practical baseline for a free-tier product launch |
 | `vercel-native` | Vercel deployment, storage, workflows, edge config, and observability path |
@@ -113,7 +113,7 @@ Current source registry coverage:
 | `provider-adapters` | Concrete optional provider adapter examples |
 | `api-saas-starter` | API-first SaaS workflow with keys, usage, rate limits, billing, webhooks, docs, and observability |
 | `enterprise-saas` | Enterprise layer with SSO, SCIM, audit, access review, security, SLA, and support workflows |
-| `ai-saas-starter` | AI SaaS workflow with chat, model routing, prompts, evals, RAG, usage metering, and billing |
+| `ai-saas-starter` | AI SaaS workflow with Vercel AI SDK chat, AI Elements, usage metering, quotas, and billing |
 
 ```bash
 pnpm registry:presets
@@ -284,7 +284,7 @@ See [`docs/repository.md`](./docs/repository.md) for ownership rules.
 
 ## Where This Is Going
 
-- More stub modules graduating to ready installable source payloads
+- More proposed modules graduating to ready installable source payloads
 - Better diff/update workflows for installed modules
 - More provider adapters without making providers base dependencies
 - More production smoke paths for presets and recipes

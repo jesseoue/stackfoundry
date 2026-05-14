@@ -4,15 +4,33 @@ This page mirrors the release changelog and keeps the latest public registry cha
 
 ## Unreleased
 
+### Added
+
+1. Added SaaS recipes, readiness statuses, stricter validation, and a proposal path for future complete product workflows.
+2. Added recipe commands and install paths, including `api-saas-starter`, `enterprise-saas`, `ai-saas-starter`, `cloudflare-saas`, `support-ops`, `security-center`, `integration-marketplace`, and `customer-intelligence`.
+3. Added an installable `cloudflare-next-starter` module for consuming apps while keeping StackFoundry itself on the standard Next.js/Vercel path.
+4. Added Vercel AI building blocks: `ai-sdk`, `ai-elements`, and `ai-chatbot-sdk`.
+5. Added `cloudflare-kumo-ui` as an optional Cloudflare UI building-block module.
+6. Added docs for recipes, install order, readiness, conventions, and this mirrored changelog.
+7. Added OpenSSF Scorecard scanning and private vulnerability reporting links.
+
+### Changed
+
 1. Pointed module maintenance skills to installed shared provider, framework, database, SDK, and platform skills.
 2. Standardized provider adapter registry language and replaced legacy provider wording/paths.
 3. Renamed public command examples to `stackfoundry`.
-4. Added SaaS recipes, readiness statuses, stricter validation, and high-priority stub modules for complete product workflows.
-5. Polished registry docs for recipes, readiness, install order, conventions, and current registry scale.
-6. Added an installable Cloudflare Next.js starter module for consuming apps while keeping StackFoundry hosted on Vercel.
-7. Improved README badges, contribution controls, provider request templates, and repo topics for public discovery.
-8. Hardened public repository security posture with private vulnerability reporting, safer checkout settings, OpenSSF Scorecard, dependency review, CodeQL, and clearer public-safety rules.
-9. Updated GitHub Actions dependencies for checkout, Node setup, pnpm setup, and dependency review.
+4. Updated `AGENTS.md` to match the current recipes, readiness, generated-output, and maintenance-skill model.
+5. Improved README badges, contribution controls, provider request templates, repo topics, and docs navigation for public discovery.
+6. Updated GitHub Actions dependencies for checkout, Node setup, pnpm setup, and dependency review.
+
+### Security
+
+1. Hardened public repository security posture with private vulnerability reporting, safer checkout settings, OpenSSF Scorecard, dependency review, CodeQL, Dependabot vulnerability alerts, and clearer public-safety rules.
+
+### Fixed
+
+1. Fixed GitHub integration private-key newline handling in the installable source template.
+2. Resolved the `next-saas` module/preset ambiguity by renaming the source shell module to `next-saas-shell`.
 
 ## 1.0.0
 

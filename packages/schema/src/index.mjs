@@ -20,7 +20,7 @@ export const requiredRecipeFields = [
 ];
 
 export const validModuleTypes = new Set(["module", "integration", "page"]);
-export const validModuleStatuses = new Set(["ready", "stub", "planned", "experimental", "stable", "deprecated"]);
+export const validModuleStatuses = new Set(["ready", "planned", "experimental", "stable", "deprecated"]);
 export const validModuleCategories = new Set([
   "ai",
   "analytics",

@@ -17,7 +17,7 @@
       "path": "apps/web/wrangler.jsonc",
       "type": "registry:file",
       "target": "apps/web/wrangler.jsonc",
-      "content": "{\n  \"$schema\": \"../../node_modules/wrangler/config-schema.json\",\n  \"name\": \"my-next-app\",\n  \"main\": \".open-next/worker.js\",\n  \"compatibility_date\": \"2026-05-14\",\n  \"compatibility_flags\": [\"nodejs_compat\", \"global_fetch_strictly_public\"],\n  \"assets\": {\n    \"directory\": \".open-next/assets\",\n    \"binding\": \"ASSETS\"\n  },\n  \"services\": [\n    {\n      \"binding\": \"WORKER_SELF_REFERENCE\",\n      \"service\": \"my-next-app\"\n    }\n  ],\n  \"observability\": {\n    \"enabled\": true\n  },\n  \"env\": {\n    \"preview\": {\n      \"name\": \"my-next-app-preview\"\n    },\n    \"production\": {\n      \"name\": \"my-next-app\"\n    }\n  }\n}\n"
+      "content": "{\n  \"$schema\": \"../../node_modules/wrangler/config-schema.json\",\n  \"name\": \"my-next-app\",\n  \"main\": \".open-next/worker.js\",\n  \"compatibility_date\": \"2026-05-14\",\n  \"compatibility_flags\": [\"nodejs_compat\", \"global_fetch_strictly_public\"],\n  \"assets\": {\n    \"directory\": \".open-next/assets\",\n    \"binding\": \"ASSETS\"\n  },\n  \"observability\": {\n    \"enabled\": true\n  },\n  \"env\": {\n    \"preview\": {\n      \"name\": \"my-next-app-preview\"\n    },\n    \"production\": {\n      \"name\": \"my-next-app\"\n    }\n  }\n}\n"
     },
     {
       "path": "apps/web/open-next.config.ts",
@@ -35,13 +35,13 @@
       "path": "apps/web/src/lib/stackfoundry/providers/cloudflare-next-starter.ts",
       "type": "registry:file",
       "target": "apps/web/src/lib/stackfoundry/providers/cloudflare-next-starter.ts",
-      "content": "export const cloudflareNextStarterChecklist = [\n  \"Install @opennextjs/cloudflare and wrangler as dev dependencies\",\n  \"Set the Worker name in apps/web/wrangler.jsonc\",\n  \"Run opennextjs-cloudflare build before Wrangler preview or deploy\",\n  \"Use wrangler deploy --dry-run --env production before publishing\",\n  \"Keep Cloudflare account credentials in the provider dashboard or CI secrets\",\n] as const;\n"
+      "content": "export const cloudflareNextStarterChecklist = [\n  \"Install @opennextjs/cloudflare and wrangler as dev dependencies\",\n  \"Set the Worker name in apps/web/wrangler.jsonc\",\n  \"Confirm apps/web/package.json includes the Cloudflare build, preview, deploy, check, and typegen scripts\",\n  \"Confirm .gitignore excludes .open-next/, .dev.vars, .dev.vars.*, and .wrangler/\",\n  \"Run opennextjs-cloudflare build before Wrangler preview or deploy\",\n  \"Use wrangler deploy --dry-run --env production before publishing\",\n  \"Run wrangler types --env-interface CloudflareEnv after changing bindings\",\n  \"Keep Cloudflare account credentials in the provider dashboard or CI secrets\",\n] as const;\n"
     },
     {
       "path": "docs/providers/cloudflare-next-starter.md",
       "type": "registry:file",
       "target": "docs/providers/cloudflare-next-starter.md",
-      "content": "# Cloudflare Next Starter\n\nThis module adds OpenNext for Cloudflare and Wrangler configuration to a consuming Next.js app. It is a deploy adapter, not the default deployment path for StackFoundry itself.\n\n## Owns\n\n- `apps/web/wrangler.jsonc`\n- `apps/web/open-next.config.ts`\n- `apps/web/public/_headers`\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-next-starter.ts`\n\n## Setup\n\nAdd package scripts in the consuming app if they are not already present:\n\n```json\n{\n  \"build:cloudflare\": \"opennextjs-cloudflare build\",\n  \"preview:cloudflare\": \"opennextjs-cloudflare build && opennextjs-cloudflare preview --env preview\",\n  \"deploy:cloudflare\": \"opennextjs-cloudflare build && opennextjs-cloudflare deploy --env production\",\n  \"check:cloudflare\": \"opennextjs-cloudflare build && wrangler deploy --dry-run --env production\"\n}\n```\n\n## Verification\n\n```bash\npnpm install\npnpm build:cloudflare\npnpm check:cloudflare\n```\n\nUse Cloudflare dashboard credentials, `wrangler login`, or CI secrets for deployment. Do not commit Cloudflare account credentials, API tokens, `.dev.vars`, or Wrangler local state.\n"
+      "content": "# Cloudflare Next Starter\n\nThis module adds OpenNext for Cloudflare and Wrangler configuration to a consuming Next.js app. It is a deploy adapter, not the default deployment path for StackFoundry itself.\n\n## Owns\n\n- `apps/web/wrangler.jsonc`\n- `apps/web/open-next.config.ts`\n- `apps/web/public/_headers`\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-next-starter.ts`\n\n## Setup\n\nThe StackFoundry command merges these package scripts into `apps/web/package.json`:\n\n```json\n{\n  \"build:cloudflare\": \"opennextjs-cloudflare build\",\n  \"preview:cloudflare\": \"opennextjs-cloudflare build && opennextjs-cloudflare preview --env preview\",\n  \"deploy:cloudflare\": \"opennextjs-cloudflare build && opennextjs-cloudflare deploy --env production\",\n  \"check:cloudflare\": \"opennextjs-cloudflare build && wrangler deploy --dry-run --env production\"\n}\n```\n\n## Verification\n\n```bash\npnpm install\npnpm build:cloudflare\npnpm check:cloudflare\npnpm cf-typegen\n```\n\nWrangler `>=3.99.0` is required for Next.js apps using OpenNext for Cloudflare. Use Cloudflare dashboard credentials, `wrangler login`, or CI secrets for deployment. Do not commit Cloudflare account credentials, API tokens, `.dev.vars`, `.wrangler/`, or `.open-next/`.\n"
     }
   ],
   "maintenanceSkills": [
@@ -62,10 +62,25 @@
     }
   ],
   "envVars": {},
-  "docs": "# Cloudflare Next Starter\n\nOpenNext and Wrangler starter for deploying a consuming Next.js app to Cloudflare Workers.\n\n## Owns\n\n- `apps/web/wrangler.jsonc`\n- `apps/web/open-next.config.ts`\n- `apps/web/public/_headers`\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-next-starter.ts`\n- `docs/providers/cloudflare-next-starter.md`\n\n## Dependencies\n\n- `@opennextjs/cloudflare`\n- `wrangler`\n\n## Environment\n\nNo app environment variables are required by default. Cloudflare account credentials should live in the Cloudflare dashboard, local Wrangler auth, or CI secrets.\n\n## Maintenance\n\n- Keep this module focused on the Cloudflare deployment boundary for consuming apps.\n- Do not add Cloudflare deployment dependencies to the StackFoundry web app itself.\n- Run a Wrangler dry run before publishing a consuming app deployment.\n- Update docs, checklist, and source files together when OpenNext or Wrangler behavior changes.\n",
+  "docs": "# Cloudflare Next Starter\n\nOpenNext and Wrangler starter for deploying a consuming Next.js app to Cloudflare Workers.\n\n## Owns\n\n- `apps/web/wrangler.jsonc`\n- `apps/web/open-next.config.ts`\n- `apps/web/public/_headers`\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-next-starter.ts`\n- `docs/providers/cloudflare-next-starter.md`\n\n## Dependencies\n\n- `@opennextjs/cloudflare`\n- `wrangler` `>=3.99.0`\n\n## Package Scripts\n\nThe StackFoundry command merges Cloudflare scripts into `apps/web/package.json`:\n\n```json\n{\n  \"build:cloudflare\": \"opennextjs-cloudflare build\",\n  \"preview:cloudflare\": \"opennextjs-cloudflare build && opennextjs-cloudflare preview --env preview\",\n  \"deploy:cloudflare\": \"opennextjs-cloudflare build && opennextjs-cloudflare deploy --env production\",\n  \"check:cloudflare\": \"opennextjs-cloudflare build && wrangler deploy --dry-run --env production\",\n  \"cf-typegen\": \"wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts\"\n}\n```\n\nThe module also adds `.open-next/`, `.dev.vars`, `.dev.vars.*`, and `.wrangler/` to the target app's `.gitignore`.\n\n## Environment\n\nNo app environment variables are required by default. Cloudflare account credentials should live in the Cloudflare dashboard, local Wrangler auth, or CI secrets.\n\n## Maintenance\n\n- Keep this module focused on the Cloudflare deployment boundary for consuming apps.\n- Do not add Cloudflare deployment dependencies to the StackFoundry web app itself.\n- Run a Wrangler dry run before publishing a consuming app deployment.\n- Generate Cloudflare environment types after changing bindings with `pnpm cf-typegen`.\n- Update docs, checklist, and source files together when OpenNext or Wrangler behavior changes.\n",
   "meta": {
     "category": "deploy",
     "env": [],
+    "gitignore": [
+      ".open-next/",
+      ".dev.vars",
+      ".dev.vars.*",
+      ".wrangler/"
+    ],
+    "packageScripts": {
+      "apps/web/package.json": {
+        "build:cloudflare": "opennextjs-cloudflare build",
+        "preview:cloudflare": "opennextjs-cloudflare build && opennextjs-cloudflare preview --env preview",
+        "deploy:cloudflare": "opennextjs-cloudflare build && opennextjs-cloudflare deploy --env production",
+        "check:cloudflare": "opennextjs-cloudflare build && wrangler deploy --dry-run --env production",
+        "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+      }
+    },
     "status": "ready",
     "maturity": "ready",
     "recommendedFor": []

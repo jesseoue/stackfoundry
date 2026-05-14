@@ -53,5 +53,6 @@ This installs Cloudflare deployment config into the target app. StackFoundry's o
 
 ### Optional AI
 
-- Vercel AI SDK and AI Gateway for AI modules
+- Vercel AI SDK, AI Gateway, and AI Elements for source-owned chatbot modules
+- Cloudflare Workers AI, Agents SDK, Vectorize, and Kumo UI as optional Cloudflare building blocks
 - Provider model routing belongs behind module adapters

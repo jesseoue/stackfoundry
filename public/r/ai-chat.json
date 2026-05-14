@@ -10,7 +10,9 @@
     "@ai-sdk/gateway"
   ],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/ai-sdk.json"
+  ],
   "files": [
     {
       "path": "apps/web/src/app/api/ai/chat/route.ts",
@@ -58,7 +60,7 @@
     "AI_GATEWAY_API_KEY": "",
     "AI_GATEWAY_MODEL": ""
   },
-  "docs": "# AI Chat Module\n\nAdds a minimal AI SDK chat endpoint and client component using current `useChat` semantics.\n\n## Owns\n\n- `/api/ai/chat` route\n- chat prompt component\n- model/env helper\n- prompt defaults\n\n## Requirements\n\n- `AI_GATEWAY_API_KEY`\n- `AI_GATEWAY_MODEL`\n\n## Verification\n\n- API route returns a UI message stream.\n- Client component sends messages with `DefaultChatTransport`.\n- Missing model returns a readable error instead of a failed stream.\n",
+  "docs": "# AI Chat Module\n\nAdds a minimal Vercel AI SDK chat endpoint and client component using current `useChat` semantics.\n\nThis module credits Vercel AI SDK for the `useChat`, `DefaultChatTransport`, UI message parts, and `toUIMessageStreamResponse()` patterns.\n\n## Owns\n\n- `/api/ai/chat` route\n- chat prompt component\n- model/env helper\n- prompt defaults\n\n## Requirements\n\n- `AI_GATEWAY_API_KEY`\n- `AI_GATEWAY_MODEL`\n\n## Verification\n\n- API route returns a UI message stream.\n- Client component sends messages with `DefaultChatTransport`.\n- Missing model returns a readable error instead of a failed stream.\n",
   "meta": {
     "category": "ai",
     "env": [

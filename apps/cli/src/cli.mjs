@@ -207,7 +207,7 @@ async function validateModule(moduleDir) {
     errors.push(`category must be one of: ${[...validModuleCategories].sort().join(", ")}`);
   }
   if (!validModuleStatuses.has(manifest.status)) {
-    errors.push("status must be ready, stub, planned, experimental, stable, or deprecated");
+    errors.push("status must be ready, planned, experimental, stable, or deprecated");
   }
   if (!Array.isArray(manifest.files)) errors.push("files must be an array");
   if (!Array.isArray(manifest.dependencies)) errors.push("dependencies must be an array");
@@ -218,9 +218,6 @@ async function validateModule(moduleDir) {
   const installableStatuses = new Set(["ready", "stable"]);
   if (installableStatuses.has(manifest.status) && manifest.files.length === 0) {
     errors.push(`${manifest.status} module must include at least one installable file`);
-  }
-  if (manifest.status === "stub" && manifest.files.length > 0) {
-    errors.push("stub module should not include installable files; use experimental or ready");
   }
   for (const key of manifest.env ?? []) {
     if (!isEnvVarName(key)) errors.push(`env var must be SCREAMING_SNAKE_CASE: ${key}`);
@@ -447,7 +444,7 @@ async function validateRegistry(flags = {}) {
         errors.push(`${file}: recipe category must be one of: ${[...validModuleCategories].sort().join(", ")}`);
       }
       if (!validModuleStatuses.has(recipe.status)) {
-        errors.push(`${file}: recipe status must be ready, stub, planned, experimental, stable, or deprecated`);
+        errors.push(`${file}: recipe status must be ready, planned, experimental, stable, or deprecated`);
       }
       if (!Array.isArray(recipe.modules)) errors.push(`${file}: modules must be an array`);
       if (!Array.isArray(recipe.stages)) errors.push(`${file}: stages must be an array`);
@@ -706,6 +703,56 @@ async function saveInstallManifest(target, manifest) {
   await writeFile(path.join(dir, "installed.json"), `${JSON.stringify(manifest, null, 2)}\n`);
 }
 
+async function mergePackageScripts({ target, packageScripts, flags, installedFiles }) {
+  if (!packageScripts || typeof packageScripts !== "object") return;
+
+  for (const [relative, scripts] of Object.entries(packageScripts)) {
+    if (!isSafeRelativePath(relative) || !relative.endsWith("package.json")) {
+      throw new Error(`packageScripts target must be a safe package.json path: ${relative}`);
+    }
+    if (!scripts || typeof scripts !== "object" || Array.isArray(scripts)) {
+      throw new Error(`${relative}: packageScripts value must be an object`);
+    }
+
+    const packagePath = path.join(target, relative);
+    if (!existsSync(packagePath)) {
+      console.log(`${flags.dryRun ? "would skip" : "skipped"} ${relative} packageScripts; file does not exist`);
+      continue;
+    }
+
+    const packageJson = await readJson(packagePath);
+    const nextScripts = { ...(packageJson.scripts ?? {}), ...scripts };
+    const nextPackageJson = { ...packageJson, scripts: nextScripts };
+    const content = `${JSON.stringify(nextPackageJson, null, 2)}\n`;
+
+    if (!flags.dryRun) await writeFile(packagePath, content);
+    installedFiles[relative] = hashContent(content);
+    console.log(`${flags.dryRun ? "would update" : "updated"} ${relative} scripts`);
+  }
+}
+
+async function mergeGitignoreEntries({ target, entries, flags, installedFiles }) {
+  if (!entries?.length) return;
+
+  const relative = ".gitignore";
+  const gitignorePath = path.join(target, relative);
+  const existing = existsSync(gitignorePath) ? await readFile(gitignorePath, "utf8") : "";
+  const lines = existing.split(/\r?\n/);
+  const existingEntries = new Set(lines.map((line) => line.trim()).filter(Boolean));
+  const missing = entries.filter((entry) => !existingEntries.has(entry));
+
+  if (missing.length === 0) {
+    installedFiles[relative] = hashContent(existing);
+    return;
+  }
+
+  const prefix = existing.trimEnd();
+  const content = `${prefix ? `${prefix}\n\n` : ""}# StackFoundry generated build output\n${missing.join("\n")}\n`;
+  if (!flags.dryRun) await writeFile(gitignorePath, content);
+  installedFiles[relative] = hashContent(content);
+  console.log(`${flags.dryRun ? "would update" : "updated"} ${relative}`);
+}
+
 async function addModule(name, flags, visited = new Set(), context = {}) {
   if (visited.has(name)) return;
   visited.add(name);
@@ -744,6 +791,19 @@ async function addModule(name, flags, visited = new Set(), context = {}) {
 
     installedFiles[normalized] = sourceHash;
   }
+
+  await mergePackageScripts({
+    target: flags.target,
+    packageScripts: manifest.packageScripts,
+    flags,
+    installedFiles,
+  });
+  await mergeGitignoreEntries({
+    target: flags.target,
+    entries: manifest.gitignore,
+    flags,
+    installedFiles,
+  });
 
   for (const skill of maintenanceSkills) {
     const sourceHash = hashContent(skill.content);
@@ -857,6 +917,19 @@ async function addRegistryItem(specifier, flags, visited = new Set()) {
     });
     installedFiles[relative] = sourceHash;
   }
+
+  await mergePackageScripts({
+    target: flags.target,
+    packageScripts: item.meta?.packageScripts,
+    flags,
+    installedFiles,
+  });
+  await mergeGitignoreEntries({
+    target: flags.target,
+    entries: item.meta?.gitignore,
+    flags,
+    installedFiles,
+  });
 
   for (const skill of item.maintenanceSkills ?? []) {
     if (!skill.content)
@@ -1036,6 +1109,8 @@ async function buildRegistry() {
       meta: {
         category: manifest.category,
         group: manifest.group,
+        gitignore: manifest.gitignore,
+        packageScripts: manifest.packageScripts,
         status: manifest.status,
         maturity: manifest.status,
         recommendedFor: manifest.recommendedFor ?? [],
@@ -1140,6 +1215,8 @@ async function buildRegistry() {
         category: manifest.category,
         group: manifest.group,
         env: manifest.env,
+        gitignore: manifest.gitignore,
+        packageScripts: manifest.packageScripts,
         status: manifest.status,
         maturity: manifest.status,
         drizzle: manifest.drizzle,

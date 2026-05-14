@@ -13,9 +13,7 @@
       "name": "foundation",
       "modules": [
         "next-saas-shell",
-        "theme-system",
-        "settings-layout",
-        "t3-env"
+        "settings-layout"
       ]
     },
     {
@@ -55,9 +53,7 @@
   "name": "saas-starter-minimal",
   "modules": [
     "next-saas-shell",
-    "theme-system",
     "settings-layout",
-    "t3-env",
     "drizzle-postgres",
     "tenant-context",
     "auth-core",

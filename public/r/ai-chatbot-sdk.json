@@ -1,0 +1,63 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-chatbot-sdk",
+  "type": "registry:block",
+  "title": "AI Chatbot SDK",
+  "description": "Vercel AI SDK and AI Elements chatbot shell for a source-owned conversational interface.",
+  "dependencies": [
+    "ai",
+    "@ai-sdk/react",
+    "@ai-sdk/gateway"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/ai-chat.json",
+    "https://stackfoundry.dev/r/ai-elements.json"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/components/ai/chatbot-shell.tsx",
+      "type": "registry:component",
+      "target": "apps/web/src/components/ai/chatbot-shell.tsx",
+      "content": "\"use client\";\n\nimport { useChat } from \"@ai-sdk/react\";\nimport { DefaultChatTransport } from \"ai\";\nimport { useMemo, useState } from \"react\";\n\nimport { AIConversation, AIMessage, AIPromptInput, AIStatus } from \"@/components/ai-elements\";\n\nexport function ChatbotShell() {\n  const [input, setInput] = useState(\"\");\n  const transport = useMemo(() => new DefaultChatTransport({ api: \"/api/ai/chat\" }), []);\n  const { messages, sendMessage, status } = useChat({ transport });\n  const disabled = status === \"submitted\" || status === \"streaming\";\n\n  function submit() {\n    const text = input.trim();\n    if (!text || disabled) return;\n    sendMessage({ text });\n    setInput(\"\");\n  }\n\n  return (\n    <AIConversation>\n      {messages.map((message) => (\n        <AIMessage key={message.id} message={message} />\n      ))}\n      <AIStatus status={status} />\n      <AIPromptInput disabled={disabled} value={input} onSubmit={submit} onValueChange={setInput} />\n    </AIConversation>\n  );\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/ai/chatbot/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/ai/chatbot/page.tsx",
+      "content": "import { ChatbotShell } from \"@/components/ai/chatbot-shell\";\n\nexport default function AIChatbotPage() {\n  return (\n    <main className=\"mx-auto flex max-w-3xl flex-col gap-6 p-6\">\n      <div>\n        <p className=\"text-sm font-medium text-muted-foreground\">AI</p>\n        <h1 className=\"text-3xl font-semibold tracking-tight\">Chatbot</h1>\n        <p className=\"mt-2 text-muted-foreground\">\n          A Vercel AI SDK chat surface built from source-owned AI Elements primitives.\n        </p>\n      </div>\n      <ChatbotShell />\n    </main>\n  );\n}\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "ai-chatbot-sdk",
+      "target": ".stackfoundry/skills/ai-chatbot-sdk/SKILL.md",
+      "content": "---\nname: ai-chatbot-sdk\ndescription: Maintain the AI Chatbot SDK module installed by StackFoundry.\n---\n\n# AI Chatbot SDK Maintenance Instructions\n\n- Keep chat state on the client and model routing on the server.\n- Use AI SDK UI messages and render `parts`.\n- Keep UI built from `ai-elements` primitives so teams can replace styling without rewriting chat logic.\n- Verify streaming after any route, model, or transport change.\n\n## Shared Skills\n\nWhen provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/ai-sdk/SKILL.md` (source: `registry/skills/ai-sdk/SKILL.md`)\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\nKeep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.\n"
+    },
+    {
+      "name": "ai-sdk",
+      "target": ".stackfoundry/skills/ai-sdk/SKILL.md",
+      "content": "---\nname: ai-sdk\ndescription: AI SDK guidance for installed AI modules.\n---\n\n# Ai Sdk Guidance\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/ai-sdk/SKILL.md`\n- Registry source: `registry/skills/ai-sdk/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep provider keys server-only.\n- Stream responses deliberately and handle tool errors.\n- Validate tool inputs and outputs.\n- Document model ids, fallback behavior, and cost-sensitive paths.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {
+    "AI_GATEWAY_API_KEY": "",
+    "AI_GATEWAY_MODEL": ""
+  },
+  "docs": "# AI Chatbot SDK\n\nVercel AI SDK and AI Elements chatbot shell for a source-owned conversational interface.\n\nThis module credits and follows Vercel's AI SDK `useChat` / UI message streaming patterns and the Vercel AI Elements approach of small, composable shadcn-style building blocks.\n\n## Owns\n\n- `apps/web/src/components/ai/chatbot-shell.tsx`\n- `apps/web/src/app/(console)/ai/chatbot/page.tsx`\n\n## Installs With\n\n- `ai-chat` for the API route and prompt/model helpers\n- `ai-elements` for composable chat UI primitives\n\n## Environment\n\n- `AI_GATEWAY_API_KEY`\n- `AI_GATEWAY_MODEL`\n\n## Verification\n\n- Chat page renders.\n- Submitting a prompt calls `/api/ai/chat`.\n- Streamed responses render from AI SDK UI message `parts`.\n- Provider keys stay server-only.\n",
+  "meta": {
+    "category": "ai",
+    "env": [
+      "AI_GATEWAY_API_KEY",
+      "AI_GATEWAY_MODEL"
+    ],
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
+  }
+}

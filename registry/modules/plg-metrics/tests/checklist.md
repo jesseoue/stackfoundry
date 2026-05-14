@@ -1,6 +1,7 @@
 # PLG Metrics Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] product events include tenant or actor scope when applicable
+- [ ] event names are stable and namespaced
+- [ ] metadata does not include private customer data by default
+- [ ] install output includes schema, helper, dashboard page, docs, checklist, and maintenance skill

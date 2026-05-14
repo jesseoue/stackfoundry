@@ -9,6 +9,21 @@
     "@opennextjs/cloudflare",
     "wrangler"
   ],
+  "packageScripts": {
+    "apps/web/package.json": {
+      "build:cloudflare": "opennextjs-cloudflare build",
+      "preview:cloudflare": "opennextjs-cloudflare build && opennextjs-cloudflare preview --env preview",
+      "deploy:cloudflare": "opennextjs-cloudflare build && opennextjs-cloudflare deploy --env production",
+      "check:cloudflare": "opennextjs-cloudflare build && wrangler deploy --dry-run --env production",
+      "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    }
+  },
+  "gitignore": [
+    ".open-next/",
+    ".dev.vars",
+    ".dev.vars.*",
+    ".wrangler/"
+  ],
   "registryDependencies": [
     "next-saas-shell"
   ],

@@ -8,7 +8,7 @@ The first installable production modules were:
 - `api-keys`
 - `stripe-billing`
 
-The registry now includes ready source modules, stub roadmap modules, provider adapter examples, recipes, and registry-compatible public blocks. Each ready module should be installable into an existing app as editable source code. Presets are bundles of modules; recipes are opinionated architecture paths.
+The registry now includes ready source modules, proposal-backed roadmap ideas, provider adapter examples, recipes, and registry-compatible public blocks. Each ready module should be installable into an existing app as editable source code. Presets are bundles of modules; recipes are opinionated architecture paths.
 
 Use [Recipes](./recipes.md) and [Install order](./install-order.md) when you want a complete workflow instead of individual blocks.
 
@@ -25,7 +25,7 @@ Use [Recipes](./recipes.md) and [Install order](./install-order.md) when you wan
 
 Module-specific skills stay focused on ownership, installed files, environment variables, deployment checks, and invariants. Provider, framework, database, SDK, and platform guidance lives in shared skills such as `.stackfoundry/skills/stripe/SKILL.md`, copied from `registry/skills/stripe/SKILL.md` during install.
 
-See [Readiness](./readiness.md) for the meaning of `ready`, `stub`, `planned`, `experimental`, `stable`, and `deprecated`.
+See [Readiness](./readiness.md) for the meaning of `ready`, `planned`, `experimental`, `stable`, and `deprecated`.
 
 ## Module Families
 
@@ -180,9 +180,9 @@ See [Readiness](./readiness.md) for the meaning of `ready`, `stub`, `planned`, `
 
 ### Optional AI
 
+- `ai-sdk`
+- `ai-elements`
 - `ai-chat`
-- `ai-artifacts`
-- `ai-tools`
-- `model-router`
-- `prompt-library`
-- `evals`
+- `ai-chatbot-sdk`
+- `cloudflare-agents-sdk`
+- `cloudflare-kumo-ui`

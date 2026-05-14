@@ -1,22 +1,40 @@
 {
   "name": "plg-metrics",
   "type": "module",
-  "category": "growth",
+  "category": "analytics",
   "title": "PLG Metrics",
-  "description": "Canonical event taxonomy, user/account traits, product events, and tracking helpers.",
+  "description": "Product-led growth event schema, metric helpers, and activation metrics dashboard starter.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
   "env": [],
-  "files": [],
-  "status": "stub",
+  "files": [
+    {
+      "path": "packages/db/src/schema/plg-metrics.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/plg-metrics.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/analytics/plg/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "status": "ready",
   "maintenance": {
     "skills": [
-      "plg-metrics"
+      "plg-metrics",
+      "drizzle",
+      "nextjs"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "define-event-taxonomy",
+      "keep-metrics-tenant-scoped",
+      "separate-ingestion-from-analysis"
     ]
   }
 }

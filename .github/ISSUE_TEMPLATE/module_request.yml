@@ -26,9 +26,9 @@ body:
     id: readiness
     attributes:
       label: Expected readiness
-      description: Is this a roadmap stub or an installable source module?
+      description: Is this a proposal or an installable source module?
       options:
-        - stub
+        - proposal
         - experimental
         - ready
         - stable

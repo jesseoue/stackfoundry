@@ -7,7 +7,6 @@
   "registryDependencies": [
     "https://stackfoundry.dev/r/next-saas-shell.json",
     "https://stackfoundry.dev/r/tenant-context.json",
-    "https://stackfoundry.dev/r/orgs-rbac.json",
     "https://stackfoundry.dev/r/permission-matrix.json",
     "https://stackfoundry.dev/r/custom-roles.json",
     "https://stackfoundry.dev/r/enterprise-sso.json",
@@ -32,7 +31,6 @@
     "modules": [
       "next-saas-shell",
       "tenant-context",
-      "orgs-rbac",
       "permission-matrix",
       "custom-roles",
       "enterprise-sso",
@@ -49,6 +47,6 @@
       "sla-management",
       "incident-management"
     ],
-    "moduleCount": 18
+    "moduleCount": 17
   }
 }

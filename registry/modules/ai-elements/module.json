@@ -1,0 +1,48 @@
+{
+  "name": "ai-elements",
+  "type": "module",
+  "category": "components",
+  "title": "AI Elements",
+  "description": "Composable AI chat UI primitives inspired by Vercel AI Elements and shadcn/ui conventions.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "ai-sdk"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/components/ai-elements/conversation.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "apps/web/src/components/ai-elements/message.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "apps/web/src/components/ai-elements/prompt-input.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "apps/web/src/components/ai-elements/status.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "apps/web/src/components/ai-elements/index.ts",
+      "type": "registry:file"
+    }
+  ],
+  "status": "ready",
+  "maintenance": {
+    "skills": [
+      "ai-elements",
+      "ai-sdk",
+      "nextjs"
+    ],
+    "rules": [
+      "keep-components-composable",
+      "render-message-parts",
+      "avoid-provider-specific-ui"
+    ]
+  }
+}

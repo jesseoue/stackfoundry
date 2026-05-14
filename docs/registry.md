@@ -24,7 +24,7 @@ Recipes live in `registry/recipes/*.json` and describe install order across modu
 - `files`: files installed into the target app
 - `drizzle`: schema/migration metadata
 - `maintenance`: maintenance skill and review metadata
-- `status`: ready, stub, planned, experimental, stable, or deprecated
+- `status`: ready, proposal, planned, experimental, stable, or deprecated
 
 ## Registry Model
 
@@ -32,7 +32,7 @@ StackFoundry follows a source registry pattern: source blocks are described by J
 
 The model is inspired by the shadcn registry/source-block approach, then extended for production SaaS modules with routes, server helpers, schema files, env notes, docs, verification checklists, and maintenance skills.
 
-StackFoundry adapts that model for production SaaS systems instead of UI-only components. A block may include routes, server helpers, schema files, env examples, docs, tests/checklists, and maintainer skill guidance.
+StackFoundry adapts that model for production SaaS systems instead of UI-only components. A block may include routes, server helpers, schema files, env examples, docs, tests/checklists, and maintenance skills.
 
 ## Registry Principles
 

@@ -2,26 +2,58 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "orgs-rbac",
   "type": "registry:block",
-  "title": "Organizations and RBAC",
-  "description": "Organization switcher, roles, permissions, invitations, and member management.",
+  "title": "Organizations RBAC",
+  "description": "Organization role catalog, permission helpers, and workspace role management surface.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
-  "files": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/drizzle-postgres.json",
+    "https://stackfoundry.dev/r/tenant-context.json"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/orgs-rbac.ts",
+      "type": "registry:file",
+      "target": "packages/db/src/schema/orgs-rbac.ts",
+      "content": "import { index, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const organizationRoles = pgTable(\n  \"organization_roles\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    organizationId: text(\"organization_id\").notNull(),\n    key: text(\"key\").notNull(),\n    name: text(\"name\").notNull(),\n    description: text(\"description\"),\n    permissions: jsonb(\"permissions\").$type<string[]>().notNull().default([]),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n    updatedAt: timestamp(\"updated_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (role) => [\n    index(\"organization_roles_organization_idx\").on(role.organizationId),\n    index(\"organization_roles_key_idx\").on(role.key),\n  ],\n);\n"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/orgs-rbac.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/orgs-rbac.ts",
+      "content": "export type OrganizationPermission =\n  | \"workspace:read\"\n  | \"workspace:update\"\n  | \"members:invite\"\n  | \"members:manage\"\n  | \"billing:manage\"\n  | \"security:manage\";\n\nexport type OrganizationRole = {\n  key: string;\n  name: string;\n  permissions: OrganizationPermission[];\n};\n\nexport const defaultOrganizationRoles: OrganizationRole[] = [\n  {\n    key: \"owner\",\n    name: \"Owner\",\n    permissions: [\n      \"workspace:read\",\n      \"workspace:update\",\n      \"members:invite\",\n      \"members:manage\",\n      \"billing:manage\",\n      \"security:manage\",\n    ],\n  },\n  {\n    key: \"admin\",\n    name: \"Admin\",\n    permissions: [\"workspace:read\", \"workspace:update\", \"members:invite\", \"members:manage\"],\n  },\n  {\n    key: \"member\",\n    name: \"Member\",\n    permissions: [\"workspace:read\"],\n  },\n];\n\nexport function roleHasPermission(role: OrganizationRole, permission: OrganizationPermission) {\n  return role.permissions.includes(permission);\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/settings/workspace/rbac/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/settings/workspace/rbac/page.tsx",
+      "content": "import { defaultOrganizationRoles } from \"@/lib/stackfoundry/orgs-rbac\";\n\nexport default function WorkspaceRolesPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Workspace Roles</h1>\n        <p className=\"text-muted-foreground\">\n          Review organization roles and the permissions they grant inside this workspace.\n        </p>\n      </div>\n      <div className=\"grid gap-3\">\n        {defaultOrganizationRoles.map((role) => (\n          <section key={role.key} className=\"rounded-lg border p-4\">\n            <h2 className=\"font-medium\">{role.name}</h2>\n            <p className=\"mt-2 text-sm text-muted-foreground\">\n              {role.permissions.length} permissions\n            </p>\n          </section>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
   "maintenanceSkills": [
     {
       "name": "orgs-rbac",
       "target": ".stackfoundry/skills/orgs-rbac/SKILL.md",
-      "content": "---\nname: orgs-rbac\ndescription: Maintain the Organizations and RBAC module installed by StackFoundry.\n---\n\n# Organizations and RBAC Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+      "content": "---\nname: orgs-rbac\ndescription: Maintain the Organizations RBAC module installed by StackFoundry.\n---\n\n# Organizations RBAC Maintenance Instructions\n\n- Keep role and permission checks tenant-scoped.\n- Keep default roles small and explicit.\n- Add audit events before using this module for sensitive role changes.\n- Update docs, checklist, schema, and helpers together when permissions change.\n\n## Shared Skills\n\nWhen provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/drizzle/SKILL.md` (source: `registry/skills/drizzle/SKILL.md`)\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\nKeep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.\n"
+    },
+    {
+      "name": "drizzle",
+      "target": ".stackfoundry/skills/drizzle/SKILL.md",
+      "content": "---\nname: drizzle\ndescription: Maintain Drizzle ORM and Postgres code installed by StackFoundry modules.\n---\n\n# Drizzle Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/drizzle/SKILL.md`\n- Registry source: `registry/skills/drizzle/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep database access in server-only code.\n- Add schema changes under `packages/db/src/schema` and export shared tables from the schema barrel.\n- Generate and commit migrations when schema changes are intended.\n- Use typed query helpers instead of raw SQL unless the query needs a documented escape hatch.\n- Include tenant, organization, or user scope in queries and cache tags whenever data is not global.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
     }
   ],
   "envVars": {},
-  "docs": "# Organizations and RBAC\n\nOrganization switcher, roles, permissions, invitations, and member management.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "docs": "# Organizations RBAC\n\nOrganization role catalog, permission helpers, and workspace role management surface.\n\n## Owns\n\n- `packages/db/src/schema/orgs-rbac.ts`\n- `apps/web/src/lib/stackfoundry/orgs-rbac.ts`\n- `apps/web/src/app/(console)/settings/workspace/rbac/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep roles scoped to the active organization or workspace.\n- Centralize permission checks through shared helpers.\n- Record audit events when role assignments or permissions change.\n- Keep provider-specific organization behavior in provider adapters.\n",
   "meta": {
     "category": "auth",
     "env": [],
-    "status": "stub",
-    "maturity": "stub",
+    "status": "ready",
+    "maturity": "ready",
     "recommendedFor": []
   }
 }

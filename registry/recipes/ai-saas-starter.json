@@ -1,72 +1,51 @@
 {
   "title": "AI SaaS Starter",
-  "description": "AI product path with chat, routing, prompts, evals, artifacts, RAG, quotas, and usage billing.",
+  "description": "AI product path with Vercel AI SDK chat, AI Elements, quotas, usage billing, and optional Cloudflare AI building blocks.",
   "category": "ai",
-  "status": "stub",
+  "status": "ready",
   "outcomes": [
     "Ship an AI feature surface",
     "Control model usage and cost",
-    "Connect evals and usage billing"
+    "Connect usage billing and cost controls"
   ],
   "stages": [
     {
       "name": "ai-product",
       "modules": [
+        "ai-sdk",
+        "ai-elements",
         "ai-chat",
-        "model-router",
-        "prompt-library",
-        "ai-artifacts",
-        "ai-tools",
-        "rag-starter"
+        "ai-chatbot-sdk"
       ]
     },
     {
       "name": "usage-and-cost",
       "modules": [
         "usage-metering",
-        "quota-enforcement",
-        "usage-based-billing",
-        "provider-cost-dashboard",
-        "usage-anomaly-alerts"
-      ]
-    },
-    {
-      "name": "quality",
-      "modules": [
-        "evals",
-        "data-quality-dashboard",
-        "event-taxonomy"
+        "quota-enforcement"
       ]
     },
     {
       "name": "platform",
       "modules": [
-        "mcp-client",
         "cloudflare-agents-sdk",
         "cloudflare-vectorize",
+        "cloudflare-kumo-ui",
         "ai-seo"
       ]
     }
   ],
   "name": "ai-saas-starter",
   "modules": [
+    "ai-sdk",
+    "ai-elements",
     "ai-chat",
-    "model-router",
-    "prompt-library",
-    "ai-artifacts",
-    "ai-tools",
-    "rag-starter",
+    "ai-chatbot-sdk",
     "usage-metering",
     "quota-enforcement",
-    "usage-based-billing",
-    "provider-cost-dashboard",
-    "usage-anomaly-alerts",
-    "evals",
-    "data-quality-dashboard",
-    "event-taxonomy",
-    "mcp-client",
     "cloudflare-agents-sdk",
     "cloudflare-vectorize",
+    "cloudflare-kumo-ui",
     "ai-seo"
   ]
 }

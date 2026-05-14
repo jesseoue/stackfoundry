@@ -10,7 +10,9 @@
     "@ai-sdk/gateway"
   ],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "ai-sdk"
+  ],
   "env": [
     "AI_GATEWAY_API_KEY",
     "AI_GATEWAY_MODEL"

@@ -2,7 +2,7 @@
   "title": "Security Center",
   "description": "Unified B2B security posture recipe for MFA, access reviews, API key risk, secrets, events, retention, and export/deletion.",
   "category": "security",
-  "status": "stub",
+  "status": "ready",
   "outcomes": [
     "Expose workspace security posture",
     "Review access and risky keys",
@@ -10,23 +10,9 @@
   ],
   "stages": [
     {
-      "name": "posture",
-      "modules": [
-        "security-center",
-        "security-scorecard",
-        "security-checklist",
-        "security-events"
-      ]
-    },
-    {
       "name": "access",
       "modules": [
-        "mfa-security",
-        "trusted-devices",
-        "access-review",
-        "workspace-access-review",
-        "api-key-risk-review",
-        "customer-api-key-risk"
+        "mfa-security"
       ]
     },
     {
@@ -51,16 +37,7 @@
   ],
   "name": "security-center",
   "modules": [
-    "security-center",
-    "security-scorecard",
-    "security-checklist",
-    "security-events",
     "mfa-security",
-    "trusted-devices",
-    "access-review",
-    "workspace-access-review",
-    "api-key-risk-review",
-    "customer-api-key-risk",
     "security-headers",
     "csrf-protection",
     "cors-policy",

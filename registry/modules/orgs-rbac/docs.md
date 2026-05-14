@@ -1,7 +1,20 @@
-# Organizations and RBAC
+# Organizations RBAC
 
-Organization switcher, roles, permissions, invitations, and member management.
+Organization role catalog, permission helpers, and workspace role management surface.
 
-## Status
+## Owns
 
-Planned module. Source files will be added as this module graduates into active development.
+- `packages/db/src/schema/orgs-rbac.ts`
+- `apps/web/src/lib/stackfoundry/orgs-rbac.ts`
+- `apps/web/src/app/(console)/settings/workspace/rbac/page.tsx`
+
+## Environment
+
+Requires `DATABASE_URL` through the `drizzle-postgres` dependency.
+
+## Maintenance
+
+- Keep roles scoped to the active organization or workspace.
+- Centralize permission checks through shared helpers.
+- Record audit events when role assignments or permissions change.
+- Keep provider-specific organization behavior in provider adapters.

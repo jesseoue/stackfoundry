@@ -1,0 +1,31 @@
+{
+  "name": "cloudflare-kumo-ui",
+  "type": "module",
+  "category": "components",
+  "title": "Cloudflare Kumo UI",
+  "description": "Cloudflare Kumo component-library building blocks for teams that want provider-grade UI primitives.",
+  "dependencies": [
+    "@cloudflare/kumo"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/ui/cloudflare-kumo.ts",
+      "type": "registry:file"
+    }
+  ],
+  "status": "ready",
+  "maintenance": {
+    "skills": [
+      "cloudflare-kumo-ui",
+      "nextjs"
+    ],
+    "rules": [
+      "keep-cloudflare-ui-optional",
+      "prefer-accessible-primitives",
+      "document-theme-impact"
+    ]
+  }
+}

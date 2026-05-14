@@ -17,7 +17,6 @@
     "https://stackfoundry.dev/r/webhook-delivery.json",
     "https://stackfoundry.dev/r/developer-portal.json",
     "https://stackfoundry.dev/r/api-usage-dashboard.json",
-    "https://stackfoundry.dev/r/sdk-snippets.json",
     "https://stackfoundry.dev/r/security-headers.json",
     "https://stackfoundry.dev/r/cors-policy.json",
     "https://stackfoundry.dev/r/api-errors.json",
@@ -54,7 +53,6 @@
       "webhook-delivery",
       "developer-portal",
       "api-usage-dashboard",
-      "sdk-snippets",
       "security-headers",
       "cors-policy",
       "api-errors",
@@ -73,6 +71,6 @@
       "command-menu",
       "data-table"
     ],
-    "moduleCount": 30
+    "moduleCount": 29
   }
 }

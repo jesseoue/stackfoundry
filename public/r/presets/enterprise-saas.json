@@ -6,7 +6,6 @@
   "modules": [
     "next-saas-shell",
     "tenant-context",
-    "orgs-rbac",
     "permission-matrix",
     "custom-roles",
     "enterprise-sso",

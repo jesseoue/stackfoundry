@@ -32,7 +32,7 @@ A module should include:
 - `skill/SKILL.md`
 - `tests/checklist.md`
 
-Use `stub` for modules that document a real SaaS capability but do not install source yet. Use `ready` only when the module has installable source files and passes registry validation.
+Use GitHub module/provider requests for proposed capabilities that do not install source yet. Use `ready` only when the module has installable source files and passes registry validation.
 
 ## Provider Adapters
 
@@ -55,7 +55,7 @@ Good public PR shapes:
 
 - one new provider adapter
 - one ready module implementation
-- one stub-to-ready promotion
+- one proposal-to-ready module promotion
 - one recipe/preset update with generated registry output
 - one docs-only clarification
 

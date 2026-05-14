@@ -43,8 +43,9 @@ const featuredPresets = [
   {
     name: "ai-saas",
     title: "AI SaaS",
-    description: "Optional AI product modules for chat, routing, prompts, quotas, and metering.",
-    modules: ["ai-chat", "model-router", "prompt-library", "quota-enforcement", "usage-metering"],
+    description:
+      "Optional AI product modules for Vercel AI SDK chat, AI Elements, quotas, and metering.",
+    modules: ["ai-sdk", "ai-elements", "ai-chatbot-sdk", "quota-enforcement", "usage-metering"],
     tone: "AI",
   },
   {
@@ -58,7 +59,7 @@ const featuredPresets = [
     name: "cloudflare-native",
     title: "Cloudflare Native",
     description: "Worker-first deployment, storage, queues, durable objects, and edge primitives.",
-    modules: ["cloudflare-workers", "cloudflare-d1", "cloudflare-r2", "cloudflare-queues"],
+    modules: ["cloudflare-workers", "cloudflare-d1", "cloudflare-r2", "cloudflare-kumo-ui"],
     tone: "Edge",
   },
   {
@@ -110,9 +111,8 @@ const featuredRecipes = [
   {
     name: "cloudflare-saas",
     title: "Cloudflare SaaS",
-    description:
-      "Workers, D1, KV, R2, Queues, Workflows, Durable Objects, Hyperdrive, and Turnstile.",
-    modules: ["cloudflare-workers", "cloudflare-d1", "cloudflare-r2", "cloudflare-queues"],
+    description: "Workers, D1, KV, R2, Queues, Workflows, Durable Objects, Kumo UI, and Turnstile.",
+    modules: ["cloudflare-workers", "cloudflare-d1", "cloudflare-r2", "cloudflare-kumo-ui"],
     tone: "Edge",
   },
 ];
@@ -205,8 +205,8 @@ const moduleFamilies = [
   {
     title: "Optional AI",
     description:
-      "AI modules are available when useful, but they are not required for the registry model.",
-    modules: ["ai-chat", "model-router", "ai-tools", "ai-artifacts", "rag-starter"],
+      "Vercel AI SDK and AI Elements modules are available when useful, but are not required for the registry model.",
+    modules: ["ai-sdk", "ai-elements", "ai-chat", "ai-chatbot-sdk", "cloudflare-agents-sdk"],
   },
   {
     title: "Docs and Deployment",
@@ -225,140 +225,130 @@ const providerOptions = [
   {
     name: "Drizzle",
     domain: "drizzle.team",
-    logo: "drizzle",
     role: "Database ORM",
     modules: ["drizzle-postgres", "drizzle-relations"],
   },
   {
     name: "Stripe",
     domain: "stripe.com",
-    logo: "stripe",
     role: "Billing adapter",
     modules: ["stripe-billing", "billing-portal"],
   },
   {
     name: "Autumn",
     domain: "useautumn.com",
-    logo: "autumn",
     role: "Billing adapter",
     modules: ["autumn-billing", "autumn-entitlements"],
   },
   {
     name: "Unkey",
     domain: "unkey.com",
-    logo: "unkey",
     role: "API key adapter",
     modules: ["unkey-api-keys", "unkey-rate-limits"],
   },
   {
     name: "Clerk",
     domain: "clerk.com",
-    logo: "clerk",
     role: "Auth adapter",
     modules: ["clerk-auth", "session-management"],
   },
   {
     name: "Resend",
     domain: "resend.com",
-    logo: "resend",
     role: "Email adapter",
     modules: ["resend-email", "lifecycle-email"],
   },
   {
     name: "PostHog",
     domain: "posthog.com",
-    logo: "posthog",
     role: "Analytics adapter",
     modules: ["posthog-analytics", "feature-adoption"],
   },
   {
     name: "Sentry",
     domain: "sentry.io",
-    logo: "sentry",
     role: "Monitoring adapter",
     modules: ["sentry-monitoring", "error-boundaries"],
   },
   {
     name: "Vercel",
     domain: "vercel.com",
-    logo: "vercel",
-    role: "Deploy and storage",
-    modules: ["vercel-deploy", "vercel-blob", "vercel-edge-config"],
+    role: "Deploy, storage, and AI",
+    modules: ["vercel-deploy", "vercel-blob", "ai-sdk", "ai-elements"],
   },
   {
     name: "Cloudflare",
     domain: "cloudflare.com",
-    logo: "cloudflare",
-    role: "Edge platform",
-    modules: ["cloudflare-workers", "cloudflare-d1", "cloudflare-r2"],
+    role: "Edge platform and UI",
+    modules: ["cloudflare-workers", "cloudflare-d1", "cloudflare-r2", "cloudflare-kumo-ui"],
   },
   {
     name: "Neon",
     domain: "neon.tech",
-    logo: "neon",
     role: "Postgres adapter",
     modules: ["neon-postgres", "drizzle-postgres"],
   },
   {
     name: "Supabase",
     domain: "supabase.com",
-    logo: "supabase",
     role: "Postgres adapter",
     modules: ["supabase-postgres", "file-uploads"],
   },
   {
     name: "Upstash",
     domain: "upstash.com",
-    logo: "upstash",
     role: "Redis adapter",
     modules: ["upstash-redis", "rate-limits"],
   },
   {
     name: "Trigger.dev",
     domain: "trigger.dev",
-    logo: "trigger",
     role: "Jobs adapter",
     modules: ["trigger-dev-jobs", "background-jobs"],
   },
   {
     name: "Inngest",
     domain: "inngest.com",
-    logo: "inngest",
     role: "Functions adapter",
     modules: ["inngest-functions", "background-jobs"],
   },
   {
     name: "Next.js",
     domain: "nextjs.org",
-    logo: "nextjs",
     role: "App framework",
     modules: ["next-saas-shell", "docs-fumadocs"],
   },
   {
     name: "React",
     domain: "react.dev",
-    logo: "react",
     role: "UI runtime",
     modules: ["sidebar-shell", "data-table"],
   },
 ];
 
 const stats = [
-  ["200+", "Module manifests"],
-  ["10", "Preset bundles"],
+  ["155", "Module manifests"],
+  ["13", "Preset bundles"],
+  ["9", "Recipes"],
   ["17", "Provider cards"],
-  ["0", "Required adapters"],
 ];
 
 function moduleTags(modules: string[], tone: ModuleTag["tone"] = "default") {
   return modules.map((module) => ({ label: module, tone }));
 }
 
-function ProviderLogo({ name, logo }: { name: string; logo: string }) {
+function ProviderLogo({ name, domain }: { name: string; domain: string }) {
   return (
     <span className="registry-logo-wrap" aria-hidden="true">
       <span>{name.slice(0, 1)}</span>
-      <img src={`/registry-logos/${logo}.png`} alt="" width="32" height="32" loading="lazy" />
+      <img
+        src={`https://www.google.com/s2/favicons?domain=${domain}&sz=64`}
+        alt=""
+        width="32"
+        height="32"
+        loading="lazy"
+        referrerPolicy="no-referrer"
+      />
     </span>
   );
 }
@@ -534,7 +524,7 @@ pnpm stackfoundry diff api-keys`}</code>
               <ModuleCard
                 badge={provider.role}
                 description={provider.domain}
-                icon={<ProviderLogo name={provider.name} logo={provider.logo} />}
+                icon={<ProviderLogo name={provider.name} domain={provider.domain} />}
                 key={provider.name}
                 name={provider.name.toLowerCase()}
                 tags={[

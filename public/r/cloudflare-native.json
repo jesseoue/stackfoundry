@@ -3,7 +3,7 @@
   "name": "cloudflare-native",
   "type": "registry:block",
   "title": "Cloudflare Native",
-  "description": "Workers, Pages, D1, R2, KV, Queues, Turnstile, and Workers AI modules.",
+  "description": "Workers, Pages, D1, R2, KV, Queues, Turnstile, Workers AI, and optional Kumo UI modules.",
   "registryDependencies": [
     "https://stackfoundry.dev/r/cloudflare-next-starter.json",
     "https://stackfoundry.dev/r/cloudflare-pages.json",
@@ -14,6 +14,7 @@
     "https://stackfoundry.dev/r/cloudflare-queues.json",
     "https://stackfoundry.dev/r/cloudflare-turnstile.json",
     "https://stackfoundry.dev/r/cloudflare-workers-ai.json",
+    "https://stackfoundry.dev/r/cloudflare-kumo-ui.json",
     "https://stackfoundry.dev/r/cloudflare-workflows.json"
   ],
   "files": [],
@@ -31,8 +32,9 @@
       "cloudflare-queues",
       "cloudflare-turnstile",
       "cloudflare-workers-ai",
+      "cloudflare-kumo-ui",
       "cloudflare-workflows"
     ],
-    "moduleCount": 10
+    "moduleCount": 11
   }
 }

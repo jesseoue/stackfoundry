@@ -1,7 +1,7 @@
 {
   "name": "ai-saas-starter",
   "title": "AI SaaS Starter",
-  "description": "AI SaaS starter with chat, tools, artifacts, model routing, prompts, evals, RAG, metering, and billing.",
+  "description": "AI SaaS starter with Vercel AI SDK chat, AI Elements, usage metering, quotas, analytics, and monitoring.",
   "status": "experimental",
   "modules": [
     "next-saas-shell",
@@ -9,13 +9,10 @@
     "billing-core",
     "usage-metering",
     "quota-enforcement",
+    "ai-sdk",
+    "ai-elements",
     "ai-chat",
-    "ai-tools",
-    "ai-artifacts",
-    "model-router",
-    "prompt-library",
-    "evals",
-    "rag-starter",
+    "ai-chatbot-sdk",
     "posthog-analytics",
     "sentry-monitoring"
   ]

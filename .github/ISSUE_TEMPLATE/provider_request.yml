@@ -43,7 +43,7 @@ body:
     attributes:
       label: Expected readiness
       options:
-        - stub
+        - proposal
         - experimental
         - ready
         - stable

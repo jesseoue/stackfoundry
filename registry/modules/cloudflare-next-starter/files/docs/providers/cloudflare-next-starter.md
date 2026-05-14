@@ -11,7 +11,7 @@ This module adds OpenNext for Cloudflare and Wrangler configuration to a consumi
 
 ## Setup
 
-Add package scripts in the consuming app if they are not already present:
+The StackFoundry command merges these package scripts into `apps/web/package.json`:
 
 ```json
 {
@@ -28,6 +28,7 @@ Add package scripts in the consuming app if they are not already present:
 pnpm install
 pnpm build:cloudflare
 pnpm check:cloudflare
+pnpm cf-typegen
 ```
 
-Use Cloudflare dashboard credentials, `wrangler login`, or CI secrets for deployment. Do not commit Cloudflare account credentials, API tokens, `.dev.vars`, or Wrangler local state.
+Wrangler `>=3.99.0` is required for Next.js apps using OpenNext for Cloudflare. Use Cloudflare dashboard credentials, `wrangler login`, or CI secrets for deployment. Do not commit Cloudflare account credentials, API tokens, `.dev.vars`, `.wrangler/`, or `.open-next/`.

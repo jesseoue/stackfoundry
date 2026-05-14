@@ -197,16 +197,16 @@ const moduleGroups = [
   },
   {
     category: "Optional AI",
-    summary: "AI modules are categories in the registry, not the product identity.",
+    summary: "Vercel AI SDK, AI Elements, and Cloudflare AI modules are optional building blocks.",
     modules: [
+      "ai-sdk",
+      "ai-elements",
       "ai-chat",
-      "model-router",
-      "prompt-library",
-      "rag-starter",
+      "ai-chatbot-sdk",
       "cloudflare-agents-sdk",
       "cloudflare-mcp-server",
       "cloudflare-vectorize",
-      "evals",
+      "cloudflare-kumo-ui",
     ],
   },
   {

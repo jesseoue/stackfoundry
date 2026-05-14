@@ -2,7 +2,7 @@
 
 This directory contains reusable internals for the StackFoundry command and registry build pipeline.
 
-The split mirrors the shape of mature source registry CLIs: the executable stays thin, while schema rules, registry IO, generation helpers, and utilities live behind package boundaries.
+The split mirrors the shape of mature source registry commands: the executable stays thin, while schema rules, registry IO, generation helpers, and utilities live behind package boundaries.
 
 ## Packages
 

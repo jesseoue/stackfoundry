@@ -33,21 +33,13 @@
       "modules": [
         "usage-metering",
         "quota-enforcement",
-        "credit-wallet",
-        "credit-ledger",
-        "credit-grants",
-        "credit-adjustments",
-        "wallet-reconciliation"
+        "credit-wallet"
       ]
     },
     {
       "name": "developer-experience",
       "modules": [
-        "api-docs",
-        "sdk-snippets",
-        "api-playground",
-        "first-api-call",
-        "request-log-explorer"
+        "api-docs"
       ]
     },
     {
@@ -55,7 +47,6 @@
       "modules": [
         "webhook-inbox",
         "webhook-delivery",
-        "webhook-delivery-detail",
         "idempotency-keys"
       ]
     },
@@ -65,8 +56,7 @@
         "billing-core",
         "stripe-billing",
         "plan-gating",
-        "entitlements",
-        "billing-ledger"
+        "entitlements"
       ]
     }
   ],
@@ -84,23 +74,13 @@
     "usage-metering",
     "quota-enforcement",
     "credit-wallet",
-    "credit-ledger",
-    "credit-grants",
-    "credit-adjustments",
-    "wallet-reconciliation",
     "api-docs",
-    "sdk-snippets",
-    "api-playground",
-    "first-api-call",
-    "request-log-explorer",
     "webhook-inbox",
     "webhook-delivery",
-    "webhook-delivery-detail",
     "idempotency-keys",
     "billing-core",
     "stripe-billing",
     "plan-gating",
-    "entitlements",
-    "billing-ledger"
+    "entitlements"
   ]
 }

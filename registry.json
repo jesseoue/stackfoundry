@@ -4,30 +4,6 @@
   "homepage": "https://stackfoundry.dev",
   "items": [
     {
-      "name": "aarrr-dashboard",
-      "type": "registry:block",
-      "title": "AARRR Dashboard",
-      "description": "Acquisition, activation, retention, referral, revenue dashboard with cohort filters.",
-      "files": [
-        {
-          "path": "registry/modules/aarrr-dashboard/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "access-review",
-      "type": "registry:block",
-      "title": "Access Review",
-      "description": "Periodic workspace access review for members, roles, API keys, and integrations.",
-      "files": [
-        {
-          "path": "registry/modules/access-review/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "account-deletion",
       "type": "registry:block",
       "title": "Account Deletion",
@@ -35,18 +11,6 @@
       "files": [
         {
           "path": "registry/modules/account-deletion/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "account-health",
-      "type": "registry:block",
-      "title": "Account Health",
-      "description": "Health scoring model for customer activation, usage, payment, and support signals.",
-      "files": [
-        {
-          "path": "registry/modules/account-health/module.json",
           "type": "registry:file"
         }
       ]
@@ -76,126 +40,6 @@
       ]
     },
     {
-      "name": "action-audit-wrapper",
-      "type": "registry:block",
-      "title": "Action Audit Wrapper",
-      "description": "Wrapper for recording action inputs, actor, result, and audit metadata.",
-      "files": [
-        {
-          "path": "registry/modules/action-audit-wrapper/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "action-confirmation",
-      "type": "registry:block",
-      "title": "Action Confirmation",
-      "description": "Confirmation dialog pattern for sensitive and irreversible SaaS actions.",
-      "files": [
-        {
-          "path": "registry/modules/action-confirmation/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "action-confirmation-dialog",
-      "type": "registry:block",
-      "title": "Action Confirmation Dialog",
-      "description": "Dialog component for confirming high-impact account, billing, and security actions.",
-      "files": [
-        {
-          "path": "registry/modules/action-confirmation-dialog/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "action-permissions",
-      "type": "registry:block",
-      "title": "Action Permissions",
-      "description": "Permission checks and policy metadata for operator and customer actions.",
-      "files": [
-        {
-          "path": "registry/modules/action-permissions/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "action-registry",
-      "type": "registry:block",
-      "title": "Action Registry",
-      "description": "Central action registry for typed SaaS operations and audit-aware execution.",
-      "files": [
-        {
-          "path": "registry/modules/action-registry/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "action-result-toast",
-      "type": "registry:block",
-      "title": "Action Result Toast",
-      "description": "Standard success, failure, and retry feedback for SaaS actions.",
-      "files": [
-        {
-          "path": "registry/modules/action-result-toast/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "activation-events",
-      "type": "registry:block",
-      "title": "Activation Events",
-      "description": "Activation event taxonomy and tracking hooks for time-to-value reporting.",
-      "files": [
-        {
-          "path": "registry/modules/activation-events/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "activation-onboarding",
-      "type": "registry:block",
-      "title": "Activation Onboarding",
-      "description": "Onboarding checklist, first-value milestones, and time-to-value tracking.",
-      "files": [
-        {
-          "path": "registry/modules/activation-onboarding/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "activation-score",
-      "type": "registry:block",
-      "title": "Activation Score",
-      "description": "Activation score derived from setup, usage, team, and billing milestones.",
-      "files": [
-        {
-          "path": "registry/modules/activation-score/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "activity-feed",
-      "type": "registry:block",
-      "title": "Activity Feed",
-      "description": "Unified feed for customer, billing, support, audit, and product events.",
-      "files": [
-        {
-          "path": "registry/modules/activity-feed/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "admin-console",
       "type": "registry:block",
       "title": "Admin Console",
@@ -203,30 +47,6 @@
       "files": [
         {
           "path": "registry/modules/admin-console/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "admin-impersonation",
-      "type": "registry:block",
-      "title": "Admin Impersonation",
-      "description": "Support/admin impersonation flows with audit logging and clear safety boundaries.",
-      "files": [
-        {
-          "path": "registry/modules/admin-impersonation/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "ai-artifacts",
-      "type": "registry:block",
-      "title": "AI Artifacts",
-      "description": "Document/code/sheet artifacts, side panel, and persistence.",
-      "files": [
-        {
-          "path": "registry/modules/ai-artifacts/module.json",
           "type": "registry:file"
         }
       ]
@@ -244,6 +64,42 @@
       ]
     },
     {
+      "name": "ai-chatbot-sdk",
+      "type": "registry:block",
+      "title": "AI Chatbot SDK",
+      "description": "Vercel AI SDK and AI Elements chatbot shell for a source-owned conversational interface.",
+      "files": [
+        {
+          "path": "registry/modules/ai-chatbot-sdk/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "ai-elements",
+      "type": "registry:block",
+      "title": "AI Elements",
+      "description": "Composable AI chat UI primitives inspired by Vercel AI Elements and shadcn/ui conventions.",
+      "files": [
+        {
+          "path": "registry/modules/ai-elements/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "ai-sdk",
+      "type": "registry:block",
+      "title": "AI SDK",
+      "description": "Vercel AI SDK model configuration, streaming helpers, and gateway-ready defaults.",
+      "files": [
+        {
+          "path": "registry/modules/ai-sdk/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "ai-seo",
       "type": "registry:block",
       "title": "AI SEO",
@@ -251,18 +107,6 @@
       "files": [
         {
           "path": "registry/modules/ai-seo/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "ai-tools",
-      "type": "registry:block",
-      "title": "AI Tools",
-      "description": "Tool definitions, typed tool rendering, and approval flows.",
-      "files": [
-        {
-          "path": "registry/modules/ai-tools/module.json",
           "type": "registry:file"
         }
       ]
@@ -292,18 +136,6 @@
       ]
     },
     {
-      "name": "api-key-risk-review",
-      "type": "registry:block",
-      "title": "API Key Risk Review",
-      "description": "API key risk review for stale, over-scoped, leaked, or high-volume keys.",
-      "files": [
-        {
-          "path": "registry/modules/api-key-risk-review/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "api-keys",
       "type": "registry:block",
       "title": "API Keys",
@@ -311,18 +143,6 @@
       "files": [
         {
           "path": "registry/modules/api-keys/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "api-playground",
-      "type": "registry:block",
-      "title": "API Playground",
-      "description": "Interactive API playground for authenticated requests and example responses.",
-      "files": [
-        {
-          "path": "registry/modules/api-playground/module.json",
           "type": "registry:file"
         }
       ]
@@ -352,18 +172,6 @@
       ]
     },
     {
-      "name": "audit-event-conventions",
-      "type": "registry:block",
-      "title": "Audit Event Conventions",
-      "description": "Audit event naming, actor, target, metadata, and retention conventions.",
-      "files": [
-        {
-          "path": "registry/modules/audit-event-conventions/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "audit-log",
       "type": "registry:block",
       "title": "Audit Log",
@@ -371,18 +179,6 @@
       "files": [
         {
           "path": "registry/modules/audit-log/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "auth-authjs",
-      "type": "registry:block",
-      "title": "Auth.js",
-      "description": "Auth.js setup for teams that prefer classic Next auth flows.",
-      "files": [
-        {
-          "path": "registry/modules/auth-authjs/module.json",
           "type": "registry:file"
         }
       ]
@@ -484,18 +280,6 @@
       ]
     },
     {
-      "name": "billing-ledger",
-      "type": "registry:block",
-      "title": "Billing Ledger",
-      "description": "Billing ledger for invoices, payments, refunds, disputes, credits, and adjustments.",
-      "files": [
-        {
-          "path": "registry/modules/billing-ledger/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "billing-portal",
       "type": "registry:block",
       "title": "Billing Portal",
@@ -539,18 +323,6 @@
       "files": [
         {
           "path": "registry/modules/bug-reports/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "bulk-actions-bar",
-      "type": "registry:block",
-      "title": "Bulk Actions Bar",
-      "description": "Selection and bulk action controls for admin tables.",
-      "files": [
-        {
-          "path": "registry/modules/bulk-actions-bar/module.json",
           "type": "registry:file"
         }
       ]
@@ -611,6 +383,18 @@
       "files": [
         {
           "path": "registry/modules/cloudflare-hyperdrive/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-kumo-ui",
+      "type": "registry:block",
+      "title": "Cloudflare Kumo UI",
+      "description": "Cloudflare Kumo component-library building blocks for teams that want provider-grade UI primitives.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-kumo-ui/module.json",
           "type": "registry:file"
         }
       ]
@@ -784,54 +568,6 @@
       ]
     },
     {
-      "name": "cms-contentful",
-      "type": "registry:block",
-      "title": "Contentful CMS",
-      "description": "Contentful integration and content model docs.",
-      "files": [
-        {
-          "path": "registry/modules/cms-contentful/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "cms-mdx",
-      "type": "registry:block",
-      "title": "MDX Content",
-      "description": "File-based docs, blog, and changelog collections.",
-      "files": [
-        {
-          "path": "registry/modules/cms-mdx/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "cms-sanity",
-      "type": "registry:block",
-      "title": "Sanity CMS",
-      "description": "Sanity integration and preview mode.",
-      "files": [
-        {
-          "path": "registry/modules/cms-sanity/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "cohort-retention",
-      "type": "registry:block",
-      "title": "Cohort Retention",
-      "description": "Cohort tables, retention curves, saved segments, and plan/channel filters.",
-      "files": [
-        {
-          "path": "registry/modules/cohort-retention/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "command-menu",
       "type": "registry:block",
       "title": "Command Menu",
@@ -916,18 +652,6 @@
       ]
     },
     {
-      "name": "copyable-code-block",
-      "type": "registry:block",
-      "title": "Copyable Code Block",
-      "description": "Copyable code block for API docs, SDK snippets, and setup instructions.",
-      "files": [
-        {
-          "path": "registry/modules/copyable-code-block/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "cors-policy",
       "type": "registry:block",
       "title": "CORS Policy",
@@ -947,42 +671,6 @@
       "files": [
         {
           "path": "registry/modules/coupons-promotions/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "credit-adjustments",
-      "type": "registry:block",
-      "title": "Credit Adjustments",
-      "description": "Manual credit adjustment flow with reason codes, approvals, and audit events.",
-      "files": [
-        {
-          "path": "registry/modules/credit-adjustments/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "credit-grants",
-      "type": "registry:block",
-      "title": "Credit Grants",
-      "description": "Credit grant workflow for trials, support adjustments, promotions, and enterprise contracts.",
-      "files": [
-        {
-          "path": "registry/modules/credit-grants/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "credit-ledger",
-      "type": "registry:block",
-      "title": "Credit Ledger",
-      "description": "Credit ledger for grants, deductions, expirations, refunds, and adjustments.",
-      "files": [
-        {
-          "path": "registry/modules/credit-ledger/module.json",
           "type": "registry:file"
         }
       ]
@@ -1036,126 +724,6 @@
       ]
     },
     {
-      "name": "customer-360",
-      "type": "registry:block",
-      "title": "Customer 360",
-      "description": "Unified operator view for customer identity, plan, usage, support, and risk.",
-      "files": [
-        {
-          "path": "registry/modules/customer-360/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "customer-api-key-risk",
-      "type": "registry:block",
-      "title": "Customer API Key Risk",
-      "description": "Customer API key risk model for stale, leaked, high-volume, and over-scoped keys.",
-      "files": [
-        {
-          "path": "registry/modules/customer-api-key-risk/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "customer-billing-profile",
-      "type": "registry:block",
-      "title": "Customer Billing Profile",
-      "description": "Operator billing profile with plan, invoices, credits, and payment state.",
-      "files": [
-        {
-          "path": "registry/modules/customer-billing-profile/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "customer-expansion-score",
-      "type": "registry:block",
-      "title": "Customer Expansion Score",
-      "description": "Expansion readiness scoring from adoption, plan limits, and account health.",
-      "files": [
-        {
-          "path": "registry/modules/customer-expansion-score/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "customer-product-adoption",
-      "type": "registry:block",
-      "title": "Customer Product Adoption",
-      "description": "Customer product adoption dashboard by feature, account, cohort, and plan.",
-      "files": [
-        {
-          "path": "registry/modules/customer-product-adoption/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "customer-risk-score",
-      "type": "registry:block",
-      "title": "Customer Risk Score",
-      "description": "Churn and operational risk scoring from usage, support, and billing signals.",
-      "files": [
-        {
-          "path": "registry/modules/customer-risk-score/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "customer-support-profile",
-      "type": "registry:block",
-      "title": "Customer Support Profile",
-      "description": "Support context panel for tickets, incidents, notes, and unresolved work.",
-      "files": [
-        {
-          "path": "registry/modules/customer-support-profile/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "customer-timeline",
-      "type": "registry:block",
-      "title": "Customer Timeline",
-      "description": "Chronological customer events across billing, usage, support, audit, and product analytics.",
-      "files": [
-        {
-          "path": "registry/modules/customer-timeline/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "customer-usage-profile",
-      "type": "registry:block",
-      "title": "Customer Usage Profile",
-      "description": "Customer usage profile across features, API keys, quotas, and adoption.",
-      "files": [
-        {
-          "path": "registry/modules/customer-usage-profile/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "danger-zone-card",
-      "type": "registry:block",
-      "title": "Danger Zone Card",
-      "description": "Destructive action section for delete, revoke, reset, and cancel flows.",
-      "files": [
-        {
-          "path": "registry/modules/danger-zone-card/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "data-export",
       "type": "registry:block",
       "title": "Data Export",
@@ -1163,30 +731,6 @@
       "files": [
         {
           "path": "registry/modules/data-export/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "data-import-export",
-      "type": "registry:block",
-      "title": "Data Import Export",
-      "description": "CSV import/export, background processing, and error report UI.",
-      "files": [
-        {
-          "path": "registry/modules/data-import-export/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "data-quality-dashboard",
-      "type": "registry:block",
-      "title": "Data Quality Dashboard",
-      "description": "Data quality dashboard for enrichment, sync, freshness, and validation signals.",
-      "files": [
-        {
-          "path": "registry/modules/data-quality-dashboard/module.json",
           "type": "registry:file"
         }
       ]
@@ -1216,18 +760,6 @@
       ]
     },
     {
-      "name": "datadog-monitoring",
-      "type": "registry:block",
-      "title": "Datadog Monitoring",
-      "description": "Enterprise observability adapter.",
-      "files": [
-        {
-          "path": "registry/modules/datadog-monitoring/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "dependency-audit",
       "type": "registry:block",
       "title": "Dependency Audit",
@@ -1240,18 +772,6 @@
       ]
     },
     {
-      "name": "destructive-action-flow",
-      "type": "registry:block",
-      "title": "Destructive Action Flow",
-      "description": "Typed destructive flow for revoke, delete, cancel, archive, and reset actions.",
-      "files": [
-        {
-          "path": "registry/modules/destructive-action-flow/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "developer-portal",
       "type": "registry:block",
       "title": "Developer Portal",
@@ -1259,18 +779,6 @@
       "files": [
         {
           "path": "registry/modules/developer-portal/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "docker-compose-local",
-      "type": "registry:block",
-      "title": "Docker Compose Local",
-      "description": "Local Postgres, Redis, Mailpit, and provider-mock services.",
-      "files": [
-        {
-          "path": "registry/modules/docker-compose-local/module.json",
           "type": "registry:file"
         }
       ]
@@ -1312,18 +820,6 @@
       ]
     },
     {
-      "name": "docs-starlight",
-      "type": "registry:block",
-      "title": "Starlight Docs",
-      "description": "Astro Starlight docs module for separate documentation sites.",
-      "files": [
-        {
-          "path": "registry/modules/docs-starlight/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "domain-verification",
       "type": "registry:block",
       "title": "Domain Verification",
@@ -1331,30 +827,6 @@
       "files": [
         {
           "path": "registry/modules/domain-verification/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "drizzle-audit-log",
-      "type": "registry:block",
-      "title": "Drizzle Audit Log",
-      "description": "Common activity/event schema, actor/resource modeling, and admin timeline UI.",
-      "files": [
-        {
-          "path": "registry/modules/drizzle-audit-log/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "drizzle-multitenancy",
-      "type": "registry:block",
-      "title": "Drizzle Multitenancy",
-      "description": "Org/account ids on core tables, indexes, relations, and cache-tag rules.",
-      "files": [
-        {
-          "path": "registry/modules/drizzle-multitenancy/module.json",
           "type": "registry:file"
         }
       ]
@@ -1372,30 +844,6 @@
       ]
     },
     {
-      "name": "drizzle-relations",
-      "type": "registry:block",
-      "title": "Drizzle Relations",
-      "description": "Relations helpers, type-safe joins, query examples, and seed patterns.",
-      "files": [
-        {
-          "path": "registry/modules/drizzle-relations/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "drizzle-soft-delete",
-      "type": "registry:block",
-      "title": "Drizzle Soft Delete",
-      "description": "deletedAt conventions, restore flows, and filtered query helpers.",
-      "files": [
-        {
-          "path": "registry/modules/drizzle-soft-delete/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "dunning-recovery",
       "type": "registry:block",
       "title": "Dunning Recovery",
@@ -1403,30 +851,6 @@
       "files": [
         {
           "path": "registry/modules/dunning-recovery/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "email-nodemailer",
-      "type": "registry:block",
-      "title": "Nodemailer Email",
-      "description": "SMTP email adapter for teams avoiding provider lock-in.",
-      "files": [
-        {
-          "path": "registry/modules/email-nodemailer/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "email-postmark",
-      "type": "registry:block",
-      "title": "Postmark Email",
-      "description": "Transactional email adapter and template mapping.",
-      "files": [
-        {
-          "path": "registry/modules/email-postmark/module.json",
           "type": "registry:file"
         }
       ]
@@ -1456,18 +880,6 @@
       ]
     },
     {
-      "name": "empty-state-onboarding",
-      "type": "registry:block",
-      "title": "Empty State Onboarding",
-      "description": "Empty states that guide users toward setup, activation, and upgrade paths.",
-      "files": [
-        {
-          "path": "registry/modules/empty-state-onboarding/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "empty-states",
       "type": "registry:block",
       "title": "Empty States",
@@ -1475,18 +887,6 @@
       "files": [
         {
           "path": "registry/modules/empty-states/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "empty-upgrade-state",
-      "type": "registry:block",
-      "title": "Empty Upgrade State",
-      "description": "Empty state pattern with upgrade or monetization call to action.",
-      "files": [
-        {
-          "path": "registry/modules/empty-upgrade-state/module.json",
           "type": "registry:file"
         }
       ]
@@ -1528,54 +928,6 @@
       ]
     },
     {
-      "name": "evals",
-      "type": "registry:block",
-      "title": "Evals",
-      "description": "Prompt eval cases, pass/fail scoring UI, and regression tracking.",
-      "files": [
-        {
-          "path": "registry/modules/evals/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "event-taxonomy",
-      "type": "registry:block",
-      "title": "Event Taxonomy",
-      "description": "Product, billing, support, and operational event taxonomy.",
-      "files": [
-        {
-          "path": "registry/modules/event-taxonomy/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "experiments",
-      "type": "registry:block",
-      "title": "Experiments",
-      "description": "A/B test model, exposure tracking, conversion events, and results UI.",
-      "files": [
-        {
-          "path": "registry/modules/experiments/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "feature-adoption",
-      "type": "registry:block",
-      "title": "Feature Adoption",
-      "description": "Feature usage tracking, adoption cohorts, and release impact views.",
-      "files": [
-        {
-          "path": "registry/modules/feature-adoption/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "feature-flags",
       "type": "registry:block",
       "title": "Feature Flags",
@@ -1612,78 +964,6 @@
       ]
     },
     {
-      "name": "filter-bar",
-      "type": "registry:block",
-      "title": "Filter Bar",
-      "description": "Search, status, owner, product, and date range filter controls.",
-      "files": [
-        {
-          "path": "registry/modules/filter-bar/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "firebase-backend",
-      "type": "registry:block",
-      "title": "Firebase Backend",
-      "description": "Optional mobile-first backend module for Firestore/auth/storage apps.",
-      "files": [
-        {
-          "path": "registry/modules/firebase-backend/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "first-api-call",
-      "type": "registry:block",
-      "title": "First API Call",
-      "description": "Guided first API request flow for developer-product activation.",
-      "files": [
-        {
-          "path": "registry/modules/first-api-call/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "first-api-call-guide",
-      "type": "registry:block",
-      "title": "First API Call Guide",
-      "description": "Docs and UI pattern for guiding a developer to a successful first API call.",
-      "files": [
-        {
-          "path": "registry/modules/first-api-call-guide/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "flags-launchdarkly",
-      "type": "registry:block",
-      "title": "LaunchDarkly Flags",
-      "description": "LaunchDarkly provider adapter.",
-      "files": [
-        {
-          "path": "registry/modules/flags-launchdarkly/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "flags-statsig",
-      "type": "registry:block",
-      "title": "Statsig Flags",
-      "description": "Statsig provider adapter.",
-      "files": [
-        {
-          "path": "registry/modules/flags-statsig/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "fly-deploy",
       "type": "registry:block",
       "title": "Fly Deploy",
@@ -1691,18 +971,6 @@
       "files": [
         {
           "path": "registry/modules/fly-deploy/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "geist-nova-theme",
-      "type": "registry:block",
-      "title": "Geist Nova Theme",
-      "description": "Geist typography and Tailwind v4 theme tokens for a polished SaaS console.",
-      "files": [
-        {
-          "path": "registry/modules/geist-nova-theme/module.json",
           "type": "registry:file"
         }
       ]
@@ -1720,42 +988,6 @@
       ]
     },
     {
-      "name": "growth-alerts",
-      "type": "registry:block",
-      "title": "Growth Alerts",
-      "description": "Activation drop, churn risk, usage spike, and expansion opportunity notifications.",
-      "files": [
-        {
-          "path": "registry/modules/growth-alerts/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "i18n",
-      "type": "registry:block",
-      "title": "Internationalization",
-      "description": "Locale routing, translations, and language switcher.",
-      "files": [
-        {
-          "path": "registry/modules/i18n/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "id-conventions",
-      "type": "registry:block",
-      "title": "ID Conventions",
-      "description": "Identifier conventions for primary keys, external IDs, slugs, and public references.",
-      "files": [
-        {
-          "path": "registry/modules/id-conventions/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "idempotency-keys",
       "type": "registry:block",
       "title": "Idempotency Keys",
@@ -1763,18 +995,6 @@
       "files": [
         {
           "path": "registry/modules/idempotency-keys/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "image-optimization",
-      "type": "registry:block",
-      "title": "Image Optimization",
-      "description": "Image upload, transformation, metadata, and storage adapter.",
-      "files": [
-        {
-          "path": "registry/modules/image-optimization/module.json",
           "type": "registry:file"
         }
       ]
@@ -1816,126 +1036,6 @@
       ]
     },
     {
-      "name": "integration-catalog",
-      "type": "registry:block",
-      "title": "Integration Catalog",
-      "description": "Integration catalog UI for connectable providers, setup status, and ownership.",
-      "files": [
-        {
-          "path": "registry/modules/integration-catalog/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "integration-detail-page",
-      "type": "registry:block",
-      "title": "Integration Detail Page",
-      "description": "Integration detail page for setup steps, permissions, health, and docs.",
-      "files": [
-        {
-          "path": "registry/modules/integration-detail-page/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "integration-health",
-      "type": "registry:block",
-      "title": "Integration Health",
-      "description": "Integration health state for auth, sync freshness, webhooks, and failures.",
-      "files": [
-        {
-          "path": "registry/modules/integration-health/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "integration-install-flow",
-      "type": "registry:block",
-      "title": "Integration Install Flow",
-      "description": "Provider connection flow with permissions, callback handling, and setup checks.",
-      "files": [
-        {
-          "path": "registry/modules/integration-install-flow/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "integration-oauth-callback",
-      "type": "registry:block",
-      "title": "Integration OAuth Callback",
-      "description": "OAuth callback route pattern for connecting external SaaS providers.",
-      "files": [
-        {
-          "path": "registry/modules/integration-oauth-callback/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "integration-permissions",
-      "type": "registry:block",
-      "title": "Integration Permissions",
-      "description": "Permission model for integration scopes, actors, and workspace ownership.",
-      "files": [
-        {
-          "path": "registry/modules/integration-permissions/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "integration-sync-logs",
-      "type": "registry:block",
-      "title": "Integration Sync Logs",
-      "description": "Sync log explorer for integration jobs, failures, retries, and sync checkpoints.",
-      "files": [
-        {
-          "path": "registry/modules/integration-sync-logs/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "integration-webhook-status",
-      "type": "registry:block",
-      "title": "Integration Webhook Status",
-      "description": "Webhook delivery and signature status for connected integrations.",
-      "files": [
-        {
-          "path": "registry/modules/integration-webhook-status/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "internal-api-trpc",
-      "type": "registry:block",
-      "title": "Internal API tRPC",
-      "description": "Optional tRPC module for TypeScript-only internal APIs.",
-      "files": [
-        {
-          "path": "registry/modules/internal-api-trpc/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "invite-team-flow",
-      "type": "registry:block",
-      "title": "Invite Team Flow",
-      "description": "Team invitation flow with roles, pending state, and activation nudges.",
-      "files": [
-        {
-          "path": "registry/modules/invite-team-flow/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "invites",
       "type": "registry:block",
       "title": "Invites",
@@ -1955,18 +1055,6 @@
       "files": [
         {
           "path": "registry/modules/invoices/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "job-run-detail",
-      "type": "registry:block",
-      "title": "Job Run Detail",
-      "description": "Job run detail page for attempts, logs, inputs, outputs, retries, and ownership.",
-      "files": [
-        {
-          "path": "registry/modules/job-run-detail/module.json",
           "type": "registry:file"
         }
       ]
@@ -1996,18 +1084,6 @@
       ]
     },
     {
-      "name": "kpi-trend-card",
-      "type": "registry:block",
-      "title": "KPI Trend Card",
-      "description": "KPI card with current value, period comparison, and trend state.",
-      "files": [
-        {
-          "path": "registry/modules/kpi-trend-card/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "legal-pages",
       "type": "registry:block",
       "title": "Legal Pages",
@@ -2020,18 +1096,6 @@
       ]
     },
     {
-      "name": "lemon-squeezy-billing",
-      "type": "registry:block",
-      "title": "Lemon Squeezy Billing",
-      "description": "Creator/digital product checkout and license key workflows.",
-      "files": [
-        {
-          "path": "registry/modules/lemon-squeezy-billing/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "lifecycle-email",
       "type": "registry:block",
       "title": "Lifecycle Email",
@@ -2039,18 +1103,6 @@
       "files": [
         {
           "path": "registry/modules/lifecycle-email/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "linear-integration",
-      "type": "registry:block",
-      "title": "Linear Integration",
-      "description": "Issue creation, Linear links, and incident/project workflows.",
-      "files": [
-        {
-          "path": "registry/modules/linear-integration/module.json",
           "type": "registry:file"
         }
       ]
@@ -2104,30 +1156,6 @@
       ]
     },
     {
-      "name": "mcp-client",
-      "type": "registry:block",
-      "title": "MCP Client",
-      "description": "MCP server config UI, server registry, and auth metadata.",
-      "files": [
-        {
-          "path": "registry/modules/mcp-client/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "metric-card-grid",
-      "type": "registry:block",
-      "title": "Metric Card Grid",
-      "description": "Dashboard metric cards for SaaS overview pages.",
-      "files": [
-        {
-          "path": "registry/modules/metric-card-grid/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "mfa-security",
       "type": "registry:block",
       "title": "MFA Security",
@@ -2135,42 +1163,6 @@
       "files": [
         {
           "path": "registry/modules/mfa-security/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "model-router",
-      "type": "registry:block",
-      "title": "Model Router",
-      "description": "Model catalog, provider ordering, fallback rules, and AI Gateway config.",
-      "files": [
-        {
-          "path": "registry/modules/model-router/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "money-amount-conventions",
-      "type": "registry:block",
-      "title": "Money Amount Conventions",
-      "description": "Money and currency amount conventions for billing, invoices, credits, and tax.",
-      "files": [
-        {
-          "path": "registry/modules/money-amount-conventions/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "money-and-credits-conventions",
-      "type": "registry:block",
-      "title": "Money And Credits Conventions",
-      "description": "Conventions for monetary ledgers, credits, grants, adjustments, and reconciliation.",
-      "files": [
-        {
-          "path": "registry/modules/money-and-credits-conventions/module.json",
           "type": "registry:file"
         }
       ]
@@ -2236,18 +1228,6 @@
       ]
     },
     {
-      "name": "onboarding-checklist",
-      "type": "registry:block",
-      "title": "Onboarding Checklist",
-      "description": "Installable onboarding checklist for first value and setup completion.",
-      "files": [
-        {
-          "path": "registry/modules/onboarding-checklist/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "oncall-alerting",
       "type": "registry:block",
       "title": "On-call Alerting",
@@ -2272,49 +1252,13 @@
       ]
     },
     {
-      "name": "openfeature-flags",
-      "type": "registry:block",
-      "title": "OpenFeature Flags",
-      "description": "OpenFeature-compatible flag interface and provider adapter pattern.",
-      "files": [
-        {
-          "path": "registry/modules/openfeature-flags/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "operator-dashboard",
-      "type": "registry:block",
-      "title": "Operator Dashboard",
-      "description": "Internal operator dashboard for customer health, incidents, jobs, support, and revenue signals.",
-      "files": [
-        {
-          "path": "registry/modules/operator-dashboard/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "orgs-rbac",
       "type": "registry:block",
-      "title": "Organizations and RBAC",
-      "description": "Organization switcher, roles, permissions, invitations, and member management.",
+      "title": "Organizations RBAC",
+      "description": "Organization role catalog, permission helpers, and workspace role management surface.",
       "files": [
         {
           "path": "registry/modules/orgs-rbac/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "paddle-billing",
-      "type": "registry:block",
-      "title": "Paddle Billing",
-      "description": "Merchant of Record checkout, subscription sync, webhook mapping, and tax docs.",
-      "files": [
-        {
-          "path": "registry/modules/paddle-billing/module.json",
           "type": "registry:file"
         }
       ]
@@ -2356,22 +1300,10 @@
       ]
     },
     {
-      "name": "playwright-e2e",
-      "type": "registry:block",
-      "title": "Playwright E2E",
-      "description": "Browser smoke tests for auth, billing, dashboard, and installed module flows.",
-      "files": [
-        {
-          "path": "registry/modules/playwright-e2e/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "plg-metrics",
       "type": "registry:block",
       "title": "PLG Metrics",
-      "description": "Canonical event taxonomy, user/account traits, product events, and tracking helpers.",
+      "description": "Product-led growth event schema, metric helpers, and activation metrics dashboard starter.",
       "files": [
         {
           "path": "registry/modules/plg-metrics/module.json",
@@ -2428,54 +1360,6 @@
       ]
     },
     {
-      "name": "product-qualified-leads",
-      "type": "registry:block",
-      "title": "Product Qualified Leads",
-      "description": "PQL scoring, activation thresholds, sales handoff flags, and CRM hooks.",
-      "files": [
-        {
-          "path": "registry/modules/product-qualified-leads/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "prompt-library",
-      "type": "registry:block",
-      "title": "Prompt Library",
-      "description": "Reusable prompts, variable interpolation, and prompt versioning.",
-      "files": [
-        {
-          "path": "registry/modules/prompt-library/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "provider-cost-dashboard",
-      "type": "registry:block",
-      "title": "Provider Cost Dashboard",
-      "description": "Provider cost dashboard for usage, spend, margin, and cost anomalies.",
-      "files": [
-        {
-          "path": "registry/modules/provider-cost-dashboard/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "provider-health",
-      "type": "registry:block",
-      "title": "Provider Health",
-      "description": "Provider health dashboard for APIs, webhooks, queues, auth, storage, and data services.",
-      "files": [
-        {
-          "path": "registry/modules/provider-health/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "public-api-orpc",
       "type": "registry:block",
       "title": "Public API",
@@ -2500,18 +1384,6 @@
       ]
     },
     {
-      "name": "quality-tooling",
-      "type": "registry:block",
-      "title": "Quality Tooling",
-      "description": "Biome, Vitest, Testing Library, Knip, Lefthook, and CI defaults.",
-      "files": [
-        {
-          "path": "registry/modules/quality-tooling/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "quota-enforcement",
       "type": "registry:block",
       "title": "Quota Enforcement",
@@ -2519,18 +1391,6 @@
       "files": [
         {
           "path": "registry/modules/quota-enforcement/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "rag-starter",
-      "type": "registry:block",
-      "title": "RAG Starter",
-      "description": "Embeddings, document ingestion, and vector search adapter.",
-      "files": [
-        {
-          "path": "registry/modules/rag-starter/module.json",
           "type": "registry:file"
         }
       ]
@@ -2560,18 +1420,6 @@
       ]
     },
     {
-      "name": "referral-loops",
-      "type": "registry:block",
-      "title": "Referral Loops",
-      "description": "Invite/referral codes, viral coefficient tracking, and reward state.",
-      "files": [
-        {
-          "path": "registry/modules/referral-loops/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "refunds-disputes",
       "type": "registry:block",
       "title": "Refunds and Disputes",
@@ -2579,42 +1427,6 @@
       "files": [
         {
           "path": "registry/modules/refunds-disputes/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "render-deploy",
-      "type": "registry:block",
-      "title": "Render Deploy",
-      "description": "Simple web service deploy templates and environment docs.",
-      "files": [
-        {
-          "path": "registry/modules/render-deploy/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "replay-center",
-      "type": "registry:block",
-      "title": "Replay Center",
-      "description": "Replay center for failed webhooks, jobs, events, and integration syncs.",
-      "files": [
-        {
-          "path": "registry/modules/replay-center/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "request-log-explorer",
-      "type": "registry:block",
-      "title": "Request Log Explorer",
-      "description": "Request log explorer for API calls, status, latency, errors, and key attribution.",
-      "files": [
-        {
-          "path": "registry/modules/request-log-explorer/module.json",
           "type": "registry:file"
         }
       ]
@@ -2632,42 +1444,6 @@
       ]
     },
     {
-      "name": "resource-header",
-      "type": "registry:block",
-      "title": "Resource Header",
-      "description": "Header pattern for resource title, status, owner, metadata, and actions.",
-      "files": [
-        {
-          "path": "registry/modules/resource-header/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "saved-views",
-      "type": "registry:block",
-      "title": "Saved Views",
-      "description": "Persisted table/report views for operators and team workflows.",
-      "files": [
-        {
-          "path": "registry/modules/saved-views/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "schema-conventions",
-      "type": "registry:block",
-      "title": "Schema Conventions",
-      "description": "Registry-wide database schema conventions for IDs, tenants, timestamps, and metadata.",
-      "files": [
-        {
-          "path": "registry/modules/schema-conventions/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "scim-provisioning",
       "type": "registry:block",
       "title": "SCIM Provisioning",
@@ -2675,66 +1451,6 @@
       "files": [
         {
           "path": "registry/modules/scim-provisioning/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "sdk-snippets",
-      "type": "registry:block",
-      "title": "SDK Snippets",
-      "description": "Generated examples for curl, TypeScript, Python, and HTTP clients.",
-      "files": [
-        {
-          "path": "registry/modules/sdk-snippets/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "search-algolia",
-      "type": "registry:block",
-      "title": "Algolia",
-      "description": "Algolia indexing, keys, and autocomplete UI.",
-      "files": [
-        {
-          "path": "registry/modules/search-algolia/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "search-meilisearch",
-      "type": "registry:block",
-      "title": "Meilisearch",
-      "description": "Meilisearch adapter and sync jobs.",
-      "files": [
-        {
-          "path": "registry/modules/search-meilisearch/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "search-postgres",
-      "type": "registry:block",
-      "title": "Postgres Search",
-      "description": "Postgres full-text search, ranking, indexes, and query UI.",
-      "files": [
-        {
-          "path": "registry/modules/search-postgres/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "search-typesense",
-      "type": "registry:block",
-      "title": "Typesense",
-      "description": "Typesense adapter and collection schema.",
-      "files": [
-        {
-          "path": "registry/modules/search-typesense/module.json",
           "type": "registry:file"
         }
       ]
@@ -2752,18 +1468,6 @@
       ]
     },
     {
-      "name": "secret-input",
-      "type": "registry:block",
-      "title": "Secret Input",
-      "description": "Masked input and reveal/copy pattern for API keys, webhooks, and env vars.",
-      "files": [
-        {
-          "path": "registry/modules/secret-input/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "secrets-management",
       "type": "registry:block",
       "title": "Secrets Management",
@@ -2776,42 +1480,6 @@
       ]
     },
     {
-      "name": "security-center",
-      "type": "registry:block",
-      "title": "Security Center",
-      "description": "Unified security center for workspace posture, access, API keys, events, and controls.",
-      "files": [
-        {
-          "path": "registry/modules/security-center/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "security-checklist",
-      "type": "registry:block",
-      "title": "Security Checklist",
-      "description": "Workspace security checklist for launch readiness and enterprise review.",
-      "files": [
-        {
-          "path": "registry/modules/security-checklist/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "security-events",
-      "type": "registry:block",
-      "title": "Security Events",
-      "description": "Security event stream for access, keys, auth, secrets, and suspicious activity.",
-      "files": [
-        {
-          "path": "registry/modules/security-events/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "security-headers",
       "type": "registry:block",
       "title": "Security Headers",
@@ -2819,30 +1487,6 @@
       "files": [
         {
           "path": "registry/modules/security-headers/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "security-scorecard",
-      "type": "registry:block",
-      "title": "Security Scorecard",
-      "description": "Security posture scorecard for MFA, SSO, access reviews, secrets, and key hygiene.",
-      "files": [
-        {
-          "path": "registry/modules/security-scorecard/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "seed-data",
-      "type": "registry:block",
-      "title": "Seed Data",
-      "description": "Typed seed scripts and demo records for screenshots, tests, and local demos.",
-      "files": [
-        {
-          "path": "registry/modules/seed-data/module.json",
           "type": "registry:file"
         }
       ]
@@ -2872,18 +1516,6 @@
       ]
     },
     {
-      "name": "session-management",
-      "type": "registry:block",
-      "title": "Session Management",
-      "description": "Active sessions/devices view, revoke sessions, and security event history.",
-      "files": [
-        {
-          "path": "registry/modules/session-management/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "settings-layout",
       "type": "registry:block",
       "title": "Settings Layout",
@@ -2896,30 +1528,6 @@
       ]
     },
     {
-      "name": "setup-wizard",
-      "type": "registry:block",
-      "title": "Setup Wizard",
-      "description": "Multi-step setup wizard for workspace, provider, billing, and product configuration.",
-      "files": [
-        {
-          "path": "registry/modules/setup-wizard/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "sidebar-shell",
-      "type": "registry:block",
-      "title": "Sidebar Shell",
-      "description": "Sidebar shell with navigation, header, responsive layout, and product config.",
-      "files": [
-        {
-          "path": "registry/modules/sidebar-shell/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "sla-management",
       "type": "registry:block",
       "title": "SLA Management",
@@ -2927,54 +1535,6 @@
       "files": [
         {
           "path": "registry/modules/sla-management/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "slack-notifications",
-      "type": "registry:block",
-      "title": "Slack Notifications",
-      "description": "Slack webhook/app integration, alerts, and admin settings.",
-      "files": [
-        {
-          "path": "registry/modules/slack-notifications/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "soft-delete-conventions",
-      "type": "registry:block",
-      "title": "Soft Delete Conventions",
-      "description": "Soft delete patterns for recoverability, retention, and auditability.",
-      "files": [
-        {
-          "path": "registry/modules/soft-delete-conventions/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "status-badge-system",
-      "type": "registry:block",
-      "title": "Status Badge System",
-      "description": "Unified status badge vocabulary for billing, jobs, incidents, and workflows.",
-      "files": [
-        {
-          "path": "registry/modules/status-badge-system/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "status-enum-conventions",
-      "type": "registry:block",
-      "title": "Status Enum Conventions",
-      "description": "Status enum naming and lifecycle conventions across SaaS modules.",
-      "files": [
-        {
-          "path": "registry/modules/status-enum-conventions/module.json",
           "type": "registry:file"
         }
       ]
@@ -3040,18 +1600,6 @@
       ]
     },
     {
-      "name": "surveys-nps",
-      "type": "registry:block",
-      "title": "Surveys and NPS",
-      "description": "NPS/CSAT surveys, in-app prompts, response tables, and segmentation.",
-      "files": [
-        {
-          "path": "registry/modules/surveys-nps/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "system-health",
       "type": "registry:block",
       "title": "System Health",
@@ -3059,18 +1607,6 @@
       "files": [
         {
           "path": "registry/modules/system-health/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "t3-env",
-      "type": "registry:block",
-      "title": "T3 Env",
-      "description": "Type-safe server/client environment validation and .env.example management.",
-      "files": [
-        {
-          "path": "registry/modules/t3-env/module.json",
           "type": "registry:file"
         }
       ]
@@ -3100,30 +1636,6 @@
       ]
     },
     {
-      "name": "tenant-id-conventions",
-      "type": "registry:block",
-      "title": "Tenant ID Conventions",
-      "description": "Tenant and workspace ID conventions for multi-tenant modules.",
-      "files": [
-        {
-          "path": "registry/modules/tenant-id-conventions/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "tenant-isolation-policy",
-      "type": "registry:block",
-      "title": "Tenant Isolation Policy",
-      "description": "Tenant isolation policy and review checklist for multi-tenant modules.",
-      "files": [
-        {
-          "path": "registry/modules/tenant-isolation-policy/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "tenant-isolation-tests",
       "type": "registry:block",
       "title": "Tenant Isolation Tests",
@@ -3131,54 +1643,6 @@
       "files": [
         {
           "path": "registry/modules/tenant-isolation-tests/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "theme-system",
-      "type": "registry:block",
-      "title": "Theme System",
-      "description": "Product tokens, light/dark mode, density settings, and nav configuration.",
-      "files": [
-        {
-          "path": "registry/modules/theme-system/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "time-to-value-tracking",
-      "type": "registry:block",
-      "title": "Time To Value Tracking",
-      "description": "Track elapsed time from signup to meaningful product activation.",
-      "files": [
-        {
-          "path": "registry/modules/time-to-value-tracking/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "timeline",
-      "type": "registry:block",
-      "title": "Timeline",
-      "description": "Timeline UI for incidents, jobs, webhooks, background tasks, and customer events.",
-      "files": [
-        {
-          "path": "registry/modules/timeline/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "timestamps-conventions",
-      "type": "registry:block",
-      "title": "Timestamp Conventions",
-      "description": "Timestamp conventions for creation, update, deletion, completion, and expiration.",
-      "files": [
-        {
-          "path": "registry/modules/timestamps-conventions/module.json",
           "type": "registry:file"
         }
       ]
@@ -3232,18 +1696,6 @@
       ]
     },
     {
-      "name": "trusted-devices",
-      "type": "registry:block",
-      "title": "Trusted Devices",
-      "description": "Trusted device records and review UI for account and workspace security.",
-      "files": [
-        {
-          "path": "registry/modules/trusted-devices/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "unkey-api-keys",
       "type": "registry:block",
       "title": "Unkey API Keys",
@@ -3292,54 +1744,6 @@
       ]
     },
     {
-      "name": "usage-anomaly-alerts",
-      "type": "registry:block",
-      "title": "Usage Anomaly Alerts",
-      "description": "Usage anomaly alerts for suspicious spikes, drops, cost changes, and abuse.",
-      "files": [
-        {
-          "path": "registry/modules/usage-anomaly-alerts/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "usage-based-billing",
-      "type": "registry:block",
-      "title": "Usage Based Billing",
-      "description": "Metered usage, Stripe meter events, threshold alerts, and billing hooks.",
-      "files": [
-        {
-          "path": "registry/modules/usage-based-billing/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "usage-event-conventions",
-      "type": "registry:block",
-      "title": "Usage Event Conventions",
-      "description": "Usage event conventions for metering, quotas, credits, and analytics.",
-      "files": [
-        {
-          "path": "registry/modules/usage-event-conventions/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "usage-event-explorer",
-      "type": "registry:block",
-      "title": "Usage Event Explorer",
-      "description": "Usage event explorer for metering, billing, rate limits, and anomalies.",
-      "files": [
-        {
-          "path": "registry/modules/usage-event-explorer/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "usage-metering",
       "type": "registry:block",
       "title": "Usage Metering",
@@ -3347,18 +1751,6 @@
       "files": [
         {
           "path": "registry/modules/usage-metering/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "usage-progress-meter",
-      "type": "registry:block",
-      "title": "Usage Progress Meter",
-      "description": "Quota, usage, credit, and rate-limit progress display.",
-      "files": [
-        {
-          "path": "registry/modules/usage-progress-meter/module.json",
           "type": "registry:file"
         }
       ]
@@ -3436,30 +1828,6 @@
       ]
     },
     {
-      "name": "waitlist",
-      "type": "registry:block",
-      "title": "Waitlist",
-      "description": "Waitlist form, referral code, and invite state.",
-      "files": [
-        {
-          "path": "registry/modules/waitlist/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "wallet-reconciliation",
-      "type": "registry:block",
-      "title": "Wallet Reconciliation",
-      "description": "Wallet and credit reconciliation workflow for billing and usage consistency.",
-      "files": [
-        {
-          "path": "registry/modules/wallet-reconciliation/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "webhook-delivery",
       "type": "registry:block",
       "title": "Webhook Delivery",
@@ -3467,18 +1835,6 @@
       "files": [
         {
           "path": "registry/modules/webhook-delivery/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "webhook-delivery-detail",
-      "type": "registry:block",
-      "title": "Webhook Delivery Detail",
-      "description": "Webhook delivery detail page for payload, signature, attempts, and replay controls.",
-      "files": [
-        {
-          "path": "registry/modules/webhook-delivery-detail/module.json",
           "type": "registry:file"
         }
       ]
@@ -3496,18 +1852,6 @@
       ]
     },
     {
-      "name": "workspace-access-review",
-      "type": "registry:block",
-      "title": "Workspace Access Review",
-      "description": "Workspace access review workflow for users, roles, SSO, and external integrations.",
-      "files": [
-        {
-          "path": "registry/modules/workspace-access-review/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
       "name": "workspace-branding",
       "type": "registry:block",
       "title": "Workspace Branding",
@@ -3515,18 +1859,6 @@
       "files": [
         {
           "path": "registry/modules/workspace-branding/module.json",
-          "type": "registry:file"
-        }
-      ]
-    },
-    {
-      "name": "workspace-create-flow",
-      "type": "registry:block",
-      "title": "Workspace Create Flow",
-      "description": "Workspace creation flow with owner, slug, defaults, and invite handoff.",
-      "files": [
-        {
-          "path": "registry/modules/workspace-create-flow/module.json",
           "type": "registry:file"
         }
       ]

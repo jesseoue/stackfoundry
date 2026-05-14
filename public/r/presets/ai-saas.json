@@ -1,14 +1,14 @@
 {
   "name": "ai-saas",
   "title": "AI SaaS",
-  "description": "AI chat, artifacts, model routing, prompt library, and eval foundations.",
+  "description": "Optional AI product modules for Vercel AI SDK chat, AI Elements, usage controls, and provider adapters.",
   "modules": [
     "drizzle-postgres",
     "api-keys",
+    "ai-sdk",
+    "ai-elements",
     "ai-chat",
-    "model-router",
-    "prompt-library",
-    "rag-starter",
+    "ai-chatbot-sdk",
     "file-uploads",
     "usage-metering",
     "rate-limits",

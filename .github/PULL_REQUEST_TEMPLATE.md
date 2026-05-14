@@ -11,7 +11,7 @@
 
 ## Registry Changes
 
-- [ ] Module status is honest (`ready` has files, `stub` has no source payload)
+- [ ] Module status is honest (`ready` has installable source; source-empty ideas stay as proposals)
 - [ ] Recipe or preset install order updated if this changes a workflow
 - [ ] Shared provider skill referenced when provider SDK/API behavior is involved
 - [ ] Generated registry output updated if manifests changed

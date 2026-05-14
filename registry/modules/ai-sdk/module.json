@@ -1,0 +1,42 @@
+{
+  "name": "ai-sdk",
+  "type": "module",
+  "category": "ai",
+  "title": "AI SDK",
+  "description": "Vercel AI SDK model configuration, streaming helpers, and gateway-ready defaults.",
+  "dependencies": [
+    "ai",
+    "@ai-sdk/gateway"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [
+    "AI_GATEWAY_API_KEY",
+    "AI_GATEWAY_MODEL"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/ai/ai-sdk.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/ai/streaming.ts",
+      "type": "registry:file"
+    }
+  ],
+  "status": "ready",
+  "maintenance": {
+    "skills": [
+      {
+        "name": "ai-sdk",
+        "target": ".stackfoundry/skills/ai-sdk-module/SKILL.md"
+      },
+      "nextjs"
+    ],
+    "rules": [
+      "use-ai-sdk-provider-abstractions",
+      "keep-provider-keys-server-only",
+      "document-model-costs"
+    ]
+  }
+}

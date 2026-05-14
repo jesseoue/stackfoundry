@@ -8,11 +8,9 @@
     "https://stackfoundry.dev/r/drizzle-postgres.json",
     "https://stackfoundry.dev/r/api-keys.json",
     "https://stackfoundry.dev/r/clerk-auth.json",
-    "https://stackfoundry.dev/r/orgs-rbac.json",
     "https://stackfoundry.dev/r/workspace-settings.json",
     "https://stackfoundry.dev/r/account-settings.json",
     "https://stackfoundry.dev/r/invites.json",
-    "https://stackfoundry.dev/r/session-management.json",
     "https://stackfoundry.dev/r/stripe-billing.json",
     "https://stackfoundry.dev/r/billing-core.json",
     "https://stackfoundry.dev/r/pricing-page.json",
@@ -106,11 +104,9 @@
       "drizzle-postgres",
       "api-keys",
       "clerk-auth",
-      "orgs-rbac",
       "workspace-settings",
       "account-settings",
       "invites",
-      "session-management",
       "stripe-billing",
       "billing-core",
       "pricing-page",
@@ -195,6 +191,6 @@
       "data-table",
       "settings-layout"
     ],
-    "moduleCount": 91
+    "moduleCount": 89
   }
 }

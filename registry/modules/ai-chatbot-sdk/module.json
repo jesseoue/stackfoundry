@@ -1,0 +1,44 @@
+{
+  "name": "ai-chatbot-sdk",
+  "type": "module",
+  "category": "ai",
+  "title": "AI Chatbot SDK",
+  "description": "Vercel AI SDK and AI Elements chatbot shell for a source-owned conversational interface.",
+  "dependencies": [
+    "ai",
+    "@ai-sdk/react",
+    "@ai-sdk/gateway"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "ai-chat",
+    "ai-elements"
+  ],
+  "env": [
+    "AI_GATEWAY_API_KEY",
+    "AI_GATEWAY_MODEL"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/components/ai/chatbot-shell.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "apps/web/src/app/(console)/ai/chatbot/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "status": "ready",
+  "maintenance": {
+    "skills": [
+      "ai-chatbot-sdk",
+      "ai-sdk",
+      "nextjs"
+    ],
+    "rules": [
+      "use-ai-elements-primitives",
+      "stream-ui-messages",
+      "keep-model-routing-server-side"
+    ]
+  }
+}

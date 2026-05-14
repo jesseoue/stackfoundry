@@ -2,21 +2,40 @@
   "name": "orgs-rbac",
   "type": "module",
   "category": "auth",
-  "title": "Organizations and RBAC",
-  "description": "Organization switcher, roles, permissions, invitations, and member management.",
+  "title": "Organizations RBAC",
+  "description": "Organization role catalog, permission helpers, and workspace role management surface.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres",
+    "tenant-context"
+  ],
   "env": [],
-  "files": [],
-  "status": "stub",
+  "files": [
+    {
+      "path": "packages/db/src/schema/orgs-rbac.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/orgs-rbac.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/settings/workspace/rbac/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "status": "ready",
   "maintenance": {
     "skills": [
-      "orgs-rbac"
+      "orgs-rbac",
+      "drizzle",
+      "nextjs"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "centralize-permission-checks",
+      "audit-role-changes",
+      "keep-roles-tenant-scoped"
     ]
   }
 }

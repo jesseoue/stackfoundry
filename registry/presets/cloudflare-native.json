@@ -1,7 +1,7 @@
 {
   "name": "cloudflare-native",
   "title": "Cloudflare Native",
-  "description": "Workers, Pages, D1, R2, KV, Queues, Turnstile, and Workers AI modules.",
+  "description": "Workers, Pages, D1, R2, KV, Queues, Turnstile, Workers AI, and optional Kumo UI modules.",
   "modules": [
     "cloudflare-next-starter",
     "cloudflare-pages",
@@ -12,6 +12,7 @@
     "cloudflare-queues",
     "cloudflare-turnstile",
     "cloudflare-workers-ai",
+    "cloudflare-kumo-ui",
     "cloudflare-workflows"
   ],
   "status": "planned"
