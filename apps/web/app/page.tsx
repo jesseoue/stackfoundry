@@ -2,7 +2,7 @@ const siteUrl = "https://stackfoundry.dev/";
 
 const stats = [
   { value: "160+", label: "Modules" },
-  { value: "8", label: "Presets" },
+  { value: "9", label: "Presets" },
   { value: "12", label: "Categories" },
   { value: "MIT", label: "License" },
 ];
@@ -16,17 +16,20 @@ const installSteps = [
   {
     number: "02",
     title: "Drizzle schema",
-    description: "Schema slices are delivered with migration guidance. Migrations are never applied silently.",
+    description:
+      "Schema slices are delivered with migration guidance. Migrations are never applied silently.",
   },
   {
     number: "03",
     title: "Env notes",
-    description: "Required keys and provider setup notes are documented alongside the installed code.",
+    description:
+      "Required keys and provider setup notes are documented alongside the installed code.",
   },
   {
     number: "04",
     title: "Verification",
-    description: "Each module ships tests or a focused checklist so maintainers know what to prove.",
+    description:
+      "Each module ships tests or a focused checklist so maintainers know what to prove.",
   },
 ];
 
@@ -36,7 +39,8 @@ const moduleCards = [
     title: "Stripe Billing",
     category: "billing",
     status: "installable",
-    description: "Checkout, billing portal, subscription sync, webhook dedupe, and entitlement mapping.",
+    description:
+      "Checkout, billing portal, subscription sync, webhook dedupe, and entitlement mapping.",
     files: ["schema/billing.ts", "api/webhooks/stripe", "(console)/billing"],
   },
   {
@@ -60,7 +64,8 @@ const moduleCards = [
     title: "Webhook Inbox",
     category: "operations",
     status: "installable",
-    description: "Received webhook table, status, retry controls, signature metadata, and detail UI.",
+    description:
+      "Received webhook table, status, retry controls, signature metadata, and detail UI.",
     files: ["schema/webhooks.ts", "api/webhooks/*", "(console)/webhooks"],
   },
 ];
@@ -134,7 +139,7 @@ const structuredData = {
   name: "StackFoundry",
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Any",
-  description: "Install production SaaS modules as editable source code.",
+  description: "A source registry for production SaaS modules.",
   url: siteUrl,
   codeRepository: "https://github.com/jesseoue/stackfoundry",
   license: "https://github.com/jesseoue/stackfoundry/blob/main/LICENSE",
@@ -301,7 +306,10 @@ export default function Page() {
 
           <div className="modules-grid">
             {moduleCards.map((module, index) => (
-              <article className={index === 0 ? "module-card featured" : "module-card"} key={module.name}>
+              <article
+                className={index === 0 ? "module-card featured" : "module-card"}
+                key={module.name}
+              >
                 <div className="module-head">
                   <span className="module-icon" aria-hidden="true" />
                   <div className="module-title-block">
@@ -343,9 +351,9 @@ export default function Page() {
             <div className="section-eyebrow">Explore</div>
             <h2>Give users more than a wall of cards.</h2>
             <p>
-              The registry now presents modules as searchable commands, preset comparison rows,
-              and review prompts. These patterns borrow from product UI conventions without hiding
-              the source-first model.
+              The registry now presents modules as searchable commands, preset comparison rows, and
+              review prompts. These patterns borrow from product UI conventions without hiding the
+              source-first model.
             </p>
           </div>
 
@@ -405,7 +413,11 @@ export default function Page() {
 
           <div className="assurance-list">
             {assuranceRows.map((row) => (
-              <details className="assurance-item" key={row.title} open={row.title === "What installs?"}>
+              <details
+                className="assurance-item"
+                key={row.title}
+                open={row.title === "What installs?"}
+              >
                 <summary>{row.title}</summary>
                 <p>{row.body}</p>
               </details>

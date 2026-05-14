@@ -25,7 +25,9 @@ Usage:
   stackfoundry build
   stackfoundry add preset <name> [--target <dir>] [--dry-run] [--force]
   stackfoundry add <module> [--target <dir>] [--dry-run] [--force]
+  stackfoundry add <registry-item-url-or-file> [--target <dir>] [--dry-run] [--force]
   stackfoundry diff <module> [--target <dir>]
+  stackfoundry diff <registry-item-url-or-file> [--target <dir>]
 `);
 }
 
@@ -59,6 +61,41 @@ function parseArgs(argv) {
 
 async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, "utf8"));
+}
+
+function isHttpUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+function isRegistryItemSpecifier(value) {
+  return isHttpUrl(value) || value.endsWith(".json") || value.includes("/r/");
+}
+
+function getLocalRegistryPathFromUrl(url) {
+  if (url.hostname !== "stackfoundry.dev") return undefined;
+  if (!url.pathname.startsWith("/r/") || !url.pathname.endsWith(".json")) return undefined;
+
+  return path.join(repoRoot, "public", url.pathname);
+}
+
+async function readRegistryItem(specifier) {
+  if (isHttpUrl(specifier)) {
+    const url = new URL(specifier);
+    const localPath = getLocalRegistryPathFromUrl(url);
+    if (localPath && existsSync(localPath)) return readJson(localPath);
+
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`Unable to fetch registry item: ${specifier}`);
+    return response.json();
+  }
+
+  const filePath = path.resolve(specifier);
+  return readJson(filePath);
 }
 
 async function hashFile(filePath) {
@@ -312,6 +349,28 @@ async function saveInstallManifest(target, manifest) {
   await writeFile(path.join(dir, "installed.json"), `${JSON.stringify(manifest, null, 2)}\n`);
 }
 
+async function writeFileWithSafety({ sourceHash, content, relative, target, flags }) {
+  const dest = path.join(target, relative);
+  const destExists = existsSync(dest);
+
+  if (destExists) {
+    const same = (await hashFile(dest)) === sourceHash;
+    if (!same && !flags.force) {
+      throw new Error(`Refusing to overwrite modified file: ${relative}. Use --force or inspect with diff.`);
+    }
+  }
+
+  if (!flags.dryRun) {
+    await mkdir(path.dirname(dest), { recursive: true });
+    if (destExists && flags.force) {
+      await copyFile(dest, `${dest}.stackfoundry.bak`);
+    }
+    await writeFile(dest, content);
+  }
+
+  console.log(`${flags.dryRun ? "would write" : "wrote"} ${relative}`);
+}
+
 async function addModule(name, flags, visited = new Set()) {
   if (visited.has(name)) return;
   visited.add(name);
@@ -328,26 +387,19 @@ async function addModule(name, flags, visited = new Set()) {
 
   for (const source of sourceFiles) {
     const relative = path.relative(filesDir, source);
-    const dest = path.join(flags.target, relative);
-    const destExists = existsSync(dest);
+    const normalized = relative.split(path.sep).join("/");
+    const content = await readFile(source, "utf8");
+    const sourceHash = createHash("sha256").update(content).digest("hex");
 
-    if (destExists) {
-      const same = (await hashFile(source)) === (await hashFile(dest));
-      if (!same && !flags.force) {
-        throw new Error(`Refusing to overwrite modified file: ${relative}. Use --force or inspect with diff.`);
-      }
-    }
+    await writeFileWithSafety({
+      sourceHash,
+      content,
+      relative,
+      target: flags.target,
+      flags,
+    });
 
-    if (!flags.dryRun) {
-      await mkdir(path.dirname(dest), { recursive: true });
-      if (destExists && flags.force) {
-        await copyFile(dest, `${dest}.stackfoundry.bak`);
-      }
-      await copyFile(source, dest);
-    }
-
-    installedFiles[relative.split(path.sep).join("/")] = await hashFile(source);
-    console.log(`${flags.dryRun ? "would write" : "wrote"} ${relative}`);
+    installedFiles[normalized] = sourceHash;
   }
 
   const skillPath = path.join(dir, "skill", "SKILL.md");

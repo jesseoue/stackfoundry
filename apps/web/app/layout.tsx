@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://stackfoundry.dev/";
 const title = "StackFoundry";
-const description = "Install production SaaS modules as editable source code.";
+const description = "A source registry for production SaaS modules.";
 const ogImage = "/opengraph-image";
 
 export const metadata: Metadata = {
@@ -21,9 +21,14 @@ export const metadata: Metadata = {
     "Next.js",
     "Drizzle",
     "registry",
+    "source registry",
+    "registry blocks",
     "developer tools",
     "source code",
+    "SaaS modules",
     "Stripe",
+    "Clerk",
+    "Cloudflare",
     "Vercel",
   ],
   authors: [{ name: "Jesse Ouellette", url: "https://github.com/jesseoue" }],

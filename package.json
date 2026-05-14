@@ -17,9 +17,12 @@
     "build": "pnpm build:web",
     "check": "pnpm check:registry && pnpm check:web",
     "check:registry": "pnpm registry:doctor && pnpm lint:cli && pnpm test:registry && pnpm registry:build && pnpm shadcn:verify",
-    "check:web": "pnpm build:web",
-    "lint": "pnpm lint:cli",
+    "check:web": "pnpm lint:web && pnpm typecheck:web && pnpm build:web",
+    "lint": "pnpm lint:cli && pnpm lint:web",
     "lint:cli": "node --check apps/cli/src/cli.mjs",
+    "lint:web": "biome check apps/web",
+    "lint:web:fix": "biome check --write apps/web",
+    "typecheck:web": "pnpm --filter @stackfoundry/web typecheck",
     "test": "pnpm test:registry",
     "test:registry": "pnpm test:registry:dry && pnpm test:registry:install",
     "test:registry:dry": "rm -rf /tmp/stackfoundry-test && mkdir -p /tmp/stackfoundry-test && pnpm cli list >/dev/null && pnpm cli presets >/dev/null && pnpm cli add api-keys --target /tmp/stackfoundry-test >/dev/null && pnpm cli diff api-keys --target /tmp/stackfoundry-test >/dev/null && pnpm cli add preset next-saas --target /tmp/stackfoundry-test --dry-run >/dev/null && pnpm cli add preset vendor-examples --target /tmp/stackfoundry-test --dry-run >/dev/null",
@@ -83,5 +86,8 @@
     "url": "https://github.com/jesseoue/stackfoundry/issues"
   },
   "homepage": "https://stackfoundry.dev",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "2.4.15"
+  }
 }

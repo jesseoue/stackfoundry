@@ -24,6 +24,12 @@ Each module has:
 - `agents`: maintenance instruction metadata
 - `status`: planned, experimental, stable
 
+## Registry Model
+
+StackFoundry follows the shadcn registry pattern: source blocks are described by JSON, files are copied into the consumer app, and the consumer owns the result.
+
+StackFoundry adapts that model for production SaaS systems instead of UI-only components. A block may include routes, server helpers, schema files, env examples, docs, tests/checklists, and AI maintainer skills.
+
 ## Registry Principles
 
 - Modules install source code, not opaque package wrappers.
@@ -65,4 +71,4 @@ public/r/
 
 This mirrors the source-registry pattern: registry item JSON embeds file contents and target paths while module metadata stays in `registry/modules/<module>/module.json`.
 
-Generated public items are shadcn-compatible `registry:block` files. Registry dependencies are emitted as absolute URLs so `shadcn add https://stackfoundry.dev/r/<module>.json` can resolve StackFoundry dependencies.
+Generated public items are shadcn-compatible `registry:block` files. Registry dependencies are emitted as absolute URLs so compatible registry clients can resolve StackFoundry dependencies.
