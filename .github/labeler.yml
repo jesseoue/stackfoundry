@@ -12,6 +12,40 @@ registry:
           - "public/r/**"
           - "packages/registry/**"
 
+recipes:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "registry/recipes/**"
+          - "docs/recipes.md"
+          - "docs/install-order.md"
+
+providers:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "registry/modules/*provider*/*"
+          - "registry/modules/*cloudflare*/*"
+          - "registry/modules/*vercel*/*"
+          - "registry/modules/*stripe*/*"
+          - "registry/modules/*clerk*/*"
+          - "registry/modules/*resend*/*"
+          - "registry/modules/*sentry*/*"
+          - "registry/modules/*posthog*/*"
+          - "registry/modules/*upstash*/*"
+          - "registry/skills/**"
+          - "docs/providers.md"
+
+security:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "SECURITY.md"
+          - ".github/workflows/codeql.yml"
+          - ".github/workflows/dependency-review.yml"
+          - ".github/workflows/scorecard.yml"
+          - "registry/modules/*security*/*"
+          - "registry/modules/*csrf*/*"
+          - "registry/modules/*secrets*/*"
+          - "registry/modules/*audit*/*"
+
 cli:
   - changed-files:
       - any-glob-to-any-file:

@@ -216,6 +216,7 @@ StackFoundry currently checks:
 - env var naming and public env safety
 - generated registry compatibility
 - generated registry mirrors
+- GitHub CodeQL, dependency review, and OpenSSF Scorecard
 - branded smoke output
 - dry-run installs
 - real installs into temporary targets
@@ -277,6 +278,7 @@ See [`docs/repository.md`](./docs/repository.md) for ownership rules.
 - [Readiness](./docs/readiness.md)
 - [Conventions](./docs/conventions.md)
 - [Maintenance skills](./docs/maintenance.md)
+- [Changelog](./docs/changelog.md)
 - [Repository map](./docs/repository.md)
 - [Registry compatibility](./docs/registry-compat.md)
 

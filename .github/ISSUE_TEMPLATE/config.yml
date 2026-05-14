@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Private vulnerability report
+    url: https://github.com/jesseoue/stackfoundry/security/advisories/new
+    about: Report vulnerabilities privately. Do not open public security issues.
   - name: Questions and ideas
     url: https://github.com/jesseoue/stackfoundry/discussions
     about: Use discussions for broad ideas, questions, and roadmap feedback.

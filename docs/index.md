@@ -8,6 +8,7 @@
 - [Readiness](./readiness.md)
 - [Conventions](./conventions.md)
 - [Maintenance instructions](./maintenance.md)
+- [Changelog](./changelog.md)
 - [Repository map](./repository.md)
 - [Registry compatibility](./registry-compat.md)
 

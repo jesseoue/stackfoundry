@@ -51,6 +51,14 @@ Recipes explain install order and architecture. Presets install bundles. If your
 
 Each PR should focus on one phase or one module.
 
+Good public PR shapes:
+
+- one new provider adapter
+- one ready module implementation
+- one stub-to-ready promotion
+- one recipe/preset update with generated registry output
+- one docs-only clarification
+
 Include:
 
 - summary
@@ -60,6 +68,8 @@ Include:
 - public-safety checklist
 
 Do not include secrets, private customer data, local environment files, or generated caches.
+
+For high-volume contribution review, keep generated output in the same PR as the source manifest change and avoid unrelated formatting churn. Registry modules, provider adapters, recipes, docs, and examples are open contribution surfaces; hosted web app and repository automation changes are maintainer-owned.
 
 ## CI/CD
 
