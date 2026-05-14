@@ -15,13 +15,13 @@
       "path": "apps/web/src/lib/supabase/server.ts",
       "type": "registry:file",
       "target": "apps/web/src/lib/supabase/server.ts",
-      "content": "import \"server-only\";\n\nimport { createServerClient } from \"@supabase/ssr\";\nimport { cookies } from \"next/headers\";\n\nexport async function createSupabaseServerClient() {\n  const cookieStore = await cookies();\n\n  return createServerClient(\n    process.env.NEXT_PUBLIC_SUPABASE_URL!,\n    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,\n    {\n      cookies: {\n        getAll() {\n          return cookieStore.getAll();\n        },\n        setAll(cookiesToSet) {\n          for (const cookie of cookiesToSet) {\n            cookieStore.set(cookie.name, cookie.value, cookie.options);\n          }\n        },\n      },\n    }\n  );\n}\n"
+      "content": "import \"server-only\";\n\nimport { createServerClient } from \"@supabase/ssr\";\nimport { cookies } from \"next/headers\";\n\nfunction requireEnv(key: string) {\n  const value = process.env[key];\n  if (!value) throw new Error(`${key} is required.`);\n  return value;\n}\n\nexport async function createSupabaseServerClient() {\n  const cookieStore = await cookies();\n\n  return createServerClient(\n    requireEnv(\"NEXT_PUBLIC_SUPABASE_URL\"),\n    requireEnv(\"NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY\"),\n    {\n      cookies: {\n        getAll() {\n          return cookieStore.getAll();\n        },\n        setAll(cookiesToSet) {\n          for (const cookie of cookiesToSet) {\n            cookieStore.set(cookie.name, cookie.value, cookie.options);\n          }\n        },\n      },\n    },\n  );\n}\n"
     },
     {
       "path": "apps/web/src/lib/supabase/admin.ts",
       "type": "registry:file",
       "target": "apps/web/src/lib/supabase/admin.ts",
-      "content": "import \"server-only\";\n\nimport { createClient } from \"@supabase/supabase-js\";\n\nexport function createSupabaseAdminClient() {\n  return createClient(\n    process.env.NEXT_PUBLIC_SUPABASE_URL!,\n    process.env.SUPABASE_SERVICE_ROLE_KEY!,\n    { auth: { persistSession: false } }\n  );\n}\n"
+      "content": "import \"server-only\";\n\nimport { createClient } from \"@supabase/supabase-js\";\n\nfunction requireEnv(key: string) {\n  const value = process.env[key];\n  if (!value) throw new Error(`${key} is required.`);\n  return value;\n}\n\nexport function createSupabaseAdminClient() {\n  return createClient(requireEnv(\"NEXT_PUBLIC_SUPABASE_URL\"), requireEnv(\"SUPABASE_SERVICE_ROLE_KEY\"), {\n    auth: { persistSession: false },\n  });\n}\n"
     },
     {
       "path": "supabase/rls-notes.sql",

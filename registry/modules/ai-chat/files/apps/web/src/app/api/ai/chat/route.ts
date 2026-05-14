@@ -12,7 +12,14 @@ type ChatRequest = {
 };
 
 export async function POST(request: Request) {
-  const body = (await request.json()) as ChatRequest;
+  let body: ChatRequest;
+
+  try {
+    body = (await request.json()) as ChatRequest;
+  } catch {
+    return Response.json({ error: "Invalid JSON body" }, { status: 400 });
+  }
+
   const messages = body.messages ?? (body.message ? [body.message] : []);
 
   try {

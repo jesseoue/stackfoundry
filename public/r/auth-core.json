@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "auth-core",
+  "type": "registry:block",
+  "title": "Auth Core",
+  "description": "Provider-neutral auth architecture, route layout, and provider selection guide for Clerk or Better Auth.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/account-modes.json"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/auth-options.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/auth-options.ts",
+      "content": "export type AuthProviderOption = {\n  id: \"clerk-auth\" | \"auth-better-auth\";\n  label: string;\n  bestFor: string;\n  installCommand: string;\n  owns: string[];\n};\n\nexport const authProviderOptions: AuthProviderOption[] = [\n  {\n    id: \"clerk-auth\",\n    label: \"Clerk\",\n    bestFor: \"managed authentication, hosted UI, organizations, and webhook-based user sync\",\n    installCommand: \"pnpm stackfoundry add clerk-auth --target ./apps/web\",\n    owns: [\"middleware.ts\", \"(auth) routes\", \"Clerk webhook route\", \"authorization helper\"],\n  },\n  {\n    id: \"auth-better-auth\",\n    label: \"Better Auth\",\n    bestFor: \"source-owned auth server, app-owned UI, and a typed auth client\",\n    installCommand: \"pnpm stackfoundry add auth-better-auth --target ./apps/web\",\n    owns: [\"auth server config\", \"typed auth client\", \"App Router auth route handler\"],\n  },\n];\n\nexport const authRouteGroups = [\n  {\n    path: \"apps/web/src/app/(marketing)\",\n    purpose: \"public pages that do not require a session\",\n  },\n  {\n    path: \"apps/web/src/app/(auth)\",\n    purpose: \"sign-in, sign-up, callback, recovery, and auth-specific pages\",\n  },\n  {\n    path: \"apps/web/src/app/(console)\",\n    purpose: \"authenticated application routes and settings\",\n  },\n  {\n    path: \"apps/web/src/app/api/webhooks\",\n    purpose: \"provider webhook routes with signature verification and idempotency\",\n  },\n];\n\nexport const authLaunchChecks = [\n  \"Pick one primary auth provider for the first production path.\",\n  \"Document session shape: user id, organization id, role, and permissions.\",\n  \"Protect server routes before fetching tenant data.\",\n  \"Verify sign-in, sign-up, sign-out, protected routes, webhook sync, and session expiry.\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/auth/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/auth/page.tsx",
+      "content": "import { authLaunchChecks, authProviderOptions, authRouteGroups } from \"@/lib/stackfoundry/auth-options\";\n\nexport default function AuthArchitecturePage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Auth Architecture</h1>\n        <p className=\"text-muted-foreground\">\n          Choose one primary auth provider, then keep route groups and authorization boundaries explicit.\n        </p>\n      </div>\n\n      <section className=\"grid gap-3 md:grid-cols-2\">\n        {authProviderOptions.map((provider) => (\n          <div className=\"rounded-lg border p-4\" key={provider.id}>\n            <h2 className=\"font-medium\">{provider.label}</h2>\n            <p className=\"mt-2 text-sm text-muted-foreground\">{provider.bestFor}</p>\n            <code className=\"mt-3 block rounded border bg-muted p-2 text-xs\">{provider.installCommand}</code>\n          </div>\n        ))}\n      </section>\n\n      <section className=\"rounded-lg border p-4\">\n        <h2 className=\"font-medium\">Recommended App Router layout</h2>\n        <div className=\"mt-4 grid gap-3\">\n          {authRouteGroups.map((group) => (\n            <div className=\"rounded-md border p-3 text-sm\" key={group.path}>\n              <code>{group.path}</code>\n              <p className=\"mt-1 text-muted-foreground\">{group.purpose}</p>\n            </div>\n          ))}\n        </div>\n      </section>\n\n      <section className=\"rounded-lg border p-4\">\n        <h2 className=\"font-medium\">Before production</h2>\n        <ul className=\"mt-3 grid gap-2 text-sm text-muted-foreground\">\n          {authLaunchChecks.map((check) => (\n            <li key={check}>{check}</li>\n          ))}\n        </ul>\n      </section>\n    </main>\n  );\n}\n"
+    },
+    {
+      "path": "docs/auth-architecture.md",
+      "type": "registry:file",
+      "target": "docs/auth-architecture.md",
+      "content": "# Auth Architecture\n\nUse this document before installing an auth provider.\n\n## Recommended App Router Structure\n\n```text\napps/web/src/app/\n  (marketing)/           public pages\n  (auth)/                sign-in, sign-up, callback, recovery\n  (console)/             authenticated app\n    dashboard/\n    settings/\n    admin/\n  api/\n    webhooks/<provider>/ route handlers\n```\n\n## Choose A Provider\n\nChoose `clerk-auth` when you want:\n\n- managed auth\n- hosted UI\n- organizations\n- webhook-based user and organization sync\n- a fast B2B path\n\nChoose `auth-better-auth` when you want:\n\n- source-owned auth configuration\n- app-owned UI\n- typed auth client code\n- fewer managed provider assumptions\n\n## Production Checks\n\n- Document the selected account mode.\n- Document session shape and authorization assumptions.\n- Protect server routes before reading tenant data.\n- Verify sign-in, sign-up, sign-out, protected routes, webhook sync, and session expiry.\n- Keep provider SDK code inside the provider adapter module.\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "auth-core",
+      "target": ".stackfoundry/skills/auth-core/SKILL.md",
+      "content": "---\nname: auth-core\ndescription: Maintain the Auth Core module installed by StackFoundry.\n---\n\n# Auth Core Skill\n\n- Choose one primary auth adapter before production: `clerk-auth` or `auth-better-auth`.\n- Keep provider-neutral account mode and route layout decisions in this module.\n- Keep provider SDK code inside the provider adapter module.\n- Protect server code first; do not rely on client-only checks for authorization.\n- Document session shape, user id, organization id, role, and permission assumptions.\n- Verify sign-in, sign-up, sign-out, protected routes, webhook sync, and session expiry.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Auth Core\n\nProvider-neutral auth architecture, route layout, and provider selection guide for Clerk or Better Auth.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/auth-options.ts`\n- `apps/web/src/app/(console)/admin/auth/page.tsx`\n- `docs/auth-architecture.md`\n\n## Purpose\n\nUse this module early in a SaaS app to decide the auth boundary before installing a provider adapter. It does not install an auth provider by itself.\n\n## Recommended App Router Structure\n\n```text\napps/web/src/app/\n  (marketing)/           public pages\n  (auth)/                sign-in, sign-up, callback, recovery\n  (console)/             authenticated product app\n    dashboard/\n    settings/\n    admin/\n  api/\n    webhooks/<provider>/ route handlers\napps/web/src/lib/\n  stackfoundry/          product config and provider-neutral helpers\n  clerk/                 Clerk adapter only if chosen\n  auth.ts                Better Auth server config only if chosen\n```\n\n## Provider Options\n\n- Install `clerk-auth` when you want managed auth, hosted auth UI, organizations, and webhook sync.\n- Install `auth-better-auth` when you want a source-owned auth server, typed client, and app-owned auth UI.\n\n## Verification\n\n- Choose personal, team, or hybrid account mode.\n- Pick exactly one primary auth adapter for the first production path.\n- Document the session shape and route protection strategy.\n- Verify sign-in, sign-up, sign-out, protected routes, webhook sync, and session expiry.\n",
+  "meta": {
+    "category": "auth",
+    "env": [],
+    "status": "experimental"
+  }
+}

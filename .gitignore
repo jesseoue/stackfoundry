@@ -1,24 +1,58 @@
 # Dependencies
 node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches/
+!.yarn/plugins/
+!.yarn/releases/
+!.yarn/sdks/
+!.yarn/versions/
 
 # Build outputs
 .next/
+out/
 .turbo/
 dist/
 build/
 coverage/
+.nyc_output/
+*.tsbuildinfo
+tsconfig.tsbuildinfo
 
 # Env and secrets
 .env
 .env.*
 !.env.example
+!.env.sample
+!.env.template
+.dev.vars
+.dev.vars.*
+*.pem
+*.key
+*.crt
+*.cert
+*.p12
+*.pfx
+secrets/
+.secrets/
 
-# Local provider metadata
-.vercel/*
-!.vercel/README.md
+# Local provider metadata and deploy state
+.vercel/
+.netlify/
+.wrangler/
+.mf/
+.sst/
+.amplify/
 
 # Logs
+logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
 # Local planning / scratch artifacts
 .local/
@@ -26,10 +60,49 @@ plans/
 .plans/
 *.plan.md
 docs/plan.md
+tmp/
+temp/
+.tmp/
+.temp/
 
 # Legacy local bootstrap prototype
 go.sh
 
+# Test and browser artifacts
+playwright-report/
+test-results/
+blob-report/
+cypress/screenshots/
+cypress/videos/
+junit.xml
+
+# Tool caches
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+.biome-cache/
+.rollup.cache/
+.vite/
+
+# Local data stores
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+uploads/
+
 # OS/editor
 .DS_Store
-.vercel
+._*
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.swp
+*.swo
+*~

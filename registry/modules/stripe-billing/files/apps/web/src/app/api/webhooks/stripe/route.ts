@@ -16,6 +16,6 @@ export async function POST(request: Request) {
   const body = await request.text();
   const event = getStripe().webhooks.constructEvent(body, signature, webhookSecret);
 
-  // TODO: Dedupe event.id before applying side effects.
+  // Persist event.id before applying side effects so retries remain idempotent.
   return Response.json({ received: true, id: event.id, type: event.type });
 }

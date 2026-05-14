@@ -16,13 +16,13 @@
       "path": "apps/web/src/lib/unkey/ratelimit.ts",
       "type": "registry:file",
       "target": "apps/web/src/lib/unkey/ratelimit.ts",
-      "content": "import \"server-only\";\n\nimport { Ratelimit } from \"@unkey/ratelimit\";\n\nexport const unkeyRatelimit = new Ratelimit({\n  rootKey: process.env.UNKEY_ROOT_KEY!,\n  namespace: \"stackfoundry.api\",\n  limit: 60,\n  duration: \"1m\",\n});\n"
+      "content": "import \"server-only\";\n\nimport { Ratelimit } from \"@unkey/ratelimit\";\n\nfunction requireEnv(key: string) {\n  const value = process.env[key];\n  if (!value) throw new Error(`${key} is required.`);\n  return value;\n}\n\nexport const unkeyRatelimit = new Ratelimit({\n  rootKey: requireEnv(\"UNKEY_ROOT_KEY\"),\n  namespace: \"stackfoundry.api\",\n  limit: 60,\n  duration: \"1m\",\n});\n"
     },
     {
       "path": "apps/web/src/app/api/vendor/unkey/ratelimit/route.ts",
       "type": "registry:file",
       "target": "apps/web/src/app/api/vendor/unkey/ratelimit/route.ts",
-      "content": "import { NextResponse } from \"next/server\";\n\nimport { unkeyRatelimit } from \"@/lib/unkey/ratelimit\";\n\nexport async function POST(request: Request) {\n  const { identifier = \"anonymous\" } = await request.json();\n  const result = await unkeyRatelimit.limit(identifier);\n  return NextResponse.json(result);\n}\n"
+      "content": "import { NextResponse } from \"next/server\";\n\nimport { unkeyRatelimit } from \"@/lib/unkey/ratelimit\";\n\nexport async function POST(request: Request) {\n  let body: { identifier?: string };\n\n  try {\n    body = await request.json();\n  } catch {\n    return NextResponse.json({ error: \"Invalid JSON body\" }, { status: 400 });\n  }\n\n  const result = await unkeyRatelimit.limit(body.identifier ?? \"anonymous\");\n  return NextResponse.json(result);\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/vendors/unkey-rate-limits/page.tsx",

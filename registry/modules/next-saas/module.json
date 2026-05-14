@@ -3,20 +3,36 @@
   "type": "module",
   "category": "foundation",
   "title": "Next SaaS",
-  "description": "Base Next.js SaaS preset module with app shell, dashboard routes, and product configuration.",
+  "description": "Provider-neutral Next.js SaaS app shell with product config, navigation, launch page, and dashboard starter.",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "env": [],
-  "files": [],
-  "status": "planned",
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/app-config.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/app-navigation.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/app-shell.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "apps/web/src/app/(marketing)/launch/page.tsx",
+      "type": "registry:page"
+    },
+    {
+      "path": "apps/web/src/app/(console)/dashboard/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "status": "experimental",
   "maintenance": {
-    "skills": [
-      "next-saas"
-    ],
-    "rules": [
-      "document-invariants",
-      "verify-before-release"
-    ]
+    "skills": ["next-saas", "nextjs"],
+    "rules": ["document-invariants", "verify-before-release"]
   }
 }

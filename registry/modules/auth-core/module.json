@@ -1,0 +1,40 @@
+{
+  "name": "auth-core",
+  "type": "module",
+  "category": "auth",
+  "title": "Auth Core",
+  "description": "Provider-neutral auth architecture, route layout, and provider selection guide for Clerk or Better Auth.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "account-modes"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/auth-options.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/auth/page.tsx",
+      "type": "registry:page"
+    },
+    {
+      "path": "docs/auth-architecture.md",
+      "type": "registry:file"
+    }
+  ],
+  "status": "experimental",
+  "maintenance": {
+    "skills": [
+      "auth-core",
+      "nextjs"
+    ],
+    "rules": [
+      "choose-provider-explicitly",
+      "protect-server-boundaries",
+      "document-session-shape",
+      "verify-auth-flows"
+    ]
+  }
+}

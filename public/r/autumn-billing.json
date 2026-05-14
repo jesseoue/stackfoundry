@@ -17,7 +17,7 @@
       "path": "apps/web/src/lib/autumn/billing.ts",
       "type": "registry:file",
       "target": "apps/web/src/lib/autumn/billing.ts",
-      "content": "import \"server-only\";\n\nimport { Autumn } from \"autumn-js\";\n\ntype AttachAutumnPlanInput = {\n  customerId: string;\n  planId: string;\n  featureQuantities?: Record<string, number>;\n  checkoutSessionParams?: Record<string, unknown>;\n};\n\nfunction getAutumn() {\n  return new Autumn({ secretKey: process.env.AUTUMN_SECRET_KEY! });\n}\n\nexport async function attachAutumnPlan(input: AttachAutumnPlanInput) {\n  return getAutumn().billing.attach({\n    customerId: input.customerId,\n    planId: input.planId,\n    featureQuantities: input.featureQuantities,\n    checkoutSessionParams: input.checkoutSessionParams,\n  });\n}\n"
+      "content": "import \"server-only\";\n\nimport { Autumn } from \"autumn-js\";\n\ntype AttachAutumnPlanInput = {\n  customerId: string;\n  planId: string;\n  featureQuantities?: Record<string, number>;\n  checkoutSessionParams?: Record<string, unknown>;\n};\n\nfunction requireEnv(key: string) {\n  const value = process.env[key];\n  if (!value) throw new Error(`${key} is required.`);\n  return value;\n}\n\nfunction getAutumn() {\n  return new Autumn({ secretKey: requireEnv(\"AUTUMN_SECRET_KEY\") });\n}\n\nexport async function attachAutumnPlan(input: AttachAutumnPlanInput) {\n  return getAutumn().billing.attach({\n    customerId: input.customerId,\n    planId: input.planId,\n    featureQuantities: input.featureQuantities,\n    checkoutSessionParams: input.checkoutSessionParams,\n  });\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/vendors/autumn-billing/page.tsx",

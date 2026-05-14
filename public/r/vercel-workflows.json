@@ -22,7 +22,7 @@
       "path": "apps/web/src/app/api/workflows/welcome/route.ts",
       "type": "registry:file",
       "target": "apps/web/src/app/api/workflows/welcome/route.ts",
-      "content": "import { start } from \"workflow/api\";\nimport { NextResponse } from \"next/server\";\n\nimport { welcomeWorkflow } from \"@/workflows/welcome\";\n\nexport async function POST(request: Request) {\n  const input = await request.json();\n  const run = await start(welcomeWorkflow, [input]);\n\n  return NextResponse.json({ runId: run.runId });\n}\n"
+      "content": "import { start } from \"workflow/api\";\nimport { NextResponse } from \"next/server\";\n\nimport { welcomeWorkflow } from \"@/workflows/welcome\";\n\nexport async function POST(request: Request) {\n  let input: unknown;\n\n  try {\n    input = await request.json();\n  } catch {\n    return NextResponse.json({ error: \"Invalid JSON body\" }, { status: 400 });\n  }\n\n  const run = await start(welcomeWorkflow, [input]);\n\n  return NextResponse.json({ runId: run.runId });\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/workflows/vercel/page.tsx",

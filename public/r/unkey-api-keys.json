@@ -16,19 +16,19 @@
       "path": "apps/web/src/lib/unkey/client.ts",
       "type": "registry:file",
       "target": "apps/web/src/lib/unkey/client.ts",
-      "content": "import \"server-only\";\n\nimport { Unkey } from \"@unkey/api\";\n\nexport const unkey = new Unkey({ rootKey: process.env.UNKEY_ROOT_KEY! });\n"
+      "content": "import \"server-only\";\n\nimport { Unkey } from \"@unkey/api\";\n\nfunction requireEnv(key: string) {\n  const value = process.env[key];\n  if (!value) throw new Error(`${key} is required.`);\n  return value;\n}\n\nexport const unkey = new Unkey({ rootKey: requireEnv(\"UNKEY_ROOT_KEY\") });\n"
     },
     {
       "path": "apps/web/src/lib/unkey/api-keys.ts",
       "type": "registry:file",
       "target": "apps/web/src/lib/unkey/api-keys.ts",
-      "content": "import { unkey } from \"./client\";\n\nexport async function createUnkeyApiKey(ownerId: string) {\n  return unkey.keys.create({\n    apiId: process.env.UNKEY_API_ID!,\n    externalId: ownerId,\n    prefix: \"sf\",\n  });\n}\n\nexport async function verifyUnkeyApiKey(key: string) {\n  return unkey.keys.verifyKey({ key });\n}\n"
+      "content": "import { unkey } from \"./client\";\n\nfunction requireEnv(key: string) {\n  const value = process.env[key];\n  if (!value) throw new Error(`${key} is required.`);\n  return value;\n}\n\nexport async function createUnkeyApiKey(ownerId: string) {\n  return unkey.keys.create({\n    apiId: requireEnv(\"UNKEY_API_ID\"),\n    externalId: ownerId,\n    prefix: \"sf\",\n  });\n}\n\nexport async function verifyUnkeyApiKey(key: string) {\n  return unkey.keys.verifyKey({ key });\n}\n"
     },
     {
       "path": "apps/web/src/app/api/vendor/unkey/verify/route.ts",
       "type": "registry:file",
       "target": "apps/web/src/app/api/vendor/unkey/verify/route.ts",
-      "content": "import { NextResponse } from \"next/server\";\n\nimport { verifyUnkeyApiKey } from \"@/lib/unkey/api-keys\";\n\nexport async function POST(request: Request) {\n  const { key } = await request.json();\n  const result = await verifyUnkeyApiKey(key);\n  return NextResponse.json(result);\n}\n"
+      "content": "import { NextResponse } from \"next/server\";\n\nimport { verifyUnkeyApiKey } from \"@/lib/unkey/api-keys\";\n\nexport async function POST(request: Request) {\n  let body: { key?: string };\n\n  try {\n    body = await request.json();\n  } catch {\n    return NextResponse.json({ error: \"Invalid JSON body\" }, { status: 400 });\n  }\n\n  if (!body.key) return NextResponse.json({ error: \"key is required\" }, { status: 400 });\n\n  const result = await verifyUnkeyApiKey(body.key);\n  return NextResponse.json(result);\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/admin/vendors/unkey/page.tsx",

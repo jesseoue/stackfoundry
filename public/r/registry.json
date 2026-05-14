@@ -419,6 +419,34 @@
       ]
     },
     {
+      "name": "auth-core",
+      "type": "registry:block",
+      "title": "Auth Core",
+      "description": "Provider-neutral auth architecture, route layout, and provider selection guide for Clerk or Better Auth.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/account-modes.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/auth-options.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/auth-options.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/auth/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/auth/page.tsx"
+        },
+        {
+          "path": "docs/auth-architecture.md",
+          "type": "registry:file",
+          "target": "docs/auth-architecture.md"
+        }
+      ]
+    },
+    {
       "name": "autumn-billing",
       "type": "registry:block",
       "title": "Autumn Billing",
@@ -2614,11 +2642,37 @@
       "name": "next-saas",
       "type": "registry:block",
       "title": "Next SaaS",
-      "description": "Base Next.js SaaS preset module with app shell, dashboard routes, and product configuration.",
+      "description": "Provider-neutral Next.js SaaS app shell with product config, navigation, launch page, and dashboard starter.",
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/app-config.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/app-config.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/app-navigation.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/app-navigation.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/app-shell.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/app-shell.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(marketing)/launch/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(marketing)/launch/page.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/dashboard/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/dashboard/page.tsx"
+        }
+      ]
     },
     {
       "name": "notification-center",

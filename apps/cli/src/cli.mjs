@@ -263,6 +263,27 @@ async function validateModule(moduleDir) {
     }
   }
 
+  for (const source of sourceFiles) {
+    const relative = toPosixPath(path.relative(filesDir, source));
+    const sourceText = await readFile(source, "utf8");
+
+    if (/process\.env\.[A-Z0-9_]+!/.test(sourceText)) {
+      errors.push(`${relative}: use explicit env validation instead of non-null process.env assertions`);
+    }
+
+    if (/\b(?:TODO|FIXME)\b/i.test(sourceText)) {
+      errors.push(`${relative}: installable source must not contain TODO/FIXME comments`);
+    }
+
+    if (
+      source.endsWith(`${path.sep}route.ts`) &&
+      sourceText.includes("request.json()") &&
+      !sourceText.includes("Invalid JSON body")
+    ) {
+      errors.push(`${relative}: route handlers that parse JSON must handle invalid JSON bodies`);
+    }
+  }
+
   return { manifest, errors };
 }
 

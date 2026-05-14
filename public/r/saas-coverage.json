@@ -7,6 +7,7 @@
   "registryDependencies": [
     "https://stackfoundry.dev/r/tenant-context.json",
     "https://stackfoundry.dev/r/account-modes.json",
+    "https://stackfoundry.dev/r/auth-core.json",
     "https://stackfoundry.dev/r/custom-domains.json",
     "https://stackfoundry.dev/r/domain-verification.json",
     "https://stackfoundry.dev/r/tenant-isolation-tests.json",
@@ -55,6 +56,7 @@
     "modules": [
       "tenant-context",
       "account-modes",
+      "auth-core",
       "custom-domains",
       "domain-verification",
       "tenant-isolation-tests",

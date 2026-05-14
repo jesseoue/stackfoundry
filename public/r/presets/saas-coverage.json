@@ -5,6 +5,7 @@
   "modules": [
     "tenant-context",
     "account-modes",
+    "auth-core",
     "custom-domains",
     "domain-verification",
     "tenant-isolation-tests",

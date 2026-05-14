@@ -24,7 +24,7 @@
       "path": "apps/web/src/app/api/tasks/trigger-dev/route.ts",
       "type": "registry:file",
       "target": "apps/web/src/app/api/tasks/trigger-dev/route.ts",
-      "content": "import { tasks } from \"@trigger.dev/sdk\";\nimport { NextResponse } from \"next/server\";\n\nimport type { syncWorkspaceUsage } from \"@/trigger/example\";\n\nexport async function POST(request: Request) {\n  const payload = await request.json();\n  const handle = await tasks.trigger<typeof syncWorkspaceUsage>(\"sync-workspace-usage\", payload);\n\n  return NextResponse.json(handle);\n}\n"
+      "content": "import { tasks } from \"@trigger.dev/sdk\";\nimport { NextResponse } from \"next/server\";\n\nimport type { syncWorkspaceUsage } from \"@/trigger/example\";\n\nexport async function POST(request: Request) {\n  let payload: unknown;\n\n  try {\n    payload = await request.json();\n  } catch {\n    return NextResponse.json({ error: \"Invalid JSON body\" }, { status: 400 });\n  }\n\n  const handle = await tasks.trigger<typeof syncWorkspaceUsage>(\"sync-workspace-usage\", payload);\n\n  return NextResponse.json(handle);\n}\n"
     },
     {
       "path": "trigger.config.ts",

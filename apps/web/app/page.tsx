@@ -171,7 +171,7 @@ const structuredData = {
   name: "StackFoundry",
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Any",
-  description: "A source registry for production SaaS modules.",
+  description: "A catalog of production SaaS features you install as editable source code.",
   url: siteUrl,
   codeRepository: "https://github.com/jesseoue/stackfoundry",
   license: "https://github.com/jesseoue/stackfoundry/blob/main/LICENSE",
@@ -221,15 +221,15 @@ export default function Page() {
             </div>
 
             <h1 className="display">
-              Install SaaS modules.
+              Add production SaaS features
               <br />
-              <span>Own the source.</span>
+              <span>without rebuilding them.</span>
             </h1>
 
             <p className="lede">
-              StackFoundry is a public source registry for production SaaS modules. Add billing, API
-              keys, docs, provider adapters, and presets as editable code with docs, env notes,
-              tests, and maintenance guidance included.
+              StackFoundry is a source-code registry for the parts every SaaS app needs: billing,
+              auth, API keys, webhooks, docs, analytics, notifications, and operations. Pick a
+              module, install it into your app, then review and edit the code like your own.
             </p>
 
             <div className="actions">

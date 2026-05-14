@@ -39,6 +39,18 @@ const existingAppSteps = [
 
 const pathCards = [
   {
+    title: "Auth: choose the boundary first",
+    eyebrow: "default path",
+    body: "Start with auth-core to choose personal, team, or hybrid account mode and decide where auth routes, protected app routes, and webhooks belong.",
+    modules: ["auth-core", "account-modes", "orgs-rbac", "tenant-context"],
+  },
+  {
+    title: "Auth: provider adapters",
+    eyebrow: "optional adapters",
+    body: "Use Clerk when you want managed auth and organizations, or Better Auth when you want a source-owned auth server and app-owned UI.",
+    modules: ["clerk-auth", "auth-better-auth", "session-management", "login-activity"],
+  },
+  {
     title: "Billing: source-owned core",
     eyebrow: "default path",
     body: "Start with billing-core, entitlements, usage-metering, plan-gating, and stripe-billing when you want subscription primitives, schema, webhook handling, and upgrade surfaces in your codebase.",
@@ -100,7 +112,9 @@ const moduleGroups = [
     category: "Auth & tenancy",
     summary: "Users, teams, permissions, tenant context, and enterprise controls.",
     modules: [
+      "auth-core",
       "clerk-auth",
+      "auth-better-auth",
       "orgs-rbac",
       "permission-matrix",
       "tenant-context",
@@ -237,6 +251,8 @@ const moduleMeta: Record<string, { tone: string; domain?: string }> = {
   "cloudflare-agents-sdk": { tone: "ai", domain: "cloudflare.com" },
   "cloudflare-mcp-server": { tone: "ai", domain: "cloudflare.com" },
   "cloudflare-vectorize": { tone: "ai", domain: "cloudflare.com" },
+  "auth-core": { tone: "auth" },
+  "auth-better-auth": { tone: "auth", domain: "better-auth.com" },
   "docs-fumadocs": { tone: "docs", domain: "fumadocs.dev" },
   "cloudflare-pages": { tone: "docs", domain: "cloudflare.com" },
 };

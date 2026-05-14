@@ -232,6 +232,18 @@
       ]
     },
     {
+      "name": "auth-core",
+      "type": "registry:block",
+      "title": "Auth Core",
+      "description": "Provider-neutral auth architecture, route layout, and provider selection guide for Clerk or Better Auth.",
+      "files": [
+        {
+          "path": "registry/modules/auth-core/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "autumn-billing",
       "type": "registry:block",
       "title": "Autumn Billing",

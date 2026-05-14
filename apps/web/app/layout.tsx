@@ -6,7 +6,7 @@ import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://stackfoundry.dev/";
 const title = "StackFoundry";
-const description = "A source registry for production SaaS modules.";
+const description = "Install production SaaS features as editable source code.";
 const ogImage = "/opengraph-image";
 
 const geistSans = Geist({

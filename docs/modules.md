@@ -44,7 +44,9 @@ The registry now includes core modules, vendor examples, and registry-compatible
 
 ### Auth and Tenancy
 
+- `auth-core`
 - `clerk-auth`
+- `auth-better-auth`
 - `orgs-rbac`
 - `invites`
 - `workspace-settings`

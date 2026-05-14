@@ -16,7 +16,7 @@
       "path": "apps/web/src/lib/github/app.ts",
       "type": "registry:file",
       "target": "apps/web/src/lib/github/app.ts",
-      "content": "import \"server-only\";\n\nimport { App } from \"octokit\";\n\nexport function createGitHubApp() {\n  return new App({\n    appId: process.env.GITHUB_APP_ID!,\n    privateKey: process.env.GITHUB_PRIVATE_KEY!.replace(/\\\\n/g, \"\\n\"),\n  });\n}\n"
+      "content": "import \"server-only\";\n\nimport { App } from \"octokit\";\n\nfunction requireEnv(key: string) {\n  const value = process.env[key];\n  if (!value) throw new Error(`${key} is required.`);\n  return value;\n}\n\nexport function createGitHubApp() {\n  return new App({\n    appId: requireEnv(\"GITHUB_APP_ID\"),\n    privateKey: requireEnv(\"GITHUB_PRIVATE_KEY\").replace(/\\n/g, \"\n\"),\n  });\n}\n"
     },
     {
       "path": "apps/web/src/app/api/webhooks/github/route.ts",
