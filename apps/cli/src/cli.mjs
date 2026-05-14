@@ -209,8 +209,15 @@ async function getModuleInstallFiles(name, visited = new Set()) {
 async function validateRegistry() {
   const registry = await readJson(path.join(repoRoot, "registry.json"));
   const itemNames = new Set();
-  const moduleDirs = (await readdir(modulesRoot)).map((name) => path.join(modulesRoot, name));
+  const moduleDirs = [];
   const errors = [];
+
+  for (const name of await readdir(modulesRoot)) {
+    const fullPath = path.join(modulesRoot, name);
+    if ((await stat(fullPath)).isDirectory()) {
+      moduleDirs.push(fullPath);
+    }
+  }
 
   for (const item of registry.items ?? []) {
     if (itemNames.has(item.name)) errors.push(`registry.json: duplicate item ${item.name}`);
@@ -272,7 +279,12 @@ async function validateRegistry() {
 }
 
 async function listModules() {
-  const names = await readdir(modulesRoot);
+  const names = [];
+  for (const name of await readdir(modulesRoot)) {
+    if ((await stat(path.join(modulesRoot, name))).isDirectory()) {
+      names.push(name);
+    }
+  }
   for (const name of names.sort()) {
     const { manifest } = await getModule(name);
     console.log(`${manifest.name.padEnd(18)} ${manifest.status.padEnd(12)} ${manifest.description}`);
