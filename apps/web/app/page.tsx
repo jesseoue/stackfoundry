@@ -456,6 +456,99 @@ export default function Page() {
           </div>
         </section>
 
+        <section className="section docs-preview" id="docs">
+          <aside className="docs-sidebar" aria-label="Docs navigation preview">
+            <div className="docs-side-section">
+              <h4>Get started</h4>
+              <a className="active" href="#docs">
+                <span />
+                Quick start
+                <em>5min</em>
+              </a>
+              <a href="#docs">
+                <span />
+                Installation
+              </a>
+              <a href="#docs">
+                <span />
+                Project layout
+              </a>
+            </div>
+            <div className="docs-side-section">
+              <h4>Registry</h4>
+              <a href="#docs">
+                <span />
+                Modules
+                <em>160+</em>
+              </a>
+              <a href="#docs">
+                <span />
+                Presets
+                <em>9</em>
+              </a>
+              <a href="#docs">
+                <span />
+                Provider adapters
+              </a>
+            </div>
+            <div className="docs-side-section">
+              <h4>Authoring</h4>
+              <a href="#docs">
+                <span />
+                module.json schema
+              </a>
+              <a href="#docs">
+                <span />
+                Maintenance guidance
+              </a>
+            </div>
+          </aside>
+
+          <article className="docs-content">
+            <div className="crumbs">
+              <span>Docs</span>
+              <span>/</span>
+              <span>Get started</span>
+              <span>/</span>
+              <strong>Quick start</strong>
+            </div>
+            <h2>Quick start.</h2>
+            <p className="doc-lede">
+              Generate a new app or add StackFoundry to an existing project. The docs mirror the
+              registry: every module explains ownership, files, env, checks, and update safety.
+            </p>
+            <div className="doc-meta">
+              <span>5 min read</span>
+              <span>tested against v0.1</span>
+              <span>source registry</span>
+            </div>
+
+            <h3>1. Install a production module</h3>
+            <p>
+              Add one capability at a time. The installer resolves registry dependencies first and
+              writes install metadata for future diffs.
+            </p>
+            <div className="docs-code">
+              <div className="code-head">
+                <span />
+                terminal
+              </div>
+              <pre>{`$ pnpm dlx stackfoundry add stripe-billing
+· resolving registry dependencies
+· drizzle-postgres already installed
++ packages/db/src/schema/billing.ts
++ apps/web/src/app/api/webhooks/stripe/route.ts
++ registry/modules/stripe-billing/docs.md`}</pre>
+            </div>
+
+            <h3>2. Review what changed</h3>
+            <p>
+              The module lands as normal source code. Review the diff, run the checklist, then
+              commit like any other application change.
+            </p>
+          </article>
+        </section>
+
         <section className="sponsor-strip" id="sponsors">
           <div>
             <h2>Sponsors</h2>

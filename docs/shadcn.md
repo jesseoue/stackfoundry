@@ -8,6 +8,15 @@ StackFoundry modules are emitted as shadcn-compatible `registry:block` items und
 
 ## Install a StackFoundry Block
 
+With the StackFoundry CLI:
+
+```bash
+pnpm cli add https://stackfoundry.dev/r/api-keys.json --target ./my-app
+pnpm cli add https://stackfoundry.dev/r/vendor-examples.json --target ./my-app
+```
+
+With the shadcn CLI:
+
 ```bash
 pnpm dlx shadcn@latest add https://stackfoundry.dev/r/api-keys.json
 pnpm dlx shadcn@latest add https://stackfoundry.dev/r/stripe-billing.json
@@ -26,6 +35,7 @@ Then run the web app and install from the local URL:
 
 ```bash
 pnpm dev:web
+pnpm cli add http://localhost:3000/r/api-keys.json --target /tmp/app
 pnpm dlx shadcn@latest add http://localhost:3000/r/api-keys.json
 ```
 
@@ -37,6 +47,7 @@ pnpm dlx shadcn@latest add http://localhost:3000/r/api-keys.json
 - Each file includes a `target` so registry clients install it into the intended app path.
 - Internal module dependencies are emitted as full `https://stackfoundry.dev/r/<dependency>.json` registry URLs.
 - Env requirements are emitted as `envVars` and retained in `meta.env`.
+- StackFoundry CLI can install these generated items directly, including aggregate preset blocks such as `vendor-examples`.
 
 ## StackFoundry Rules
 

@@ -28,6 +28,12 @@ Usage:
   stackfoundry add <registry-item-url-or-file> [--target <dir>] [--dry-run] [--force]
   stackfoundry diff <module> [--target <dir>]
   stackfoundry diff <registry-item-url-or-file> [--target <dir>]
+
+Examples:
+  stackfoundry add api-keys --target ./app
+  stackfoundry add preset vendor-examples --target ./app
+  stackfoundry add https://stackfoundry.dev/r/api-keys.json --target ./app
+  stackfoundry add public/r/vendor-examples.json --target ./app
 `);
 }
 
@@ -443,6 +449,62 @@ async function addPreset(name, flags) {
   }
 }
 
+async function addRegistryItem(specifier, flags, visited = new Set()) {
+  const item = await readRegistryItem(specifier);
+  const itemId = isHttpUrl(specifier) ? specifier : path.resolve(specifier);
+
+  if (visited.has(itemId)) return;
+  visited.add(itemId);
+
+  if (item.type !== "registry:block") {
+    throw new Error(`${item.name ?? specifier}: expected registry:block`);
+  }
+
+  for (const dependency of item.registryDependencies ?? []) {
+    await addRegistryItem(dependency, flags, visited);
+  }
+
+  const installed = await loadInstallManifest(flags.target);
+  const installedFiles = {};
+  console.log(`${flags.dryRun ? "would install" : "installing"} registry item ${item.name}`);
+
+  for (const file of item.files ?? []) {
+    if (!file.content) throw new Error(`${item.name}: ${file.path} is missing embedded content`);
+
+    const relative = file.target ?? file.path;
+    const sourceHash = createHash("sha256").update(file.content).digest("hex");
+    await writeFileWithSafety({
+      sourceHash,
+      content: file.content,
+      relative,
+      target: flags.target,
+      flags,
+    });
+    installedFiles[relative] = sourceHash;
+  }
+
+  const envVars = Object.keys(item.envVars ?? {});
+  if (envVars.length > 0) {
+    const relative = `.env.stackfoundry.${item.name}.example`;
+    const content = envVars.map((key) => `${key}=`).join("\n") + "\n";
+    const sourceHash = createHash("sha256").update(content).digest("hex");
+    await writeFileWithSafety({ sourceHash, content, relative, target: flags.target, flags });
+    installedFiles[relative] = sourceHash;
+  }
+
+  if (!flags.dryRun) {
+    installed.modules[item.name] = {
+      installedAt: new Date().toISOString(),
+      files: installedFiles,
+      dependencies: item.dependencies ?? [],
+      devDependencies: item.devDependencies ?? [],
+      env: envVars,
+      source: specifier,
+    };
+    await saveInstallManifest(flags.target, installed);
+  }
+}
+
 async function diffModule(name, flags) {
   const { dir } = await getModule(name);
   const filesDir = path.join(dir, "files");
@@ -466,6 +528,37 @@ async function diffModule(name, flags) {
   }
 
   process.exitCode = changes > 0 ? 1 : 0;
+}
+
+async function diffRegistryItem(specifier, flags, visited = new Set()) {
+  const item = await readRegistryItem(specifier);
+  const itemId = isHttpUrl(specifier) ? specifier : path.resolve(specifier);
+  if (visited.has(itemId)) return;
+  visited.add(itemId);
+
+  let changes = 0;
+  for (const dependency of item.registryDependencies ?? []) {
+    await diffRegistryItem(dependency, flags, visited);
+  }
+
+  for (const file of item.files ?? []) {
+    const relative = file.target ?? file.path;
+    const dest = path.join(flags.target, relative);
+    if (!existsSync(dest)) {
+      console.log(`missing  ${relative}`);
+      changes += 1;
+      continue;
+    }
+    const sourceHash = createHash("sha256").update(file.content ?? "").digest("hex");
+    if ((await hashFile(dest)) !== sourceHash) {
+      console.log(`changed  ${relative}`);
+      changes += 1;
+    } else {
+      console.log(`same     ${relative}`);
+    }
+  }
+
+  process.exitCode = changes > 0 ? 1 : process.exitCode;
 }
 
 async function buildRegistry() {
@@ -605,7 +698,9 @@ async function main() {
 
   if (command === "add" && presetName) return addPreset(presetName, flags);
   if (!moduleName) throw new Error(`${command} requires a module name`);
+  if (command === "add" && isRegistryItemSpecifier(moduleName)) return addRegistryItem(moduleName, flags);
   if (command === "add") return addModule(moduleName, flags);
+  if (command === "diff" && isRegistryItemSpecifier(moduleName)) return diffRegistryItem(moduleName, flags);
   if (command === "diff") return diffModule(moduleName, flags);
 
   throw new Error(`Unknown command: ${command}`);

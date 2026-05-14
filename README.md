@@ -45,6 +45,14 @@ pnpm cli add preset next-saas --target ./my-app
 pnpm cli diff api-keys --target ./my-app
 ```
 
+The CLI can also install generated registry block JSON:
+
+```bash
+pnpm cli add https://stackfoundry.dev/r/api-keys.json --target ./my-app
+pnpm cli add https://stackfoundry.dev/r/vendor-examples.json --target ./my-app
+pnpm cli diff https://stackfoundry.dev/r/api-keys.json --target ./my-app
+```
+
 Use any shadcn-compatible registry client when you want direct source-block installation:
 
 ```bash
