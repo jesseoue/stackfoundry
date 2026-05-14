@@ -57,7 +57,7 @@
   "docs": "Installs the Free Tier SaaS recipe from StackFoundry.",
   "meta": {
     "category": "recipe",
-    "status": "planned",
+    "status": "ready",
     "modules": [
       "drizzle-postgres",
       "account-settings",

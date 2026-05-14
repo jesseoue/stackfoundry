@@ -2,6 +2,10 @@
 
 PostHog Next.js provider, pageview tracking, and event capture helper.
 
+## Official Docs
+
+- [PostHog Docs](https://posthog.com/docs)
+
 ## Owns
 
 - `apps/web/src/components/providers/posthog-provider.tsx`

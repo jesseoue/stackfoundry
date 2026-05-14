@@ -2,6 +2,11 @@
 
 Neon serverless Postgres client, Drizzle-compatible env wiring, and branching notes.
 
+## Official Docs
+
+- [Neon Docs](https://neon.tech/docs)
+- [Neon Connection Guides](https://neon.tech/docs/connect/connect-from-any-language)
+
 ## Owns
 
 - `apps/web/src/lib/neon/client.ts`

@@ -2,6 +2,10 @@
 
 Alternate deploy path for static and edge-friendly apps.
 
+## Official Docs
+
+- [Cloudflare Pages Docs](https://developers.cloudflare.com/pages/)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/cloudflare-pages.ts`

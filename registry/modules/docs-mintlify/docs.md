@@ -2,29 +2,15 @@
 
 Hosted documentation workspace starter with Mintlify configuration, pages, and deployment guidance.
 
-Use this module when docs should live in a dedicated docs workspace and deploy through Mintlify.
-
-## Owns
-
-- `docs/mintlify/docs.json`
-- `docs/mintlify/introduction.mdx`
-- `docs/mintlify/quickstart.mdx`
-- `docs/mintlify/deployment.md`
-
-## Verification
-
-- Run `pnpm registry:doctor` after editing the module.
-- Run `pnpm stackfoundry add docs-mintlify --target /tmp/stackfoundry-docs-mintlify --dry-run`.
-- Run `mint dev` from the directory that contains `docs.json`.
-# Mintlify Docs
-
-Hosted documentation workspace starter with Mintlify configuration, pages, and deployment guidance.
-
 ## Why This Exists
 
 Docs modules help teams ship product documentation with a clear hosting choice and SEO ownership model.
 
 This module has installable source files and can be smoke-tested through the StackFoundry command.
+
+## Official Docs
+
+- [Mintlify Docs](https://mintlify.com/docs)
 
 ## Owns
 

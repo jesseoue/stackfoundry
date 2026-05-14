@@ -15,5 +15,5 @@
     "upstash-redis",
     "sentry-monitoring"
   ],
-  "status": "planned"
+  "status": "ready"
 }

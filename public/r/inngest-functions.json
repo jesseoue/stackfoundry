@@ -58,7 +58,7 @@
     "INNGEST_EVENT_KEY": "",
     "INNGEST_SIGNING_KEY": ""
   },
-  "docs": "# Inngest Functions Module\n\nInngest durable functions, event triggers, steps, and Next.js serve route.\n\n## Owns\n\n- `apps/web/src/inngest/client.ts`\n- `apps/web/src/inngest/functions/user-onboarding.ts`\n- `apps/web/src/app/api/inngest/route.ts`\n- `apps/web/src/app/(console)/admin/workflows/inngest/page.tsx`\n\n## Dependencies\n\n`inngest`\n\n## Environment\n\n- `INNGEST_EVENT_KEY`\n- `INNGEST_SIGNING_KEY`\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when provider APIs change.\n",
+  "docs": "# Inngest Functions Module\n\nInngest durable functions, event triggers, steps, and Next.js serve route.\n\n## Official Docs\n\n- [Inngest Docs](https://www.inngest.com/docs)\n\n## Owns\n\n- `apps/web/src/inngest/client.ts`\n- `apps/web/src/inngest/functions/user-onboarding.ts`\n- `apps/web/src/app/api/inngest/route.ts`\n- `apps/web/src/app/(console)/admin/workflows/inngest/page.tsx`\n\n## Dependencies\n\n`inngest`\n\n## Environment\n\n- `INNGEST_EVENT_KEY`\n- `INNGEST_SIGNING_KEY`\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when provider APIs change.\n",
   "meta": {
     "category": "workflow",
     "env": [

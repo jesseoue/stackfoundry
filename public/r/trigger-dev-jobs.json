@@ -60,7 +60,7 @@
     "TRIGGER_SECRET_KEY": "",
     "TRIGGER_PROJECT_ID": ""
   },
-  "docs": "# Trigger.dev Jobs Module\n\nTrigger.dev task definitions, run triggering route, and job dashboard starter.\n\n## Owns\n\n- `apps/web/src/trigger/example.ts`\n- `apps/web/src/app/api/tasks/trigger-dev/route.ts`\n- `trigger.config.ts`\n- `apps/web/src/app/(console)/admin/workflows/trigger-dev/page.tsx`\n\n## Dependencies\n\n`@trigger.dev/sdk`\n\n## Environment\n\n- `TRIGGER_SECRET_KEY`\n- `TRIGGER_PROJECT_ID`\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when provider APIs change.\n",
+  "docs": "# Trigger.dev Jobs Module\n\nTrigger.dev task definitions, run triggering route, and job dashboard starter.\n\n## Official Docs\n\n- [Trigger.dev Docs](https://trigger.dev/docs)\n\n## Owns\n\n- `apps/web/src/trigger/example.ts`\n- `apps/web/src/app/api/tasks/trigger-dev/route.ts`\n- `trigger.config.ts`\n- `apps/web/src/app/(console)/admin/workflows/trigger-dev/page.tsx`\n\n## Dependencies\n\n`@trigger.dev/sdk`\n\n## Environment\n\n- `TRIGGER_SECRET_KEY`\n- `TRIGGER_PROJECT_ID`\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when provider APIs change.\n",
   "meta": {
     "category": "workflow",
     "env": [

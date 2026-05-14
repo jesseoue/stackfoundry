@@ -34,5 +34,5 @@
     "sentry-monitoring",
     "arcjet-security"
   ],
-  "status": "planned"
+  "status": "ready"
 }

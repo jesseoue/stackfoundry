@@ -49,7 +49,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Vercel Workflows Module\n\nVercel Workflow DevKit durable workflow and Next.js route starter.\n\n## Owns\n\n- `apps/web/src/workflows/welcome.ts`\n- `apps/web/src/app/api/workflows/welcome/route.ts`\n- `apps/web/src/app/(console)/admin/workflows/vercel/page.tsx`\n\n## Dependencies\n\n`workflow`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when provider APIs change.\n",
+  "docs": "# Vercel Workflows Module\n\nVercel Workflow DevKit durable workflow and Next.js route starter.\n\n## Official Docs\n\n- [Vercel Workflow Docs](https://useworkflow.dev/docs)\n\n## Owns\n\n- `apps/web/src/workflows/welcome.ts`\n- `apps/web/src/app/api/workflows/welcome/route.ts`\n- `apps/web/src/app/(console)/admin/workflows/vercel/page.tsx`\n\n## Dependencies\n\n`workflow`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when provider APIs change.\n",
   "meta": {
     "category": "workflow",
     "env": [],

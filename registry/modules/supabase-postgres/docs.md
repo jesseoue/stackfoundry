@@ -2,6 +2,12 @@
 
 Supabase SSR clients, Postgres env wiring, and RLS-first setup notes.
 
+## Official Docs
+
+- [Supabase Docs](https://supabase.com/docs)
+- [Supabase Getting Started](https://supabase.com/docs/guides/getting-started)
+- [Supabase Next.js SSR Auth](https://supabase.com/docs/guides/auth/server-side/nextjs)
+
 ## Owns
 
 - `apps/web/src/lib/supabase/server.ts`

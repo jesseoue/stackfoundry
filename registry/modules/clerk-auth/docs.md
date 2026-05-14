@@ -2,6 +2,11 @@
 
 Clerk sign-in/sign-up pages, middleware, server auth helper, and webhook starter.
 
+## Official Docs
+
+- [Clerk Docs](https://clerk.com/docs)
+- [Clerk Webhooks](https://clerk.com/docs/webhooks/sync-data)
+
 ## Owns
 
 - `middleware.ts`

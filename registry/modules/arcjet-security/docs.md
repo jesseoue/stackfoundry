@@ -2,6 +2,10 @@
 
 Arcjet request protection starter for bot detection, shielding, and rate limits.
 
+## Official Docs
+
+- [Arcjet Docs](https://docs.arcjet.com)
+
 ## Owns
 
 - `apps/web/src/lib/arcjet.ts`

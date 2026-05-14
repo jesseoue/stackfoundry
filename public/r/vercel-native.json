@@ -21,7 +21,7 @@
   "docs": "Installs the Vercel Native recipe from StackFoundry.",
   "meta": {
     "category": "recipe",
-    "status": "planned",
+    "status": "ready",
     "modules": [
       "vercel-deploy",
       "vercel-blob",

@@ -2,6 +2,10 @@
 
 Trigger.dev task definitions, run triggering route, and job dashboard starter.
 
+## Official Docs
+
+- [Trigger.dev Docs](https://trigger.dev/docs)
+
 ## Owns
 
 - `apps/web/src/trigger/example.ts`

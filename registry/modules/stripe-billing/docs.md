@@ -4,6 +4,12 @@ Adds Stripe checkout, customer portal, subscription sync, webhook handling, and 
 
 This is the first concrete payment-provider adapter for the source-owned billing modules. Keep it optional and isolated so teams can choose Stripe directly, Autumn on top of Stripe, or another billing adapter.
 
+## Official Docs
+
+- [Stripe Docs](https://stripe.com/docs)
+- [Stripe Webhooks](https://stripe.com/docs/webhooks)
+- [Stripe API Reference](https://stripe.com/docs/api)
+
 ## Owns
 
 - billing tables

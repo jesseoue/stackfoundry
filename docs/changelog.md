@@ -17,13 +17,15 @@ This page mirrors the release changelog and keeps the latest public registry cha
 
 ### Changed
 
-1. Sharpened public positioning around the API SaaS wedge: API keys, usage tracking, rate limits, credits, Stripe billing, docs, and webhooks as editable source.
-2. Pointed module maintenance skills to installed shared provider, framework, database, SDK, and platform skills.
-3. Standardized provider adapter registry language and replaced legacy provider wording/paths.
-4. Renamed public command examples to `stackfoundry`.
-5. Updated `AGENTS.md` to match the current recipes, readiness, generated-output, and maintenance-skill model.
-6. Improved README badges, contribution controls, provider request templates, repo topics, and docs navigation for public discovery.
-7. Updated GitHub Actions dependencies for checkout, Node setup, pnpm setup, and dependency review.
+1. Added official upstream documentation links across provider-backed modules and cleaned duplicated Mintlify module docs.
+2. Promoted installable preset manifests from `planned` to `ready` now that their source modules validate.
+3. Sharpened public positioning around the API SaaS wedge: API keys, usage tracking, rate limits, credits, Stripe billing, docs, and webhooks as editable source.
+4. Pointed module maintenance skills to installed shared provider, framework, database, SDK, and platform skills.
+5. Standardized provider adapter registry language and replaced legacy provider wording/paths.
+6. Renamed public command examples to `stackfoundry`.
+7. Updated `AGENTS.md` to match the current recipes, readiness, generated-output, and maintenance-skill model.
+8. Improved README badges, contribution controls, provider request templates, repo topics, and docs navigation for public discovery.
+9. Updated GitHub Actions dependencies for checkout, Node setup, pnpm setup, and dependency review.
 
 ### Security
 

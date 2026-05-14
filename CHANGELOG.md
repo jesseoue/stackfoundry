@@ -15,6 +15,8 @@
 
 ### Changed
 
+- Added official upstream documentation links across provider-backed modules and cleaned duplicated Mintlify module docs.
+- Promoted installable preset manifests from `planned` to `ready` now that their source modules validate.
 - Sharpened public positioning around the API SaaS wedge: API keys, usage tracking, rate limits, credits, Stripe billing, docs, and webhooks as editable source.
 - Pointed module maintenance skills to installed shared provider, framework, database, SDK, and platform skills.
 - Standardized provider adapter registry language and replaced legacy provider wording/paths.

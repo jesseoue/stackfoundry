@@ -2,6 +2,10 @@
 
 Deployments list, env sync docs, and preview links.
 
+## Official Docs
+
+- [Vercel Integrations](https://vercel.com/docs/integrations)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/vercel-integration.ts`

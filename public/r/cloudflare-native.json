@@ -21,7 +21,7 @@
   "docs": "Installs the Cloudflare Native recipe from StackFoundry.",
   "meta": {
     "category": "recipe",
-    "status": "planned",
+    "status": "ready",
     "modules": [
       "cloudflare-next-starter",
       "cloudflare-pages",

@@ -2,6 +2,10 @@
 
 IaC module for zones, Workers, R2, D1, Queues, and secrets.
 
+## Official Docs
+
+- [Cloudflare Terraform Docs](https://developers.cloudflare.com/terraform/)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/cloudflare-terraform.ts`

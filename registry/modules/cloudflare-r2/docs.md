@@ -2,6 +2,10 @@
 
 R2 object storage adapter example for uploads and private object reads.
 
+## Official Docs
+
+- [Cloudflare R2 Docs](https://developers.cloudflare.com/r2/)
+
 ## Owns
 
 - `cloudflare/r2/storage.ts`

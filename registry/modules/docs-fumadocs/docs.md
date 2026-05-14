@@ -4,6 +4,10 @@ In-app Next.js documentation starter with Fumadocs setup and deployment guidance
 
 Use this module when product docs should live inside the app and deploy with the same Next.js host.
 
+## Official Docs
+
+- [Fumadocs UI Docs](https://fumadocs.dev/docs/ui)
+
 ## Owns
 
 - `apps/web/src/lib/docs/fumadocs.ts`

@@ -2,6 +2,10 @@
 
 Stateful AI agents on Workers, React hooks, WebSocket/RPC surface.
 
+## Official Docs
+
+- [Cloudflare Agents Docs](https://developers.cloudflare.com/agents/)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/cloudflare-agents-sdk.ts`

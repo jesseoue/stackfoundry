@@ -2,6 +2,10 @@
 
 Inngest durable functions, event triggers, steps, and Next.js serve route.
 
+## Official Docs
+
+- [Inngest Docs](https://www.inngest.com/docs)
+
 ## Owns
 
 - `apps/web/src/inngest/client.ts`

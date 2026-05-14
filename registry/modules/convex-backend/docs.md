@@ -2,6 +2,10 @@
 
 Convex project setup, generated functions, provider wrapper, and deployment docs.
 
+## Official Docs
+
+- [Convex Docs](https://docs.convex.dev)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/convex-backend.ts`

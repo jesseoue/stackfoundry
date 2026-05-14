@@ -2,6 +2,12 @@
 
 GitHub App Octokit client, webhook route starter, and repository action example.
 
+## Official Docs
+
+- [GitHub Apps Docs](https://docs.github.com/en/apps)
+- [GitHub Webhooks](https://docs.github.com/en/webhooks)
+- [Octokit Docs](https://github.com/octokit/octokit.js#documentation)
+
 ## Owns
 
 - `apps/web/src/lib/github/app.ts`

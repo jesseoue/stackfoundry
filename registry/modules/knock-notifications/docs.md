@@ -2,6 +2,10 @@
 
 Knock adapter for hosted in-app feeds, workflow triggers, and preference-aware notification delivery.
 
+## Official Docs
+
+- [Knock Docs](https://docs.knock.app)
+
 ## Owns
 
 - `apps/web/src/lib/knock/client.ts`

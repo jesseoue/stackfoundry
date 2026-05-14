@@ -2,6 +2,10 @@
 
 Guided setup for Neon, Supabase, Upstash, AWS, and marketplace integrations.
 
+## Official Docs
+
+- [Vercel Integrations](https://vercel.com/docs/integrations)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/vercel-marketplace-storage.ts`

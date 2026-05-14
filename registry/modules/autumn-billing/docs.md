@@ -4,6 +4,11 @@ Optional Autumn adapter for plan attach, checkout redirects, usage billing, over
 
 Autumn should sit beside the source-owned billing modules, not replace them by default. Use `billing-core` and `usage-metering` for local product state, then map plan ids and usage features into Autumn when the app chooses Autumn for hosted billing logic.
 
+## Official Docs
+
+- [Autumn Docs](https://docs.useautumn.com)
+- [Autumn API Reference](https://docs.useautumn.com/api-reference)
+
 ## Owns
 
 - `apps/web/src/lib/autumn/billing.ts`

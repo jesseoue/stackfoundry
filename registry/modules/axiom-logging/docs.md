@@ -2,6 +2,10 @@
 
 Axiom structured event logger and server route for deployment smoke checks.
 
+## Official Docs
+
+- [Axiom Docs](https://axiom.co/docs)
+
 ## Owns
 
 - `apps/web/src/lib/axiom/logger.ts`

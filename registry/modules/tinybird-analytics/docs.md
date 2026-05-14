@@ -2,6 +2,11 @@
 
 Tinybird Events API adapter for high-volume product, usage, and AI analytics event streams.
 
+## Official Docs
+
+- [Tinybird Docs](https://www.tinybird.co/docs)
+- [Tinybird Events API](https://www.tinybird.co/docs/forward/events-api)
+
 ## Owns
 
 - `apps/web/src/lib/tinybird/analytics.ts`

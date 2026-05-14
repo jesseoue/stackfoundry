@@ -2,6 +2,10 @@
 
 Async jobs, producer/consumer Workers, retries, and DLQ guidance.
 
+## Official Docs
+
+- [Cloudflare Queues Docs](https://developers.cloudflare.com/queues/)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/cloudflare-queues.ts`

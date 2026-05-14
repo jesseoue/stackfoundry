@@ -2,6 +2,10 @@
 
 Stateful coordination, realtime rooms, per-tenant state, and DO storage.
 
+## Official Docs
+
+- [Cloudflare Durable Objects Docs](https://developers.cloudflare.com/durable-objects/)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/cloudflare-durable-objects.ts`

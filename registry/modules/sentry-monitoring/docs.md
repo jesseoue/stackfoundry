@@ -2,6 +2,10 @@
 
 Sentry Next.js config files, manual capture helper, and release deployment notes.
 
+## Official Docs
+
+- [Sentry Next.js Docs](https://docs.sentry.io/platforms/javascript/guides/nextjs/)
+
 ## Owns
 
 - `apps/web/src/lib/sentry/capture.ts`

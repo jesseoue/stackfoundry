@@ -103,7 +103,7 @@
   "docs": "Installs the Next SaaS recipe from StackFoundry.",
   "meta": {
     "category": "recipe",
-    "status": "planned",
+    "status": "ready",
     "modules": [
       "next-saas-shell",
       "drizzle-postgres",

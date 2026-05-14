@@ -43,7 +43,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Cloudflare KV Module\n\nKV binding adapter for low-write configuration, flags, and cached metadata.\n\n## Owns\n\n- `cloudflare/kv/config.ts`\n- `apps/web/src/app/(console)/admin/cloudflare/kv/page.tsx`\n\n## Dependencies\n\nNo package dependencies.\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when provider APIs change.\n",
+  "docs": "# Cloudflare KV Module\n\nKV binding adapter for low-write configuration, flags, and cached metadata.\n\n## Official Docs\n\n- [Cloudflare KV Docs](https://developers.cloudflare.com/kv/)\n\n## Owns\n\n- `cloudflare/kv/config.ts`\n- `apps/web/src/app/(console)/admin/cloudflare/kv/page.tsx`\n\n## Dependencies\n\nNo package dependencies.\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when provider APIs change.\n",
   "meta": {
     "category": "storage",
     "env": [],

@@ -40,7 +40,7 @@
   "docs": "Installs the Developer Platform recipe from StackFoundry.",
   "meta": {
     "category": "recipe",
-    "status": "planned",
+    "status": "ready",
     "modules": [
       "drizzle-postgres",
       "agent-ready-installs",

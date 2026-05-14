@@ -2,6 +2,12 @@
 
 Vercel project linking, env pull, preview/prod scripts, and deployment docs.
 
+## Official Docs
+
+- [Vercel Docs](https://vercel.com/docs)
+- [Vercel CLI](https://vercel.com/docs/cli)
+- [Vercel Deployments](https://vercel.com/docs/deployments/overview)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/vercel-deploy.ts`

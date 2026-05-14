@@ -40,7 +40,7 @@
   "docs": "Installs the AI SaaS recipe from StackFoundry.",
   "meta": {
     "category": "recipe",
-    "status": "planned",
+    "status": "ready",
     "modules": [
       "drizzle-postgres",
       "api-keys",

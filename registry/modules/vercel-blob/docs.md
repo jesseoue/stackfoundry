@@ -2,6 +2,10 @@
 
 Vercel Blob upload route, list helper, and file storage dashboard starter.
 
+## Official Docs
+
+- [Vercel Blob Docs](https://vercel.com/docs/storage/vercel-blob)
+
 ## Owns
 
 - `apps/web/src/lib/vercel/blob.ts`

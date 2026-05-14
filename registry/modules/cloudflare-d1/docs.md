@@ -2,6 +2,10 @@
 
 D1 binding usage, SQLite schema starter, and Wrangler database notes.
 
+## Official Docs
+
+- [Cloudflare D1 Docs](https://developers.cloudflare.com/d1/)
+
 ## Owns
 
 - `cloudflare/d1/schema.sql`

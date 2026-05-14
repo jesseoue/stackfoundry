@@ -2,6 +2,10 @@
 
 Edge Config read helper for low-latency flags, redirects, and rollout config.
 
+## Official Docs
+
+- [Vercel Edge Config Docs](https://vercel.com/docs/edge-config)
+
 ## Owns
 
 - `apps/web/src/lib/vercel/edge-config.ts`

@@ -44,7 +44,7 @@
   "docs": "Installs the Internal Admin recipe from StackFoundry.",
   "meta": {
     "category": "recipe",
-    "status": "planned",
+    "status": "ready",
     "modules": [
       "drizzle-postgres",
       "admin-console",

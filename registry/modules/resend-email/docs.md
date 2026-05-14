@@ -2,6 +2,10 @@
 
 Resend transactional email client, React Email welcome template, and send route.
 
+## Official Docs
+
+- [Resend Docs](https://resend.com/docs)
+
 ## Owns
 
 - `apps/web/src/lib/resend/client.ts`

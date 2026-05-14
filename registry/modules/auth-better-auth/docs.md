@@ -2,6 +2,10 @@
 
 Better Auth server config, Next.js route handler, and typed client starter.
 
+## Official Docs
+
+- [Better Auth Docs](https://www.better-auth.com/docs)
+
 ## Owns
 
 - `apps/web/src/lib/auth.ts`

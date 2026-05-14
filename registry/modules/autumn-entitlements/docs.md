@@ -4,6 +4,10 @@ Optional Autumn adapter for feature checks, metered usage, check-and-consume flo
 
 Autumn should extend the source-owned entitlement and plan-gating modules. Keep local feature names, UI gates, and fallback behavior clear, then map them to Autumn feature ids when this provider is selected.
 
+## Official Docs
+
+- [Autumn Docs](https://docs.useautumn.com)
+
 ## Owns
 
 - `apps/web/src/lib/autumn/entitlements.ts`

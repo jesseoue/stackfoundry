@@ -2,6 +2,10 @@
 
 App and worker deployment with regionality notes and templates.
 
+## Official Docs
+
+- [Fly.io Docs](https://fly.io/docs/)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/fly-deploy.ts`

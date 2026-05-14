@@ -4,6 +4,10 @@ Optional Unkey adapter for managed API key creation, verification, permissions, 
 
 Use the source-owned `api-keys` module when you want local hashed key storage by default. Add this module when you want Unkey to manage key issuance and verification behind a provider boundary.
 
+## Official Docs
+
+- [Unkey Docs](https://unkey.com/docs)
+
 ## Owns
 
 - `apps/web/src/lib/unkey/client.ts`

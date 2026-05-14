@@ -2,6 +2,10 @@
 
 Vector search and RAG provider module.
 
+## Official Docs
+
+- [Cloudflare Vectorize Docs](https://developers.cloudflare.com/vectorize/)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/cloudflare-vectorize.ts`

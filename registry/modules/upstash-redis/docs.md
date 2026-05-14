@@ -2,6 +2,12 @@
 
 Upstash Redis client, serverless rate limiter, and deployment smoke route.
 
+## Official Docs
+
+- [Upstash Redis Docs](https://upstash.com/docs/redis)
+- [Upstash TypeScript SDK](https://upstash.com/docs/redis/sdks/ts/overview)
+- [Upstash Ratelimit SDK](https://upstash.com/docs/redis/sdks/ratelimit-ts/overview)
+
 ## Owns
 
 - `apps/web/src/lib/upstash/redis.ts`

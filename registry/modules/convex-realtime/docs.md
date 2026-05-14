@@ -2,6 +2,10 @@
 
 Live queries, subscriptions, realtime dashboards, and optimistic update examples.
 
+## Official Docs
+
+- [Convex Docs](https://docs.convex.dev)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/convex-realtime.ts`

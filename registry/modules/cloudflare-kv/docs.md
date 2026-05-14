@@ -2,6 +2,10 @@
 
 KV binding adapter for low-write configuration, flags, and cached metadata.
 
+## Official Docs
+
+- [Cloudflare KV Docs](https://developers.cloudflare.com/kv/)
+
 ## Owns
 
 - `cloudflare/kv/config.ts`

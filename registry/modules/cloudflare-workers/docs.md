@@ -2,6 +2,10 @@
 
 Cloudflare Worker entrypoint, Wrangler config example, and edge API route starter.
 
+## Official Docs
+
+- [Cloudflare Workers Docs](https://developers.cloudflare.com/workers/)
+
 ## Owns
 
 - `cloudflare/workers/api-worker.ts`

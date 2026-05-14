@@ -56,7 +56,7 @@
     "BETTER_AUTH_SECRET": "",
     "BETTER_AUTH_URL": ""
   },
-  "docs": "# Better Auth Module\n\nBetter Auth server config, Next.js route handler, and typed client starter.\n\n## Owns\n\n- `apps/web/src/lib/auth.ts`\n- `apps/web/src/lib/auth-client.ts`\n- `apps/web/src/app/api/auth/[...all]/route.ts`\n- `apps/web/src/app/(console)/admin/auth/better-auth/page.tsx`\n\n## Dependencies\n\n`better-auth`\n\n## Environment\n\n- `BETTER_AUTH_SECRET`\n- `BETTER_AUTH_URL`\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when provider APIs change.\n",
+  "docs": "# Better Auth Module\n\nBetter Auth server config, Next.js route handler, and typed client starter.\n\n## Official Docs\n\n- [Better Auth Docs](https://www.better-auth.com/docs)\n\n## Owns\n\n- `apps/web/src/lib/auth.ts`\n- `apps/web/src/lib/auth-client.ts`\n- `apps/web/src/app/api/auth/[...all]/route.ts`\n- `apps/web/src/app/(console)/admin/auth/better-auth/page.tsx`\n\n## Dependencies\n\n`better-auth`\n\n## Environment\n\n- `BETTER_AUTH_SECRET`\n- `BETTER_AUTH_URL`\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when provider APIs change.\n",
   "meta": {
     "category": "auth",
     "env": [

@@ -2,6 +2,10 @@
 
 Convex dashboard links, deployment status, and schema/function notes.
 
+## Official Docs
+
+- [Convex Docs](https://docs.convex.dev)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/convex-integration.ts`

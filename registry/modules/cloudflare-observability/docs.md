@@ -2,6 +2,10 @@
 
 Workers logs, traces, analytics, and tail workers.
 
+## Official Docs
+
+- [Cloudflare Workers Observability](https://developers.cloudflare.com/workers/observability/)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/cloudflare-observability.ts`

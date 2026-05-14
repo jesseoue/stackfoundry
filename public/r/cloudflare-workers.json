@@ -50,7 +50,7 @@
     "CLOUDFLARE_ACCOUNT_ID": "",
     "CLOUDFLARE_API_TOKEN": ""
   },
-  "docs": "# Cloudflare Workers Module\n\nCloudflare Worker entrypoint, Wrangler config example, and edge API route starter.\n\n## Owns\n\n- `cloudflare/workers/api-worker.ts`\n- `cloudflare/workers/wrangler.example.jsonc`\n- `apps/web/src/app/(console)/admin/cloudflare/workers/page.tsx`\n\n## Dependencies\n\nNo package dependencies.\n\n## Environment\n\n- `CLOUDFLARE_ACCOUNT_ID`\n- `CLOUDFLARE_API_TOKEN`\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when provider APIs change.\n",
+  "docs": "# Cloudflare Workers Module\n\nCloudflare Worker entrypoint, Wrangler config example, and edge API route starter.\n\n## Official Docs\n\n- [Cloudflare Workers Docs](https://developers.cloudflare.com/workers/)\n\n## Owns\n\n- `cloudflare/workers/api-worker.ts`\n- `cloudflare/workers/wrangler.example.jsonc`\n- `apps/web/src/app/(console)/admin/cloudflare/workers/page.tsx`\n\n## Dependencies\n\nNo package dependencies.\n\n## Environment\n\n- `CLOUDFLARE_ACCOUNT_ID`\n- `CLOUDFLARE_API_TOKEN`\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when provider APIs change.\n",
   "meta": {
     "category": "edge",
     "env": [

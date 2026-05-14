@@ -2,6 +2,10 @@
 
 Workers AI inference, embeddings, and image generation examples.
 
+## Official Docs
+
+- [Cloudflare Workers AI Docs](https://developers.cloudflare.com/workers-ai/)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/cloudflare-workers-ai.ts`

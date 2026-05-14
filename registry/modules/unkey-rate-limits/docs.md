@@ -4,6 +4,10 @@ Optional Unkey adapter for managed rate-limit namespaces and server-side limit c
 
 Use the source-owned `rate-limits` module when you want local database-backed limits by default. Add this module when you want Unkey to enforce limits through its managed rate-limit service.
 
+## Official Docs
+
+- [Unkey Docs](https://unkey.com/docs)
+
 ## Owns
 
 - `apps/web/src/lib/unkey/ratelimit.ts`

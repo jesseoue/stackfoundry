@@ -2,6 +2,10 @@
 
 OpenNext and Wrangler starter for deploying a consuming Next.js app to Cloudflare Workers.
 
+## Official Docs
+
+- [Cloudflare Next.js Guide](https://developers.cloudflare.com/workers/frameworks/framework-guides/nextjs/)
+
 ## Owns
 
 - `apps/web/wrangler.jsonc`

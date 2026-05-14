@@ -2,6 +2,10 @@
 
 Postgres/MySQL connection acceleration for Workers.
 
+## Official Docs
+
+- [Cloudflare Hyperdrive Docs](https://developers.cloudflare.com/hyperdrive/)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/cloudflare-hyperdrive.ts`

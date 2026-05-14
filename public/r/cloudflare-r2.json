@@ -43,7 +43,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Cloudflare R2 Module\n\nR2 object storage adapter example for uploads and private object reads.\n\n## Owns\n\n- `cloudflare/r2/storage.ts`\n- `apps/web/src/app/(console)/admin/cloudflare/r2/page.tsx`\n\n## Dependencies\n\nNo package dependencies.\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when provider APIs change.\n",
+  "docs": "# Cloudflare R2 Module\n\nR2 object storage adapter example for uploads and private object reads.\n\n## Official Docs\n\n- [Cloudflare R2 Docs](https://developers.cloudflare.com/r2/)\n\n## Owns\n\n- `cloudflare/r2/storage.ts`\n- `apps/web/src/app/(console)/admin/cloudflare/r2/page.tsx`\n\n## Dependencies\n\nNo package dependencies.\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when provider APIs change.\n",
   "meta": {
     "category": "storage",
     "env": [],

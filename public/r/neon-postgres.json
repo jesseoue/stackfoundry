@@ -56,7 +56,7 @@
   "envVars": {
     "DATABASE_URL": ""
   },
-  "docs": "# Neon Postgres Module\n\nNeon serverless Postgres client, Drizzle-compatible env wiring, and branching notes.\n\n## Owns\n\n- `apps/web/src/lib/neon/client.ts`\n- `apps/web/src/lib/neon/branching.ts`\n- `apps/web/src/app/(console)/admin/data/neon/page.tsx`\n\n## Dependencies\n\n`@neondatabase/serverless`\n\n## Environment\n\n- `DATABASE_URL`\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when provider APIs change.\n",
+  "docs": "# Neon Postgres Module\n\nNeon serverless Postgres client, Drizzle-compatible env wiring, and branching notes.\n\n## Official Docs\n\n- [Neon Docs](https://neon.tech/docs)\n- [Neon Connection Guides](https://neon.tech/docs/connect/connect-from-any-language)\n\n## Owns\n\n- `apps/web/src/lib/neon/client.ts`\n- `apps/web/src/lib/neon/branching.ts`\n- `apps/web/src/app/(console)/admin/data/neon/page.tsx`\n\n## Dependencies\n\n`@neondatabase/serverless`\n\n## Environment\n\n- `DATABASE_URL`\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Keep secrets in environment variables and never commit local credentials.\n- Verify the example route or worker path before promoting this module beyond experimental.\n- Update docs, checklist, and manifest metadata when provider APIs change.\n",
   "meta": {
     "category": "database",
     "env": [

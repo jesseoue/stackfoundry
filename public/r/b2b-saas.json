@@ -99,7 +99,7 @@
   "docs": "Installs the B2B SaaS recipe from StackFoundry.",
   "meta": {
     "category": "recipe",
-    "status": "planned",
+    "status": "ready",
     "modules": [
       "drizzle-postgres",
       "api-keys",

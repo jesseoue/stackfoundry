@@ -2,6 +2,10 @@
 
 Remote MCP server on Workers with OAuth/auth guidance.
 
+## Official Docs
+
+- [Cloudflare MCP Docs](https://developers.cloudflare.com/agents/model-context-protocol/)
+
 ## Owns
 
 - `apps/web/src/lib/stackfoundry/providers/cloudflare-mcp-server.ts`

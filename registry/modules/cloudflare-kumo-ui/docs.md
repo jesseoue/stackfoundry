@@ -4,6 +4,11 @@ Cloudflare Kumo component-library building blocks for teams that want provider-g
 
 This module credits Cloudflare Kumo as an optional component library for React, Base UI, and Tailwind CSS applications. It stays optional so StackFoundry's base scaffold remains small.
 
+## Official Docs
+
+- [Kumo Docs](https://kumo-ui.com)
+- [Cloudflare Kumo Repository](https://github.com/cloudflare/kumo)
+
 ## Owns
 
 - `apps/web/src/lib/ui/cloudflare-kumo.ts`
