@@ -1,6 +1,6 @@
 # StackFoundry
 
-Install production SaaS features as editable source code.
+Install production SaaS modules as editable source code.
 
 [![CI](https://github.com/jesseoue/stackfoundry/actions/workflows/ci.yml/badge.svg)](https://github.com/jesseoue/stackfoundry/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)

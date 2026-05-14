@@ -4,6 +4,10 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    labels:
+      - "dependencies"
+      - "ci"
+    open-pull-requests-limit: 5
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -13,3 +17,6 @@ updates:
         dependency-type: "production"
       development:
         dependency-type: "development"
+    labels:
+      - "dependencies"
+    open-pull-requests-limit: 5
