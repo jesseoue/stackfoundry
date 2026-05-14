@@ -29,6 +29,11 @@
       "name": "product-announcements",
       "target": ".stackfoundry/skills/product-announcements/SKILL.md",
       "content": "---\nname: product-announcements\ndescription: Maintain the Product Announcements module installed by StackFoundry.\n---\n\n# Product Announcements Skill\n\n- Respect notification preferences and unsubscribe requirements.\n- Keep customer-facing announcement copy separate from internal launch notes.\n- Require explicit audience, channel, scheduled time, and rollback notes.\n- Coordinate shipped announcements with changelog, roadmap, and lifecycle email.\n- Verify preview rendering before sending or publishing.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
     }
   ],
   "envVars": {},

@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "data-export"
+      "data-export",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "idempotency-keys"
+      "idempotency-keys",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

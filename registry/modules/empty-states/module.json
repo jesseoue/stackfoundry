@@ -25,7 +25,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "empty-states"
+      "empty-states",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

@@ -28,6 +28,11 @@
       "name": "sla-management",
       "target": ".stackfoundry/skills/sla-management/SKILL.md",
       "content": "---\nname: sla-management\ndescription: Maintain the SLA Management module installed by StackFoundry.\n---\n\n# SLA Management Skill\n\n## Boundary\n\nThis module owns the SLA Management source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/sla-management.ts`\n- `apps/web/src/app/(console)/admin/operations/slas/page.tsx`\n\n## Dependencies\n\n- Depends on `support-console`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
     }
   ],
   "envVars": {},

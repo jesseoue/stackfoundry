@@ -21,7 +21,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "public-api-orpc"
+      "public-api-orpc",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

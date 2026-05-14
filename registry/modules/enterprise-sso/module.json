@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "enterprise-sso"
+      "enterprise-sso",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

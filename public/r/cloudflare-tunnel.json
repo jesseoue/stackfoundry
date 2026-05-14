@@ -7,7 +7,26 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/cloudflare-tunnel.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/providers/cloudflare-tunnel.ts",
+      "content": "export type CloudflareTunnelConfig = {\n  enabled?: boolean;\n  environment?: \"development\" | \"preview\" | \"production\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createCloudflareTunnelConfig(config: CloudflareTunnelConfig = {}) {\n  return {\n    enabled: config.enabled ?? true,\n    environment: config.environment ?? \"development\",\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const CloudflareTunnelChecklist = [\n  \"Use named tunnels and scoped routes\",\n  \"Document connector ownership\",\n  \"Keep tunnel tokens secret\",\n  \"Verify zero-trust access policy\"\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/providers/cloudflare-tunnel/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/providers/cloudflare-tunnel/page.tsx",
+      "content": "import { CloudflareTunnelChecklist } from \"@/lib/stackfoundry/providers/cloudflare-tunnel\";\n\nexport default function CloudflareTunnelPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Cloudflare Tunnel</h1>\n        <p className=\"text-muted-foreground\">Secure tunnel module for exposing local/internal services.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {CloudflareTunnelChecklist.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    },
+    {
+      "path": "docs/providers/cloudflare-tunnel.md",
+      "type": "registry:file",
+      "target": "docs/providers/cloudflare-tunnel.md",
+      "content": "# Cloudflare Tunnel\n\nSecure tunnel module for exposing local/internal services.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-tunnel.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-tunnel/page.tsx`\n\n## Setup Checklist\n\n- Use named tunnels and scoped routes\n- Document connector ownership\n- Keep tunnel tokens secret\n- Verify zero-trust access policy\n\n## Provider Boundary\n\nThis module documents the provider setup and app integration boundary. Keep product logic in source-owned modules and use this module when the team explicitly chooses this provider or deployment target.\n"
+    }
+  ],
   "maintenanceSkills": [
     {
       "name": "cloudflare-tunnel",
@@ -21,10 +40,10 @@
     }
   ],
   "envVars": {},
-  "docs": "# Cloudflare Tunnel\n\nSecure tunnel module for exposing local/internal services.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "docs": "# Cloudflare Tunnel\n\nSecure tunnel module for exposing local/internal services.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-tunnel.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-tunnel/page.tsx`\n- `docs/providers/cloudflare-tunnel.md`\n\n## Setup Checklist\n\n- Use named tunnels and scoped routes\n- Document connector ownership\n- Keep tunnel tokens secret\n- Verify zero-trust access policy\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add cloudflare-tunnel --target /tmp/stackfoundry-cloudflare-tunnel --dry-run`.\n",
   "meta": {
     "category": "networking",
     "env": [],
-    "status": "planned"
+    "status": "experimental"
   }
 }

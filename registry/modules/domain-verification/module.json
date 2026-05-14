@@ -23,7 +23,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "domain-verification"
+      "domain-verification",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

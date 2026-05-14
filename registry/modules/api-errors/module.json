@@ -21,7 +21,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "api-errors"
+      "api-errors",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

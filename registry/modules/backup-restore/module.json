@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "backup-restore"
+      "backup-restore",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "custom-roles"
+      "custom-roles",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

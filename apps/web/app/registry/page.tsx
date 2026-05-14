@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ModuleCard, type ModuleTag } from "../components/module-card";
 
 const githubUrl = "https://github.com/jesseoue/stackfoundry";
 
@@ -62,7 +63,7 @@ const featuredPresets = [
   },
   {
     name: "vendor-examples",
-    title: "Vendor Examples",
+    title: "Adapter Examples",
     description:
       "Provider adapter examples that show integration shape without locking in the base.",
     modules: ["clerk-auth", "resend-email", "posthog-analytics", "sentry-monitoring"],
@@ -310,14 +311,8 @@ const stats = [
   ["0", "Required adapters"],
 ];
 
-function ModulePills({ modules }: { modules: string[] }) {
-  return (
-    <div className="registry-pills">
-      {modules.map((module) => (
-        <code key={module}>{module}</code>
-      ))}
-    </div>
-  );
+function moduleTags(modules: string[], tone: ModuleTag["tone"] = "default") {
+  return modules.map((module) => ({ label: module, tone }));
 }
 
 function ProviderLogo({ name, logo }: { name: string; logo: string }) {
@@ -423,15 +418,15 @@ pnpm stackfoundry diff api-keys`}</code>
 
           <div className="registry-preset-grid">
             {featuredPresets.map((preset) => (
-              <article className="registry-preset-card" key={preset.name}>
-                <div className="registry-card-topline">
-                  <code>{preset.name}</code>
-                  <span>{preset.tone}</span>
-                </div>
-                <h3>{preset.title}</h3>
-                <p>{preset.description}</p>
-                <ModulePills modules={preset.modules} />
-              </article>
+              <ModuleCard
+                badge={preset.tone}
+                description={preset.description}
+                key={preset.name}
+                name={preset.name}
+                tags={moduleTags(preset.modules)}
+                title={preset.title}
+                variant="preset"
+              />
             ))}
           </div>
         </section>
@@ -448,11 +443,13 @@ pnpm stackfoundry diff api-keys`}</code>
 
           <div className="registry-family-grid">
             {moduleFamilies.map((family) => (
-              <article className="registry-family-card" key={family.title}>
-                <h3>{family.title}</h3>
-                <p>{family.description}</p>
-                <ModulePills modules={family.modules} />
-              </article>
+              <ModuleCard
+                description={family.description}
+                key={family.title}
+                name={family.title.toLowerCase().replaceAll(" ", "-")}
+                tags={moduleTags(family.modules)}
+                title={family.title}
+              />
             ))}
           </div>
         </section>
@@ -460,26 +457,28 @@ pnpm stackfoundry diff api-keys`}</code>
         <section className="registry-section" id="providers">
           <div className="registry-section-head">
             <div className="section-eyebrow">Provider Options</div>
-            <h2>Recognizable services, modeled as optional adapters.</h2>
+            <h2>Choose the provider after you choose the capability.</h2>
             <p>
-              Use the providers that match your stack. Favicon marks are shown only as compact
-              identifiers for adapter cards; the modules still install as editable code.
+              Provider cards show selectable adapter paths. Favicon marks are compact identifiers;
+              the module contract still stays source-first and editable.
             </p>
           </div>
 
           <div className="registry-provider-grid">
             {providerOptions.map((provider) => (
-              <article className="registry-provider-card" key={provider.name}>
-                <ProviderLogo name={provider.name} logo={provider.logo} />
-                <div>
-                  <div className="registry-provider-head">
-                    <h3>{provider.name}</h3>
-                    <span>{provider.role}</span>
-                  </div>
-                  <p>{provider.domain}</p>
-                  <ModulePills modules={provider.modules} />
-                </div>
-              </article>
+              <ModuleCard
+                badge={provider.role}
+                description={provider.domain}
+                icon={<ProviderLogo name={provider.name} logo={provider.logo} />}
+                key={provider.name}
+                name={provider.name.toLowerCase()}
+                tags={[
+                  { label: "adapter option", tone: "provider" },
+                  ...moduleTags(provider.modules, "default"),
+                ]}
+                title={provider.name}
+                variant="provider"
+              />
             ))}
           </div>
         </section>

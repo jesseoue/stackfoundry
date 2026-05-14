@@ -21,7 +21,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "csrf-protection"
+      "csrf-protection",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

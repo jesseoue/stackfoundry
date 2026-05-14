@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "webhook-delivery"
+      "webhook-delivery",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

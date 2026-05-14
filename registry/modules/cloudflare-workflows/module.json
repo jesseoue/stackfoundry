@@ -26,7 +26,8 @@
   "maintenance": {
     "skills": [
       "cloudflare-workflows",
-      "cloudflare"
+      "cloudflare",
+      "nextjs"
     ],
     "rules": [
       "keep-steps-idempotent",

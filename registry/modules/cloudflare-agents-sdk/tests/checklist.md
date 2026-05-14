@@ -1,6 +1,9 @@
 # Cloudflare Agents SDK Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] provider setup checklist is current
+- [ ] install path is verified in a fresh target
+- [ ] Use Agents SDK for stateful AI interactions
+- [ ] Document agent state schema
+- [ ] Keep callable methods explicit
+- [ ] Verify WebSocket/RPC behavior before launch

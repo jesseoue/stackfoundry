@@ -21,7 +21,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "security-headers"
+      "security-headers",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

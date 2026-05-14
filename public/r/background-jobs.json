@@ -34,6 +34,16 @@
       "name": "background-jobs",
       "target": ".stackfoundry/skills/background-jobs/SKILL.md",
       "content": "---\nname: background-jobs\ndescription: Maintain the Background Jobs module installed by StackFoundry.\n---\n\n# Background Jobs Maintenance Instructions\n\n- Preserve the module boundary described in `docs.md`.\n- Keep public APIs small and typed.\n- Update tests/checklist.md when behavior changes.\n- Do not introduce secrets, generated machine metadata, or provider lock-in.\n- Keep Drizzle schema exports documented in module.json.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    },
+    {
+      "name": "drizzle",
+      "target": ".stackfoundry/skills/drizzle/SKILL.md",
+      "content": "---\nname: drizzle\ndescription: Maintain Drizzle ORM and Postgres code installed by StackFoundry modules.\n---\n\n# Drizzle Operating Instructions\n\n- Keep database access in server-only code.\n- Add schema changes under `packages/db/src/schema` and export shared tables from the schema barrel.\n- Generate and commit migrations when schema changes are intended.\n- Use typed query helpers instead of raw SQL unless the query needs a documented escape hatch.\n- Include tenant, organization, or user scope in queries and cache tags whenever data is not global.\n"
     }
   ],
   "envVars": {},

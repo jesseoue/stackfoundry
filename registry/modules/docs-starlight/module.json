@@ -12,7 +12,8 @@
   "status": "planned",
   "maintenance": {
     "skills": [
-      "docs-starlight"
+      "docs-starlight",
+      "docs-hosting"
     ],
     "rules": [
       "document-invariants",

@@ -21,7 +21,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "legal-pages"
+      "legal-pages",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

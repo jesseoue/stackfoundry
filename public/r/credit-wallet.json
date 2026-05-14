@@ -35,6 +35,16 @@
       "name": "credit-wallet",
       "target": ".stackfoundry/skills/credit-wallet/SKILL.md",
       "content": "---\nname: credit-wallet\ndescription: Maintain the Credit Wallet module installed by StackFoundry.\n---\n\n# Credit Wallet Skill\n\n## Purpose\n\nUse this module for prepaid credit systems, AI token wallets, usage top-ups, and admin-issued credits.\n\n## Safety Rules\n\n- Derive balances from the ledger instead of storing mutable balance as the source of truth.\n- Require idempotency keys for consumption tied to requests, jobs, or inference ids.\n- Never allow silent negative balances.\n- Record source, actor, and expiration for credit grants when available.\n\n## Change Checklist\n\n- Update `module.json`, `docs.md`, and `tests/checklist.md` when file targets or invariants change.\n- Verify grant, consume, refund, expiration, and insufficient-credit paths.\n- Run `pnpm registry:doctor` and a module install dry-run before handoff.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    },
+    {
+      "name": "drizzle",
+      "target": ".stackfoundry/skills/drizzle/SKILL.md",
+      "content": "---\nname: drizzle\ndescription: Maintain Drizzle ORM and Postgres code installed by StackFoundry modules.\n---\n\n# Drizzle Operating Instructions\n\n- Keep database access in server-only code.\n- Add schema changes under `packages/db/src/schema` and export shared tables from the schema barrel.\n- Generate and commit migrations when schema changes are intended.\n- Use typed query helpers instead of raw SQL unless the query needs a documented escape hatch.\n- Include tenant, organization, or user scope in queries and cache tags whenever data is not global.\n"
     }
   ],
   "envVars": {},

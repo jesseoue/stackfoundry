@@ -37,7 +37,8 @@
   "maintenance": {
     "skills": [
       "supabase-postgres",
-      "supabase"
+      "supabase",
+      "nextjs"
     ],
     "rules": [
       "rls-by-default",

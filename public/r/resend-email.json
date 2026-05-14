@@ -48,6 +48,11 @@
       "name": "resend",
       "target": ".stackfoundry/skills/resend/SKILL.md",
       "content": "---\nname: resend\ndescription: Resend email guidance for installed email modules.\n---\n\n# Resend Guidance\n\n- Keep API keys server-only.\n- Verify sender domain before production send.\n- Provide plain-text fallbacks for transactional email.\n- Document bounce, retry, and suppression behavior.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
     }
   ],
   "envVars": {

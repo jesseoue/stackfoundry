@@ -1,0 +1,49 @@
+name: Web Owner Gate
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  web-owner-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Block unauthorized apps/web changes
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const allowedActor = "jesseoue";
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+              per_page: 100,
+            });
+
+            const webFiles = files
+              .map((file) => file.filename)
+              .filter((filename) => filename.startsWith("apps/web/"));
+
+            if (webFiles.length === 0) {
+              core.info("No apps/web changes detected.");
+              return;
+            }
+
+            if (context.actor === allowedActor) {
+              core.info(`apps/web changes allowed for ${allowedActor}.`);
+              return;
+            }
+
+            core.setFailed(
+              [
+                `Only @${allowedActor} may change apps/web.`,
+                "Changed files:",
+                ...webFiles.map((filename) => `- ${filename}`),
+              ].join("\n"),
+            );

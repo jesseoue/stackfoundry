@@ -39,6 +39,11 @@
       "name": "cloudflare",
       "target": ".stackfoundry/skills/cloudflare/SKILL.md",
       "content": "---\nname: cloudflare\ndescription: Cloudflare platform guidance for installed Workers, storage, and edge modules.\n---\n\n# Cloudflare Guidance\n\n- Keep bindings explicit in config and docs.\n- Do not commit wrangler secrets or account credentials.\n- Document local dev, preview, and production deployment commands.\n- Verify bindings, routes, and logs after deploy.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
     }
   ],
   "envVars": {

@@ -50,6 +50,11 @@
       "name": "docs-hosting",
       "target": ".stackfoundry/skills/docs-hosting/SKILL.md",
       "content": "---\nname: docs-hosting\ndescription: Documentation hosting guidance for installed docs modules.\n---\n\n# Docs Hosting Guidance\n\n- Choose in-app docs or hosted docs explicitly.\n- Record preview URL, production URL, docs root, and owner.\n- Verify local preview and production deploy.\n- Check metadata, sitemap, and broken links.\n"
+    },
+    {
+      "name": "ai-sdk",
+      "target": ".stackfoundry/skills/ai-sdk/SKILL.md",
+      "content": "---\nname: ai-sdk\ndescription: AI SDK guidance for installed AI modules.\n---\n\n# Ai Sdk Guidance\n\n- Keep provider keys server-only.\n- Stream responses deliberately and handle tool errors.\n- Validate tool inputs and outputs.\n- Document model ids, fallback behavior, and cost-sensitive paths.\n"
     }
   ],
   "envVars": {

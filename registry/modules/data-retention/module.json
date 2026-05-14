@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "data-retention"
+      "data-retention",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

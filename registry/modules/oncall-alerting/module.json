@@ -23,7 +23,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "oncall-alerting"
+      "oncall-alerting",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

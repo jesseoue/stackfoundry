@@ -7,7 +7,26 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/cloudflare-vectorize.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/providers/cloudflare-vectorize.ts",
+      "content": "export type CloudflareVectorizeConfig = {\n  enabled?: boolean;\n  environment?: \"development\" | \"preview\" | \"production\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createCloudflareVectorizeConfig(config: CloudflareVectorizeConfig = {}) {\n  return {\n    enabled: config.enabled ?? true,\n    environment: config.environment ?? \"development\",\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const CloudflareVectorizeChecklist = [\n  \"Define index dimensions and metric once\",\n  \"Batch embedding writes\",\n  \"Document namespace strategy\",\n  \"Verify retrieval quality with fixtures\"\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/providers/cloudflare-vectorize/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/providers/cloudflare-vectorize/page.tsx",
+      "content": "import { CloudflareVectorizeChecklist } from \"@/lib/stackfoundry/providers/cloudflare-vectorize\";\n\nexport default function CloudflareVectorizePage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Cloudflare Vectorize</h1>\n        <p className=\"text-muted-foreground\">Vector search and RAG provider module.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {CloudflareVectorizeChecklist.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    },
+    {
+      "path": "docs/providers/cloudflare-vectorize.md",
+      "type": "registry:file",
+      "target": "docs/providers/cloudflare-vectorize.md",
+      "content": "# Cloudflare Vectorize\n\nVector search and RAG provider module.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-vectorize.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-vectorize/page.tsx`\n\n## Setup Checklist\n\n- Define index dimensions and metric once\n- Batch embedding writes\n- Document namespace strategy\n- Verify retrieval quality with fixtures\n\n## Provider Boundary\n\nThis module documents the provider setup and app integration boundary. Keep product logic in source-owned modules and use this module when the team explicitly chooses this provider or deployment target.\n"
+    }
+  ],
   "maintenanceSkills": [
     {
       "name": "cloudflare-vectorize",
@@ -21,10 +40,10 @@
     }
   ],
   "envVars": {},
-  "docs": "# Cloudflare Vectorize\n\nVector search and RAG provider module.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "docs": "# Cloudflare Vectorize\n\nVector search and RAG provider module.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-vectorize.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-vectorize/page.tsx`\n- `docs/providers/cloudflare-vectorize.md`\n\n## Setup Checklist\n\n- Define index dimensions and metric once\n- Batch embedding writes\n- Document namespace strategy\n- Verify retrieval quality with fixtures\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add cloudflare-vectorize --target /tmp/stackfoundry-cloudflare-vectorize --dry-run`.\n",
   "meta": {
     "category": "ai",
     "env": [],
-    "status": "planned"
+    "status": "experimental"
   }
 }

@@ -34,7 +34,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "refunds-disputes"
+      "refunds-disputes",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

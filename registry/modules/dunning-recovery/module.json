@@ -34,7 +34,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "dunning-recovery"
+      "dunning-recovery",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

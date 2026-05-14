@@ -34,7 +34,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "billing-reconciliation"
+      "billing-reconciliation",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

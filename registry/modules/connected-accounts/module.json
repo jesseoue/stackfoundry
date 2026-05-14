@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "connected-accounts"
+      "connected-accounts",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

@@ -23,7 +23,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "sla-management"
+      "sla-management",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "scim-provisioning"
+      "scim-provisioning",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

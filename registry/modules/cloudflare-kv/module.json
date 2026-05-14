@@ -26,7 +26,8 @@
   "maintenance": {
     "skills": [
       "cloudflare-kv",
-      "cloudflare"
+      "cloudflare",
+      "nextjs"
     ],
     "rules": [
       "avoid-high-write-counters",

@@ -34,6 +34,16 @@
       "name": "one-time-purchases",
       "target": ".stackfoundry/skills/one-time-purchases/SKILL.md",
       "content": "---\nname: one-time-purchases\ndescription: Maintain the One-Time Purchases module installed by StackFoundry.\n---\n\n# One-Time Purchases Skill\n\n## Purpose\n\nUse this module for add-ons, credit packs, lifetime deals, and other one-off payment records.\n\n## Safety Rules\n\n- Fulfill only after a verified provider event, not after a redirect.\n- Preserve provider, provider order id, amount, currency, product key, and fulfillment status.\n- Make fulfillment idempotent and safe to retry.\n- Keep refunds and disputes tied back to the original order record.\n\n## Change Checklist\n\n- Update `module.json`, `docs.md`, and `tests/checklist.md` when file targets or invariants change.\n- Test completed, failed, refunded, disputed, and already-fulfilled paths.\n- Run `pnpm registry:doctor` and a module install dry-run before handoff.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    },
+    {
+      "name": "drizzle",
+      "target": ".stackfoundry/skills/drizzle/SKILL.md",
+      "content": "---\nname: drizzle\ndescription: Maintain Drizzle ORM and Postgres code installed by StackFoundry modules.\n---\n\n# Drizzle Operating Instructions\n\n- Keep database access in server-only code.\n- Add schema changes under `packages/db/src/schema` and export shared tables from the schema barrel.\n- Generate and commit migrations when schema changes are intended.\n- Use typed query helpers instead of raw SQL unless the query needs a documented escape hatch.\n- Include tenant, organization, or user scope in queries and cache tags whenever data is not global.\n"
     }
   ],
   "envVars": {},

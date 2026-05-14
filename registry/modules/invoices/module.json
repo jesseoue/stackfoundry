@@ -23,7 +23,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "invoices"
+      "invoices",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

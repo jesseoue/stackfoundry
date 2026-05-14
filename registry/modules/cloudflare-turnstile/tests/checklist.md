@@ -1,6 +1,9 @@
 # Cloudflare Turnstile Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] provider setup checklist is current
+- [ ] install path is verified in a fresh target
+- [ ] Protect signup/contact/waitlist first
+- [ ] Keep secret key server-only
+- [ ] Verify token server-side
+- [ ] Document failure and fallback UX

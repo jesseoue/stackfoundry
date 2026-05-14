@@ -13,6 +13,11 @@
       "name": "docs-starlight",
       "target": ".stackfoundry/skills/docs-starlight/SKILL.md",
       "content": "---\nname: docs-starlight\ndescription: Maintain the Starlight Docs module installed by StackFoundry.\n---\n\n# Starlight Docs Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    },
+    {
+      "name": "docs-hosting",
+      "target": ".stackfoundry/skills/docs-hosting/SKILL.md",
+      "content": "---\nname: docs-hosting\ndescription: Documentation hosting guidance for installed docs modules.\n---\n\n# Docs Hosting Guidance\n\n- Choose in-app docs or hosted docs explicitly.\n- Record preview URL, production URL, docs root, and owner.\n- Verify local preview and production deploy.\n- Check metadata, sitemap, and broken links.\n"
     }
   ],
   "envVars": {},

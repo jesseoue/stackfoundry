@@ -50,7 +50,8 @@
   "maintenance": {
     "skills": [
       "drizzle-postgres",
-      "drizzle"
+      "drizzle",
+      "nextjs"
     ],
     "rules": [
       "server-only",

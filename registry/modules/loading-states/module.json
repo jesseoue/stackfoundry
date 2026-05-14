@@ -25,7 +25,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "loading-states"
+      "loading-states",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

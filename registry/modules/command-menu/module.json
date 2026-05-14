@@ -25,7 +25,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "command-menu"
+      "command-menu",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

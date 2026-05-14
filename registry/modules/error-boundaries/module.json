@@ -25,7 +25,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "error-boundaries"
+      "error-boundaries",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

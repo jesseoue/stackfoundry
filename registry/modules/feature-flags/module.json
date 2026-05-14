@@ -33,7 +33,10 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "feature-flags"
+      "feature-flags",
+      "nextjs",
+      "drizzle",
+      "openfeature"
     ],
     "rules": [
       "stable-evaluation",

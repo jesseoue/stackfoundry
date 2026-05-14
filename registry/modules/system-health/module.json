@@ -21,7 +21,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "system-health"
+      "system-health",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

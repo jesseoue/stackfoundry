@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "usage-metering"
+      "usage-metering",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

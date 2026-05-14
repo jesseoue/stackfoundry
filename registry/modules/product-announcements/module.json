@@ -24,7 +24,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "product-announcements"
+      "product-announcements",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

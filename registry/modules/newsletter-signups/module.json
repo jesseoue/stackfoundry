@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "newsletter-signups"
+      "newsletter-signups",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

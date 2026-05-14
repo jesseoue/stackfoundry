@@ -28,6 +28,11 @@
       "name": "public-roadmap",
       "target": ".stackfoundry/skills/public-roadmap/SKILL.md",
       "content": "---\nname: public-roadmap\ndescription: Maintain the Public Roadmap module installed by StackFoundry.\n---\n\n# Public Roadmap Skill\n\n- Never expose private customer data, security plans, or revenue commitments.\n- Keep roadmap statuses simple and truthful.\n- Link public feature requests only when they are safe to share.\n- Keep shipped roadmap items aligned with changelog and announcements.\n- Verify the public page, metadata, and empty state before handoff.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
     }
   ],
   "envVars": {},

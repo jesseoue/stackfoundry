@@ -21,7 +21,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "tenant-isolation-tests"
+      "tenant-isolation-tests",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

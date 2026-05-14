@@ -7,7 +7,26 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/convex-integration.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/providers/convex-integration.ts",
+      "content": "export type ConvexIntegrationConfig = {\n  enabled?: boolean;\n  environment?: \"development\" | \"preview\" | \"production\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createConvexIntegrationConfig(config: ConvexIntegrationConfig = {}) {\n  return {\n    enabled: config.enabled ?? true,\n    environment: config.environment ?? \"development\",\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const ConvexIntegrationChecklist = [\n  \"Link the target Convex project\",\n  \"Record dashboard and deployment URLs\",\n  \"Document schema ownership\",\n  \"Verify preview and production deployments separately\"\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/providers/convex-integration/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/providers/convex-integration/page.tsx",
+      "content": "import { ConvexIntegrationChecklist } from \"@/lib/stackfoundry/providers/convex-integration\";\n\nexport default function ConvexIntegrationPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Convex Integration</h1>\n        <p className=\"text-muted-foreground\">Convex dashboard links, deployment status, and schema/function notes.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {ConvexIntegrationChecklist.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    },
+    {
+      "path": "docs/providers/convex-integration.md",
+      "type": "registry:file",
+      "target": "docs/providers/convex-integration.md",
+      "content": "# Convex Integration\n\nConvex dashboard links, deployment status, and schema/function notes.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/convex-integration.ts`\n- `apps/web/src/app/(console)/admin/providers/convex-integration/page.tsx`\n\n## Setup Checklist\n\n- Link the target Convex project\n- Record dashboard and deployment URLs\n- Document schema ownership\n- Verify preview and production deployments separately\n\n## Provider Boundary\n\nThis module documents the provider setup and app integration boundary. Keep product logic in source-owned modules and use this module when the team explicitly chooses this provider or deployment target.\n"
+    }
+  ],
   "maintenanceSkills": [
     {
       "name": "convex-integration",
@@ -21,10 +40,10 @@
     }
   ],
   "envVars": {},
-  "docs": "# Convex Integration\n\nConvex dashboard links, deployment status, and schema/function notes.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "docs": "# Convex Integration\n\nConvex dashboard links, deployment status, and schema/function notes.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/convex-integration.ts`\n- `apps/web/src/app/(console)/admin/providers/convex-integration/page.tsx`\n- `docs/providers/convex-integration.md`\n\n## Setup Checklist\n\n- Link the target Convex project\n- Record dashboard and deployment URLs\n- Document schema ownership\n- Verify preview and production deployments separately\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add convex-integration --target /tmp/stackfoundry-convex-integration --dry-run`.\n",
   "meta": {
     "category": "backend",
     "env": [],
-    "status": "planned"
+    "status": "experimental"
   }
 }

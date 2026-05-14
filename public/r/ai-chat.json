@@ -47,6 +47,11 @@
       "name": "ai-sdk",
       "target": ".stackfoundry/skills/ai-sdk/SKILL.md",
       "content": "---\nname: ai-sdk\ndescription: AI SDK guidance for installed AI modules.\n---\n\n# Ai Sdk Guidance\n\n- Keep provider keys server-only.\n- Stream responses deliberately and handle tool errors.\n- Validate tool inputs and outputs.\n- Document model ids, fallback behavior, and cost-sensitive paths.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
     }
   ],
   "envVars": {

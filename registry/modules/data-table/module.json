@@ -25,7 +25,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "data-table"
+      "data-table",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

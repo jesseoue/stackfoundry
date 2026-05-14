@@ -37,7 +37,8 @@
   "maintenance": {
     "skills": [
       "ai-chat",
-      "ai-sdk"
+      "ai-sdk",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

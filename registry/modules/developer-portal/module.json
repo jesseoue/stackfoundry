@@ -23,7 +23,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "developer-portal"
+      "developer-portal",
+      "nextjs",
+      "docs-hosting"
     ],
     "rules": [
       "document-invariants",

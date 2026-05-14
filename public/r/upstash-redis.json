@@ -48,6 +48,11 @@
       "name": "upstash",
       "target": ".stackfoundry/skills/upstash/SKILL.md",
       "content": "---\nname: upstash\ndescription: Upstash Redis guidance for installed cache/rate-limit modules.\n---\n\n# Upstash Guidance\n\n- Keep Redis URL and token server-only.\n- Document region and durability assumptions.\n- Use explicit key prefixes for tenant/user scope.\n- Verify rate-limit and cache invalidation behavior.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
     }
   ],
   "envVars": {

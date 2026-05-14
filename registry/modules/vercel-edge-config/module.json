@@ -32,7 +32,8 @@
   "maintenance": {
     "skills": [
       "vercel-edge-config",
-      "vercel"
+      "vercel",
+      "nextjs"
     ],
     "rules": [
       "read-only-at-runtime",

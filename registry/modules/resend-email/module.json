@@ -38,7 +38,8 @@
   "maintenance": {
     "skills": [
       "resend-email",
-      "resend"
+      "resend",
+      "nextjs"
     ],
     "rules": [
       "verify-sender-domain",

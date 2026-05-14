@@ -24,7 +24,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "quota-enforcement"
+      "quota-enforcement",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

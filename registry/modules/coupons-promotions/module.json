@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "coupons-promotions"
+      "coupons-promotions",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

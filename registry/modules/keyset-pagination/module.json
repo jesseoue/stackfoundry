@@ -21,7 +21,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "keyset-pagination"
+      "keyset-pagination",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "mfa-security"
+      "mfa-security",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

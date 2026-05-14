@@ -23,7 +23,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "billing-portal"
+      "billing-portal",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

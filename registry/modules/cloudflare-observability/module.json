@@ -8,8 +8,21 @@
   "devDependencies": [],
   "registryDependencies": [],
   "env": [],
-  "files": [],
-  "status": "planned",
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/cloudflare-observability.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/providers/cloudflare-observability/page.tsx",
+      "type": "registry:page"
+    },
+    {
+      "path": "docs/providers/cloudflare-observability.md",
+      "type": "registry:file"
+    }
+  ],
+  "status": "experimental",
   "maintenance": {
     "skills": [
       "cloudflare-observability",

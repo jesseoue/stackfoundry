@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "custom-domains"
+      "custom-domains",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

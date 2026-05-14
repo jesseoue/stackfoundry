@@ -32,7 +32,13 @@
   ],
   "status": "experimental",
   "maintenance": {
-    "skills": ["next-saas", "nextjs"],
-    "rules": ["document-invariants", "verify-before-release"]
+    "skills": [
+      "next-saas",
+      "nextjs"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
   }
 }

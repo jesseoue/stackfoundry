@@ -8,8 +8,21 @@
   "devDependencies": [],
   "registryDependencies": [],
   "env": [],
-  "files": [],
-  "status": "planned",
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/cloudflare-workers-ai.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/providers/cloudflare-workers-ai/page.tsx",
+      "type": "registry:page"
+    },
+    {
+      "path": "docs/providers/cloudflare-workers-ai.md",
+      "type": "registry:file"
+    }
+  ],
+  "status": "experimental",
   "maintenance": {
     "skills": [
       "cloudflare-workers-ai",

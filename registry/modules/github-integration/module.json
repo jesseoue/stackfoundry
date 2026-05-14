@@ -34,7 +34,8 @@
   "maintenance": {
     "skills": [
       "github-integration",
-      "github"
+      "github",
+      "nextjs"
     ],
     "rules": [
       "verify-webhook-signatures",

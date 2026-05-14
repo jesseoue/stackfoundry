@@ -31,7 +31,8 @@
   "maintenance": {
     "skills": [
       "axiom-logging",
-      "axiom"
+      "axiom",
+      "nextjs"
     ],
     "rules": [
       "use-structured-events",

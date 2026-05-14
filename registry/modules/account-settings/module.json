@@ -21,7 +21,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "account-settings"
+      "account-settings",
+      "nextjs"
     ],
     "rules": [
       "separate-user-and-workspace-settings",

@@ -8,8 +8,21 @@
   "devDependencies": [],
   "registryDependencies": [],
   "env": [],
-  "files": [],
-  "status": "planned",
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/convex-integration.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/providers/convex-integration/page.tsx",
+      "type": "registry:page"
+    },
+    {
+      "path": "docs/providers/convex-integration.md",
+      "type": "registry:file"
+    }
+  ],
+  "status": "experimental",
   "maintenance": {
     "skills": [
       "convex-integration",

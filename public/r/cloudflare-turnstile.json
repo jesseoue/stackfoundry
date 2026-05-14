@@ -7,7 +7,26 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/cloudflare-turnstile.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/providers/cloudflare-turnstile.ts",
+      "content": "export type CloudflareTurnstileConfig = {\n  enabled?: boolean;\n  environment?: \"development\" | \"preview\" | \"production\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createCloudflareTurnstileConfig(config: CloudflareTurnstileConfig = {}) {\n  return {\n    enabled: config.enabled ?? true,\n    environment: config.environment ?? \"development\",\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const CloudflareTurnstileChecklist = [\n  \"Protect signup/contact/waitlist first\",\n  \"Keep secret key server-only\",\n  \"Verify token server-side\",\n  \"Document failure and fallback UX\"\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/providers/cloudflare-turnstile/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/providers/cloudflare-turnstile/page.tsx",
+      "content": "import { CloudflareTurnstileChecklist } from \"@/lib/stackfoundry/providers/cloudflare-turnstile\";\n\nexport default function CloudflareTurnstilePage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Cloudflare Turnstile</h1>\n        <p className=\"text-muted-foreground\">Bot protection for signup, contact, waitlist, and abuse-sensitive forms.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {CloudflareTurnstileChecklist.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    },
+    {
+      "path": "docs/providers/cloudflare-turnstile.md",
+      "type": "registry:file",
+      "target": "docs/providers/cloudflare-turnstile.md",
+      "content": "# Cloudflare Turnstile\n\nBot protection for signup, contact, waitlist, and abuse-sensitive forms.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-turnstile.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-turnstile/page.tsx`\n\n## Setup Checklist\n\n- Protect signup/contact/waitlist first\n- Keep secret key server-only\n- Verify token server-side\n- Document failure and fallback UX\n\n## Provider Boundary\n\nThis module documents the provider setup and app integration boundary. Keep product logic in source-owned modules and use this module when the team explicitly chooses this provider or deployment target.\n"
+    }
+  ],
   "maintenanceSkills": [
     {
       "name": "cloudflare-turnstile",
@@ -21,10 +40,10 @@
     }
   ],
   "envVars": {},
-  "docs": "# Cloudflare Turnstile\n\nBot protection for signup, contact, waitlist, and abuse-sensitive forms.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "docs": "# Cloudflare Turnstile\n\nBot protection for signup, contact, waitlist, and abuse-sensitive forms.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-turnstile.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-turnstile/page.tsx`\n- `docs/providers/cloudflare-turnstile.md`\n\n## Setup Checklist\n\n- Protect signup/contact/waitlist first\n- Keep secret key server-only\n- Verify token server-side\n- Document failure and fallback UX\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add cloudflare-turnstile --target /tmp/stackfoundry-cloudflare-turnstile --dry-run`.\n",
   "meta": {
     "category": "security",
     "env": [],
-    "status": "planned"
+    "status": "experimental"
   }
 }

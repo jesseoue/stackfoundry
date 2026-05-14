@@ -1,6 +1,9 @@
 # Cloudflare Terraform Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] provider setup checklist is current
+- [ ] install path is verified in a fresh target
+- [ ] Keep Terraform state out of source
+- [ ] Document provider account scope
+- [ ] Plan before apply
+- [ ] Review secret handling separately

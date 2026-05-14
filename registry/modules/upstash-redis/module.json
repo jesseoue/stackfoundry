@@ -38,7 +38,8 @@
   "maintenance": {
     "skills": [
       "upstash-redis",
-      "upstash"
+      "upstash",
+      "nextjs"
     ],
     "rules": [
       "use-rest-env-vars",

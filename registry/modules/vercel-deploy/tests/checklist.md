@@ -1,6 +1,9 @@
 # Vercel Deploy Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] provider setup checklist is current
+- [ ] install path is verified in a fresh target
+- [ ] Link the Vercel project before pulling env
+- [ ] Use preview deployments for review
+- [ ] Promote production intentionally
+- [ ] Record rollback and inspect commands

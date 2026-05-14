@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "password-reset"
+      "password-reset",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

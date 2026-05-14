@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "tenant-context"
+      "tenant-context",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

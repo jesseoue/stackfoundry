@@ -7,7 +7,26 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/convex-realtime.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/providers/convex-realtime.ts",
+      "content": "export type ConvexRealtimeConfig = {\n  enabled?: boolean;\n  environment?: \"development\" | \"preview\" | \"production\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createConvexRealtimeConfig(config: ConvexRealtimeConfig = {}) {\n  return {\n    enabled: config.enabled ?? true,\n    environment: config.environment ?? \"development\",\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const ConvexRealtimeChecklist = [\n  \"Use Convex live queries for realtime state\",\n  \"Keep optimistic updates reversible\",\n  \"Document subscription ownership\",\n  \"Verify disconnected and reconnect states\"\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/providers/convex-realtime/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/providers/convex-realtime/page.tsx",
+      "content": "import { ConvexRealtimeChecklist } from \"@/lib/stackfoundry/providers/convex-realtime\";\n\nexport default function ConvexRealtimePage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Convex Realtime</h1>\n        <p className=\"text-muted-foreground\">Live queries, subscriptions, realtime dashboards, and optimistic update examples.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {ConvexRealtimeChecklist.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    },
+    {
+      "path": "docs/providers/convex-realtime.md",
+      "type": "registry:file",
+      "target": "docs/providers/convex-realtime.md",
+      "content": "# Convex Realtime\n\nLive queries, subscriptions, realtime dashboards, and optimistic update examples.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/convex-realtime.ts`\n- `apps/web/src/app/(console)/admin/providers/convex-realtime/page.tsx`\n\n## Setup Checklist\n\n- Use Convex live queries for realtime state\n- Keep optimistic updates reversible\n- Document subscription ownership\n- Verify disconnected and reconnect states\n\n## Provider Boundary\n\nThis module documents the provider setup and app integration boundary. Keep product logic in source-owned modules and use this module when the team explicitly chooses this provider or deployment target.\n"
+    }
+  ],
   "maintenanceSkills": [
     {
       "name": "convex-realtime",
@@ -21,10 +40,10 @@
     }
   ],
   "envVars": {},
-  "docs": "# Convex Realtime\n\nLive queries, subscriptions, realtime dashboards, and optimistic update examples.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "docs": "# Convex Realtime\n\nLive queries, subscriptions, realtime dashboards, and optimistic update examples.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/convex-realtime.ts`\n- `apps/web/src/app/(console)/admin/providers/convex-realtime/page.tsx`\n- `docs/providers/convex-realtime.md`\n\n## Setup Checklist\n\n- Use Convex live queries for realtime state\n- Keep optimistic updates reversible\n- Document subscription ownership\n- Verify disconnected and reconnect states\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add convex-realtime --target /tmp/stackfoundry-convex-realtime --dry-run`.\n",
   "meta": {
     "category": "backend",
     "env": [],
-    "status": "planned"
+    "status": "experimental"
   }
 }

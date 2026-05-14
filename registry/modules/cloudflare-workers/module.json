@@ -31,7 +31,8 @@
   "maintenance": {
     "skills": [
       "cloudflare-workers",
-      "cloudflare"
+      "cloudflare",
+      "nextjs"
     ],
     "rules": [
       "no-floating-promises",

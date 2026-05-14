@@ -23,7 +23,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "notification-center"
+      "notification-center",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

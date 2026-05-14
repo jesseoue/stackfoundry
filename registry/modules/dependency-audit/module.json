@@ -21,7 +21,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "dependency-audit"
+      "dependency-audit",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

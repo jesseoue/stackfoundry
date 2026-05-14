@@ -7,7 +7,26 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/cloudflare-observability.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/providers/cloudflare-observability.ts",
+      "content": "export type CloudflareObservabilityConfig = {\n  enabled?: boolean;\n  environment?: \"development\" | \"preview\" | \"production\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createCloudflareObservabilityConfig(config: CloudflareObservabilityConfig = {}) {\n  return {\n    enabled: config.enabled ?? true,\n    environment: config.environment ?? \"development\",\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const CloudflareObservabilityChecklist = [\n  \"Enable logs/traces before production\",\n  \"Avoid logging secrets or customer data\",\n  \"Document dashboard and alert ownership\",\n  \"Verify deploy log access\"\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/providers/cloudflare-observability/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/providers/cloudflare-observability/page.tsx",
+      "content": "import { CloudflareObservabilityChecklist } from \"@/lib/stackfoundry/providers/cloudflare-observability\";\n\nexport default function CloudflareObservabilityPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Cloudflare Observability</h1>\n        <p className=\"text-muted-foreground\">Workers logs, traces, analytics, and tail workers.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {CloudflareObservabilityChecklist.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    },
+    {
+      "path": "docs/providers/cloudflare-observability.md",
+      "type": "registry:file",
+      "target": "docs/providers/cloudflare-observability.md",
+      "content": "# Cloudflare Observability\n\nWorkers logs, traces, analytics, and tail workers.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-observability.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-observability/page.tsx`\n\n## Setup Checklist\n\n- Enable logs/traces before production\n- Avoid logging secrets or customer data\n- Document dashboard and alert ownership\n- Verify deploy log access\n\n## Provider Boundary\n\nThis module documents the provider setup and app integration boundary. Keep product logic in source-owned modules and use this module when the team explicitly chooses this provider or deployment target.\n"
+    }
+  ],
   "maintenanceSkills": [
     {
       "name": "cloudflare-observability",
@@ -21,10 +40,10 @@
     }
   ],
   "envVars": {},
-  "docs": "# Cloudflare Observability\n\nWorkers logs, traces, analytics, and tail workers.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "docs": "# Cloudflare Observability\n\nWorkers logs, traces, analytics, and tail workers.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-observability.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-observability/page.tsx`\n- `docs/providers/cloudflare-observability.md`\n\n## Setup Checklist\n\n- Enable logs/traces before production\n- Avoid logging secrets or customer data\n- Document dashboard and alert ownership\n- Verify deploy log access\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add cloudflare-observability --target /tmp/stackfoundry-cloudflare-observability --dry-run`.\n",
   "meta": {
     "category": "observability",
     "env": [],
-    "status": "planned"
+    "status": "experimental"
   }
 }

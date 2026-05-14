@@ -26,6 +26,11 @@
       "name": "api-errors",
       "target": ".stackfoundry/skills/api-errors/SKILL.md",
       "content": "---\nname: api-errors\ndescription: Maintain the API Errors module installed by StackFoundry.\n---\n\n# API Errors Maintenance Instructions\n\n- Preserve the ownership and setup guidance in `docs.md`.\n- Keep source templates small and provider-neutral.\n- Update `tests/checklist.md` with behavior changes.\n- Do not commit secrets, local state, or generated machine metadata.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
     }
   ],
   "envVars": {},

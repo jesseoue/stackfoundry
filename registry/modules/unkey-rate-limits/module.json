@@ -32,7 +32,8 @@
   "maintenance": {
     "skills": [
       "unkey-rate-limits",
-      "unkey"
+      "unkey",
+      "nextjs"
     ],
     "rules": [
       "namespace-limits",

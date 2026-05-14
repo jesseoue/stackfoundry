@@ -23,7 +23,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "public-roadmap"
+      "public-roadmap",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

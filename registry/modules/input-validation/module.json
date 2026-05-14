@@ -23,7 +23,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "input-validation"
+      "input-validation",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

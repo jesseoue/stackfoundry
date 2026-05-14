@@ -23,7 +23,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "plan-gating"
+      "plan-gating",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

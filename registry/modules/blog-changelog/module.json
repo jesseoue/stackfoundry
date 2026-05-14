@@ -21,7 +21,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "blog-changelog"
+      "blog-changelog",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

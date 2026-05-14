@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "webhook-inbox"
+      "webhook-inbox",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

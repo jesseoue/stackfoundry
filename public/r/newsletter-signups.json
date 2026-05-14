@@ -34,6 +34,16 @@
       "name": "newsletter-signups",
       "target": ".stackfoundry/skills/newsletter-signups/SKILL.md",
       "content": "---\nname: newsletter-signups\ndescription: Maintain the Newsletter Signups module installed by StackFoundry.\n---\n\n# Newsletter Signups Maintenance Instructions\n\n- Preserve the ownership and setup guidance in `docs.md`.\n- Keep source templates small and provider-neutral.\n- Update `tests/checklist.md` with behavior changes.\n- Do not commit secrets, local state, or generated machine metadata.\n- Keep Drizzle schema exports synchronized with `module.json`.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    },
+    {
+      "name": "drizzle",
+      "target": ".stackfoundry/skills/drizzle/SKILL.md",
+      "content": "---\nname: drizzle\ndescription: Maintain Drizzle ORM and Postgres code installed by StackFoundry modules.\n---\n\n# Drizzle Operating Instructions\n\n- Keep database access in server-only code.\n- Add schema changes under `packages/db/src/schema` and export shared tables from the schema barrel.\n- Generate and commit migrations when schema changes are intended.\n- Use typed query helpers instead of raw SQL unless the query needs a documented escape hatch.\n- Include tenant, organization, or user scope in queries and cache tags whenever data is not global.\n"
     }
   ],
   "envVars": {},

@@ -23,7 +23,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "postmortem-runbook"
+      "postmortem-runbook",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

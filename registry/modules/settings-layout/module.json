@@ -25,7 +25,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "settings-layout"
+      "settings-layout",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

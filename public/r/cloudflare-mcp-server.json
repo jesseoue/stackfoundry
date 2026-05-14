@@ -7,7 +7,26 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/cloudflare-mcp-server.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/providers/cloudflare-mcp-server.ts",
+      "content": "export type CloudflareMcpServerConfig = {\n  enabled?: boolean;\n  environment?: \"development\" | \"preview\" | \"production\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createCloudflareMcpServerConfig(config: CloudflareMcpServerConfig = {}) {\n  return {\n    enabled: config.enabled ?? true,\n    environment: config.environment ?? \"development\",\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const CloudflareMcpServerChecklist = [\n  \"Define MCP tools with narrow schemas\",\n  \"Add auth before side effects\",\n  \"Document OAuth/client registration\",\n  \"Verify tool inputs and error handling\"\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/providers/cloudflare-mcp-server/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/providers/cloudflare-mcp-server/page.tsx",
+      "content": "import { CloudflareMcpServerChecklist } from \"@/lib/stackfoundry/providers/cloudflare-mcp-server\";\n\nexport default function CloudflareMcpServerPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Cloudflare MCP Server</h1>\n        <p className=\"text-muted-foreground\">Remote MCP server on Workers with OAuth/auth guidance.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {CloudflareMcpServerChecklist.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    },
+    {
+      "path": "docs/providers/cloudflare-mcp-server.md",
+      "type": "registry:file",
+      "target": "docs/providers/cloudflare-mcp-server.md",
+      "content": "# Cloudflare MCP Server\n\nRemote MCP server on Workers with OAuth/auth guidance.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-mcp-server.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-mcp-server/page.tsx`\n\n## Setup Checklist\n\n- Define MCP tools with narrow schemas\n- Add auth before side effects\n- Document OAuth/client registration\n- Verify tool inputs and error handling\n\n## Provider Boundary\n\nThis module documents the provider setup and app integration boundary. Keep product logic in source-owned modules and use this module when the team explicitly chooses this provider or deployment target.\n"
+    }
+  ],
   "maintenanceSkills": [
     {
       "name": "cloudflare-mcp-server",
@@ -26,10 +45,10 @@
     }
   ],
   "envVars": {},
-  "docs": "# Cloudflare MCP Server\n\nRemote MCP server on Workers with OAuth/auth guidance.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "docs": "# Cloudflare MCP Server\n\nRemote MCP server on Workers with OAuth/auth guidance.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-mcp-server.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-mcp-server/page.tsx`\n- `docs/providers/cloudflare-mcp-server.md`\n\n## Setup Checklist\n\n- Define MCP tools with narrow schemas\n- Add auth before side effects\n- Document OAuth/client registration\n- Verify tool inputs and error handling\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add cloudflare-mcp-server --target /tmp/stackfoundry-cloudflare-mcp-server --dry-run`.\n",
   "meta": {
     "category": "ai",
     "env": [],
-    "status": "planned"
+    "status": "experimental"
   }
 }

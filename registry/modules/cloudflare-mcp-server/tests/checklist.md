@@ -1,6 +1,9 @@
 # Cloudflare MCP Server Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] provider setup checklist is current
+- [ ] install path is verified in a fresh target
+- [ ] Define MCP tools with narrow schemas
+- [ ] Add auth before side effects
+- [ ] Document OAuth/client registration
+- [ ] Verify tool inputs and error handling

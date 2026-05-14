@@ -1,6 +1,9 @@
 # Cloudflare Hyperdrive Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] provider setup checklist is current
+- [ ] install path is verified in a fresh target
+- [ ] Bind Hyperdrive explicitly
+- [ ] Document origin database ownership
+- [ ] Keep DATABASE_URL server-only
+- [ ] Verify query latency from Workers

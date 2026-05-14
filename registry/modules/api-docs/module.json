@@ -21,7 +21,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "api-docs"
+      "api-docs",
+      "nextjs",
+      "docs-hosting"
     ],
     "rules": [
       "document-invariants",

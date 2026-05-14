@@ -21,7 +21,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "cors-policy"
+      "cors-policy",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

@@ -26,7 +26,8 @@
   "maintenance": {
     "skills": [
       "cloudflare-r2",
-      "cloudflare"
+      "cloudflare",
+      "nextjs"
     ],
     "rules": [
       "private-by-default",

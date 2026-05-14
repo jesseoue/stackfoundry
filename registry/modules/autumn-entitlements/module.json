@@ -29,7 +29,8 @@
   "maintenance": {
     "skills": [
       "autumn-entitlements",
-      "autumn"
+      "autumn",
+      "nextjs"
     ],
     "rules": [
       "keep-provider-boundary",

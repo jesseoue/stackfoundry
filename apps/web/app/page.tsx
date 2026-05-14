@@ -1,4 +1,25 @@
+import {
+  ModuleCard,
+  ModuleCardRow,
+  type ModuleCardVariant,
+  type ModuleTag,
+} from "./components/module-card";
+
 const siteUrl = "https://stackfoundry.dev/";
+
+type LandingModuleCard = {
+  name: string;
+  title: string;
+  category: string;
+  description: string;
+  version?: string;
+  variant?: ModuleCardVariant;
+  tags: ModuleTag[];
+  footer?: {
+    summary: string;
+    actions?: Array<{ label: string; href: string }>;
+  };
+};
 
 const stats = [
   { value: "160+", label: "Modules" },
@@ -33,56 +54,104 @@ const installSteps = [
   },
 ];
 
-const moduleCards = [
+const moduleCards: LandingModuleCard[] = [
   {
     name: "stripe-billing",
     title: "Stripe Billing",
     category: "billing",
-    status: "installable",
+    version: "v0.4.2",
+    variant: "featured",
     description:
       "Checkout, billing portal, subscription sync, webhook dedupe, and entitlement mapping.",
-    files: ["schema/billing.ts", "api/webhooks/stripe", "(console)/billing"],
+    tags: [
+      { label: "billing" },
+      { label: "deps: billing-core", tone: "dependency" },
+      { label: "adapter option", tone: "provider" },
+      { label: "maintenance skill", tone: "skill" },
+    ],
+    footer: {
+      summary: "18 files · 2 schemas · 1 skill",
+      actions: [
+        { label: "docs", href: "/docs#modules" },
+        { label: "json", href: "/r/stripe-billing.json" },
+      ],
+    },
   },
   {
     name: "drizzle-postgres",
     title: "Drizzle Postgres",
     category: "database",
-    status: "installable",
+    version: "v0.3.0",
     description: "Postgres package, schema barrel, migrations, and server-only database access.",
-    files: ["packages/db", "apps/web/src/lib/db.ts", "drizzle.config.ts"],
+    tags: [
+      { label: "database" },
+      { label: "source-owned", tone: "success" },
+      { label: "maintenance skill", tone: "skill" },
+    ],
+    footer: {
+      summary: "9 files · 1 package · 1 skill",
+      actions: [{ label: "json", href: "/r/drizzle-postgres.json" }],
+    },
   },
   {
     name: "api-keys",
     title: "API Keys",
     category: "developer platform",
-    status: "installable",
+    version: "v0.5.0",
     description: "Key lifecycle, hashed storage, scopes, usage metadata, and management UI.",
-    files: ["schema/api-keys.ts", "lib/api-keys.ts", "(console)/api-keys"],
+    tags: [
+      { label: "api" },
+      { label: "deps: drizzle-postgres", tone: "dependency" },
+      { label: "maintenance skill", tone: "skill" },
+    ],
+    footer: {
+      summary: "14 files · 1 schema · 1 skill",
+      actions: [{ label: "json", href: "/r/api-keys.json" }],
+    },
   },
   {
     name: "webhook-inbox",
     title: "Webhook Inbox",
     category: "operations",
-    status: "installable",
+    version: "v0.2.0",
     description:
       "Received webhook table, status, retry controls, signature metadata, and detail UI.",
-    files: ["schema/webhooks.ts", "api/webhooks/*", "(console)/webhooks"],
+    tags: [
+      { label: "api" },
+      { label: "operations" },
+      { label: "deps: drizzle-postgres", tone: "dependency" },
+      { label: "maintenance skill", tone: "skill" },
+    ],
+    footer: {
+      summary: "11 files · 1 schema · 1 skill",
+      actions: [{ label: "json", href: "/r/webhook-inbox.json" }],
+    },
   },
   {
     name: "resend-email",
     title: "Resend Email",
     category: "comms",
-    status: "planned",
+    variant: "beta",
+    version: "v0.2.0",
     description: "Transactional email wiring, provider notes, templates, and delivery checks.",
-    files: ["emails/*", "lib/email.ts", ".env.example notes"],
+    tags: [
+      { label: "email" },
+      { label: "adapter option", tone: "provider" },
+      { label: "maintenance skill", tone: "skill" },
+    ],
   },
   {
     name: "posthog-analytics",
     title: "PostHog Analytics",
     category: "analytics",
-    status: "planned",
+    variant: "coming-soon",
+    version: "planned",
     description: "Event taxonomy, capture helpers, consent notes, and product analytics surfaces.",
-    files: ["lib/analytics.ts", "components/analytics-provider", "docs/events.md"],
+    tags: [
+      { label: "analytics" },
+      { label: "adapter option", tone: "provider" },
+      { label: "scheduled", tone: "warning" },
+    ],
   },
 ];
 
@@ -139,6 +208,34 @@ const commandGroups = [
       ["backup-restore", "Recovery checklist"],
       ["maintenance-mode", "Operator-controlled downtime"],
     ],
+  },
+];
+
+const commandRows: Array<{
+  name: string;
+  category: string;
+  description: string;
+  selected?: boolean;
+  tags?: ModuleTag[];
+}> = [
+  {
+    name: "stripe-billing",
+    category: "billing",
+    description: "Products, plans, checkout, portal, and webhook route.",
+    tags: [{ label: "deps: billing-core", tone: "dependency" }],
+    selected: true,
+  },
+  {
+    name: "api-keys",
+    category: "api",
+    description: "Hashed keys, scopes, last-used metadata, and management UI.",
+    tags: [{ label: "maintenance skill", tone: "skill" }],
+  },
+  {
+    name: "billing-core",
+    category: "billing",
+    description: "Shared customers, plans, subscriptions, entitlements, and usage.",
+    tags: [{ label: "core", tone: "success" }],
   },
 ];
 
@@ -391,30 +488,17 @@ export default function Page() {
           </div>
 
           <div className="modules-grid">
-            {moduleCards.map((module, index) => (
-              <article
-                className={index === 0 ? "module-card featured" : "module-card"}
+            {moduleCards.map((module) => (
+              <ModuleCard
+                description={module.description}
+                footer={module.footer}
                 key={module.name}
-              >
-                <div className="module-head">
-                  <span className="module-icon" aria-hidden="true" />
-                  <div className="module-title-block">
-                    <span className="module-name">{module.name}</span>
-                    <span className="module-category">{module.category}</span>
-                  </div>
-                  <span className="module-status">{module.status}</span>
-                </div>
-                <h3>{module.title}</h3>
-                <p>{module.description}</p>
-                <div className="module-files-label">Installs</div>
-                <ul className="file-list">
-                  {module.files.map((file) => (
-                    <li key={file}>
-                      <code>{file}</code>
-                    </li>
-                  ))}
-                </ul>
-              </article>
+                name={module.name}
+                tags={module.tags}
+                title={module.title}
+                variant={module.variant}
+                version={module.version}
+              />
             ))}
           </div>
 
@@ -455,14 +539,29 @@ export default function Page() {
                 <span>Search modules, presets, docs...</span>
               </div>
               <div className="command-list">
-                {commandGroups.map((group) => (
+                <div className="command-group">
+                  <div className="command-label">Installable Modules</div>
+                  {commandRows.map((row) => (
+                    <ModuleCardRow
+                      category={row.category}
+                      description={row.description}
+                      key={row.name}
+                      name={row.name}
+                      selected={row.selected}
+                      tags={row.tags}
+                    />
+                  ))}
+                </div>
+                {commandGroups.slice(1).map((group) => (
                   <div className="command-group" key={group.label}>
                     <div className="command-label">{group.label}</div>
-                    {group.items.map(([name, description]) => (
-                      <div className="command-item" key={name}>
-                        <span>{name}</span>
-                        <small>{description}</small>
-                      </div>
+                    {group.items.slice(0, 2).map(([name, description]) => (
+                      <ModuleCardRow
+                        category={group.label}
+                        description={description}
+                        key={name}
+                        name={name}
+                      />
                     ))}
                   </div>
                 ))}

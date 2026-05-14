@@ -23,7 +23,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "status-page"
+      "status-page",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

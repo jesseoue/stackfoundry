@@ -1,6 +1,9 @@
 # Vercel Integration Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] provider setup checklist is current
+- [ ] install path is verified in a fresh target
+- [ ] Document Vercel project and team ownership
+- [ ] Pull envs only after linking
+- [ ] Record preview and production URLs
+- [ ] Use inspect/logs for failed deploys

@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "cookie-consent"
+      "cookie-consent",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

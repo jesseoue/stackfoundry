@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "maintenance-mode"
+      "maintenance-mode",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

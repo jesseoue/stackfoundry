@@ -23,7 +23,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "trial-management"
+      "trial-management",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

@@ -1,6 +1,9 @@
 # Vercel Marketplace Storage Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] provider setup checklist is current
+- [ ] install path is verified in a fresh target
+- [ ] Choose storage by product need
+- [ ] Document Marketplace integration ownership
+- [ ] Pull provisioned env vars
+- [ ] Verify preview and production env scopes

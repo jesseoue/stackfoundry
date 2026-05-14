@@ -39,7 +39,8 @@
   "maintenance": {
     "skills": [
       "trigger-dev-jobs",
-      "trigger-dev"
+      "trigger-dev",
+      "nextjs"
     ],
     "rules": [
       "validate-trigger-payloads",

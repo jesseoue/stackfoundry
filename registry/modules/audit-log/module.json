@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "audit-log"
+      "audit-log",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "append-only-events",

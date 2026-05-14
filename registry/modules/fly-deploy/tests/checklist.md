@@ -1,6 +1,9 @@
 # Fly Deploy Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] provider setup checklist is current
+- [ ] install path is verified in a fresh target
+- [ ] Choose primary region intentionally
+- [ ] Document app name and machines config
+- [ ] Keep tokens out of source
+- [ ] Verify health checks and rollback path

@@ -7,7 +7,26 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/cloudflare-terraform.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/providers/cloudflare-terraform.ts",
+      "content": "export type CloudflareTerraformConfig = {\n  enabled?: boolean;\n  environment?: \"development\" | \"preview\" | \"production\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createCloudflareTerraformConfig(config: CloudflareTerraformConfig = {}) {\n  return {\n    enabled: config.enabled ?? true,\n    environment: config.environment ?? \"development\",\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const CloudflareTerraformChecklist = [\n  \"Keep Terraform state out of source\",\n  \"Document provider account scope\",\n  \"Plan before apply\",\n  \"Review secret handling separately\"\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/providers/cloudflare-terraform/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/providers/cloudflare-terraform/page.tsx",
+      "content": "import { CloudflareTerraformChecklist } from \"@/lib/stackfoundry/providers/cloudflare-terraform\";\n\nexport default function CloudflareTerraformPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Cloudflare Terraform</h1>\n        <p className=\"text-muted-foreground\">IaC module for zones, Workers, R2, D1, Queues, and secrets.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {CloudflareTerraformChecklist.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    },
+    {
+      "path": "docs/providers/cloudflare-terraform.md",
+      "type": "registry:file",
+      "target": "docs/providers/cloudflare-terraform.md",
+      "content": "# Cloudflare Terraform\n\nIaC module for zones, Workers, R2, D1, Queues, and secrets.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-terraform.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-terraform/page.tsx`\n\n## Setup Checklist\n\n- Keep Terraform state out of source\n- Document provider account scope\n- Plan before apply\n- Review secret handling separately\n\n## Provider Boundary\n\nThis module documents the provider setup and app integration boundary. Keep product logic in source-owned modules and use this module when the team explicitly chooses this provider or deployment target.\n"
+    }
+  ],
   "maintenanceSkills": [
     {
       "name": "cloudflare-terraform",
@@ -21,10 +40,10 @@
     }
   ],
   "envVars": {},
-  "docs": "# Cloudflare Terraform\n\nIaC module for zones, Workers, R2, D1, Queues, and secrets.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "docs": "# Cloudflare Terraform\n\nIaC module for zones, Workers, R2, D1, Queues, and secrets.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-terraform.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-terraform/page.tsx`\n- `docs/providers/cloudflare-terraform.md`\n\n## Setup Checklist\n\n- Keep Terraform state out of source\n- Document provider account scope\n- Plan before apply\n- Review secret handling separately\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add cloudflare-terraform --target /tmp/stackfoundry-cloudflare-terraform --dry-run`.\n",
   "meta": {
     "category": "iac",
     "env": [],
-    "status": "planned"
+    "status": "experimental"
   }
 }

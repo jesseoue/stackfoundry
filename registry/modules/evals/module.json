@@ -12,7 +12,8 @@
   "status": "planned",
   "maintenance": {
     "skills": [
-      "evals"
+      "evals",
+      "ai-sdk"
     ],
     "rules": [
       "document-invariants",

@@ -29,7 +29,8 @@
   "maintenance": {
     "skills": [
       "autumn-billing",
-      "autumn"
+      "autumn",
+      "nextjs"
     ],
     "rules": [
       "keep-provider-boundary",

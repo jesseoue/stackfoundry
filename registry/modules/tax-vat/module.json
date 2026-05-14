@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "tax-vat"
+      "tax-vat",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

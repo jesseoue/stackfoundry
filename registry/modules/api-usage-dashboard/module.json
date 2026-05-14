@@ -24,7 +24,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "api-usage-dashboard"
+      "api-usage-dashboard",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

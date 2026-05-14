@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "contact-forms"
+      "contact-forms",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

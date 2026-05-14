@@ -21,7 +21,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "seo"
+      "seo",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

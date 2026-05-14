@@ -23,7 +23,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "support-console"
+      "support-console",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

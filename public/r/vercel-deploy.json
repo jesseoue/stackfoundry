@@ -7,7 +7,26 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/vercel-deploy.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/providers/vercel-deploy.ts",
+      "content": "export type VercelDeployConfig = {\n  enabled?: boolean;\n  environment?: \"development\" | \"preview\" | \"production\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createVercelDeployConfig(config: VercelDeployConfig = {}) {\n  return {\n    enabled: config.enabled ?? true,\n    environment: config.environment ?? \"development\",\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const VercelDeployChecklist = [\n  \"Link the Vercel project before pulling env\",\n  \"Use preview deployments for review\",\n  \"Promote production intentionally\",\n  \"Record rollback and inspect commands\"\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/providers/vercel-deploy/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/providers/vercel-deploy/page.tsx",
+      "content": "import { VercelDeployChecklist } from \"@/lib/stackfoundry/providers/vercel-deploy\";\n\nexport default function VercelDeployPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Vercel Deploy</h1>\n        <p className=\"text-muted-foreground\">Vercel project linking, env pull, preview/prod scripts, and deployment docs.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {VercelDeployChecklist.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    },
+    {
+      "path": "docs/providers/vercel-deploy.md",
+      "type": "registry:file",
+      "target": "docs/providers/vercel-deploy.md",
+      "content": "# Vercel Deploy\n\nVercel project linking, env pull, preview/prod scripts, and deployment docs.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/vercel-deploy.ts`\n- `apps/web/src/app/(console)/admin/providers/vercel-deploy/page.tsx`\n\n## Setup Checklist\n\n- Link the Vercel project before pulling env\n- Use preview deployments for review\n- Promote production intentionally\n- Record rollback and inspect commands\n\n## Provider Boundary\n\nThis module documents the provider setup and app integration boundary. Keep product logic in source-owned modules and use this module when the team explicitly chooses this provider or deployment target.\n"
+    }
+  ],
   "maintenanceSkills": [
     {
       "name": "vercel-deploy",
@@ -21,10 +40,10 @@
     }
   ],
   "envVars": {},
-  "docs": "# Vercel Deploy\n\nVercel project linking, env pull, preview/prod scripts, and deployment docs.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "docs": "# Vercel Deploy\n\nVercel project linking, env pull, preview/prod scripts, and deployment docs.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/vercel-deploy.ts`\n- `apps/web/src/app/(console)/admin/providers/vercel-deploy/page.tsx`\n- `docs/providers/vercel-deploy.md`\n\n## Setup Checklist\n\n- Link the Vercel project before pulling env\n- Use preview deployments for review\n- Promote production intentionally\n- Record rollback and inspect commands\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add vercel-deploy --target /tmp/stackfoundry-vercel-deploy --dry-run`.\n",
   "meta": {
     "category": "deploy",
     "env": [],
-    "status": "planned"
+    "status": "experimental"
   }
 }

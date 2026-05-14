@@ -21,7 +21,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "marketing-pages"
+      "marketing-pages",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

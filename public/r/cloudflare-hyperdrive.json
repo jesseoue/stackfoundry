@@ -7,7 +7,26 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/cloudflare-hyperdrive.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/providers/cloudflare-hyperdrive.ts",
+      "content": "export type CloudflareHyperdriveConfig = {\n  enabled?: boolean;\n  environment?: \"development\" | \"preview\" | \"production\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createCloudflareHyperdriveConfig(config: CloudflareHyperdriveConfig = {}) {\n  return {\n    enabled: config.enabled ?? true,\n    environment: config.environment ?? \"development\",\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const CloudflareHyperdriveChecklist = [\n  \"Bind Hyperdrive explicitly\",\n  \"Document origin database ownership\",\n  \"Keep DATABASE_URL server-only\",\n  \"Verify query latency from Workers\"\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/providers/cloudflare-hyperdrive/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/providers/cloudflare-hyperdrive/page.tsx",
+      "content": "import { CloudflareHyperdriveChecklist } from \"@/lib/stackfoundry/providers/cloudflare-hyperdrive\";\n\nexport default function CloudflareHyperdrivePage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Cloudflare Hyperdrive</h1>\n        <p className=\"text-muted-foreground\">Postgres/MySQL connection acceleration for Workers.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {CloudflareHyperdriveChecklist.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    },
+    {
+      "path": "docs/providers/cloudflare-hyperdrive.md",
+      "type": "registry:file",
+      "target": "docs/providers/cloudflare-hyperdrive.md",
+      "content": "# Cloudflare Hyperdrive\n\nPostgres/MySQL connection acceleration for Workers.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-hyperdrive.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-hyperdrive/page.tsx`\n\n## Setup Checklist\n\n- Bind Hyperdrive explicitly\n- Document origin database ownership\n- Keep DATABASE_URL server-only\n- Verify query latency from Workers\n\n## Provider Boundary\n\nThis module documents the provider setup and app integration boundary. Keep product logic in source-owned modules and use this module when the team explicitly chooses this provider or deployment target.\n"
+    }
+  ],
   "maintenanceSkills": [
     {
       "name": "cloudflare-hyperdrive",
@@ -21,10 +40,10 @@
     }
   ],
   "envVars": {},
-  "docs": "# Cloudflare Hyperdrive\n\nPostgres/MySQL connection acceleration for Workers.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "docs": "# Cloudflare Hyperdrive\n\nPostgres/MySQL connection acceleration for Workers.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-hyperdrive.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-hyperdrive/page.tsx`\n- `docs/providers/cloudflare-hyperdrive.md`\n\n## Setup Checklist\n\n- Bind Hyperdrive explicitly\n- Document origin database ownership\n- Keep DATABASE_URL server-only\n- Verify query latency from Workers\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add cloudflare-hyperdrive --target /tmp/stackfoundry-cloudflare-hyperdrive --dry-run`.\n",
   "meta": {
     "category": "database",
     "env": [],
-    "status": "planned"
+    "status": "experimental"
   }
 }

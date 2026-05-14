@@ -23,7 +23,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "email-templates"
+      "email-templates",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

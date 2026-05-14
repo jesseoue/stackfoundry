@@ -21,7 +21,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "workspace-settings"
+      "workspace-settings",
+      "nextjs"
     ],
     "rules": [
       "enforce-org-membership",

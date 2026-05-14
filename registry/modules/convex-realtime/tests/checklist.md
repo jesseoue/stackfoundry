@@ -1,6 +1,9 @@
 # Convex Realtime Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] provider setup checklist is current
+- [ ] install path is verified in a fresh target
+- [ ] Use Convex live queries for realtime state
+- [ ] Keep optimistic updates reversible
+- [ ] Document subscription ownership
+- [ ] Verify disconnected and reconnect states

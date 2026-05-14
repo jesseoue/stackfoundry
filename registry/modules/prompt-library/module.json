@@ -12,7 +12,8 @@
   "status": "planned",
   "maintenance": {
     "skills": [
-      "prompt-library"
+      "prompt-library",
+      "ai-sdk"
     ],
     "rules": [
       "document-invariants",

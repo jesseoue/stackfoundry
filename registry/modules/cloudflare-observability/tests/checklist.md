@@ -1,6 +1,9 @@
 # Cloudflare Observability Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] provider setup checklist is current
+- [ ] install path is verified in a fresh target
+- [ ] Enable logs/traces before production
+- [ ] Avoid logging secrets or customer data
+- [ ] Document dashboard and alert ownership
+- [ ] Verify deploy log access

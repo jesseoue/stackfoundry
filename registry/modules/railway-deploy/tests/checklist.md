@@ -1,6 +1,9 @@
 # Railway Deploy Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] provider setup checklist is current
+- [ ] install path is verified in a fresh target
+- [ ] Document Railway project and service names
+- [ ] Configure build/start commands
+- [ ] Scope variables by environment
+- [ ] Verify health checks and rollback path

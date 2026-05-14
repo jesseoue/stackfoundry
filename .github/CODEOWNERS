@@ -1,1 +1,5 @@
 * @jesseoue
+
+# The hosted web app is maintainer-owned. External contributors should avoid
+# changing it unless coordinated with @jesseoue.
+apps/web/** @jesseoue

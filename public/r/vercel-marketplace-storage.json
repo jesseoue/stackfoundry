@@ -7,7 +7,26 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/vercel-marketplace-storage.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/providers/vercel-marketplace-storage.ts",
+      "content": "export type VercelMarketplaceStorageConfig = {\n  enabled?: boolean;\n  environment?: \"development\" | \"preview\" | \"production\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createVercelMarketplaceStorageConfig(config: VercelMarketplaceStorageConfig = {}) {\n  return {\n    enabled: config.enabled ?? true,\n    environment: config.environment ?? \"development\",\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const VercelMarketplaceStorageChecklist = [\n  \"Choose storage by product need\",\n  \"Document Marketplace integration ownership\",\n  \"Pull provisioned env vars\",\n  \"Verify preview and production env scopes\"\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/providers/vercel-marketplace-storage/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/providers/vercel-marketplace-storage/page.tsx",
+      "content": "import { VercelMarketplaceStorageChecklist } from \"@/lib/stackfoundry/providers/vercel-marketplace-storage\";\n\nexport default function VercelMarketplaceStoragePage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Vercel Marketplace Storage</h1>\n        <p className=\"text-muted-foreground\">Guided setup for Neon, Supabase, Upstash, AWS, and marketplace integrations.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {VercelMarketplaceStorageChecklist.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    },
+    {
+      "path": "docs/providers/vercel-marketplace-storage.md",
+      "type": "registry:file",
+      "target": "docs/providers/vercel-marketplace-storage.md",
+      "content": "# Vercel Marketplace Storage\n\nGuided setup for Neon, Supabase, Upstash, AWS, and marketplace integrations.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/vercel-marketplace-storage.ts`\n- `apps/web/src/app/(console)/admin/providers/vercel-marketplace-storage/page.tsx`\n\n## Setup Checklist\n\n- Choose storage by product need\n- Document Marketplace integration ownership\n- Pull provisioned env vars\n- Verify preview and production env scopes\n\n## Provider Boundary\n\nThis module documents the provider setup and app integration boundary. Keep product logic in source-owned modules and use this module when the team explicitly chooses this provider or deployment target.\n"
+    }
+  ],
   "maintenanceSkills": [
     {
       "name": "vercel-marketplace-storage",
@@ -21,10 +40,10 @@
     }
   ],
   "envVars": {},
-  "docs": "# Vercel Marketplace Storage\n\nGuided setup for Neon, Supabase, Upstash, AWS, and marketplace integrations.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "docs": "# Vercel Marketplace Storage\n\nGuided setup for Neon, Supabase, Upstash, AWS, and marketplace integrations.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/vercel-marketplace-storage.ts`\n- `apps/web/src/app/(console)/admin/providers/vercel-marketplace-storage/page.tsx`\n- `docs/providers/vercel-marketplace-storage.md`\n\n## Setup Checklist\n\n- Choose storage by product need\n- Document Marketplace integration ownership\n- Pull provisioned env vars\n- Verify preview and production env scopes\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add vercel-marketplace-storage --target /tmp/stackfoundry-vercel-marketplace-storage --dry-run`.\n",
   "meta": {
     "category": "platform",
     "env": [],
-    "status": "planned"
+    "status": "experimental"
   }
 }

@@ -34,7 +34,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "rate-limits"
+      "rate-limits",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "fail-closed-for-abuse",

@@ -7,7 +7,26 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/cloudflare-durable-objects.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/providers/cloudflare-durable-objects.ts",
+      "content": "export type CloudflareDurableObjectsConfig = {\n  enabled?: boolean;\n  environment?: \"development\" | \"preview\" | \"production\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createCloudflareDurableObjectsConfig(config: CloudflareDurableObjectsConfig = {}) {\n  return {\n    enabled: config.enabled ?? true,\n    environment: config.environment ?? \"development\",\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const CloudflareDurableObjectsChecklist = [\n  \"Use Durable Objects for per-entity coordination\",\n  \"Keep object ids stable\",\n  \"Document storage and alarm behavior\",\n  \"Test concurrent requests and reconnects\"\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/providers/cloudflare-durable-objects/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/providers/cloudflare-durable-objects/page.tsx",
+      "content": "import { CloudflareDurableObjectsChecklist } from \"@/lib/stackfoundry/providers/cloudflare-durable-objects\";\n\nexport default function CloudflareDurableObjectsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Cloudflare Durable Objects</h1>\n        <p className=\"text-muted-foreground\">Stateful coordination, realtime rooms, per-tenant state, and DO storage.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {CloudflareDurableObjectsChecklist.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    },
+    {
+      "path": "docs/providers/cloudflare-durable-objects.md",
+      "type": "registry:file",
+      "target": "docs/providers/cloudflare-durable-objects.md",
+      "content": "# Cloudflare Durable Objects\n\nStateful coordination, realtime rooms, per-tenant state, and DO storage.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-durable-objects.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-durable-objects/page.tsx`\n\n## Setup Checklist\n\n- Use Durable Objects for per-entity coordination\n- Keep object ids stable\n- Document storage and alarm behavior\n- Test concurrent requests and reconnects\n\n## Provider Boundary\n\nThis module documents the provider setup and app integration boundary. Keep product logic in source-owned modules and use this module when the team explicitly chooses this provider or deployment target.\n"
+    }
+  ],
   "maintenanceSkills": [
     {
       "name": "cloudflare-durable-objects",
@@ -21,10 +40,10 @@
     }
   ],
   "envVars": {},
-  "docs": "# Cloudflare Durable Objects\n\nStateful coordination, realtime rooms, per-tenant state, and DO storage.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "docs": "# Cloudflare Durable Objects\n\nStateful coordination, realtime rooms, per-tenant state, and DO storage.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-durable-objects.ts`\n- `apps/web/src/app/(console)/admin/providers/cloudflare-durable-objects/page.tsx`\n- `docs/providers/cloudflare-durable-objects.md`\n\n## Setup Checklist\n\n- Use Durable Objects for per-entity coordination\n- Keep object ids stable\n- Document storage and alarm behavior\n- Test concurrent requests and reconnects\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add cloudflare-durable-objects --target /tmp/stackfoundry-cloudflare-durable-objects --dry-run`.\n",
   "meta": {
     "category": "edge",
     "env": [],
-    "status": "planned"
+    "status": "experimental"
   }
 }

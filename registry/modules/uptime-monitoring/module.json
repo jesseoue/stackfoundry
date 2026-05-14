@@ -23,7 +23,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "uptime-monitoring"
+      "uptime-monitoring",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

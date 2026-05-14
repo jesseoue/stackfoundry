@@ -30,7 +30,8 @@
   "maintenance": {
     "skills": [
       "vercel-workflows",
-      "vercel"
+      "vercel",
+      "nextjs"
     ],
     "rules": [
       "use-workflow-directive",

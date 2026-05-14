@@ -7,7 +7,26 @@
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/convex-backend.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/providers/convex-backend.ts",
+      "content": "export type ConvexBackendConfig = {\n  enabled?: boolean;\n  environment?: \"development\" | \"preview\" | \"production\";\n  metadata?: Record<string, unknown>;\n};\n\nexport function createConvexBackendConfig(config: ConvexBackendConfig = {}) {\n  return {\n    enabled: config.enabled ?? true,\n    environment: config.environment ?? \"development\",\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const ConvexBackendChecklist = [\n  \"Create a Convex project\",\n  \"Set CONVEX_DEPLOYMENT and NEXT_PUBLIC_CONVEX_URL\",\n  \"Generate Convex types after schema/function changes\",\n  \"Deploy functions before enabling UI paths\"\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/providers/convex-backend/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/providers/convex-backend/page.tsx",
+      "content": "import { ConvexBackendChecklist } from \"@/lib/stackfoundry/providers/convex-backend\";\n\nexport default function ConvexBackendPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Convex Backend</h1>\n        <p className=\"text-muted-foreground\">Convex project setup, generated functions, provider wrapper, and deployment docs.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {ConvexBackendChecklist.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    },
+    {
+      "path": "docs/providers/convex-backend.md",
+      "type": "registry:file",
+      "target": "docs/providers/convex-backend.md",
+      "content": "# Convex Backend\n\nConvex project setup, generated functions, provider wrapper, and deployment docs.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/convex-backend.ts`\n- `apps/web/src/app/(console)/admin/providers/convex-backend/page.tsx`\n\n## Setup Checklist\n\n- Create a Convex project\n- Set CONVEX_DEPLOYMENT and NEXT_PUBLIC_CONVEX_URL\n- Generate Convex types after schema/function changes\n- Deploy functions before enabling UI paths\n\n## Provider Boundary\n\nThis module documents the provider setup and app integration boundary. Keep product logic in source-owned modules and use this module when the team explicitly chooses this provider or deployment target.\n"
+    }
+  ],
   "maintenanceSkills": [
     {
       "name": "convex-backend",
@@ -21,10 +40,10 @@
     }
   ],
   "envVars": {},
-  "docs": "# Convex Backend\n\nConvex project setup, generated functions, provider wrapper, and deployment docs.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "docs": "# Convex Backend\n\nConvex project setup, generated functions, provider wrapper, and deployment docs.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/providers/convex-backend.ts`\n- `apps/web/src/app/(console)/admin/providers/convex-backend/page.tsx`\n- `docs/providers/convex-backend.md`\n\n## Setup Checklist\n\n- Create a Convex project\n- Set CONVEX_DEPLOYMENT and NEXT_PUBLIC_CONVEX_URL\n- Generate Convex types after schema/function changes\n- Deploy functions before enabling UI paths\n\n## Maintenance\n\n- Keep provider setup separate from product domain logic.\n- Do not commit provider credentials or generated deployment state.\n- Update docs, checklist, and source files together when provider behavior changes.\n- Verify with `pnpm cli add convex-backend --target /tmp/stackfoundry-convex-backend --dry-run`.\n",
   "meta": {
     "category": "backend",
     "env": [],
-    "status": "planned"
+    "status": "experimental"
   }
 }

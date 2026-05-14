@@ -35,7 +35,8 @@
     "skills": [
       "ai-seo",
       "nextjs",
-      "docs-hosting"
+      "docs-hosting",
+      "ai-sdk"
     ],
     "rules": [
       "document-invariants",

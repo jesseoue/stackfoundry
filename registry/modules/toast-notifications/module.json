@@ -25,7 +25,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "toast-notifications"
+      "toast-notifications",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

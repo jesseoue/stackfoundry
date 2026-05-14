@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "login-activity"
+      "login-activity",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

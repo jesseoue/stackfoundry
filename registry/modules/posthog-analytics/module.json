@@ -34,7 +34,8 @@
   "maintenance": {
     "skills": [
       "posthog-analytics",
-      "posthog"
+      "posthog",
+      "nextjs"
     ],
     "rules": [
       "load-client-only",

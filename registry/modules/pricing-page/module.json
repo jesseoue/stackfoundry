@@ -21,7 +21,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "pricing-page"
+      "pricing-page",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

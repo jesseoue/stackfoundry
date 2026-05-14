@@ -37,7 +37,8 @@
   "maintenance": {
     "skills": [
       "unkey-api-keys",
-      "unkey"
+      "unkey",
+      "nextjs"
     ],
     "rules": [
       "never-log-keys",

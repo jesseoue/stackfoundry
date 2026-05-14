@@ -23,7 +23,8 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "lifecycle-email"
+      "lifecycle-email",
+      "nextjs"
     ],
     "rules": [
       "document-invariants",

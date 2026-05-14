@@ -33,7 +33,8 @@
     "skills": [
       "neon-postgres",
       "neon",
-      "drizzle"
+      "drizzle",
+      "nextjs"
     ],
     "rules": [
       "separate-preview-branches",

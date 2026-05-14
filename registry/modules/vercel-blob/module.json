@@ -32,7 +32,8 @@
   "maintenance": {
     "skills": [
       "vercel-blob",
-      "vercel"
+      "vercel",
+      "nextjs"
     ],
     "rules": [
       "validate-file-size",

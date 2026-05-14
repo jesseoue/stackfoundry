@@ -1,6 +1,9 @@
 # Cloudflare Tunnel Checklist
 
 - [ ] module manifest validates
-- [ ] docs explain setup and ownership
-- [ ] maintenance instructions are present
-- [ ] install path is verified before marking stable
+- [ ] provider setup checklist is current
+- [ ] install path is verified in a fresh target
+- [ ] Use named tunnels and scoped routes
+- [ ] Document connector ownership
+- [ ] Keep tunnel tokens secret
+- [ ] Verify zero-trust access policy

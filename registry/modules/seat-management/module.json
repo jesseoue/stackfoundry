@@ -34,7 +34,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "seat-management"
+      "seat-management",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",

@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "background-jobs"
+      "background-jobs",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "idempotent-handlers",

@@ -33,7 +33,9 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "notifications"
+      "notifications",
+      "nextjs",
+      "drizzle"
     ],
     "rules": [
       "document-invariants",
