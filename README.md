@@ -3,8 +3,16 @@
 Install production SaaS modules as editable source code.
 
 [![CI](https://github.com/jesseoue/stackfoundry/actions/workflows/ci.yml/badge.svg)](https://github.com/jesseoue/stackfoundry/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/jesseoue/stackfoundry/actions/workflows/codeql.yml/badge.svg)](https://github.com/jesseoue/stackfoundry/actions/workflows/codeql.yml)
+[![Dependency Review](https://github.com/jesseoue/stackfoundry/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/jesseoue/stackfoundry/actions/workflows/dependency-review.yml)
+[![Release](https://img.shields.io/github/v/release/jesseoue/stackfoundry?label=release)](https://github.com/jesseoue/stackfoundry/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
-[![Status: Experimental](https://img.shields.io/badge/status-experimental-orange.svg)](./ROADMAP.md)
+![Next.js](https://img.shields.io/badge/Next.js-16-black)
+![Vercel](https://img.shields.io/badge/deploy-Vercel-black)
+![Modules](https://img.shields.io/badge/modules-294-orange)
+![Recipes](https://img.shields.io/badge/recipes-9-purple)
+![Presets](https://img.shields.io/badge/presets-13-teal)
+![Inspired by shadcn](https://img.shields.io/badge/inspired%20by-shadcn-111111)
 
 StackFoundry is a public source registry for the product plumbing most SaaS teams rebuild: billing, auth, API keys, webhooks, docs, analytics, notifications, operations, provider adapters, and launch readiness.
 

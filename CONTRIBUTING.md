@@ -27,10 +27,25 @@ pnpm dev:web
 A module should include:
 
 - `module.json`
-- source files or planned file paths
+- source files when the module is `ready`, `experimental`, or `stable`
 - `docs.md`
 - `skill/SKILL.md`
 - `tests/checklist.md`
+
+Use `stub` for modules that document a real SaaS capability but do not install source yet. Use `ready` only when the module has installable source files and passes registry validation.
+
+## Provider Adapters
+
+Provider contributions are welcome. Keep adapters optional and focused:
+
+- Add provider-specific code in its own module instead of coupling it to source-owned defaults.
+- Reference shared provider skills from `registry/skills/<provider>/SKILL.md` when possible.
+- Document required environment variables, dashboard resources, webhook setup, and smoke-test steps.
+- Do not commit provider credentials, project IDs, customer data, `.env*`, or generated local state.
+
+## Recipes And Presets
+
+Recipes explain install order and architecture. Presets install bundles. If your provider belongs in a larger workflow, update the relevant recipe or preset and regenerate `public/r`.
 
 ## Pull Requests
 

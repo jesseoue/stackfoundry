@@ -32,3 +32,20 @@ body:
     attributes:
       label: Notes
       description: What should the adapter do?
+  - type: textarea
+    id: install-surface
+    attributes:
+      label: Install surface
+      description: Which source files, routes, env vars, docs, checklist items, and maintenance skills should this adapter include?
+      placeholder: "Client/helper files, webhook routes, console page, env keys, docs, tests/checklist, shared provider skill..."
+  - type: dropdown
+    id: readiness
+    attributes:
+      label: Expected readiness
+      options:
+        - stub
+        - experimental
+        - ready
+        - stable
+    validations:
+      required: true

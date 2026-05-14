@@ -22,3 +22,20 @@ body:
     attributes:
       label: Systems involved
       description: UI, routes, schemas, env, docs, tests, maintenance skills, providers.
+  - type: dropdown
+    id: readiness
+    attributes:
+      label: Expected readiness
+      description: Is this a roadmap stub or an installable source module?
+      options:
+        - stub
+        - experimental
+        - ready
+        - stable
+    validations:
+      required: true
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Recipe or install order
+      description: Which recipe, preset, or install stage should include this module?

@@ -1,5 +1,8 @@
-* @jesseoue
-
-# The hosted web app is maintainer-owned. External contributors should avoid
-# changing it unless coordinated with @jesseoue.
+# The hosted web app and repository automation are maintainer-owned.
+# Registry modules, provider adapters, recipes, presets, docs, and examples are
+# intentionally open for community and provider contributions through PRs.
 apps/web/** @jesseoue
+.github/** @jesseoue
+vercel.json @jesseoue
+package.json @jesseoue
+pnpm-lock.yaml @jesseoue
