@@ -13,5 +13,6 @@
 - [ ] No secrets or local env files
 - [ ] No private company/customer references
 - [ ] Docs updated
-- [ ] Agent skill updated if module behavior changed
+- [ ] Maintenance skill updated if module behavior changed
+- [ ] Generated registry output updated if manifests changed
 - [ ] Screenshots/GIFs contain demo data only

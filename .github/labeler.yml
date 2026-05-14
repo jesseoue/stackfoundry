@@ -10,11 +10,27 @@ registry:
           - "registry.json"
           - "registry/**"
           - "public/r/**"
+          - "packages/registry/**"
 
 cli:
   - changed-files:
       - any-glob-to-any-file:
           - "apps/cli/**"
+
+web:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "apps/web/**"
+
+packages:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "packages/**"
+
+examples:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "examples/**"
 
 ci:
   - changed-files:

@@ -23,3 +23,13 @@ body:
       label: Expected behavior
     validations:
       required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: Package version, registry URL, or commit SHA where the issue appears.
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Node.js version, pnpm version, and target framework/app.
