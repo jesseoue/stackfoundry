@@ -2,13 +2,13 @@
 
 Modules are the unit of value in StackFoundry.
 
-The first production modules are:
+The first installable production modules were:
 
 - `drizzle-postgres`
 - `api-keys`
 - `stripe-billing`
 
-Each module should be installable into an existing app as editable source code. Presets are only bundles of modules.
+The registry now includes core modules, vendor examples, and shadcn-compatible public blocks. Each module should be installable into an existing app as editable source code. Presets are only bundles of modules.
 
 ## What a Module Includes
 
@@ -64,6 +64,8 @@ Each module should be installable into an existing app as editable source code. 
 ### Developer Platform
 
 - `api-keys`
+- `api-errors`
+- `keyset-pagination`
 - `unkey-api-keys`
 - `unkey-rate-limits`
 - `public-api-orpc`
@@ -83,13 +85,26 @@ Each module should be installable into an existing app as editable source code. 
 
 ### Operations
 
+- `background-jobs`
+- `rate-limits`
 - `sentry-monitoring`
+- `axiom-logging`
 - `audit-log`
 - `admin-console`
 - `support-console`
 - `system-health`
 - `incident-management`
 - `data-import-export`
+
+### Vendor Examples
+
+- `inngest-functions`
+- `trigger-dev-jobs`
+- `vercel-workflows`
+- `upstash-redis`
+- `resend-email`
+- `posthog-analytics`
+- `arcjet-security`
 
 ### Optional AI
 

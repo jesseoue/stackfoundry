@@ -124,19 +124,22 @@ StackFoundry is designed around production SaaS systems:
 
 ```text
 apps/
-  cli/                 # future CLI
-  web/                 # future docs/registry site
+  cli/                 # StackFoundry CLI
+  web/                 # public site and registry host
 packages/
-  generator/           # renderer and install engine
-  registry/            # registry loading and validation
-  schema/              # zod schemas for modules/manifests
-  utils/
+  generator/           # reserved package boundary for install/update generation
+  registry/            # reserved package boundary for registry graph helpers
+  schema/              # reserved package boundary for manifest schemas
+  utils/               # reserved package boundary for shared helpers
 registry/
   modules/             # source-delivered modules
   presets/             # curated module bundles
-examples/
-docs/
+examples/              # reproducible install walkthroughs
+docs/                  # product and maintainer docs
+scripts/               # standalone maintenance scripts
 ```
+
+See [`docs/repository.md`](./docs/repository.md) for directory ownership rules.
 
 ## Registry Output
 
@@ -176,6 +179,14 @@ Current local prototype:
 
 ```bash
 pnpm check
+```
+
+Registry-only checks:
+
+```bash
+pnpm check:registry
+pnpm test:registry:install
+pnpm shadcn:verify
 ```
 
 Website:

@@ -13,7 +13,7 @@ Each module has:
 ## Manifest Fields
 
 - `name`: stable module id
-- `type`: module, preset, integration, schema, skill, component, block, page
+- `type`: module, integration, or page
 - `category`: high-level grouping
 - `dependencies`: runtime packages
 - `devDependencies`: development packages
@@ -39,13 +39,13 @@ Installers must not overwrite modified user files silently. The installer should
 ## Local Prototype
 
 ```bash
-node apps/cli/src/cli.mjs list
-node apps/cli/src/cli.mjs presets
-node apps/cli/src/cli.mjs validate
-node apps/cli/src/cli.mjs build
-node apps/cli/src/cli.mjs add drizzle-postgres --target /path/to/app
-node apps/cli/src/cli.mjs add preset next-saas --target /path/to/app
-node apps/cli/src/cli.mjs diff drizzle-postgres --target /path/to/app
+pnpm registry:list
+pnpm registry:presets
+pnpm registry:doctor
+pnpm registry:build
+pnpm cli add drizzle-postgres --target /path/to/app
+pnpm cli add preset next-saas --target /path/to/app
+pnpm cli diff drizzle-postgres --target /path/to/app
 ```
 
 ## Public Build Output
@@ -58,8 +58,11 @@ public/r/
   drizzle-postgres.json
   api-keys.json
   stripe-billing.json
+  vendor-examples.json
   presets/
     next-saas.json
 ```
 
-This mirrors the source-registry pattern: the registry item JSON embeds file contents while module metadata stays in `registry/modules/<module>/module.json`.
+This mirrors the source-registry pattern: registry item JSON embeds file contents and target paths while module metadata stays in `registry/modules/<module>/module.json`.
+
+Generated public items are shadcn-compatible `registry:block` files. Registry dependencies are emitted as absolute URLs so `shadcn add https://stackfoundry.dev/r/<module>.json` can resolve StackFoundry dependencies.
