@@ -10,3 +10,12 @@ description: Maintain the Next SaaS module installed by StackFoundry.
 - Do not add secrets, provider SDKs, or database assumptions to this base shell.
 - Keep routes intentionally small so teams can replace them after install.
 - Verify `next-saas` standalone and the broader `next-saas` preset before changing file targets.
+
+## Shared Skills
+
+When provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:
+
+- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)
+
+Keep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.
+

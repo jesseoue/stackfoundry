@@ -31,12 +31,12 @@
     {
       "name": "vercel-integration",
       "target": ".stackfoundry/skills/vercel-integration/SKILL.md",
-      "content": "---\nname: vercel-integration\ndescription: Maintain the Vercel Integration module installed by StackFoundry.\n---\n\n# Vercel Integration Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+      "content": "---\nname: vercel-integration\ndescription: Maintain the Vercel Integration module installed by StackFoundry.\n---\n\n# Vercel Integration Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n\n## Shared Skills\n\nWhen provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/vercel/SKILL.md` (source: `registry/skills/vercel/SKILL.md`)\n\nKeep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.\n\n"
     },
     {
       "name": "vercel",
       "target": ".stackfoundry/skills/vercel/SKILL.md",
-      "content": "---\nname: vercel\ndescription: Vercel platform guidance for installed deployment and storage modules.\n---\n\n# Vercel Guidance\n\n- Document project linking and environment variable ownership.\n- Keep server-only secrets out of public env vars.\n- Verify preview and production deployment paths.\n- Record deployment URL and rollback notes.\n"
+      "content": "---\nname: vercel\ndescription: Vercel platform guidance for installed deployment and storage modules.\n---\n\n# Vercel Guidance\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/vercel/SKILL.md`\n- Registry source: `registry/skills/vercel/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Document project linking and environment variable ownership.\n- Keep server-only secrets out of public env vars.\n- Verify preview and production deployment paths.\n- Record deployment URL and rollback notes.\n"
     }
   ],
   "envVars": {},

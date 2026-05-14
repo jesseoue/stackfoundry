@@ -9,6 +9,15 @@ description: Maintain the Cloudflare Workers provider adapter module installed b
 
 This block owns the Cloudflare Workers integration example only. Keep product-specific business logic outside the provider adapter until the app has chosen this provider.
 
+## Shared Skills
+
+When provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:
+
+- `.stackfoundry/skills/cloudflare/SKILL.md` (source: `registry/skills/cloudflare/SKILL.md`)
+- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)
+
+Keep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.
+
 ## Source Files
 
 - `cloudflare/workers/api-worker.ts`

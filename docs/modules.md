@@ -21,6 +21,8 @@ The registry now includes core modules, provider adapter examples, and registry-
 - maintenance guidance
 - install metadata for diff/update safety
 
+Module-specific skills stay focused on ownership, installed files, environment variables, deployment checks, and invariants. Provider, framework, database, SDK, and platform guidance lives in shared skills such as `.stackfoundry/skills/stripe/SKILL.md`, copied from `registry/skills/stripe/SKILL.md` during install.
+
 ## Module Families
 
 ### Foundation

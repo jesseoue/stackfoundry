@@ -9,6 +9,15 @@ description: Maintain the Unkey API Keys provider adapter module installed by St
 
 This block owns the Unkey API Keys integration example only. Keep `api-keys` as the source-owned default path and keep product-specific business logic outside the provider adapter until the app has chosen this provider.
 
+## Shared Skills
+
+When provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:
+
+- `.stackfoundry/skills/unkey/SKILL.md` (source: `registry/skills/unkey/SKILL.md`)
+- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)
+
+Keep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.
+
 ## Source Files
 
 - `apps/web/src/lib/unkey/client.ts`

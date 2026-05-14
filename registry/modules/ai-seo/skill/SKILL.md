@@ -11,3 +11,14 @@ description: Maintain the AI SEO module installed by StackFoundry.
 - Update AI sitemap entries when public routes, docs, or registry surfaces change.
 - Verify `/llms.txt`, `/llms-full.txt`, `/ai-sitemap.json`, `/robots.txt`, and `/sitemap.xml` before release.
 - Keep `NEXT_PUBLIC_SITE_URL` accurate before trusting absolute URLs.
+
+## Shared Skills
+
+When provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:
+
+- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)
+- `.stackfoundry/skills/docs-hosting/SKILL.md` (source: `registry/skills/docs-hosting/SKILL.md`)
+- `.stackfoundry/skills/ai-sdk/SKILL.md` (source: `registry/skills/ai-sdk/SKILL.md`)
+
+Keep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.
+

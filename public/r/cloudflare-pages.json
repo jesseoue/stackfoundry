@@ -31,12 +31,12 @@
     {
       "name": "cloudflare-pages",
       "target": ".stackfoundry/skills/cloudflare-pages/SKILL.md",
-      "content": "---\nname: cloudflare-pages\ndescription: Maintain the Cloudflare Pages module installed by StackFoundry.\n---\n\n# Cloudflare Pages Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+      "content": "---\nname: cloudflare-pages\ndescription: Maintain the Cloudflare Pages module installed by StackFoundry.\n---\n\n# Cloudflare Pages Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n\n## Shared Skills\n\nWhen provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/cloudflare/SKILL.md` (source: `registry/skills/cloudflare/SKILL.md`)\n\nKeep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.\n\n"
     },
     {
       "name": "cloudflare",
       "target": ".stackfoundry/skills/cloudflare/SKILL.md",
-      "content": "---\nname: cloudflare\ndescription: Cloudflare platform guidance for installed Workers, storage, and edge modules.\n---\n\n# Cloudflare Guidance\n\n- Keep bindings explicit in config and docs.\n- Do not commit wrangler secrets or account credentials.\n- Document local dev, preview, and production deployment commands.\n- Verify bindings, routes, and logs after deploy.\n"
+      "content": "---\nname: cloudflare\ndescription: Cloudflare platform guidance for installed Workers, storage, and edge modules.\n---\n\n# Cloudflare Guidance\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/cloudflare/SKILL.md`\n- Registry source: `registry/skills/cloudflare/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep bindings explicit in config and docs.\n- Do not commit wrangler secrets or account credentials.\n- Document local dev, preview, and production deployment commands.\n- Verify bindings, routes, and logs after deploy.\n"
     }
   ],
   "envVars": {},

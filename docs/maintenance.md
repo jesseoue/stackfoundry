@@ -16,12 +16,12 @@ These files teach maintainers:
 
 This is a core part of the product, not an afterthought.
 
-## Shared Technology Skills
+## Shared Provider And Technology Skills
 
-Technology guidance that applies to multiple modules lives in:
+Provider, framework, database, SDK, and platform guidance that applies to multiple modules lives in:
 
 ```text
-registry/skills/<technology>/SKILL.md
+registry/skills/<name>/SKILL.md
 ```
 
 Reference shared skills from `module.json` in `maintenance.skills`:
@@ -35,6 +35,8 @@ Reference shared skills from `module.json` in `maintenance.skills`:
 ```
 
 By default, a skill named the same as the module is read from `skill/SKILL.md`. Other skill names are read from `registry/skills/<name>/SKILL.md`.
+
+Module skills should not duplicate provider API guidance. They should point maintainers to the installed shared skill, for example `.stackfoundry/skills/stripe/SKILL.md`, and keep the module skill focused on ownership, installed files, environment variables, deployment checks, and module-specific invariants.
 
 For modules that need a custom source or install location, use an object entry:
 
@@ -51,7 +53,7 @@ For modules that need a custom source or install location, use an object entry:
 
 ## Installed Location
 
-When a module is installed, module and technology skills are copied to:
+When a module is installed, module and shared skills are copied to:
 
 ```text
 .stackfoundry/skills/<skill>/SKILL.md
@@ -59,7 +61,7 @@ When a module is installed, module and technology skills are copied to:
 
 Generated registry blocks also embed `maintenanceSkills`, so installs from `https://stackfoundry.dev/r/<module>.json` carry the same maintenance guidance as local module installs.
 
-Module skills should explain the files owned by the module, required environment variables, deployment checks, and invariants that future maintainers must preserve. Shared technology skills should stay provider- or framework-level and avoid repeating module-specific instructions.
+Module skills should explain the files owned by the module, required environment variables, deployment checks, and invariants that future maintainers must preserve. Shared skills should stay provider-, framework-, database-, SDK-, or platform-level and avoid repeating module-specific instructions.
 
 ## Provider Adapter Blocks
 
@@ -72,4 +74,4 @@ Provider adapter modules should include:
 - smoke-test routes or helpers when possible
 - rules for keeping secrets server-only
 
-Run `pnpm registry:doctor` to verify module skills, shared technology skills, custom skill targets, and manifest references.
+Run `pnpm registry:doctor` to verify module skills, shared provider and technology skills, custom skill targets, and manifest references.

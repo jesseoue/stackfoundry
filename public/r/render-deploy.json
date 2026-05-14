@@ -12,12 +12,12 @@
     {
       "name": "render-deploy",
       "target": ".stackfoundry/skills/render-deploy/SKILL.md",
-      "content": "---\nname: render-deploy\ndescription: Maintain the Render Deploy module installed by StackFoundry.\n---\n\n# Render Deploy Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+      "content": "---\nname: render-deploy\ndescription: Maintain the Render Deploy module installed by StackFoundry.\n---\n\n# Render Deploy Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n\n## Shared Skills\n\nWhen provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/render/SKILL.md` (source: `registry/skills/render/SKILL.md`)\n\nKeep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.\n\n"
     },
     {
       "name": "render",
       "target": ".stackfoundry/skills/render/SKILL.md",
-      "content": "---\nname: render\ndescription: Render deployment guidance for installed deploy modules.\n---\n\n# Render Guidance\n\n- Document services, env groups, and build/start commands.\n- Keep API keys out of source.\n- Verify health checks and deploy logs.\n- Record production URL and rollback notes.\n"
+      "content": "---\nname: render\ndescription: Render deployment guidance for installed deploy modules.\n---\n\n# Render Guidance\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/render/SKILL.md`\n- Registry source: `registry/skills/render/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Document services, env groups, and build/start commands.\n- Keep API keys out of source.\n- Verify health checks and deploy logs.\n- Record production URL and rollback notes.\n"
     }
   ],
   "envVars": {},

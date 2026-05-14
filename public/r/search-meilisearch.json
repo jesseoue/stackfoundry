@@ -12,12 +12,12 @@
     {
       "name": "search-meilisearch",
       "target": ".stackfoundry/skills/search-meilisearch/SKILL.md",
-      "content": "---\nname: search-meilisearch\ndescription: Maintain the Meilisearch module installed by StackFoundry.\n---\n\n# Meilisearch Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+      "content": "---\nname: search-meilisearch\ndescription: Maintain the Meilisearch module installed by StackFoundry.\n---\n\n# Meilisearch Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n\n## Shared Skills\n\nWhen provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/meilisearch/SKILL.md` (source: `registry/skills/meilisearch/SKILL.md`)\n\nKeep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.\n\n"
     },
     {
       "name": "meilisearch",
       "target": ".stackfoundry/skills/meilisearch/SKILL.md",
-      "content": "---\nname: meilisearch\ndescription: Meilisearch guidance for installed search modules.\n---\n\n# Meilisearch Guidance\n\n- Keep master/admin keys server-only.\n- Document index and filterable attribute setup.\n- Use scoped search keys where applicable.\n- Verify indexing, deletion, and search latency.\n"
+      "content": "---\nname: meilisearch\ndescription: Meilisearch guidance for installed search modules.\n---\n\n# Meilisearch Guidance\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/meilisearch/SKILL.md`\n- Registry source: `registry/skills/meilisearch/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep master/admin keys server-only.\n- Document index and filterable attribute setup.\n- Use scoped search keys where applicable.\n- Verify indexing, deletion, and search latency.\n"
     }
   ],
   "envVars": {},

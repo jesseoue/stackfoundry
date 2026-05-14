@@ -11,3 +11,13 @@ description: Maintain the Tinybird Analytics module installed by StackFoundry.
 - Keep event names, user/account identifiers, and metadata shape stable.
 - Avoid sending secrets, private customer data, raw prompts, or unbounded payloads.
 - Keep Tinybird resource files and deployment notes in sync if the app adds `.datasource` or `.pipe` files later.
+
+## Shared Skills
+
+When provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:
+
+- `.stackfoundry/skills/tinybird/SKILL.md` (source: `registry/skills/tinybird/SKILL.md`)
+- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)
+
+Keep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.
+

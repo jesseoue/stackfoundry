@@ -12,12 +12,12 @@
     {
       "name": "lemon-squeezy-billing",
       "target": ".stackfoundry/skills/lemon-squeezy-billing/SKILL.md",
-      "content": "---\nname: lemon-squeezy-billing\ndescription: Maintain the Lemon Squeezy Billing module installed by StackFoundry.\n---\n\n# Lemon Squeezy Billing Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+      "content": "---\nname: lemon-squeezy-billing\ndescription: Maintain the Lemon Squeezy Billing module installed by StackFoundry.\n---\n\n# Lemon Squeezy Billing Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n\n## Shared Skills\n\nWhen provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/lemon-squeezy/SKILL.md` (source: `registry/skills/lemon-squeezy/SKILL.md`)\n\nKeep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.\n\n"
     },
     {
       "name": "lemon-squeezy",
       "target": ".stackfoundry/skills/lemon-squeezy/SKILL.md",
-      "content": "---\nname: lemon-squeezy\ndescription: Lemon Squeezy billing guidance for installed billing modules.\n---\n\n# Lemon Squeezy Guidance\n\n- Verify webhook signatures.\n- Keep store, product, variant, and license ids server-owned.\n- Document checkout and license behavior.\n- Test purchase, subscription, refund, and cancellation flows.\n"
+      "content": "---\nname: lemon-squeezy\ndescription: Lemon Squeezy billing guidance for installed billing modules.\n---\n\n# Lemon Squeezy Guidance\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/lemon-squeezy/SKILL.md`\n- Registry source: `registry/skills/lemon-squeezy/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Verify webhook signatures.\n- Keep store, product, variant, and license ids server-owned.\n- Document checkout and license behavior.\n- Test purchase, subscription, refund, and cancellation flows.\n"
     }
   ],
   "envVars": {},

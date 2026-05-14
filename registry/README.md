@@ -4,6 +4,7 @@ This directory is the product source for StackFoundry.
 
 - `modules/` contains individual source-delivered capabilities.
 - `presets/` contains curated bundles of modules.
+- `skills/` contains shared provider, framework, database, SDK, and platform skills copied to `.stackfoundry/skills/<name>/SKILL.md` when referenced by a module.
 
 Do not edit `public/r` or `apps/web/public/r` by hand. Run `pnpm registry:build` to generate public registry output from this source.
 

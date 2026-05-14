@@ -12,12 +12,12 @@
     {
       "name": "openfeature-flags",
       "target": ".stackfoundry/skills/openfeature-flags/SKILL.md",
-      "content": "---\nname: openfeature-flags\ndescription: Maintain the OpenFeature Flags module installed by StackFoundry.\n---\n\n# OpenFeature Flags Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+      "content": "---\nname: openfeature-flags\ndescription: Maintain the OpenFeature Flags module installed by StackFoundry.\n---\n\n# OpenFeature Flags Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n\n## Shared Skills\n\nWhen provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/openfeature/SKILL.md` (source: `registry/skills/openfeature/SKILL.md`)\n\nKeep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.\n\n"
     },
     {
       "name": "openfeature",
       "target": ".stackfoundry/skills/openfeature/SKILL.md",
-      "content": "---\nname: openfeature\ndescription: OpenFeature flag guidance for installed feature flag modules.\n---\n\n# Openfeature Guidance\n\n- Keep provider adapters behind the OpenFeature interface.\n- Document flag keys and fallback values.\n- Avoid evaluating private traits on the client unless intended.\n- Verify default behavior when provider is unavailable.\n"
+      "content": "---\nname: openfeature\ndescription: OpenFeature flag guidance for installed feature flag modules.\n---\n\n# Openfeature Guidance\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/openfeature/SKILL.md`\n- Registry source: `registry/skills/openfeature/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep provider adapters behind the OpenFeature interface.\n- Document flag keys and fallback values.\n- Avoid evaluating private traits on the client unless intended.\n- Verify default behavior when provider is unavailable.\n"
     }
   ],
   "envVars": {},

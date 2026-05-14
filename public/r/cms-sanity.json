@@ -12,12 +12,12 @@
     {
       "name": "cms-sanity",
       "target": ".stackfoundry/skills/cms-sanity/SKILL.md",
-      "content": "---\nname: cms-sanity\ndescription: Maintain the Sanity CMS module installed by StackFoundry.\n---\n\n# Sanity CMS Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+      "content": "---\nname: cms-sanity\ndescription: Maintain the Sanity CMS module installed by StackFoundry.\n---\n\n# Sanity CMS Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n\n## Shared Skills\n\nWhen provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/sanity/SKILL.md` (source: `registry/skills/sanity/SKILL.md`)\n\nKeep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.\n\n"
     },
     {
       "name": "sanity",
       "target": ".stackfoundry/skills/sanity/SKILL.md",
-      "content": "---\nname: sanity\ndescription: Sanity CMS guidance for installed content modules.\n---\n\n# Sanity Guidance\n\n- Keep write tokens server-only.\n- Document dataset, project id, and preview behavior.\n- Use typed queries or schema-generated types where possible.\n- Verify draft and published content paths.\n"
+      "content": "---\nname: sanity\ndescription: Sanity CMS guidance for installed content modules.\n---\n\n# Sanity Guidance\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/sanity/SKILL.md`\n- Registry source: `registry/skills/sanity/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep write tokens server-only.\n- Document dataset, project id, and preview behavior.\n- Use typed queries or schema-generated types where possible.\n- Verify draft and published content paths.\n"
     }
   ],
   "envVars": {},

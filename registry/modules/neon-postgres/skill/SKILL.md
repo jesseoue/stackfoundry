@@ -9,6 +9,16 @@ description: Maintain the Neon Postgres provider adapter module installed by Sta
 
 This block owns the Neon Postgres integration example only. Keep product-specific business logic outside the provider adapter until the app has chosen this provider.
 
+## Shared Skills
+
+When provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:
+
+- `.stackfoundry/skills/neon/SKILL.md` (source: `registry/skills/neon/SKILL.md`)
+- `.stackfoundry/skills/drizzle/SKILL.md` (source: `registry/skills/drizzle/SKILL.md`)
+- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)
+
+Keep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.
+
 ## Source Files
 
 - `apps/web/src/lib/neon/client.ts`

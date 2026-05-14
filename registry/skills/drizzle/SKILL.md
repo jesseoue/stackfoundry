@@ -5,6 +5,13 @@ description: Maintain Drizzle ORM and Postgres code installed by StackFoundry mo
 
 # Drizzle Operating Instructions
 
+## Installed Location
+
+- Installed target: `.stackfoundry/skills/drizzle/SKILL.md`
+- Registry source: `registry/skills/drizzle/SKILL.md`
+
+Agents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.
+
 - Keep database access in server-only code.
 - Add schema changes under `packages/db/src/schema` and export shared tables from the schema barrel.
 - Generate and commit migrations when schema changes are intended.

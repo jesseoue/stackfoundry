@@ -48,3 +48,13 @@ Hosted documentation workspace starter with Mintlify configuration, pages, and d
 - Update `docs.md` when setup, ownership, provider boundaries, or deployment behavior changes.
 - Update `tests/checklist.md` when verification expectations change.
 - Run `pnpm registry:doctor` and a module install dry-run before handoff.
+
+## Shared Skills
+
+When provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:
+
+- `.stackfoundry/skills/mintlify/SKILL.md` (source: `registry/skills/mintlify/SKILL.md`)
+- `.stackfoundry/skills/docs-hosting/SKILL.md` (source: `registry/skills/docs-hosting/SKILL.md`)
+
+Keep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.
+

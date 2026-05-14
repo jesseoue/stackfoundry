@@ -12,12 +12,12 @@
     {
       "name": "search-algolia",
       "target": ".stackfoundry/skills/search-algolia/SKILL.md",
-      "content": "---\nname: search-algolia\ndescription: Maintain the Algolia module installed by StackFoundry.\n---\n\n# Algolia Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+      "content": "---\nname: search-algolia\ndescription: Maintain the Algolia module installed by StackFoundry.\n---\n\n# Algolia Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n\n## Shared Skills\n\nWhen provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/algolia/SKILL.md` (source: `registry/skills/algolia/SKILL.md`)\n\nKeep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.\n\n"
     },
     {
       "name": "algolia",
       "target": ".stackfoundry/skills/algolia/SKILL.md",
-      "content": "---\nname: algolia\ndescription: Algolia search guidance for installed search modules.\n---\n\n# Algolia Guidance\n\n- Keep admin keys server-only.\n- Use search-only keys on the client.\n- Document index names and object id strategy.\n- Verify indexing, deletion, and relevance behavior.\n"
+      "content": "---\nname: algolia\ndescription: Algolia search guidance for installed search modules.\n---\n\n# Algolia Guidance\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/algolia/SKILL.md`\n- Registry source: `registry/skills/algolia/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep admin keys server-only.\n- Use search-only keys on the client.\n- Document index names and object id strategy.\n- Verify indexing, deletion, and relevance behavior.\n"
     }
   ],
   "envVars": {},
