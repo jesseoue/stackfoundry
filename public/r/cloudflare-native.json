@@ -5,6 +5,7 @@
   "title": "Cloudflare Native",
   "description": "Workers, Pages, D1, R2, KV, Queues, Turnstile, and Workers AI modules.",
   "registryDependencies": [
+    "https://stackfoundry.dev/r/cloudflare-next-starter.json",
     "https://stackfoundry.dev/r/cloudflare-pages.json",
     "https://stackfoundry.dev/r/cloudflare-workers.json",
     "https://stackfoundry.dev/r/cloudflare-d1.json",
@@ -21,6 +22,7 @@
     "category": "recipe",
     "status": "planned",
     "modules": [
+      "cloudflare-next-starter",
       "cloudflare-pages",
       "cloudflare-workers",
       "cloudflare-d1",
@@ -31,6 +33,6 @@
       "cloudflare-workers-ai",
       "cloudflare-workflows"
     ],
-    "moduleCount": 9
+    "moduleCount": 10
   }
 }

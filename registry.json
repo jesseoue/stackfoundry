@@ -640,6 +640,18 @@
       ]
     },
     {
+      "name": "cloudflare-next-starter",
+      "type": "registry:block",
+      "title": "Cloudflare Next Starter",
+      "description": "OpenNext and Wrangler starter for deploying a consuming Next.js app to Cloudflare Workers.",
+      "files": [
+        {
+          "path": "registry/modules/cloudflare-next-starter/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "cloudflare-observability",
       "type": "registry:block",
       "title": "Cloudflare Observability",

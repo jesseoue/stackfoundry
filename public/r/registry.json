@@ -1392,6 +1392,53 @@
       }
     },
     {
+      "name": "cloudflare-next-starter",
+      "type": "registry:block",
+      "title": "Cloudflare Next Starter",
+      "description": "OpenNext and Wrangler starter for deploying a consuming Next.js app to Cloudflare Workers.",
+      "dependencies": [],
+      "devDependencies": [
+        "@opennextjs/cloudflare",
+        "wrangler"
+      ],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/next-saas-shell.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/wrangler.jsonc",
+          "type": "registry:file",
+          "target": "apps/web/wrangler.jsonc"
+        },
+        {
+          "path": "apps/web/open-next.config.ts",
+          "type": "registry:file",
+          "target": "apps/web/open-next.config.ts"
+        },
+        {
+          "path": "apps/web/public/_headers",
+          "type": "registry:file",
+          "target": "apps/web/public/_headers"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/providers/cloudflare-next-starter.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/providers/cloudflare-next-starter.ts"
+        },
+        {
+          "path": "docs/providers/cloudflare-next-starter.md",
+          "type": "registry:file",
+          "target": "docs/providers/cloudflare-next-starter.md"
+        }
+      ],
+      "meta": {
+        "category": "deploy",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
       "name": "cloudflare-observability",
       "type": "registry:block",
       "title": "Cloudflare Observability",

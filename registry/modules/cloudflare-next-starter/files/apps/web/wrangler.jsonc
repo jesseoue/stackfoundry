@@ -1,0 +1,28 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "my-next-app",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-05-14",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "my-next-app"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  },
+  "env": {
+    "preview": {
+      "name": "my-next-app-preview"
+    },
+    "production": {
+      "name": "my-next-app"
+    }
+  }
+}

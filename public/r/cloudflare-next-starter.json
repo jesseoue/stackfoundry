@@ -1,0 +1,73 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cloudflare-next-starter",
+  "type": "registry:block",
+  "title": "Cloudflare Next Starter",
+  "description": "OpenNext and Wrangler starter for deploying a consuming Next.js app to Cloudflare Workers.",
+  "dependencies": [],
+  "devDependencies": [
+    "@opennextjs/cloudflare",
+    "wrangler"
+  ],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/next-saas-shell.json"
+  ],
+  "files": [
+    {
+      "path": "apps/web/wrangler.jsonc",
+      "type": "registry:file",
+      "target": "apps/web/wrangler.jsonc",
+      "content": "{\n  \"$schema\": \"../../node_modules/wrangler/config-schema.json\",\n  \"name\": \"my-next-app\",\n  \"main\": \".open-next/worker.js\",\n  \"compatibility_date\": \"2026-05-14\",\n  \"compatibility_flags\": [\"nodejs_compat\", \"global_fetch_strictly_public\"],\n  \"assets\": {\n    \"directory\": \".open-next/assets\",\n    \"binding\": \"ASSETS\"\n  },\n  \"services\": [\n    {\n      \"binding\": \"WORKER_SELF_REFERENCE\",\n      \"service\": \"my-next-app\"\n    }\n  ],\n  \"observability\": {\n    \"enabled\": true\n  },\n  \"env\": {\n    \"preview\": {\n      \"name\": \"my-next-app-preview\"\n    },\n    \"production\": {\n      \"name\": \"my-next-app\"\n    }\n  }\n}\n"
+    },
+    {
+      "path": "apps/web/open-next.config.ts",
+      "type": "registry:file",
+      "target": "apps/web/open-next.config.ts",
+      "content": "import { defineCloudflareConfig } from \"@opennextjs/cloudflare\";\n\nexport default defineCloudflareConfig();\n"
+    },
+    {
+      "path": "apps/web/public/_headers",
+      "type": "registry:file",
+      "target": "apps/web/public/_headers",
+      "content": "/_next/static/*\n  Cache-Control: public,max-age=31536000,immutable\n"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/cloudflare-next-starter.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/providers/cloudflare-next-starter.ts",
+      "content": "export const cloudflareNextStarterChecklist = [\n  \"Install @opennextjs/cloudflare and wrangler as dev dependencies\",\n  \"Set the Worker name in apps/web/wrangler.jsonc\",\n  \"Run opennextjs-cloudflare build before Wrangler preview or deploy\",\n  \"Use wrangler deploy --dry-run --env production before publishing\",\n  \"Keep Cloudflare account credentials in the provider dashboard or CI secrets\",\n] as const;\n"
+    },
+    {
+      "path": "docs/providers/cloudflare-next-starter.md",
+      "type": "registry:file",
+      "target": "docs/providers/cloudflare-next-starter.md",
+      "content": "# Cloudflare Next Starter\n\nThis module adds OpenNext for Cloudflare and Wrangler configuration to a consuming Next.js app. It is a deploy adapter, not the default deployment path for StackFoundry itself.\n\n## Owns\n\n- `apps/web/wrangler.jsonc`\n- `apps/web/open-next.config.ts`\n- `apps/web/public/_headers`\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-next-starter.ts`\n\n## Setup\n\nAdd package scripts in the consuming app if they are not already present:\n\n```json\n{\n  \"build:cloudflare\": \"opennextjs-cloudflare build\",\n  \"preview:cloudflare\": \"opennextjs-cloudflare build && opennextjs-cloudflare preview --env preview\",\n  \"deploy:cloudflare\": \"opennextjs-cloudflare build && opennextjs-cloudflare deploy --env production\",\n  \"check:cloudflare\": \"opennextjs-cloudflare build && wrangler deploy --dry-run --env production\"\n}\n```\n\n## Verification\n\n```bash\npnpm install\npnpm build:cloudflare\npnpm check:cloudflare\n```\n\nUse Cloudflare dashboard credentials, `wrangler login`, or CI secrets for deployment. Do not commit Cloudflare account credentials, API tokens, `.dev.vars`, or Wrangler local state.\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "cloudflare-next-starter",
+      "target": ".stackfoundry/skills/cloudflare-next-starter/SKILL.md",
+      "content": "---\nname: cloudflare-next-starter\ndescription: Maintain the Cloudflare Next Starter module installed by StackFoundry.\n---\n\n# Cloudflare Next Starter Maintenance Instructions\n\n- Keep Cloudflare deployment files scoped to consuming apps.\n- Do not make Cloudflare the default deployment path for StackFoundry itself.\n- Keep OpenNext and Wrangler config aligned with current Cloudflare guidance.\n- Keep Cloudflare account IDs, API tokens, `.dev.vars`, and local Wrangler state out of source control.\n\n## Shared Skills\n\nWhen provider, framework, or database behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/cloudflare/SKILL.md` (source: `registry/skills/cloudflare/SKILL.md`)\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\nKeep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.\n"
+    },
+    {
+      "name": "cloudflare",
+      "target": ".stackfoundry/skills/cloudflare/SKILL.md",
+      "content": "---\nname: cloudflare\ndescription: Cloudflare platform guidance for installed Workers, storage, and edge modules.\n---\n\n# Cloudflare Guidance\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/cloudflare/SKILL.md`\n- Registry source: `registry/skills/cloudflare/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep bindings explicit in config and docs.\n- Do not commit wrangler secrets or account credentials.\n- Document local dev, preview, and production deployment commands.\n- Verify bindings, routes, and logs after deploy.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Cloudflare Next Starter\n\nOpenNext and Wrangler starter for deploying a consuming Next.js app to Cloudflare Workers.\n\n## Owns\n\n- `apps/web/wrangler.jsonc`\n- `apps/web/open-next.config.ts`\n- `apps/web/public/_headers`\n- `apps/web/src/lib/stackfoundry/providers/cloudflare-next-starter.ts`\n- `docs/providers/cloudflare-next-starter.md`\n\n## Dependencies\n\n- `@opennextjs/cloudflare`\n- `wrangler`\n\n## Environment\n\nNo app environment variables are required by default. Cloudflare account credentials should live in the Cloudflare dashboard, local Wrangler auth, or CI secrets.\n\n## Maintenance\n\n- Keep this module focused on the Cloudflare deployment boundary for consuming apps.\n- Do not add Cloudflare deployment dependencies to the StackFoundry web app itself.\n- Run a Wrangler dry run before publishing a consuming app deployment.\n- Update docs, checklist, and source files together when OpenNext or Wrangler behavior changes.\n",
+  "meta": {
+    "category": "deploy",
+    "env": [],
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
+  }
+}

@@ -12,6 +12,7 @@
     {
       "name": "runtime",
       "modules": [
+        "cloudflare-next-starter",
         "cloudflare-workers",
         "cloudflare-pages",
         "cloudflare-observability"
@@ -53,6 +54,7 @@
   ],
   "name": "cloudflare-saas",
   "modules": [
+    "cloudflare-next-starter",
     "cloudflare-workers",
     "cloudflare-pages",
     "cloudflare-observability",

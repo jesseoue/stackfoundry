@@ -1,0 +1,51 @@
+{
+  "name": "cloudflare-next-starter",
+  "type": "integration",
+  "category": "deploy",
+  "title": "Cloudflare Next Starter",
+  "description": "OpenNext and Wrangler starter for deploying a consuming Next.js app to Cloudflare Workers.",
+  "dependencies": [],
+  "devDependencies": [
+    "@opennextjs/cloudflare",
+    "wrangler"
+  ],
+  "registryDependencies": [
+    "next-saas-shell"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/wrangler.jsonc",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/open-next.config.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/public/_headers",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/providers/cloudflare-next-starter.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "docs/providers/cloudflare-next-starter.md",
+      "type": "registry:file"
+    }
+  ],
+  "status": "ready",
+  "maintenance": {
+    "skills": [
+      "cloudflare-next-starter",
+      "cloudflare",
+      "nextjs"
+    ],
+    "rules": [
+      "use-opennext-cloudflare",
+      "deploy-with-wrangler",
+      "keep-cloudflare-secrets-out-of-source"
+    ]
+  }
+}

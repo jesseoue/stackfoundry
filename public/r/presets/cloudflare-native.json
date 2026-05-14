@@ -3,6 +3,7 @@
   "title": "Cloudflare Native",
   "description": "Workers, Pages, D1, R2, KV, Queues, Turnstile, and Workers AI modules.",
   "modules": [
+    "cloudflare-next-starter",
     "cloudflare-pages",
     "cloudflare-workers",
     "cloudflare-d1",

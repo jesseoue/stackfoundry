@@ -20,8 +20,16 @@ Providers map into shared domain systems. They should not become one-off code is
 ### Deploy and Hosting
 
 - Vercel first for Next.js applications
-- Cloudflare as an optional edge/workers platform
+- Cloudflare Workers as an optional edge deployment path through installable registry modules
 - Railway, Fly, and Render as optional deploy adapters
+
+Use `cloudflare-next-starter` when a consuming Next.js app should deploy to Cloudflare Workers with OpenNext and Wrangler.
+
+```bash
+pnpm stackfoundry add cloudflare-next-starter --target ./my-app --dry-run
+```
+
+This installs Cloudflare deployment config into the target app. StackFoundry's own hosted site remains configured as a standard Next.js app for Vercel.
 
 ### Database and Storage
 
