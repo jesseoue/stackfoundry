@@ -1,0 +1,40 @@
+{
+  "name": "agent-ready-installs",
+  "type": "module",
+  "category": "developer-platform",
+  "title": "Agent-Ready Installs",
+  "description": "Prompt packs and context files for Cursor, Codex, Claude, and other coding agents to install SaaS infrastructure safely.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": ".stackfoundry/context/agent-ready-installs.json",
+      "type": "registry:file"
+    },
+    {
+      "path": ".stackfoundry/prompts/install-api-saas.md",
+      "type": "registry:file"
+    },
+    {
+      "path": ".stackfoundry/prompts/review-stackfoundry-install.md",
+      "type": "registry:file"
+    },
+    {
+      "path": "docs/stackfoundry/agent-ready-installs.md",
+      "type": "registry:file"
+    }
+  ],
+  "status": "ready",
+  "maintenance": {
+    "skills": [
+      "agent-ready-installs"
+    ],
+    "rules": [
+      "dry-run-before-install",
+      "review-generated-diffs",
+      "never-commit-secrets"
+    ]
+  }
+}

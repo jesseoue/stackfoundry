@@ -4,6 +4,8 @@ Recipes are opinionated install paths through the registry. A recipe answers "wh
 
 The front-door recipe is `api-saas-starter`: API keys, usage tracking, quotas, credits, Stripe billing, docs, webhooks, and request visibility for API-first SaaS products.
 
+Use `agent-ready-installs` when Cursor, Codex, Claude, or another coding agent should run the recipe workflow. It installs prompt packs and context files for dry-run, install, review, and verification.
+
 ## Available Recipes
 
 | Recipe | Purpose |

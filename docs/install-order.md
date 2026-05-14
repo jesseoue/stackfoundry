@@ -8,6 +8,16 @@ The practical first command is:
 pnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run
 ```
 
+## Agent Workflow
+
+```text
+agent-ready-installs
+  -> inspect recipe
+  -> dry-run install
+  -> review diff
+  -> verify target app
+```
+
 ## Foundation
 
 ```text

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "agent-ready-installs",
+  "type": "registry:block",
+  "title": "Agent-Ready Installs",
+  "description": "Prompt packs and context files for Cursor, Codex, Claude, and other coding agents to install SaaS infrastructure safely.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": ".stackfoundry/context/agent-ready-installs.json",
+      "type": "registry:file",
+      "target": ".stackfoundry/context/agent-ready-installs.json",
+      "content": "{\n  \"name\": \"agent-ready-installs\",\n  \"positioning\": \"Install production SaaS infrastructure as editable source.\",\n  \"primaryRecipe\": \"api-saas-starter\",\n  \"compatibleAgentSurfaces\": [\n    \"Cursor\",\n    \"Codex\",\n    \"Claude\",\n    \"other coding agents\"\n  ],\n  \"safeWorkflow\": [\n    \"Run stackfoundry recipe <name> before installing.\",\n    \"Run stackfoundry add recipe <name> --dry-run before writing files.\",\n    \"Review module manifests, source files, dependencies, env notes, and maintenance skills.\",\n    \"Install only after the diff is accepted.\",\n    \"Run the target app's lint, typecheck, migration, and test workflow.\",\n    \"Never commit secrets or local provider metadata.\"\n  ],\n  \"recommendedCommands\": {\n    \"inspectApiSaas\": \"pnpm stackfoundry recipe api-saas-starter\",\n    \"dryRunApiSaas\": \"pnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run\",\n    \"installApiSaas\": \"pnpm stackfoundry add recipe api-saas-starter --target ./my-app\",\n    \"diffApiKeys\": \"pnpm stackfoundry diff api-keys --target ./my-app\",\n    \"validateRegistry\": \"pnpm registry:doctor\"\n  },\n  \"reviewChecklist\": [\n    \"Are target paths correct for this app?\",\n    \"Are provider adapters intentionally selected?\",\n    \"Are env vars documented without committing values?\",\n    \"Are schema and migration changes reviewed?\",\n    \"Are tests/checklists included for installed modules?\",\n    \"Did the target app pass its normal checks?\"\n  ]\n}\n"
+    },
+    {
+      "path": ".stackfoundry/prompts/install-api-saas.md",
+      "type": "registry:file",
+      "target": ".stackfoundry/prompts/install-api-saas.md",
+      "content": "# Agent Prompt: Install API SaaS Infrastructure\n\nYou are helping install StackFoundry infrastructure into an existing app.\n\nGoal: add the `api-saas-starter` recipe as editable source, not as a black-box starter.\n\nUse this workflow:\n\n1. Inspect the target app structure and package manager.\n2. Run:\n\n```bash\npnpm stackfoundry recipe api-saas-starter\npnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run\n```\n\n3. Summarize the proposed files, dependencies, env vars, registry dependencies, and maintenance skills.\n4. Ask for approval before writing files unless the user already approved install.\n5. Install with:\n\n```bash\npnpm stackfoundry add recipe api-saas-starter --target ./my-app\n```\n\n6. Review the resulting diff.\n7. Run the target app's lint, typecheck, migration, and test commands.\n8. Do not commit secrets, `.env.local`, provider credentials, generated caches, or local provider metadata.\n\nPrimary modules to expect:\n\n- `api-keys`\n- `usage-metering`\n- `quota-enforcement`\n- `credit-wallet`\n- `stripe-billing`\n- `webhook-inbox`\n- `webhook-delivery`\n- `api-docs`\n- `audit-log`\n\nIf paths, framework, package manager, auth provider, or database ownership are unclear, stop and ask before installing.\n"
+    },
+    {
+      "path": ".stackfoundry/prompts/review-stackfoundry-install.md",
+      "type": "registry:file",
+      "target": ".stackfoundry/prompts/review-stackfoundry-install.md",
+      "content": "# Agent Prompt: Review a StackFoundry Install\n\nYou are reviewing a StackFoundry install diff.\n\nPrioritize risks before summaries:\n\n- overwritten or misplaced target files\n- undeclared runtime dependencies\n- missing env documentation\n- provider credentials or secrets committed by mistake\n- schema changes without migration guidance\n- auth, billing, API key, webhook, or permission logic that is unsafe\n- modules installed without tests/checklists or maintenance skills\n\nCheck these commands when available:\n\n```bash\npnpm stackfoundry diff api-keys --target ./my-app\npnpm registry:doctor\npnpm lint\npnpm typecheck\npnpm test\n```\n\nReview output format:\n\n1. Findings, ordered by severity.\n2. Open questions.\n3. What installed successfully.\n4. Verification run and remaining gaps.\n\nDo not approve the install if secrets, local provider metadata, or generated caches are staged.\n"
+    },
+    {
+      "path": "docs/stackfoundry/agent-ready-installs.md",
+      "type": "registry:file",
+      "target": "docs/stackfoundry/agent-ready-installs.md",
+      "content": "# Agent-Ready StackFoundry Installs\n\nStackFoundry modules are designed for code review and coding-agent workflows. Cursor, Codex, Claude, and similar tools can inspect recipes, dry-run installs, review generated diffs, and keep the installed source maintainable.\n\n## Default Flow\n\n```bash\npnpm stackfoundry recipe api-saas-starter\npnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run\npnpm stackfoundry add recipe api-saas-starter --target ./my-app\npnpm stackfoundry diff api-keys --target ./my-app\n```\n\n## What Agents Should Read\n\n- `.stackfoundry/context/agent-ready-installs.json`\n- `.stackfoundry/prompts/install-api-saas.md`\n- `.stackfoundry/prompts/review-stackfoundry-install.md`\n- module docs in `.stackfoundry/skills/**/SKILL.md`\n- module checklists in installed `tests/checklist.md` files\n\n## Safety Rules\n\n- Dry-run before writing files.\n- Review all source files, dependency metadata, env notes, and maintenance skills.\n- Keep provider adapters explicit.\n- Never commit secrets, `.env.local`, provider credentials, generated caches, or local provider metadata.\n- Run lint, typecheck, tests, and migration review after install.\n\n## Best First Path\n\nUse `api-saas-starter` first. It maps to the most concrete SaaS pain: API keys, usage tracking, quotas, credits, billing, docs, webhooks, and request visibility as editable source.\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "agent-ready-installs",
+      "target": ".stackfoundry/skills/agent-ready-installs/SKILL.md",
+      "content": "---\nname: agent-ready-installs\ndescription: Maintain agent-ready StackFoundry install prompt packs and context files.\n---\n\n# Agent-Ready Installs Maintenance Instructions\n\n- Keep prompts focused on dry-run, install, review, and verification workflows.\n- Keep tool references compatible with Cursor, Codex, Claude, and similar coding agents.\n- Do not add secrets, user-specific paths, local provider metadata, or generated caches.\n- Keep `api-saas-starter` as the default first path unless public positioning changes.\n- Update docs, prompt files, and context JSON together.\n\n## Verification\n\n- `pnpm registry:doctor`\n- `pnpm stackfoundry add agent-ready-installs --target /tmp/stackfoundry-agent-ready --dry-run`\n- Confirm installed prompt files are generic and safe to commit.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Agent-Ready Installs\n\nPrompt packs and context files for Cursor, Codex, Claude, and other coding agents to install SaaS infrastructure safely.\n\nThis module makes StackFoundry's source registry easier to operate from coding-agent environments. It gives agents a stable prompt pack, context JSON, and review checklist for dry-running, installing, and verifying infrastructure modules.\n\n## Owns\n\n- `.stackfoundry/context/agent-ready-installs.json`\n- `.stackfoundry/prompts/install-api-saas.md`\n- `.stackfoundry/prompts/review-stackfoundry-install.md`\n- `docs/stackfoundry/agent-ready-installs.md`\n\n## Best First Path\n\n```bash\npnpm stackfoundry recipe api-saas-starter\npnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run\n```\n\n## Maintenance\n\n- Keep prompts product-focused and tool-neutral.\n- Cursor, Codex, Claude, and similar agents should all be able to follow the same workflow.\n- Keep the API SaaS recipe as the first install path.\n- Never include secrets, user-specific metadata, or local provider state.\n",
+  "meta": {
+    "category": "developer-platform",
+    "env": [],
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
+  }
+}

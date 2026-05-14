@@ -130,6 +130,43 @@
       }
     },
     {
+      "name": "agent-ready-installs",
+      "type": "registry:block",
+      "title": "Agent-Ready Installs",
+      "description": "Prompt packs and context files for Cursor, Codex, Claude, and other coding agents to install SaaS infrastructure safely.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": ".stackfoundry/context/agent-ready-installs.json",
+          "type": "registry:file",
+          "target": ".stackfoundry/context/agent-ready-installs.json"
+        },
+        {
+          "path": ".stackfoundry/prompts/install-api-saas.md",
+          "type": "registry:file",
+          "target": ".stackfoundry/prompts/install-api-saas.md"
+        },
+        {
+          "path": ".stackfoundry/prompts/review-stackfoundry-install.md",
+          "type": "registry:file",
+          "target": ".stackfoundry/prompts/review-stackfoundry-install.md"
+        },
+        {
+          "path": "docs/stackfoundry/agent-ready-installs.md",
+          "type": "registry:file",
+          "target": "docs/stackfoundry/agent-ready-installs.md"
+        }
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
       "name": "ai-chat",
       "type": "registry:block",
       "title": "AI Chat",

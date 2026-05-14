@@ -1,9 +1,10 @@
 {
   "name": "developer-platform",
   "title": "Developer Platform",
-  "description": "API keys, public API foundations, webhook delivery, and developer portal modules.",
+  "description": "API keys, agent-ready installs, public API foundations, webhook delivery, and developer portal modules.",
   "modules": [
     "drizzle-postgres",
+    "agent-ready-installs",
     "api-keys",
     "rate-limits",
     "audit-log",

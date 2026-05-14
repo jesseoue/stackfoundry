@@ -10,7 +10,7 @@ The first installable production modules were:
 - `api-keys`
 - `stripe-billing`
 
-The registry now includes ready source modules, proposal-backed roadmap ideas, provider adapter examples, recipes, and registry-compatible public blocks. Each ready module should be installable into an existing app as editable source code. Presets are bundles of modules; recipes are opinionated architecture paths.
+The registry now includes ready source modules, proposal-backed roadmap ideas, provider adapter examples, agent-ready install prompts, recipes, and registry-compatible public blocks. Each ready module should be installable into an existing app as editable source code. Presets are bundles of modules; recipes are opinionated architecture paths.
 
 Use [Recipes](./recipes.md) and [Install order](./install-order.md) when you want a complete workflow instead of individual blocks. Start with `api-saas-starter` before browsing the broader catalog.
 
@@ -23,6 +23,7 @@ Use [Recipes](./recipes.md) and [Install order](./install-order.md) when you wan
 - docs
 - verification checklist
 - maintenance guidance
+- prompt/context files when a module supports coding-agent workflows
 - install metadata for diff/update safety
 
 Module-specific skills stay focused on ownership, installed files, environment variables, deployment checks, and invariants. Provider, framework, database, SDK, and platform guidance lives in shared skills such as `.stackfoundry/skills/stripe/SKILL.md`, copied from `registry/skills/stripe/SKILL.md` during install.
@@ -90,6 +91,7 @@ See [Readiness](./readiness.md) for the meaning of `ready`, `planned`, `experime
 ### Developer Platform
 
 - `api-saas-starter`
+- `agent-ready-installs`
 - `api-keys`
 - `api-errors`
 - `keyset-pagination`

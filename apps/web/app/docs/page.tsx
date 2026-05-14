@@ -52,6 +52,12 @@ const pathCards = [
     ],
   },
   {
+    title: "Agent-ready installs",
+    eyebrow: "Cursor, Codex, Claude",
+    body: "Use agent-ready-installs when a coding agent should inspect recipes, run dry-runs, review diffs, and follow safe infrastructure install prompts.",
+    modules: ["agent-ready-installs", "api-saas-starter", "api-keys", "usage-metering"],
+  },
+  {
     title: "Auth: choose the boundary first",
     eyebrow: "default path",
     body: "Start with auth-core to choose personal, team, or hybrid account mode and decide where auth routes, protected app routes, and webhooks belong.",
@@ -154,8 +160,10 @@ const moduleGroups = [
   },
   {
     category: "API product",
-    summary: "Developer-facing APIs, keys, webhooks, docs, and usage visibility.",
+    summary:
+      "Developer-facing APIs, keys, agent-ready prompts, webhooks, docs, and usage visibility.",
     modules: [
+      "agent-ready-installs",
       "api-keys",
       "unkey-api-keys",
       "api-docs",
@@ -239,6 +247,7 @@ const moduleGroups = [
 ];
 
 const moduleMeta: Record<string, { tone: string; domain?: string }> = {
+  "agent-ready-installs": { tone: "api" },
   "next-saas-shell": { tone: "foundation", domain: "nextjs.org" },
   "drizzle-postgres": { tone: "database", domain: "drizzle.team" },
   "drizzle-relations": { tone: "database", domain: "drizzle.team" },
@@ -494,7 +503,7 @@ export default function DocsPage() {
           </div>
           <div className="docs-side-section">
             <h4>
-              Registry <strong>155</strong>
+              Registry <strong>156</strong>
             </h4>
             {moduleGroups.slice(0, 7).map((group) => (
               <a href="#module-catalog" key={group.category}>
@@ -754,7 +763,7 @@ $ pnpm stackfoundry recipe api-saas-starter`}</CodeBlock>
           <a href="#safety">Safety</a>
           <div className="docs-toc-meta">
             <span>Registry-first</span>
-            <span>155 modules</span>
+            <span>156 modules</span>
             <a href="https://github.com/jesseoue/stackfoundry">GitHub →</a>
           </div>
         </aside>

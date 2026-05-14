@@ -4,6 +4,7 @@
   "description": "API-first SaaS starter with API keys, usage tracking, rate limits, credits, Stripe billing, webhooks, docs, and observability.",
   "status": "ready",
   "modules": [
+    "agent-ready-installs",
     "next-saas-shell",
     "settings-layout",
     "drizzle-postgres",

@@ -52,6 +52,18 @@
       ]
     },
     {
+      "name": "agent-ready-installs",
+      "type": "registry:block",
+      "title": "Agent-Ready Installs",
+      "description": "Prompt packs and context files for Cursor, Codex, Claude, and other coding agents to install SaaS infrastructure safely.",
+      "files": [
+        {
+          "path": "registry/modules/agent-ready-installs/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "ai-chat",
       "type": "registry:block",
       "title": "AI Chat",

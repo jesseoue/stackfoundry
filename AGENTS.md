@@ -16,6 +16,7 @@ StackFoundry is a public source registry for production SaaS modules. The sharp 
 - Current source shape: `registry/modules`, `registry/presets`, `registry/recipes`, and `registry/skills`.
 - Public generated output lives in `public/r` and `apps/web/public/r`; never edit generated registry output by hand.
 - Shared provider/framework/database/platform guidance belongs in `registry/skills/<name>/SKILL.md` and is installed to `.stackfoundry/skills/<name>/SKILL.md`.
+- Agent-ready install prompts and context belong in installable modules such as `agent-ready-installs`; keep them tool-compatible and safe for Cursor, Codex, Claude, and similar coding agents.
 - The hosted web app is Next.js on Vercel. Cloudflare support is an installable registry starter for consuming apps, not this repo's default deployment path.
 
 ## Quality Gates

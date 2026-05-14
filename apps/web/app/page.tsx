@@ -22,7 +22,7 @@ type LandingModuleCard = {
 };
 
 const stats = [
-  { value: "155", label: "Modules" },
+  { value: "156", label: "Modules" },
   { value: "13", label: "Presets" },
   { value: "36", label: "Categories" },
   { value: "MIT", label: "License" },
@@ -75,6 +75,24 @@ const moduleCards: LandingModuleCard[] = [
         { label: "recipe", href: "/r/recipes/api-saas-starter.json" },
         { label: "json", href: "/r/api-saas-starter.json" },
       ],
+    },
+  },
+  {
+    name: "agent-ready-installs",
+    title: "Agent-Ready Installs",
+    category: "developer platform",
+    version: "ready",
+    description:
+      "Prompt packs and context files for Cursor, Codex, Claude, and other coding agents to install infra safely.",
+    tags: [
+      { label: "agent-ready", tone: "accent" },
+      { label: "prompts", tone: "success" },
+      { label: "Cursor/Codex/Claude", tone: "provider" },
+      { label: "review workflow", tone: "skill" },
+    ],
+    footer: {
+      summary: "4 files · prompts · context JSON",
+      actions: [{ label: "json", href: "/r/agent-ready-installs.json" }],
     },
   },
   {
@@ -273,7 +291,7 @@ const commandRows: Array<{
 
 const presetRows = [
   ["api-saas-starter", "API-first SaaS", "Keys, usage, credits, billing, webhooks"],
-  ["developer-platform", "Devtools", "Keys, docs, public APIs, usage"],
+  ["agent-ready-installs", "Coding agents", "Prompts, context, dry-run review"],
   ["b2b-saas", "Team products", "RBAC, invites, audit, SSO, SCIM"],
   ["internal-admin", "Operators", "Support, health, incidents, backups"],
   ["ai-saas", "AI products", "Chat, model routing, quotas, metering"],
@@ -282,7 +300,7 @@ const presetRows = [
 const assuranceRows = [
   {
     title: "What installs?",
-    body: "Source files, route shells, helpers, schema slices, docs, maintenance skills, and verification checklists.",
+    body: "Source files, route shells, helpers, schema slices, prompts, docs, maintenance skills, and verification checklists.",
   },
   {
     title: "What stays out?",

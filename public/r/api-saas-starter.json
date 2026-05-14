@@ -5,6 +5,7 @@
   "title": "API SaaS Starter",
   "description": "API-first SaaS starter with API keys, usage tracking, rate limits, credits, Stripe billing, webhooks, docs, and observability.",
   "registryDependencies": [
+    "https://stackfoundry.dev/r/agent-ready-installs.json",
     "https://stackfoundry.dev/r/next-saas-shell.json",
     "https://stackfoundry.dev/r/settings-layout.json",
     "https://stackfoundry.dev/r/drizzle-postgres.json",
@@ -41,6 +42,7 @@
     "category": "recipe",
     "status": "ready",
     "modules": [
+      "agent-ready-installs",
       "next-saas-shell",
       "settings-layout",
       "drizzle-postgres",
@@ -71,6 +73,6 @@
       "support-console",
       "system-health"
     ],
-    "moduleCount": 29
+    "moduleCount": 30
   }
 }

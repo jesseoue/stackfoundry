@@ -9,6 +9,7 @@
 - Added an installable `cloudflare-next-starter` module for consuming apps while keeping StackFoundry itself on the standard Next.js/Vercel path.
 - Added Vercel AI building blocks: `ai-sdk`, `ai-elements`, and `ai-chatbot-sdk`.
 - Added `cloudflare-kumo-ui` as an optional Cloudflare UI building-block module.
+- Added `agent-ready-installs` with prompt packs and context files for Cursor, Codex, Claude, and similar coding agents.
 - Added docs for recipes, install order, readiness, conventions, and a mirrored docs changelog.
 - Added OpenSSF Scorecard scanning and private vulnerability reporting links.
 

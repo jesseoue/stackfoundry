@@ -36,8 +36,8 @@ const featuredPresets = [
   {
     name: "developer-platform",
     title: "Developer Platform",
-    description: "API keys, public API surfaces, webhook delivery, usage, and developer docs.",
-    modules: ["api-keys", "unkey-api-keys", "webhook-inbox", "api-docs", "sdk-snippets"],
+    description: "API keys, agent-ready installs, public API surfaces, webhooks, usage, and docs.",
+    modules: ["api-keys", "agent-ready-installs", "webhook-inbox", "api-docs", "usage-metering"],
     tone: "API",
   },
   {
@@ -167,6 +167,7 @@ const moduleFamilies = [
     description:
       "The strongest wedge: keys, rate limits, usage, credits, public APIs, webhooks, and docs.",
     modules: [
+      "agent-ready-installs",
       "api-keys",
       "unkey-api-keys",
       "unkey-rate-limits",
@@ -335,7 +336,7 @@ const providerOptions = [
 ];
 
 const stats = [
-  ["155", "Module manifests"],
+  ["156", "Module manifests"],
   ["13", "Preset bundles"],
   ["9", "Recipes"],
   ["17", "Provider cards"],
@@ -449,7 +450,7 @@ pnpm stackfoundry diff api-keys --target ./my-app`}</code>
             <p>
               Recipes document the recommended install order for complete SaaS workflows. The
               sharpest path is API SaaS: keys, usage, rate limits, credits, billing, docs, webhooks,
-              and visibility.
+              visibility, and agent-ready install prompts.
             </p>
           </div>
 

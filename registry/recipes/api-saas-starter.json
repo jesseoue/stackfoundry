@@ -10,6 +10,12 @@
   ],
   "stages": [
     {
+      "name": "agent-workflow",
+      "modules": [
+        "agent-ready-installs"
+      ]
+    },
+    {
       "name": "identity",
       "modules": [
         "auth-core",
@@ -62,6 +68,7 @@
   ],
   "name": "api-saas-starter",
   "modules": [
+    "agent-ready-installs",
     "auth-core",
     "tenant-context",
     "account-settings",

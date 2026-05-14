@@ -1,0 +1,34 @@
+{
+  "name": "agent-ready-installs",
+  "positioning": "Install production SaaS infrastructure as editable source.",
+  "primaryRecipe": "api-saas-starter",
+  "compatibleAgentSurfaces": [
+    "Cursor",
+    "Codex",
+    "Claude",
+    "other coding agents"
+  ],
+  "safeWorkflow": [
+    "Run stackfoundry recipe <name> before installing.",
+    "Run stackfoundry add recipe <name> --dry-run before writing files.",
+    "Review module manifests, source files, dependencies, env notes, and maintenance skills.",
+    "Install only after the diff is accepted.",
+    "Run the target app's lint, typecheck, migration, and test workflow.",
+    "Never commit secrets or local provider metadata."
+  ],
+  "recommendedCommands": {
+    "inspectApiSaas": "pnpm stackfoundry recipe api-saas-starter",
+    "dryRunApiSaas": "pnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run",
+    "installApiSaas": "pnpm stackfoundry add recipe api-saas-starter --target ./my-app",
+    "diffApiKeys": "pnpm stackfoundry diff api-keys --target ./my-app",
+    "validateRegistry": "pnpm registry:doctor"
+  },
+  "reviewChecklist": [
+    "Are target paths correct for this app?",
+    "Are provider adapters intentionally selected?",
+    "Are env vars documented without committing values?",
+    "Are schema and migration changes reviewed?",
+    "Are tests/checklists included for installed modules?",
+    "Did the target app pass its normal checks?"
+  ]
+}

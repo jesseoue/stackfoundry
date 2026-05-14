@@ -3,9 +3,10 @@
   "name": "developer-platform",
   "type": "registry:block",
   "title": "Developer Platform",
-  "description": "API keys, public API foundations, webhook delivery, and developer portal modules.",
+  "description": "API keys, agent-ready installs, public API foundations, webhook delivery, and developer portal modules.",
   "registryDependencies": [
     "https://stackfoundry.dev/r/drizzle-postgres.json",
+    "https://stackfoundry.dev/r/agent-ready-installs.json",
     "https://stackfoundry.dev/r/api-keys.json",
     "https://stackfoundry.dev/r/rate-limits.json",
     "https://stackfoundry.dev/r/audit-log.json",
@@ -42,6 +43,7 @@
     "status": "planned",
     "modules": [
       "drizzle-postgres",
+      "agent-ready-installs",
       "api-keys",
       "rate-limits",
       "audit-log",
@@ -71,6 +73,6 @@
       "command-menu",
       "data-table"
     ],
-    "moduleCount": 29
+    "moduleCount": 30
   }
 }

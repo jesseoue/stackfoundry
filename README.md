@@ -9,7 +9,7 @@ shadcn for production SaaS systems.
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 ![Next.js](https://img.shields.io/badge/Next.js-16-black)
 ![Vercel](https://img.shields.io/badge/deploy-Vercel-black)
-![Modules](https://img.shields.io/badge/modules-155-orange)
+![Modules](https://img.shields.io/badge/modules-156-orange)
 ![Recipes](https://img.shields.io/badge/recipes-9-purple)
 ![Presets](https://img.shields.io/badge/presets-13-teal)
 ![Inspired by shadcn](https://img.shields.io/badge/inspired%20by-shadcn-111111)
@@ -17,6 +17,8 @@ shadcn for production SaaS systems.
 StackFoundry is a public source registry for the production systems SaaS teams rebuild: API keys, usage tracking, rate limits, Stripe billing, credits, webhooks, auth, docs, analytics, and operations.
 
 Modules install as source files in your app. You review the code, own the code, and keep the maintenance context that ships with it.
+
+StackFoundry installs are also coding-agent-ready: Cursor, Codex, Claude, and similar tools can inspect recipes, dry-run installs, review generated diffs, and follow included prompt packs.
 
 > [!IMPORTANT]
 > The registry is the product. Modules are the unit of value. Recipes are the guided path. Presets are convenience bundles.
@@ -43,6 +45,7 @@ pnpm stackfoundry add recipe api-saas-starter --target ./my-app
 The API SaaS recipe installs the path most developer tools, AI APIs, data APIs, and B2B platforms need first:
 
 - API key lifecycle and verification
+- agent-ready prompt packs for Cursor, Codex, Claude, and similar tools
 - usage metering, quotas, and rate limits
 - credit wallet and Stripe billing foundations
 - webhook inbox and outbound delivery
@@ -81,6 +84,7 @@ Every module is expected to include:
 - setup, ownership, and deployment docs
 - verification checklists
 - maintenance skills under `.stackfoundry/skills`
+- prompt packs and context files for agent-ready install/review workflows when needed
 - install metadata for future diff/update safety
 
 ## Registry Coverage
@@ -93,7 +97,7 @@ Current source registry coverage:
 | Database | `drizzle-postgres`, `drizzle-relations`, `neon-postgres`, `supabase-postgres`, `cloudflare-d1` |
 | Auth and tenancy | `clerk-auth`, `orgs-rbac`, `account-modes`, `invites`, `enterprise-sso`, `scim-provisioning` |
 | Billing | `stripe-billing`, `billing-core`, `entitlements`, `credit-wallet`, `one-time-purchases`, `tax-vat` |
-| API product | `api-keys`, `public-api-orpc`, `webhook-inbox`, `webhook-delivery`, `api-docs` |
+| API product | `api-keys`, `agent-ready-installs`, `public-api-orpc`, `webhook-inbox`, `webhook-delivery`, `api-docs` |
 | Operations | `audit-log`, `background-jobs`, `system-health`, `incident-management`, `status-page`, `oncall-alerting` |
 | Analytics and growth | `posthog-analytics`, `tinybird-analytics`, `feature-flags`, `experiments`, `lifecycle-email` |
 | Notifications and comms | `notifications`, `notification-center`, `knock-notifications`, `resend-email`, `product-announcements` |
@@ -105,7 +109,7 @@ Current source registry coverage:
 <details>
 <summary>Current scale</summary>
 
-- 155 ready module manifests
+- 156 ready module manifests
 - 36 canonical categories
 - 13 preset bundles
 - 9 architecture recipes
@@ -120,6 +124,16 @@ The public hierarchy is intentionally simple:
 - Modules are the product.
 - Recipes explain the install path and order.
 - Presets are bundles for convenience.
+
+## Agent-Ready Installs
+
+The `agent-ready-installs` module adds prompt packs and context files for Cursor, Codex, Claude, and other coding agents:
+
+```bash
+pnpm stackfoundry add agent-ready-installs --target ./my-app --dry-run
+```
+
+It gives agents a safe workflow for inspecting recipes, dry-running installs, reviewing diffs, checking env notes, and verifying the target app after source lands.
 
 ## Recipes
 
