@@ -329,6 +329,7 @@ function JsonLine({ line, index }: { line: string; index: number }) {
 
 function CodeBlock({ label, children }: { label: string; children: string }) {
   const isJson = label.endsWith(".json") || children.trimStart().startsWith("{");
+  const isTerminal = label === "terminal";
   const highlighted = children.split("\n").map((line, index) => {
     if (isJson) {
       return <JsonLine index={index} key={`${line}-${index}`} line={line} />;
@@ -348,11 +349,21 @@ function CodeBlock({ label, children }: { label: string; children: string }) {
   });
 
   return (
-    <div className="docs-code">
+    <div className={isTerminal ? "docs-code terminal-code" : "docs-code"}>
       <div className="code-head">
-        <span />
-        {label}
-        <em>copy</em>
+        {isTerminal ? (
+          <>
+            <span aria-hidden="true" className="terminal-lights" />
+            <strong>stackfoundry</strong>
+            <em>copy</em>
+          </>
+        ) : (
+          <>
+            <span />
+            {label}
+            <em>copy</em>
+          </>
+        )}
       </div>
       <pre>
         <code>{highlighted}</code>
