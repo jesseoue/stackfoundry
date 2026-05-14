@@ -9,9 +9,18 @@ export const requiredModuleFields = [
 ];
 
 export const requiredPresetFields = ["name", "title", "description", "modules", "status"];
+export const requiredRecipeFields = [
+  "name",
+  "title",
+  "description",
+  "category",
+  "status",
+  "stages",
+  "modules",
+];
 
 export const validModuleTypes = new Set(["module", "integration", "page"]);
-export const validModuleStatuses = new Set(["planned", "experimental", "stable"]);
+export const validModuleStatuses = new Set(["ready", "stub", "planned", "experimental", "stable", "deprecated"]);
 export const validModuleCategories = new Set([
   "ai",
   "analytics",

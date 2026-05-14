@@ -1,0 +1,22 @@
+{
+  "name": "customer-product-adoption",
+  "type": "module",
+  "category": "growth",
+  "title": "Customer Product Adoption",
+  "description": "Customer product adoption dashboard by feature, account, cohort, and plan.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "customer-product-adoption"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

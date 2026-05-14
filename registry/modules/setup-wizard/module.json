@@ -1,0 +1,22 @@
+{
+  "name": "setup-wizard",
+  "type": "module",
+  "category": "growth",
+  "title": "Setup Wizard",
+  "description": "Multi-step setup wizard for workspace, provider, billing, and product configuration.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "setup-wizard"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

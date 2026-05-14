@@ -1,0 +1,22 @@
+{
+  "name": "integration-oauth-callback",
+  "type": "module",
+  "category": "integrations",
+  "title": "Integration OAuth Callback",
+  "description": "OAuth callback route pattern for connecting external SaaS providers.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "integration-oauth-callback"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

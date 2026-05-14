@@ -1,0 +1,22 @@
+{
+  "name": "copyable-code-block",
+  "type": "module",
+  "category": "components",
+  "title": "Copyable Code Block",
+  "description": "Copyable code block for API docs, SDK snippets, and setup instructions.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "copyable-code-block"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

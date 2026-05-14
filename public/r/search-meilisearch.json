@@ -25,6 +25,8 @@
   "meta": {
     "category": "search",
     "env": [],
-    "status": "planned"
+    "status": "stub",
+    "maturity": "stub",
+    "recommendedFor": []
   }
 }

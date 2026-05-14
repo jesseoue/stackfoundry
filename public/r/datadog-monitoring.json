@@ -25,6 +25,8 @@
   "meta": {
     "category": "observability",
     "env": [],
-    "status": "planned"
+    "status": "stub",
+    "maturity": "stub",
+    "recommendedFor": []
   }
 }

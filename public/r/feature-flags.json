@@ -56,12 +56,14 @@
   "meta": {
     "category": "growth",
     "env": [],
-    "status": "experimental",
+    "status": "ready",
+    "maturity": "ready",
     "drizzle": {
       "schemaExports": [
         "featureFlags"
       ],
       "migrationRecommended": true
-    }
+    },
+    "recommendedFor": []
   }
 }

@@ -1,0 +1,22 @@
+{
+  "name": "timestamps-conventions",
+  "type": "module",
+  "category": "database",
+  "title": "Timestamp Conventions",
+  "description": "Timestamp conventions for creation, update, deletion, completion, and expiration.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "timestamps-conventions"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

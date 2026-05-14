@@ -51,12 +51,14 @@
   "meta": {
     "category": "support",
     "env": [],
-    "status": "experimental",
+    "status": "ready",
+    "maturity": "ready",
     "drizzle": {
       "schemaExports": [
         "supportWidget"
       ],
       "migrationRecommended": true
-    }
+    },
+    "recommendedFor": []
   }
 }

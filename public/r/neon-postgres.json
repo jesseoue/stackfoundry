@@ -62,6 +62,8 @@
     "env": [
       "DATABASE_URL"
     ],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

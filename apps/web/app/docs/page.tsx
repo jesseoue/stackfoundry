@@ -621,9 +621,22 @@ $ pnpm stackfoundry add stripe-billing --target ./my-app`}</CodeBlock>
             </div>
           </section>
 
+          <section aria-labelledby="recipes">
+            <h2 id="recipes">
+              4. Choose a recipe <Anchor id="recipes" />
+            </h2>
+            <p>
+              Recipes are opinionated install paths for complete workflows: API SaaS, enterprise
+              SaaS, support ops, customer intelligence, security center, and provider marketplaces.
+              They turn the registry from a catalog into a product architecture.
+            </p>
+            <CodeBlock label="terminal">{`$ pnpm stackfoundry recipes
+$ pnpm stackfoundry recipe api-saas-starter`}</CodeBlock>
+          </section>
+
           <section aria-labelledby="module-catalog">
             <h2 id="module-catalog">
-              4. Module catalog <Anchor id="module-catalog" />
+              5. Module catalog <Anchor id="module-catalog" />
             </h2>
             <p>
               The registry covers foundation, data, auth and tenancy, billing, API product,
@@ -647,7 +660,7 @@ $ pnpm stackfoundry add stripe-billing --target ./my-app`}</CodeBlock>
 
           <section aria-labelledby="authoring">
             <h2 id="authoring">
-              5. Author modules with contracts <Anchor id="authoring" />
+              6. Author modules with contracts <Anchor id="authoring" />
             </h2>
             <p>
               Every module is more than a code snippet. It ships the implementation, the install
@@ -658,7 +671,7 @@ $ pnpm stackfoundry add stripe-billing --target ./my-app`}</CodeBlock>
   "name": "api-keys",
   "type": "module",
   "category": "developer-platform",
-  "status": "experimental",
+  "status": "ready",
   "registryDependencies": ["drizzle-postgres"],
   "dependencies": {
     "nanoid": "^5.0.0"

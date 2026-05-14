@@ -41,6 +41,7 @@ pnpm stackfoundry add http://localhost:3000/r/api-keys.json --target /tmp/app
 - Module and shared technology skills are emitted as `maintenanceSkills` so registry URL installs include maintenance guidance.
 - The StackFoundry command can install generated module items directly, including aggregate preset blocks such as `/r/provider-adapters.json`.
 - `/r/presets/*.json` files are StackFoundry preset manifests for tooling and inspection. They are intentionally not shadcn registry item documents; use `/r/<preset>.json` for installable preset payloads.
+- `/r/recipes/*.json` files are StackFoundry recipe documents for human-readable install order and architecture guidance.
 
 ## StackFoundry Rules
 

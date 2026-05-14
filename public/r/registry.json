@@ -11,7 +11,29 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "access-review",
+      "type": "registry:block",
+      "title": "Access Review",
+      "description": "Periodic workspace access review for members, roles, API keys, and integrations.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "security",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "account-deletion",
@@ -39,7 +61,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/account/deletion/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "compliance",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "account-health",
+      "type": "registry:block",
+      "title": "Account Health",
+      "description": "Health scoring model for customer activation, usage, payment, and support signals.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "account-modes",
@@ -69,7 +113,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/account/modes/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "tenancy",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "account-settings",
@@ -90,7 +140,125 @@
           "type": "registry:file",
           "target": "apps/web/src/lib/account-settings.ts"
         }
-      ]
+      ],
+      "meta": {
+        "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "action-audit-wrapper",
+      "type": "registry:block",
+      "title": "Action Audit Wrapper",
+      "description": "Wrapper for recording action inputs, actor, result, and audit metadata.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "action-confirmation",
+      "type": "registry:block",
+      "title": "Action Confirmation",
+      "description": "Confirmation dialog pattern for sensitive and irreversible SaaS actions.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "action-confirmation-dialog",
+      "type": "registry:block",
+      "title": "Action Confirmation Dialog",
+      "description": "Dialog component for confirming high-impact account, billing, and security actions.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "action-permissions",
+      "type": "registry:block",
+      "title": "Action Permissions",
+      "description": "Permission checks and policy metadata for operator and customer actions.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "security",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "action-registry",
+      "type": "registry:block",
+      "title": "Action Registry",
+      "description": "Central action registry for typed SaaS operations and audit-aware execution.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "action-result-toast",
+      "type": "registry:block",
+      "title": "Action Result Toast",
+      "description": "Standard success, failure, and retry feedback for SaaS actions.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "activation-events",
+      "type": "registry:block",
+      "title": "Activation Events",
+      "description": "Activation event taxonomy and tracking hooks for time-to-value reporting.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "activation-onboarding",
@@ -100,7 +268,45 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "activation-score",
+      "type": "registry:block",
+      "title": "Activation Score",
+      "description": "Activation score derived from setup, usage, team, and billing milestones.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "activity-feed",
+      "type": "registry:block",
+      "title": "Activity Feed",
+      "description": "Unified feed for customer, billing, support, audit, and product events.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "admin-console",
@@ -123,7 +329,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "admin-impersonation",
@@ -133,7 +345,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "auth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "ai-artifacts",
@@ -143,7 +361,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "ai-chat",
@@ -178,7 +402,13 @@
           "type": "registry:file",
           "target": "apps/web/src/lib/ai/models.ts"
         }
-      ]
+      ],
+      "meta": {
+        "category": "ai",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "ai-seo",
@@ -211,7 +441,13 @@
           "type": "registry:file",
           "target": "apps/web/src/app/ai-sitemap.json/route.ts"
         }
-      ]
+      ],
+      "meta": {
+        "category": "marketing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "ai-tools",
@@ -221,7 +457,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "api-docs",
@@ -242,7 +484,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/docs/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "api-errors",
@@ -263,7 +511,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/errors/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "api-key-risk-review",
+      "type": "registry:block",
+      "title": "API Key Risk Review",
+      "description": "API key risk review for stale, over-scoped, leaked, or high-volume keys.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "security",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "api-keys",
@@ -291,7 +561,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/api-keys/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "api-playground",
+      "type": "registry:block",
+      "title": "API Playground",
+      "description": "Interactive API playground for authenticated requests and example responses.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "developer-platform",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "api-usage-dashboard",
@@ -315,7 +607,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/usage/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "arcjet-security",
@@ -345,7 +643,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/providers/arcjet/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "security",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "audit-event-conventions",
+      "type": "registry:block",
+      "title": "Audit Event Conventions",
+      "description": "Audit event naming, actor, target, metadata, and retention conventions.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "audit-log",
@@ -373,7 +693,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/audit-log/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "auth-authjs",
@@ -383,7 +709,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "auth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "auth-better-auth",
@@ -416,7 +748,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/auth/better-auth/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "auth-core",
@@ -444,7 +782,13 @@
           "type": "registry:file",
           "target": "docs/auth-architecture.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "autumn-billing",
@@ -470,7 +814,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/providers/autumn-billing/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "autumn-entitlements",
@@ -496,7 +846,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/providers/autumn-entitlements/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "axiom-logging",
@@ -524,7 +880,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/providers/axiom/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "observability",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "background-jobs",
@@ -552,7 +914,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/jobs/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "backup-restore",
@@ -580,7 +948,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/backups/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "billing-core",
@@ -608,7 +982,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/core/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "billing-ledger",
+      "type": "registry:block",
+      "title": "Billing Ledger",
+      "description": "Billing ledger for invoices, payments, refunds, disputes, credits, and adjustments.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "billing",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "billing-portal",
@@ -631,7 +1027,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/portal/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "billing-reconciliation",
@@ -660,7 +1062,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/reconciliation/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "blog-changelog",
@@ -681,7 +1089,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(marketing)/changelog/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "marketing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "bug-reports",
@@ -709,7 +1123,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/support/bug-reports/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "support",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "bulk-actions-bar",
+      "type": "registry:block",
+      "title": "Bulk Actions Bar",
+      "description": "Selection and bulk action controls for admin tables.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "clerk-auth",
@@ -752,7 +1188,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/auth/clerk/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-agents-sdk",
@@ -778,7 +1220,13 @@
           "type": "registry:file",
           "target": "docs/providers/cloudflare-agents-sdk.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "ai",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-d1",
@@ -808,7 +1256,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/cloudflare/d1/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "database",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-durable-objects",
@@ -834,7 +1288,13 @@
           "type": "registry:file",
           "target": "docs/providers/cloudflare-durable-objects.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "edge",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-hyperdrive",
@@ -860,7 +1320,13 @@
           "type": "registry:file",
           "target": "docs/providers/cloudflare-hyperdrive.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "database",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-kv",
@@ -885,7 +1351,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/cloudflare/kv/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "storage",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-mcp-server",
@@ -911,7 +1383,13 @@
           "type": "registry:file",
           "target": "docs/providers/cloudflare-mcp-server.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "ai",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-observability",
@@ -937,7 +1415,13 @@
           "type": "registry:file",
           "target": "docs/providers/cloudflare-observability.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "observability",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-pages",
@@ -963,7 +1447,13 @@
           "type": "registry:file",
           "target": "docs/providers/cloudflare-pages.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "deploy",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-queues",
@@ -989,7 +1479,13 @@
           "type": "registry:file",
           "target": "docs/providers/cloudflare-queues.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "queue",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-r2",
@@ -1014,7 +1510,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/cloudflare/r2/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "storage",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-terraform",
@@ -1040,7 +1542,13 @@
           "type": "registry:file",
           "target": "docs/providers/cloudflare-terraform.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "iac",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-tunnel",
@@ -1066,7 +1574,13 @@
           "type": "registry:file",
           "target": "docs/providers/cloudflare-tunnel.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "networking",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-turnstile",
@@ -1092,7 +1606,13 @@
           "type": "registry:file",
           "target": "docs/providers/cloudflare-turnstile.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "security",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-vectorize",
@@ -1118,7 +1638,13 @@
           "type": "registry:file",
           "target": "docs/providers/cloudflare-vectorize.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "ai",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-workers",
@@ -1146,7 +1672,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/cloudflare/workers/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "edge",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-workers-ai",
@@ -1172,7 +1704,13 @@
           "type": "registry:file",
           "target": "docs/providers/cloudflare-workers-ai.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "ai",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cloudflare-workflows",
@@ -1197,7 +1735,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/cloudflare/workflows/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "workflow",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cms-contentful",
@@ -1207,7 +1751,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "content",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cms-mdx",
@@ -1217,7 +1767,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "content",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cms-sanity",
@@ -1227,7 +1783,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "content",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cohort-retention",
@@ -1237,7 +1799,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "command-menu",
@@ -1263,7 +1831,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/components/command-menu/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "connected-accounts",
@@ -1291,7 +1865,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/account/connected-accounts/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "contact-forms",
@@ -1319,7 +1899,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/contact-forms/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "marketing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "convex-backend",
@@ -1345,7 +1931,13 @@
           "type": "registry:file",
           "target": "docs/providers/convex-backend.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "backend",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "convex-integration",
@@ -1371,7 +1963,13 @@
           "type": "registry:file",
           "target": "docs/providers/convex-integration.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "backend",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "convex-realtime",
@@ -1397,7 +1995,13 @@
           "type": "registry:file",
           "target": "docs/providers/convex-realtime.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "backend",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cookie-consent",
@@ -1425,7 +2029,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(marketing)/privacy/cookies/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "compliance",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "copyable-code-block",
+      "type": "registry:block",
+      "title": "Copyable Code Block",
+      "description": "Copyable code block for API docs, SDK snippets, and setup instructions.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "cors-policy",
@@ -1446,7 +2072,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/security/cors/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "security",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "coupons-promotions",
@@ -1474,7 +2106,61 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/coupons/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "credit-adjustments",
+      "type": "registry:block",
+      "title": "Credit Adjustments",
+      "description": "Manual credit adjustment flow with reason codes, approvals, and audit events.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "billing",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "credit-grants",
+      "type": "registry:block",
+      "title": "Credit Grants",
+      "description": "Credit grant workflow for trials, support adjustments, promotions, and enterprise contracts.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "billing",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "credit-ledger",
+      "type": "registry:block",
+      "title": "Credit Ledger",
+      "description": "Credit ledger for grants, deductions, expirations, refunds, and adjustments.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "billing",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "credit-wallet",
@@ -1503,7 +2189,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/credits/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "csrf-protection",
@@ -1524,7 +2216,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/security/csrf/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "security",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "custom-domains",
@@ -1552,7 +2250,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/tenancy/custom-domains/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "tenancy",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "custom-roles",
@@ -1580,7 +2284,173 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/workspace/roles/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "customer-360",
+      "type": "registry:block",
+      "title": "Customer 360",
+      "description": "Unified operator view for customer identity, plan, usage, support, and risk.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "customer-api-key-risk",
+      "type": "registry:block",
+      "title": "Customer API Key Risk",
+      "description": "Customer API key risk model for stale, leaked, high-volume, and over-scoped keys.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "security",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "customer-billing-profile",
+      "type": "registry:block",
+      "title": "Customer Billing Profile",
+      "description": "Operator billing profile with plan, invoices, credits, and payment state.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "customer-expansion-score",
+      "type": "registry:block",
+      "title": "Customer Expansion Score",
+      "description": "Expansion readiness scoring from adoption, plan limits, and account health.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "customer-product-adoption",
+      "type": "registry:block",
+      "title": "Customer Product Adoption",
+      "description": "Customer product adoption dashboard by feature, account, cohort, and plan.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "customer-risk-score",
+      "type": "registry:block",
+      "title": "Customer Risk Score",
+      "description": "Churn and operational risk scoring from usage, support, and billing signals.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "customer-support-profile",
+      "type": "registry:block",
+      "title": "Customer Support Profile",
+      "description": "Support context panel for tickets, incidents, notes, and unresolved work.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "support",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "customer-timeline",
+      "type": "registry:block",
+      "title": "Customer Timeline",
+      "description": "Chronological customer events across billing, usage, support, audit, and product analytics.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "customer-usage-profile",
+      "type": "registry:block",
+      "title": "Customer Usage Profile",
+      "description": "Customer usage profile across features, API keys, quotas, and adoption.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "danger-zone-card",
+      "type": "registry:block",
+      "title": "Danger Zone Card",
+      "description": "Destructive action section for delete, revoke, reset, and cancel flows.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "data-export",
@@ -1608,7 +2478,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/data/export/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "compliance",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "data-import-export",
@@ -1618,7 +2494,29 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "data-quality-dashboard",
+      "type": "registry:block",
+      "title": "Data Quality Dashboard",
+      "description": "Data quality dashboard for enrichment, sync, freshness, and validation signals.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "data-retention",
@@ -1646,7 +2544,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/data/retention/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "compliance",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "data-table",
@@ -1672,7 +2576,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/components/data-table/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "datadog-monitoring",
@@ -1682,7 +2592,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "observability",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "dependency-audit",
@@ -1703,7 +2619,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/security/dependencies/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "security",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "destructive-action-flow",
+      "type": "registry:block",
+      "title": "Destructive Action Flow",
+      "description": "Typed destructive flow for revoke, delete, cancel, archive, and reset actions.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "developer-portal",
@@ -1726,7 +2664,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "docker-compose-local",
@@ -1736,7 +2680,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "devops",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "docs-fumadocs",
@@ -1769,7 +2719,40 @@
           "type": "registry:file",
           "target": "docs/fumadocs-deployment.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "docs",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "docs-help-center",
+      "type": "registry:block",
+      "title": "Docs Help Center",
+      "description": "Help center index, article metadata, and support escalation paths.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/docs-help-center.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/docs-help-center.ts"
+        },
+        {
+          "path": "apps/web/src/app/(marketing)/help/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(marketing)/help/page.tsx"
+        }
+      ],
+      "meta": {
+        "category": "support",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "docs-mintlify",
@@ -1802,28 +2785,13 @@
           "type": "registry:file",
           "target": "docs/mintlify/deployment.md"
         }
-      ]
-    },
-    {
-      "name": "docs-help-center",
-      "type": "registry:block",
-      "title": "Docs Help Center",
-      "description": "Help center index, article metadata, and support escalation paths.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "apps/web/src/lib/docs-help-center.ts",
-          "type": "registry:file",
-          "target": "apps/web/src/lib/docs-help-center.ts"
-        },
-        {
-          "path": "apps/web/src/app/(marketing)/help/page.tsx",
-          "type": "registry:page",
-          "target": "apps/web/src/app/(marketing)/help/page.tsx"
-        }
-      ]
+      ],
+      "meta": {
+        "category": "docs",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "docs-starlight",
@@ -1833,7 +2801,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "docs",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "domain-verification",
@@ -1856,7 +2830,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/tenancy/domain-verification/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "tenancy",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "drizzle-audit-log",
@@ -1866,7 +2846,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "database",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "drizzle-multitenancy",
@@ -1876,7 +2862,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "database",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "drizzle-postgres",
@@ -1923,7 +2915,13 @@
           "type": "registry:file",
           "target": "drizzle.config.ts"
         }
-      ]
+      ],
+      "meta": {
+        "category": "database",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "drizzle-relations",
@@ -1933,7 +2931,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "database",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "drizzle-soft-delete",
@@ -1943,7 +2947,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "database",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "dunning-recovery",
@@ -1972,7 +2982,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/dunning/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "email-nodemailer",
@@ -1982,7 +2998,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "email",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "email-postmark",
@@ -1992,7 +3014,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "email",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "email-templates",
@@ -2015,7 +3043,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/email-templates/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "communications",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "email-verification",
@@ -2043,7 +3077,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(auth)/email-verification/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "empty-state-onboarding",
+      "type": "registry:block",
+      "title": "Empty State Onboarding",
+      "description": "Empty states that guide users toward setup, activation, and upgrade paths.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "empty-states",
@@ -2069,7 +3125,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/components/empty-states/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "empty-upgrade-state",
+      "type": "registry:block",
+      "title": "Empty Upgrade State",
+      "description": "Empty state pattern with upgrade or monetization call to action.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "enterprise-sso",
@@ -2097,7 +3175,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/workspace/sso/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "entitlements",
@@ -2125,7 +3209,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/entitlements/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "error-boundaries",
@@ -2151,7 +3241,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/components/error-boundaries/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "evals",
@@ -2161,7 +3257,29 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "event-taxonomy",
+      "type": "registry:block",
+      "title": "Event Taxonomy",
+      "description": "Product, billing, support, and operational event taxonomy.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "analytics",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "experiments",
@@ -2171,7 +3289,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "feature-adoption",
@@ -2181,7 +3305,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "feature-flags",
@@ -2209,7 +3339,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/feature-flags/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "growth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "feature-requests",
@@ -2237,7 +3373,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/support/feature-requests/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "support",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "file-uploads",
@@ -2265,7 +3407,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/files/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "storage",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "filter-bar",
+      "type": "registry:block",
+      "title": "Filter Bar",
+      "description": "Search, status, owner, product, and date range filter controls.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "firebase-backend",
@@ -2275,7 +3439,45 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "backend",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "first-api-call",
+      "type": "registry:block",
+      "title": "First API Call",
+      "description": "Guided first API request flow for developer-product activation.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "developer-platform",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "first-api-call-guide",
+      "type": "registry:block",
+      "title": "First API Call Guide",
+      "description": "Docs and UI pattern for guiding a developer to a successful first API call.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "developer-platform",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "flags-launchdarkly",
@@ -2285,7 +3487,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "flags-statsig",
@@ -2295,7 +3503,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "fly-deploy",
@@ -2321,7 +3535,13 @@
           "type": "registry:file",
           "target": "docs/providers/fly-deploy.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "deploy",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "geist-nova-theme",
@@ -2331,7 +3551,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "github-integration",
@@ -2361,7 +3587,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/providers/github/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "integrations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "growth-alerts",
@@ -2371,7 +3603,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "i18n",
@@ -2381,7 +3619,29 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "id-conventions",
+      "type": "registry:block",
+      "title": "ID Conventions",
+      "description": "Identifier conventions for primary keys, external IDs, slugs, and public references.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "database",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "idempotency-keys",
@@ -2409,7 +3669,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/idempotency/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "image-optimization",
@@ -2419,7 +3685,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "media",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "incident-management",
@@ -2447,7 +3719,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/incidents/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "inngest-functions",
@@ -2482,7 +3760,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/workflows/inngest/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "workflow",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "input-validation",
@@ -2505,7 +3789,141 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/security/input-validation/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "security",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "integration-catalog",
+      "type": "registry:block",
+      "title": "Integration Catalog",
+      "description": "Integration catalog UI for connectable providers, setup status, and ownership.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "integrations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "integration-detail-page",
+      "type": "registry:block",
+      "title": "Integration Detail Page",
+      "description": "Integration detail page for setup steps, permissions, health, and docs.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "integrations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "integration-health",
+      "type": "registry:block",
+      "title": "Integration Health",
+      "description": "Integration health state for auth, sync freshness, webhooks, and failures.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "integrations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "integration-install-flow",
+      "type": "registry:block",
+      "title": "Integration Install Flow",
+      "description": "Provider connection flow with permissions, callback handling, and setup checks.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "integrations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "integration-oauth-callback",
+      "type": "registry:block",
+      "title": "Integration OAuth Callback",
+      "description": "OAuth callback route pattern for connecting external SaaS providers.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "integrations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "integration-permissions",
+      "type": "registry:block",
+      "title": "Integration Permissions",
+      "description": "Permission model for integration scopes, actors, and workspace ownership.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "integrations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "integration-sync-logs",
+      "type": "registry:block",
+      "title": "Integration Sync Logs",
+      "description": "Sync log explorer for integration jobs, failures, retries, and sync checkpoints.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "integrations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "integration-webhook-status",
+      "type": "registry:block",
+      "title": "Integration Webhook Status",
+      "description": "Webhook delivery and signature status for connected integrations.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "integrations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "internal-api-trpc",
@@ -2515,7 +3933,29 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "api",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "invite-team-flow",
+      "type": "registry:block",
+      "title": "Invite Team Flow",
+      "description": "Team invitation flow with roles, pending state, and activation nudges.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "tenancy",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "invites",
@@ -2543,7 +3983,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/workspace/invites/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "invoices",
@@ -2566,7 +4012,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/invoices/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "job-run-detail",
+      "type": "registry:block",
+      "title": "Job Run Detail",
+      "description": "Job run detail page for attempts, logs, inputs, outputs, retries, and ownership.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "workflow",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "keyset-pagination",
@@ -2587,7 +4055,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/pagination/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "knock-notifications",
@@ -2619,7 +4093,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/providers/knock/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "notifications",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "kpi-trend-card",
+      "type": "registry:block",
+      "title": "KPI Trend Card",
+      "description": "KPI card with current value, period comparison, and trend state.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "legal-pages",
@@ -2640,7 +4136,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(marketing)/legal/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "marketing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "lemon-squeezy-billing",
@@ -2650,7 +4152,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "billing",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "lifecycle-email",
@@ -2673,7 +4181,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/lifecycle-email/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "growth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "linear-integration",
@@ -2683,7 +4197,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "project-management",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "loading-states",
@@ -2709,7 +4229,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/components/loading-states/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "login-activity",
@@ -2737,7 +4263,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/account/login-activity/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "maintenance-mode",
@@ -2765,7 +4297,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/maintenance/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "marketing-pages",
@@ -2786,7 +4324,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(marketing)/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "marketing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "mcp-client",
@@ -2796,7 +4340,29 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "metric-card-grid",
+      "type": "registry:block",
+      "title": "Metric Card Grid",
+      "description": "Dashboard metric cards for SaaS overview pages.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "mfa-security",
@@ -2824,7 +4390,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/account/mfa/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "model-router",
@@ -2834,7 +4406,45 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "money-amount-conventions",
+      "type": "registry:block",
+      "title": "Money Amount Conventions",
+      "description": "Money and currency amount conventions for billing, invoices, credits, and tax.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "billing",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "money-and-credits-conventions",
+      "type": "registry:block",
+      "title": "Money And Credits Conventions",
+      "description": "Conventions for monetary ledgers, credits, grants, adjustments, and reconciliation.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "billing",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "neon-postgres",
@@ -2864,7 +4474,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/data/neon/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "database",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "newsletter-signups",
@@ -2892,7 +4508,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/newsletter/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "marketing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "next-saas-shell",
@@ -2928,7 +4550,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/dashboard/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "foundation",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "notification-center",
@@ -2951,7 +4579,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/notifications/center/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "notifications",
@@ -2979,7 +4613,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/notifications/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "onboarding-checklist",
+      "type": "registry:block",
+      "title": "Onboarding Checklist",
+      "description": "Installable onboarding checklist for first value and setup completion.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "oncall-alerting",
@@ -3002,17 +4658,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/operations/on-call/page.tsx"
         }
-      ]
-    },
-    {
-      "name": "openfeature-flags",
-      "type": "registry:block",
-      "title": "OpenFeature Flags",
-      "description": "OpenFeature-compatible flag interface and provider adapter pattern.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": []
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "one-time-purchases",
@@ -3040,7 +4692,45 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/purchases/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "openfeature-flags",
+      "type": "registry:block",
+      "title": "OpenFeature Flags",
+      "description": "OpenFeature-compatible flag interface and provider adapter pattern.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "operator-dashboard",
+      "type": "registry:block",
+      "title": "Operator Dashboard",
+      "description": "Internal operator dashboard for customer health, incidents, jobs, support, and revenue signals.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "orgs-rbac",
@@ -3050,7 +4740,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "auth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "paddle-billing",
@@ -3060,7 +4756,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "billing",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "password-reset",
@@ -3088,7 +4790,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(auth)/password-reset/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "permission-matrix",
@@ -3116,7 +4824,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/workspace/permissions/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "plan-gating",
@@ -3139,7 +4853,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/plan-gating/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "playwright-e2e",
@@ -3149,7 +4869,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "plg-metrics",
@@ -3159,7 +4885,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "posthog-analytics",
@@ -3190,7 +4922,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/providers/posthog/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "analytics",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "postmortem-runbook",
@@ -3213,7 +4951,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/operations/postmortems/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "pricing-page",
@@ -3234,7 +4978,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(marketing)/pricing/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "marketing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "product-announcements",
@@ -3258,7 +5008,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/announcements/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "communications",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "product-qualified-leads",
@@ -3268,7 +5024,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "prompt-library",
@@ -3278,7 +5040,45 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "provider-cost-dashboard",
+      "type": "registry:block",
+      "title": "Provider Cost Dashboard",
+      "description": "Provider cost dashboard for usage, spend, margin, and cost anomalies.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "provider-health",
+      "type": "registry:block",
+      "title": "Provider Health",
+      "description": "Provider health dashboard for APIs, webhooks, queues, auth, storage, and data services.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "public-api-orpc",
@@ -3299,7 +5099,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/api/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "public-roadmap",
@@ -3322,7 +5128,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(marketing)/roadmap/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "support",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "quality-tooling",
@@ -3332,7 +5144,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "quota-enforcement",
@@ -3356,7 +5174,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/quotas/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "rag-starter",
@@ -3366,7 +5190,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "ai",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "railway-deploy",
@@ -3392,7 +5222,13 @@
           "type": "registry:file",
           "target": "docs/providers/railway-deploy.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "deploy",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "rate-limits",
@@ -3420,7 +5256,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/rate-limits/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "referral-loops",
@@ -3430,7 +5272,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "refunds-disputes",
@@ -3459,7 +5307,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/refunds/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "render-deploy",
@@ -3469,7 +5323,45 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "deploy",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "replay-center",
+      "type": "registry:block",
+      "title": "Replay Center",
+      "description": "Replay center for failed webhooks, jobs, events, and integration syncs.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "request-log-explorer",
+      "type": "registry:block",
+      "title": "Request Log Explorer",
+      "description": "Request log explorer for API calls, status, latency, errors, and key attribution.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "developer-platform",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "resend-email",
@@ -3505,7 +5397,61 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/providers/resend/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "email",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "resource-header",
+      "type": "registry:block",
+      "title": "Resource Header",
+      "description": "Header pattern for resource title, status, owner, metadata, and actions.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "saved-views",
+      "type": "registry:block",
+      "title": "Saved Views",
+      "description": "Persisted table/report views for operators and team workflows.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "schema-conventions",
+      "type": "registry:block",
+      "title": "Schema Conventions",
+      "description": "Registry-wide database schema conventions for IDs, tenants, timestamps, and metadata.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "database",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "scim-provisioning",
@@ -3533,7 +5479,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/workspace/scim/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "sdk-snippets",
@@ -3543,7 +5495,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "api",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "search-algolia",
@@ -3553,7 +5511,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "search",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "search-meilisearch",
@@ -3563,7 +5527,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "search",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "search-postgres",
@@ -3573,7 +5543,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "search",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "search-typesense",
@@ -3583,7 +5559,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "search",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "seat-management",
@@ -3612,7 +5594,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/seats/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "secret-input",
+      "type": "registry:block",
+      "title": "Secret Input",
+      "description": "Masked input and reveal/copy pattern for API keys, webhooks, and env vars.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "secrets-management",
@@ -3633,7 +5637,61 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/security/secrets/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "security",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "security-center",
+      "type": "registry:block",
+      "title": "Security Center",
+      "description": "Unified security center for workspace posture, access, API keys, events, and controls.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "security",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "security-checklist",
+      "type": "registry:block",
+      "title": "Security Checklist",
+      "description": "Workspace security checklist for launch readiness and enterprise review.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "security",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "security-events",
+      "type": "registry:block",
+      "title": "Security Events",
+      "description": "Security event stream for access, keys, auth, secrets, and suspicious activity.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "security",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "security-headers",
@@ -3654,7 +5712,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/security/headers/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "security",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "security-scorecard",
+      "type": "registry:block",
+      "title": "Security Scorecard",
+      "description": "Security posture scorecard for MFA, SSO, access reviews, secrets, and key hygiene.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "security",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "seed-data",
@@ -3664,7 +5744,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "sentry-monitoring",
@@ -3697,7 +5783,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/providers/sentry/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "observability",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "seo",
@@ -3718,7 +5810,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/seo/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "marketing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "session-management",
@@ -3728,7 +5826,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "auth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "settings-layout",
@@ -3754,7 +5858,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/components/settings-layout/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "setup-wizard",
+      "type": "registry:block",
+      "title": "Setup Wizard",
+      "description": "Multi-step setup wizard for workspace, provider, billing, and product configuration.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "sidebar-shell",
@@ -3764,7 +5890,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "sla-management",
@@ -3787,7 +5919,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/operations/slas/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "slack-notifications",
@@ -3797,7 +5935,61 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "notifications",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "soft-delete-conventions",
+      "type": "registry:block",
+      "title": "Soft Delete Conventions",
+      "description": "Soft delete patterns for recoverability, retention, and auditability.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "database",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "status-badge-system",
+      "type": "registry:block",
+      "title": "Status Badge System",
+      "description": "Unified status badge vocabulary for billing, jobs, incidents, and workflows.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "status-enum-conventions",
+      "type": "registry:block",
+      "title": "Status Enum Conventions",
+      "description": "Status enum naming and lifecycle conventions across SaaS modules.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "database",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "status-page",
@@ -3820,7 +6012,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/status/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "stripe-billing",
@@ -3855,7 +6053,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "supabase-postgres",
@@ -3889,7 +6093,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/data/supabase/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "database",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "support-console",
@@ -3912,7 +6122,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/support/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "support-widget",
@@ -3940,7 +6156,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/support/widget/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "support",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "surveys-nps",
@@ -3950,7 +6172,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "system-health",
@@ -3971,7 +6199,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/system-health/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "t3-env",
@@ -3981,7 +6215,13 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "tax-vat",
@@ -4009,7 +6249,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/tax/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "tenant-context",
@@ -4037,7 +6283,45 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/tenancy/context/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "tenancy",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "tenant-id-conventions",
+      "type": "registry:block",
+      "title": "Tenant ID Conventions",
+      "description": "Tenant and workspace ID conventions for multi-tenant modules.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "tenancy",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "tenant-isolation-policy",
+      "type": "registry:block",
+      "title": "Tenant Isolation Policy",
+      "description": "Tenant isolation policy and review checklist for multi-tenant modules.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "tenancy",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "tenant-isolation-tests",
@@ -4058,7 +6342,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/tenancy/isolation-tests/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "tenancy",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "theme-system",
@@ -4068,7 +6358,91 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "foundation",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "time-to-value-tracking",
+      "type": "registry:block",
+      "title": "Time To Value Tracking",
+      "description": "Track elapsed time from signup to meaningful product activation.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "growth",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "timeline",
+      "type": "registry:block",
+      "title": "Timeline",
+      "description": "Timeline UI for incidents, jobs, webhooks, background tasks, and customer events.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "timestamps-conventions",
+      "type": "registry:block",
+      "title": "Timestamp Conventions",
+      "description": "Timestamp conventions for creation, update, deletion, completion, and expiration.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "database",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "tinybird-analytics",
+      "type": "registry:block",
+      "title": "Tinybird Analytics",
+      "description": "Tinybird Events API adapter for high-volume product, usage, and AI analytics event streams.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/plg-metrics.json",
+        "https://stackfoundry.dev/r/usage-metering.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/tinybird/analytics.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/tinybird/analytics.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/providers/tinybird/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/providers/tinybird/page.tsx"
+        }
+      ],
+      "meta": {
+        "category": "analytics",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "toast-notifications",
@@ -4094,7 +6468,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/components/toasts/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "trial-management",
@@ -4117,31 +6497,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/trials/page.tsx"
         }
-      ]
-    },
-    {
-      "name": "tinybird-analytics",
-      "type": "registry:block",
-      "title": "Tinybird Analytics",
-      "description": "Tinybird Events API adapter for high-volume product, usage, and AI analytics event streams.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [
-        "https://stackfoundry.dev/r/plg-metrics.json",
-        "https://stackfoundry.dev/r/usage-metering.json"
       ],
-      "files": [
-        {
-          "path": "apps/web/src/lib/tinybird/analytics.ts",
-          "type": "registry:file",
-          "target": "apps/web/src/lib/tinybird/analytics.ts"
-        },
-        {
-          "path": "apps/web/src/app/(console)/admin/providers/tinybird/page.tsx",
-          "type": "registry:page",
-          "target": "apps/web/src/app/(console)/admin/providers/tinybird/page.tsx"
-        }
-      ]
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "trigger-dev-jobs",
@@ -4178,7 +6540,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/workflows/trigger-dev/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "workflow",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "trusted-devices",
+      "type": "registry:block",
+      "title": "Trusted Devices",
+      "description": "Trusted device records and review UI for account and workspace security.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "security",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "unkey-api-keys",
@@ -4213,7 +6597,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/providers/unkey/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "unkey-rate-limits",
@@ -4243,7 +6633,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/providers/unkey-rate-limits/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "upstash-redis",
@@ -4279,7 +6675,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/providers/upstash/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "storage",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "uptime-monitoring",
@@ -4302,7 +6704,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/operations/uptime/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "operations",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "usage-anomaly-alerts",
+      "type": "registry:block",
+      "title": "Usage Anomaly Alerts",
+      "description": "Usage anomaly alerts for suspicious spikes, drops, cost changes, and abuse.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "operations",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "usage-based-billing",
@@ -4312,7 +6736,45 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "billing",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "usage-event-conventions",
+      "type": "registry:block",
+      "title": "Usage Event Conventions",
+      "description": "Usage event conventions for metering, quotas, credits, and analytics.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "developer-platform",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "usage-event-explorer",
+      "type": "registry:block",
+      "title": "Usage Event Explorer",
+      "description": "Usage event explorer for metering, billing, rate limits, and anomalies.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "developer-platform",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "usage-metering",
@@ -4340,7 +6802,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/usage/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "billing",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "usage-progress-meter",
+      "type": "registry:block",
+      "title": "Usage Progress Meter",
+      "description": "Quota, usage, credit, and rate-limit progress display.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "components",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "vercel-blob",
@@ -4370,7 +6854,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/providers/vercel-blob/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "storage",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "vercel-deploy",
@@ -4396,7 +6886,13 @@
           "type": "registry:file",
           "target": "docs/providers/vercel-deploy.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "deploy",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "vercel-edge-config",
@@ -4426,7 +6922,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/providers/vercel-edge-config/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "storage",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "vercel-integration",
@@ -4452,7 +6954,13 @@
           "type": "registry:file",
           "target": "docs/providers/vercel-integration.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "deploy",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "vercel-marketplace-storage",
@@ -4478,7 +6986,13 @@
           "type": "registry:file",
           "target": "docs/providers/vercel-marketplace-storage.md"
         }
-      ]
+      ],
+      "meta": {
+        "category": "platform",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "vercel-workflows",
@@ -4508,7 +7022,13 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/workflows/vercel/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "workflow",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     },
     {
       "name": "waitlist",
@@ -4518,7 +7038,29 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": []
+      "files": [],
+      "meta": {
+        "category": "marketing",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "wallet-reconciliation",
+      "type": "registry:block",
+      "title": "Wallet Reconciliation",
+      "description": "Wallet and credit reconciliation workflow for billing and usage consistency.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "billing",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "webhook-delivery",
@@ -4546,7 +7088,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/webhooks/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "webhook-delivery-detail",
+      "type": "registry:block",
+      "title": "Webhook Delivery Detail",
+      "description": "Webhook delivery detail page for payload, signature, attempts, and replay controls.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "developer-platform",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "webhook-inbox",
@@ -4574,7 +7138,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/webhooks/inbox/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "workspace-access-review",
+      "type": "registry:block",
+      "title": "Workspace Access Review",
+      "description": "Workspace access review workflow for users, roles, SSO, and external integrations.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "security",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "workspace-branding",
@@ -4602,7 +7188,29 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/workspace/branding/page.tsx"
         }
-      ]
+      ],
+      "meta": {
+        "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "workspace-create-flow",
+      "type": "registry:block",
+      "title": "Workspace Create Flow",
+      "description": "Workspace creation flow with owner, slug, defaults, and invite handoff.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [],
+      "meta": {
+        "category": "tenancy",
+        "status": "stub",
+        "maturity": "stub",
+        "recommendedFor": []
+      }
     },
     {
       "name": "workspace-settings",
@@ -4623,7 +7231,13 @@
           "type": "registry:file",
           "target": "apps/web/src/lib/workspace-settings.ts"
         }
-      ]
+      ],
+      "meta": {
+        "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     }
   ]
 }

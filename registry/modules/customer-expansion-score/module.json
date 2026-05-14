@@ -1,0 +1,22 @@
+{
+  "name": "customer-expansion-score",
+  "type": "module",
+  "category": "growth",
+  "title": "Customer Expansion Score",
+  "description": "Expansion readiness scoring from adoption, plan limits, and account health.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "customer-expansion-score"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

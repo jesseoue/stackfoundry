@@ -1,0 +1,22 @@
+{
+  "name": "activation-score",
+  "type": "module",
+  "category": "growth",
+  "title": "Activation Score",
+  "description": "Activation score derived from setup, usage, team, and billing milestones.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "activation-score"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

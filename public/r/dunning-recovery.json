@@ -52,12 +52,14 @@
   "meta": {
     "category": "billing",
     "env": [],
-    "status": "experimental",
+    "status": "ready",
+    "maturity": "ready",
     "drizzle": {
       "schemaExports": [
         "dunningRecovery"
       ],
       "migrationRecommended": true
-    }
+    },
+    "recommendedFor": []
   }
 }

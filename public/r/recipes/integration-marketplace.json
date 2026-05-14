@@ -1,0 +1,66 @@
+{
+  "title": "Integration Marketplace",
+  "description": "SaaS integration marketplace recipe for catalog, install flow, permissions, OAuth callback, health, webhooks, and sync logs.",
+  "category": "integrations",
+  "status": "stub",
+  "outcomes": [
+    "Let users connect external services",
+    "Show integration health and sync history",
+    "Keep permissions and ownership explicit"
+  ],
+  "stages": [
+    {
+      "name": "catalog",
+      "modules": [
+        "integration-catalog",
+        "integration-detail-page",
+        "integration-install-flow",
+        "integration-permissions"
+      ]
+    },
+    {
+      "name": "connection",
+      "modules": [
+        "connected-accounts",
+        "integration-oauth-callback",
+        "integration-health"
+      ]
+    },
+    {
+      "name": "operations",
+      "modules": [
+        "integration-webhook-status",
+        "integration-sync-logs",
+        "provider-health"
+      ]
+    },
+    {
+      "name": "adapters",
+      "modules": [
+        "github-integration",
+        "linear-integration",
+        "slack-notifications",
+        "resend-email",
+        "posthog-analytics"
+      ]
+    }
+  ],
+  "name": "integration-marketplace",
+  "modules": [
+    "integration-catalog",
+    "integration-detail-page",
+    "integration-install-flow",
+    "integration-permissions",
+    "connected-accounts",
+    "integration-oauth-callback",
+    "integration-health",
+    "integration-webhook-status",
+    "integration-sync-logs",
+    "provider-health",
+    "github-integration",
+    "linear-integration",
+    "slack-notifications",
+    "resend-email",
+    "posthog-analytics"
+  ]
+}

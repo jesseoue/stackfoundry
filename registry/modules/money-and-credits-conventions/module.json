@@ -1,0 +1,22 @@
+{
+  "name": "money-and-credits-conventions",
+  "type": "module",
+  "category": "billing",
+  "title": "Money And Credits Conventions",
+  "description": "Conventions for monetary ledgers, credits, grants, adjustments, and reconciliation.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "money-and-credits-conventions"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

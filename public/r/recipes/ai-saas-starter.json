@@ -1,0 +1,72 @@
+{
+  "title": "AI SaaS Starter",
+  "description": "AI product path with chat, routing, prompts, evals, artifacts, RAG, quotas, and usage billing.",
+  "category": "ai",
+  "status": "stub",
+  "outcomes": [
+    "Ship an AI feature surface",
+    "Control model usage and cost",
+    "Connect evals and usage billing"
+  ],
+  "stages": [
+    {
+      "name": "ai-product",
+      "modules": [
+        "ai-chat",
+        "model-router",
+        "prompt-library",
+        "ai-artifacts",
+        "ai-tools",
+        "rag-starter"
+      ]
+    },
+    {
+      "name": "usage-and-cost",
+      "modules": [
+        "usage-metering",
+        "quota-enforcement",
+        "usage-based-billing",
+        "provider-cost-dashboard",
+        "usage-anomaly-alerts"
+      ]
+    },
+    {
+      "name": "quality",
+      "modules": [
+        "evals",
+        "data-quality-dashboard",
+        "event-taxonomy"
+      ]
+    },
+    {
+      "name": "platform",
+      "modules": [
+        "mcp-client",
+        "cloudflare-agents-sdk",
+        "cloudflare-vectorize",
+        "ai-seo"
+      ]
+    }
+  ],
+  "name": "ai-saas-starter",
+  "modules": [
+    "ai-chat",
+    "model-router",
+    "prompt-library",
+    "ai-artifacts",
+    "ai-tools",
+    "rag-starter",
+    "usage-metering",
+    "quota-enforcement",
+    "usage-based-billing",
+    "provider-cost-dashboard",
+    "usage-anomaly-alerts",
+    "evals",
+    "data-quality-dashboard",
+    "event-taxonomy",
+    "mcp-client",
+    "cloudflare-agents-sdk",
+    "cloudflare-vectorize",
+    "ai-seo"
+  ]
+}

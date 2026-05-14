@@ -51,12 +51,14 @@
   "meta": {
     "category": "auth",
     "env": [],
-    "status": "experimental",
+    "status": "ready",
+    "maturity": "ready",
     "drizzle": {
       "schemaExports": [
         "connectedAccounts"
       ],
       "migrationRecommended": true
-    }
+    },
+    "recommendedFor": []
   }
 }

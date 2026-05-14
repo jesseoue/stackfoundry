@@ -1,0 +1,22 @@
+{
+  "name": "security-checklist",
+  "type": "module",
+  "category": "security",
+  "title": "Security Checklist",
+  "description": "Workspace security checklist for launch readiness and enterprise review.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "security-checklist"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

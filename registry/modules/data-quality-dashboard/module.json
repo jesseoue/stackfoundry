@@ -1,0 +1,22 @@
+{
+  "name": "data-quality-dashboard",
+  "type": "module",
+  "category": "operations",
+  "title": "Data Quality Dashboard",
+  "description": "Data quality dashboard for enrichment, sync, freshness, and validation signals.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "data-quality-dashboard"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

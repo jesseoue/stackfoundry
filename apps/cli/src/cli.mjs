@@ -8,6 +8,7 @@ import {
   listModuleNames,
   getModule as loadModule,
   getPreset as loadPreset,
+  getRecipe as loadRecipe,
   readRegistryItem as loadRegistryItem,
   readJson,
 } from "@stackfoundry/registry";
@@ -17,6 +18,7 @@ import {
   isKebabCase,
   requiredModuleFields,
   requiredPresetFields,
+  requiredRecipeFields,
   validModuleCategories,
   validModuleStatuses,
   validModuleTypes,
@@ -30,7 +32,7 @@ import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const repoRoot = path.resolve(path.dirname(__filename), "../../..");
-const { modulesRoot, presetsRoot, skillsRoot, webPublicRegistryRoot } =
+const { modulesRoot, presetsRoot, recipesRoot, skillsRoot, webPublicRegistryRoot } =
   createRegistryPaths(repoRoot);
 const defaultSkillsTarget = ".stackfoundry/skills";
 const registryIndexSchema = "https://ui.shadcn.com/schema/registry.json";
@@ -43,12 +45,15 @@ Usage:
   stackfoundry list [--category <name>] [--status <status>]
   stackfoundry categories
   stackfoundry presets
+  stackfoundry recipes
   stackfoundry search <query>
   stackfoundry info <module>
+  stackfoundry recipe <name>
   stackfoundry validate
   stackfoundry doctor
   stackfoundry build
   stackfoundry add preset <name> [--target <dir>] [--dry-run] [--force]
+  stackfoundry add recipe <name> [--target <dir>] [--dry-run] [--force]
   stackfoundry add <module> [--target <dir>] [--dry-run] [--force]
   stackfoundry add <registry-item-url-or-file> [--target <dir>] [--dry-run] [--force]
   stackfoundry diff <module> [--target <dir>]
@@ -59,6 +64,7 @@ Examples:
   stackfoundry list --category billing
   stackfoundry search webhook
   stackfoundry info stripe-billing
+  stackfoundry recipe api-saas-starter
   stackfoundry add api-keys --target ./app
   stackfoundry add preset provider-adapters --target ./app
   stackfoundry add https://stackfoundry.dev/r/api-keys.json --target ./app
@@ -70,11 +76,17 @@ function parseArgs(argv) {
   const [command, firstArg, ...tail] = argv;
   let moduleName = firstArg;
   let presetName;
+  let recipeName;
   const rest = tail;
-  const flags = { target: process.cwd(), dryRun: false, force: false };
+  const flags = { target: process.cwd(), dryRun: false, force: false, strict: false };
 
   if (command === "add" && firstArg === "preset") {
     presetName = rest.shift();
+    moduleName = undefined;
+  }
+
+  if (command === "add" && firstArg === "recipe") {
+    recipeName = rest.shift();
     moduleName = undefined;
   }
 
@@ -91,6 +103,8 @@ function parseArgs(argv) {
       flags.dryRun = true;
     } else if (arg === "--force") {
       flags.force = true;
+    } else if (arg === "--strict") {
+      flags.strict = true;
     } else if (arg === "--category") {
       flags.category = rest[++i];
     } else if (arg === "--status") {
@@ -100,7 +114,7 @@ function parseArgs(argv) {
     }
   }
 
-  return { command, moduleName, presetName, flags };
+  return { command, moduleName, presetName, recipeName, flags };
 }
 
 async function readRegistryItem(specifier) {
@@ -113,6 +127,19 @@ async function getModule(name) {
 
 async function getPreset(name) {
   return loadPreset(presetsRoot, name);
+}
+
+async function getRecipe(name) {
+  return loadRecipe(recipesRoot, name);
+}
+
+async function readAllRecipes() {
+  if (!existsSync(recipesRoot)) return [];
+  const recipes = [];
+  for (const file of (await readdir(recipesRoot)).filter((entry) => entry.endsWith(".json")).sort()) {
+    recipes.push(await readJson(path.join(recipesRoot, file)));
+  }
+  return recipes.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function normalizeSkillEntry(entry) {
@@ -180,7 +207,7 @@ async function validateModule(moduleDir) {
     errors.push(`category must be one of: ${[...validModuleCategories].sort().join(", ")}`);
   }
   if (!validModuleStatuses.has(manifest.status)) {
-    errors.push("status must be planned, experimental, or stable");
+    errors.push("status must be ready, stub, planned, experimental, stable, or deprecated");
   }
   if (!Array.isArray(manifest.files)) errors.push("files must be an array");
   if (!Array.isArray(manifest.dependencies)) errors.push("dependencies must be an array");
@@ -188,6 +215,13 @@ async function validateModule(moduleDir) {
   if (!Array.isArray(manifest.registryDependencies))
     errors.push("registryDependencies must be an array");
   if (!Array.isArray(manifest.env)) errors.push("env must be an array");
+  const installableStatuses = new Set(["ready", "stable"]);
+  if (installableStatuses.has(manifest.status) && manifest.files.length === 0) {
+    errors.push(`${manifest.status} module must include at least one installable file`);
+  }
+  if (manifest.status === "stub" && manifest.files.length > 0) {
+    errors.push("stub module should not include installable files; use experimental or ready");
+  }
   for (const key of manifest.env ?? []) {
     if (!isEnvVarName(key)) errors.push(`env var must be SCREAMING_SNAKE_CASE: ${key}`);
     if (isUnsafePublicEnvName(key)) {
@@ -323,7 +357,7 @@ async function getModuleInstallFiles(name, visited = new Set()) {
   return files;
 }
 
-async function validateRegistry() {
+async function validateRegistry(flags = {}) {
   const registry = await readJson(path.join(repoRoot, "registry.json"));
   const itemNames = new Set();
   const moduleDirs = [];
@@ -345,6 +379,12 @@ async function validateRegistry() {
 
   for (const moduleDir of moduleDirs) {
     const { manifest, errors: moduleErrors } = await validateModule(moduleDir);
+    if (flags.strict && manifest.status === "planned") {
+      errors.push(`${manifest.name}: planned modules are not allowed in strict mode`);
+    }
+    if (flags.strict && manifest.files.length === 0) {
+      errors.push(`${manifest.name}: strict mode requires installable files`);
+    }
     if (!itemNames.has(manifest.name)) {
       errors.push(`${manifest.name}: missing from registry.json`);
     }
@@ -388,6 +428,49 @@ async function validateRegistry() {
             );
           }
           if (!existing) installFiles.set(fileInfo.path, fileInfo);
+        }
+      }
+    }
+  }
+
+  if (existsSync(recipesRoot)) {
+    for (const file of await readdir(recipesRoot)) {
+      if (!file.endsWith(".json")) continue;
+      const recipe = await readJson(path.join(recipesRoot, file));
+      const recipeName = path.basename(file, ".json");
+      for (const field of requiredRecipeFields) {
+        if (!(field in recipe)) errors.push(`${file}: missing field: ${field}`);
+      }
+      if (recipe.name !== recipeName) errors.push(`${file}: recipe name must match file name`);
+      if (!isKebabCase(recipe.name)) errors.push(`${file}: recipe name must be kebab-case`);
+      if (!validModuleCategories.has(recipe.category)) {
+        errors.push(`${file}: recipe category must be one of: ${[...validModuleCategories].sort().join(", ")}`);
+      }
+      if (!validModuleStatuses.has(recipe.status)) {
+        errors.push(`${file}: recipe status must be ready, stub, planned, experimental, stable, or deprecated`);
+      }
+      if (!Array.isArray(recipe.modules)) errors.push(`${file}: modules must be an array`);
+      if (!Array.isArray(recipe.stages)) errors.push(`${file}: stages must be an array`);
+
+      const stageModules = new Set();
+      for (const stage of recipe.stages ?? []) {
+        if (!isKebabCase(stage.name)) errors.push(`${file}: stage name must be kebab-case`);
+        if (!Array.isArray(stage.modules)) errors.push(`${file}: stage modules must be an array`);
+        for (const moduleName of stage.modules ?? []) {
+          stageModules.add(moduleName);
+          if (!existsSync(path.join(modulesRoot, moduleName, "module.json"))) {
+            errors.push(`${file}: unknown module ${moduleName}`);
+          }
+        }
+      }
+      for (const moduleName of recipe.modules ?? []) {
+        if (!stageModules.has(moduleName)) {
+          errors.push(`${file}: modules includes ${moduleName} but no stage references it`);
+        }
+      }
+      for (const moduleName of stageModules) {
+        if (!(recipe.modules ?? []).includes(moduleName)) {
+          errors.push(`${file}: stage references ${moduleName} but modules does not include it`);
         }
       }
     }
@@ -532,6 +615,42 @@ async function searchModules(query) {
   }
 }
 
+async function listRecipes() {
+  const recipes = await readAllRecipes();
+  if (recipes.length === 0) {
+    console.log("No recipes found.");
+    return;
+  }
+
+  console.log(`StackFoundry recipes (${formatCount(recipes.length, "recipe")})`);
+  console.log("");
+  for (const recipe of recipes) {
+    console.log(`${recipe.name.padEnd(28)} ${recipe.status.padEnd(12)} ${recipe.description}`);
+  }
+}
+
+async function showRecipeInfo(name) {
+  if (!name) throw new Error("recipe requires a recipe name");
+  const recipe = await getRecipe(name);
+  console.log(`${recipe.title} (${recipe.name})`);
+  console.log(recipe.description);
+  console.log("");
+  console.log(`status:   ${recipe.status}`);
+  console.log(`category: ${categoryLabel(recipe.category)}`);
+  console.log(`modules:  ${formatCount(recipe.modules.length, "module")}`);
+  if (recipe.outcomes?.length) {
+    console.log("");
+    console.log("outcomes:");
+    for (const outcome of recipe.outcomes) console.log(`  - ${outcome}`);
+  }
+  console.log("");
+  console.log("install order:");
+  for (const stage of recipe.stages) {
+    console.log(`  ${stage.name}`);
+    for (const moduleName of stage.modules) console.log(`    -> ${moduleName}`);
+  }
+}
+
 async function showModuleInfo(name) {
   if (!name) throw new Error("info requires a module name");
   const { manifest } = await getModule(name);
@@ -664,10 +783,38 @@ async function addPreset(name, flags) {
   if (!name) throw new Error("add preset requires a preset name");
   const preset = await getPreset(name);
   const visited = new Set();
+  let installedCount = 0;
   console.log(`${flags.dryRun ? "would install" : "installing"} preset ${preset.name}`);
   for (const moduleName of preset.modules) {
     await addModule(moduleName, flags, visited, { presetName: preset.name });
+    installedCount += 1;
   }
+  console.log("");
+  console.log(`${flags.dryRun ? "would install" : "installed"} ${installedCount} modules from ${preset.name}`);
+  console.log("Next steps:");
+  console.log("  1. Review generated .env.stackfoundry.*.example files");
+  console.log("  2. Run your package manager install");
+  console.log("  3. Run database migrations");
+  console.log("  4. Start the app and verify installed pages");
+}
+
+async function addRecipe(name, flags) {
+  if (!name) throw new Error("add recipe requires a recipe name");
+  const recipe = await getRecipe(name);
+  const visited = new Set();
+  let installedCount = 0;
+  console.log(`${flags.dryRun ? "would install" : "installing"} recipe ${recipe.name}`);
+  for (const moduleName of recipe.modules) {
+    await addModule(moduleName, flags, visited, { presetName: recipe.name });
+    installedCount += 1;
+  }
+  console.log("");
+  console.log(`${flags.dryRun ? "would install" : "installed"} ${installedCount} modules from ${recipe.name}`);
+  console.log("Next steps:");
+  console.log("  1. Review generated .env.stackfoundry.*.example files");
+  console.log("  2. Run your package manager install");
+  console.log("  3. Run database migrations");
+  console.log("  4. Start the app and verify installed pages");
 }
 
 async function addRegistryItem(specifier, flags, visited = new Set()) {
@@ -886,6 +1033,13 @@ async function buildRegistry() {
       devDependencies: manifest.devDependencies,
       registryDependencies: manifest.registryDependencies.map(toRegistryDependency),
       files: manifest.files.map((file) => ({ ...file, target: file.path })),
+      meta: {
+        category: manifest.category,
+        group: manifest.group,
+        status: manifest.status,
+        maturity: manifest.status,
+        recommendedFor: manifest.recommendedFor ?? [],
+      },
     });
   }
 
@@ -924,11 +1078,12 @@ async function buildRegistry() {
               description: preset.description,
               registryDependencies: preset.modules.map(toRegistryDependency),
               files: [],
-              docs: `Installs the ${preset.title} preset from StackFoundry.`,
+              docs: `Installs the ${preset.title} recipe from StackFoundry.`,
               meta: {
-                category: "preset",
+                category: "recipe",
                 status: preset.status,
                 modules: preset.modules,
+                moduleCount: preset.modules.length,
               },
             },
             null,
@@ -937,6 +1092,17 @@ async function buildRegistry() {
         );
         console.log(`built public/r/${preset.name}.json`);
       }
+    }
+  }
+
+  const recipesOutputDir = path.join(outputDir, "recipes");
+  await mkdir(recipesOutputDir, { recursive: true });
+  if (existsSync(recipesRoot)) {
+    for (const file of (await readdir(recipesRoot))
+      .filter((entry) => entry.endsWith(".json"))
+      .sort()) {
+      await copyFile(path.join(recipesRoot, file), path.join(recipesOutputDir, file));
+      console.log(`built public/r/recipes/${file}`);
     }
   }
 
@@ -972,9 +1138,12 @@ async function buildRegistry() {
       docs: existsSync(docsPath) ? await readFile(docsPath, "utf8") : undefined,
       meta: {
         category: manifest.category,
+        group: manifest.group,
         env: manifest.env,
         status: manifest.status,
+        maturity: manifest.status,
         drizzle: manifest.drizzle,
+        recommendedFor: manifest.recommendedFor ?? [],
       },
     };
 
@@ -991,7 +1160,7 @@ async function buildRegistry() {
 }
 
 async function main() {
-  const { command, moduleName, presetName, flags } = parseArgs(process.argv.slice(2));
+  const { command, moduleName, presetName, recipeName, flags } = parseArgs(process.argv.slice(2));
 
   if (!command || command === "help" || command === "--help") {
     usage();
@@ -1001,11 +1170,13 @@ async function main() {
   if (command === "list") return listModules(flags);
   if (command === "categories") return listCategories();
   if (command === "presets") return listPresets();
+  if (command === "recipes") return listRecipes();
+  if (command === "recipe") return showRecipeInfo(moduleName);
   if (command === "search") return searchModules(moduleName);
   if (command === "info") return showModuleInfo(moduleName);
   if (command === "build") return buildRegistry();
   if (command === "validate" || command === "doctor") {
-    const errors = await validateRegistry();
+    const errors = await validateRegistry(flags);
     if (errors.length > 0) {
       for (const error of errors) console.error(`error: ${error}`);
       process.exitCode = 1;
@@ -1016,6 +1187,7 @@ async function main() {
   }
 
   if (command === "add" && presetName) return addPreset(presetName, flags);
+  if (command === "add" && recipeName) return addRecipe(recipeName, flags);
   if (!moduleName) throw new Error(`${command} requires a module name`);
   if (command === "add" && isRegistryItemSpecifier(moduleName))
     return addRegistryItem(moduleName, flags);

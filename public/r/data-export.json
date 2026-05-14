@@ -51,12 +51,14 @@
   "meta": {
     "category": "compliance",
     "env": [],
-    "status": "experimental",
+    "status": "ready",
+    "maturity": "ready",
     "drizzle": {
       "schemaExports": [
         "dataExport"
       ],
       "migrationRecommended": true
-    }
+    },
+    "recommendedFor": []
   }
 }

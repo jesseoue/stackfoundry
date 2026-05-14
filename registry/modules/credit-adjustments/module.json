@@ -1,0 +1,22 @@
+{
+  "name": "credit-adjustments",
+  "type": "module",
+  "category": "billing",
+  "title": "Credit Adjustments",
+  "description": "Manual credit adjustment flow with reason codes, approvals, and audit events.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "credit-adjustments"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

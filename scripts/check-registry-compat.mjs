@@ -102,6 +102,20 @@ assert(
 );
 assert(Array.isArray(presetManifest.modules), "public preset manifests must include modules");
 
+const recipeManifest = await readJson("public/r/recipes/api-saas-starter.json");
+assert(
+  recipeManifest.$schema === undefined,
+  "public recipe manifests must not masquerade as shadcn registry documents",
+);
+assert(Array.isArray(recipeManifest.modules), "public recipe manifests must include modules");
+assert(Array.isArray(recipeManifest.stages), "public recipe manifests must include install stages");
+assert(
+  recipeManifest.stages.every((stage) =>
+    stage.modules.every((moduleName) => recipeManifest.modules.includes(moduleName)),
+  ),
+  "recipe stages must reference modules listed in recipe.modules",
+);
+
 const webRegistryIndexPath = "apps/web/public/r/registry.json";
 if (existsSync(webRegistryIndexPath)) {
   const publicIndex = await readFile("public/r/registry.json", "utf8");

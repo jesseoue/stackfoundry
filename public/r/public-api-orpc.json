@@ -38,6 +38,8 @@
   "meta": {
     "category": "developer-platform",
     "env": [],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

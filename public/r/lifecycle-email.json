@@ -40,6 +40,8 @@
   "meta": {
     "category": "growth",
     "env": [],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

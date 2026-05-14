@@ -67,6 +67,8 @@
       "SENTRY_ORG",
       "SENTRY_PROJECT"
     ],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

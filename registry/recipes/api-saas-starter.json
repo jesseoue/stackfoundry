@@ -1,0 +1,106 @@
+{
+  "title": "API SaaS Starter",
+  "description": "A vertical API product path from auth and API keys through usage, quotas, docs, webhooks, billing, and request visibility.",
+  "category": "developer-platform",
+  "status": "ready",
+  "outcomes": [
+    "Issue and verify API keys",
+    "Meter usage and enforce quotas",
+    "Expose docs, request logs, and webhook delivery"
+  ],
+  "stages": [
+    {
+      "name": "identity",
+      "modules": [
+        "auth-core",
+        "tenant-context",
+        "account-settings"
+      ]
+    },
+    {
+      "name": "api-access",
+      "modules": [
+        "api-keys",
+        "api-errors",
+        "keyset-pagination",
+        "rate-limits",
+        "unkey-api-keys",
+        "unkey-rate-limits"
+      ]
+    },
+    {
+      "name": "usage-and-credits",
+      "modules": [
+        "usage-metering",
+        "quota-enforcement",
+        "credit-wallet",
+        "credit-ledger",
+        "credit-grants",
+        "credit-adjustments",
+        "wallet-reconciliation"
+      ]
+    },
+    {
+      "name": "developer-experience",
+      "modules": [
+        "api-docs",
+        "sdk-snippets",
+        "api-playground",
+        "first-api-call",
+        "request-log-explorer"
+      ]
+    },
+    {
+      "name": "webhooks",
+      "modules": [
+        "webhook-inbox",
+        "webhook-delivery",
+        "webhook-delivery-detail",
+        "idempotency-keys"
+      ]
+    },
+    {
+      "name": "billing",
+      "modules": [
+        "billing-core",
+        "stripe-billing",
+        "plan-gating",
+        "entitlements",
+        "billing-ledger"
+      ]
+    }
+  ],
+  "name": "api-saas-starter",
+  "modules": [
+    "auth-core",
+    "tenant-context",
+    "account-settings",
+    "api-keys",
+    "api-errors",
+    "keyset-pagination",
+    "rate-limits",
+    "unkey-api-keys",
+    "unkey-rate-limits",
+    "usage-metering",
+    "quota-enforcement",
+    "credit-wallet",
+    "credit-ledger",
+    "credit-grants",
+    "credit-adjustments",
+    "wallet-reconciliation",
+    "api-docs",
+    "sdk-snippets",
+    "api-playground",
+    "first-api-call",
+    "request-log-explorer",
+    "webhook-inbox",
+    "webhook-delivery",
+    "webhook-delivery-detail",
+    "idempotency-keys",
+    "billing-core",
+    "stripe-billing",
+    "plan-gating",
+    "entitlements",
+    "billing-ledger"
+  ]
+}

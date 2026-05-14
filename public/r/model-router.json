@@ -30,6 +30,8 @@
   "meta": {
     "category": "ai",
     "env": [],
-    "status": "planned"
+    "status": "stub",
+    "maturity": "stub",
+    "recommendedFor": []
   }
 }

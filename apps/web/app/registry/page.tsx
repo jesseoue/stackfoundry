@@ -78,6 +78,45 @@ const featuredPresets = [
   },
 ];
 
+const featuredRecipes = [
+  {
+    name: "api-saas-starter",
+    title: "API SaaS Starter",
+    description: "Keys, usage, quotas, docs, webhooks, credits, billing, and request visibility.",
+    modules: ["api-keys", "usage-metering", "rate-limits", "api-docs", "webhook-delivery"],
+    tone: "API",
+  },
+  {
+    name: "enterprise-saas",
+    title: "Enterprise SaaS",
+    description: "SSO, SCIM, audit, security posture, access reviews, SLAs, and support ops.",
+    modules: [
+      "enterprise-sso",
+      "scim-provisioning",
+      "audit-log",
+      "security-center",
+      "sla-management",
+    ],
+    tone: "B2B",
+  },
+  {
+    name: "customer-intelligence",
+    title: "Customer Intelligence",
+    description:
+      "Customer 360, account health, usage, billing, support, risk, and adoption signals.",
+    modules: ["customer-360", "account-health", "customer-timeline", "customer-risk-score"],
+    tone: "Ops",
+  },
+  {
+    name: "cloudflare-saas",
+    title: "Cloudflare SaaS",
+    description:
+      "Workers, D1, KV, R2, Queues, Workflows, Durable Objects, Hyperdrive, and Turnstile.",
+    modules: ["cloudflare-workers", "cloudflare-d1", "cloudflare-r2", "cloudflare-queues"],
+    tone: "Edge",
+  },
+];
+
 const moduleFamilies = [
   {
     title: "Foundation",
@@ -406,6 +445,32 @@ pnpm stackfoundry diff api-keys`}</code>
       </header>
 
       <div className="container">
+        <section className="registry-section" id="recipes">
+          <div className="registry-section-head">
+            <div className="section-eyebrow">Recipes</div>
+            <h2>Install a product path, not a bag of blocks.</h2>
+            <p>
+              Recipes document the recommended install order for complete SaaS workflows. They show
+              how source-owned modules, provider adapters, UI primitives, and operator surfaces fit
+              together before you install.
+            </p>
+          </div>
+
+          <div className="registry-preset-grid">
+            {featuredRecipes.map((recipe) => (
+              <ModuleCard
+                badge={recipe.tone}
+                description={recipe.description}
+                key={recipe.name}
+                name={recipe.name}
+                tags={moduleTags(recipe.modules)}
+                title={recipe.title}
+                variant="preset"
+              />
+            ))}
+          </div>
+        </section>
+
         <section className="registry-section" id="presets">
           <div className="registry-section-head">
             <div className="section-eyebrow">Featured Paths</div>

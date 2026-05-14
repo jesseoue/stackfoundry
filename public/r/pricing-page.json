@@ -38,6 +38,8 @@
   "meta": {
     "category": "marketing",
     "env": [],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

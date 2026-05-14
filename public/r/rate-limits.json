@@ -51,13 +51,15 @@
   "meta": {
     "category": "operations",
     "env": [],
-    "status": "experimental",
+    "status": "ready",
+    "maturity": "ready",
     "drizzle": {
       "schemaExports": [
         "rateLimitRules",
         "rateLimitHits"
       ],
       "migrationRecommended": true
-    }
+    },
+    "recommendedFor": []
   }
 }

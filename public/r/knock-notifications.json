@@ -63,6 +63,8 @@
       "NEXT_PUBLIC_KNOCK_PUBLIC_API_KEY",
       "NEXT_PUBLIC_KNOCK_FEED_CHANNEL_ID"
     ],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

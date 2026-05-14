@@ -10,6 +10,8 @@ The first installable production modules were:
 
 The registry now includes core modules, provider adapter examples, and registry-compatible public blocks. Each module should be installable into an existing app as editable source code. Presets are only bundles of modules.
 
+Use [Recipes](./recipes.md) and [Install order](./install-order.md) when you want a complete workflow instead of individual blocks.
+
 ## What a Module Includes
 
 - `module.json`
@@ -22,6 +24,8 @@ The registry now includes core modules, provider adapter examples, and registry-
 - install metadata for diff/update safety
 
 Module-specific skills stay focused on ownership, installed files, environment variables, deployment checks, and invariants. Provider, framework, database, SDK, and platform guidance lives in shared skills such as `.stackfoundry/skills/stripe/SKILL.md`, copied from `registry/skills/stripe/SKILL.md` during install.
+
+See [Readiness](./readiness.md) for the meaning of `ready`, `stub`, `planned`, `experimental`, `stable`, and `deprecated`.
 
 ## Module Families
 

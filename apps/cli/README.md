@@ -29,9 +29,12 @@ pnpm stackfoundry list --category billing
 pnpm stackfoundry search webhook
 pnpm stackfoundry info stripe-billing
 pnpm stackfoundry presets
+pnpm stackfoundry recipes
+pnpm stackfoundry recipe api-saas-starter
 pnpm stackfoundry doctor
 pnpm stackfoundry build
 pnpm stackfoundry add api-keys --target /tmp/app --dry-run
+pnpm stackfoundry add recipe api-saas-starter --target /tmp/app --dry-run
 pnpm stackfoundry add preset provider-adapters --target /tmp/app --dry-run
 pnpm stackfoundry add https://stackfoundry.dev/r/api-keys.json --target /tmp/app --dry-run
 pnpm stackfoundry diff api-keys --target /tmp/app

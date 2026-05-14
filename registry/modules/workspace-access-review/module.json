@@ -1,0 +1,22 @@
+{
+  "name": "workspace-access-review",
+  "type": "module",
+  "category": "security",
+  "title": "Workspace Access Review",
+  "description": "Workspace access review workflow for users, roles, SSO, and external integrations.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "workspace-access-review"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

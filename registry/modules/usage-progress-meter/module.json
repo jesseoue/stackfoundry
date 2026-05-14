@@ -1,0 +1,22 @@
+{
+  "name": "usage-progress-meter",
+  "type": "module",
+  "category": "components",
+  "title": "Usage Progress Meter",
+  "description": "Quota, usage, credit, and rate-limit progress display.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "usage-progress-meter"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

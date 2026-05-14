@@ -1,0 +1,70 @@
+{
+  "title": "Customer Intelligence",
+  "description": "Customer 360 and account intelligence recipe for usage, billing, support, risk, expansion, and product adoption.",
+  "category": "operations",
+  "status": "stub",
+  "outcomes": [
+    "Understand customer health",
+    "Connect billing, support, and usage",
+    "Find churn and expansion signals"
+  ],
+  "stages": [
+    {
+      "name": "profile",
+      "modules": [
+        "customer-360",
+        "customer-usage-profile",
+        "customer-billing-profile",
+        "customer-support-profile"
+      ]
+    },
+    {
+      "name": "signals",
+      "modules": [
+        "account-health",
+        "customer-risk-score",
+        "customer-expansion-score",
+        "customer-product-adoption"
+      ]
+    },
+    {
+      "name": "data",
+      "modules": [
+        "usage-event-explorer",
+        "cohort-retention",
+        "feature-adoption",
+        "posthog-analytics",
+        "tinybird-analytics"
+      ]
+    },
+    {
+      "name": "billing",
+      "modules": [
+        "billing-ledger",
+        "credit-ledger",
+        "wallet-reconciliation",
+        "usage-metering"
+      ]
+    }
+  ],
+  "name": "customer-intelligence",
+  "modules": [
+    "customer-360",
+    "customer-usage-profile",
+    "customer-billing-profile",
+    "customer-support-profile",
+    "account-health",
+    "customer-risk-score",
+    "customer-expansion-score",
+    "customer-product-adoption",
+    "usage-event-explorer",
+    "cohort-retention",
+    "feature-adoption",
+    "posthog-analytics",
+    "tinybird-analytics",
+    "billing-ledger",
+    "credit-ledger",
+    "wallet-reconciliation",
+    "usage-metering"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "title": "SaaS Starter Minimal",
+  "description": "A compact SaaS foundation with shell, settings, auth boundary, billing path, database, and environment conventions.",
+  "category": "foundation",
+  "status": "ready",
+  "outcomes": [
+    "Launch a minimal SaaS shell",
+    "Choose auth and billing adapters explicitly",
+    "Keep database and env boundaries visible"
+  ],
+  "stages": [
+    {
+      "name": "foundation",
+      "modules": [
+        "next-saas-shell",
+        "theme-system",
+        "settings-layout",
+        "t3-env"
+      ]
+    },
+    {
+      "name": "data",
+      "modules": [
+        "drizzle-postgres",
+        "tenant-context"
+      ]
+    },
+    {
+      "name": "identity",
+      "modules": [
+        "auth-core",
+        "account-settings",
+        "account-modes",
+        "clerk-auth"
+      ]
+    },
+    {
+      "name": "monetization",
+      "modules": [
+        "billing-core",
+        "stripe-billing",
+        "pricing-page",
+        "invoices"
+      ]
+    },
+    {
+      "name": "operations",
+      "modules": [
+        "audit-log",
+        "system-health",
+        "security-headers"
+      ]
+    }
+  ],
+  "name": "saas-starter-minimal",
+  "modules": [
+    "next-saas-shell",
+    "theme-system",
+    "settings-layout",
+    "t3-env",
+    "drizzle-postgres",
+    "tenant-context",
+    "auth-core",
+    "account-settings",
+    "account-modes",
+    "clerk-auth",
+    "billing-core",
+    "stripe-billing",
+    "pricing-page",
+    "invoices",
+    "audit-log",
+    "system-health",
+    "security-headers"
+  ]
+}

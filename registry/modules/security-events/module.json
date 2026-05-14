@@ -1,0 +1,22 @@
+{
+  "name": "security-events",
+  "type": "module",
+  "category": "security",
+  "title": "Security Events",
+  "description": "Security event stream for access, keys, auth, secrets, and suspicious activity.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "security-events"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

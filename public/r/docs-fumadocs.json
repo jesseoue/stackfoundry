@@ -61,6 +61,8 @@
   "meta": {
     "category": "docs",
     "env": [],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

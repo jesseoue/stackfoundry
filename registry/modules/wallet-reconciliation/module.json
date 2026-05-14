@@ -1,0 +1,22 @@
+{
+  "name": "wallet-reconciliation",
+  "type": "module",
+  "category": "billing",
+  "title": "Wallet Reconciliation",
+  "description": "Wallet and credit reconciliation workflow for billing and usage consistency.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "wallet-reconciliation"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

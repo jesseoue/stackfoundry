@@ -41,6 +41,8 @@
   "meta": {
     "category": "billing",
     "env": [],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

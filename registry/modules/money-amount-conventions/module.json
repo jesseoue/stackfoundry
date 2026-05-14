@@ -1,0 +1,22 @@
+{
+  "name": "money-amount-conventions",
+  "type": "module",
+  "category": "billing",
+  "title": "Money Amount Conventions",
+  "description": "Money and currency amount conventions for billing, invoices, credits, and tax.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "money-amount-conventions"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

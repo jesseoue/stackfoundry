@@ -57,6 +57,8 @@
     "env": [
       "ARCJET_KEY"
     ],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

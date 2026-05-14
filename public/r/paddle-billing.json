@@ -25,6 +25,8 @@
   "meta": {
     "category": "billing",
     "env": [],
-    "status": "planned"
+    "status": "stub",
+    "maturity": "stub",
+    "recommendedFor": []
   }
 }

@@ -1,0 +1,22 @@
+{
+  "name": "id-conventions",
+  "type": "module",
+  "category": "database",
+  "title": "ID Conventions",
+  "description": "Identifier conventions for primary keys, external IDs, slugs, and public references.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "id-conventions"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

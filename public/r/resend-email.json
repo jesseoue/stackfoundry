@@ -66,6 +66,8 @@
       "RESEND_API_KEY",
       "RESEND_FROM_EMAIL"
     ],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

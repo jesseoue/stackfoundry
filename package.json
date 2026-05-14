@@ -52,7 +52,11 @@
     "registry:add:coverage": "pnpm stackfoundry add preset saas-coverage",
     "registry:dry:coverage": "pnpm stackfoundry add preset saas-coverage --dry-run",
     "stackfoundry": "node apps/cli/src/cli.mjs",
-    "lint:command": "node --check apps/cli/src/cli.mjs"
+    "lint:command": "node --check apps/cli/src/cli.mjs",
+    "registry:recipes": "pnpm stackfoundry recipes",
+    "registry:recipe:api": "pnpm stackfoundry recipe api-saas-starter",
+    "registry:add:api-saas": "pnpm stackfoundry add recipe api-saas-starter",
+    "registry:dry:api-saas": "pnpm stackfoundry add recipe api-saas-starter --dry-run"
   },
   "dependencies": {
     "next": "latest",

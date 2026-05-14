@@ -30,7 +30,7 @@
       "type": "registry:file"
     }
   ],
-  "status": "experimental",
+  "status": "ready",
   "maintenance": {
     "skills": [
       "ai-seo",

@@ -54,6 +54,8 @@
       "TINYBIRD_API_URL",
       "TINYBIRD_ANALYTICS_DATASOURCE"
     ],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

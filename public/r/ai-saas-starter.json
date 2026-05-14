@@ -1,0 +1,46 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-saas-starter",
+  "type": "registry:block",
+  "title": "AI SaaS Starter",
+  "description": "AI SaaS starter with chat, tools, artifacts, model routing, prompts, evals, RAG, metering, and billing.",
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/next-saas-shell.json",
+    "https://stackfoundry.dev/r/clerk-auth.json",
+    "https://stackfoundry.dev/r/billing-core.json",
+    "https://stackfoundry.dev/r/usage-metering.json",
+    "https://stackfoundry.dev/r/quota-enforcement.json",
+    "https://stackfoundry.dev/r/ai-chat.json",
+    "https://stackfoundry.dev/r/ai-tools.json",
+    "https://stackfoundry.dev/r/ai-artifacts.json",
+    "https://stackfoundry.dev/r/model-router.json",
+    "https://stackfoundry.dev/r/prompt-library.json",
+    "https://stackfoundry.dev/r/evals.json",
+    "https://stackfoundry.dev/r/rag-starter.json",
+    "https://stackfoundry.dev/r/posthog-analytics.json",
+    "https://stackfoundry.dev/r/sentry-monitoring.json"
+  ],
+  "files": [],
+  "docs": "Installs the AI SaaS Starter recipe from StackFoundry.",
+  "meta": {
+    "category": "recipe",
+    "status": "experimental",
+    "modules": [
+      "next-saas-shell",
+      "clerk-auth",
+      "billing-core",
+      "usage-metering",
+      "quota-enforcement",
+      "ai-chat",
+      "ai-tools",
+      "ai-artifacts",
+      "model-router",
+      "prompt-library",
+      "evals",
+      "rag-starter",
+      "posthog-analytics",
+      "sentry-monitoring"
+    ],
+    "moduleCount": 14
+  }
+}

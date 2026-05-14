@@ -1,0 +1,22 @@
+{
+  "name": "action-confirmation-dialog",
+  "type": "module",
+  "category": "components",
+  "title": "Action Confirmation Dialog",
+  "description": "Dialog component for confirming high-impact account, billing, and security actions.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "action-confirmation-dialog"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

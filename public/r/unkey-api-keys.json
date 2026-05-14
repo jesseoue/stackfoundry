@@ -65,6 +65,8 @@
       "UNKEY_ROOT_KEY",
       "UNKEY_API_ID"
     ],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

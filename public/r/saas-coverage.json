@@ -49,9 +49,9 @@
     "https://stackfoundry.dev/r/settings-layout.json"
   ],
   "files": [],
-  "docs": "Installs the SaaS Coverage preset from StackFoundry.",
+  "docs": "Installs the SaaS Coverage recipe from StackFoundry.",
   "meta": {
-    "category": "preset",
+    "category": "recipe",
     "status": "experimental",
     "modules": [
       "tenant-context",
@@ -96,6 +96,7 @@
       "error-boundaries",
       "data-table",
       "settings-layout"
-    ]
+    ],
+    "moduleCount": 42
   }
 }

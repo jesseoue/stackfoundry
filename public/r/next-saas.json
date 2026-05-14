@@ -100,9 +100,9 @@
     "https://stackfoundry.dev/r/sla-management.json"
   ],
   "files": [],
-  "docs": "Installs the Next SaaS preset from StackFoundry.",
+  "docs": "Installs the Next SaaS recipe from StackFoundry.",
   "meta": {
-    "category": "preset",
+    "category": "recipe",
     "status": "planned",
     "modules": [
       "next-saas-shell",
@@ -198,6 +198,7 @@
       "oncall-alerting",
       "postmortem-runbook",
       "sla-management"
-    ]
+    ],
+    "moduleCount": 93
   }
 }

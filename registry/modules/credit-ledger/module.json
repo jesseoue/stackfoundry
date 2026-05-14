@@ -1,0 +1,22 @@
+{
+  "name": "credit-ledger",
+  "type": "module",
+  "category": "billing",
+  "title": "Credit Ledger",
+  "description": "Credit ledger for grants, deductions, expirations, refunds, and adjustments.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "credit-ledger"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

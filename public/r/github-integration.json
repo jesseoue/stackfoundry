@@ -61,6 +61,8 @@
       "GITHUB_PRIVATE_KEY",
       "GITHUB_WEBHOOK_SECRET"
     ],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

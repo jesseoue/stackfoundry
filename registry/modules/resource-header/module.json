@@ -1,0 +1,22 @@
+{
+  "name": "resource-header",
+  "type": "module",
+  "category": "components",
+  "title": "Resource Header",
+  "description": "Header pattern for resource title, status, owner, metadata, and actions.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "resource-header"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

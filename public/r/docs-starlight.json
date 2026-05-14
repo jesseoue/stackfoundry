@@ -25,6 +25,8 @@
   "meta": {
     "category": "docs",
     "env": [],
-    "status": "planned"
+    "status": "stub",
+    "maturity": "stub",
+    "recommendedFor": []
   }
 }

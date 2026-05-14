@@ -1,0 +1,22 @@
+{
+  "name": "onboarding-checklist",
+  "type": "module",
+  "category": "growth",
+  "title": "Onboarding Checklist",
+  "description": "Installable onboarding checklist for first value and setup completion.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "onboarding-checklist"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

@@ -22,7 +22,7 @@
       "type": "registry:file"
     }
   ],
-  "status": "experimental",
+  "status": "ready",
   "maintenance": {
     "skills": [
       "cloudflare-workers-ai",

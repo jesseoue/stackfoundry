@@ -1,0 +1,22 @@
+{
+  "name": "provider-cost-dashboard",
+  "type": "module",
+  "category": "operations",
+  "title": "Provider Cost Dashboard",
+  "description": "Provider cost dashboard for usage, spend, margin, and cost anomalies.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "provider-cost-dashboard"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

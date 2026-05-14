@@ -11,6 +11,7 @@ export function createRegistryPaths(repoRoot) {
     registryRoot,
     modulesRoot: path.join(registryRoot, "modules"),
     presetsRoot: path.join(registryRoot, "presets"),
+    recipesRoot: path.join(registryRoot, "recipes"),
     skillsRoot: path.join(registryRoot, "skills"),
     publicRegistryRoot: path.join(repoRoot, "public", "r"),
     webPublicRegistryRoot: path.join(repoRoot, "apps", "web", "public", "r"),
@@ -74,6 +75,14 @@ export async function getPreset(presetsRoot, name) {
     throw new Error(`Unknown preset: ${name}`);
   }
   return readJson(presetPath);
+}
+
+export async function getRecipe(recipesRoot, name) {
+  const recipePath = path.join(recipesRoot, `${name}.json`);
+  if (!existsSync(recipePath)) {
+    throw new Error(`Unknown recipe: ${name}`);
+  }
+  return readJson(recipePath);
 }
 
 export function getLocalRegistryPathFromUrl(repoRoot, url) {

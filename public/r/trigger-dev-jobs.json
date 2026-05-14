@@ -67,6 +67,8 @@
       "TRIGGER_SECRET_KEY",
       "TRIGGER_PROJECT_ID"
     ],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

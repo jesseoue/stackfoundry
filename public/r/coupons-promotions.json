@@ -51,12 +51,14 @@
   "meta": {
     "category": "billing",
     "env": [],
-    "status": "experimental",
+    "status": "ready",
+    "maturity": "ready",
     "drizzle": {
       "schemaExports": [
         "couponsPromotions"
       ],
       "migrationRecommended": true
-    }
+    },
+    "recommendedFor": []
   }
 }

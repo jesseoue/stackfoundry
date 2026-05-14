@@ -1,0 +1,82 @@
+{
+  "title": "Enterprise SaaS",
+  "description": "Enterprise controls for identity, access, audit, security posture, support, and SLA operations.",
+  "category": "security",
+  "status": "stub",
+  "outcomes": [
+    "Support enterprise procurement",
+    "Expose security posture",
+    "Review access and audit events"
+  ],
+  "stages": [
+    {
+      "name": "identity",
+      "modules": [
+        "auth-core",
+        "orgs-rbac",
+        "custom-roles",
+        "permission-matrix",
+        "enterprise-sso",
+        "scim-provisioning"
+      ]
+    },
+    {
+      "name": "security",
+      "modules": [
+        "security-center",
+        "security-scorecard",
+        "security-checklist",
+        "security-events",
+        "workspace-access-review",
+        "trusted-devices",
+        "mfa-security"
+      ]
+    },
+    {
+      "name": "compliance",
+      "modules": [
+        "audit-log",
+        "data-retention",
+        "data-export",
+        "account-deletion",
+        "secrets-management"
+      ]
+    },
+    {
+      "name": "operations",
+      "modules": [
+        "sla-management",
+        "support-console",
+        "incident-management",
+        "status-page",
+        "postmortem-runbook"
+      ]
+    }
+  ],
+  "name": "enterprise-saas",
+  "modules": [
+    "auth-core",
+    "orgs-rbac",
+    "custom-roles",
+    "permission-matrix",
+    "enterprise-sso",
+    "scim-provisioning",
+    "security-center",
+    "security-scorecard",
+    "security-checklist",
+    "security-events",
+    "workspace-access-review",
+    "trusted-devices",
+    "mfa-security",
+    "audit-log",
+    "data-retention",
+    "data-export",
+    "account-deletion",
+    "secrets-management",
+    "sla-management",
+    "support-console",
+    "incident-management",
+    "status-page",
+    "postmortem-runbook"
+  ]
+}

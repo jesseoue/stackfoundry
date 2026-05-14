@@ -16,9 +16,9 @@
     "https://stackfoundry.dev/r/cloudflare-workflows.json"
   ],
   "files": [],
-  "docs": "Installs the Cloudflare Native preset from StackFoundry.",
+  "docs": "Installs the Cloudflare Native recipe from StackFoundry.",
   "meta": {
-    "category": "preset",
+    "category": "recipe",
     "status": "planned",
     "modules": [
       "cloudflare-pages",
@@ -30,6 +30,7 @@
       "cloudflare-turnstile",
       "cloudflare-workers-ai",
       "cloudflare-workflows"
-    ]
+    ],
+    "moduleCount": 9
   }
 }

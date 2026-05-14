@@ -54,9 +54,9 @@
     "https://stackfoundry.dev/r/command-menu.json"
   ],
   "files": [],
-  "docs": "Installs the Free Tier SaaS preset from StackFoundry.",
+  "docs": "Installs the Free Tier SaaS recipe from StackFoundry.",
   "meta": {
-    "category": "preset",
+    "category": "recipe",
     "status": "planned",
     "modules": [
       "drizzle-postgres",
@@ -106,6 +106,7 @@
       "error-boundaries",
       "toast-notifications",
       "command-menu"
-    ]
+    ],
+    "moduleCount": 47
   }
 }

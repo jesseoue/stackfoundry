@@ -51,12 +51,14 @@
   "meta": {
     "category": "marketing",
     "env": [],
-    "status": "experimental",
+    "status": "ready",
+    "maturity": "ready",
     "drizzle": {
       "schemaExports": [
         "newsletterSignups"
       ],
       "migrationRecommended": true
-    }
+    },
+    "recommendedFor": []
   }
 }

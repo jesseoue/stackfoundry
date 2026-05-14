@@ -1,0 +1,22 @@
+{
+  "name": "activity-feed",
+  "type": "module",
+  "category": "components",
+  "title": "Activity Feed",
+  "description": "Unified feed for customer, billing, support, audit, and product events.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "activity-feed"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

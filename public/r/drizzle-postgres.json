@@ -77,10 +77,12 @@
     "env": [
       "DATABASE_URL"
     ],
-    "status": "experimental",
+    "status": "ready",
+    "maturity": "ready",
     "drizzle": {
       "schemaExports": [],
       "migrationRecommended": true
-    }
+    },
+    "recommendedFor": []
   }
 }

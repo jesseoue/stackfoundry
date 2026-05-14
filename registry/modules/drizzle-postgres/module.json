@@ -46,7 +46,7 @@
     "schemaExports": [],
     "migrationRecommended": true
   },
-  "status": "experimental",
+  "status": "ready",
   "maintenance": {
     "skills": [
       "drizzle-postgres",

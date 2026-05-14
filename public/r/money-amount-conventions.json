@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "money-amount-conventions",
+  "type": "registry:block",
+  "title": "Money Amount Conventions",
+  "description": "Money and currency amount conventions for billing, invoices, credits, and tax.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [],
+  "maintenanceSkills": [
+    {
+      "name": "money-amount-conventions",
+      "target": ".stackfoundry/skills/money-amount-conventions/SKILL.md",
+      "content": "---\nname: money-amount-conventions\ndescription: Maintain the Money Amount Conventions module installed by StackFoundry.\n---\n\n# Money Amount Conventions Maintenance Instructions\n\n- This is currently a stub module with no source payload.\n- Do not mark it `ready` until `files` includes installable source and the docs describe the operational path.\n- Keep module boundaries narrow and connect it to existing registry dependencies instead of duplicating systems.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when source files are added.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Money Amount Conventions\n\nMoney and currency amount conventions for billing, invoices, credits, and tax.\n\n## Status\n\nThis is a stub module. It documents a production SaaS capability that belongs in the registry, but it does not yet install source files.\n\n## Intended Ownership\n\n- Define source files before promoting this module to `ready`.\n- Keep provider-specific behavior behind provider adapters.\n- Add verification steps, seed data, and install examples with the first source payload.\n\n## Readiness Requirements\n\nBefore this module becomes `ready`, it should include source files, docs, env notes if needed, tests or checklist coverage, and maintenance guidance.\n",
+  "meta": {
+    "category": "billing",
+    "env": [],
+    "status": "stub",
+    "maturity": "stub",
+    "recommendedFor": []
+  }
+}

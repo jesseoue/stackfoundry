@@ -1,0 +1,22 @@
+{
+  "name": "integration-permissions",
+  "type": "module",
+  "category": "integrations",
+  "title": "Integration Permissions",
+  "description": "Permission model for integration scopes, actors, and workspace ownership.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "integration-permissions"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

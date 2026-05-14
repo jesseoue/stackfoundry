@@ -1,0 +1,73 @@
+{
+  "title": "Cloudflare SaaS",
+  "description": "Cloudflare-native platform recipe for Workers, storage, queues, workflows, Durable Objects, Hyperdrive, and Turnstile.",
+  "category": "platform",
+  "status": "ready",
+  "outcomes": [
+    "Use Cloudflare platform primitives intentionally",
+    "Keep edge bindings and provider setup isolated",
+    "Document deploy and observability paths"
+  ],
+  "stages": [
+    {
+      "name": "runtime",
+      "modules": [
+        "cloudflare-workers",
+        "cloudflare-pages",
+        "cloudflare-observability"
+      ]
+    },
+    {
+      "name": "data",
+      "modules": [
+        "cloudflare-d1",
+        "cloudflare-kv",
+        "cloudflare-r2",
+        "cloudflare-hyperdrive"
+      ]
+    },
+    {
+      "name": "coordination",
+      "modules": [
+        "cloudflare-queues",
+        "cloudflare-workflows",
+        "cloudflare-durable-objects"
+      ]
+    },
+    {
+      "name": "security-and-ai",
+      "modules": [
+        "cloudflare-turnstile",
+        "cloudflare-workers-ai",
+        "cloudflare-vectorize",
+        "cloudflare-mcp-server"
+      ]
+    },
+    {
+      "name": "infrastructure",
+      "modules": [
+        "cloudflare-terraform",
+        "cloudflare-tunnel"
+      ]
+    }
+  ],
+  "name": "cloudflare-saas",
+  "modules": [
+    "cloudflare-workers",
+    "cloudflare-pages",
+    "cloudflare-observability",
+    "cloudflare-d1",
+    "cloudflare-kv",
+    "cloudflare-r2",
+    "cloudflare-hyperdrive",
+    "cloudflare-queues",
+    "cloudflare-workflows",
+    "cloudflare-durable-objects",
+    "cloudflare-turnstile",
+    "cloudflare-workers-ai",
+    "cloudflare-vectorize",
+    "cloudflare-mcp-server",
+    "cloudflare-terraform",
+    "cloudflare-tunnel"
+  ]
+}

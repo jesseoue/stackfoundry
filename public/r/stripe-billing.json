@@ -72,7 +72,8 @@
       "STRIPE_WEBHOOK_SECRET",
       "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"
     ],
-    "status": "experimental",
+    "status": "ready",
+    "maturity": "ready",
     "drizzle": {
       "schemaExports": [
         "billingCustomers",
@@ -80,6 +81,7 @@
         "webhookEvents"
       ],
       "migrationRecommended": true
-    }
+    },
+    "recommendedFor": []
   }
 }

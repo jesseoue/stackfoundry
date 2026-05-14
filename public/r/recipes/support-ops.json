@@ -1,0 +1,74 @@
+{
+  "title": "Support Ops",
+  "description": "Support and operations recipe for customer context, bug reports, feature requests, incidents, on-call, and postmortems.",
+  "category": "operations",
+  "status": "stub",
+  "outcomes": [
+    "Give operators customer context",
+    "Connect support to incidents and roadmap",
+    "Standardize replay and escalation workflows"
+  ],
+  "stages": [
+    {
+      "name": "operator-context",
+      "modules": [
+        "operator-dashboard",
+        "customer-360",
+        "account-health",
+        "customer-timeline",
+        "customer-support-profile"
+      ]
+    },
+    {
+      "name": "support",
+      "modules": [
+        "support-console",
+        "support-widget",
+        "bug-reports",
+        "feature-requests",
+        "public-roadmap"
+      ]
+    },
+    {
+      "name": "incidents",
+      "modules": [
+        "incident-management",
+        "oncall-alerting",
+        "postmortem-runbook",
+        "status-page",
+        "system-health"
+      ]
+    },
+    {
+      "name": "replay",
+      "modules": [
+        "replay-center",
+        "job-run-detail",
+        "webhook-delivery-detail",
+        "integration-sync-logs"
+      ]
+    }
+  ],
+  "name": "support-ops",
+  "modules": [
+    "operator-dashboard",
+    "customer-360",
+    "account-health",
+    "customer-timeline",
+    "customer-support-profile",
+    "support-console",
+    "support-widget",
+    "bug-reports",
+    "feature-requests",
+    "public-roadmap",
+    "incident-management",
+    "oncall-alerting",
+    "postmortem-runbook",
+    "status-page",
+    "system-health",
+    "replay-center",
+    "job-run-detail",
+    "webhook-delivery-detail",
+    "integration-sync-logs"
+  ]
+}

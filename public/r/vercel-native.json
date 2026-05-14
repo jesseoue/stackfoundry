@@ -18,9 +18,9 @@
     "https://stackfoundry.dev/r/sentry-monitoring.json"
   ],
   "files": [],
-  "docs": "Installs the Vercel Native preset from StackFoundry.",
+  "docs": "Installs the Vercel Native recipe from StackFoundry.",
   "meta": {
-    "category": "preset",
+    "category": "recipe",
     "status": "planned",
     "modules": [
       "vercel-deploy",
@@ -34,6 +34,7 @@
       "trigger-dev-jobs",
       "upstash-redis",
       "sentry-monitoring"
-    ]
+    ],
+    "moduleCount": 11
   }
 }

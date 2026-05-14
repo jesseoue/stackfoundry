@@ -1,0 +1,22 @@
+{
+  "name": "saved-views",
+  "type": "module",
+  "category": "components",
+  "title": "Saved Views",
+  "description": "Persisted table/report views for operators and team workflows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "saved-views"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

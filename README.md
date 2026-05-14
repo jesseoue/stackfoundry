@@ -108,6 +108,18 @@ pnpm registry:presets
 pnpm stackfoundry add preset next-saas --target ./my-app --dry-run
 ```
 
+## Recipes
+
+Recipes are opinionated install paths that explain what to install together and in what order.
+
+```bash
+pnpm stackfoundry recipes
+pnpm stackfoundry recipe api-saas-starter
+pnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run
+```
+
+High-priority recipes include `saas-starter-minimal`, `api-saas-starter`, `enterprise-saas`, `ai-saas-starter`, `cloudflare-saas`, `support-ops`, `security-center`, `integration-marketplace`, and `customer-intelligence`.
+
 ## StackFoundry Command
 
 The `stackfoundry` command intentionally stays on Node + pnpm. It is a small registry/install engine, not an interactive component wizard.

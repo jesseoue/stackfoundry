@@ -1,0 +1,22 @@
+{
+  "name": "api-key-risk-review",
+  "type": "module",
+  "category": "security",
+  "title": "API Key Risk Review",
+  "description": "API key risk review for stale, over-scoped, leaked, or high-volume keys.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "api-key-risk-review"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

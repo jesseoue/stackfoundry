@@ -1,0 +1,22 @@
+{
+  "name": "destructive-action-flow",
+  "type": "module",
+  "category": "components",
+  "title": "Destructive Action Flow",
+  "description": "Typed destructive flow for revoke, delete, cancel, archive, and reset actions.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "destructive-action-flow"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

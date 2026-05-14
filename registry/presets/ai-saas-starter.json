@@ -1,0 +1,22 @@
+{
+  "name": "ai-saas-starter",
+  "title": "AI SaaS Starter",
+  "description": "AI SaaS starter with chat, tools, artifacts, model routing, prompts, evals, RAG, metering, and billing.",
+  "status": "experimental",
+  "modules": [
+    "next-saas-shell",
+    "clerk-auth",
+    "billing-core",
+    "usage-metering",
+    "quota-enforcement",
+    "ai-chat",
+    "ai-tools",
+    "ai-artifacts",
+    "model-router",
+    "prompt-library",
+    "evals",
+    "rag-starter",
+    "posthog-analytics",
+    "sentry-monitoring"
+  ]
+}

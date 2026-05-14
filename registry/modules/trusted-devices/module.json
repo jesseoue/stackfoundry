@@ -1,0 +1,22 @@
+{
+  "name": "trusted-devices",
+  "type": "module",
+  "category": "security",
+  "title": "Trusted Devices",
+  "description": "Trusted device records and review UI for account and workspace security.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "trusted-devices"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

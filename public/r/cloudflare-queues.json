@@ -44,6 +44,8 @@
   "meta": {
     "category": "queue",
     "env": [],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

@@ -1,0 +1,22 @@
+{
+  "name": "request-log-explorer",
+  "type": "module",
+  "category": "developer-platform",
+  "title": "Request Log Explorer",
+  "description": "Request log explorer for API calls, status, latency, errors, and key attribution.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "request-log-explorer"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

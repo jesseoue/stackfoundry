@@ -51,12 +51,14 @@
   "meta": {
     "category": "auth",
     "env": [],
-    "status": "experimental",
+    "status": "ready",
+    "maturity": "ready",
     "drizzle": {
       "schemaExports": [
         "workspaceInvites"
       ],
       "migrationRecommended": true
-    }
+    },
+    "recommendedFor": []
   }
 }

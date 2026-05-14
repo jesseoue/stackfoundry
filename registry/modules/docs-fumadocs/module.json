@@ -29,7 +29,7 @@
       "type": "registry:file"
     }
   ],
-  "status": "experimental",
+  "status": "ready",
   "maintenance": {
     "skills": [
       "docs-fumadocs",

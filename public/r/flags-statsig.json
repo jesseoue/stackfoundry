@@ -25,6 +25,8 @@
   "meta": {
     "category": "growth",
     "env": [],
-    "status": "planned"
+    "status": "stub",
+    "maturity": "stub",
+    "recommendedFor": []
   }
 }

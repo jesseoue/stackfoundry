@@ -63,6 +63,8 @@
       "BETTER_AUTH_SECRET",
       "BETTER_AUTH_URL"
     ],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

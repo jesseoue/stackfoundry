@@ -47,6 +47,8 @@
   "meta": {
     "category": "workflow",
     "env": [],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

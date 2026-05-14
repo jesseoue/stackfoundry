@@ -1,0 +1,22 @@
+{
+  "name": "customer-api-key-risk",
+  "type": "module",
+  "category": "security",
+  "title": "Customer API Key Risk",
+  "description": "Customer API key risk model for stale, leaked, high-volume, and over-scoped keys.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "customer-api-key-risk"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

@@ -32,7 +32,7 @@
     ],
     "migrationRecommended": true
   },
-  "status": "experimental",
+  "status": "ready",
   "maintenance": {
     "skills": [
       "account-modes",

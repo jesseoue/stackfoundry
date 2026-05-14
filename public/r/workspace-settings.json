@@ -38,6 +38,8 @@
   "meta": {
     "category": "auth",
     "env": [],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

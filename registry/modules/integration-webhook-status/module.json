@@ -1,0 +1,22 @@
+{
+  "name": "integration-webhook-status",
+  "type": "module",
+  "category": "integrations",
+  "title": "Integration Webhook Status",
+  "description": "Webhook delivery and signature status for connected integrations.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "integration-webhook-status"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

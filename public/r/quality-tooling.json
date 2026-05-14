@@ -20,6 +20,8 @@
   "meta": {
     "category": "foundation",
     "env": [],
-    "status": "planned"
+    "status": "stub",
+    "maturity": "stub",
+    "recommendedFor": []
   }
 }

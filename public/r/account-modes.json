@@ -53,12 +53,14 @@
   "meta": {
     "category": "tenancy",
     "env": [],
-    "status": "experimental",
+    "status": "ready",
+    "maturity": "ready",
     "drizzle": {
       "schemaExports": [
         "accountModes"
       ],
       "migrationRecommended": true
-    }
+    },
+    "recommendedFor": []
   }
 }

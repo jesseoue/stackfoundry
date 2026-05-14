@@ -37,9 +37,9 @@
     "https://stackfoundry.dev/r/data-table.json"
   ],
   "files": [],
-  "docs": "Installs the Developer Platform preset from StackFoundry.",
+  "docs": "Installs the Developer Platform recipe from StackFoundry.",
   "meta": {
-    "category": "preset",
+    "category": "recipe",
     "status": "planned",
     "modules": [
       "drizzle-postgres",
@@ -72,6 +72,7 @@
       "tenant-context",
       "command-menu",
       "data-table"
-    ]
+    ],
+    "moduleCount": 30
   }
 }

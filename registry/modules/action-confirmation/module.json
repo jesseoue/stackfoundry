@@ -1,0 +1,22 @@
+{
+  "name": "action-confirmation",
+  "type": "module",
+  "category": "components",
+  "title": "Action Confirmation",
+  "description": "Confirmation dialog pattern for sensitive and irreversible SaaS actions.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "action-confirmation"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

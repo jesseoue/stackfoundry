@@ -49,6 +49,8 @@
   "meta": {
     "category": "ai",
     "env": [],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

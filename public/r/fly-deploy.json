@@ -44,6 +44,8 @@
   "meta": {
     "category": "deploy",
     "env": [],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

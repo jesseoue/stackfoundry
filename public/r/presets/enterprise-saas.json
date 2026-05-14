@@ -1,0 +1,26 @@
+{
+  "name": "enterprise-saas",
+  "title": "Enterprise SaaS",
+  "description": "Enterprise SaaS layer with SSO, SCIM, audit logs, permissions, access review, security, SLA, and support workflows.",
+  "status": "ready",
+  "modules": [
+    "next-saas-shell",
+    "tenant-context",
+    "orgs-rbac",
+    "permission-matrix",
+    "custom-roles",
+    "enterprise-sso",
+    "scim-provisioning",
+    "mfa-security",
+    "login-activity",
+    "audit-log",
+    "security-headers",
+    "secrets-management",
+    "data-retention",
+    "data-export",
+    "account-deletion",
+    "support-console",
+    "sla-management",
+    "incident-management"
+  ]
+}

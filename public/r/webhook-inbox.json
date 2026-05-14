@@ -51,12 +51,14 @@
   "meta": {
     "category": "developer-platform",
     "env": [],
-    "status": "experimental",
+    "status": "ready",
+    "maturity": "ready",
     "drizzle": {
       "schemaExports": [
         "webhookInbox"
       ],
       "migrationRecommended": true
-    }
+    },
+    "recommendedFor": []
   }
 }

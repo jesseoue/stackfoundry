@@ -1,0 +1,22 @@
+{
+  "name": "activation-events",
+  "type": "module",
+  "category": "growth",
+  "title": "Activation Events",
+  "description": "Activation event taxonomy and tracking hooks for time-to-value reporting.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "activation-events"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

@@ -46,7 +46,7 @@ jobs:
       - name: Run quality gates
         run: pnpm check
 
-      - name: Install Vercel CLI
+      - name: Install Vercel command
         run: npm install --global vercel@latest
 
       - name: Pull Vercel environment

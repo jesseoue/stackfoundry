@@ -1,0 +1,22 @@
+{
+  "name": "timeline",
+  "type": "module",
+  "category": "components",
+  "title": "Timeline",
+  "description": "Timeline UI for incidents, jobs, webhooks, background tasks, and customer events.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "timeline"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

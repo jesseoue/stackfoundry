@@ -51,12 +51,14 @@
   "meta": {
     "category": "tenancy",
     "env": [],
-    "status": "experimental",
+    "status": "ready",
+    "maturity": "ready",
     "drizzle": {
       "schemaExports": [
         "tenantContext"
       ],
       "migrationRecommended": true
-    }
+    },
+    "recommendedFor": []
   }
 }

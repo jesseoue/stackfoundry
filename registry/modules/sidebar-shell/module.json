@@ -9,7 +9,7 @@
   "registryDependencies": [],
   "env": [],
   "files": [],
-  "status": "planned",
+  "status": "stub",
   "maintenance": {
     "skills": [
       "sidebar-shell"

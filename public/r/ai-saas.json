@@ -37,9 +37,9 @@
     "https://stackfoundry.dev/r/arcjet-security.json"
   ],
   "files": [],
-  "docs": "Installs the AI SaaS preset from StackFoundry.",
+  "docs": "Installs the AI SaaS recipe from StackFoundry.",
   "meta": {
-    "category": "preset",
+    "category": "recipe",
     "status": "planned",
     "modules": [
       "drizzle-postgres",
@@ -72,6 +72,7 @@
       "posthog-analytics",
       "sentry-monitoring",
       "arcjet-security"
-    ]
+    ],
+    "moduleCount": 30
   }
 }

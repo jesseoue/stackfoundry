@@ -41,6 +41,8 @@
   "meta": {
     "category": "communications",
     "env": [],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

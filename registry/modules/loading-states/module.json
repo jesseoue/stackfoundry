@@ -22,7 +22,7 @@
       "type": "registry:page"
     }
   ],
-  "status": "experimental",
+  "status": "ready",
   "maintenance": {
     "skills": [
       "loading-states",

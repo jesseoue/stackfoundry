@@ -1,0 +1,22 @@
+{
+  "name": "webhook-delivery-detail",
+  "type": "module",
+  "category": "developer-platform",
+  "title": "Webhook Delivery Detail",
+  "description": "Webhook delivery detail page for payload, signature, attempts, and replay controls.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "webhook-delivery-detail"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

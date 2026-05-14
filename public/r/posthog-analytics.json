@@ -60,6 +60,8 @@
       "NEXT_PUBLIC_POSTHOG_KEY",
       "NEXT_PUBLIC_POSTHOG_HOST"
     ],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

@@ -98,9 +98,9 @@
     "https://stackfoundry.dev/r/settings-layout.json"
   ],
   "files": [],
-  "docs": "Installs the B2B SaaS preset from StackFoundry.",
+  "docs": "Installs the B2B SaaS recipe from StackFoundry.",
   "meta": {
-    "category": "preset",
+    "category": "recipe",
     "status": "planned",
     "modules": [
       "drizzle-postgres",
@@ -194,6 +194,7 @@
       "error-boundaries",
       "data-table",
       "settings-layout"
-    ]
+    ],
+    "moduleCount": 91
   }
 }

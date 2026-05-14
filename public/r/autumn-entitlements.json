@@ -52,6 +52,8 @@
     "env": [
       "AUTUMN_SECRET_KEY"
     ],
-    "status": "experimental"
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
   }
 }

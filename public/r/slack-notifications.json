@@ -20,6 +20,8 @@
   "meta": {
     "category": "notifications",
     "env": [],
-    "status": "planned"
+    "status": "stub",
+    "maturity": "stub",
+    "recommendedFor": []
   }
 }

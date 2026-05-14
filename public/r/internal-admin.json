@@ -41,9 +41,9 @@
     "https://stackfoundry.dev/r/data-table.json"
   ],
   "files": [],
-  "docs": "Installs the Internal Admin preset from StackFoundry.",
+  "docs": "Installs the Internal Admin recipe from StackFoundry.",
   "meta": {
-    "category": "preset",
+    "category": "recipe",
     "status": "planned",
     "modules": [
       "drizzle-postgres",
@@ -80,6 +80,7 @@
       "feature-requests",
       "bug-reports",
       "data-table"
-    ]
+    ],
+    "moduleCount": 34
   }
 }

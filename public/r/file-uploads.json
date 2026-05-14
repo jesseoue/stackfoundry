@@ -51,12 +51,14 @@
   "meta": {
     "category": "storage",
     "env": [],
-    "status": "experimental",
+    "status": "ready",
+    "maturity": "ready",
     "drizzle": {
       "schemaExports": [
         "fileUploads"
       ],
       "migrationRecommended": true
-    }
+    },
+    "recommendedFor": []
   }
 }

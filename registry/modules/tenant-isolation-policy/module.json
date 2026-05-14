@@ -1,0 +1,22 @@
+{
+  "name": "tenant-isolation-policy",
+  "type": "module",
+  "category": "tenancy",
+  "title": "Tenant Isolation Policy",
+  "description": "Tenant isolation policy and review checklist for multi-tenant modules.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "status": "stub",
+  "maintenance": {
+    "skills": [
+      "tenant-isolation-policy"
+    ],
+    "rules": [
+      "define-source-payload-before-ready",
+      "document-install-order"
+    ]
+  }
+}

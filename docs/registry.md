@@ -10,6 +10,8 @@ Each module has:
 - `tests/checklist.md`
 - source files, once implemented
 
+Recipes live in `registry/recipes/*.json` and describe install order across modules. Presets install bundles; recipes explain the architecture.
+
 ## Manifest Fields
 
 - `name`: stable module id
@@ -37,6 +39,7 @@ StackFoundry adapts that model for production SaaS systems instead of UI-only co
 - Modules install source code, not opaque package wrappers.
 - Presets only compose modules.
 - Provider modules adapt services into shared domain systems.
+- Recipes define complete workflow paths across modules.
 - Installers must produce enough metadata for safe diff/update workflows.
 - Public modules should avoid private assumptions about a single company or app.
 
@@ -69,6 +72,8 @@ public/r/
   provider-adapters.json     # installable aggregate preset block
   presets/
     next-saas.json         # StackFoundry preset manifest
+  recipes/
+    api-saas-starter.json  # human-readable recipe and install order
 ```
 
 This mirrors the source-registry pattern: `/r/registry.json` is the registry index, while registry item JSON embeds file contents and target paths. Module metadata stays in `registry/modules/<module>/module.json`.
