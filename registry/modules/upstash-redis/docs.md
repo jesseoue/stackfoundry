@@ -6,8 +6,8 @@ Upstash Redis client, serverless rate limiter, and deployment smoke route.
 
 - `apps/web/src/lib/upstash/redis.ts`
 - `apps/web/src/lib/upstash/ratelimit.ts`
-- `apps/web/src/app/api/vendor/upstash/health/route.ts`
-- `apps/web/src/app/(console)/admin/vendors/upstash/page.tsx`
+- `apps/web/src/app/api/providers/upstash/health/route.ts`
+- `apps/web/src/app/(console)/admin/providers/upstash/page.tsx`
 
 ## Dependencies
 
@@ -21,13 +21,13 @@ Upstash Redis client, serverless rate limiter, and deployment smoke route.
 
 ## Deployment Notes
 
-- Create the vendor project/resource before deploying.
+- Create the provider project/resource before deploying.
 - Add the listed environment variables to preview and production.
 - Smoke-test the included route or helper after deploy.
 - Keep provider secrets out of client components and logs.
 
 ## Maintenance
 
-- Keep this module focused on the vendor integration boundary.
-- Update source examples when vendor SDK APIs change.
+- Keep this module focused on the provider adapter boundary.
+- Update source examples when provider SDK APIs change.
 - Record production-specific retry, alerting, and rollback behavior before marking stable.

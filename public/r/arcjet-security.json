@@ -19,23 +19,23 @@
       "content": "import arcjet, { shield, tokenBucket } from \"@arcjet/next\";\n\nfunction requireEnv(key: string) {\n  const value = process.env[key];\n  if (!value) throw new Error(`${key} is required.`);\n  return value;\n}\n\nexport const aj = arcjet({\n  key: requireEnv(\"ARCJET_KEY\"),\n  rules: [\n    shield({ mode: \"LIVE\" }),\n    tokenBucket({ mode: \"LIVE\", refillRate: 10, interval: 60, capacity: 20 }),\n  ],\n});\n"
     },
     {
-      "path": "apps/web/src/app/api/vendor/arcjet/protected/route.ts",
+      "path": "apps/web/src/app/api/providers/arcjet/protected/route.ts",
       "type": "registry:file",
-      "target": "apps/web/src/app/api/vendor/arcjet/protected/route.ts",
+      "target": "apps/web/src/app/api/providers/arcjet/protected/route.ts",
       "content": "import { NextResponse } from \"next/server\";\n\nimport { aj } from \"@/lib/arcjet\";\n\nexport async function GET(request: Request) {\n  const decision = await aj.protect(request);\n  if (decision.isDenied()) return NextResponse.json({ error: \"Denied\" }, { status: 429 });\n\n  return NextResponse.json({ ok: true });\n}\n"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/arcjet/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/arcjet/page.tsx",
       "type": "registry:page",
-      "target": "apps/web/src/app/(console)/admin/vendors/arcjet/page.tsx",
-      "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function ArcjetSecurityPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Arcjet Security</h1>\n        <p className=\"text-muted-foreground\">Application-layer protection for bots, abuse, and expensive endpoints.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+      "target": "apps/web/src/app/(console)/admin/providers/arcjet/page.tsx",
+      "content": "const deployChecks = [\n  \"Create the provider project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function ArcjetSecurityPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Arcjet Security</h1>\n        <p className=\"text-muted-foreground\">Application-layer protection for bots, abuse, and expensive endpoints.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
   "maintenanceSkills": [
     {
       "name": "arcjet-security",
       "target": ".stackfoundry/skills/arcjet-security/SKILL.md",
-      "content": "---\nname: arcjet-security\ndescription: Maintain the Arcjet Security vendor registry block installed by StackFoundry.\n---\n\n# Arcjet Security Skill\n\n## Boundary\n\nThis block owns the Arcjet Security integration example only. Keep product-specific business logic outside the vendor adapter until the app has chosen this provider.\n\n## Source Files\n\n- `apps/web/src/lib/arcjet.ts`\n- `apps/web/src/app/api/vendor/arcjet/protected/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/arcjet/page.tsx`\n\n## Dependencies\n\n- `@arcjet/next`\n\n## Environment\n\n- `ARCJET_KEY`\n\n## Deployment Checks\n\n- Create the vendor project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current vendor docs.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one vendor.\n"
+      "content": "---\nname: arcjet-security\ndescription: Maintain the Arcjet Security provider adapter module installed by StackFoundry.\n---\n\n# Arcjet Security Skill\n\n## Boundary\n\nThis block owns the Arcjet Security integration example only. Keep product-specific business logic outside the provider adapter until the app has chosen this provider.\n\n## Source Files\n\n- `apps/web/src/lib/arcjet.ts`\n- `apps/web/src/app/api/providers/arcjet/protected/route.ts`\n- `apps/web/src/app/(console)/admin/providers/arcjet/page.tsx`\n\n## Dependencies\n\n- `@arcjet/next`\n\n## Environment\n\n- `ARCJET_KEY`\n\n## Deployment Checks\n\n- Create the provider project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current provider docs.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one provider.\n"
     },
     {
       "name": "arcjet",
@@ -51,7 +51,7 @@
   "envVars": {
     "ARCJET_KEY": ""
   },
-  "docs": "# Arcjet Security Module\n\nArcjet request protection starter for bot detection, shielding, and rate limits.\n\n## Owns\n\n- `apps/web/src/lib/arcjet.ts`\n- `apps/web/src/app/api/vendor/arcjet/protected/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/arcjet/page.tsx`\n\n## Dependencies\n\n- `@arcjet/next`\n\n## Environment\n\n- `ARCJET_KEY`\n\n## Deployment Notes\n\n- Create the vendor project/resource before deploying.\n- Add the listed environment variables to preview and production.\n- Smoke-test the included route or helper after deploy.\n- Keep provider secrets out of client components and logs.\n\n## Maintenance\n\n- Keep this module focused on the vendor integration boundary.\n- Update source examples when vendor SDK APIs change.\n- Record production-specific retry, alerting, and rollback behavior before marking stable.\n",
+  "docs": "# Arcjet Security Module\n\nArcjet request protection starter for bot detection, shielding, and rate limits.\n\n## Owns\n\n- `apps/web/src/lib/arcjet.ts`\n- `apps/web/src/app/api/providers/arcjet/protected/route.ts`\n- `apps/web/src/app/(console)/admin/providers/arcjet/page.tsx`\n\n## Dependencies\n\n- `@arcjet/next`\n\n## Environment\n\n- `ARCJET_KEY`\n\n## Deployment Notes\n\n- Create the provider project/resource before deploying.\n- Add the listed environment variables to preview and production.\n- Smoke-test the included route or helper after deploy.\n- Keep provider secrets out of client components and logs.\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Update source examples when provider SDK APIs change.\n- Record production-specific retry, alerting, and rollback behavior before marking stable.\n",
   "meta": {
     "category": "security",
     "env": [

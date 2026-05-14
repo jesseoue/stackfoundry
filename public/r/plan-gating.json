@@ -36,7 +36,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Plan Gating Module\n\nServer-side plan checks and upgrade prompt surfaces.\n\n## Owns\n\n- `apps/web/src/lib/plan-gating.ts`\n- `apps/web/src/app/(console)/billing/plan-gating/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider-specific adapter is added separately.\n- Update source templates, manifest files, and generated registry output together.\n- Add audit events around sensitive changes before promoting this module beyond experimental.\n- Verify with `stackfoundry add plan-gating --target <app> --dry-run`.\n",
+  "docs": "# Plan Gating Module\n\nServer-side plan checks and upgrade prompt surfaces.\n\n## Owns\n\n- `apps/web/src/lib/plan-gating.ts`\n- `apps/web/src/app/(console)/billing/plan-gating/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider adapter is added separately.\n- Update source templates, manifest files, and generated registry output together.\n- Add audit events around sensitive changes before promoting this module beyond experimental.\n- Verify with `stackfoundry add plan-gating --target <app> --dry-run`.\n",
   "meta": {
     "category": "billing",
     "env": [],

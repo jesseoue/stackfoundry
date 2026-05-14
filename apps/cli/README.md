@@ -32,7 +32,7 @@ pnpm cli presets
 pnpm cli doctor
 pnpm cli build
 pnpm cli add api-keys --target /tmp/app --dry-run
-pnpm cli add preset vendor-examples --target /tmp/app --dry-run
+pnpm cli add preset provider-adapters --target /tmp/app --dry-run
 pnpm cli add https://stackfoundry.dev/r/api-keys.json --target /tmp/app --dry-run
 pnpm cli diff api-keys --target /tmp/app
 ```

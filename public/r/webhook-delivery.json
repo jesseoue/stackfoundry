@@ -47,7 +47,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Webhook Delivery Module\n\nOutbound webhook endpoints, signing helpers, retries, and delivery logs.\n\n## Owns\n\n- `packages/db/src/schema/webhook-delivery.ts`\n- `apps/web/src/lib/webhook-delivery.ts`\n- `apps/web/src/app/(console)/developers/webhooks/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider-specific adapter is added separately.\n- Update source templates, manifest files, and generated registry output together.\n- Add audit events around sensitive changes before promoting this module beyond experimental.\n- Verify with `stackfoundry add webhook-delivery --target <app> --dry-run`.\n",
+  "docs": "# Webhook Delivery Module\n\nOutbound webhook endpoints, signing helpers, retries, and delivery logs.\n\n## Owns\n\n- `packages/db/src/schema/webhook-delivery.ts`\n- `apps/web/src/lib/webhook-delivery.ts`\n- `apps/web/src/app/(console)/developers/webhooks/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider adapter is added separately.\n- Update source templates, manifest files, and generated registry output together.\n- Add audit events around sensitive changes before promoting this module beyond experimental.\n- Verify with `stackfoundry add webhook-delivery --target <app> --dry-run`.\n",
   "meta": {
     "category": "developer-platform",
     "env": [],

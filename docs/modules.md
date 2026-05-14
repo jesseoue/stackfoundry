@@ -8,7 +8,7 @@ The first installable production modules were:
 - `api-keys`
 - `stripe-billing`
 
-The registry now includes core modules, vendor examples, and registry-compatible public blocks. Each module should be installable into an existing app as editable source code. Presets are only bundles of modules.
+The registry now includes core modules, provider adapter examples, and registry-compatible public blocks. Each module should be installable into an existing app as editable source code. Presets are only bundles of modules.
 
 ## What a Module Includes
 
@@ -113,7 +113,7 @@ The registry now includes core modules, vendor examples, and registry-compatible
 - `incident-management`
 - `data-import-export`
 
-### Vendor Examples
+### Provider Adapter Examples
 
 - `inngest-functions`
 - `trigger-dev-jobs`

@@ -20,11 +20,11 @@
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/api/vendor/vercel/blob/route.ts",
+      "path": "apps/web/src/app/api/providers/vercel/blob/route.ts",
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/vercel-blob/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/vercel-blob/page.tsx",
       "type": "registry:page"
     }
   ],

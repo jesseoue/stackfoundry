@@ -13,6 +13,6 @@ No environment variables are required by default.
 
 ## Maintenance
 
-- Keep this module provider-neutral unless a provider-specific adapter is added as a separate module.
+- Keep this module provider-neutral unless a provider adapter is added as a separate module.
 - Update the manifest when source files, schema exports, dependencies, or environment variables change.
 - Verify install output with `stackfoundry add account-settings --target <app> --dry-run` before promoting status.

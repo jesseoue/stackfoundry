@@ -41,7 +41,7 @@ Install from the public registry URL when you want to consume generated registry
 
 ```bash
 pnpm stackfoundry add https://stackfoundry.dev/r/api-keys.json --target ./my-app
-pnpm stackfoundry add https://stackfoundry.dev/r/vendor-examples.json --target ./my-app
+pnpm stackfoundry add https://stackfoundry.dev/r/provider-adapters.json --target ./my-app
 pnpm stackfoundry diff https://stackfoundry.dev/r/api-keys.json --target ./my-app
 ```
 
@@ -99,7 +99,7 @@ Current source registry coverage:
 | `free-tier-saas` | Practical baseline for a free-tier product launch |
 | `vercel-native` | Vercel deployment, storage, workflows, edge config, and observability path |
 | `cloudflare-native` | Workers, D1, R2, KV, Queues, Workflows, Turnstile, and Cloudflare-native adapters |
-| `vendor-examples` | Concrete optional provider adapter examples |
+| `provider-adapters` | Concrete optional provider adapter examples |
 
 ```bash
 pnpm registry:presets
@@ -155,7 +155,7 @@ public/r/
   registry.json              # registry index
   api-keys.json              # installable registry item
   stripe-billing.json        # installable registry item
-  vendor-examples.json       # installable aggregate preset block
+  provider-adapters.json       # installable aggregate preset block
   presets/
     next-saas.json           # StackFoundry preset manifest for tooling/inspection
 ```

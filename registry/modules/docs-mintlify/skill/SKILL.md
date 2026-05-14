@@ -31,7 +31,7 @@ Hosted documentation workspace starter with Mintlify configuration, pages, and d
 ## Defaults
 
 - Keep the module source-owned and easy to replace.
-- Keep provider-specific code in this module only when the module is explicitly provider-specific.
+- Keep provider-specific code in this module only when the module is explicitly a provider adapter.
 - Keep shared domain behavior provider-neutral.
 - Keep env vars server-only unless the variable is intentionally public and prefixed accordingly.
 

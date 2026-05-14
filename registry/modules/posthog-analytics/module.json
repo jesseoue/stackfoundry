@@ -26,7 +26,7 @@
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/posthog/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/posthog/page.tsx",
       "type": "registry:page"
     }
   ],

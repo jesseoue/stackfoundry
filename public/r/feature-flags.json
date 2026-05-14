@@ -52,7 +52,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Feature Flags Module\n\nFlag table, evaluation helper, admin UI, and per-org targeting.\n\n## Owns\n\n- `packages/db/src/schema/feature-flags.ts`\n- `apps/web/src/lib/feature-flags.ts`\n- `apps/web/src/app/(console)/feature-flags/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider-specific adapter is added as a separate module.\n- Update the manifest when source files, schema exports, dependencies, or environment variables change.\n- Verify install output with `stackfoundry add feature-flags --target <app> --dry-run` before promoting status.\n",
+  "docs": "# Feature Flags Module\n\nFlag table, evaluation helper, admin UI, and per-org targeting.\n\n## Owns\n\n- `packages/db/src/schema/feature-flags.ts`\n- `apps/web/src/lib/feature-flags.ts`\n- `apps/web/src/app/(console)/feature-flags/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider adapter is added as a separate module.\n- Update the manifest when source files, schema exports, dependencies, or environment variables change.\n- Verify install output with `stackfoundry add feature-flags --target <app> --dry-run` before promoting status.\n",
   "meta": {
     "category": "growth",
     "env": [],

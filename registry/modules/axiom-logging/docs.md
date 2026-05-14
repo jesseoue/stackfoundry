@@ -5,8 +5,8 @@ Axiom structured event logger and server route for deployment smoke checks.
 ## Owns
 
 - `apps/web/src/lib/axiom/logger.ts`
-- `apps/web/src/app/api/vendor/axiom/log/route.ts`
-- `apps/web/src/app/(console)/admin/vendors/axiom/page.tsx`
+- `apps/web/src/app/api/providers/axiom/log/route.ts`
+- `apps/web/src/app/(console)/admin/providers/axiom/page.tsx`
 
 ## Dependencies
 
@@ -19,13 +19,13 @@ Axiom structured event logger and server route for deployment smoke checks.
 
 ## Deployment Notes
 
-- Create the vendor project/resource before deploying.
+- Create the provider project/resource before deploying.
 - Add the listed environment variables to preview and production.
 - Smoke-test the included route or helper after deploy.
 - Keep provider secrets out of client components and logs.
 
 ## Maintenance
 
-- Keep this module focused on the vendor integration boundary.
-- Update source examples when vendor SDK APIs change.
+- Keep this module focused on the provider adapter boundary.
+- Update source examples when provider SDK APIs change.
 - Record production-specific retry, alerting, and rollback behavior before marking stable.

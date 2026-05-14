@@ -47,7 +47,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Maintenance Mode Module\n\nMaintenance windows, banner state, and operator controls.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `packages/db/src/schema/maintenance-mode.ts`\n- `apps/web/src/lib/maintenance-mode.ts`\n- `apps/web/src/app/(console)/admin/maintenance/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider-specific adapters as separate modules.\n- Verify install output with `stackfoundry add maintenance-mode --target <app> --dry-run`.\n",
+  "docs": "# Maintenance Mode Module\n\nMaintenance windows, banner state, and operator controls.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `packages/db/src/schema/maintenance-mode.ts`\n- `apps/web/src/lib/maintenance-mode.ts`\n- `apps/web/src/app/(console)/admin/maintenance/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider adapters as separate modules.\n- Verify install output with `stackfoundry add maintenance-mode --target <app> --dry-run`.\n",
   "meta": {
     "category": "operations",
     "env": [],

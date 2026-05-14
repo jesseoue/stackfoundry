@@ -8,8 +8,8 @@ Use the source-owned `api-keys` module when you want local hashed key storage by
 
 - `apps/web/src/lib/unkey/client.ts`
 - `apps/web/src/lib/unkey/api-keys.ts`
-- `apps/web/src/app/api/vendor/unkey/verify/route.ts`
-- `apps/web/src/app/(console)/admin/vendors/unkey/page.tsx`
+- `apps/web/src/app/api/providers/unkey/verify/route.ts`
+- `apps/web/src/app/(console)/admin/providers/unkey/page.tsx`
 
 ## Dependencies
 
@@ -31,7 +31,7 @@ Use the source-owned `api-keys` module when you want local hashed key storage by
 
 ## Maintenance
 
-- Keep this module focused on the vendor integration boundary.
-- Update source examples when vendor SDK APIs change.
+- Keep this module focused on the provider adapter boundary.
+- Update source examples when provider SDK APIs change.
 - Preserve the source-owned `api-keys` module as the default path in base presets.
 - Record production-specific retry, alerting, and rollback behavior before marking stable.

@@ -19,5 +19,5 @@ Requires `DATABASE_URL` through the `drizzle-postgres` dependency.
 ## Maintenance
 
 - Keep the default module provider-neutral.
-- Add provider-specific adapters as separate modules.
+- Add provider adapters as separate modules.
 - Verify install output with `stackfoundry add scim-provisioning --target <app> --dry-run`.

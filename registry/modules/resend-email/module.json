@@ -26,11 +26,11 @@
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/api/vendor/resend/send-welcome/route.ts",
+      "path": "apps/web/src/app/api/providers/resend/send-welcome/route.ts",
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/resend/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/resend/page.tsx",
       "type": "registry:page"
     }
   ],

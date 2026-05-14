@@ -34,7 +34,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Pricing Page Module\n\nPlan comparison page with feature groups and call-to-action slots.\n\n## Owns\n\n- `apps/web/src/lib/pricing-page.ts`\n- `apps/web/src/app/(marketing)/pricing/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider-specific adapter is added separately.\n- Update source templates, manifest files, and generated registry output together.\n- Add audit events around sensitive changes before promoting this module beyond experimental.\n- Verify with `stackfoundry add pricing-page --target <app> --dry-run`.\n",
+  "docs": "# Pricing Page Module\n\nPlan comparison page with feature groups and call-to-action slots.\n\n## Owns\n\n- `apps/web/src/lib/pricing-page.ts`\n- `apps/web/src/app/(marketing)/pricing/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider adapter is added separately.\n- Update source templates, manifest files, and generated registry output together.\n- Add audit events around sensitive changes before promoting this module beyond experimental.\n- Verify with `stackfoundry add pricing-page --target <app> --dry-run`.\n",
   "meta": {
     "category": "marketing",
     "env": [],

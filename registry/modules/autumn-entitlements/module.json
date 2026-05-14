@@ -21,7 +21,7 @@
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/autumn-entitlements/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/autumn-entitlements/page.tsx",
       "type": "registry:page"
     }
   ],

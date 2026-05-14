@@ -47,7 +47,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# MFA Security Module\n\nMulti-factor authentication recovery, enforcement, and settings surfaces.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `packages/db/src/schema/mfa-security.ts`\n- `apps/web/src/lib/mfa-security.ts`\n- `apps/web/src/app/(console)/settings/account/mfa/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider-specific adapters as separate modules.\n- Verify install output with `stackfoundry add mfa-security --target <app> --dry-run`.\n",
+  "docs": "# MFA Security Module\n\nMulti-factor authentication recovery, enforcement, and settings surfaces.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `packages/db/src/schema/mfa-security.ts`\n- `apps/web/src/lib/mfa-security.ts`\n- `apps/web/src/app/(console)/settings/account/mfa/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider adapters as separate modules.\n- Verify install output with `stackfoundry add mfa-security --target <app> --dry-run`.\n",
   "meta": {
     "category": "auth",
     "env": [],

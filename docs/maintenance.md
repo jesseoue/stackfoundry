@@ -61,9 +61,9 @@ Generated registry blocks also embed `maintenanceSkills`, so installs from `http
 
 Module skills should explain the files owned by the module, required environment variables, deployment checks, and invariants that future maintainers must preserve. Shared technology skills should stay provider- or framework-level and avoid repeating module-specific instructions.
 
-## Vendor Blocks
+## Provider Adapter Blocks
 
-Vendor example blocks should include:
+Provider adapter modules should include:
 
 - source files owned by the integration
 - runtime and development dependencies

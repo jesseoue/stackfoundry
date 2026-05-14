@@ -47,7 +47,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Account Deletion Module\n\nAccount deletion requests, grace windows, and cleanup checklist.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `packages/db/src/schema/account-deletion.ts`\n- `apps/web/src/lib/account-deletion.ts`\n- `apps/web/src/app/(console)/settings/account/deletion/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider-specific adapters as separate modules.\n- Verify install output with `stackfoundry add account-deletion --target <app> --dry-run`.\n",
+  "docs": "# Account Deletion Module\n\nAccount deletion requests, grace windows, and cleanup checklist.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `packages/db/src/schema/account-deletion.ts`\n- `apps/web/src/lib/account-deletion.ts`\n- `apps/web/src/app/(console)/settings/account/deletion/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider adapters as separate modules.\n- Verify install output with `stackfoundry add account-deletion --target <app> --dry-run`.\n",
   "meta": {
     "category": "compliance",
     "env": [],

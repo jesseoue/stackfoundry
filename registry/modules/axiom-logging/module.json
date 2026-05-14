@@ -19,11 +19,11 @@
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/api/vendor/axiom/log/route.ts",
+      "path": "apps/web/src/app/api/providers/axiom/log/route.ts",
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/axiom/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/axiom/page.tsx",
       "type": "registry:page"
     }
   ],

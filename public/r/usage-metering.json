@@ -47,7 +47,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Usage Metering Module\n\nUsage event capture, aggregation helpers, and billing-ready usage UI.\n\n## Owns\n\n- `packages/db/src/schema/usage-metering.ts`\n- `apps/web/src/lib/usage-metering.ts`\n- `apps/web/src/app/(console)/usage/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider-specific adapter is added separately.\n- Update source templates, manifest files, and generated registry output together.\n- Add audit events around sensitive changes before promoting this module beyond experimental.\n- Verify with `stackfoundry add usage-metering --target <app> --dry-run`.\n",
+  "docs": "# Usage Metering Module\n\nUsage event capture, aggregation helpers, and billing-ready usage UI.\n\n## Owns\n\n- `packages/db/src/schema/usage-metering.ts`\n- `apps/web/src/lib/usage-metering.ts`\n- `apps/web/src/app/(console)/usage/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider adapter is added separately.\n- Update source templates, manifest files, and generated registry output together.\n- Add audit events around sensitive changes before promoting this module beyond experimental.\n- Verify with `stackfoundry add usage-metering --target <app> --dry-run`.\n",
   "meta": {
     "category": "billing",
     "env": [],

@@ -47,7 +47,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Contact Forms Module\n\nContact form submissions, spam review, and routing workflow.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `packages/db/src/schema/contact-forms.ts`\n- `apps/web/src/lib/contact-forms.ts`\n- `apps/web/src/app/(console)/admin/contact-forms/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider-specific adapters as separate modules.\n- Verify install output with `stackfoundry add contact-forms --target <app> --dry-run`.\n",
+  "docs": "# Contact Forms Module\n\nContact form submissions, spam review, and routing workflow.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `packages/db/src/schema/contact-forms.ts`\n- `apps/web/src/lib/contact-forms.ts`\n- `apps/web/src/app/(console)/admin/contact-forms/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider adapters as separate modules.\n- Verify install output with `stackfoundry add contact-forms --target <app> --dry-run`.\n",
   "meta": {
     "category": "marketing",
     "env": [],

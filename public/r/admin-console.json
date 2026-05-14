@@ -36,7 +36,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Admin Console Module\n\nSuper-admin shell for users, workspaces, metrics, and operational controls.\n\n## Owns\n\n- `apps/web/src/lib/admin-console.ts`\n- `apps/web/src/app/(console)/admin/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider-specific adapter is added separately.\n- Update source templates, manifest files, and generated registry output together.\n- Add audit events around sensitive changes before promoting this module beyond experimental.\n- Verify with `stackfoundry add admin-console --target <app> --dry-run`.\n",
+  "docs": "# Admin Console Module\n\nSuper-admin shell for users, workspaces, metrics, and operational controls.\n\n## Owns\n\n- `apps/web/src/lib/admin-console.ts`\n- `apps/web/src/app/(console)/admin/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider adapter is added separately.\n- Update source templates, manifest files, and generated registry output together.\n- Add audit events around sensitive changes before promoting this module beyond experimental.\n- Verify with `stackfoundry add admin-console --target <app> --dry-run`.\n",
   "meta": {
     "category": "operations",
     "env": [],

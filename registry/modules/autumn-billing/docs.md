@@ -7,7 +7,7 @@ Autumn should sit beside the source-owned billing modules, not replace them by d
 ## Owns
 
 - `apps/web/src/lib/autumn/billing.ts`
-- `apps/web/src/app/(console)/admin/vendors/autumn-billing/page.tsx`
+- `apps/web/src/app/(console)/admin/providers/autumn-billing/page.tsx`
 
 ## Dependencies
 

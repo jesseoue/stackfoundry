@@ -7,5 +7,5 @@ description: Better Auth guidance for installed auth modules.
 
 - Keep auth server config isolated from UI code.
 - Document session, organization, and adapter assumptions.
-- Do not mix provider-specific behavior into shared auth modules.
+- Do not mix provider behavior into shared auth modules.
 - Verify protected routes and account lifecycle flows.

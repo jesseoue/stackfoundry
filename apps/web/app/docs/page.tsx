@@ -691,7 +691,7 @@ $ pnpm stackfoundry add stripe-billing --target ./my-app`}</CodeBlock>
               StackFoundry is designed for normal code review. Install commands should be paired
               with diffs, env review, migration review, and focused verification. Provider modules
               document their required keys and webhook setup, but they should never introduce
-              committed secrets or lock a base preset to a vendor.
+              committed secrets or lock a base preset to one provider.
             </p>
             <div className="docs-checklist">
               <span>Read the manifest and docs before install.</span>

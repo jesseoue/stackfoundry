@@ -78,11 +78,11 @@ for (const sourceItem of sourceRegistry.items) {
   assertEnvRegistryItem(sourceItem.name, registryItem, manifest.env);
 }
 
-const vendor = await readJson("public/r/vendor-examples.json");
-assert(vendor.$schema === registryItemSchema, "vendor-examples must use registry item schema");
-assert(vendor.type === "registry:block", "vendor-examples must be registry:block");
+const adapterBlock = await readJson("public/r/provider-adapters.json");
+assert(adapterBlock.$schema === registryItemSchema, "provider-adapters must use registry item schema");
+assert(adapterBlock.type === "registry:block", "provider-adapters must be registry:block");
 assert(
-  vendor.registryDependencies?.every((dep) => dep.startsWith("https://stackfoundry.dev/r/")),
+  adapterBlock.registryDependencies?.every((dep) => dep.startsWith("https://stackfoundry.dev/r/")),
   "preset dependencies must be absolute registry URLs",
 );
 
@@ -95,7 +95,7 @@ assert(
   "registry items must embed shared technology skills",
 );
 
-const presetManifest = await readJson("public/r/presets/vendor-examples.json");
+const presetManifest = await readJson("public/r/presets/provider-adapters.json");
 assert(
   presetManifest.$schema === undefined,
   "public preset manifests must not masquerade as shadcn registry documents",

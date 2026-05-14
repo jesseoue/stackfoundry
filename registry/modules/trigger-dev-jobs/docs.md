@@ -20,7 +20,7 @@ Trigger.dev task definitions, run triggering route, and job dashboard starter.
 
 ## Maintenance
 
-- Keep this module focused on the vendor integration boundary.
+- Keep this module focused on the provider adapter boundary.
 - Keep secrets in environment variables and never commit local credentials.
 - Verify the example route or worker path before promoting this module beyond experimental.
-- Update docs, checklist, and manifest metadata when vendor APIs change.
+- Update docs, checklist, and manifest metadata when provider APIs change.

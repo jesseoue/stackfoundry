@@ -336,14 +336,14 @@
           "target": "apps/web/src/lib/arcjet.ts"
         },
         {
-          "path": "apps/web/src/app/api/vendor/arcjet/protected/route.ts",
+          "path": "apps/web/src/app/api/providers/arcjet/protected/route.ts",
           "type": "registry:file",
-          "target": "apps/web/src/app/api/vendor/arcjet/protected/route.ts"
+          "target": "apps/web/src/app/api/providers/arcjet/protected/route.ts"
         },
         {
-          "path": "apps/web/src/app/(console)/admin/vendors/arcjet/page.tsx",
+          "path": "apps/web/src/app/(console)/admin/providers/arcjet/page.tsx",
           "type": "registry:page",
-          "target": "apps/web/src/app/(console)/admin/vendors/arcjet/page.tsx"
+          "target": "apps/web/src/app/(console)/admin/providers/arcjet/page.tsx"
         }
       ]
     },
@@ -466,9 +466,9 @@
           "target": "apps/web/src/lib/autumn/billing.ts"
         },
         {
-          "path": "apps/web/src/app/(console)/admin/vendors/autumn-billing/page.tsx",
+          "path": "apps/web/src/app/(console)/admin/providers/autumn-billing/page.tsx",
           "type": "registry:page",
-          "target": "apps/web/src/app/(console)/admin/vendors/autumn-billing/page.tsx"
+          "target": "apps/web/src/app/(console)/admin/providers/autumn-billing/page.tsx"
         }
       ]
     },
@@ -492,9 +492,9 @@
           "target": "apps/web/src/lib/autumn/entitlements.ts"
         },
         {
-          "path": "apps/web/src/app/(console)/admin/vendors/autumn-entitlements/page.tsx",
+          "path": "apps/web/src/app/(console)/admin/providers/autumn-entitlements/page.tsx",
           "type": "registry:page",
-          "target": "apps/web/src/app/(console)/admin/vendors/autumn-entitlements/page.tsx"
+          "target": "apps/web/src/app/(console)/admin/providers/autumn-entitlements/page.tsx"
         }
       ]
     },
@@ -515,14 +515,14 @@
           "target": "apps/web/src/lib/axiom/logger.ts"
         },
         {
-          "path": "apps/web/src/app/api/vendor/axiom/log/route.ts",
+          "path": "apps/web/src/app/api/providers/axiom/log/route.ts",
           "type": "registry:file",
-          "target": "apps/web/src/app/api/vendor/axiom/log/route.ts"
+          "target": "apps/web/src/app/api/providers/axiom/log/route.ts"
         },
         {
-          "path": "apps/web/src/app/(console)/admin/vendors/axiom/page.tsx",
+          "path": "apps/web/src/app/(console)/admin/providers/axiom/page.tsx",
           "type": "registry:page",
-          "target": "apps/web/src/app/(console)/admin/vendors/axiom/page.tsx"
+          "target": "apps/web/src/app/(console)/admin/providers/axiom/page.tsx"
         }
       ]
     },
@@ -2357,9 +2357,9 @@
           "target": "apps/web/src/app/api/webhooks/github/route.ts"
         },
         {
-          "path": "apps/web/src/app/(console)/admin/vendors/github/page.tsx",
+          "path": "apps/web/src/app/(console)/admin/providers/github/page.tsx",
           "type": "registry:page",
-          "target": "apps/web/src/app/(console)/admin/vendors/github/page.tsx"
+          "target": "apps/web/src/app/(console)/admin/providers/github/page.tsx"
         }
       ]
     },
@@ -2615,9 +2615,9 @@
           "target": "apps/web/src/components/knock/knock-inbox-provider.tsx"
         },
         {
-          "path": "apps/web/src/app/(console)/admin/vendors/knock/page.tsx",
+          "path": "apps/web/src/app/(console)/admin/providers/knock/page.tsx",
           "type": "registry:page",
-          "target": "apps/web/src/app/(console)/admin/vendors/knock/page.tsx"
+          "target": "apps/web/src/app/(console)/admin/providers/knock/page.tsx"
         }
       ]
     },
@@ -3186,9 +3186,9 @@
           "target": "apps/web/src/components/analytics/track-button.tsx"
         },
         {
-          "path": "apps/web/src/app/(console)/admin/vendors/posthog/page.tsx",
+          "path": "apps/web/src/app/(console)/admin/providers/posthog/page.tsx",
           "type": "registry:page",
-          "target": "apps/web/src/app/(console)/admin/vendors/posthog/page.tsx"
+          "target": "apps/web/src/app/(console)/admin/providers/posthog/page.tsx"
         }
       ]
     },
@@ -3496,14 +3496,14 @@
           "target": "apps/web/src/emails/welcome-email.tsx"
         },
         {
-          "path": "apps/web/src/app/api/vendor/resend/send-welcome/route.ts",
+          "path": "apps/web/src/app/api/providers/resend/send-welcome/route.ts",
           "type": "registry:file",
-          "target": "apps/web/src/app/api/vendor/resend/send-welcome/route.ts"
+          "target": "apps/web/src/app/api/providers/resend/send-welcome/route.ts"
         },
         {
-          "path": "apps/web/src/app/(console)/admin/vendors/resend/page.tsx",
+          "path": "apps/web/src/app/(console)/admin/providers/resend/page.tsx",
           "type": "registry:page",
-          "target": "apps/web/src/app/(console)/admin/vendors/resend/page.tsx"
+          "target": "apps/web/src/app/(console)/admin/providers/resend/page.tsx"
         }
       ]
     },
@@ -3693,9 +3693,9 @@
           "target": "apps/web/sentry.server.config.ts"
         },
         {
-          "path": "apps/web/src/app/(console)/admin/vendors/sentry/page.tsx",
+          "path": "apps/web/src/app/(console)/admin/providers/sentry/page.tsx",
           "type": "registry:page",
-          "target": "apps/web/src/app/(console)/admin/vendors/sentry/page.tsx"
+          "target": "apps/web/src/app/(console)/admin/providers/sentry/page.tsx"
         }
       ]
     },
@@ -4137,9 +4137,9 @@
           "target": "apps/web/src/lib/tinybird/analytics.ts"
         },
         {
-          "path": "apps/web/src/app/(console)/admin/vendors/tinybird/page.tsx",
+          "path": "apps/web/src/app/(console)/admin/providers/tinybird/page.tsx",
           "type": "registry:page",
-          "target": "apps/web/src/app/(console)/admin/vendors/tinybird/page.tsx"
+          "target": "apps/web/src/app/(console)/admin/providers/tinybird/page.tsx"
         }
       ]
     },
@@ -4204,14 +4204,14 @@
           "target": "apps/web/src/lib/unkey/api-keys.ts"
         },
         {
-          "path": "apps/web/src/app/api/vendor/unkey/verify/route.ts",
+          "path": "apps/web/src/app/api/providers/unkey/verify/route.ts",
           "type": "registry:file",
-          "target": "apps/web/src/app/api/vendor/unkey/verify/route.ts"
+          "target": "apps/web/src/app/api/providers/unkey/verify/route.ts"
         },
         {
-          "path": "apps/web/src/app/(console)/admin/vendors/unkey/page.tsx",
+          "path": "apps/web/src/app/(console)/admin/providers/unkey/page.tsx",
           "type": "registry:page",
-          "target": "apps/web/src/app/(console)/admin/vendors/unkey/page.tsx"
+          "target": "apps/web/src/app/(console)/admin/providers/unkey/page.tsx"
         }
       ]
     },
@@ -4234,14 +4234,14 @@
           "target": "apps/web/src/lib/unkey/ratelimit.ts"
         },
         {
-          "path": "apps/web/src/app/api/vendor/unkey/ratelimit/route.ts",
+          "path": "apps/web/src/app/api/providers/unkey/ratelimit/route.ts",
           "type": "registry:file",
-          "target": "apps/web/src/app/api/vendor/unkey/ratelimit/route.ts"
+          "target": "apps/web/src/app/api/providers/unkey/ratelimit/route.ts"
         },
         {
-          "path": "apps/web/src/app/(console)/admin/vendors/unkey-rate-limits/page.tsx",
+          "path": "apps/web/src/app/(console)/admin/providers/unkey-rate-limits/page.tsx",
           "type": "registry:page",
-          "target": "apps/web/src/app/(console)/admin/vendors/unkey-rate-limits/page.tsx"
+          "target": "apps/web/src/app/(console)/admin/providers/unkey-rate-limits/page.tsx"
         }
       ]
     },
@@ -4270,14 +4270,14 @@
           "target": "apps/web/src/lib/upstash/ratelimit.ts"
         },
         {
-          "path": "apps/web/src/app/api/vendor/upstash/health/route.ts",
+          "path": "apps/web/src/app/api/providers/upstash/health/route.ts",
           "type": "registry:file",
-          "target": "apps/web/src/app/api/vendor/upstash/health/route.ts"
+          "target": "apps/web/src/app/api/providers/upstash/health/route.ts"
         },
         {
-          "path": "apps/web/src/app/(console)/admin/vendors/upstash/page.tsx",
+          "path": "apps/web/src/app/(console)/admin/providers/upstash/page.tsx",
           "type": "registry:page",
-          "target": "apps/web/src/app/(console)/admin/vendors/upstash/page.tsx"
+          "target": "apps/web/src/app/(console)/admin/providers/upstash/page.tsx"
         }
       ]
     },
@@ -4361,14 +4361,14 @@
           "target": "apps/web/src/lib/vercel/blob.ts"
         },
         {
-          "path": "apps/web/src/app/api/vendor/vercel/blob/route.ts",
+          "path": "apps/web/src/app/api/providers/vercel/blob/route.ts",
           "type": "registry:file",
-          "target": "apps/web/src/app/api/vendor/vercel/blob/route.ts"
+          "target": "apps/web/src/app/api/providers/vercel/blob/route.ts"
         },
         {
-          "path": "apps/web/src/app/(console)/admin/vendors/vercel-blob/page.tsx",
+          "path": "apps/web/src/app/(console)/admin/providers/vercel-blob/page.tsx",
           "type": "registry:page",
-          "target": "apps/web/src/app/(console)/admin/vendors/vercel-blob/page.tsx"
+          "target": "apps/web/src/app/(console)/admin/providers/vercel-blob/page.tsx"
         }
       ]
     },
@@ -4417,14 +4417,14 @@
           "target": "apps/web/src/lib/vercel/edge-config.ts"
         },
         {
-          "path": "apps/web/src/app/api/vendor/vercel/edge-config/route.ts",
+          "path": "apps/web/src/app/api/providers/vercel/edge-config/route.ts",
           "type": "registry:file",
-          "target": "apps/web/src/app/api/vendor/vercel/edge-config/route.ts"
+          "target": "apps/web/src/app/api/providers/vercel/edge-config/route.ts"
         },
         {
-          "path": "apps/web/src/app/(console)/admin/vendors/vercel-edge-config/page.tsx",
+          "path": "apps/web/src/app/(console)/admin/providers/vercel-edge-config/page.tsx",
           "type": "registry:page",
-          "target": "apps/web/src/app/(console)/admin/vendors/vercel-edge-config/page.tsx"
+          "target": "apps/web/src/app/(console)/admin/providers/vercel-edge-config/page.tsx"
         }
       ]
     },

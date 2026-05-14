@@ -18,5 +18,5 @@ No environment variables are required by default.
 ## Maintenance
 
 - Keep the default module provider-neutral.
-- Add provider-specific adapters as separate modules.
+- Add provider adapters as separate modules.
 - Verify install output with `stackfoundry add api-errors --target <app> --dry-run`.

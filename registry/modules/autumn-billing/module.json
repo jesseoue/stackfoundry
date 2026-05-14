@@ -21,7 +21,7 @@
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/autumn-billing/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/autumn-billing/page.tsx",
       "type": "registry:page"
     }
   ],

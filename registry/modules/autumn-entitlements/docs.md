@@ -7,7 +7,7 @@ Autumn should extend the source-owned entitlement and plan-gating modules. Keep 
 ## Owns
 
 - `apps/web/src/lib/autumn/entitlements.ts`
-- `apps/web/src/app/(console)/admin/vendors/autumn-entitlements/page.tsx`
+- `apps/web/src/app/(console)/admin/providers/autumn-entitlements/page.tsx`
 
 ## Dependencies
 

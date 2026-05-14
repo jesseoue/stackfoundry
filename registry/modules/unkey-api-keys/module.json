@@ -25,11 +25,11 @@
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/api/vendor/unkey/verify/route.ts",
+      "path": "apps/web/src/app/api/providers/unkey/verify/route.ts",
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/unkey/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/unkey/page.tsx",
       "type": "registry:page"
     }
   ],

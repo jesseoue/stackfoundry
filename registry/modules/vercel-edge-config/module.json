@@ -20,11 +20,11 @@
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/api/vendor/vercel/edge-config/route.ts",
+      "path": "apps/web/src/app/api/providers/vercel/edge-config/route.ts",
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/vercel-edge-config/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/vercel-edge-config/page.tsx",
       "type": "registry:page"
     }
   ],

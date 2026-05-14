@@ -19,23 +19,23 @@
       "content": "import \"server-only\";\n\nimport { list, put } from \"@vercel/blob\";\n\nexport async function uploadBlob(name: string, body: Blob | Buffer) {\n  return put(name, body, { access: \"public\" });\n}\n\nexport async function listBlobs(prefix?: string) {\n  return list({ prefix });\n}\n"
     },
     {
-      "path": "apps/web/src/app/api/vendor/vercel/blob/route.ts",
+      "path": "apps/web/src/app/api/providers/vercel/blob/route.ts",
       "type": "registry:file",
-      "target": "apps/web/src/app/api/vendor/vercel/blob/route.ts",
+      "target": "apps/web/src/app/api/providers/vercel/blob/route.ts",
       "content": "import { NextResponse } from \"next/server\";\n\nimport { uploadBlob } from \"@/lib/vercel/blob\";\n\nexport async function POST(request: Request) {\n  const formData = await request.formData();\n  const file = formData.get(\"file\");\n  if (!(file instanceof Blob)) return NextResponse.json({ error: \"file is required\" }, { status: 400 });\n\n  const blob = await uploadBlob(\"uploads/\" + crypto.randomUUID(), file);\n  return NextResponse.json(blob);\n}\n"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/vercel-blob/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/vercel-blob/page.tsx",
       "type": "registry:page",
-      "target": "apps/web/src/app/(console)/admin/vendors/vercel-blob/page.tsx",
-      "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function VercelBlobPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Vercel Blob</h1>\n        <p className=\"text-muted-foreground\">File and asset storage with deploy-ready upload route examples.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+      "target": "apps/web/src/app/(console)/admin/providers/vercel-blob/page.tsx",
+      "content": "const deployChecks = [\n  \"Create the provider project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function VercelBlobPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Vercel Blob</h1>\n        <p className=\"text-muted-foreground\">File and asset storage with deploy-ready upload route examples.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
   "maintenanceSkills": [
     {
       "name": "vercel-blob",
       "target": ".stackfoundry/skills/vercel-blob/SKILL.md",
-      "content": "---\nname: vercel-blob\ndescription: Maintain the Vercel Blob vendor registry block installed by StackFoundry.\n---\n\n# Vercel Blob Skill\n\n## Boundary\n\nThis block owns the Vercel Blob integration example only. Keep product-specific business logic outside the vendor adapter until the app has chosen this provider.\n\n## Source Files\n\n- `apps/web/src/lib/vercel/blob.ts`\n- `apps/web/src/app/api/vendor/vercel/blob/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/vercel-blob/page.tsx`\n\n## Dependencies\n\n- `@vercel/blob`\n\n## Environment\n\n- `BLOB_READ_WRITE_TOKEN`\n\n## Deployment Checks\n\n- Create the vendor project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current vendor docs.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one vendor.\n"
+      "content": "---\nname: vercel-blob\ndescription: Maintain the Vercel Blob provider adapter module installed by StackFoundry.\n---\n\n# Vercel Blob Skill\n\n## Boundary\n\nThis block owns the Vercel Blob integration example only. Keep product-specific business logic outside the provider adapter until the app has chosen this provider.\n\n## Source Files\n\n- `apps/web/src/lib/vercel/blob.ts`\n- `apps/web/src/app/api/providers/vercel/blob/route.ts`\n- `apps/web/src/app/(console)/admin/providers/vercel-blob/page.tsx`\n\n## Dependencies\n\n- `@vercel/blob`\n\n## Environment\n\n- `BLOB_READ_WRITE_TOKEN`\n\n## Deployment Checks\n\n- Create the provider project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current provider docs.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one provider.\n"
     },
     {
       "name": "vercel",
@@ -51,7 +51,7 @@
   "envVars": {
     "BLOB_READ_WRITE_TOKEN": ""
   },
-  "docs": "# Vercel Blob Module\n\nVercel Blob upload route, list helper, and file storage dashboard starter.\n\n## Owns\n\n- `apps/web/src/lib/vercel/blob.ts`\n- `apps/web/src/app/api/vendor/vercel/blob/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/vercel-blob/page.tsx`\n\n## Dependencies\n\n- `@vercel/blob`\n\n## Environment\n\n- `BLOB_READ_WRITE_TOKEN`\n\n## Deployment Notes\n\n- Create the vendor project/resource before deploying.\n- Add the listed environment variables to preview and production.\n- Smoke-test the included route or helper after deploy.\n- Keep provider secrets out of client components and logs.\n\n## Maintenance\n\n- Keep this module focused on the vendor integration boundary.\n- Update source examples when vendor SDK APIs change.\n- Record production-specific retry, alerting, and rollback behavior before marking stable.\n",
+  "docs": "# Vercel Blob Module\n\nVercel Blob upload route, list helper, and file storage dashboard starter.\n\n## Owns\n\n- `apps/web/src/lib/vercel/blob.ts`\n- `apps/web/src/app/api/providers/vercel/blob/route.ts`\n- `apps/web/src/app/(console)/admin/providers/vercel-blob/page.tsx`\n\n## Dependencies\n\n- `@vercel/blob`\n\n## Environment\n\n- `BLOB_READ_WRITE_TOKEN`\n\n## Deployment Notes\n\n- Create the provider project/resource before deploying.\n- Add the listed environment variables to preview and production.\n- Smoke-test the included route or helper after deploy.\n- Keep provider secrets out of client components and logs.\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Update source examples when provider SDK APIs change.\n- Record production-specific retry, alerting, and rollback behavior before marking stable.\n",
   "meta": {
     "category": "storage",
     "env": [

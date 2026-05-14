@@ -45,7 +45,7 @@ This module has installable source files and can be smoke-tested through the reg
 
 - Keep the module boundary small and editable.
 - Prefer provider-neutral domain shapes unless this module is explicitly a provider adapter.
-- Add provider-specific behavior in an adapter module rather than coupling shared modules to one service.
+- Add provider behavior in an adapter module rather than coupling shared modules to one provider.
 - Preserve compatibility for installed source, env files, and public registry item names.
 
 ## Safety

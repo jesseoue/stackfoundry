@@ -26,11 +26,11 @@
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/api/vendor/upstash/health/route.ts",
+      "path": "apps/web/src/app/api/providers/upstash/health/route.ts",
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/upstash/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/upstash/page.tsx",
       "type": "registry:page"
     }
   ],

@@ -20,11 +20,11 @@
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/api/vendor/unkey/ratelimit/route.ts",
+      "path": "apps/web/src/app/api/providers/unkey/ratelimit/route.ts",
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/unkey-rate-limits/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/unkey-rate-limits/page.tsx",
       "type": "registry:page"
     }
   ],

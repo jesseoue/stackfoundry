@@ -64,7 +64,7 @@ public/r/
   drizzle-postgres.json
   api-keys.json
   stripe-billing.json
-  vendor-examples.json     # installable aggregate preset block
+  provider-adapters.json     # installable aggregate preset block
   presets/
     next-saas.json         # StackFoundry preset manifest
 ```

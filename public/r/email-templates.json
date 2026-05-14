@@ -36,7 +36,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Email Templates Module\n\nTransactional email template catalog with plain-text fallback guidance.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `apps/web/src/lib/email-templates.ts`\n- `apps/web/src/app/(console)/admin/email-templates/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider-specific adapters as separate modules.\n- Verify install output with `stackfoundry add email-templates --target <app> --dry-run`.\n",
+  "docs": "# Email Templates Module\n\nTransactional email template catalog with plain-text fallback guidance.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `apps/web/src/lib/email-templates.ts`\n- `apps/web/src/app/(console)/admin/email-templates/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider adapters as separate modules.\n- Verify install output with `stackfoundry add email-templates --target <app> --dry-run`.\n",
   "meta": {
     "category": "communications",
     "env": [],

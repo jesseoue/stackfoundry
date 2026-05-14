@@ -1,5 +1,5 @@
 const checks = [
-  "Install vendor package and configure env",
+  "Install provider package and configure env",
   "Run the local example path",
   "Add auth, retries, and audit events before production",
 ];

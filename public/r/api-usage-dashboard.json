@@ -37,7 +37,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# API Usage Dashboard Module\n\nPer-key usage cards, request totals, errors, and limit visibility.\n\n## Owns\n\n- `apps/web/src/lib/api-usage-dashboard.ts`\n- `apps/web/src/app/(console)/developers/usage/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider-specific adapter is added separately.\n- Update source templates, manifest files, and generated registry output together.\n- Add audit events around sensitive changes before promoting this module beyond experimental.\n- Verify with `stackfoundry add api-usage-dashboard --target <app> --dry-run`.\n",
+  "docs": "# API Usage Dashboard Module\n\nPer-key usage cards, request totals, errors, and limit visibility.\n\n## Owns\n\n- `apps/web/src/lib/api-usage-dashboard.ts`\n- `apps/web/src/app/(console)/developers/usage/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider adapter is added separately.\n- Update source templates, manifest files, and generated registry output together.\n- Add audit events around sensitive changes before promoting this module beyond experimental.\n- Verify with `stackfoundry add api-usage-dashboard --target <app> --dry-run`.\n",
   "meta": {
     "category": "developer-platform",
     "env": [],

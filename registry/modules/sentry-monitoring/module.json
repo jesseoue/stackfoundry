@@ -29,7 +29,7 @@
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/sentry/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/sentry/page.tsx",
       "type": "registry:page"
     }
   ],

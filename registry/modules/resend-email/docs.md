@@ -6,8 +6,8 @@ Resend transactional email client, React Email welcome template, and send route.
 
 - `apps/web/src/lib/resend/client.ts`
 - `apps/web/src/emails/welcome-email.tsx`
-- `apps/web/src/app/api/vendor/resend/send-welcome/route.ts`
-- `apps/web/src/app/(console)/admin/vendors/resend/page.tsx`
+- `apps/web/src/app/api/providers/resend/send-welcome/route.ts`
+- `apps/web/src/app/(console)/admin/providers/resend/page.tsx`
 
 ## Dependencies
 
@@ -21,13 +21,13 @@ Resend transactional email client, React Email welcome template, and send route.
 
 ## Deployment Notes
 
-- Create the vendor project/resource before deploying.
+- Create the provider project/resource before deploying.
 - Add the listed environment variables to preview and production.
 - Smoke-test the included route or helper after deploy.
 - Keep provider secrets out of client components and logs.
 
 ## Maintenance
 
-- Keep this module focused on the vendor integration boundary.
-- Update source examples when vendor SDK APIs change.
+- Keep this module focused on the provider adapter boundary.
+- Update source examples when provider SDK APIs change.
 - Record production-specific retry, alerting, and rollback behavior before marking stable.

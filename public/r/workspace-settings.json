@@ -34,7 +34,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Workspace Settings Module\n\nOrganization members, roles, API keys, billing, and security settings.\n\n## Owns\n\n- `apps/web/src/app/(console)/settings/workspace/page.tsx`\n- `apps/web/src/lib/workspace-settings.ts`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider-specific adapter is added as a separate module.\n- Update the manifest when source files, schema exports, dependencies, or environment variables change.\n- Verify install output with `stackfoundry add workspace-settings --target <app> --dry-run` before promoting status.\n",
+  "docs": "# Workspace Settings Module\n\nOrganization members, roles, API keys, billing, and security settings.\n\n## Owns\n\n- `apps/web/src/app/(console)/settings/workspace/page.tsx`\n- `apps/web/src/lib/workspace-settings.ts`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider adapter is added as a separate module.\n- Update the manifest when source files, schema exports, dependencies, or environment variables change.\n- Verify install output with `stackfoundry add workspace-settings --target <app> --dry-run` before promoting status.\n",
   "meta": {
     "category": "auth",
     "env": [],

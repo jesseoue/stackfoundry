@@ -1,7 +1,7 @@
 # Sentry Monitoring Checklist
 
 - [ ] module manifest validates
-- [ ] vendor resource exists in preview and production
+- [ ] provider resource exists in preview and production
 - [ ] env vars are configured in deployment platform
 - [ ] smoke route/helper is verified after deploy
 - [ ] logs do not include secrets or user-sensitive payloads

@@ -20,11 +20,11 @@
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/api/vendor/arcjet/protected/route.ts",
+      "path": "apps/web/src/app/api/providers/arcjet/protected/route.ts",
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/arcjet/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/arcjet/page.tsx",
       "type": "registry:page"
     }
   ],

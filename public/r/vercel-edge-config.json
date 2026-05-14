@@ -19,23 +19,23 @@
       "content": "import \"server-only\";\n\nimport { get } from \"@vercel/edge-config\";\n\nexport async function getEdgeConfigValue<T>(key: string, fallback: T) {\n  const value = await get<T>(key);\n  return value ?? fallback;\n}\n"
     },
     {
-      "path": "apps/web/src/app/api/vendor/vercel/edge-config/route.ts",
+      "path": "apps/web/src/app/api/providers/vercel/edge-config/route.ts",
       "type": "registry:file",
-      "target": "apps/web/src/app/api/vendor/vercel/edge-config/route.ts",
+      "target": "apps/web/src/app/api/providers/vercel/edge-config/route.ts",
       "content": "import { NextResponse } from \"next/server\";\n\nimport { getEdgeConfigValue } from \"@/lib/vercel/edge-config\";\n\nexport async function GET() {\n  const maintenance = await getEdgeConfigValue(\"maintenance\", false);\n  return NextResponse.json({ maintenance });\n}\n"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/vercel-edge-config/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/vercel-edge-config/page.tsx",
       "type": "registry:page",
-      "target": "apps/web/src/app/(console)/admin/vendors/vercel-edge-config/page.tsx",
-      "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function VercelEdgeConfigPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Vercel Edge Config</h1>\n        <p className=\"text-muted-foreground\">Low-latency global reads for flags, maintenance mode, and routing config.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+      "target": "apps/web/src/app/(console)/admin/providers/vercel-edge-config/page.tsx",
+      "content": "const deployChecks = [\n  \"Create the provider project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function VercelEdgeConfigPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Vercel Edge Config</h1>\n        <p className=\"text-muted-foreground\">Low-latency global reads for flags, maintenance mode, and routing config.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
   "maintenanceSkills": [
     {
       "name": "vercel-edge-config",
       "target": ".stackfoundry/skills/vercel-edge-config/SKILL.md",
-      "content": "---\nname: vercel-edge-config\ndescription: Maintain the Vercel Edge Config vendor registry block installed by StackFoundry.\n---\n\n# Vercel Edge Config Skill\n\n## Boundary\n\nThis block owns the Vercel Edge Config integration example only. Keep product-specific business logic outside the vendor adapter until the app has chosen this provider.\n\n## Source Files\n\n- `apps/web/src/lib/vercel/edge-config.ts`\n- `apps/web/src/app/api/vendor/vercel/edge-config/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/vercel-edge-config/page.tsx`\n\n## Dependencies\n\n- `@vercel/edge-config`\n\n## Environment\n\n- `EDGE_CONFIG`\n\n## Deployment Checks\n\n- Create the vendor project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current vendor docs.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one vendor.\n"
+      "content": "---\nname: vercel-edge-config\ndescription: Maintain the Vercel Edge Config provider adapter module installed by StackFoundry.\n---\n\n# Vercel Edge Config Skill\n\n## Boundary\n\nThis block owns the Vercel Edge Config integration example only. Keep product-specific business logic outside the provider adapter until the app has chosen this provider.\n\n## Source Files\n\n- `apps/web/src/lib/vercel/edge-config.ts`\n- `apps/web/src/app/api/providers/vercel/edge-config/route.ts`\n- `apps/web/src/app/(console)/admin/providers/vercel-edge-config/page.tsx`\n\n## Dependencies\n\n- `@vercel/edge-config`\n\n## Environment\n\n- `EDGE_CONFIG`\n\n## Deployment Checks\n\n- Create the provider project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current provider docs.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one provider.\n"
     },
     {
       "name": "vercel",
@@ -51,7 +51,7 @@
   "envVars": {
     "EDGE_CONFIG": ""
   },
-  "docs": "# Vercel Edge Config Module\n\nEdge Config read helper for low-latency flags, redirects, and rollout config.\n\n## Owns\n\n- `apps/web/src/lib/vercel/edge-config.ts`\n- `apps/web/src/app/api/vendor/vercel/edge-config/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/vercel-edge-config/page.tsx`\n\n## Dependencies\n\n- `@vercel/edge-config`\n\n## Environment\n\n- `EDGE_CONFIG`\n\n## Deployment Notes\n\n- Create the vendor project/resource before deploying.\n- Add the listed environment variables to preview and production.\n- Smoke-test the included route or helper after deploy.\n- Keep provider secrets out of client components and logs.\n\n## Maintenance\n\n- Keep this module focused on the vendor integration boundary.\n- Update source examples when vendor SDK APIs change.\n- Record production-specific retry, alerting, and rollback behavior before marking stable.\n",
+  "docs": "# Vercel Edge Config Module\n\nEdge Config read helper for low-latency flags, redirects, and rollout config.\n\n## Owns\n\n- `apps/web/src/lib/vercel/edge-config.ts`\n- `apps/web/src/app/api/providers/vercel/edge-config/route.ts`\n- `apps/web/src/app/(console)/admin/providers/vercel-edge-config/page.tsx`\n\n## Dependencies\n\n- `@vercel/edge-config`\n\n## Environment\n\n- `EDGE_CONFIG`\n\n## Deployment Notes\n\n- Create the provider project/resource before deploying.\n- Add the listed environment variables to preview and production.\n- Smoke-test the included route or helper after deploy.\n- Keep provider secrets out of client components and logs.\n\n## Maintenance\n\n- Keep this module focused on the provider adapter boundary.\n- Update source examples when provider SDK APIs change.\n- Record production-specific retry, alerting, and rollback behavior before marking stable.\n",
   "meta": {
     "category": "storage",
     "env": [

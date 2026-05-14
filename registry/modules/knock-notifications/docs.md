@@ -6,7 +6,7 @@ Knock adapter for hosted in-app feeds, workflow triggers, and preference-aware n
 
 - `apps/web/src/lib/knock/client.ts`
 - `apps/web/src/components/knock/knock-inbox-provider.tsx`
-- `apps/web/src/app/(console)/admin/vendors/knock/page.tsx`
+- `apps/web/src/app/(console)/admin/providers/knock/page.tsx`
 
 ## Dependencies
 

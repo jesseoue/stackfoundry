@@ -5,7 +5,7 @@ Tinybird Events API adapter for high-volume product, usage, and AI analytics eve
 ## Owns
 
 - `apps/web/src/lib/tinybird/analytics.ts`
-- `apps/web/src/app/(console)/admin/vendors/tinybird/page.tsx`
+- `apps/web/src/app/(console)/admin/providers/tinybird/page.tsx`
 
 ## Dependencies
 

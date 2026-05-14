@@ -62,7 +62,7 @@ const featuredPresets = [
     tone: "Edge",
   },
   {
-    name: "vendor-examples",
+    name: "provider-adapters",
     title: "Adapter Examples",
     description:
       "Provider adapter examples that show integration shape without locking in the base.",

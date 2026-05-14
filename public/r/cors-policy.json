@@ -34,7 +34,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# CORS Policy Module\n\nAllowed origin configuration, preflight helpers, and deployment checklist.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `apps/web/src/lib/cors-policy.ts`\n- `apps/web/src/app/(console)/admin/security/cors/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider-specific adapters as separate modules.\n- Verify install output with `stackfoundry add cors-policy --target <app> --dry-run`.\n",
+  "docs": "# CORS Policy Module\n\nAllowed origin configuration, preflight helpers, and deployment checklist.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `apps/web/src/lib/cors-policy.ts`\n- `apps/web/src/app/(console)/admin/security/cors/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider adapters as separate modules.\n- Verify install output with `stackfoundry add cors-policy --target <app> --dry-run`.\n",
   "meta": {
     "category": "security",
     "env": [],

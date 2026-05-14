@@ -34,7 +34,7 @@
     }
   ],
   "envVars": {},
-  "docs": "# Security Headers Module\n\nContent security policy, frame, referrer, and transport header helpers.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `apps/web/src/lib/security-headers.ts`\n- `apps/web/src/app/(console)/admin/security/headers/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider-specific adapters as separate modules.\n- Verify install output with `stackfoundry add security-headers --target <app> --dry-run`.\n",
+  "docs": "# Security Headers Module\n\nContent security policy, frame, referrer, and transport header helpers.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `apps/web/src/lib/security-headers.ts`\n- `apps/web/src/app/(console)/admin/security/headers/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider adapters as separate modules.\n- Verify install output with `stackfoundry add security-headers --target <app> --dry-run`.\n",
   "meta": {
     "category": "security",
     "env": [],

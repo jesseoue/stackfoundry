@@ -60,9 +60,9 @@ Examples:
   stackfoundry search webhook
   stackfoundry info stripe-billing
   stackfoundry add api-keys --target ./app
-  stackfoundry add preset vendor-examples --target ./app
+  stackfoundry add preset provider-adapters --target ./app
   stackfoundry add https://stackfoundry.dev/r/api-keys.json --target ./app
-  stackfoundry add public/r/vendor-examples.json --target ./app
+  stackfoundry add public/r/provider-adapters.json --target ./app
 `);
 }
 

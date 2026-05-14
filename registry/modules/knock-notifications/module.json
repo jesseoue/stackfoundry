@@ -28,7 +28,7 @@
       "type": "registry:component"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/knock/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/knock/page.tsx",
       "type": "registry:page"
     }
   ],

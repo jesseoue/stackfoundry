@@ -7,8 +7,8 @@ Use the source-owned `rate-limits` module when you want local database-backed li
 ## Owns
 
 - `apps/web/src/lib/unkey/ratelimit.ts`
-- `apps/web/src/app/api/vendor/unkey/ratelimit/route.ts`
-- `apps/web/src/app/(console)/admin/vendors/unkey-rate-limits/page.tsx`
+- `apps/web/src/app/api/providers/unkey/ratelimit/route.ts`
+- `apps/web/src/app/(console)/admin/providers/unkey-rate-limits/page.tsx`
 
 ## Dependencies
 
@@ -28,7 +28,7 @@ Use the source-owned `rate-limits` module when you want local database-backed li
 
 ## Maintenance
 
-- Keep this module focused on the vendor integration boundary.
-- Update source examples when vendor SDK APIs change.
+- Keep this module focused on the provider adapter boundary.
+- Update source examples when provider SDK APIs change.
 - Preserve the source-owned `rate-limits` module as the default path in base presets.
 - Record production-specific retry, alerting, and rollback behavior before marking stable.

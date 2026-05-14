@@ -26,7 +26,7 @@
       "type": "registry:file"
     },
     {
-      "path": "apps/web/src/app/(console)/admin/vendors/github/page.tsx",
+      "path": "apps/web/src/app/(console)/admin/providers/github/page.tsx",
       "type": "registry:page"
     }
   ],
