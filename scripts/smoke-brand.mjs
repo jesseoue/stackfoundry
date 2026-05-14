@@ -29,14 +29,14 @@ assert(billingList.includes("credit-wallet"), "billing list must include credit-
 const layout = readFileSync("apps/web/app/layout.tsx", "utf8");
 assert(layout.includes("StackFoundry"), "root metadata must include StackFoundry");
 assert(
-  layout.includes("Install production SaaS features as editable source code."),
+  layout.includes("Install API SaaS systems and production SaaS modules as editable source code."),
   "root metadata must include the current value proposition",
 );
 
 const aiSeo = readFileSync("apps/web/app/ai-seo.ts", "utf8");
 assert(aiSeo.includes("# StackFoundry"), "llms.txt content must be branded");
 assert(
-  aiSeo.includes("Install production SaaS modules as editable source code"),
+  aiSeo.includes("shadcn for production SaaS systems") && aiSeo.includes("api-saas-starter"),
   "AI discovery content must include the core positioning",
 );
 assert(aiSeo.includes("/llms.txt"), "AI discovery content must include llms.txt");

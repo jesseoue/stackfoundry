@@ -2,7 +2,7 @@
   "name": "stackfoundry",
   "version": "1.0.0",
   "private": true,
-  "description": "Install production SaaS modules as editable source code.",
+  "description": "Install API SaaS systems and production SaaS modules as editable source code.",
   "type": "module",
   "bin": {
     "stackfoundry": "./apps/cli/src/cli.mjs"

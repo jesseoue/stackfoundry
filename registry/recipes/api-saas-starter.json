@@ -1,12 +1,12 @@
 {
   "title": "API SaaS Starter",
-  "description": "A vertical API product path from auth and API keys through usage, quotas, docs, webhooks, billing, and request visibility.",
+  "description": "The API-first SaaS wedge: keys, usage tracking, quotas, credits, Stripe billing, docs, webhooks, and request visibility.",
   "category": "developer-platform",
   "status": "ready",
   "outcomes": [
     "Issue and verify API keys",
     "Meter usage and enforce quotas",
-    "Expose docs, request logs, and webhook delivery"
+    "Expose docs, request logs, billing, and webhook delivery"
   ],
   "stages": [
     {

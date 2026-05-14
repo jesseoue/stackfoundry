@@ -6,19 +6,26 @@ const githubUrl = "https://github.com/jesseoue/stackfoundry";
 export const metadata: Metadata = {
   title: "Registry",
   description:
-    "Browse StackFoundry modules, presets, and optional provider adapters for production SaaS apps.",
+    "Browse StackFoundry modules, recipes, and provider adapters for API-first SaaS products.",
   alternates: {
     canonical: "/registry",
   },
   openGraph: {
     title: "StackFoundry Registry",
     description:
-      "A visual catalog of installable SaaS modules, presets, and optional provider adapters.",
+      "Install API keys, usage, billing, webhooks, and production SaaS modules as editable source.",
     url: "/registry",
   },
 };
 
 const featuredPresets = [
+  {
+    name: "api-saas-starter",
+    title: "API SaaS Starter",
+    description: "The traction wedge: keys, usage, quotas, credits, billing, webhooks, and docs.",
+    modules: ["api-keys", "usage-metering", "credit-wallet", "stripe-billing", "webhook-delivery"],
+    tone: "Best wedge",
+  },
   {
     name: "next-saas",
     title: "Next SaaS",
@@ -83,8 +90,9 @@ const featuredRecipes = [
   {
     name: "api-saas-starter",
     title: "API SaaS Starter",
-    description: "Keys, usage, quotas, docs, webhooks, credits, billing, and request visibility.",
-    modules: ["api-keys", "usage-metering", "rate-limits", "api-docs", "webhook-delivery"],
+    description:
+      "Launch an API SaaS with keys, usage, quotas, credits, billing, docs, and webhooks.",
+    modules: ["api-keys", "usage-metering", "credit-wallet", "stripe-billing", "webhook-delivery"],
     tone: "API",
   },
   {
@@ -157,7 +165,7 @@ const moduleFamilies = [
   {
     title: "API Product",
     description:
-      "Developer-facing controls for keys, rate limits, public APIs, webhooks, and docs.",
+      "The strongest wedge: keys, rate limits, usage, credits, public APIs, webhooks, and docs.",
     modules: [
       "api-keys",
       "unkey-api-keys",
@@ -383,19 +391,19 @@ export default function RegistryPage() {
             <div>
               <div className="eyebrow">
                 <span className="dot" aria-hidden="true" />
-                <span>Public source registry</span>
+                <span>shadcn for production SaaS systems</span>
               </div>
               <h1 className="registry-title">
-                Modules, presets, and provider adapters for SaaS apps.
+                Start with API SaaS. Expand only after the wedge works.
               </h1>
               <p className="registry-lede">
-                StackFoundry lets teams install production SaaS modules as editable source code.
-                Modules include source files, docs, env notes, tests or checklists, and maintenance
-                guidance. Presets are curated bundles. Providers stay optional adapters.
+                Install API keys, usage tracking, rate limits, credits, Stripe billing, webhooks,
+                API docs, and operating checks as editable source. Modules are the product. Recipes
+                explain the path. Presets are convenience bundles.
               </p>
               <div className="registry-actions">
                 <a className="button primary" href="/docs#install-existing">
-                  Install a module
+                  Dry-run API SaaS
                 </a>
                 <a className="button" href="/docs">
                   Read the docs
@@ -412,10 +420,9 @@ export default function RegistryPage() {
                 registry install
               </div>
               <pre>
-                <code>{`pnpm stackfoundry presets
-pnpm stackfoundry add preset next-saas
-pnpm stackfoundry add stripe-billing
-pnpm stackfoundry diff api-keys`}</code>
+                <code>{`pnpm stackfoundry recipe api-saas-starter
+pnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run
+pnpm stackfoundry diff api-keys --target ./my-app`}</code>
               </pre>
               <div className="registry-terminal-foot">
                 Source lands in your repo for review, edits, and ownership.
@@ -438,11 +445,11 @@ pnpm stackfoundry diff api-keys`}</code>
         <section className="registry-section" id="recipes">
           <div className="registry-section-head">
             <div className="section-eyebrow">Recipes</div>
-            <h2>Install a product path, not a bag of blocks.</h2>
+            <h2>The API SaaS recipe is the front door.</h2>
             <p>
-              Recipes document the recommended install order for complete SaaS workflows. They show
-              how source-owned modules, provider adapters, UI primitives, and operator surfaces fit
-              together before you install.
+              Recipes document the recommended install order for complete SaaS workflows. The
+              sharpest path is API SaaS: keys, usage, rate limits, credits, billing, docs, webhooks,
+              and visibility.
             </p>
           </div>
 
@@ -464,10 +471,10 @@ pnpm stackfoundry diff api-keys`}</code>
         <section className="registry-section" id="presets">
           <div className="registry-section-head">
             <div className="section-eyebrow">Featured Paths</div>
-            <h2>Start with a preset, then swap adapters as your stack settles.</h2>
+            <h2>Presets are convenience. They are not the product.</h2>
             <p>
-              Presets are install paths through the registry, not new frameworks. They collect the
-              modules most teams need for a product shape while keeping provider choices explicit.
+              Presets collect modules for a product shape, but traction comes from a painful narrow
+              workflow. Start with API SaaS, then add B2B, AI, support, or provider-native paths.
             </p>
           </div>
 
@@ -489,10 +496,11 @@ pnpm stackfoundry diff api-keys`}</code>
         <section className="registry-section" id="modules">
           <div className="registry-section-head">
             <div className="section-eyebrow">Module Families</div>
-            <h2>The registry is organized around product capabilities.</h2>
+            <h2>Every broad category points back to concrete product pain.</h2>
             <p>
-              Each card points at concrete modules you can inspect, install, and maintain as source.
-              The base scaffold stays small; capabilities are added only when the app needs them.
+              Each card points at modules you can inspect, install, and maintain as source. The base
+              scaffold stays small; API products can add only the systems they need to monetize and
+              operate.
             </p>
           </div>
 

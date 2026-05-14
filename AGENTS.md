@@ -1,6 +1,6 @@
 # Agent Context
 
-StackFoundry is a public source registry for production SaaS modules.
+StackFoundry is a public source registry for production SaaS modules. The sharp public wedge is API SaaS: API keys, usage tracking, rate limits, credits, Stripe billing, docs, and webhooks as editable source.
 
 ## Product Rules
 
@@ -34,6 +34,8 @@ Before moving to a new phase:
 
 Use this product positioning:
 
-> Install production SaaS modules as editable source code.
+> shadcn for production SaaS systems.
+>
+> Install API keys, usage tracking, billing, webhooks, and production SaaS modules as editable source code.
 
-Avoid overclaiming unsupported providers. Keep launch scope narrow and credible. AI-related modules are optional module categories, not the core project identity.
+Avoid overclaiming unsupported providers. Keep launch scope narrow and credible. Lead with the API SaaS recipe before broad catalog coverage. AI-related modules are optional module categories, not the core project identity.

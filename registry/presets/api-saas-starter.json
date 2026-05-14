@@ -1,7 +1,7 @@
 {
   "name": "api-saas-starter",
   "title": "API SaaS Starter",
-  "description": "API-first SaaS starter with auth, orgs, API keys, usage metering, rate limits, billing, webhooks, docs, and observability.",
+  "description": "API-first SaaS starter with API keys, usage tracking, rate limits, credits, Stripe billing, webhooks, docs, and observability.",
   "status": "ready",
   "modules": [
     "next-saas-shell",

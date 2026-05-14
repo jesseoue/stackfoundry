@@ -1,6 +1,12 @@
 # Install Order
 
-Install order keeps source modules from becoming a pile of unrelated files. Start with foundations, then add product systems, then adapters.
+Install order keeps source modules from becoming a pile of unrelated files. For traction, start with the API SaaS path: foundations, identity, API access, usage/credits, webhooks, billing, then adapters.
+
+The practical first command is:
+
+```bash
+pnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run
+```
 
 ## Foundation
 
@@ -44,10 +50,12 @@ api-keys
   -> api-errors
   -> rate-limits
   -> usage-metering
+  -> quota-enforcement
+  -> credit-wallet
   -> api-docs
-  -> request-log-explorer
+  -> webhook-inbox
   -> webhook-delivery
-  -> api-playground
+  -> idempotency-keys
 ```
 
 ## Operations

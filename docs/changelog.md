@@ -16,12 +16,13 @@ This page mirrors the release changelog and keeps the latest public registry cha
 
 ### Changed
 
-1. Pointed module maintenance skills to installed shared provider, framework, database, SDK, and platform skills.
-2. Standardized provider adapter registry language and replaced legacy provider wording/paths.
-3. Renamed public command examples to `stackfoundry`.
-4. Updated `AGENTS.md` to match the current recipes, readiness, generated-output, and maintenance-skill model.
-5. Improved README badges, contribution controls, provider request templates, repo topics, and docs navigation for public discovery.
-6. Updated GitHub Actions dependencies for checkout, Node setup, pnpm setup, and dependency review.
+1. Sharpened public positioning around the API SaaS wedge: API keys, usage tracking, rate limits, credits, Stripe billing, docs, and webhooks as editable source.
+2. Pointed module maintenance skills to installed shared provider, framework, database, SDK, and platform skills.
+3. Standardized provider adapter registry language and replaced legacy provider wording/paths.
+4. Renamed public command examples to `stackfoundry`.
+5. Updated `AGENTS.md` to match the current recipes, readiness, generated-output, and maintenance-skill model.
+6. Improved README badges, contribution controls, provider request templates, repo topics, and docs navigation for public discovery.
+7. Updated GitHub Actions dependencies for checkout, Node setup, pnpm setup, and dependency review.
 
 ### Security
 

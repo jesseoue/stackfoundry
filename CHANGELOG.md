@@ -14,6 +14,7 @@
 
 ### Changed
 
+- Sharpened public positioning around the API SaaS wedge: API keys, usage tracking, rate limits, credits, Stripe billing, docs, and webhooks as editable source.
 - Pointed module maintenance skills to installed shared provider, framework, database, SDK, and platform skills.
 - Standardized provider adapter registry language and replaced legacy provider wording/paths.
 - Renamed public command examples to `stackfoundry`.

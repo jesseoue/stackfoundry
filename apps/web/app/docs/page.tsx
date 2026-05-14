@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Docs",
   description:
-    "Install production SaaS modules as editable source code with StackFoundry's registry, command, presets, and provider adapters.",
+    "Install API SaaS systems and production SaaS modules as editable source code with StackFoundry.",
   alternates: {
     canonical: "/docs",
   },
@@ -14,8 +14,8 @@ const quickStart = [
   "cd stackfoundry",
   "corepack enable && pnpm install",
   "pnpm registry:doctor",
-  "pnpm stackfoundry list",
-  "pnpm stackfoundry add api-keys --target ./my-app --dry-run",
+  "pnpm stackfoundry recipe api-saas-starter",
+  "pnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run",
 ];
 
 const existingAppSteps = [
@@ -38,6 +38,19 @@ const existingAppSteps = [
 ];
 
 const pathCards = [
+  {
+    title: "API SaaS: prove the wedge first",
+    eyebrow: "best first path",
+    body: "Start with api-saas-starter when you need API keys, usage metering, quotas, credits, Stripe billing, docs, webhooks, and request visibility without adopting a black-box starter.",
+    modules: [
+      "api-keys",
+      "usage-metering",
+      "quota-enforcement",
+      "credit-wallet",
+      "stripe-billing",
+      "webhook-delivery",
+    ],
+  },
   {
     title: "Auth: choose the boundary first",
     eyebrow: "default path",
@@ -481,7 +494,7 @@ export default function DocsPage() {
           </div>
           <div className="docs-side-section">
             <h4>
-              Registry <strong>160+</strong>
+              Registry <strong>155</strong>
             </h4>
             {moduleGroups.slice(0, 7).map((group) => (
               <a href="#module-catalog" key={group.category}>
@@ -517,12 +530,12 @@ export default function DocsPage() {
           </div>
 
           <header className="docs-hero">
-            <p className="docs-kicker">Source registry for production SaaS modules</p>
-            <h1 className="doc-title">Install modules. Own the source.</h1>
+            <p className="docs-kicker">shadcn for production SaaS systems</p>
+            <h1 className="doc-title">Launch API SaaS plumbing. Own the source.</h1>
             <p className="doc-lede">
-              StackFoundry installs production SaaS modules as editable source code. The registry is
-              the product; presets are only bundles of modules you can inspect, dry-run, install,
-              and maintain in your own app.
+              Start with API keys, usage tracking, rate limits, credits, Stripe billing, docs, and
+              webhooks. The registry is the product; modules are the unit of value; recipes are the
+              path; presets are only bundles you can inspect, dry-run, install, and maintain.
             </p>
             <div className="doc-meta">
               <span>module-first</span>
@@ -535,9 +548,9 @@ export default function DocsPage() {
           <section className="docs-callout">
             <strong>Core rule</strong>
             <p>
-              Base scaffolds stay small. Database, auth, billing, API product, operations,
-              analytics, deployment, and AI capabilities are installed as modules. Hosted providers
-              are adapters you choose deliberately, not hard dependencies hidden in a preset.
+              Base scaffolds stay small. The API SaaS recipe is the traction path. Database, auth,
+              billing, operations, analytics, deployment, and AI capabilities remain modules you add
+              deliberately, not hard dependencies hidden in a preset.
             </p>
           </section>
 
@@ -546,9 +559,9 @@ export default function DocsPage() {
               1. Try the registry locally <Anchor id="quick-start" />
             </h2>
             <p>
-              Clone the repository, validate the manifests, list available modules, then dry-run a
-              module into a target app. Dry runs are the fastest way to understand what StackFoundry
-              will add before you accept any source changes.
+              Clone the repository, validate the manifests, inspect the API SaaS recipe, then
+              dry-run it into a target app. Dry runs are the fastest way to understand what
+              StackFoundry will add before you accept any source changes.
             </p>
             <CodeBlock label="terminal">
               {quickStart.map((line) => `$ ${line}`).join("\n")}
@@ -560,22 +573,23 @@ export default function DocsPage() {
               2. Add to an existing app <Anchor id="install-existing" />
             </h2>
             <p>
-              Existing apps should start with a dry run. The StackFoundry command resolves registry
-              dependencies, prints the proposed file changes, shows env notes, and leaves the review
-              decision with you. After install, the source is yours to edit like any other code.
+              Existing apps should start with the API SaaS dry run. The StackFoundry command
+              resolves registry dependencies, prints proposed file changes, shows env notes, and
+              leaves the review decision with you. After install, the source is yours to edit like
+              any other code.
             </p>
-            <CodeBlock label="terminal">{`$ pnpm stackfoundry add stripe-billing --target ./my-app --dry-run
-· resolving registry dependency drizzle-postgres
-· reading registry/modules/stripe-billing/module.json
-+ packages/db/src/schema/billing.ts
-+ apps/web/app/api/webhooks/stripe/route.ts
-+ apps/web/app/(dashboard)/billing/page.tsx
-+ .stackfoundry/skills/stripe-billing/SKILL.md
+            <CodeBlock label="terminal">{`$ pnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run
+· resolving recipe stages: identity, api-access, usage-and-credits, webhooks, billing
+· reading registry/recipes/api-saas-starter.json
++ apps/web/src/lib/api-keys/verify.ts
++ packages/db/src/schema/usage.ts
++ apps/web/app/api/webhooks/route.ts
++ .stackfoundry/skills/api-keys/SKILL.md
 + tests/checklist.md
-! env notes: STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+! env notes: STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, API_KEY_PEPPER
 
-$ pnpm stackfoundry diff stripe-billing --target ./my-app
-$ pnpm stackfoundry add stripe-billing --target ./my-app`}</CodeBlock>
+$ pnpm stackfoundry diff api-keys --target ./my-app
+$ pnpm stackfoundry add recipe api-saas-starter --target ./my-app`}</CodeBlock>
             <div className="docs-steps">
               {existingAppSteps.map(([title, body], index) => (
                 <div className="docs-step" key={title}>
@@ -601,9 +615,9 @@ $ pnpm stackfoundry add stripe-billing --target ./my-app`}</CodeBlock>
               3. Choose a path <Anchor id="choose-path" />
             </h2>
             <p>
-              StackFoundry separates source-owned product primitives from provider adapters. That
-              lets a team start simple, add a hosted service when it helps, and still keep the
-              product logic reviewable.
+              StackFoundry separates source-owned product primitives from provider adapters. For
+              traction, start with the API SaaS path, then add team, AI, support, or provider-native
+              capabilities once the narrow workflow is useful.
             </p>
             <div className="docs-path-grid">
               {pathCards.map((card) => (
@@ -698,7 +712,7 @@ $ pnpm stackfoundry recipe api-saas-starter`}</CodeBlock>
 
           <section aria-labelledby="safety">
             <h2 id="safety">
-              6. Review and update safely <Anchor id="safety" />
+              7. Review and update safely <Anchor id="safety" />
             </h2>
             <p>
               StackFoundry is designed for normal code review. Install commands should be paired
@@ -740,7 +754,7 @@ $ pnpm stackfoundry recipe api-saas-starter`}</CodeBlock>
           <a href="#safety">Safety</a>
           <div className="docs-toc-meta">
             <span>Registry-first</span>
-            <span>160+ modules</span>
+            <span>155 modules</span>
             <a href="https://github.com/jesseoue/stackfoundry">GitHub →</a>
           </div>
         </aside>

@@ -1,14 +1,14 @@
 # StackFoundry Command
 
-The `stackfoundry` command is the local install engine for StackFoundry registry modules.
+The `stackfoundry` command is the local install engine for StackFoundry registry modules. The clean first path is the API SaaS recipe: keys, usage, quotas, credits, billing, docs, and webhooks as editable source.
 
 ## Responsibilities
 
-- List modules and presets.
+- List modules, recipes, and presets.
 - Browse canonical categories and search modules.
 - Validate registry source.
 - Build registry-compatible output.
-- Install modules or presets into a target app.
+- Install modules, recipes, or presets into a target app.
 - Install generated registry block JSON from local files or StackFoundry registry URLs.
 - Refuse to overwrite modified target files unless `--force` is explicit.
 - Write install metadata for future diff/update workflows.
@@ -33,8 +33,8 @@ pnpm stackfoundry recipes
 pnpm stackfoundry recipe api-saas-starter
 pnpm stackfoundry doctor
 pnpm stackfoundry build
-pnpm stackfoundry add api-keys --target /tmp/app --dry-run
 pnpm stackfoundry add recipe api-saas-starter --target /tmp/app --dry-run
+pnpm stackfoundry add api-keys --target /tmp/app --dry-run
 pnpm stackfoundry add preset provider-adapters --target /tmp/app --dry-run
 pnpm stackfoundry add https://stackfoundry.dev/r/api-keys.json --target /tmp/app --dry-run
 pnpm stackfoundry diff api-keys --target /tmp/app

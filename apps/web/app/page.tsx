@@ -31,20 +31,20 @@ const stats = [
 const installSteps = [
   {
     number: "01",
-    title: "Source files",
-    description: "Routes, components, helpers, and server code land in canonical project paths.",
+    title: "Dry-run the recipe",
+    description: "Preview every API key, usage, billing, webhook, docs, env, and checklist file.",
   },
   {
     number: "02",
-    title: "Drizzle schema",
+    title: "Install the source",
     description:
-      "Schema slices are delivered with migration guidance. Migrations are never applied silently.",
+      "Routes, components, helpers, server code, schema slices, and docs land in canonical paths.",
   },
   {
     number: "03",
-    title: "Env notes",
+    title: "Wire env and migrations",
     description:
-      "Required keys and provider setup notes are documented alongside the installed code.",
+      "Required provider keys and migration notes are documented alongside the installed code.",
   },
   {
     number: "04",
@@ -56,41 +56,25 @@ const installSteps = [
 
 const moduleCards: LandingModuleCard[] = [
   {
-    name: "stripe-billing",
-    title: "Stripe Billing",
-    category: "billing",
-    version: "v0.4.2",
+    name: "api-saas-starter",
+    title: "API SaaS Starter",
+    category: "recipe",
+    version: "ready",
     variant: "featured",
     description:
-      "Checkout, billing portal, subscription sync, webhook dedupe, and entitlement mapping.",
+      "API keys, usage tracking, rate limits, credits, Stripe billing, webhooks, docs, and request visibility.",
     tags: [
-      { label: "billing" },
-      { label: "deps: billing-core", tone: "dependency" },
-      { label: "adapter option", tone: "provider" },
-      { label: "maintenance skill", tone: "skill" },
+      { label: "wedge", tone: "accent" },
+      { label: "recipe", tone: "success" },
+      { label: "API-first SaaS", tone: "provider" },
+      { label: "source-owned", tone: "skill" },
     ],
     footer: {
-      summary: "18 files · 2 schemas · 1 skill",
+      summary: "20 modules · staged install path",
       actions: [
-        { label: "docs", href: "/docs#modules" },
-        { label: "json", href: "/r/stripe-billing.json" },
+        { label: "recipe", href: "/r/recipes/api-saas-starter.json" },
+        { label: "json", href: "/r/api-saas-starter.json" },
       ],
-    },
-  },
-  {
-    name: "drizzle-postgres",
-    title: "Drizzle Postgres",
-    category: "database",
-    version: "v0.3.0",
-    description: "Postgres package, schema barrel, migrations, and server-only database access.",
-    tags: [
-      { label: "database" },
-      { label: "source-owned", tone: "success" },
-      { label: "maintenance skill", tone: "skill" },
-    ],
-    footer: {
-      summary: "9 files · 1 package · 1 skill",
-      actions: [{ label: "json", href: "/r/drizzle-postgres.json" }],
     },
   },
   {
@@ -107,6 +91,43 @@ const moduleCards: LandingModuleCard[] = [
     footer: {
       summary: "14 files · 1 schema · 1 skill",
       actions: [{ label: "json", href: "/r/api-keys.json" }],
+    },
+  },
+  {
+    name: "usage-metering",
+    title: "Usage Metering",
+    category: "API product",
+    version: "ready",
+    description: "Usage events, metering helpers, quota visibility, and billing-ready records.",
+    tags: [
+      { label: "usage" },
+      { label: "deps: billing-core", tone: "dependency" },
+      { label: "maintenance skill", tone: "skill" },
+    ],
+    footer: {
+      summary: "source-owned usage system",
+      actions: [{ label: "json", href: "/r/usage-metering.json" }],
+    },
+  },
+  {
+    name: "stripe-billing",
+    title: "Stripe Billing",
+    category: "billing",
+    version: "v0.4.2",
+    description:
+      "Checkout, billing portal, subscription sync, webhook dedupe, and entitlement mapping.",
+    tags: [
+      { label: "billing" },
+      { label: "deps: billing-core", tone: "dependency" },
+      { label: "adapter option", tone: "provider" },
+      { label: "maintenance skill", tone: "skill" },
+    ],
+    footer: {
+      summary: "18 files · 2 schemas · 1 skill",
+      actions: [
+        { label: "docs", href: "/docs#modules" },
+        { label: "json", href: "/r/stripe-billing.json" },
+      ],
     },
   },
   {
@@ -184,20 +205,11 @@ const backlog = [
   ["backup-restore", "operations"],
 ];
 
-const demoModules = [
-  "drizzle-postgres",
-  "webhook-inbox",
-  "audit-log",
-  "resend-email",
-  "posthog-analytics",
-];
-
-const demoModuleReel = [...demoModules, demoModules[0]];
-
 const heroStack = [
-  ["stripe-billing", "Checkout, portal, webhooks"],
   ["api-keys", "Hashed keys and scopes"],
-  ["docs-fumadocs", "Product docs shell"],
+  ["usage-metering", "Events, quotas, credits"],
+  ["stripe-billing", "Checkout and entitlements"],
+  ["webhook-delivery", "Signed outbound events"],
 ];
 
 const commandGroups = [
@@ -214,9 +226,10 @@ const commandGroups = [
     label: "Developer Platform",
     items: [
       ["api-keys", "Hashed keys and scopes"],
+      ["usage-metering", "Usage events and quota records"],
+      ["stripe-billing", "Plans, checkout, webhooks"],
       ["api-docs", "Reference shell and examples"],
       ["webhook-delivery", "Signed outbound events"],
-      ["api-errors", "Machine-readable error codes"],
     ],
   },
   {
@@ -238,10 +251,10 @@ const commandRows: Array<{
   tags?: ModuleTag[];
 }> = [
   {
-    name: "stripe-billing",
-    category: "billing",
-    description: "Products, plans, checkout, portal, and webhook route.",
-    tags: [{ label: "deps: billing-core", tone: "dependency" }],
+    name: "api-saas-starter",
+    category: "recipe",
+    description: "API keys, usage, quotas, credits, billing, docs, and webhooks.",
+    tags: [{ label: "best wedge", tone: "accent" }],
     selected: true,
   },
   {
@@ -259,9 +272,9 @@ const commandRows: Array<{
 ];
 
 const presetRows = [
-  ["next-saas", "Product teams", "Billing, auth surfaces, ops, legal, docs"],
+  ["api-saas-starter", "API-first SaaS", "Keys, usage, credits, billing, webhooks"],
+  ["developer-platform", "Devtools", "Keys, docs, public APIs, usage"],
   ["b2b-saas", "Team products", "RBAC, invites, audit, SSO, SCIM"],
-  ["developer-platform", "API-first apps", "Keys, docs, webhooks, usage"],
   ["internal-admin", "Operators", "Support, health, incidents, backups"],
   ["ai-saas", "AI products", "Chat, model routing, quotas, metering"],
 ];
@@ -287,7 +300,8 @@ const structuredData = {
   name: "StackFoundry",
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Any",
-  description: "A catalog of production SaaS features you install as editable source code.",
+  description:
+    "shadcn for production SaaS systems: install API keys, usage, billing, webhooks, and SaaS modules as editable source code.",
   url: siteUrl,
   codeRepository: "https://github.com/jesseoue/stackfoundry",
   license: "https://github.com/jesseoue/stackfoundry/blob/main/LICENSE",
@@ -332,31 +346,31 @@ export default function Page() {
           <div className="hero-copy">
             <div className="eyebrow">
               <span className="dot" aria-hidden="true" />
-              <span>Production SaaS source registry</span>
-              <span className="muted-label">billing · auth · docs · ops · adapters</span>
+              <span>shadcn for production SaaS systems</span>
+              <span className="muted-label">API keys · usage · billing · webhooks</span>
             </div>
 
             <h1 className="display">
-              Add production SaaS features
+              Launch API SaaS plumbing
               <br />
-              <span>without rebuilding them.</span>
+              <span>without a black-box starter.</span>
             </h1>
 
             <p className="lede">
-              StackFoundry is a source-code registry for the parts every SaaS app needs: billing,
-              auth, API keys, webhooks, docs, analytics, notifications, and operations. Pick a
-              module, install it into your app, then review and edit the code like your own.
+              Install API keys, usage tracking, rate limits, Stripe billing, credits, webhooks,
+              docs, and operating checks into an existing app as editable source code. Modules are
+              the product; recipes are the path; presets are only convenience bundles.
             </p>
 
             <div className="actions">
               <a className="button primary" href="/registry">
-                View Registry
+                Start with API SaaS
               </a>
               <a className="button" href="/docs">
                 Read Docs
               </a>
               <a className="button ghost" href="/docs#install-existing">
-                Install a Module
+                Dry-run Install
               </a>
             </div>
 
@@ -381,13 +395,7 @@ export default function Page() {
               <div className="artifact-command">
                 <span className="prompt">$</span>
                 <code>
-                  pnpm stackfoundry add{" "}
-                  <span className="rotator" aria-hidden="true">
-                    {demoModuleReel.map((module, index) => (
-                      <span key={`${module}-${index}`}>{module}</span>
-                    ))}
-                  </span>
-                  <span className="sr-only">{demoModules.join(", ")}</span>
+                  pnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run
                 </code>
               </div>
               <div className="artifact-output">
@@ -432,8 +440,8 @@ export default function Page() {
             <div className="section-eyebrow">Install</div>
             <h2>One command. The full module lands in your repo.</h2>
             <p>
-              A base app stays small. Registry modules add production capabilities in the same
-              source paths your team already reviews and maintains.
+              The strongest first path is API SaaS: keys, usage, quotas, credits, billing, docs,
+              webhooks, and request visibility installed as normal source files.
             </p>
           </div>
 
@@ -459,33 +467,29 @@ export default function Page() {
               </div>
               <div className="terminal-body">
                 <div>
-                  <span className="prompt">$</span> pnpm stackfoundry add{" "}
-                  <span className="terminal-rotator" aria-hidden="true">
-                    {demoModuleReel.map((module, index) => (
-                      <span key={`${module}-${index}`}>{module}</span>
-                    ))}
-                  </span>
+                  <span className="prompt">$</span> pnpm stackfoundry add recipe api-saas-starter
+                  --target ./my-app --dry-run
                 </div>
                 <div>
                   <span className="muted">.</span> Resolving{" "}
-                  <span className="muted">registry.json - stripe-billing</span>
+                  <span className="muted">recipes/api-saas-starter.json</span>
                 </div>
                 <div>
                   <span className="muted">.</span> Registry deps{" "}
-                  <span className="muted">drizzle-postgres</span>
+                  <span className="muted">auth-core, api-keys, usage-metering, stripe-billing</span>
                 </div>
                 <br />
                 <div>
-                  <span className="ok">+</span> packages/db/src/schema/billing.ts
+                  <span className="ok">+</span> apps/web/src/lib/api-keys/verify.ts
                 </div>
                 <div>
-                  <span className="ok">+</span> apps/web/src/lib/stripe/client.ts
+                  <span className="ok">+</span> packages/db/src/schema/usage.ts
                 </div>
                 <div>
-                  <span className="ok">+</span> apps/web/src/app/api/webhooks/stripe/route.ts
+                  <span className="ok">+</span> apps/web/src/app/api/webhooks/route.ts
                 </div>
                 <div>
-                  <span className="ok">+</span> registry/modules/stripe-billing/docs.md
+                  <span className="ok">+</span> .stackfoundry/skills/api-keys/SKILL.md
                 </div>
                 <br />
                 <div>
@@ -499,10 +503,10 @@ export default function Page() {
         <section className="section" id="modules">
           <div className="section-head">
             <div className="section-eyebrow">Modules</div>
-            <h2>Browse the building blocks, then open the docs.</h2>
+            <h2>Lead with the modules people already need to monetize an API.</h2>
             <p>
-              The landing page shows the shape of the registry. The docs page explains how to
-              install modules, review diffs, author manifests, and keep modules maintainable.
+              The registry is broad, but the public wedge is narrow: API keys, usage, quotas,
+              billing, webhooks, docs, and operations that land in an existing app as source.
             </p>
           </div>
 
@@ -543,11 +547,10 @@ export default function Page() {
         <section className="section" id="explore">
           <div className="section-head">
             <div className="section-eyebrow">Explore</div>
-            <h2>Give users more than a wall of cards.</h2>
+            <h2>Modules first. Recipes second. Presets last.</h2>
             <p>
-              The registry now presents modules as searchable commands, preset comparison rows, and
-              review prompts. These patterns borrow from product UI conventions without hiding the
-              source-first model.
+              Modules are the product. Recipes show the install order for a workflow like API SaaS.
+              Presets stay useful, but they should never make StackFoundry feel like a boilerplate.
             </p>
           </div>
 
@@ -590,8 +593,8 @@ export default function Page() {
             <div className="data-panel">
               <div className="panel-head">
                 <div>
-                  <h3>Preset Fit</h3>
-                  <p>Compare bundles by use case before installing.</p>
+                  <h3>Recipe Fit</h3>
+                  <p>Pick the painful workflow before installing a bundle.</p>
                 </div>
                 <span className="panel-badge">5 active</span>
               </div>
@@ -599,7 +602,7 @@ export default function Page() {
                 <table>
                   <thead>
                     <tr>
-                      <th>Preset</th>
+                      <th>Path</th>
                       <th>Best for</th>
                       <th>Includes</th>
                     </tr>

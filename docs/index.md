@@ -14,9 +14,9 @@
 
 ## Start Here
 
-1. Read the [Registry](./registry.md), [Readiness](./readiness.md), and [Conventions](./conventions.md) docs.
-2. Inspect the [Recipes](./recipes.md) and [Install order](./install-order.md) docs.
-3. Run `pnpm stackfoundry recipes` and `pnpm stackfoundry recipe api-saas-starter`.
-4. Inspect the first modules in `registry/modules`.
+1. Start with the API SaaS wedge: `pnpm stackfoundry recipe api-saas-starter`.
+2. Dry-run the full path: `pnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run`.
+3. Read the [Registry](./registry.md), [Recipes](./recipes.md), and [Install order](./install-order.md) docs.
+4. Inspect the first modules in `registry/modules`: `api-keys`, `usage-metering`, `credit-wallet`, `stripe-billing`, and `webhook-delivery`.
 5. Run `pnpm registry:doctor`.
-6. Try `pnpm stackfoundry add api-keys --target /tmp/app --dry-run`.
+6. Use [Readiness](./readiness.md) and [Conventions](./conventions.md) before adding new modules.

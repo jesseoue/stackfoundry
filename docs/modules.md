@@ -1,6 +1,8 @@
 # Modules
 
-Modules are the unit of value in StackFoundry. Recipes are the workflow layer that explains how modules fit together.
+Modules are the unit of value in StackFoundry. Recipes are the workflow layer that explains how modules fit together. Presets are convenience bundles.
+
+The sharpest public wedge is API SaaS: install API keys, usage tracking, quotas, credits, Stripe billing, docs, and webhooks into an existing app as editable source.
 
 The first installable production modules were:
 
@@ -10,7 +12,7 @@ The first installable production modules were:
 
 The registry now includes ready source modules, proposal-backed roadmap ideas, provider adapter examples, recipes, and registry-compatible public blocks. Each ready module should be installable into an existing app as editable source code. Presets are bundles of modules; recipes are opinionated architecture paths.
 
-Use [Recipes](./recipes.md) and [Install order](./install-order.md) when you want a complete workflow instead of individual blocks.
+Use [Recipes](./recipes.md) and [Install order](./install-order.md) when you want a complete workflow instead of individual blocks. Start with `api-saas-starter` before browsing the broader catalog.
 
 ## What a Module Includes
 
@@ -87,6 +89,7 @@ See [Readiness](./readiness.md) for the meaning of `ready`, `planned`, `experime
 
 ### Developer Platform
 
+- `api-saas-starter`
 - `api-keys`
 - `api-errors`
 - `keyset-pagination`

@@ -1,6 +1,6 @@
 # Registry
 
-StackFoundry modules are source-delivered capabilities.
+StackFoundry modules are source-delivered capabilities. The public wedge is API SaaS: API keys, usage tracking, quotas, credits, billing, docs, and webhooks as editable source.
 
 Each module has:
 
@@ -10,7 +10,7 @@ Each module has:
 - `tests/checklist.md`
 - source files, once implemented
 
-Recipes live in `registry/recipes/*.json` and describe install order across modules. Presets install bundles; recipes explain the architecture.
+Recipes live in `registry/recipes/*.json` and describe install order across modules. Presets install bundles; recipes explain the architecture. Modules remain the product.
 
 ## Manifest Fields
 
@@ -37,7 +37,7 @@ StackFoundry adapts that model for production SaaS systems instead of UI-only co
 ## Registry Principles
 
 - Modules install source code, not opaque package wrappers.
-- Presets only compose modules.
+- Recipes explain the path; presets only compose modules.
 - Provider modules adapt services into shared domain systems.
 - Recipes define complete workflow paths across modules.
 - Installers must produce enough metadata for safe diff/update workflows.
@@ -56,9 +56,9 @@ pnpm stackfoundry recipes
 pnpm stackfoundry recipe api-saas-starter
 pnpm registry:doctor
 pnpm registry:build
-pnpm stackfoundry add drizzle-postgres --target /path/to/app
 pnpm stackfoundry add recipe api-saas-starter --target /path/to/app --dry-run
-pnpm stackfoundry diff drizzle-postgres --target /path/to/app
+pnpm stackfoundry add recipe api-saas-starter --target /path/to/app
+pnpm stackfoundry diff api-keys --target /path/to/app
 ```
 
 ## Public Build Output

@@ -1,6 +1,6 @@
 # StackFoundry
 
-Install production SaaS modules as editable source code.
+shadcn for production SaaS systems.
 
 [![CI](https://github.com/jesseoue/stackfoundry/actions/workflows/ci.yml/badge.svg)](https://github.com/jesseoue/stackfoundry/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/jesseoue/stackfoundry/actions/workflows/codeql.yml/badge.svg)](https://github.com/jesseoue/stackfoundry/actions/workflows/codeql.yml)
@@ -14,24 +14,39 @@ Install production SaaS modules as editable source code.
 ![Presets](https://img.shields.io/badge/presets-13-teal)
 ![Inspired by shadcn](https://img.shields.io/badge/inspired%20by-shadcn-111111)
 
-StackFoundry is a public source registry for the product plumbing most SaaS teams rebuild: billing, auth, API keys, webhooks, docs, analytics, notifications, operations, provider adapters, and launch readiness.
+StackFoundry is a public source registry for the production systems SaaS teams rebuild: API keys, usage tracking, rate limits, Stripe billing, credits, webhooks, auth, docs, analytics, and operations.
 
 Modules install as source files in your app. You review the code, own the code, and keep the maintenance context that ships with it.
 
-> [!NOTE]
-> The registry is the product. Presets are only curated bundles of modules.
+> [!IMPORTANT]
+> The registry is the product. Modules are the unit of value. Recipes are the guided path. Presets are convenience bundles.
 
-StackFoundry is inspired by the shadcn registry/source-block model and applies that idea to production SaaS systems: modules ship as editable source, not opaque dependencies.
+Start with the sharp wedge: launch an API SaaS with billing, credits, API keys, usage tracking, docs, and webhooks as editable source.
 
 ## Why Use It
 
 | Problem | StackFoundry gives you |
 | --- | --- |
-| Rebuilding the same SaaS systems | Installable source modules for common production capabilities |
+| Shipping an API product | API keys, usage, quotas, credits, billing, docs, and webhooks as source |
 | Black-box starter lock-in | Normal files, routes, schemas, docs, checklists, and maintenance skills |
 | Provider sprawl | Optional adapters around shared product concepts |
 | Unsafe copy/paste snippets | Manifests, env metadata, dependency metadata, and registry validation |
 | Hard-to-review upgrades | Dry runs, diff commands, tracked install metadata, and generated examples |
+
+## Best First Use Case
+
+```bash
+pnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run
+pnpm stackfoundry add recipe api-saas-starter --target ./my-app
+```
+
+The API SaaS recipe installs the path most developer tools, AI APIs, data APIs, and B2B platforms need first:
+
+- API key lifecycle and verification
+- usage metering, quotas, and rate limits
+- credit wallet and Stripe billing foundations
+- webhook inbox and outbound delivery
+- API docs, request visibility, auditability, and operating checks
 
 ## Quick Start
 
@@ -43,8 +58,8 @@ pnpm registry:doctor
 pnpm registry:categories
 pnpm registry:list
 
-pnpm stackfoundry add api-keys --target ./my-app --dry-run
-pnpm stackfoundry add preset next-saas --target ./my-app --dry-run
+pnpm stackfoundry recipe api-saas-starter
+pnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run
 ```
 
 Install from the public registry URL when you want to consume generated registry items:
@@ -98,27 +113,13 @@ Current source registry coverage:
 
 </details>
 
-## Presets
+## Modules, Recipes, Presets
 
-| Preset | Intended path |
-| --- | --- |
-| `next-saas` | Broad app foundation with database, billing, account surfaces, docs, ops, security, and growth modules |
-| `b2b-saas` | Team workspaces, tenant controls, RBAC, auditability, SSO, and SCIM |
-| `developer-platform` | API keys, public APIs, webhooks, docs, SDK snippets, and developer portal modules |
-| `ai-saas` | Optional AI product modules for Vercel AI SDK chat, AI Elements, quotas, Cloudflare AI building blocks, and metering |
-| `internal-admin` | Operator consoles, support, health, incidents, jobs, backup, and maintenance controls |
-| `free-tier-saas` | Practical baseline for a free-tier product launch |
-| `vercel-native` | Vercel deployment, storage, workflows, edge config, and observability path |
-| `cloudflare-native` | Workers, D1, R2, KV, Queues, Workflows, Turnstile, and Cloudflare-native adapters |
-| `provider-adapters` | Concrete optional provider adapter examples |
-| `api-saas-starter` | API-first SaaS workflow with keys, usage, rate limits, billing, webhooks, docs, and observability |
-| `enterprise-saas` | Enterprise layer with SSO, SCIM, audit, access review, security, SLA, and support workflows |
-| `ai-saas-starter` | AI SaaS workflow with Vercel AI SDK chat, AI Elements, usage metering, quotas, and billing |
+The public hierarchy is intentionally simple:
 
-```bash
-pnpm registry:presets
-pnpm stackfoundry add preset next-saas --target ./my-app --dry-run
-```
+- Modules are the product.
+- Recipes explain the install path and order.
+- Presets are bundles for convenience.
 
 ## Recipes
 
@@ -130,7 +131,29 @@ pnpm stackfoundry recipe api-saas-starter
 pnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run
 ```
 
-High-priority recipes include `saas-starter-minimal`, `api-saas-starter`, `enterprise-saas`, `ai-saas-starter`, `cloudflare-saas`, `support-ops`, `security-center`, `integration-marketplace`, and `customer-intelligence`.
+High-priority recipes include `api-saas-starter`, `saas-starter-minimal`, `enterprise-saas`, `ai-saas-starter`, `cloudflare-saas`, `support-ops`, `security-center`, `integration-marketplace`, and `customer-intelligence`.
+
+## Presets
+
+| Preset | Intended path |
+| --- | --- |
+| `api-saas-starter` | API-first SaaS workflow with keys, usage, rate limits, credits, billing, webhooks, docs, and observability |
+| `next-saas` | Broad app foundation with database, billing, account surfaces, docs, ops, security, and growth modules |
+| `b2b-saas` | Team workspaces, tenant controls, RBAC, auditability, SSO, and SCIM |
+| `developer-platform` | API keys, public APIs, webhooks, docs, SDK snippets, and developer portal modules |
+| `ai-saas` | Optional AI product modules for Vercel AI SDK chat, AI Elements, quotas, Cloudflare AI building blocks, and metering |
+| `internal-admin` | Operator consoles, support, health, incidents, jobs, backup, and maintenance controls |
+| `free-tier-saas` | Practical baseline for a free-tier product launch |
+| `vercel-native` | Vercel deployment, storage, workflows, edge config, and observability path |
+| `cloudflare-native` | Workers, D1, R2, KV, Queues, Workflows, Turnstile, and Cloudflare-native adapters |
+| `provider-adapters` | Concrete optional provider adapter examples |
+| `enterprise-saas` | Enterprise layer with SSO, SCIM, audit, access review, security, SLA, and support workflows |
+| `ai-saas-starter` | AI SaaS workflow with Vercel AI SDK chat, AI Elements, usage metering, quotas, and billing |
+
+```bash
+pnpm registry:presets
+pnpm stackfoundry add preset next-saas --target ./my-app --dry-run
+```
 
 ## StackFoundry Command
 
