@@ -29,6 +29,13 @@
       "content": "const tasks = [\n  \"Configure defaults\",\n  \"Connect persistence or provider adapter\",\n  \"Verify production checklist\",\n];\n\nexport default function SCIMProvisioningPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">SCIM Provisioning</h1>\n        <p className=\"text-muted-foreground\">SCIM token records, provisioning events, and directory sync status.</p>\n      </div>\n      <ul className=\"grid gap-3\">\n        {tasks.map((task) => (\n          <li key={task} className=\"rounded-lg border p-4 text-sm\">{task}</li>\n        ))}\n      </ul>\n    </main>\n  );\n}\n"
     }
   ],
+  "agentSkills": [
+    {
+      "name": "scim-provisioning",
+      "target": ".agents/skills/scim-provisioning/SKILL.md",
+      "content": "---\nname: scim-provisioning\ndescription: Maintain the SCIM Provisioning module installed by StackFoundry.\n---\n\n# SCIM Provisioning Maintenance Instructions\n\n- Preserve the ownership and setup guidance in `docs.md`.\n- Keep source templates small and provider-neutral.\n- Update `tests/checklist.md` with behavior changes.\n- Do not commit secrets, local state, or generated machine metadata.\n- Keep Drizzle schema exports synchronized with `module.json`.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# SCIM Provisioning Module\n\nSCIM token records, provisioning events, and directory sync status.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `packages/db/src/schema/scim-provisioning.ts`\n- `apps/web/src/lib/scim-provisioning.ts`\n- `apps/web/src/app/(console)/settings/workspace/scim/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider-specific adapters as separate modules.\n- Verify install output with `stackfoundry add scim-provisioning --target <app> --dry-run`.\n",
   "meta": {

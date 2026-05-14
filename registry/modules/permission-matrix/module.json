@@ -1,0 +1,44 @@
+{
+  "name": "permission-matrix",
+  "type": "module",
+  "category": "auth",
+  "title": "Permission Matrix",
+  "description": "Tenant-scoped permission catalog and UI review matrix.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "orgs-rbac"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/permission-matrix.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/permission-matrix.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/settings/workspace/permissions/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "permissionMatrix"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "permission-matrix"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

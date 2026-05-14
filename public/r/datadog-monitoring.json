@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "datadog-monitoring",
+      "target": ".agents/skills/datadog-monitoring/SKILL.md",
+      "content": "---\nname: datadog-monitoring\ndescription: Maintain the Datadog Monitoring module installed by StackFoundry.\n---\n\n# Datadog Monitoring Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Datadog Monitoring\n\nEnterprise observability adapter.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

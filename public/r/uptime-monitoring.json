@@ -1,0 +1,50 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "uptime-monitoring",
+  "type": "registry:block",
+  "title": "Uptime Monitoring",
+  "description": "Public endpoint checks, SLA targets, and status escalation notes.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/system-health.json"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/uptime-monitoring.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/uptime-monitoring.ts",
+      "content": "export type UptimeMonitoringConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createUptimeMonitoringConfig(config: UptimeMonitoringConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const uptimeMonitoringChecks = [\n  \"Validate tenant and permission boundaries\",\n  \"Record audit events for sensitive changes\",\n  \"Document deployment and rollback behavior\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/operations/uptime/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/operations/uptime/page.tsx",
+      "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function UptimeMonitoringPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Uptime Monitoring</h1>\n        <p className=\"text-muted-foreground\">Public endpoint checks, SLA targets, and status escalation notes.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "uptime-monitoring",
+      "target": ".agents/skills/uptime-monitoring/SKILL.md",
+      "content": "---\nname: uptime-monitoring\ndescription: Maintain the Uptime Monitoring module installed by StackFoundry.\n---\n\n# Uptime Monitoring Skill\n\n## Boundary\n\nThis module owns the Uptime Monitoring source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/uptime-monitoring.ts`\n- `apps/web/src/app/(console)/admin/operations/uptime/page.tsx`\n\n## Dependencies\n\n- Depends on `system-health`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Uptime Monitoring Module\n\nPublic endpoint checks, SLA targets, and status escalation notes.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/uptime-monitoring.ts`\n- `apps/web/src/app/(console)/admin/operations/uptime/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add uptime-monitoring --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "operations",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "uptime-monitoring"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "safe-defaults"
+      ]
+    }
+  }
+}

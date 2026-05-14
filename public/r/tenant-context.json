@@ -1,0 +1,62 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tenant-context",
+  "type": "registry:block",
+  "title": "Tenant Context",
+  "description": "Resolve tenant context once per request and pass it through server code.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/drizzle-postgres.json"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/tenant-context.ts",
+      "type": "registry:file",
+      "target": "packages/db/src/schema/tenant-context.ts",
+      "content": "import { index, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const tenantContext = pgTable(\n  \"tenant_context\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    organizationId: text(\"organization_id\"),\n    ownerId: text(\"owner_id\"),\n    key: text(\"key\").notNull(),\n    status: text(\"status\").notNull().default(\"active\"),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n    updatedAt: timestamp(\"updated_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (item) => [\n    index(\"tenant_context_organization_idx\").on(item.organizationId),\n    index(\"tenant_context_owner_idx\").on(item.ownerId),\n  ]\n);\n"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/tenant-context.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/tenant-context.ts",
+      "content": "export type TenantContextConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createTenantContextConfig(config: TenantContextConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const tenantContextChecks = [\n  \"Validate tenant and permission boundaries\",\n  \"Record audit events for sensitive changes\",\n  \"Document deployment and rollback behavior\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/tenancy/context/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/tenancy/context/page.tsx",
+      "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function TenantContextPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Tenant Context</h1>\n        <p className=\"text-muted-foreground\">Resolve tenant context once per request and pass it through server code.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "tenant-context",
+      "target": ".agents/skills/tenant-context/SKILL.md",
+      "content": "---\nname: tenant-context\ndescription: Maintain the Tenant Context module installed by StackFoundry.\n---\n\n# Tenant Context Skill\n\n## Boundary\n\nThis module owns the Tenant Context source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `packages/db/src/schema/tenant-context.ts`\n- `apps/web/src/lib/stackfoundry/tenant-context.ts`\n- `apps/web/src/app/(console)/admin/tenancy/context/page.tsx`\n\n## Dependencies\n\n- Depends on `drizzle-postgres`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Tenant Context Module\n\nResolve tenant context once per request and pass it through server code.\n\n## Owns\n\n- `packages/db/src/schema/tenant-context.ts`\n- `apps/web/src/lib/stackfoundry/tenant-context.ts`\n- `apps/web/src/app/(console)/admin/tenancy/context/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add tenant-context --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "tenancy",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "tenant-context"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "safe-defaults"
+      ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "tenantContext"
+      ],
+      "migrationRecommended": true
+    }
+  }
+}

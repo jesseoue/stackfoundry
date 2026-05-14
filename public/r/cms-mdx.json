@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "cms-mdx",
+      "target": ".agents/skills/cms-mdx/SKILL.md",
+      "content": "---\nname: cms-mdx\ndescription: Maintain the MDX Content module installed by StackFoundry.\n---\n\n# MDX Content Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# MDX Content\n\nFile-based docs, blog, and changelog collections.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

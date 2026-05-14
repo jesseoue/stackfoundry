@@ -1,0 +1,36 @@
+{
+  "name": "error-boundaries",
+  "type": "page",
+  "category": "components",
+  "title": "Error Boundaries",
+  "description": "React error boundary and fallback component for product pages.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/error-boundaries.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/error-boundaries.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/error-boundaries/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "error-boundaries"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

@@ -1,0 +1,44 @@
+{
+  "name": "coupons-promotions",
+  "type": "module",
+  "category": "billing",
+  "title": "Coupons Promotions",
+  "description": "Coupon, promotion code, and referral discount tracking.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "billing-core"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/coupons-promotions.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/coupons-promotions.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/coupons/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "couponsPromotions"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "coupons-promotions"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

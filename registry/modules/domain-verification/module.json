@@ -1,0 +1,34 @@
+{
+  "name": "domain-verification",
+  "type": "module",
+  "category": "tenancy",
+  "title": "Domain Verification",
+  "description": "DNS TXT/CNAME verification state for tenant domains.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "custom-domains"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/domain-verification.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/tenancy/domain-verification/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "domain-verification"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

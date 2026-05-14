@@ -25,7 +25,10 @@
     "vercel-blob",
     "vercel-edge-config",
     "github-integration",
-    "arcjet-security"
+    "arcjet-security",
+    "idempotency-keys",
+    "secrets-management",
+    "dependency-audit"
   ],
   "status": "experimental"
 }

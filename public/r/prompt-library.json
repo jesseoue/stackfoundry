@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "prompt-library",
+      "target": ".agents/skills/prompt-library/SKILL.md",
+      "content": "---\nname: prompt-library\ndescription: Maintain the Prompt Library module installed by StackFoundry.\n---\n\n# Prompt Library Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Prompt Library\n\nReusable prompts, variable interpolation, and prompt versioning.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

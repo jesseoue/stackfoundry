@@ -13,5 +13,5 @@ Rules:
 
 - Do not duplicate module names in a preset.
 - Do not include modules with conflicting target files.
-- Keep preset names stable because generated aggregate shadcn blocks use them.
+- Keep preset names stable because generated aggregate registry blocks use them.
 - Run `pnpm registry:doctor` after editing a preset.

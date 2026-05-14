@@ -35,7 +35,7 @@
 		"migrationRecommended": true
 	},
 	"agents": {
-		"skills": ["stripe-billing"],
+		"skills": ["stripe-billing", "stripe", "drizzle", "nextjs"],
 		"rules": [
 			"verify-webhooks",
 			"dedupe-events",

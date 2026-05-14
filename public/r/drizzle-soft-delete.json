@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "drizzle-soft-delete",
+      "target": ".agents/skills/drizzle-soft-delete/SKILL.md",
+      "content": "---\nname: drizzle-soft-delete\ndescription: Maintain the Drizzle Soft Delete module installed by StackFoundry.\n---\n\n# Drizzle Soft Delete Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Drizzle Soft Delete\n\ndeletedAt conventions, restore flows, and filtered query helpers.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

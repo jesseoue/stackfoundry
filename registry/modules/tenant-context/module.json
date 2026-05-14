@@ -1,0 +1,44 @@
+{
+  "name": "tenant-context",
+  "type": "module",
+  "category": "tenancy",
+  "title": "Tenant Context",
+  "description": "Resolve tenant context once per request and pass it through server code.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/tenant-context.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/tenant-context.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/tenancy/context/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "tenantContext"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "tenant-context"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

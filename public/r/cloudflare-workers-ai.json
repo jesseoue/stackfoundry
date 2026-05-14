@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "cloudflare-workers-ai",
+      "target": ".agents/skills/cloudflare-workers-ai/SKILL.md",
+      "content": "---\nname: cloudflare-workers-ai\ndescription: Maintain the Cloudflare Workers AI module installed by StackFoundry.\n---\n\n# Cloudflare Workers AI Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Cloudflare Workers AI\n\nWorkers AI inference, embeddings, and image generation examples.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

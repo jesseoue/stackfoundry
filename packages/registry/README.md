@@ -9,6 +9,7 @@ Registry loading and file-system helpers for StackFoundry.
 - Recursive file listing.
 - File/content hashing.
 - Module and preset manifest loading.
+- Shared technology skill paths.
 - Generated registry item loading from local files or StackFoundry registry URLs.
 
 ## Does Not Own

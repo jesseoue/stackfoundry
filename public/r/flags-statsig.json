@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "flags-statsig",
+      "target": ".agents/skills/flags-statsig/SKILL.md",
+      "content": "---\nname: flags-statsig\ndescription: Maintain the Statsig Flags module installed by StackFoundry.\n---\n\n# Statsig Flags Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Statsig Flags\n\nStatsig provider adapter.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

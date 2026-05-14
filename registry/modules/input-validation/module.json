@@ -1,0 +1,34 @@
+{
+  "name": "input-validation",
+  "type": "module",
+  "category": "security",
+  "title": "Input Validation",
+  "description": "Shared Zod validation helpers for server routes and forms.",
+  "dependencies": [
+    "zod"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/input-validation.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/security/input-validation/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "input-validation"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

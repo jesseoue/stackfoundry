@@ -37,6 +37,13 @@
       "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function UnkeyAPIKeysPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Unkey API Keys</h1>\n        <p className=\"text-muted-foreground\">Managed API key lifecycle and verification for developer platforms.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "agentSkills": [
+    {
+      "name": "unkey-api-keys",
+      "target": ".agents/skills/unkey-api-keys/SKILL.md",
+      "content": "---\nname: unkey-api-keys\ndescription: Maintain the Unkey API Keys vendor registry block installed by StackFoundry.\n---\n\n# Unkey API Keys Skill\n\n## Boundary\n\nThis block owns the Unkey API Keys integration example only. Keep product-specific business logic outside the vendor adapter until the app has chosen this provider.\n\n## Source Files\n\n- `apps/web/src/lib/unkey/client.ts`\n- `apps/web/src/lib/unkey/api-keys.ts`\n- `apps/web/src/app/api/vendor/unkey/verify/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/unkey/page.tsx`\n\n## Dependencies\n\n- `@unkey/api`\n\n## Environment\n\n- `UNKEY_ROOT_KEY`\n- `UNKEY_API_ID`\n\n## Deployment Checks\n\n- Create the vendor project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current vendor docs.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one vendor.\n"
+    }
+  ],
   "envVars": {
     "UNKEY_ROOT_KEY": "",
     "UNKEY_API_ID": ""

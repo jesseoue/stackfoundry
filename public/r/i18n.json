@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "i18n",
+      "target": ".agents/skills/i18n/SKILL.md",
+      "content": "---\nname: i18n\ndescription: Maintain the Internationalization module installed by StackFoundry.\n---\n\n# Internationalization Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Internationalization\n\nLocale routing, translations, and language switcher.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

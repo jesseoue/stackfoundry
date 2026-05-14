@@ -1,19 +1,15 @@
 #!/usr/bin/env node
-import { existsSync } from "node:fs";
-import { mkdir, readFile, readdir, stat, writeFile, copyFile } from "node:fs/promises";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import { createEnvExample, writeFileWithSafety } from "@stackfoundry/generator";
 import {
   createRegistryPaths,
-  getModule as loadModule,
-  getPreset as loadPreset,
   hashContent,
   hashFile,
   listFiles,
   listModuleNames,
-  readJson,
+  getModule as loadModule,
+  getPreset as loadPreset,
   readRegistryItem as loadRegistryItem,
+  readJson,
 } from "@stackfoundry/registry";
 import {
   isEnvVarName,
@@ -25,10 +21,16 @@ import {
   validRegistryFileTypes,
 } from "@stackfoundry/schema";
 import { isHttpUrl, isRegistryItemSpecifier, toPosixPath } from "@stackfoundry/utils";
+import { existsSync } from "node:fs";
+import { copyFile, mkdir, readdir, readFile, rm, stat, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const repoRoot = path.resolve(path.dirname(__filename), "../../..");
-const { modulesRoot, presetsRoot } = createRegistryPaths(repoRoot);
+const { modulesRoot, presetsRoot, skillsRoot, webPublicRegistryRoot } =
+  createRegistryPaths(repoRoot);
+const defaultSkillsTarget = ".agents/skills";
 
 function usage() {
   console.log(`StackFoundry
@@ -93,6 +95,53 @@ async function getPreset(name) {
   return loadPreset(presetsRoot, name);
 }
 
+function normalizeSkillEntry(entry) {
+  if (typeof entry === "string") {
+    return { name: entry };
+  }
+  if (entry && typeof entry === "object") {
+    return entry;
+  }
+  return undefined;
+}
+
+function getSkillEntries(manifest) {
+  const entries = manifest.agents?.skills?.length ? manifest.agents.skills : [manifest.name];
+  return entries.map(normalizeSkillEntry);
+}
+
+function isSafeRelativePath(value) {
+  return (
+    typeof value === "string" &&
+    value.length > 0 &&
+    !path.isAbsolute(value) &&
+    !value.split(/[\\/]/).includes("..")
+  );
+}
+
+function resolveSkillPath(moduleDir, manifest, skill) {
+  if (skill.source) return path.join(moduleDir, skill.source);
+  if (skill.name === manifest.name) return path.join(moduleDir, "skill", "SKILL.md");
+  return path.join(skillsRoot, skill.name, "SKILL.md");
+}
+
+function resolveSkillTarget(skill) {
+  return skill.target ?? `${defaultSkillsTarget}/${skill.name}/SKILL.md`;
+}
+
+async function readModuleAgentSkills(moduleDir, manifest) {
+  const skills = [];
+  for (const skill of getSkillEntries(manifest)) {
+    const source = resolveSkillPath(moduleDir, manifest, skill);
+    skills.push({
+      name: skill.name,
+      target: resolveSkillTarget(skill),
+      content: await readFile(source, "utf8"),
+    });
+  }
+  return skills;
+}
+
 async function validateModule(moduleDir) {
   const manifestPath = path.join(moduleDir, "module.json");
   const manifest = await readJson(manifestPath);
@@ -102,16 +151,19 @@ async function validateModule(moduleDir) {
   for (const field of requiredModuleFields) {
     if (!(field in manifest)) errors.push(`missing field: ${field}`);
   }
-  if (manifest.name !== moduleName) errors.push(`manifest name must match directory: ${moduleName}`);
+  if (manifest.name !== moduleName)
+    errors.push(`manifest name must match directory: ${moduleName}`);
   if (!isKebabCase(manifest.name)) errors.push("name must be kebab-case");
-  if (!validModuleTypes.has(manifest.type)) errors.push("type must be module, integration, or page");
+  if (!validModuleTypes.has(manifest.type))
+    errors.push("type must be module, integration, or page");
   if (!validModuleStatuses.has(manifest.status)) {
     errors.push("status must be planned, experimental, or stable");
   }
   if (!Array.isArray(manifest.files)) errors.push("files must be an array");
   if (!Array.isArray(manifest.dependencies)) errors.push("dependencies must be an array");
   if (!Array.isArray(manifest.devDependencies)) errors.push("devDependencies must be an array");
-  if (!Array.isArray(manifest.registryDependencies)) errors.push("registryDependencies must be an array");
+  if (!Array.isArray(manifest.registryDependencies))
+    errors.push("registryDependencies must be an array");
   if (!Array.isArray(manifest.env)) errors.push("env must be an array");
   for (const key of manifest.env ?? []) {
     if (!isEnvVarName(key)) errors.push(`env var must be SCREAMING_SNAKE_CASE: ${key}`);
@@ -134,7 +186,8 @@ async function validateModule(moduleDir) {
     if (!declaredFiles.has(file)) errors.push(`files/ contains undeclared file: ${file}`);
   }
   for (const file of manifest.files) {
-    if (!existsSync(path.join(filesDir, file.path))) errors.push(`declared file does not exist: ${file.path}`);
+    if (!existsSync(path.join(filesDir, file.path)))
+      errors.push(`declared file does not exist: ${file.path}`);
   }
 
   const docsPath = path.join(moduleDir, "docs.md");
@@ -146,8 +199,35 @@ async function validateModule(moduleDir) {
     errors.push("missing skill/SKILL.md");
   } else {
     const skill = await readFile(skillPath, "utf8");
-    if (!skill.includes(`name: ${manifest.name}`)) errors.push("skill frontmatter name must match manifest");
+    if (!skill.includes(`name: ${manifest.name}`))
+      errors.push("skill frontmatter name must match manifest");
     if (!skill.includes("description:")) errors.push("skill frontmatter missing description");
+  }
+  for (const [index, skill] of getSkillEntries(manifest).entries()) {
+    if (!skill) {
+      errors.push(`agents.skills[${index}] must be a string or object`);
+      continue;
+    }
+    if (!isKebabCase(skill.name)) errors.push(`agents.skills[${index}].name must be kebab-case`);
+    if (skill.source && !isSafeRelativePath(skill.source)) {
+      errors.push(`${skill.name}: skill source must be a safe relative path`);
+    }
+    const target = resolveSkillTarget(skill);
+    if (!isSafeRelativePath(target) || !target.endsWith("/SKILL.md")) {
+      errors.push(`${skill.name}: skill target must be a safe relative path ending in /SKILL.md`);
+    }
+    const source = resolveSkillPath(moduleDir, manifest, skill);
+    if (!existsSync(source)) {
+      errors.push(
+        `${skill.name}: missing skill source ${skill.source ?? path.relative(repoRoot, source)}`,
+      );
+      continue;
+    }
+    const content = await readFile(source, "utf8");
+    if (!content.includes(`name: ${skill.name}`))
+      errors.push(`${skill.name}: skill frontmatter name must match skill name`);
+    if (!content.includes("description:"))
+      errors.push(`${skill.name}: skill frontmatter missing description`);
   }
   if (existsSync(docsPath)) {
     const docs = await readFile(docsPath, "utf8");
@@ -175,12 +255,11 @@ async function getModuleInstallFiles(name, visited = new Set()) {
     files.push({ moduleName: name, path: relative, hash: await hashFile(filePath) });
   }
 
-  const skillPath = path.join(dir, "skill", "SKILL.md");
-  if (existsSync(skillPath)) {
+  for (const skill of await readModuleAgentSkills(dir, manifest)) {
     files.push({
       moduleName: name,
-      path: `.agents/skills/${name}/SKILL.md`,
-      hash: await hashFile(skillPath),
+      path: skill.target,
+      hash: hashContent(skill.content),
     });
   }
 
@@ -212,7 +291,8 @@ async function validateRegistry() {
   for (const item of registry.items ?? []) {
     if (itemNames.has(item.name)) errors.push(`registry.json: duplicate item ${item.name}`);
     itemNames.add(item.name);
-    if (item.type !== "registry:block") errors.push(`${item.name}: registry item type must be registry:block`);
+    if (item.type !== "registry:block")
+      errors.push(`${item.name}: registry item type must be registry:block`);
   }
 
   for (const moduleDir of moduleDirs) {
@@ -256,7 +336,7 @@ async function validateRegistry() {
           const existing = installFiles.get(fileInfo.path);
           if (existing && existing.hash !== fileInfo.hash) {
             errors.push(
-              `${file}: ${fileInfo.path} collision between ${existing.moduleName} and ${fileInfo.moduleName}`
+              `${file}: ${fileInfo.path} collision between ${existing.moduleName} and ${fileInfo.moduleName}`,
             );
           }
           if (!existing) installFiles.set(fileInfo.path, fileInfo);
@@ -272,7 +352,9 @@ async function listModules() {
   const names = await listModuleNames(modulesRoot);
   for (const name of names.sort()) {
     const { manifest } = await getModule(name);
-    console.log(`${manifest.name.padEnd(18)} ${manifest.status.padEnd(12)} ${manifest.description}`);
+    console.log(
+      `${manifest.name.padEnd(18)} ${manifest.status.padEnd(12)} ${manifest.description}`,
+    );
   }
 }
 
@@ -308,6 +390,7 @@ async function addModule(name, flags, visited = new Set()) {
 
   const filesDir = path.join(dir, "files");
   const sourceFiles = await listFiles(filesDir);
+  const agentSkills = await readModuleAgentSkills(dir, manifest);
   const installed = await loadInstallManifest(flags.target);
   const installedFiles = {};
 
@@ -329,15 +412,17 @@ async function addModule(name, flags, visited = new Set()) {
     installedFiles[normalized] = sourceHash;
   }
 
-  const skillPath = path.join(dir, "skill", "SKILL.md");
-  if (existsSync(skillPath)) {
-    const dest = path.join(flags.target, ".agents", "skills", name, "SKILL.md");
-    if (!flags.dryRun) {
-      await mkdir(path.dirname(dest), { recursive: true });
-      await copyFile(skillPath, dest);
-    }
-    installedFiles[".agents/skills/" + name + "/SKILL.md"] = await hashFile(skillPath);
-    console.log(`${flags.dryRun ? "would write" : "wrote"} .agents/skills/${name}/SKILL.md`);
+  for (const skill of agentSkills) {
+    const sourceHash = hashContent(skill.content);
+    await writeFileWithSafety({
+      sourceHash,
+      content: skill.content,
+      relative: skill.target,
+      target: flags.target,
+      flags,
+      hashFile,
+    });
+    installedFiles[skill.target] = sourceHash;
   }
 
   if (manifest.env.length > 0) {
@@ -355,6 +440,7 @@ async function addModule(name, flags, visited = new Set()) {
       dependencies: manifest.dependencies,
       devDependencies: manifest.devDependencies,
       env: manifest.env,
+      agentSkills: agentSkills.map((skill) => ({ name: skill.name, target: skill.target })),
     };
     await saveInstallManifest(flags.target, installed);
   }
@@ -405,12 +491,37 @@ async function addRegistryItem(specifier, flags, visited = new Set()) {
     installedFiles[relative] = sourceHash;
   }
 
+  for (const skill of item.agentSkills ?? []) {
+    if (!skill.content)
+      throw new Error(
+        `${item.name}: ${skill.name ?? skill.target} is missing embedded skill content`,
+      );
+    const relative = skill.target ?? `${defaultSkillsTarget}/${skill.name}/SKILL.md`;
+    const sourceHash = hashContent(skill.content);
+    await writeFileWithSafety({
+      sourceHash,
+      content: skill.content,
+      relative,
+      target: flags.target,
+      flags,
+      hashFile,
+    });
+    installedFiles[relative] = sourceHash;
+  }
+
   const envVars = Object.keys(item.envVars ?? {});
   if (envVars.length > 0) {
     const relative = `.env.stackfoundry.${item.name}.example`;
     const content = createEnvExample(envVars);
     const sourceHash = hashContent(content);
-    await writeFileWithSafety({ sourceHash, content, relative, target: flags.target, flags, hashFile });
+    await writeFileWithSafety({
+      sourceHash,
+      content,
+      relative,
+      target: flags.target,
+      flags,
+      hashFile,
+    });
     installedFiles[relative] = sourceHash;
   }
 
@@ -421,6 +532,10 @@ async function addRegistryItem(specifier, flags, visited = new Set()) {
       dependencies: item.dependencies ?? [],
       devDependencies: item.devDependencies ?? [],
       env: envVars,
+      agentSkills: (item.agentSkills ?? []).map((skill) => ({
+        name: skill.name,
+        target: skill.target ?? `${defaultSkillsTarget}/${skill.name}/SKILL.md`,
+      })),
       source: specifier,
     };
     await saveInstallManifest(flags.target, installed);
@@ -428,7 +543,7 @@ async function addRegistryItem(specifier, flags, visited = new Set()) {
 }
 
 async function diffModule(name, flags) {
-  const { dir } = await getModule(name);
+  const { dir, manifest } = await getModule(name);
   const filesDir = path.join(dir, "files");
   const sourceFiles = await listFiles(filesDir);
   let changes = 0;
@@ -446,6 +561,22 @@ async function diffModule(name, flags) {
       changes += 1;
     } else {
       console.log(`same     ${relative}`);
+    }
+  }
+
+  for (const skill of await readModuleAgentSkills(dir, manifest)) {
+    const dest = path.join(flags.target, skill.target);
+    if (!existsSync(dest)) {
+      console.log(`missing  ${skill.target}`);
+      changes += 1;
+      continue;
+    }
+    const sourceHash = hashContent(skill.content);
+    if ((await hashFile(dest)) !== sourceHash) {
+      console.log(`changed  ${skill.target}`);
+      changes += 1;
+    } else {
+      console.log(`same     ${skill.target}`);
     }
   }
 
@@ -480,7 +611,36 @@ async function diffRegistryItem(specifier, flags, visited = new Set()) {
     }
   }
 
+  for (const skill of item.agentSkills ?? []) {
+    const relative = skill.target ?? `${defaultSkillsTarget}/${skill.name}/SKILL.md`;
+    const dest = path.join(flags.target, relative);
+    if (!existsSync(dest)) {
+      console.log(`missing  ${relative}`);
+      changes += 1;
+      continue;
+    }
+    const sourceHash = hashContent(skill.content ?? "");
+    if ((await hashFile(dest)) !== sourceHash) {
+      console.log(`changed  ${relative}`);
+      changes += 1;
+    } else {
+      console.log(`same     ${relative}`);
+    }
+  }
+
   process.exitCode = changes > 0 ? 1 : process.exitCode;
+}
+
+async function mirrorDirectory(sourceDir, targetDir) {
+  await rm(targetDir, { recursive: true, force: true });
+  await mkdir(targetDir, { recursive: true });
+
+  for (const source of await listFiles(sourceDir)) {
+    const relative = path.relative(sourceDir, source);
+    const target = path.join(targetDir, relative);
+    await mkdir(path.dirname(target), { recursive: true });
+    await copyFile(source, target);
+  }
 }
 
 async function buildRegistry() {
@@ -488,12 +648,16 @@ async function buildRegistry() {
   await mkdir(outputDir, { recursive: true });
 
   const registry = await readJson(path.join(repoRoot, "registry.json"));
-  const registryBaseUrl = registry.homepage?.startsWith("http") ? registry.homepage.replace(/\/$/, "") : undefined;
-  const toRegistryDependency = (name) => (registryBaseUrl ? `${registryBaseUrl}/r/${name}.json` : name);
+  const registryBaseUrl = registry.homepage?.startsWith("http")
+    ? registry.homepage.replace(/\/$/, "")
+    : undefined;
+  const toRegistryDependency = (name) =>
+    registryBaseUrl ? `${registryBaseUrl}/r/${name}.json` : name;
   const builtItems = [];
 
   for (const item of registry.items) {
-    const { manifest } = await getModule(item.name);
+    const { dir, manifest } = await getModule(item.name);
+    const agentSkills = await readModuleAgentSkills(dir, manifest);
     builtItems.push({
       name: manifest.name,
       type: "registry:block",
@@ -503,6 +667,7 @@ async function buildRegistry() {
       devDependencies: manifest.devDependencies,
       registryDependencies: manifest.registryDependencies.map(toRegistryDependency),
       files: manifest.files.map((file) => ({ ...file, target: file.path })),
+      agentSkills: agentSkills.map((skill) => ({ name: skill.name, target: skill.target })),
       meta: {
         category: manifest.category,
         env: manifest.env,
@@ -513,12 +678,17 @@ async function buildRegistry() {
 
   const builtRegistry = { ...registry, items: builtItems };
 
-  await writeFile(path.join(outputDir, "registry.json"), `${JSON.stringify(builtRegistry, null, 2)}\n`);
+  await writeFile(
+    path.join(outputDir, "registry.json"),
+    `${JSON.stringify(builtRegistry, null, 2)}\n`,
+  );
 
   const presetsOutputDir = path.join(outputDir, "presets");
   await mkdir(presetsOutputDir, { recursive: true });
   if (existsSync(presetsRoot)) {
-    for (const file of (await readdir(presetsRoot)).filter((entry) => entry.endsWith(".json")).sort()) {
+    for (const file of (await readdir(presetsRoot))
+      .filter((entry) => entry.endsWith(".json"))
+      .sort()) {
       const preset = await readJson(path.join(presetsRoot, file));
       await copyFile(path.join(presetsRoot, file), path.join(presetsOutputDir, file));
       console.log(`built public/r/presets/${file}`);
@@ -529,7 +699,7 @@ async function buildRegistry() {
           presetOutputPath,
           `${JSON.stringify(
             {
-              "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+              $schema: "https://ui.shadcn.com/schema/registry-item.json",
               name: preset.name,
               type: "registry:block",
               title: preset.title,
@@ -544,8 +714,8 @@ async function buildRegistry() {
               },
             },
             null,
-            2
-          )}\n`
+            2,
+          )}\n`,
         );
         console.log(`built public/r/${preset.name}.json`);
       }
@@ -557,6 +727,7 @@ async function buildRegistry() {
     const filesDir = path.join(dir, "files");
     const files = [];
     const docsPath = path.join(dir, "docs.md");
+    const agentSkills = await readModuleAgentSkills(dir, manifest);
 
     for (const file of manifest.files) {
       const source = path.join(filesDir, file.path);
@@ -569,7 +740,7 @@ async function buildRegistry() {
     }
 
     const registryItem = {
-      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      $schema: "https://ui.shadcn.com/schema/registry-item.json",
       name: manifest.name,
       type: "registry:block",
       title: manifest.title,
@@ -578,6 +749,7 @@ async function buildRegistry() {
       devDependencies: manifest.devDependencies,
       registryDependencies: manifest.registryDependencies.map(toRegistryDependency),
       files,
+      agentSkills,
       envVars: Object.fromEntries(manifest.env.map((key) => [key, ""])),
       docs: existsSync(docsPath) ? await readFile(docsPath, "utf8") : undefined,
       meta: {
@@ -589,10 +761,15 @@ async function buildRegistry() {
       },
     };
 
-    await writeFile(path.join(outputDir, `${manifest.name}.json`), `${JSON.stringify(registryItem, null, 2)}\n`);
+    await writeFile(
+      path.join(outputDir, `${manifest.name}.json`),
+      `${JSON.stringify(registryItem, null, 2)}\n`,
+    );
     console.log(`built public/r/${manifest.name}.json`);
   }
 
+  await mirrorDirectory(outputDir, webPublicRegistryRoot);
+  console.log("mirrored public/r to apps/web/public/r");
   console.log("built public/r/registry.json");
 }
 
@@ -620,9 +797,11 @@ async function main() {
 
   if (command === "add" && presetName) return addPreset(presetName, flags);
   if (!moduleName) throw new Error(`${command} requires a module name`);
-  if (command === "add" && isRegistryItemSpecifier(moduleName)) return addRegistryItem(moduleName, flags);
+  if (command === "add" && isRegistryItemSpecifier(moduleName))
+    return addRegistryItem(moduleName, flags);
   if (command === "add") return addModule(moduleName, flags);
-  if (command === "diff" && isRegistryItemSpecifier(moduleName)) return diffRegistryItem(moduleName, flags);
+  if (command === "diff" && isRegistryItemSpecifier(moduleName))
+    return diffRegistryItem(moduleName, flags);
   if (command === "diff") return diffModule(moduleName, flags);
 
   throw new Error(`Unknown command: ${command}`);

@@ -21,6 +21,13 @@
       "content": "const items = [\n  { title: \"Configure\", description: \"Set ownership, defaults, and permissions.\" },\n  { title: \"Operate\", description: \"Review status, recent activity, and unresolved work.\" },\n  { title: \"Verify\", description: \"Run the checklist before enabling this module in production.\" },\n];\n\nexport default function ApiDocsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">API Docs</h1>\n        <p className=\"text-muted-foreground\">API reference shell with auth, pagination, and error examples.</p>\n      </div>\n      <div className=\"grid gap-3 md:grid-cols-3\">\n        {items.map((item) => (\n          <section key={item.title} className=\"rounded-lg border p-4\">\n            <h2 className=\"font-medium\">{item.title}</h2>\n            <p className=\"text-sm text-muted-foreground\">{item.description}</p>\n          </section>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "agentSkills": [
+    {
+      "name": "api-docs",
+      "target": ".agents/skills/api-docs/SKILL.md",
+      "content": "---\nname: api-docs\ndescription: Maintain the API Docs module installed by StackFoundry.\n---\n\n# API Docs Maintenance Instructions\n\n- Preserve the module ownership described in `docs.md`.\n- Keep default source templates compact, typed, and provider-neutral.\n- Update `tests/checklist.md` when behavior changes.\n- Do not commit secrets, local state, or generated machine metadata.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# API Docs Module\n\nAPI reference shell with auth, pagination, and error examples.\n\n## Owns\n\n- `apps/web/src/lib/api-docs.ts`\n- `apps/web/src/app/(console)/developers/docs/page.tsx`\n\n## Environment\n\nNo environment variables are required by default.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider-specific adapter is added separately.\n- Update source templates, manifest files, and generated registry output together.\n- Add audit events around sensitive changes before promoting this module beyond experimental.\n- Verify with `stackfoundry add api-docs --target <app> --dry-run`.\n",
   "meta": {

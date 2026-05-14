@@ -1,0 +1,44 @@
+{
+  "name": "tax-vat",
+  "type": "module",
+  "category": "billing",
+  "title": "Tax and VAT",
+  "description": "Tax/VAT collection status, business identifiers, and tax provider adapter boundary.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "billing-core"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/tax-vat.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/tax-vat.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/tax/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "taxVat"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "tax-vat"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

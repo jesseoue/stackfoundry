@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "convex-integration",
+      "target": ".agents/skills/convex-integration/SKILL.md",
+      "content": "---\nname: convex-integration\ndescription: Maintain the Convex Integration module installed by StackFoundry.\n---\n\n# Convex Integration Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Convex Integration\n\nConvex dashboard links, deployment status, and schema/function notes.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

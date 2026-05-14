@@ -5,7 +5,7 @@
 - [Providers](./providers.md)
 - [Maintenance instructions](./agents.md)
 - [Repository map](./repository.md)
-- [shadcn registry usage](./shadcn.md)
+- [Registry compatibility](./registry-compat.md)
 
 ## Start Here
 

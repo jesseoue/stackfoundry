@@ -1,0 +1,34 @@
+{
+  "name": "uptime-monitoring",
+  "type": "module",
+  "category": "operations",
+  "title": "Uptime Monitoring",
+  "description": "Public endpoint checks, SLA targets, and status escalation notes.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "system-health"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/uptime-monitoring.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/operations/uptime/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "uptime-monitoring"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

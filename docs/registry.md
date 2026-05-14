@@ -26,7 +26,7 @@ Each module has:
 
 ## Registry Model
 
-StackFoundry follows the shadcn registry pattern: source blocks are described by JSON, files are copied into the consumer app, and the consumer owns the result.
+StackFoundry follows a source registry pattern: source blocks are described by JSON, files are copied into the consumer app, and the consumer owns the result.
 
 StackFoundry adapts that model for production SaaS systems instead of UI-only components. A block may include routes, server helpers, schema files, env examples, docs, tests/checklists, and AI maintainer skills.
 
@@ -71,4 +71,6 @@ public/r/
 
 This mirrors the source-registry pattern: registry item JSON embeds file contents and target paths while module metadata stays in `registry/modules/<module>/module.json`.
 
-Generated public items are shadcn-compatible `registry:block` files. Registry dependencies are emitted as absolute URLs so compatible registry clients can resolve StackFoundry dependencies.
+Generated public items are registry-compatible `registry:block` files. Registry dependencies are emitted as absolute URLs so compatible registry clients can resolve StackFoundry dependencies.
+
+The build writes canonical generated output to `public/r` and mirrors it to `apps/web/public/r`. Vercel serves `/r/*.json` directly from the Next app as static JSON; no redirect is required.

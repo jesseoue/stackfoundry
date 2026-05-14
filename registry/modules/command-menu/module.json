@@ -1,0 +1,36 @@
+{
+  "name": "command-menu",
+  "type": "page",
+  "category": "components",
+  "title": "Command Menu",
+  "description": "Keyboard-first command menu component for SaaS navigation and actions.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/command-menu.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/command-menu.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/command-menu/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "command-menu"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

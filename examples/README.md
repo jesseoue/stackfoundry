@@ -7,6 +7,7 @@ They are intentionally small. An example should demonstrate how a module or pres
 ## Current Examples
 
 - `next-saas/` documents the core SaaS preset smoke path.
+- `saas-coverage/` documents the broad SaaS coverage preset.
 
 ## Rules
 

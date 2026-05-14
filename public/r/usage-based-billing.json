@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "usage-based-billing",
+      "target": ".agents/skills/usage-based-billing/SKILL.md",
+      "content": "---\nname: usage-based-billing\ndescription: Maintain the Usage Based Billing module installed by StackFoundry.\n---\n\n# Usage Based Billing Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Usage Based Billing\n\nMetered usage, Stripe meter events, threshold alerts, and billing hooks.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

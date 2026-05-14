@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "cloudflare-agents-sdk",
+      "target": ".agents/skills/cloudflare-agents-sdk/SKILL.md",
+      "content": "---\nname: cloudflare-agents-sdk\ndescription: Maintain the Cloudflare Agents SDK module installed by StackFoundry.\n---\n\n# Cloudflare Agents SDK Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Cloudflare Agents SDK\n\nStateful AI agents on Workers, React hooks, WebSocket/RPC surface.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

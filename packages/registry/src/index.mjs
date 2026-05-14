@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
-import { readFile, readdir, stat } from "node:fs/promises";
+import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 
 export function createRegistryPaths(repoRoot) {
@@ -11,7 +11,9 @@ export function createRegistryPaths(repoRoot) {
     registryRoot,
     modulesRoot: path.join(registryRoot, "modules"),
     presetsRoot: path.join(registryRoot, "presets"),
+    skillsRoot: path.join(registryRoot, "skills"),
     publicRegistryRoot: path.join(repoRoot, "public", "r"),
+    webPublicRegistryRoot: path.join(repoRoot, "apps", "web", "public", "r"),
   };
 }
 

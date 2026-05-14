@@ -29,6 +29,13 @@
       "content": "const jobs = [\n  { name: \"send_lifecycle_email\", status: \"queued\", attempts: 0 },\n  { name: \"sync_billing_subscription\", status: \"completed\", attempts: 1 },\n];\n\nexport default function JobsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Background Jobs</h1>\n        <p className=\"text-muted-foreground\">Track queued work, retries, and worker handoffs.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {jobs.map((job) => (\n          <div key={job.name} className=\"rounded-lg border p-4\">\n            <p className=\"font-medium\">{job.name}</p>\n            <p className=\"text-sm text-muted-foreground\">{job.status} - {job.attempts} attempts</p>\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "agentSkills": [
+    {
+      "name": "background-jobs",
+      "target": ".agents/skills/background-jobs/SKILL.md",
+      "content": "---\nname: background-jobs\ndescription: Maintain the Background Jobs module installed by StackFoundry.\n---\n\n# Background Jobs Maintenance Instructions\n\n- Preserve the module boundary described in `docs.md`.\n- Keep public APIs small and typed.\n- Update tests/checklist.md when behavior changes.\n- Do not introduce secrets, generated machine metadata, or provider lock-in.\n- Keep Drizzle schema exports documented in module.json.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Background Jobs Module\n\nJob table, queue abstraction, retry/cancel UI, and worker handoff patterns.\n\n## Owns\n\n- `packages/db/src/schema/background-jobs.ts`\n- `apps/web/src/lib/background-jobs.ts`\n- `apps/web/src/app/(console)/jobs/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep this module provider-neutral unless a provider-specific adapter is added as a separate module.\n- Update the manifest when source files, schema exports, dependencies, or environment variables change.\n- Verify install output with `stackfoundry add background-jobs --target <app> --dry-run` before promoting status.\n",
   "meta": {

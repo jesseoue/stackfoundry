@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "lemon-squeezy-billing",
+      "target": ".agents/skills/lemon-squeezy-billing/SKILL.md",
+      "content": "---\nname: lemon-squeezy-billing\ndescription: Maintain the Lemon Squeezy Billing module installed by StackFoundry.\n---\n\n# Lemon Squeezy Billing Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Lemon Squeezy Billing\n\nCreator/digital product checkout and license key workflows.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

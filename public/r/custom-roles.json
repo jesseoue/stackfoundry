@@ -1,0 +1,62 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "custom-roles",
+  "type": "registry:block",
+  "title": "Custom Roles",
+  "description": "Custom role definitions, role cloning, and permission assignment boundaries.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/permission-matrix.json"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/custom-roles.ts",
+      "type": "registry:file",
+      "target": "packages/db/src/schema/custom-roles.ts",
+      "content": "import { index, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const customRoles = pgTable(\n  \"custom_roles\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    organizationId: text(\"organization_id\"),\n    ownerId: text(\"owner_id\"),\n    key: text(\"key\").notNull(),\n    status: text(\"status\").notNull().default(\"active\"),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n    updatedAt: timestamp(\"updated_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (item) => [\n    index(\"custom_roles_organization_idx\").on(item.organizationId),\n    index(\"custom_roles_owner_idx\").on(item.ownerId),\n  ]\n);\n"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/custom-roles.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/custom-roles.ts",
+      "content": "export type CustomRolesConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createCustomRolesConfig(config: CustomRolesConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const customRolesChecks = [\n  \"Validate tenant and permission boundaries\",\n  \"Record audit events for sensitive changes\",\n  \"Document deployment and rollback behavior\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/settings/workspace/roles/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/settings/workspace/roles/page.tsx",
+      "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function CustomRolesPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Custom Roles</h1>\n        <p className=\"text-muted-foreground\">Custom role definitions, role cloning, and permission assignment boundaries.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "custom-roles",
+      "target": ".agents/skills/custom-roles/SKILL.md",
+      "content": "---\nname: custom-roles\ndescription: Maintain the Custom Roles module installed by StackFoundry.\n---\n\n# Custom Roles Skill\n\n## Boundary\n\nThis module owns the Custom Roles source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `packages/db/src/schema/custom-roles.ts`\n- `apps/web/src/lib/stackfoundry/custom-roles.ts`\n- `apps/web/src/app/(console)/settings/workspace/roles/page.tsx`\n\n## Dependencies\n\n- Depends on `permission-matrix`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Custom Roles Module\n\nCustom role definitions, role cloning, and permission assignment boundaries.\n\n## Owns\n\n- `packages/db/src/schema/custom-roles.ts`\n- `apps/web/src/lib/stackfoundry/custom-roles.ts`\n- `apps/web/src/app/(console)/settings/workspace/roles/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add custom-roles --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "auth",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "custom-roles"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "safe-defaults"
+      ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "customRoles"
+      ],
+      "migrationRecommended": true
+    }
+  }
+}

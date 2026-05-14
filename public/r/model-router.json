@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "model-router",
+      "target": ".agents/skills/model-router/SKILL.md",
+      "content": "---\nname: model-router\ndescription: Maintain the Model Router module installed by StackFoundry.\n---\n\n# Model Router Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Model Router\n\nModel catalog, provider ordering, fallback rules, and AI Gateway config.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

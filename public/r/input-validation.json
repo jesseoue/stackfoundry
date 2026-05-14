@@ -1,0 +1,50 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-validation",
+  "type": "registry:block",
+  "title": "Input Validation",
+  "description": "Shared Zod validation helpers for server routes and forms.",
+  "dependencies": [
+    "zod"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/input-validation.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/input-validation.ts",
+      "content": "export type InputValidationConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createInputValidationConfig(config: InputValidationConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const inputValidationChecks = [\n  \"Validate tenant and permission boundaries\",\n  \"Record audit events for sensitive changes\",\n  \"Document deployment and rollback behavior\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/security/input-validation/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/security/input-validation/page.tsx",
+      "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function InputValidationPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Input Validation</h1>\n        <p className=\"text-muted-foreground\">Shared Zod validation helpers for server routes and forms.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "input-validation",
+      "target": ".agents/skills/input-validation/SKILL.md",
+      "content": "---\nname: input-validation\ndescription: Maintain the Input Validation module installed by StackFoundry.\n---\n\n# Input Validation Skill\n\n## Boundary\n\nThis module owns the Input Validation source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/input-validation.ts`\n- `apps/web/src/app/(console)/admin/security/input-validation/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Input Validation Module\n\nShared Zod validation helpers for server routes and forms.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/input-validation.ts`\n- `apps/web/src/app/(console)/admin/security/input-validation/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add input-validation --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "security",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "input-validation"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "safe-defaults"
+      ]
+    }
+  }
+}

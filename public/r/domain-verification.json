@@ -1,0 +1,50 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "domain-verification",
+  "type": "registry:block",
+  "title": "Domain Verification",
+  "description": "DNS TXT/CNAME verification state for tenant domains.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/custom-domains.json"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/domain-verification.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/domain-verification.ts",
+      "content": "export type DomainVerificationConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createDomainVerificationConfig(config: DomainVerificationConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const domainVerificationChecks = [\n  \"Validate tenant and permission boundaries\",\n  \"Record audit events for sensitive changes\",\n  \"Document deployment and rollback behavior\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/tenancy/domain-verification/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/tenancy/domain-verification/page.tsx",
+      "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function DomainVerificationPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Domain Verification</h1>\n        <p className=\"text-muted-foreground\">DNS TXT/CNAME verification state for tenant domains.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "domain-verification",
+      "target": ".agents/skills/domain-verification/SKILL.md",
+      "content": "---\nname: domain-verification\ndescription: Maintain the Domain Verification module installed by StackFoundry.\n---\n\n# Domain Verification Skill\n\n## Boundary\n\nThis module owns the Domain Verification source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/domain-verification.ts`\n- `apps/web/src/app/(console)/admin/tenancy/domain-verification/page.tsx`\n\n## Dependencies\n\n- Depends on `custom-domains`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Domain Verification Module\n\nDNS TXT/CNAME verification state for tenant domains.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/domain-verification.ts`\n- `apps/web/src/app/(console)/admin/tenancy/domain-verification/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add domain-verification --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "tenancy",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "domain-verification"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "safe-defaults"
+      ]
+    }
+  }
+}

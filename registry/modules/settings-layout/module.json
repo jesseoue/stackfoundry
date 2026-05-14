@@ -1,0 +1,36 @@
+{
+  "name": "settings-layout",
+  "type": "page",
+  "category": "components",
+  "title": "Settings Layout",
+  "description": "Reusable settings shell for account, workspace, billing, and security pages.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/settings-layout.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/settings-layout.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/settings-layout/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "settings-layout"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

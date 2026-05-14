@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "autumn-billing",
+      "target": ".agents/skills/autumn-billing/SKILL.md",
+      "content": "---\nname: autumn-billing\ndescription: Maintain the Autumn Billing module installed by StackFoundry.\n---\n\n# Autumn Billing Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Autumn Billing\n\nAutumn + Stripe usage billing, overages, spend caps, and plan changes.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

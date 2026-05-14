@@ -858,7 +858,6 @@ tbody tr:last-child td {
 
 .assurance-item summary {
   color: var(--fg);
-  cursor: pointer;
   font-size: 14px;
   font-weight: 510;
   list-style: none;
@@ -1025,6 +1024,15 @@ tbody tr:last-child td {
   margin: 0 0 16px;
 }
 
+.docs-content h1.doc-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7vw, 86px);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+  margin: 0 0 18px;
+}
+
 .doc-lede {
   color: var(--muted-2);
   font-size: 18px;
@@ -1064,6 +1072,33 @@ tbody tr:last-child td {
   max-width: 72ch;
 }
 
+.docs-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 22px 0 34px;
+}
+
+.docs-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.docs-card h3 {
+  border: 0;
+  font-size: 15px;
+  margin: 0 0 6px;
+  padding: 0;
+}
+
+.docs-card p {
+  color: var(--muted-2);
+  font-size: 13px;
+  margin: 0;
+}
+
 .docs-code {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -1078,6 +1113,11 @@ tbody tr:last-child td {
   margin: 0;
   overflow-x: auto;
   padding: 18px 20px;
+}
+
+.docs-page-shell {
+  border-top: 0;
+  padding-top: 64px;
 }
 
 .sponsor-strip {
@@ -1152,6 +1192,7 @@ tbody tr:last-child td {
   .showcase-grid,
   .manifest-block,
   .docs-preview,
+  .docs-grid,
   .sponsor-strip {
     grid-template-columns: 1fr;
   }

@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "fly-deploy",
+      "target": ".agents/skills/fly-deploy/SKILL.md",
+      "content": "---\nname: fly-deploy\ndescription: Maintain the Fly Deploy module installed by StackFoundry.\n---\n\n# Fly Deploy Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Fly Deploy\n\nApp and worker deployment with regionality notes and templates.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

@@ -1,0 +1,32 @@
+{
+  "name": "dependency-audit",
+  "type": "module",
+  "category": "security",
+  "title": "Dependency Audit",
+  "description": "Dependency scanning, high-severity gate, and release checklist.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/dependency-audit.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/security/dependencies/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "dependency-audit"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

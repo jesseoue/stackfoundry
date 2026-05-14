@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "cloudflare-terraform",
+      "target": ".agents/skills/cloudflare-terraform/SKILL.md",
+      "content": "---\nname: cloudflare-terraform\ndescription: Maintain the Cloudflare Terraform module installed by StackFoundry.\n---\n\n# Cloudflare Terraform Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Cloudflare Terraform\n\nIaC module for zones, Workers, R2, D1, Queues, and secrets.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

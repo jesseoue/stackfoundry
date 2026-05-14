@@ -1,0 +1,34 @@
+{
+  "name": "billing-portal",
+  "type": "module",
+  "category": "billing",
+  "title": "Billing Portal",
+  "description": "Self-service billing portal link helpers and access checks.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "billing-core"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/billing-portal.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/portal/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "billing-portal"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

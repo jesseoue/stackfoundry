@@ -1,0 +1,63 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "refunds-disputes",
+  "type": "registry:block",
+  "title": "Refunds and Disputes",
+  "description": "Refund request, dispute status, and support handoff workflow.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/billing-core.json",
+    "https://stackfoundry.dev/r/audit-log.json"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/refunds-disputes.ts",
+      "type": "registry:file",
+      "target": "packages/db/src/schema/refunds-disputes.ts",
+      "content": "import { index, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const refundsDisputes = pgTable(\n  \"refunds_disputes\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    organizationId: text(\"organization_id\"),\n    ownerId: text(\"owner_id\"),\n    key: text(\"key\").notNull(),\n    status: text(\"status\").notNull().default(\"active\"),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n    updatedAt: timestamp(\"updated_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (item) => [\n    index(\"refunds_disputes_organization_idx\").on(item.organizationId),\n    index(\"refunds_disputes_owner_idx\").on(item.ownerId),\n  ]\n);\n"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/refunds-disputes.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/refunds-disputes.ts",
+      "content": "export type RefundsDisputesConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createRefundsDisputesConfig(config: RefundsDisputesConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const refundsDisputesChecks = [\n  \"Validate tenant and permission boundaries\",\n  \"Record audit events for sensitive changes\",\n  \"Document deployment and rollback behavior\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/refunds/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/billing/refunds/page.tsx",
+      "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function RefundsandDisputesPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Refunds and Disputes</h1>\n        <p className=\"text-muted-foreground\">Refund request, dispute status, and support handoff workflow.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "refunds-disputes",
+      "target": ".agents/skills/refunds-disputes/SKILL.md",
+      "content": "---\nname: refunds-disputes\ndescription: Maintain the Refunds and Disputes module installed by StackFoundry.\n---\n\n# Refunds and Disputes Skill\n\n## Boundary\n\nThis module owns the Refunds and Disputes source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `packages/db/src/schema/refunds-disputes.ts`\n- `apps/web/src/lib/stackfoundry/refunds-disputes.ts`\n- `apps/web/src/app/(console)/billing/refunds/page.tsx`\n\n## Dependencies\n\n- Depends on `billing-core`\n- Depends on `audit-log`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Refunds and Disputes Module\n\nRefund request, dispute status, and support handoff workflow.\n\n## Owns\n\n- `packages/db/src/schema/refunds-disputes.ts`\n- `apps/web/src/lib/stackfoundry/refunds-disputes.ts`\n- `apps/web/src/app/(console)/billing/refunds/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add refunds-disputes --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "billing",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "refunds-disputes"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "safe-defaults"
+      ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "refundsDisputes"
+      ],
+      "migrationRecommended": true
+    }
+  }
+}

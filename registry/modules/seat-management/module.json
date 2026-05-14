@@ -1,0 +1,45 @@
+{
+  "name": "seat-management",
+  "type": "module",
+  "category": "billing",
+  "title": "Seat Management",
+  "description": "Seat limits, assigned seats, and over-limit handling for B2B billing.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "billing-core",
+    "orgs-rbac"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/seat-management.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/seat-management.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/seats/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "seatManagement"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "seat-management"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

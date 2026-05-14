@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "data-import-export",
+      "target": ".agents/skills/data-import-export/SKILL.md",
+      "content": "---\nname: data-import-export\ndescription: Maintain the Data Import Export module installed by StackFoundry.\n---\n\n# Data Import Export Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Data Import Export\n\nCSV import/export, background processing, and error report UI.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

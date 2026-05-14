@@ -1,0 +1,62 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "idempotency-keys",
+  "type": "registry:block",
+  "title": "Idempotency Keys",
+  "description": "Idempotency-Key storage and replay helpers for mutating endpoints.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/drizzle-postgres.json"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/idempotency-keys.ts",
+      "type": "registry:file",
+      "target": "packages/db/src/schema/idempotency-keys.ts",
+      "content": "import { index, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const idempotencyKeys = pgTable(\n  \"idempotency_keys\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    organizationId: text(\"organization_id\"),\n    ownerId: text(\"owner_id\"),\n    key: text(\"key\").notNull(),\n    status: text(\"status\").notNull().default(\"active\"),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n    updatedAt: timestamp(\"updated_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (item) => [\n    index(\"idempotency_keys_organization_idx\").on(item.organizationId),\n    index(\"idempotency_keys_owner_idx\").on(item.ownerId),\n  ]\n);\n"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/idempotency-keys.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/idempotency-keys.ts",
+      "content": "export type IdempotencyKeysConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createIdempotencyKeysConfig(config: IdempotencyKeysConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const idempotencyKeysChecks = [\n  \"Validate tenant and permission boundaries\",\n  \"Record audit events for sensitive changes\",\n  \"Document deployment and rollback behavior\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/developers/idempotency/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/developers/idempotency/page.tsx",
+      "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function IdempotencyKeysPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Idempotency Keys</h1>\n        <p className=\"text-muted-foreground\">Idempotency-Key storage and replay helpers for mutating endpoints.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "idempotency-keys",
+      "target": ".agents/skills/idempotency-keys/SKILL.md",
+      "content": "---\nname: idempotency-keys\ndescription: Maintain the Idempotency Keys module installed by StackFoundry.\n---\n\n# Idempotency Keys Skill\n\n## Boundary\n\nThis module owns the Idempotency Keys source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `packages/db/src/schema/idempotency-keys.ts`\n- `apps/web/src/lib/stackfoundry/idempotency-keys.ts`\n- `apps/web/src/app/(console)/developers/idempotency/page.tsx`\n\n## Dependencies\n\n- Depends on `drizzle-postgres`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Idempotency Keys Module\n\nIdempotency-Key storage and replay helpers for mutating endpoints.\n\n## Owns\n\n- `packages/db/src/schema/idempotency-keys.ts`\n- `apps/web/src/lib/stackfoundry/idempotency-keys.ts`\n- `apps/web/src/app/(console)/developers/idempotency/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add idempotency-keys --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "developer-platform",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "idempotency-keys"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "safe-defaults"
+      ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "idempotencyKeys"
+      ],
+      "migrationRecommended": true
+    }
+  }
+}

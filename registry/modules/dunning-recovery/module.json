@@ -1,0 +1,45 @@
+{
+  "name": "dunning-recovery",
+  "type": "module",
+  "category": "billing",
+  "title": "Dunning Recovery",
+  "description": "Failed payment recovery sequence with email and in-app notices.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "billing-core",
+    "notifications"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/dunning-recovery.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/dunning-recovery.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/dunning/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "dunningRecovery"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "dunning-recovery"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

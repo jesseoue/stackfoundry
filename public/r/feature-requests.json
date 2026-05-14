@@ -1,0 +1,62 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-requests",
+  "type": "registry:block",
+  "title": "Feature Requests",
+  "description": "Feature request intake, status, votes, and roadmap handoff.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/support-console.json"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/feature-requests.ts",
+      "type": "registry:file",
+      "target": "packages/db/src/schema/feature-requests.ts",
+      "content": "import { index, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const featureRequests = pgTable(\n  \"feature_requests\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    organizationId: text(\"organization_id\"),\n    ownerId: text(\"owner_id\"),\n    key: text(\"key\").notNull(),\n    status: text(\"status\").notNull().default(\"active\"),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n    updatedAt: timestamp(\"updated_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (item) => [\n    index(\"feature_requests_organization_idx\").on(item.organizationId),\n    index(\"feature_requests_owner_idx\").on(item.ownerId),\n  ]\n);\n"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/feature-requests.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/feature-requests.ts",
+      "content": "export type FeatureRequestsConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createFeatureRequestsConfig(config: FeatureRequestsConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const featureRequestsChecks = [\n  \"Validate tenant and permission boundaries\",\n  \"Record audit events for sensitive changes\",\n  \"Document deployment and rollback behavior\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/support/feature-requests/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/support/feature-requests/page.tsx",
+      "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function FeatureRequestsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Feature Requests</h1>\n        <p className=\"text-muted-foreground\">Feature request intake, status, votes, and roadmap handoff.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "feature-requests",
+      "target": ".agents/skills/feature-requests/SKILL.md",
+      "content": "---\nname: feature-requests\ndescription: Maintain the Feature Requests module installed by StackFoundry.\n---\n\n# Feature Requests Skill\n\n## Boundary\n\nThis module owns the Feature Requests source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `packages/db/src/schema/feature-requests.ts`\n- `apps/web/src/lib/stackfoundry/feature-requests.ts`\n- `apps/web/src/app/(console)/admin/support/feature-requests/page.tsx`\n\n## Dependencies\n\n- Depends on `support-console`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Feature Requests Module\n\nFeature request intake, status, votes, and roadmap handoff.\n\n## Owns\n\n- `packages/db/src/schema/feature-requests.ts`\n- `apps/web/src/lib/stackfoundry/feature-requests.ts`\n- `apps/web/src/app/(console)/admin/support/feature-requests/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add feature-requests --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "support",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "feature-requests"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "safe-defaults"
+      ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "featureRequests"
+      ],
+      "migrationRecommended": true
+    }
+  }
+}

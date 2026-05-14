@@ -1,0 +1,44 @@
+{
+  "name": "bug-reports",
+  "type": "module",
+  "category": "support",
+  "title": "Bug Reports",
+  "description": "Bug report intake, severity, reproduction steps, and triage workflow.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "support-console"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/bug-reports.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/bug-reports.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/support/bug-reports/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "bugReports"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "bug-reports"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

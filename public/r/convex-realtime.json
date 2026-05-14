@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "convex-realtime",
+      "target": ".agents/skills/convex-realtime/SKILL.md",
+      "content": "---\nname: convex-realtime\ndescription: Maintain the Convex Realtime module installed by StackFoundry.\n---\n\n# Convex Realtime Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Convex Realtime\n\nLive queries, subscriptions, realtime dashboards, and optimistic update examples.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

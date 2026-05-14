@@ -1,0 +1,54 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "error-boundaries",
+  "type": "registry:block",
+  "title": "Error Boundaries",
+  "description": "React error boundary and fallback component for product pages.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/error-boundaries.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/error-boundaries.ts",
+      "content": "export type ErrorBoundariesConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createErrorBoundariesConfig(config: ErrorBoundariesConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const errorBoundariesChecks = [\n  \"Validate tenant and permission boundaries\",\n  \"Record audit events for sensitive changes\",\n  \"Document deployment and rollback behavior\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/error-boundaries.tsx",
+      "type": "registry:component",
+      "target": "apps/web/src/components/stackfoundry/error-boundaries.tsx",
+      "content": "\"use client\";\n\nimport { Component, type ErrorInfo, type ReactNode } from \"react\";\n\ntype Props = { children: ReactNode; fallback?: ReactNode };\ntype State = { error?: Error };\n\nexport class StackFoundryErrorBoundary extends Component<Props, State> {\n  state: State = {};\n\n  static getDerivedStateFromError(error: Error) {\n    return { error };\n  }\n\n  componentDidCatch(error: Error, info: ErrorInfo) {\n    console.error(\"stackfoundry.error_boundary\", { error, info });\n  }\n\n  render() {\n    if (this.state.error) {\n      return this.props.fallback ?? <div role=\"alert\">Something went wrong.</div>;\n    }\n\n    return this.props.children;\n  }\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/error-boundaries/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/components/error-boundaries/page.tsx",
+      "content": "\"use client\";\n\nimport { Component, type ErrorInfo, type ReactNode } from \"react\";\n\ntype Props = { children: ReactNode; fallback?: ReactNode };\ntype State = { error?: Error };\n\nexport class StackFoundryErrorBoundary extends Component<Props, State> {\n  state: State = {};\n\n  static getDerivedStateFromError(error: Error) {\n    return { error };\n  }\n\n  componentDidCatch(error: Error, info: ErrorInfo) {\n    console.error(\"stackfoundry.error_boundary\", { error, info });\n  }\n\n  render() {\n    if (this.state.error) {\n      return this.props.fallback ?? <div role=\"alert\">Something went wrong.</div>;\n    }\n\n    return this.props.children;\n  }\n}\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "error-boundaries",
+      "target": ".agents/skills/error-boundaries/SKILL.md",
+      "content": "---\nname: error-boundaries\ndescription: Maintain the Error Boundaries module installed by StackFoundry.\n---\n\n# Error Boundaries Skill\n\n## Boundary\n\nThis module owns the Error Boundaries source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/error-boundaries.ts`\n- `apps/web/src/components/stackfoundry/error-boundaries.tsx`\n- `apps/web/src/app/(console)/components/error-boundaries/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Error Boundaries Module\n\nReact error boundary and fallback component for product pages.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/error-boundaries.ts`\n- `apps/web/src/components/stackfoundry/error-boundaries.tsx`\n- `apps/web/src/app/(console)/components/error-boundaries/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add error-boundaries --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "components",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "error-boundaries"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "safe-defaults"
+      ]
+    }
+  }
+}

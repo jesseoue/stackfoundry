@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "autumn-entitlements",
+      "target": ".agents/skills/autumn-entitlements/SKILL.md",
+      "content": "---\nname: autumn-entitlements\ndescription: Maintain the Autumn Entitlements module installed by StackFoundry.\n---\n\n# Autumn Entitlements Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Autumn Entitlements\n\nAutumn check API, boolean and metered features, credit ledgers, and plan gates.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

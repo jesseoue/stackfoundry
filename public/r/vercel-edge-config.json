@@ -31,6 +31,13 @@
       "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function VercelEdgeConfigPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Vercel Edge Config</h1>\n        <p className=\"text-muted-foreground\">Low-latency global reads for flags, maintenance mode, and routing config.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
+  "agentSkills": [
+    {
+      "name": "vercel-edge-config",
+      "target": ".agents/skills/vercel-edge-config/SKILL.md",
+      "content": "---\nname: vercel-edge-config\ndescription: Maintain the Vercel Edge Config vendor registry block installed by StackFoundry.\n---\n\n# Vercel Edge Config Skill\n\n## Boundary\n\nThis block owns the Vercel Edge Config integration example only. Keep product-specific business logic outside the vendor adapter until the app has chosen this provider.\n\n## Source Files\n\n- `apps/web/src/lib/vercel/edge-config.ts`\n- `apps/web/src/app/api/vendor/vercel/edge-config/route.ts`\n- `apps/web/src/app/(console)/admin/vendors/vercel-edge-config/page.tsx`\n\n## Dependencies\n\n- `@vercel/edge-config`\n\n## Environment\n\n- `EDGE_CONFIG`\n\n## Deployment Checks\n\n- Create the vendor project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current vendor docs.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one vendor.\n"
+    }
+  ],
   "envVars": {
     "EDGE_CONFIG": ""
   },

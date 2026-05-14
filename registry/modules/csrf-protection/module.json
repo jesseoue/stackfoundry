@@ -1,0 +1,32 @@
+{
+  "name": "csrf-protection",
+  "type": "module",
+  "category": "security",
+  "title": "CSRF Protection",
+  "description": "CSRF token helpers and unsafe-method protection checklist.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/csrf-protection.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/security/csrf/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "csrf-protection"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

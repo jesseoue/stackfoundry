@@ -1,0 +1,44 @@
+{
+  "name": "feature-requests",
+  "type": "module",
+  "category": "support",
+  "title": "Feature Requests",
+  "description": "Feature request intake, status, votes, and roadmap handoff.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "support-console"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/feature-requests.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/feature-requests.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/support/feature-requests/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "featureRequests"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "feature-requests"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

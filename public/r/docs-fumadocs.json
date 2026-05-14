@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "docs-fumadocs",
+      "target": ".agents/skills/docs-fumadocs/SKILL.md",
+      "content": "---\nname: docs-fumadocs\ndescription: Maintain the Fumadocs Docs module installed by StackFoundry.\n---\n\n# Fumadocs Docs Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Fumadocs Docs\n\nFumadocs docs site module.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

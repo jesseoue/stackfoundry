@@ -26,7 +26,19 @@
     "https://stackfoundry.dev/r/login-activity.json",
     "https://stackfoundry.dev/r/axiom-logging.json",
     "https://stackfoundry.dev/r/sentry-monitoring.json",
-    "https://stackfoundry.dev/r/github-integration.json"
+    "https://stackfoundry.dev/r/github-integration.json",
+    "https://stackfoundry.dev/r/tenant-context.json",
+    "https://stackfoundry.dev/r/tenant-isolation-tests.json",
+    "https://stackfoundry.dev/r/permission-matrix.json",
+    "https://stackfoundry.dev/r/custom-roles.json",
+    "https://stackfoundry.dev/r/uptime-monitoring.json",
+    "https://stackfoundry.dev/r/oncall-alerting.json",
+    "https://stackfoundry.dev/r/postmortem-runbook.json",
+    "https://stackfoundry.dev/r/sla-management.json",
+    "https://stackfoundry.dev/r/support-widget.json",
+    "https://stackfoundry.dev/r/feature-requests.json",
+    "https://stackfoundry.dev/r/bug-reports.json",
+    "https://stackfoundry.dev/r/data-table.json"
   ],
   "files": [],
   "docs": "Installs the Internal Admin preset from StackFoundry.",
@@ -55,7 +67,19 @@
       "login-activity",
       "axiom-logging",
       "sentry-monitoring",
-      "github-integration"
+      "github-integration",
+      "tenant-context",
+      "tenant-isolation-tests",
+      "permission-matrix",
+      "custom-roles",
+      "uptime-monitoring",
+      "oncall-alerting",
+      "postmortem-runbook",
+      "sla-management",
+      "support-widget",
+      "feature-requests",
+      "bug-reports",
+      "data-table"
     ]
   }
 }

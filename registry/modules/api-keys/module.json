@@ -27,7 +27,7 @@
 		"migrationRecommended": true
 	},
 	"agents": {
-		"skills": ["api-keys"],
+		"skills": ["api-keys", "drizzle", "nextjs"],
 		"rules": [
 			"hash-keys",
 			"never-store-plaintext",

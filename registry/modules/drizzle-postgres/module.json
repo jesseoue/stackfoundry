@@ -39,7 +39,7 @@
 		"migrationRecommended": true
 	},
 	"agents": {
-		"skills": ["drizzle-postgres"],
+		"skills": ["drizzle-postgres", "drizzle"],
 		"rules": ["server-only", "schema-barrel", "commit-migrations"]
 	},
 	"status": "experimental"

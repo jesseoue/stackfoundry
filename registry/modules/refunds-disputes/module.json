@@ -1,0 +1,45 @@
+{
+  "name": "refunds-disputes",
+  "type": "module",
+  "category": "billing",
+  "title": "Refunds and Disputes",
+  "description": "Refund request, dispute status, and support handoff workflow.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "billing-core",
+    "audit-log"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/refunds-disputes.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/refunds-disputes.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/refunds/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "refundsDisputes"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "refunds-disputes"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

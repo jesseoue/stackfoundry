@@ -1,0 +1,32 @@
+{
+  "name": "secrets-management",
+  "type": "module",
+  "category": "security",
+  "title": "Secrets Management",
+  "description": "Secrets inventory, rotation checklist, and provider-neutral access pattern.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/secrets-management.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/security/secrets/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "secrets-management"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

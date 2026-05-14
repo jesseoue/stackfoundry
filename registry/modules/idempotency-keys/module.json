@@ -1,0 +1,44 @@
+{
+  "name": "idempotency-keys",
+  "type": "module",
+  "category": "developer-platform",
+  "title": "Idempotency Keys",
+  "description": "Idempotency-Key storage and replay helpers for mutating endpoints.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/idempotency-keys.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/idempotency-keys.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/developers/idempotency/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "idempotencyKeys"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "idempotency-keys"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

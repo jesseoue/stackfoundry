@@ -24,7 +24,19 @@
     "login-activity",
     "axiom-logging",
     "sentry-monitoring",
-    "github-integration"
+    "github-integration",
+    "tenant-context",
+    "tenant-isolation-tests",
+    "permission-matrix",
+    "custom-roles",
+    "uptime-monitoring",
+    "oncall-alerting",
+    "postmortem-runbook",
+    "sla-management",
+    "support-widget",
+    "feature-requests",
+    "bug-reports",
+    "data-table"
   ],
   "status": "planned"
 }

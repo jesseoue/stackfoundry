@@ -280,6 +280,30 @@
       ]
     },
     {
+      "name": "billing-portal",
+      "type": "registry:block",
+      "title": "Billing Portal",
+      "description": "Self-service billing portal link helpers and access checks.",
+      "files": [
+        {
+          "path": "registry/modules/billing-portal/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "billing-reconciliation",
+      "type": "registry:block",
+      "title": "Billing Reconciliation",
+      "description": "Provider/database drift checks and reconciliation job status.",
+      "files": [
+        {
+          "path": "registry/modules/billing-reconciliation/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "blog-changelog",
       "type": "registry:block",
       "title": "Blog and Changelog",
@@ -287,6 +311,18 @@
       "files": [
         {
           "path": "registry/modules/blog-changelog/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "bug-reports",
+      "type": "registry:block",
+      "title": "Bug Reports",
+      "description": "Bug report intake, severity, reproduction steps, and triage workflow.",
+      "files": [
+        {
+          "path": "registry/modules/bug-reports/module.json",
           "type": "registry:file"
         }
       ]
@@ -556,6 +592,18 @@
       ]
     },
     {
+      "name": "command-menu",
+      "type": "registry:block",
+      "title": "Command Menu",
+      "description": "Keyboard-first command menu component for SaaS navigation and actions.",
+      "files": [
+        {
+          "path": "registry/modules/command-menu/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "connected-accounts",
       "type": "registry:block",
       "title": "Connected Accounts",
@@ -640,6 +688,54 @@
       ]
     },
     {
+      "name": "coupons-promotions",
+      "type": "registry:block",
+      "title": "Coupons Promotions",
+      "description": "Coupon, promotion code, and referral discount tracking.",
+      "files": [
+        {
+          "path": "registry/modules/coupons-promotions/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "csrf-protection",
+      "type": "registry:block",
+      "title": "CSRF Protection",
+      "description": "CSRF token helpers and unsafe-method protection checklist.",
+      "files": [
+        {
+          "path": "registry/modules/csrf-protection/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "custom-domains",
+      "type": "registry:block",
+      "title": "Custom Domains",
+      "description": "Custom domain records, status, and tenant-owned routing controls.",
+      "files": [
+        {
+          "path": "registry/modules/custom-domains/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "custom-roles",
+      "type": "registry:block",
+      "title": "Custom Roles",
+      "description": "Custom role definitions, role cloning, and permission assignment boundaries.",
+      "files": [
+        {
+          "path": "registry/modules/custom-roles/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "data-export",
       "type": "registry:block",
       "title": "Data Export",
@@ -676,6 +772,18 @@
       ]
     },
     {
+      "name": "data-table",
+      "type": "registry:block",
+      "title": "Data Table",
+      "description": "Typed table shell with empty/loading/error slots and row actions.",
+      "files": [
+        {
+          "path": "registry/modules/data-table/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "datadog-monitoring",
       "type": "registry:block",
       "title": "Datadog Monitoring",
@@ -683,6 +791,18 @@
       "files": [
         {
           "path": "registry/modules/datadog-monitoring/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "dependency-audit",
+      "type": "registry:block",
+      "title": "Dependency Audit",
+      "description": "Dependency scanning, high-severity gate, and release checklist.",
+      "files": [
+        {
+          "path": "registry/modules/dependency-audit/module.json",
           "type": "registry:file"
         }
       ]
@@ -748,6 +868,18 @@
       ]
     },
     {
+      "name": "domain-verification",
+      "type": "registry:block",
+      "title": "Domain Verification",
+      "description": "DNS TXT/CNAME verification state for tenant domains.",
+      "files": [
+        {
+          "path": "registry/modules/domain-verification/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "drizzle-audit-log",
       "type": "registry:block",
       "title": "Drizzle Audit Log",
@@ -808,6 +940,18 @@
       ]
     },
     {
+      "name": "dunning-recovery",
+      "type": "registry:block",
+      "title": "Dunning Recovery",
+      "description": "Failed payment recovery sequence with email and in-app notices.",
+      "files": [
+        {
+          "path": "registry/modules/dunning-recovery/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "email-nodemailer",
       "type": "registry:block",
       "title": "Nodemailer Email",
@@ -856,6 +1000,18 @@
       ]
     },
     {
+      "name": "empty-states",
+      "type": "registry:block",
+      "title": "Empty States",
+      "description": "Reusable empty state component with action and guidance slots.",
+      "files": [
+        {
+          "path": "registry/modules/empty-states/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "enterprise-sso",
       "type": "registry:block",
       "title": "Enterprise SSO",
@@ -875,6 +1031,18 @@
       "files": [
         {
           "path": "registry/modules/entitlements/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "error-boundaries",
+      "type": "registry:block",
+      "title": "Error Boundaries",
+      "description": "React error boundary and fallback component for product pages.",
+      "files": [
+        {
+          "path": "registry/modules/error-boundaries/module.json",
           "type": "registry:file"
         }
       ]
@@ -923,6 +1091,18 @@
       "files": [
         {
           "path": "registry/modules/feature-flags/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "feature-requests",
+      "type": "registry:block",
+      "title": "Feature Requests",
+      "description": "Feature request intake, status, votes, and roadmap handoff.",
+      "files": [
+        {
+          "path": "registry/modules/feature-requests/module.json",
           "type": "registry:file"
         }
       ]
@@ -1036,6 +1216,18 @@
       ]
     },
     {
+      "name": "idempotency-keys",
+      "type": "registry:block",
+      "title": "Idempotency Keys",
+      "description": "Idempotency-Key storage and replay helpers for mutating endpoints.",
+      "files": [
+        {
+          "path": "registry/modules/idempotency-keys/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "image-optimization",
       "type": "registry:block",
       "title": "Image Optimization",
@@ -1067,6 +1259,18 @@
       "files": [
         {
           "path": "registry/modules/inngest-functions/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "input-validation",
+      "type": "registry:block",
+      "title": "Input Validation",
+      "description": "Shared Zod validation helpers for server routes and forms.",
+      "files": [
+        {
+          "path": "registry/modules/input-validation/module.json",
           "type": "registry:file"
         }
       ]
@@ -1163,6 +1367,18 @@
       "files": [
         {
           "path": "registry/modules/linear-integration/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "loading-states",
+      "type": "registry:block",
+      "title": "Loading States",
+      "description": "Skeleton and loading state components for async SaaS surfaces.",
+      "files": [
+        {
+          "path": "registry/modules/loading-states/module.json",
           "type": "registry:file"
         }
       ]
@@ -1300,6 +1516,18 @@
       ]
     },
     {
+      "name": "oncall-alerting",
+      "type": "registry:block",
+      "title": "On-call Alerting",
+      "description": "Alert routing, severity taxonomy, and escalation schedule starter.",
+      "files": [
+        {
+          "path": "registry/modules/oncall-alerting/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "openfeature-flags",
       "type": "registry:block",
       "title": "OpenFeature Flags",
@@ -1348,6 +1576,18 @@
       ]
     },
     {
+      "name": "permission-matrix",
+      "type": "registry:block",
+      "title": "Permission Matrix",
+      "description": "Tenant-scoped permission catalog and UI review matrix.",
+      "files": [
+        {
+          "path": "registry/modules/permission-matrix/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "plan-gating",
       "type": "registry:block",
       "title": "Plan Gating",
@@ -1391,6 +1631,18 @@
       "files": [
         {
           "path": "registry/modules/posthog-analytics/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "postmortem-runbook",
+      "type": "registry:block",
+      "title": "Postmortem Runbook",
+      "description": "Blameless postmortem template and incident follow-up checklist.",
+      "files": [
+        {
+          "path": "registry/modules/postmortem-runbook/module.json",
           "type": "registry:file"
         }
       ]
@@ -1516,6 +1768,18 @@
       ]
     },
     {
+      "name": "refunds-disputes",
+      "type": "registry:block",
+      "title": "Refunds and Disputes",
+      "description": "Refund request, dispute status, and support handoff workflow.",
+      "files": [
+        {
+          "path": "registry/modules/refunds-disputes/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "render-deploy",
       "type": "registry:block",
       "title": "Render Deploy",
@@ -1612,6 +1876,30 @@
       ]
     },
     {
+      "name": "seat-management",
+      "type": "registry:block",
+      "title": "Seat Management",
+      "description": "Seat limits, assigned seats, and over-limit handling for B2B billing.",
+      "files": [
+        {
+          "path": "registry/modules/seat-management/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "secrets-management",
+      "type": "registry:block",
+      "title": "Secrets Management",
+      "description": "Secrets inventory, rotation checklist, and provider-neutral access pattern.",
+      "files": [
+        {
+          "path": "registry/modules/secrets-management/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "security-headers",
       "type": "registry:block",
       "title": "Security Headers",
@@ -1672,13 +1960,37 @@
       ]
     },
     {
-      "name": "shadcn-sidebar-shell",
+      "name": "settings-layout",
       "type": "registry:block",
-      "title": "Sidebar Shell",
-      "description": "shadcn-compatible Sidebar shell with navigation, header, responsive layout, and product config.",
+      "title": "Settings Layout",
+      "description": "Reusable settings shell for account, workspace, billing, and security pages.",
       "files": [
         {
-          "path": "registry/modules/shadcn-sidebar-shell/module.json",
+          "path": "registry/modules/settings-layout/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-shell",
+      "type": "registry:block",
+      "title": "Sidebar Shell",
+      "description": "Sidebar shell with navigation, header, responsive layout, and product config.",
+      "files": [
+        {
+          "path": "registry/modules/sidebar-shell/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "sla-management",
+      "type": "registry:block",
+      "title": "SLA Management",
+      "description": "Customer SLA tiers, response targets, and escalation policies.",
+      "files": [
+        {
+          "path": "registry/modules/sla-management/module.json",
           "type": "registry:file"
         }
       ]
@@ -1744,6 +2056,18 @@
       ]
     },
     {
+      "name": "support-widget",
+      "type": "registry:block",
+      "title": "Support Widget",
+      "description": "Embeddable support launcher and server-side submission route.",
+      "files": [
+        {
+          "path": "registry/modules/support-widget/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "surveys-nps",
       "type": "registry:block",
       "title": "Surveys and NPS",
@@ -1780,6 +2104,42 @@
       ]
     },
     {
+      "name": "tax-vat",
+      "type": "registry:block",
+      "title": "Tax and VAT",
+      "description": "Tax/VAT collection status, business identifiers, and tax provider adapter boundary.",
+      "files": [
+        {
+          "path": "registry/modules/tax-vat/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "tenant-context",
+      "type": "registry:block",
+      "title": "Tenant Context",
+      "description": "Resolve tenant context once per request and pass it through server code.",
+      "files": [
+        {
+          "path": "registry/modules/tenant-context/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "tenant-isolation-tests",
+      "type": "registry:block",
+      "title": "Tenant Isolation Tests",
+      "description": "Test helpers and checklist for cross-tenant isolation assertions.",
+      "files": [
+        {
+          "path": "registry/modules/tenant-isolation-tests/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "theme-system",
       "type": "registry:block",
       "title": "Theme System",
@@ -1787,6 +2147,18 @@
       "files": [
         {
           "path": "registry/modules/theme-system/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "toast-notifications",
+      "type": "registry:block",
+      "title": "Toast Notifications",
+      "description": "Accessible toast queue component for action feedback.",
+      "files": [
+        {
+          "path": "registry/modules/toast-notifications/module.json",
           "type": "registry:file"
         }
       ]
@@ -1847,6 +2219,18 @@
       "files": [
         {
           "path": "registry/modules/upstash-redis/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "uptime-monitoring",
+      "type": "registry:block",
+      "title": "Uptime Monitoring",
+      "description": "Public endpoint checks, SLA targets, and status escalation notes.",
+      "files": [
+        {
+          "path": "registry/modules/uptime-monitoring/module.json",
           "type": "registry:file"
         }
       ]

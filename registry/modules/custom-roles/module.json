@@ -1,0 +1,44 @@
+{
+  "name": "custom-roles",
+  "type": "module",
+  "category": "auth",
+  "title": "Custom Roles",
+  "description": "Custom role definitions, role cloning, and permission assignment boundaries.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "permission-matrix"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/custom-roles.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/custom-roles.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/settings/workspace/roles/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "customRoles"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "custom-roles"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

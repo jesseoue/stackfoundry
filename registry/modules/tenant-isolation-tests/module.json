@@ -1,0 +1,32 @@
+{
+  "name": "tenant-isolation-tests",
+  "type": "module",
+  "category": "tenancy",
+  "title": "Tenant Isolation Tests",
+  "description": "Test helpers and checklist for cross-tenant isolation assertions.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/tenant-isolation-tests.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/tenancy/isolation-tests/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "tenant-isolation-tests"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

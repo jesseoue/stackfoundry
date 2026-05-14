@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "convex-backend",
+      "target": ".agents/skills/convex-backend/SKILL.md",
+      "content": "---\nname: convex-backend\ndescription: Maintain the Convex Backend module installed by StackFoundry.\n---\n\n# Convex Backend Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Convex Backend\n\nConvex project setup, generated functions, provider wrapper, and deployment docs.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

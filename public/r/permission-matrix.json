@@ -1,0 +1,62 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "permission-matrix",
+  "type": "registry:block",
+  "title": "Permission Matrix",
+  "description": "Tenant-scoped permission catalog and UI review matrix.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/orgs-rbac.json"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/permission-matrix.ts",
+      "type": "registry:file",
+      "target": "packages/db/src/schema/permission-matrix.ts",
+      "content": "import { index, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const permissionMatrix = pgTable(\n  \"permission_matrix\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    organizationId: text(\"organization_id\"),\n    ownerId: text(\"owner_id\"),\n    key: text(\"key\").notNull(),\n    status: text(\"status\").notNull().default(\"active\"),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n    updatedAt: timestamp(\"updated_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (item) => [\n    index(\"permission_matrix_organization_idx\").on(item.organizationId),\n    index(\"permission_matrix_owner_idx\").on(item.ownerId),\n  ]\n);\n"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/permission-matrix.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/permission-matrix.ts",
+      "content": "export type PermissionMatrixConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createPermissionMatrixConfig(config: PermissionMatrixConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const permissionMatrixChecks = [\n  \"Validate tenant and permission boundaries\",\n  \"Record audit events for sensitive changes\",\n  \"Document deployment and rollback behavior\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/settings/workspace/permissions/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/settings/workspace/permissions/page.tsx",
+      "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function PermissionMatrixPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Permission Matrix</h1>\n        <p className=\"text-muted-foreground\">Tenant-scoped permission catalog and UI review matrix.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "permission-matrix",
+      "target": ".agents/skills/permission-matrix/SKILL.md",
+      "content": "---\nname: permission-matrix\ndescription: Maintain the Permission Matrix module installed by StackFoundry.\n---\n\n# Permission Matrix Skill\n\n## Boundary\n\nThis module owns the Permission Matrix source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `packages/db/src/schema/permission-matrix.ts`\n- `apps/web/src/lib/stackfoundry/permission-matrix.ts`\n- `apps/web/src/app/(console)/settings/workspace/permissions/page.tsx`\n\n## Dependencies\n\n- Depends on `orgs-rbac`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Permission Matrix Module\n\nTenant-scoped permission catalog and UI review matrix.\n\n## Owns\n\n- `packages/db/src/schema/permission-matrix.ts`\n- `apps/web/src/lib/stackfoundry/permission-matrix.ts`\n- `apps/web/src/app/(console)/settings/workspace/permissions/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add permission-matrix --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "auth",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "permission-matrix"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "safe-defaults"
+      ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "permissionMatrix"
+      ],
+      "migrationRecommended": true
+    }
+  }
+}

@@ -29,6 +29,13 @@
       "content": "const tasks = [\n  \"Configure defaults\",\n  \"Connect persistence or provider adapter\",\n  \"Verify production checklist\",\n];\n\nexport default function BackupRestorePage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Backup Restore</h1>\n        <p className=\"text-muted-foreground\">Backup run records, restore checklist, and continuity dashboard.</p>\n      </div>\n      <ul className=\"grid gap-3\">\n        {tasks.map((task) => (\n          <li key={task} className=\"rounded-lg border p-4 text-sm\">{task}</li>\n        ))}\n      </ul>\n    </main>\n  );\n}\n"
     }
   ],
+  "agentSkills": [
+    {
+      "name": "backup-restore",
+      "target": ".agents/skills/backup-restore/SKILL.md",
+      "content": "---\nname: backup-restore\ndescription: Maintain the Backup Restore module installed by StackFoundry.\n---\n\n# Backup Restore Maintenance Instructions\n\n- Preserve the ownership and setup guidance in `docs.md`.\n- Keep source templates small and provider-neutral.\n- Update `tests/checklist.md` with behavior changes.\n- Do not commit secrets, local state, or generated machine metadata.\n- Keep Drizzle schema exports synchronized with `module.json`.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Backup Restore Module\n\nBackup run records, restore checklist, and continuity dashboard.\n\n## Why This Exists\n\nThis is a common launch-readiness component for production SaaS applications.\n\n## Owns\n\n- `packages/db/src/schema/backup-restore.ts`\n- `apps/web/src/lib/backup-restore.ts`\n- `apps/web/src/app/(console)/admin/backups/page.tsx`\n\n## Environment\n\nRequires `DATABASE_URL` through the `drizzle-postgres` dependency.\n\n## Maintenance\n\n- Keep the default module provider-neutral.\n- Add provider-specific adapters as separate modules.\n- Verify install output with `stackfoundry add backup-restore --target <app> --dry-run`.\n",
   "meta": {

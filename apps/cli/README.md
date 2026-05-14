@@ -6,7 +6,7 @@ The CLI is the local install engine for StackFoundry registry modules.
 
 - List modules and presets.
 - Validate registry source.
-- Build shadcn-compatible registry output.
+- Build registry-compatible output.
 - Install modules or presets into a target app.
 - Install generated registry block JSON from local files or StackFoundry registry URLs.
 - Refuse to overwrite modified target files unless `--force` is explicit.

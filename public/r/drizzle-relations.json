@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "drizzle-relations",
+      "target": ".agents/skills/drizzle-relations/SKILL.md",
+      "content": "---\nname: drizzle-relations\ndescription: Maintain the Drizzle Relations module installed by StackFoundry.\n---\n\n# Drizzle Relations Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Drizzle Relations\n\nRelations helpers, type-safe joins, query examples, and seed patterns.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

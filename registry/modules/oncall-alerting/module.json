@@ -1,0 +1,34 @@
+{
+  "name": "oncall-alerting",
+  "type": "module",
+  "category": "operations",
+  "title": "On-call Alerting",
+  "description": "Alert routing, severity taxonomy, and escalation schedule starter.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "incident-management"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/oncall-alerting.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/operations/on-call/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "oncall-alerting"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

@@ -27,7 +27,12 @@
     "unkey-api-keys",
     "unkey-rate-limits",
     "github-integration",
-    "axiom-logging"
+    "axiom-logging",
+    "idempotency-keys",
+    "input-validation",
+    "tenant-context",
+    "command-menu",
+    "data-table"
   ],
   "status": "planned"
 }

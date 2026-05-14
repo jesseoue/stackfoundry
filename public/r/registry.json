@@ -12,6 +12,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "aarrr-dashboard",
+          "target": ".agents/skills/aarrr-dashboard/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "growth",
         "env": [],
@@ -45,6 +51,12 @@
           "target": "apps/web/src/app/(console)/settings/account/deletion/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "account-deletion",
+          "target": ".agents/skills/account-deletion/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "compliance",
         "env": [],
@@ -71,6 +83,12 @@
           "target": "apps/web/src/lib/account-settings.ts"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "account-settings",
+          "target": ".agents/skills/account-settings/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "auth",
         "env": [],
@@ -86,6 +104,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "activation-onboarding",
+          "target": ".agents/skills/activation-onboarding/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "growth",
         "env": [],
@@ -114,6 +138,12 @@
           "target": "apps/web/src/app/(console)/admin/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "admin-console",
+          "target": ".agents/skills/admin-console/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "operations",
         "env": [],
@@ -129,6 +159,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "admin-impersonation",
+          "target": ".agents/skills/admin-impersonation/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "auth",
         "env": [],
@@ -144,6 +180,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "ai-artifacts",
+          "target": ".agents/skills/ai-artifacts/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "ai",
         "env": [],
@@ -184,6 +226,12 @@
           "target": "apps/web/src/lib/ai/models.ts"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "ai-chat",
+          "target": ".agents/skills/ai-chat/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "ai",
         "env": [
@@ -202,6 +250,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "ai-tools",
+          "target": ".agents/skills/ai-tools/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "ai",
         "env": [],
@@ -228,6 +282,12 @@
           "target": "apps/web/src/app/(console)/developers/docs/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "api-docs",
+          "target": ".agents/skills/api-docs/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "developer-platform",
         "env": [],
@@ -252,6 +312,12 @@
           "path": "apps/web/src/app/(console)/developers/errors/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/errors/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "api-errors",
+          "target": ".agents/skills/api-errors/SKILL.md"
         }
       ],
       "meta": {
@@ -287,6 +353,20 @@
           "target": "apps/web/src/app/(console)/api-keys/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "api-keys",
+          "target": ".agents/skills/api-keys/SKILL.md"
+        },
+        {
+          "name": "drizzle",
+          "target": ".agents/skills/drizzle/SKILL.md"
+        },
+        {
+          "name": "nextjs",
+          "target": ".agents/skills/nextjs/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "developer-platform",
         "env": [],
@@ -314,6 +394,12 @@
           "path": "apps/web/src/app/(console)/developers/usage/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/usage/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "api-usage-dashboard",
+          "target": ".agents/skills/api-usage-dashboard/SKILL.md"
         }
       ],
       "meta": {
@@ -351,6 +437,12 @@
           "target": "apps/web/src/app/(console)/admin/vendors/arcjet/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "arcjet-security",
+          "target": ".agents/skills/arcjet-security/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "security",
         "env": [
@@ -386,6 +478,12 @@
           "target": "apps/web/src/app/(console)/audit-log/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "audit-log",
+          "target": ".agents/skills/audit-log/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "operations",
         "env": [],
@@ -401,6 +499,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "auth-authjs",
+          "target": ".agents/skills/auth-authjs/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "auth",
         "env": [],
@@ -439,6 +543,12 @@
           "target": "apps/web/src/app/(console)/admin/auth/better-auth/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "auth-better-auth",
+          "target": ".agents/skills/auth-better-auth/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "auth",
         "env": [
@@ -457,6 +567,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "autumn-billing",
+          "target": ".agents/skills/autumn-billing/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "billing",
         "env": [],
@@ -472,6 +588,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "autumn-entitlements",
+          "target": ".agents/skills/autumn-entitlements/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "billing",
         "env": [],
@@ -503,6 +625,12 @@
           "path": "apps/web/src/app/(console)/admin/vendors/axiom/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/vendors/axiom/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "axiom-logging",
+          "target": ".agents/skills/axiom-logging/SKILL.md"
         }
       ],
       "meta": {
@@ -541,6 +669,12 @@
           "target": "apps/web/src/app/(console)/jobs/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "background-jobs",
+          "target": ".agents/skills/background-jobs/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "operations",
         "env": [],
@@ -572,6 +706,12 @@
           "path": "apps/web/src/app/(console)/admin/backups/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/backups/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "backup-restore",
+          "target": ".agents/skills/backup-restore/SKILL.md"
         }
       ],
       "meta": {
@@ -607,6 +747,86 @@
           "target": "apps/web/src/app/(console)/billing/core/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "billing-core",
+          "target": ".agents/skills/billing-core/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "billing-portal",
+      "type": "registry:block",
+      "title": "Billing Portal",
+      "description": "Self-service billing portal link helpers and access checks.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/billing-core.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/billing-portal.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/billing-portal.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/portal/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/billing/portal/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "billing-portal",
+          "target": ".agents/skills/billing-portal/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "billing-reconciliation",
+      "type": "registry:block",
+      "title": "Billing Reconciliation",
+      "description": "Provider/database drift checks and reconciliation job status.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/billing-core.json",
+        "https://stackfoundry.dev/r/background-jobs.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/billing-reconciliation.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/billing-reconciliation.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/billing-reconciliation.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/billing-reconciliation.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/reconciliation/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/billing/reconciliation/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "billing-reconciliation",
+          "target": ".agents/skills/billing-reconciliation/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "billing",
         "env": [],
@@ -633,8 +853,53 @@
           "target": "apps/web/src/app/(marketing)/changelog/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "blog-changelog",
+          "target": ".agents/skills/blog-changelog/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "marketing",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "bug-reports",
+      "type": "registry:block",
+      "title": "Bug Reports",
+      "description": "Bug report intake, severity, reproduction steps, and triage workflow.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/support-console.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/bug-reports.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/bug-reports.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/bug-reports.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/bug-reports.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/support/bug-reports/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/support/bug-reports/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "bug-reports",
+          "target": ".agents/skills/bug-reports/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "support",
         "env": [],
         "status": "experimental"
       }
@@ -681,6 +946,12 @@
           "target": "apps/web/src/app/(console)/admin/auth/clerk/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "clerk-auth",
+          "target": ".agents/skills/clerk-auth/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "auth",
         "env": [
@@ -700,6 +971,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "cloudflare-agents-sdk",
+          "target": ".agents/skills/cloudflare-agents-sdk/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "ai",
         "env": [],
@@ -735,6 +1012,12 @@
           "target": "apps/web/src/app/(console)/admin/cloudflare/d1/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "cloudflare-d1",
+          "target": ".agents/skills/cloudflare-d1/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "database",
         "env": [],
@@ -750,6 +1033,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "cloudflare-durable-objects",
+          "target": ".agents/skills/cloudflare-durable-objects/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "edge",
         "env": [],
@@ -765,6 +1054,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "cloudflare-hyperdrive",
+          "target": ".agents/skills/cloudflare-hyperdrive/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "database",
         "env": [],
@@ -795,6 +1090,12 @@
           "target": "apps/web/src/app/(console)/admin/cloudflare/kv/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "cloudflare-kv",
+          "target": ".agents/skills/cloudflare-kv/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "storage",
         "env": [],
@@ -810,6 +1111,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "cloudflare-mcp-server",
+          "target": ".agents/skills/cloudflare-mcp-server/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "ai",
         "env": [],
@@ -825,6 +1132,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "cloudflare-observability",
+          "target": ".agents/skills/cloudflare-observability/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "observability",
         "env": [],
@@ -840,6 +1153,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "cloudflare-pages",
+          "target": ".agents/skills/cloudflare-pages/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "deploy",
         "env": [],
@@ -855,6 +1174,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "cloudflare-queues",
+          "target": ".agents/skills/cloudflare-queues/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "queue",
         "env": [],
@@ -885,6 +1210,12 @@
           "target": "apps/web/src/app/(console)/admin/cloudflare/r2/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "cloudflare-r2",
+          "target": ".agents/skills/cloudflare-r2/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "storage",
         "env": [],
@@ -900,6 +1231,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "cloudflare-terraform",
+          "target": ".agents/skills/cloudflare-terraform/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "iac",
         "env": [],
@@ -915,6 +1252,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "cloudflare-tunnel",
+          "target": ".agents/skills/cloudflare-tunnel/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "networking",
         "env": [],
@@ -930,6 +1273,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "cloudflare-turnstile",
+          "target": ".agents/skills/cloudflare-turnstile/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "security",
         "env": [],
@@ -945,6 +1294,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "cloudflare-vectorize",
+          "target": ".agents/skills/cloudflare-vectorize/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "ai",
         "env": [],
@@ -978,6 +1333,12 @@
           "target": "apps/web/src/app/(console)/admin/cloudflare/workers/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "cloudflare-workers",
+          "target": ".agents/skills/cloudflare-workers/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "edge",
         "env": [
@@ -996,6 +1357,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "cloudflare-workers-ai",
+          "target": ".agents/skills/cloudflare-workers-ai/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "ai",
         "env": [],
@@ -1026,6 +1393,12 @@
           "target": "apps/web/src/app/(console)/admin/cloudflare/workflows/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "cloudflare-workflows",
+          "target": ".agents/skills/cloudflare-workflows/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "workflow",
         "env": [],
@@ -1041,6 +1414,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "cms-contentful",
+          "target": ".agents/skills/cms-contentful/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "content",
         "env": [],
@@ -1056,6 +1435,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "cms-mdx",
+          "target": ".agents/skills/cms-mdx/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "content",
         "env": [],
@@ -1071,6 +1456,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "cms-sanity",
+          "target": ".agents/skills/cms-sanity/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "content",
         "env": [],
@@ -1086,10 +1477,53 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "cohort-retention",
+          "target": ".agents/skills/cohort-retention/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "growth",
         "env": [],
         "status": "planned"
+      }
+    },
+    {
+      "name": "command-menu",
+      "type": "registry:block",
+      "title": "Command Menu",
+      "description": "Keyboard-first command menu component for SaaS navigation and actions.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/command-menu.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/command-menu.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/command-menu.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/command-menu.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/command-menu/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/command-menu/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "command-menu",
+          "target": ".agents/skills/command-menu/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "env": [],
+        "status": "experimental"
       }
     },
     {
@@ -1117,6 +1551,12 @@
           "path": "apps/web/src/app/(console)/settings/account/connected-accounts/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/account/connected-accounts/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "connected-accounts",
+          "target": ".agents/skills/connected-accounts/SKILL.md"
         }
       ],
       "meta": {
@@ -1152,6 +1592,12 @@
           "target": "apps/web/src/app/(console)/admin/contact-forms/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "contact-forms",
+          "target": ".agents/skills/contact-forms/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "marketing",
         "env": [],
@@ -1167,6 +1613,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "convex-backend",
+          "target": ".agents/skills/convex-backend/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "backend",
         "env": [],
@@ -1182,6 +1634,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "convex-integration",
+          "target": ".agents/skills/convex-integration/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "backend",
         "env": [],
@@ -1197,6 +1655,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "convex-realtime",
+          "target": ".agents/skills/convex-realtime/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "backend",
         "env": [],
@@ -1230,6 +1694,12 @@
           "target": "apps/web/src/app/(marketing)/privacy/cookies/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "cookie-consent",
+          "target": ".agents/skills/cookie-consent/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "compliance",
         "env": [],
@@ -1256,8 +1726,163 @@
           "target": "apps/web/src/app/(console)/admin/security/cors/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "cors-policy",
+          "target": ".agents/skills/cors-policy/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "security",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "coupons-promotions",
+      "type": "registry:block",
+      "title": "Coupons Promotions",
+      "description": "Coupon, promotion code, and referral discount tracking.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/billing-core.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/coupons-promotions.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/coupons-promotions.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/coupons-promotions.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/coupons-promotions.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/coupons/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/billing/coupons/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "coupons-promotions",
+          "target": ".agents/skills/coupons-promotions/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "csrf-protection",
+      "type": "registry:block",
+      "title": "CSRF Protection",
+      "description": "CSRF token helpers and unsafe-method protection checklist.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/csrf-protection.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/csrf-protection.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/security/csrf/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/security/csrf/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "csrf-protection",
+          "target": ".agents/skills/csrf-protection/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "security",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "custom-domains",
+      "type": "registry:block",
+      "title": "Custom Domains",
+      "description": "Custom domain records, status, and tenant-owned routing controls.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/drizzle-postgres.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/custom-domains.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/custom-domains.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/custom-domains.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/custom-domains.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/tenancy/custom-domains/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/tenancy/custom-domains/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "custom-domains",
+          "target": ".agents/skills/custom-domains/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "tenancy",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "custom-roles",
+      "type": "registry:block",
+      "title": "Custom Roles",
+      "description": "Custom role definitions, role cloning, and permission assignment boundaries.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/permission-matrix.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/custom-roles.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/custom-roles.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/custom-roles.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/custom-roles.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/settings/workspace/roles/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/settings/workspace/roles/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "custom-roles",
+          "target": ".agents/skills/custom-roles/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "auth",
         "env": [],
         "status": "experimental"
       }
@@ -1289,6 +1914,12 @@
           "target": "apps/web/src/app/(console)/data/export/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "data-export",
+          "target": ".agents/skills/data-export/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "compliance",
         "env": [],
@@ -1304,6 +1935,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "data-import-export",
+          "target": ".agents/skills/data-import-export/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "operations",
         "env": [],
@@ -1337,8 +1974,51 @@
           "target": "apps/web/src/app/(console)/data/retention/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "data-retention",
+          "target": ".agents/skills/data-retention/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "compliance",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "data-table",
+      "type": "registry:block",
+      "title": "Data Table",
+      "description": "Typed table shell with empty/loading/error slots and row actions.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/data-table.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/data-table.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/data-table.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/data-table.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/data-table/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/data-table/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "data-table",
+          "target": ".agents/skills/data-table/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "components",
         "env": [],
         "status": "experimental"
       }
@@ -1352,10 +2032,48 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "datadog-monitoring",
+          "target": ".agents/skills/datadog-monitoring/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "observability",
         "env": [],
         "status": "planned"
+      }
+    },
+    {
+      "name": "dependency-audit",
+      "type": "registry:block",
+      "title": "Dependency Audit",
+      "description": "Dependency scanning, high-severity gate, and release checklist.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/dependency-audit.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/dependency-audit.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/security/dependencies/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/security/dependencies/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "dependency-audit",
+          "target": ".agents/skills/dependency-audit/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "security",
+        "env": [],
+        "status": "experimental"
       }
     },
     {
@@ -1380,6 +2098,12 @@
           "target": "apps/web/src/app/(console)/developers/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "developer-portal",
+          "target": ".agents/skills/developer-portal/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "developer-platform",
         "env": [],
@@ -1395,6 +2119,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "docker-compose-local",
+          "target": ".agents/skills/docker-compose-local/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "devops",
         "env": [],
@@ -1410,6 +2140,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "docs-fumadocs",
+          "target": ".agents/skills/docs-fumadocs/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "docs",
         "env": [],
@@ -1436,6 +2172,12 @@
           "target": "apps/web/src/app/(marketing)/help/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "docs-help-center",
+          "target": ".agents/skills/docs-help-center/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "support",
         "env": [],
@@ -1451,10 +2193,50 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "docs-starlight",
+          "target": ".agents/skills/docs-starlight/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "docs",
         "env": [],
         "status": "planned"
+      }
+    },
+    {
+      "name": "domain-verification",
+      "type": "registry:block",
+      "title": "Domain Verification",
+      "description": "DNS TXT/CNAME verification state for tenant domains.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/custom-domains.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/domain-verification.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/domain-verification.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/tenancy/domain-verification/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/tenancy/domain-verification/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "domain-verification",
+          "target": ".agents/skills/domain-verification/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "tenancy",
+        "env": [],
+        "status": "experimental"
       }
     },
     {
@@ -1466,6 +2248,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "drizzle-audit-log",
+          "target": ".agents/skills/drizzle-audit-log/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "database",
         "env": [],
@@ -1481,6 +2269,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "drizzle-multitenancy",
+          "target": ".agents/skills/drizzle-multitenancy/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "database",
         "env": [],
@@ -1533,6 +2327,16 @@
           "target": "drizzle.config.ts"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "drizzle-postgres",
+          "target": ".agents/skills/drizzle-postgres/SKILL.md"
+        },
+        {
+          "name": "drizzle",
+          "target": ".agents/skills/drizzle/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "database",
         "env": [
@@ -1550,6 +2354,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "drizzle-relations",
+          "target": ".agents/skills/drizzle-relations/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "database",
         "env": [],
@@ -1565,10 +2375,56 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "drizzle-soft-delete",
+          "target": ".agents/skills/drizzle-soft-delete/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "database",
         "env": [],
         "status": "planned"
+      }
+    },
+    {
+      "name": "dunning-recovery",
+      "type": "registry:block",
+      "title": "Dunning Recovery",
+      "description": "Failed payment recovery sequence with email and in-app notices.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/billing-core.json",
+        "https://stackfoundry.dev/r/notifications.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/dunning-recovery.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/dunning-recovery.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/dunning-recovery.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/dunning-recovery.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/dunning/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/billing/dunning/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "dunning-recovery",
+          "target": ".agents/skills/dunning-recovery/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "experimental"
       }
     },
     {
@@ -1580,6 +2436,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "email-nodemailer",
+          "target": ".agents/skills/email-nodemailer/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "email",
         "env": [],
@@ -1595,6 +2457,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "email-postmark",
+          "target": ".agents/skills/email-postmark/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "email",
         "env": [],
@@ -1621,6 +2489,12 @@
           "path": "apps/web/src/app/(console)/admin/email-templates/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/email-templates/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "email-templates",
+          "target": ".agents/skills/email-templates/SKILL.md"
         }
       ],
       "meta": {
@@ -1656,8 +2530,51 @@
           "target": "apps/web/src/app/(auth)/email-verification/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "email-verification",
+          "target": ".agents/skills/email-verification/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "auth",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "empty-states",
+      "type": "registry:block",
+      "title": "Empty States",
+      "description": "Reusable empty state component with action and guidance slots.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/empty-states.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/empty-states.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/empty-states.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/empty-states.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/empty-states/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/empty-states/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "empty-states",
+          "target": ".agents/skills/empty-states/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "components",
         "env": [],
         "status": "experimental"
       }
@@ -1687,6 +2604,12 @@
           "path": "apps/web/src/app/(console)/settings/workspace/sso/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/workspace/sso/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "enterprise-sso",
+          "target": ".agents/skills/enterprise-sso/SKILL.md"
         }
       ],
       "meta": {
@@ -1722,8 +2645,51 @@
           "target": "apps/web/src/app/(console)/billing/entitlements/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "entitlements",
+          "target": ".agents/skills/entitlements/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "billing",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "error-boundaries",
+      "type": "registry:block",
+      "title": "Error Boundaries",
+      "description": "React error boundary and fallback component for product pages.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/error-boundaries.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/error-boundaries.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/error-boundaries.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/error-boundaries.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/error-boundaries/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/error-boundaries/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "error-boundaries",
+          "target": ".agents/skills/error-boundaries/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "components",
         "env": [],
         "status": "experimental"
       }
@@ -1737,6 +2703,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "evals",
+          "target": ".agents/skills/evals/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "ai",
         "env": [],
@@ -1752,6 +2724,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "experiments",
+          "target": ".agents/skills/experiments/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "growth",
         "env": [],
@@ -1767,6 +2745,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "feature-adoption",
+          "target": ".agents/skills/feature-adoption/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "growth",
         "env": [],
@@ -1800,8 +2784,53 @@
           "target": "apps/web/src/app/(console)/feature-flags/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "feature-flags",
+          "target": ".agents/skills/feature-flags/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "growth",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "feature-requests",
+      "type": "registry:block",
+      "title": "Feature Requests",
+      "description": "Feature request intake, status, votes, and roadmap handoff.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/support-console.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/feature-requests.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/feature-requests.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/feature-requests.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/feature-requests.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/support/feature-requests/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/support/feature-requests/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "feature-requests",
+          "target": ".agents/skills/feature-requests/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "support",
         "env": [],
         "status": "experimental"
       }
@@ -1833,6 +2862,12 @@
           "target": "apps/web/src/app/(console)/files/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "file-uploads",
+          "target": ".agents/skills/file-uploads/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "storage",
         "env": [],
@@ -1848,6 +2883,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "firebase-backend",
+          "target": ".agents/skills/firebase-backend/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "backend",
         "env": [],
@@ -1863,6 +2904,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "flags-launchdarkly",
+          "target": ".agents/skills/flags-launchdarkly/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "growth",
         "env": [],
@@ -1878,6 +2925,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "flags-statsig",
+          "target": ".agents/skills/flags-statsig/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "growth",
         "env": [],
@@ -1893,6 +2946,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "fly-deploy",
+          "target": ".agents/skills/fly-deploy/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "deploy",
         "env": [],
@@ -1908,6 +2967,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "geist-nova-theme",
+          "target": ".agents/skills/geist-nova-theme/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "foundation",
         "env": [],
@@ -1943,6 +3008,12 @@
           "target": "apps/web/src/app/(console)/admin/vendors/github/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "github-integration",
+          "target": ".agents/skills/github-integration/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "integrations",
         "env": [
@@ -1962,6 +3033,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "growth-alerts",
+          "target": ".agents/skills/growth-alerts/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "growth",
         "env": [],
@@ -1977,10 +3054,55 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "i18n",
+          "target": ".agents/skills/i18n/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "foundation",
         "env": [],
         "status": "planned"
+      }
+    },
+    {
+      "name": "idempotency-keys",
+      "type": "registry:block",
+      "title": "Idempotency Keys",
+      "description": "Idempotency-Key storage and replay helpers for mutating endpoints.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/drizzle-postgres.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/idempotency-keys.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/idempotency-keys.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/idempotency-keys.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/idempotency-keys.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/developers/idempotency/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/developers/idempotency/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "idempotency-keys",
+          "target": ".agents/skills/idempotency-keys/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "developer-platform",
+        "env": [],
+        "status": "experimental"
       }
     },
     {
@@ -1992,6 +3114,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "image-optimization",
+          "target": ".agents/skills/image-optimization/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "media",
         "env": [],
@@ -2023,6 +3151,12 @@
           "path": "apps/web/src/app/(console)/admin/incidents/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/incidents/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "incident-management",
+          "target": ".agents/skills/incident-management/SKILL.md"
         }
       ],
       "meta": {
@@ -2065,12 +3199,52 @@
           "target": "apps/web/src/app/(console)/admin/workflows/inngest/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "inngest-functions",
+          "target": ".agents/skills/inngest-functions/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "workflow",
         "env": [
           "INNGEST_EVENT_KEY",
           "INNGEST_SIGNING_KEY"
         ],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "input-validation",
+      "type": "registry:block",
+      "title": "Input Validation",
+      "description": "Shared Zod validation helpers for server routes and forms.",
+      "dependencies": [
+        "zod"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/input-validation.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/input-validation.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/security/input-validation/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/security/input-validation/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "input-validation",
+          "target": ".agents/skills/input-validation/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "security",
+        "env": [],
         "status": "experimental"
       }
     },
@@ -2083,6 +3257,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "internal-api-trpc",
+          "target": ".agents/skills/internal-api-trpc/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "api",
         "env": [],
@@ -2116,6 +3296,12 @@
           "target": "apps/web/src/app/(console)/settings/workspace/invites/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "invites",
+          "target": ".agents/skills/invites/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "auth",
         "env": [],
@@ -2144,6 +3330,12 @@
           "target": "apps/web/src/app/(console)/billing/invoices/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "invoices",
+          "target": ".agents/skills/invoices/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "billing",
         "env": [],
@@ -2168,6 +3360,12 @@
           "path": "apps/web/src/app/(console)/developers/pagination/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/pagination/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "keyset-pagination",
+          "target": ".agents/skills/keyset-pagination/SKILL.md"
         }
       ],
       "meta": {
@@ -2196,6 +3394,12 @@
           "target": "apps/web/src/app/(marketing)/legal/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "legal-pages",
+          "target": ".agents/skills/legal-pages/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "marketing",
         "env": [],
@@ -2211,6 +3415,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "lemon-squeezy-billing",
+          "target": ".agents/skills/lemon-squeezy-billing/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "billing",
         "env": [],
@@ -2239,6 +3449,12 @@
           "target": "apps/web/src/app/(console)/admin/lifecycle-email/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "lifecycle-email",
+          "target": ".agents/skills/lifecycle-email/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "growth",
         "env": [],
@@ -2254,10 +3470,53 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "linear-integration",
+          "target": ".agents/skills/linear-integration/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "project-management",
         "env": [],
         "status": "planned"
+      }
+    },
+    {
+      "name": "loading-states",
+      "type": "registry:block",
+      "title": "Loading States",
+      "description": "Skeleton and loading state components for async SaaS surfaces.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/loading-states.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/loading-states.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/loading-states.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/loading-states.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/loading-states/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/loading-states/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "loading-states",
+          "target": ".agents/skills/loading-states/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "env": [],
+        "status": "experimental"
       }
     },
     {
@@ -2285,6 +3544,12 @@
           "path": "apps/web/src/app/(console)/settings/account/login-activity/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/account/login-activity/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "login-activity",
+          "target": ".agents/skills/login-activity/SKILL.md"
         }
       ],
       "meta": {
@@ -2320,6 +3585,12 @@
           "target": "apps/web/src/app/(console)/admin/maintenance/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "maintenance-mode",
+          "target": ".agents/skills/maintenance-mode/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "operations",
         "env": [],
@@ -2346,6 +3617,12 @@
           "target": "apps/web/src/app/(marketing)/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "marketing-pages",
+          "target": ".agents/skills/marketing-pages/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "marketing",
         "env": [],
@@ -2361,6 +3638,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "mcp-client",
+          "target": ".agents/skills/mcp-client/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "ai",
         "env": [],
@@ -2394,6 +3677,12 @@
           "target": "apps/web/src/app/(console)/settings/account/mfa/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "mfa-security",
+          "target": ".agents/skills/mfa-security/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "auth",
         "env": [],
@@ -2409,6 +3698,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "model-router",
+          "target": ".agents/skills/model-router/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "ai",
         "env": [],
@@ -2442,6 +3737,12 @@
           "path": "apps/web/src/app/(console)/admin/data/neon/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/data/neon/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "neon-postgres",
+          "target": ".agents/skills/neon-postgres/SKILL.md"
         }
       ],
       "meta": {
@@ -2479,6 +3780,12 @@
           "target": "apps/web/src/app/(console)/admin/newsletter/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "newsletter-signups",
+          "target": ".agents/skills/newsletter-signups/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "marketing",
         "env": [],
@@ -2494,6 +3801,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "next-saas",
+          "target": ".agents/skills/next-saas/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "foundation",
         "env": [],
@@ -2520,6 +3833,12 @@
           "path": "apps/web/src/app/(console)/notifications/center/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/notifications/center/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "notification-center",
+          "target": ".agents/skills/notification-center/SKILL.md"
         }
       ],
       "meta": {
@@ -2555,6 +3874,46 @@
           "target": "apps/web/src/app/(console)/notifications/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "notifications",
+          "target": ".agents/skills/notifications/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "oncall-alerting",
+      "type": "registry:block",
+      "title": "On-call Alerting",
+      "description": "Alert routing, severity taxonomy, and escalation schedule starter.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/incident-management.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/oncall-alerting.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/oncall-alerting.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/operations/on-call/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/operations/on-call/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "oncall-alerting",
+          "target": ".agents/skills/oncall-alerting/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "operations",
         "env": [],
@@ -2570,6 +3929,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "openfeature-flags",
+          "target": ".agents/skills/openfeature-flags/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "growth",
         "env": [],
@@ -2585,6 +3950,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "orgs-rbac",
+          "target": ".agents/skills/orgs-rbac/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "auth",
         "env": [],
@@ -2600,6 +3971,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "paddle-billing",
+          "target": ".agents/skills/paddle-billing/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "billing",
         "env": [],
@@ -2633,6 +4010,51 @@
           "target": "apps/web/src/app/(auth)/password-reset/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "password-reset",
+          "target": ".agents/skills/password-reset/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "auth",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "permission-matrix",
+      "type": "registry:block",
+      "title": "Permission Matrix",
+      "description": "Tenant-scoped permission catalog and UI review matrix.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/orgs-rbac.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/permission-matrix.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/permission-matrix.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/permission-matrix.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/permission-matrix.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/settings/workspace/permissions/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/settings/workspace/permissions/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "permission-matrix",
+          "target": ".agents/skills/permission-matrix/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "auth",
         "env": [],
@@ -2661,6 +4083,12 @@
           "target": "apps/web/src/app/(console)/billing/plan-gating/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "plan-gating",
+          "target": ".agents/skills/plan-gating/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "billing",
         "env": [],
@@ -2676,6 +4104,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "playwright-e2e",
+          "target": ".agents/skills/playwright-e2e/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "foundation",
         "env": [],
@@ -2691,6 +4125,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "plg-metrics",
+          "target": ".agents/skills/plg-metrics/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "growth",
         "env": [],
@@ -2727,12 +4167,52 @@
           "target": "apps/web/src/app/(console)/admin/vendors/posthog/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "posthog-analytics",
+          "target": ".agents/skills/posthog-analytics/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "analytics",
         "env": [
           "NEXT_PUBLIC_POSTHOG_KEY",
           "NEXT_PUBLIC_POSTHOG_HOST"
         ],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "postmortem-runbook",
+      "type": "registry:block",
+      "title": "Postmortem Runbook",
+      "description": "Blameless postmortem template and incident follow-up checklist.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/incident-management.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/postmortem-runbook.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/postmortem-runbook.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/operations/postmortems/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/operations/postmortems/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "postmortem-runbook",
+          "target": ".agents/skills/postmortem-runbook/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [],
         "status": "experimental"
       }
     },
@@ -2756,6 +4236,12 @@
           "target": "apps/web/src/app/(marketing)/pricing/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "pricing-page",
+          "target": ".agents/skills/pricing-page/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "marketing",
         "env": [],
@@ -2771,6 +4257,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "product-qualified-leads",
+          "target": ".agents/skills/product-qualified-leads/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "growth",
         "env": [],
@@ -2786,6 +4278,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "prompt-library",
+          "target": ".agents/skills/prompt-library/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "ai",
         "env": [],
@@ -2812,6 +4310,12 @@
           "target": "apps/web/src/app/(console)/developers/api/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "public-api-orpc",
+          "target": ".agents/skills/public-api-orpc/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "developer-platform",
         "env": [],
@@ -2827,6 +4331,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "quality-tooling",
+          "target": ".agents/skills/quality-tooling/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "foundation",
         "env": [],
@@ -2856,6 +4366,12 @@
           "target": "apps/web/src/app/(console)/billing/quotas/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "quota-enforcement",
+          "target": ".agents/skills/quota-enforcement/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "billing",
         "env": [],
@@ -2871,6 +4387,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "rag-starter",
+          "target": ".agents/skills/rag-starter/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "ai",
         "env": [],
@@ -2886,6 +4408,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "railway-deploy",
+          "target": ".agents/skills/railway-deploy/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "deploy",
         "env": [],
@@ -2919,6 +4447,12 @@
           "target": "apps/web/src/app/(console)/rate-limits/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "rate-limits",
+          "target": ".agents/skills/rate-limits/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "operations",
         "env": [],
@@ -2934,10 +4468,56 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "referral-loops",
+          "target": ".agents/skills/referral-loops/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "growth",
         "env": [],
         "status": "planned"
+      }
+    },
+    {
+      "name": "refunds-disputes",
+      "type": "registry:block",
+      "title": "Refunds and Disputes",
+      "description": "Refund request, dispute status, and support handoff workflow.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/billing-core.json",
+        "https://stackfoundry.dev/r/audit-log.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/refunds-disputes.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/refunds-disputes.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/refunds-disputes.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/refunds-disputes.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/refunds/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/billing/refunds/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "refunds-disputes",
+          "target": ".agents/skills/refunds-disputes/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "experimental"
       }
     },
     {
@@ -2949,6 +4529,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "render-deploy",
+          "target": ".agents/skills/render-deploy/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "deploy",
         "env": [],
@@ -2990,6 +4576,12 @@
           "target": "apps/web/src/app/(console)/admin/vendors/resend/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "resend-email",
+          "target": ".agents/skills/resend-email/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "email",
         "env": [
@@ -3026,6 +4618,12 @@
           "target": "apps/web/src/app/(console)/settings/workspace/scim/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "scim-provisioning",
+          "target": ".agents/skills/scim-provisioning/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "auth",
         "env": [],
@@ -3041,6 +4639,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "sdk-snippets",
+          "target": ".agents/skills/sdk-snippets/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "api",
         "env": [],
@@ -3056,6 +4660,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "search-algolia",
+          "target": ".agents/skills/search-algolia/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "search",
         "env": [],
@@ -3071,6 +4681,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "search-meilisearch",
+          "target": ".agents/skills/search-meilisearch/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "search",
         "env": [],
@@ -3086,6 +4702,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "search-postgres",
+          "target": ".agents/skills/search-postgres/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "search",
         "env": [],
@@ -3101,10 +4723,88 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "search-typesense",
+          "target": ".agents/skills/search-typesense/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "search",
         "env": [],
         "status": "planned"
+      }
+    },
+    {
+      "name": "seat-management",
+      "type": "registry:block",
+      "title": "Seat Management",
+      "description": "Seat limits, assigned seats, and over-limit handling for B2B billing.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/billing-core.json",
+        "https://stackfoundry.dev/r/orgs-rbac.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/seat-management.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/seat-management.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/seat-management.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/seat-management.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/seats/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/billing/seats/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "seat-management",
+          "target": ".agents/skills/seat-management/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "secrets-management",
+      "type": "registry:block",
+      "title": "Secrets Management",
+      "description": "Secrets inventory, rotation checklist, and provider-neutral access pattern.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/secrets-management.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/secrets-management.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/security/secrets/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/security/secrets/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "secrets-management",
+          "target": ".agents/skills/secrets-management/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "security",
+        "env": [],
+        "status": "experimental"
       }
     },
     {
@@ -3127,6 +4827,12 @@
           "target": "apps/web/src/app/(console)/admin/security/headers/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "security-headers",
+          "target": ".agents/skills/security-headers/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "security",
         "env": [],
@@ -3142,6 +4848,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "seed-data",
+          "target": ".agents/skills/seed-data/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "foundation",
         "env": [],
@@ -3180,6 +4892,12 @@
           "target": "apps/web/src/app/(console)/admin/vendors/sentry/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "sentry-monitoring",
+          "target": ".agents/skills/sentry-monitoring/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "observability",
         "env": [
@@ -3211,6 +4929,12 @@
           "target": "apps/web/src/app/(console)/admin/seo/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "seo",
+          "target": ".agents/skills/seo/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "marketing",
         "env": [],
@@ -3226,6 +4950,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "session-management",
+          "target": ".agents/skills/session-management/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "auth",
         "env": [],
@@ -3233,18 +4963,95 @@
       }
     },
     {
-      "name": "shadcn-sidebar-shell",
+      "name": "settings-layout",
+      "type": "registry:block",
+      "title": "Settings Layout",
+      "description": "Reusable settings shell for account, workspace, billing, and security pages.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/settings-layout.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/settings-layout.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/settings-layout.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/settings-layout.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/settings-layout/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/settings-layout/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "settings-layout",
+          "target": ".agents/skills/settings-layout/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "sidebar-shell",
       "type": "registry:block",
       "title": "Sidebar Shell",
-      "description": "shadcn-compatible Sidebar shell with navigation, header, responsive layout, and product config.",
+      "description": "Sidebar shell with navigation, header, responsive layout, and product config.",
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "sidebar-shell",
+          "target": ".agents/skills/sidebar-shell/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "foundation",
         "env": [],
         "status": "planned"
+      }
+    },
+    {
+      "name": "sla-management",
+      "type": "registry:block",
+      "title": "SLA Management",
+      "description": "Customer SLA tiers, response targets, and escalation policies.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/support-console.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/sla-management.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/sla-management.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/operations/slas/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/operations/slas/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "sla-management",
+          "target": ".agents/skills/sla-management/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [],
+        "status": "experimental"
       }
     },
     {
@@ -3256,6 +5063,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "slack-notifications",
+          "target": ".agents/skills/slack-notifications/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "notifications",
         "env": [],
@@ -3282,6 +5095,12 @@
           "path": "apps/web/src/app/status/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/status/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "status-page",
+          "target": ".agents/skills/status-page/SKILL.md"
         }
       ],
       "meta": {
@@ -3322,6 +5141,24 @@
           "path": "apps/web/src/app/(console)/billing/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "stripe-billing",
+          "target": ".agents/skills/stripe-billing/SKILL.md"
+        },
+        {
+          "name": "stripe",
+          "target": ".agents/skills/stripe/SKILL.md"
+        },
+        {
+          "name": "drizzle",
+          "target": ".agents/skills/drizzle/SKILL.md"
+        },
+        {
+          "name": "nextjs",
+          "target": ".agents/skills/nextjs/SKILL.md"
         }
       ],
       "meta": {
@@ -3367,6 +5204,12 @@
           "target": "apps/web/src/app/(console)/admin/data/supabase/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "supabase-postgres",
+          "target": ".agents/skills/supabase-postgres/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "database",
         "env": [
@@ -3399,8 +5242,53 @@
           "target": "apps/web/src/app/(console)/admin/support/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "support-console",
+          "target": ".agents/skills/support-console/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "operations",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "support-widget",
+      "type": "registry:block",
+      "title": "Support Widget",
+      "description": "Embeddable support launcher and server-side submission route.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/support-console.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/support-widget.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/support-widget.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/support-widget.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/support-widget.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/support/widget/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/support/widget/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "support-widget",
+          "target": ".agents/skills/support-widget/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "support",
         "env": [],
         "status": "experimental"
       }
@@ -3414,6 +5302,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "surveys-nps",
+          "target": ".agents/skills/surveys-nps/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "growth",
         "env": [],
@@ -3440,6 +5334,12 @@
           "target": "apps/web/src/app/(console)/admin/system-health/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "system-health",
+          "target": ".agents/skills/system-health/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "operations",
         "env": [],
@@ -3455,10 +5355,126 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "t3-env",
+          "target": ".agents/skills/t3-env/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "foundation",
         "env": [],
         "status": "planned"
+      }
+    },
+    {
+      "name": "tax-vat",
+      "type": "registry:block",
+      "title": "Tax and VAT",
+      "description": "Tax/VAT collection status, business identifiers, and tax provider adapter boundary.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/billing-core.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/tax-vat.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/tax-vat.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/tax-vat.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/tax-vat.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/billing/tax/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/billing/tax/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "tax-vat",
+          "target": ".agents/skills/tax-vat/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "billing",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "tenant-context",
+      "type": "registry:block",
+      "title": "Tenant Context",
+      "description": "Resolve tenant context once per request and pass it through server code.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/drizzle-postgres.json"
+      ],
+      "files": [
+        {
+          "path": "packages/db/src/schema/tenant-context.ts",
+          "type": "registry:file",
+          "target": "packages/db/src/schema/tenant-context.ts"
+        },
+        {
+          "path": "apps/web/src/lib/stackfoundry/tenant-context.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/tenant-context.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/tenancy/context/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/tenancy/context/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "tenant-context",
+          "target": ".agents/skills/tenant-context/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "tenancy",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "tenant-isolation-tests",
+      "type": "registry:block",
+      "title": "Tenant Isolation Tests",
+      "description": "Test helpers and checklist for cross-tenant isolation assertions.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/tenant-isolation-tests.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/tenant-isolation-tests.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/tenancy/isolation-tests/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/tenancy/isolation-tests/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "tenant-isolation-tests",
+          "target": ".agents/skills/tenant-isolation-tests/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "tenancy",
+        "env": [],
+        "status": "experimental"
       }
     },
     {
@@ -3470,10 +5486,53 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "theme-system",
+          "target": ".agents/skills/theme-system/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "foundation",
         "env": [],
         "status": "planned"
+      }
+    },
+    {
+      "name": "toast-notifications",
+      "type": "registry:block",
+      "title": "Toast Notifications",
+      "description": "Accessible toast queue component for action feedback.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/toast-notifications.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/toast-notifications.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/toast-notifications.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/toast-notifications.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/toasts/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/toasts/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "toast-notifications",
+          "target": ".agents/skills/toast-notifications/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "env": [],
+        "status": "experimental"
       }
     },
     {
@@ -3496,6 +5555,12 @@
           "path": "apps/web/src/app/(console)/billing/trials/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/trials/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "trial-management",
+          "target": ".agents/skills/trial-management/SKILL.md"
         }
       ],
       "meta": {
@@ -3538,6 +5603,12 @@
           "path": "apps/web/src/app/(console)/admin/workflows/trigger-dev/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/workflows/trigger-dev/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "trigger-dev-jobs",
+          "target": ".agents/skills/trigger-dev-jobs/SKILL.md"
         }
       ],
       "meta": {
@@ -3583,6 +5654,12 @@
           "target": "apps/web/src/app/(console)/admin/vendors/unkey/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "unkey-api-keys",
+          "target": ".agents/skills/unkey-api-keys/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "developer-platform",
         "env": [
@@ -3619,6 +5696,12 @@
           "path": "apps/web/src/app/(console)/admin/vendors/unkey-rate-limits/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/vendors/unkey-rate-limits/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "unkey-rate-limits",
+          "target": ".agents/skills/unkey-rate-limits/SKILL.md"
         }
       ],
       "meta": {
@@ -3664,12 +5747,52 @@
           "target": "apps/web/src/app/(console)/admin/vendors/upstash/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "upstash-redis",
+          "target": ".agents/skills/upstash-redis/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "storage",
         "env": [
           "UPSTASH_REDIS_REST_URL",
           "UPSTASH_REDIS_REST_TOKEN"
         ],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "uptime-monitoring",
+      "type": "registry:block",
+      "title": "Uptime Monitoring",
+      "description": "Public endpoint checks, SLA targets, and status escalation notes.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/system-health.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/uptime-monitoring.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/uptime-monitoring.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/operations/uptime/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/operations/uptime/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "uptime-monitoring",
+          "target": ".agents/skills/uptime-monitoring/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "operations",
+        "env": [],
         "status": "experimental"
       }
     },
@@ -3682,6 +5805,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "usage-based-billing",
+          "target": ".agents/skills/usage-based-billing/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "billing",
         "env": [],
@@ -3713,6 +5842,12 @@
           "path": "apps/web/src/app/(console)/usage/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/usage/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "usage-metering",
+          "target": ".agents/skills/usage-metering/SKILL.md"
         }
       ],
       "meta": {
@@ -3750,6 +5885,12 @@
           "target": "apps/web/src/app/(console)/admin/vendors/vercel-blob/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "vercel-blob",
+          "target": ".agents/skills/vercel-blob/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "storage",
         "env": [
@@ -3767,6 +5908,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "vercel-deploy",
+          "target": ".agents/skills/vercel-deploy/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "deploy",
         "env": [],
@@ -3802,6 +5949,12 @@
           "target": "apps/web/src/app/(console)/admin/vendors/vercel-edge-config/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "vercel-edge-config",
+          "target": ".agents/skills/vercel-edge-config/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "storage",
         "env": [
@@ -3819,6 +5972,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "vercel-integration",
+          "target": ".agents/skills/vercel-integration/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "deploy",
         "env": [],
@@ -3834,6 +5993,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "vercel-marketplace-storage",
+          "target": ".agents/skills/vercel-marketplace-storage/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "platform",
         "env": [],
@@ -3869,6 +6034,12 @@
           "target": "apps/web/src/app/(console)/admin/workflows/vercel/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "vercel-workflows",
+          "target": ".agents/skills/vercel-workflows/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "workflow",
         "env": [],
@@ -3884,6 +6055,12 @@
       "devDependencies": [],
       "registryDependencies": [],
       "files": [],
+      "agentSkills": [
+        {
+          "name": "waitlist",
+          "target": ".agents/skills/waitlist/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "marketing",
         "env": [],
@@ -3915,6 +6092,12 @@
           "path": "apps/web/src/app/(console)/developers/webhooks/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/webhooks/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "webhook-delivery",
+          "target": ".agents/skills/webhook-delivery/SKILL.md"
         }
       ],
       "meta": {
@@ -3950,6 +6133,12 @@
           "target": "apps/web/src/app/(console)/webhooks/inbox/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "webhook-inbox",
+          "target": ".agents/skills/webhook-inbox/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "developer-platform",
         "env": [],
@@ -3983,6 +6172,12 @@
           "target": "apps/web/src/app/(console)/settings/workspace/branding/page.tsx"
         }
       ],
+      "agentSkills": [
+        {
+          "name": "workspace-branding",
+          "target": ".agents/skills/workspace-branding/SKILL.md"
+        }
+      ],
       "meta": {
         "category": "auth",
         "env": [],
@@ -4007,6 +6202,12 @@
           "path": "apps/web/src/lib/workspace-settings.ts",
           "type": "registry:file",
           "target": "apps/web/src/lib/workspace-settings.ts"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "workspace-settings",
+          "target": ".agents/skills/workspace-settings/SKILL.md"
         }
       ],
       "meta": {

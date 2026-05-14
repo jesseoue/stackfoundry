@@ -1,0 +1,44 @@
+{
+  "name": "support-widget",
+  "type": "module",
+  "category": "support",
+  "title": "Support Widget",
+  "description": "Embeddable support launcher and server-side submission route.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "support-console"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/support-widget.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/support-widget.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/support/widget/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "supportWidget"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "support-widget"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "feature-adoption",
+      "target": ".agents/skills/feature-adoption/SKILL.md",
+      "content": "---\nname: feature-adoption\ndescription: Maintain the Feature Adoption module installed by StackFoundry.\n---\n\n# Feature Adoption Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Feature Adoption\n\nFeature usage tracking, adoption cohorts, and release impact views.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

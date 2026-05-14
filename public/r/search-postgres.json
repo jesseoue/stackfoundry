@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "search-postgres",
+      "target": ".agents/skills/search-postgres/SKILL.md",
+      "content": "---\nname: search-postgres\ndescription: Maintain the Postgres Search module installed by StackFoundry.\n---\n\n# Postgres Search Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Postgres Search\n\nPostgres full-text search, ranking, indexes, and query UI.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

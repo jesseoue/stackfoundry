@@ -1,0 +1,45 @@
+{
+  "name": "billing-reconciliation",
+  "type": "module",
+  "category": "billing",
+  "title": "Billing Reconciliation",
+  "description": "Provider/database drift checks and reconciliation job status.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "billing-core",
+    "background-jobs"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/billing-reconciliation.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/billing-reconciliation.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/reconciliation/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "billingReconciliation"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "billing-reconciliation"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

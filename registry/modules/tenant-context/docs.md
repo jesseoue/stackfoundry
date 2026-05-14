@@ -1,0 +1,21 @@
+# Tenant Context Module
+
+Resolve tenant context once per request and pass it through server code.
+
+## Owns
+
+- `packages/db/src/schema/tenant-context.ts`
+- `apps/web/src/lib/stackfoundry/tenant-context.ts`
+- `apps/web/src/app/(console)/admin/tenancy/context/page.tsx`
+
+## Safety Notes
+
+- Keep tenant, permission, and billing boundaries explicit.
+- Validate all server inputs before side effects.
+- Record audit events for sensitive state changes.
+- Do not commit secrets, credentials, local caches, or provider tokens.
+
+## Maintenance
+
+- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.
+- Verify install output with `pnpm cli add tenant-context --target /tmp/app --dry-run`.

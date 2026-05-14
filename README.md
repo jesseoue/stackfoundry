@@ -26,7 +26,7 @@ Most SaaS teams rebuild the same production plumbing: billing, auth, database wi
 
 StackFoundry turns that work into a public source registry. Modules are the product. Presets are just bundles of modules.
 
-The registry follows the shadcn distribution model: JSON-described source blocks with dependencies, file contents, and target paths. StackFoundry applies that model to full-stack SaaS capabilities instead of UI-only components.
+The registry publishes JSON-described source blocks with dependencies, file contents, and target paths. StackFoundry applies that model to full-stack SaaS capabilities instead of package-only dependencies.
 
 ## Links
 
@@ -51,14 +51,6 @@ The CLI can also install generated registry block JSON:
 pnpm cli add https://stackfoundry.dev/r/api-keys.json --target ./my-app
 pnpm cli add https://stackfoundry.dev/r/vendor-examples.json --target ./my-app
 pnpm cli diff https://stackfoundry.dev/r/api-keys.json --target ./my-app
-```
-
-Use any shadcn-compatible registry client when you want direct source-block installation:
-
-```bash
-pnpm dlx shadcn@latest add https://stackfoundry.dev/r/api-keys.json
-pnpm dlx shadcn@latest add https://stackfoundry.dev/r/stripe-billing.json
-pnpm dlx shadcn@latest add https://stackfoundry.dev/r/vendor-examples.json
 ```
 
 ## What Is In The Registry
@@ -123,7 +115,7 @@ public/r/
   presets/
 ```
 
-Generated items are shadcn-compatible `registry:block` files with:
+Generated items are registry-compatible `registry:block` files with:
 
 - `dependencies`
 - `devDependencies`
@@ -163,13 +155,13 @@ pnpm registry:list       # list modules
 pnpm registry:presets    # list presets
 pnpm registry:doctor     # validate registry source
 pnpm registry:build      # generate public/r
-pnpm shadcn:verify       # verify shadcn-compatible output
+pnpm registry:compat     # verify registry-compatible output
 
 pnpm test:registry:dry      # dry-run install checks
 pnpm test:registry:install  # real preset install smoke tests
 ```
 
-`pnpm check` runs registry validation, CLI syntax checks, dry-run installs, real install smoke tests, registry generation, shadcn output verification, and the web build.
+`pnpm check` runs registry validation, CLI syntax checks, dry-run installs, real install smoke tests, registry generation, compatibility verification, and the web build.
 
 ## Documentation
 
@@ -178,7 +170,7 @@ pnpm test:registry:install  # real preset install smoke tests
 - [Providers](./docs/providers.md)
 - [Maintainer skills](./docs/agents.md)
 - [Repository map](./docs/repository.md)
-- [shadcn-compatible registry model](./docs/shadcn.md)
+- [Registry compatibility](./docs/registry-compat.md)
 
 ## Status
 

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "support-widget",
+  "type": "registry:block",
+  "title": "Support Widget",
+  "description": "Embeddable support launcher and server-side submission route.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/support-console.json"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/support-widget.ts",
+      "type": "registry:file",
+      "target": "packages/db/src/schema/support-widget.ts",
+      "content": "import { index, jsonb, pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const supportWidget = pgTable(\n  \"support_widget\",\n  {\n    id: uuid(\"id\").primaryKey().defaultRandom(),\n    organizationId: text(\"organization_id\"),\n    ownerId: text(\"owner_id\"),\n    key: text(\"key\").notNull(),\n    status: text(\"status\").notNull().default(\"active\"),\n    metadata: jsonb(\"metadata\").$type<Record<string, unknown>>().notNull().default({}),\n    createdAt: timestamp(\"created_at\", { withTimezone: true }).defaultNow().notNull(),\n    updatedAt: timestamp(\"updated_at\", { withTimezone: true }).defaultNow().notNull(),\n  },\n  (item) => [\n    index(\"support_widget_organization_idx\").on(item.organizationId),\n    index(\"support_widget_owner_idx\").on(item.ownerId),\n  ]\n);\n"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/support-widget.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/support-widget.ts",
+      "content": "export type SupportWidgetConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createSupportWidgetConfig(config: SupportWidgetConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const supportWidgetChecks = [\n  \"Validate tenant and permission boundaries\",\n  \"Record audit events for sensitive changes\",\n  \"Document deployment and rollback behavior\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/support/widget/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/support/widget/page.tsx",
+      "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function SupportWidgetPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Support Widget</h1>\n        <p className=\"text-muted-foreground\">Embeddable support launcher and server-side submission route.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "support-widget",
+      "target": ".agents/skills/support-widget/SKILL.md",
+      "content": "---\nname: support-widget\ndescription: Maintain the Support Widget module installed by StackFoundry.\n---\n\n# Support Widget Skill\n\n## Boundary\n\nThis module owns the Support Widget source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `packages/db/src/schema/support-widget.ts`\n- `apps/web/src/lib/stackfoundry/support-widget.ts`\n- `apps/web/src/app/(console)/admin/support/widget/page.tsx`\n\n## Dependencies\n\n- Depends on `support-console`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Support Widget Module\n\nEmbeddable support launcher and server-side submission route.\n\n## Owns\n\n- `packages/db/src/schema/support-widget.ts`\n- `apps/web/src/lib/stackfoundry/support-widget.ts`\n- `apps/web/src/app/(console)/admin/support/widget/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add support-widget --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "support",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "support-widget"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "safe-defaults"
+      ]
+    },
+    "drizzle": {
+      "schemaExports": [
+        "supportWidget"
+      ],
+      "migrationRecommended": true
+    }
+  }
+}

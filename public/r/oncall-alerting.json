@@ -1,0 +1,50 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "oncall-alerting",
+  "type": "registry:block",
+  "title": "On-call Alerting",
+  "description": "Alert routing, severity taxonomy, and escalation schedule starter.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/incident-management.json"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/oncall-alerting.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/oncall-alerting.ts",
+      "content": "export type OncallAlertingConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createOncallAlertingConfig(config: OncallAlertingConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const oncallAlertingChecks = [\n  \"Validate tenant and permission boundaries\",\n  \"Record audit events for sensitive changes\",\n  \"Document deployment and rollback behavior\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/operations/on-call/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/operations/on-call/page.tsx",
+      "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function OncallAlertingPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">On-call Alerting</h1>\n        <p className=\"text-muted-foreground\">Alert routing, severity taxonomy, and escalation schedule starter.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "oncall-alerting",
+      "target": ".agents/skills/oncall-alerting/SKILL.md",
+      "content": "---\nname: oncall-alerting\ndescription: Maintain the On-call Alerting module installed by StackFoundry.\n---\n\n# On-call Alerting Skill\n\n## Boundary\n\nThis module owns the On-call Alerting source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/oncall-alerting.ts`\n- `apps/web/src/app/(console)/admin/operations/on-call/page.tsx`\n\n## Dependencies\n\n- Depends on `incident-management`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# On-call Alerting Module\n\nAlert routing, severity taxonomy, and escalation schedule starter.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/oncall-alerting.ts`\n- `apps/web/src/app/(console)/admin/operations/on-call/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add oncall-alerting --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "operations",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "oncall-alerting"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "safe-defaults"
+      ]
+    }
+  }
+}

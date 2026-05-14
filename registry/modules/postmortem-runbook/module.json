@@ -1,0 +1,34 @@
+{
+  "name": "postmortem-runbook",
+  "type": "module",
+  "category": "operations",
+  "title": "Postmortem Runbook",
+  "description": "Blameless postmortem template and incident follow-up checklist.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "incident-management"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/postmortem-runbook.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/operations/postmortems/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "postmortem-runbook"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

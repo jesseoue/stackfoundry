@@ -8,6 +8,13 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
+  "agentSkills": [
+    {
+      "name": "cloudflare-vectorize",
+      "target": ".agents/skills/cloudflare-vectorize/SKILL.md",
+      "content": "---\nname: cloudflare-vectorize\ndescription: Maintain the Cloudflare Vectorize module installed by StackFoundry.\n---\n\n# Cloudflare Vectorize Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+    }
+  ],
   "envVars": {},
   "docs": "# Cloudflare Vectorize\n\nVector search and RAG provider module.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
   "meta": {

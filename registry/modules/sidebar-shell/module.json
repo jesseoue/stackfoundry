@@ -1,0 +1,17 @@
+{
+  "name": "sidebar-shell",
+  "type": "module",
+  "category": "foundation",
+  "title": "Sidebar Shell",
+  "description": "Sidebar shell with navigation, header, responsive layout, and product config.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [],
+  "agents": {
+    "skills": ["sidebar-shell"],
+    "rules": ["document-invariants", "verify-before-release"]
+  },
+  "status": "planned"
+}

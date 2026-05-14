@@ -51,6 +51,18 @@
       "content": "import { config } from \"dotenv\";\nimport { defineConfig } from \"drizzle-kit\";\n\nconfig({ path: \".env\" });\nconfig({ path: \".env.local\", override: true });\n\nexport default defineConfig({\n  schema: \"./packages/db/src/schema/index.ts\",\n  out: \"./packages/db/drizzle\",\n  dialect: \"postgresql\",\n  dbCredentials: {\n    url: process.env.DATABASE_URL ?? \"\",\n  },\n});\n"
     }
   ],
+  "agentSkills": [
+    {
+      "name": "drizzle-postgres",
+      "target": ".agents/skills/drizzle-postgres/SKILL.md",
+      "content": "---\nname: drizzle-postgres\ndescription: Maintain the Drizzle Postgres module installed by StackFoundry.\n---\n\n# Drizzle Postgres Operating Instructions\n\n- Keep DB access server-only.\n- Add tables under the schema directory and export them from the schema barrel.\n- Generate and commit migration SQL when schema changes are intended.\n- Do not import DB helpers from Client Components.\n- Include tenant/user/org scope in cached query tags when data is user-specific.\n"
+    },
+    {
+      "name": "drizzle",
+      "target": ".agents/skills/drizzle/SKILL.md",
+      "content": "---\nname: drizzle\ndescription: Maintain Drizzle ORM and Postgres code installed by StackFoundry modules.\n---\n\n# Drizzle Operating Instructions\n\n- Keep database access in server-only code.\n- Add schema changes under `packages/db/src/schema` and export shared tables from the schema barrel.\n- Generate and commit migrations when schema changes are intended.\n- Use typed query helpers instead of raw SQL unless the query needs a documented escape hatch.\n- Include tenant, organization, or user scope in queries and cache tags whenever data is not global.\n"
+    }
+  ],
   "envVars": {
     "DATABASE_URL": ""
   },
@@ -63,7 +75,8 @@
     "status": "experimental",
     "agents": {
       "skills": [
-        "drizzle-postgres"
+        "drizzle-postgres",
+        "drizzle"
       ],
       "rules": [
         "server-only",

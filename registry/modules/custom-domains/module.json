@@ -1,0 +1,44 @@
+{
+  "name": "custom-domains",
+  "type": "module",
+  "category": "tenancy",
+  "title": "Custom Domains",
+  "description": "Custom domain records, status, and tenant-owned routing controls.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/custom-domains.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/custom-domains.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/tenancy/custom-domains/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "customDomains"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "custom-domains"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "safe-defaults"
+    ]
+  },
+  "status": "experimental"
+}

@@ -40,7 +40,16 @@
     "unkey-api-keys",
     "vercel-blob",
     "vercel-edge-config",
-    "arcjet-security"
+    "arcjet-security",
+    "csrf-protection",
+    "input-validation",
+    "secrets-management",
+    "dependency-audit",
+    "empty-states",
+    "loading-states",
+    "error-boundaries",
+    "toast-notifications",
+    "command-menu"
   ],
   "status": "planned"
 }

@@ -42,7 +42,16 @@
     "https://stackfoundry.dev/r/unkey-api-keys.json",
     "https://stackfoundry.dev/r/vercel-blob.json",
     "https://stackfoundry.dev/r/vercel-edge-config.json",
-    "https://stackfoundry.dev/r/arcjet-security.json"
+    "https://stackfoundry.dev/r/arcjet-security.json",
+    "https://stackfoundry.dev/r/csrf-protection.json",
+    "https://stackfoundry.dev/r/input-validation.json",
+    "https://stackfoundry.dev/r/secrets-management.json",
+    "https://stackfoundry.dev/r/dependency-audit.json",
+    "https://stackfoundry.dev/r/empty-states.json",
+    "https://stackfoundry.dev/r/loading-states.json",
+    "https://stackfoundry.dev/r/error-boundaries.json",
+    "https://stackfoundry.dev/r/toast-notifications.json",
+    "https://stackfoundry.dev/r/command-menu.json"
   ],
   "files": [],
   "docs": "Installs the Free Tier SaaS preset from StackFoundry.",
@@ -87,7 +96,16 @@
       "unkey-api-keys",
       "vercel-blob",
       "vercel-edge-config",
-      "arcjet-security"
+      "arcjet-security",
+      "csrf-protection",
+      "input-validation",
+      "secrets-management",
+      "dependency-audit",
+      "empty-states",
+      "loading-states",
+      "error-boundaries",
+      "toast-notifications",
+      "command-menu"
     ]
   }
 }

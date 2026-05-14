@@ -1,0 +1,48 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tenant-isolation-tests",
+  "type": "registry:block",
+  "title": "Tenant Isolation Tests",
+  "description": "Test helpers and checklist for cross-tenant isolation assertions.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/tenant-isolation-tests.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/tenant-isolation-tests.ts",
+      "content": "export type TenantIsolationTestsConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createTenantIsolationTestsConfig(config: TenantIsolationTestsConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const tenantIsolationTestsChecks = [\n  \"Validate tenant and permission boundaries\",\n  \"Record audit events for sensitive changes\",\n  \"Document deployment and rollback behavior\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/tenancy/isolation-tests/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/tenancy/isolation-tests/page.tsx",
+      "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function TenantIsolationTestsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Tenant Isolation Tests</h1>\n        <p className=\"text-muted-foreground\">Test helpers and checklist for cross-tenant isolation assertions.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "tenant-isolation-tests",
+      "target": ".agents/skills/tenant-isolation-tests/SKILL.md",
+      "content": "---\nname: tenant-isolation-tests\ndescription: Maintain the Tenant Isolation Tests module installed by StackFoundry.\n---\n\n# Tenant Isolation Tests Skill\n\n## Boundary\n\nThis module owns the Tenant Isolation Tests source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/tenant-isolation-tests.ts`\n- `apps/web/src/app/(console)/admin/tenancy/isolation-tests/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Tenant Isolation Tests Module\n\nTest helpers and checklist for cross-tenant isolation assertions.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/tenant-isolation-tests.ts`\n- `apps/web/src/app/(console)/admin/tenancy/isolation-tests/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm cli add tenant-isolation-tests --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "tenancy",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "tenant-isolation-tests"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "safe-defaults"
+      ]
+    }
+  }
+}

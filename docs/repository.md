@@ -8,7 +8,7 @@ StackFoundry is a source registry. Every directory should either own product sou
 - `docs/` contains product and maintainer documentation.
 - `examples/` contains install targets and walkthroughs used to prove registry modules in realistic app shapes.
 - `packages/` is reserved for extracted library packages when CLI, registry loading, schema validation, and shared utilities outgrow `apps/cli`.
-- `public/r/` contains generated shadcn-compatible registry output. Do not edit it by hand.
+- `public/r/` contains generated registry output. Do not edit it by hand.
 - `registry/` contains source modules and presets. This is the product surface.
 - `scripts/` is reserved for standalone maintenance scripts that should not live inside the CLI.
 
@@ -30,7 +30,7 @@ StackFoundry is a source registry. Every directory should either own product sou
 
 Run `pnpm registry:build` to regenerate `public/r`.
 
-Generated registry items are shadcn-compatible `registry:block` JSON files. They include file contents, target paths, package dependencies, registry dependency URLs, environment variables, docs, and metadata.
+Generated registry items are `registry:block` JSON files. They include file contents, target paths, package dependencies, registry dependency URLs, environment variables, docs, and metadata.
 
 ## Verification
 
@@ -40,4 +40,4 @@ Run:
 pnpm check
 ```
 
-This runs registry validation, CLI syntax checks, dry-run installs, real install smoke tests, registry generation, shadcn output verification, and the web build.
+This runs registry validation, CLI syntax checks, dry-run installs, real install smoke tests, registry generation, compatibility verification, and the web build.
