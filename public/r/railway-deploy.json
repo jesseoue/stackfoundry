@@ -8,15 +8,15 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "railway-deploy",
-      "target": ".agents/skills/railway-deploy/SKILL.md",
+      "target": ".stackfoundry/skills/railway-deploy/SKILL.md",
       "content": "---\nname: railway-deploy\ndescription: Maintain the Railway Deploy module installed by StackFoundry.\n---\n\n# Railway Deploy Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     },
     {
       "name": "railway",
-      "target": ".agents/skills/railway/SKILL.md",
+      "target": ".stackfoundry/skills/railway/SKILL.md",
       "content": "---\nname: railway\ndescription: Railway deployment guidance for installed deploy modules.\n---\n\n# Railway Guidance\n\n- Document services, variables, and environments.\n- Keep project tokens out of source.\n- Verify build/start commands and health checks.\n- Record production URL and rollback notes.\n"
     }
   ],
@@ -25,16 +25,6 @@
   "meta": {
     "category": "deploy",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "railway-deploy",
-        "railway"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

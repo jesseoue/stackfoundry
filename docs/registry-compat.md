@@ -38,7 +38,7 @@ pnpm stackfoundry add http://localhost:3000/r/api-keys.json --target /tmp/app
 - Each file includes a `target` so registry clients install it into the intended app path.
 - Internal module dependencies are emitted as full `https://stackfoundry.dev/r/<dependency>.json` registry URLs.
 - Env requirements are emitted as `envVars` and retained in `meta.env`.
-- Module and shared technology skills are emitted as `agentSkills` so registry URL installs include maintenance guidance.
+- Module and shared technology skills are emitted as `maintenanceSkills` so registry URL installs include maintenance guidance.
 - StackFoundry CLI can install generated module items directly, including aggregate preset blocks such as `/r/vendor-examples.json`.
 - `/r/presets/*.json` files are StackFoundry preset manifests for tooling and inspection. They are intentionally not shadcn registry item documents; use `/r/<preset>.json` for installable preset payloads.
 
@@ -47,7 +47,7 @@ pnpm stackfoundry add http://localhost:3000/r/api-keys.json --target /tmp/app
 - Registry blocks are SaaS modules, not UI components.
 - Module source lives in `registry/modules`; generated registry JSON lives in `public/r`.
 - Presets compose modules and can be emitted as aggregate blocks when the preset name does not collide with a module name.
-- Shared technology skills live in `registry/skills` and can be referenced by `agents.skills`.
+- Shared technology skills live in `registry/skills` and can be referenced by the source manifest's skill list.
 - Vendor modules should stay adapters around shared product capabilities.
 - Skills and checklists are part of the block, because maintainability is part of the product.
 

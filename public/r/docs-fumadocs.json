@@ -34,25 +34,25 @@
       "content": "# Fumadocs Deployment Guide\n\nUse Fumadocs when documentation should ship with the Next.js application.\n\n## Install\n\n```bash\npnpm add fumadocs-core fumadocs-ui\npnpm add -D fumadocs-mdx\n```\n\n## Wire The App\n\n1. Inspect the target app's `next.config.*`.\n2. Add the Fumadocs MDX plugin to the existing config instead of replacing the config.\n3. Inspect the root layout before adding any provider.\n4. Keep docs content, navigation, and SEO metadata in the same change.\n\n## Deploy\n\nFumadocs deploys anywhere the Next.js app deploys. Verify:\n\n- `pnpm build` passes.\n- `/docs` renders.\n- `sitemap.xml` includes public docs routes.\n- docs pages have title, description, canonical URL, and Open Graph metadata.\n# Fumadocs Deployment Guide\n\nUse Fumadocs when documentation should ship with the Next.js application.\n\n## Install\n\n```bash\npnpm add fumadocs-core fumadocs-ui\npnpm add -D fumadocs-mdx\n```\n\n## Wire The App\n\n1. Inspect the target app's `next.config.*`.\n2. Add the Fumadocs MDX plugin to the existing Next.js config instead of replacing the config.\n3. Inspect the root layout before adding the Fumadocs provider.\n4. Keep docs content, navigation, and SEO metadata in the same change.\n\n## Deploy\n\nFumadocs deploys anywhere the Next.js app deploys. Use the app's current hosting target first. If the app has no host yet, use any Next.js-compatible platform and verify:\n\n- `pnpm build` passes.\n- `/docs` renders.\n- `sitemap.xml` includes docs routes where public docs should be crawled.\n- docs pages have title, description, canonical URL, and Open Graph metadata.\n\n## Handoff\n\nRecord the chosen host, preview URL, production URL, and any environment variables in the target repository's docs.\n# Fumadocs Deployment Guide\n\nUse Fumadocs when documentation should ship with the Next.js application.\n\n## Install\n\n```bash\npnpm add fumadocs-core fumadocs-ui\npnpm add -D fumadocs-mdx\n```\n\n## Wire The App\n\n1. Inspect the target app's `next.config.*`.\n2. Add the Fumadocs MDX plugin to the existing Next.js config instead of replacing the config.\n3. Inspect the root layout before adding the Fumadocs provider.\n4. Keep docs content, navigation, and SEO metadata in the same change.\n\n## Deploy\n\nFumadocs deploys anywhere the Next.js app deploys. Use the app's current hosting target first. If the app has no host yet, use any Next.js-compatible platform and verify:\n\n- `pnpm build` passes.\n- `/docs` renders.\n- `sitemap.xml` includes docs routes where public docs should be crawled.\n- docs pages have title, description, canonical URL, and Open Graph metadata.\n\n## Handoff\n\nRecord the chosen host, preview URL, production URL, and any environment variables in the target repository's docs.\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "docs-fumadocs",
-      "target": ".agents/skills/docs-fumadocs/SKILL.md",
+      "target": ".stackfoundry/skills/docs-fumadocs/SKILL.md",
       "content": "---\nname: docs-fumadocs\ndescription: Maintain the Fumadocs Docs module installed by StackFoundry.\n---\n\n# Fumadocs Docs Maintenance Instructions\n\n- Use this module when docs should live inside the Next.js app.\n- Inspect the target app's `next.config.*`, root layout, and existing docs setup before wiring Fumadocs.\n- Install `fumadocs-core`, `fumadocs-ui`, and `fumadocs-mdx` only when the app is ready for the adapter.\n- Keep docs route metadata and sitemap entries in sync with public docs routes.\n- Verify local docs navigation, `pnpm build`, and the deployed docs URL.\n"
     },
     {
       "name": "fumadocs",
-      "target": ".agents/skills/fumadocs/SKILL.md",
+      "target": ".stackfoundry/skills/fumadocs/SKILL.md",
       "content": "---\nname: fumadocs\ndescription: Fumadocs guidance for installed docs modules.\n---\n\n# Fumadocs Guidance\n\n- Use Fumadocs for in-app Next.js docs.\n- Merge MDX config into existing Next config.\n- Inspect root layout before adding providers.\n- Verify docs routes, sitemap, and build output.\n"
     },
     {
       "name": "docs-hosting",
-      "target": ".agents/skills/docs-hosting/SKILL.md",
+      "target": ".stackfoundry/skills/docs-hosting/SKILL.md",
       "content": "---\nname: docs-hosting\ndescription: Documentation hosting guidance for installed docs modules.\n---\n\n# Docs Hosting Guidance\n\n- Choose in-app docs or hosted docs explicitly.\n- Record preview URL, production URL, docs root, and owner.\n- Verify local preview and production deploy.\n- Check metadata, sitemap, and broken links.\n"
     },
     {
       "name": "nextjs",
-      "target": ".agents/skills/nextjs/SKILL.md",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
       "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
     }
   ],
@@ -61,19 +61,6 @@
   "meta": {
     "category": "docs",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "docs-fumadocs",
-        "fumadocs",
-        "docs-hosting",
-        "nextjs"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "keep-provider-boundary"
-      ]
-    }
+    "status": "experimental"
   }
 }

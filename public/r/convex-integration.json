@@ -8,15 +8,15 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "convex-integration",
-      "target": ".agents/skills/convex-integration/SKILL.md",
+      "target": ".stackfoundry/skills/convex-integration/SKILL.md",
       "content": "---\nname: convex-integration\ndescription: Maintain the Convex Integration module installed by StackFoundry.\n---\n\n# Convex Integration Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     },
     {
       "name": "convex",
-      "target": ".agents/skills/convex/SKILL.md",
+      "target": ".stackfoundry/skills/convex/SKILL.md",
       "content": "---\nname: convex\ndescription: Convex backend guidance for installed realtime/backend modules.\n---\n\n# Convex Guidance\n\n- Keep Convex env and deployment ownership documented.\n- Use generated types after schema/function changes.\n- Document optimistic update and realtime assumptions.\n- Verify deployed functions before wiring UI.\n"
     }
   ],
@@ -25,16 +25,6 @@
   "meta": {
     "category": "backend",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "convex-integration",
-        "convex"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

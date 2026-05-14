@@ -30,7 +30,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "github-integration",
       "github"
@@ -40,6 +41,5 @@
       "store-private-key-safely",
       "dedupe-deliveries"
     ]
-  },
-  "status": "experimental"
+  }
 }

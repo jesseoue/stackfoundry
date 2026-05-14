@@ -37,25 +37,25 @@
       "content": "export default function BillingPage() {\n  return (\n    <main className=\"flex flex-col gap-4 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Billing</h1>\n        <p className=\"text-muted-foreground\">Manage checkout, subscriptions, invoices, and entitlements.</p>\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "stripe-billing",
-      "target": ".agents/skills/stripe-billing/SKILL.md",
+      "target": ".stackfoundry/skills/stripe-billing/SKILL.md",
       "content": "---\nname: stripe-billing\ndescription: Maintain the Stripe billing module installed by StackFoundry.\n---\n\n# Stripe Billing Operating Instructions\n\n- Verify all Stripe webhook signatures.\n- Store and check webhook event ids for idempotency.\n- Map Stripe subscription state into internal entitlement state.\n- Do not trust client-provided price ids without validating them against server config.\n- Keep checkout, portal, webhook, and entitlement changes documented together.\n- Test subscription created, updated, canceled, payment failed, and checkout completed flows.\n"
     },
     {
       "name": "stripe",
-      "target": ".agents/skills/stripe/SKILL.md",
+      "target": ".stackfoundry/skills/stripe/SKILL.md",
       "content": "---\nname: stripe\ndescription: Maintain Stripe integrations installed by StackFoundry modules.\n---\n\n# Stripe Operating Instructions\n\n- Verify webhook signatures before reading event payloads.\n- Persist webhook event ids and make handlers idempotent.\n- Treat prices, products, customer ids, and subscription ids as server-owned state.\n- Never trust client-provided price ids without validating them against server configuration.\n- Test checkout completed, subscription updated, subscription canceled, and payment failed flows.\n"
     },
     {
       "name": "drizzle",
-      "target": ".agents/skills/drizzle/SKILL.md",
+      "target": ".stackfoundry/skills/drizzle/SKILL.md",
       "content": "---\nname: drizzle\ndescription: Maintain Drizzle ORM and Postgres code installed by StackFoundry modules.\n---\n\n# Drizzle Operating Instructions\n\n- Keep database access in server-only code.\n- Add schema changes under `packages/db/src/schema` and export shared tables from the schema barrel.\n- Generate and commit migrations when schema changes are intended.\n- Use typed query helpers instead of raw SQL unless the query needs a documented escape hatch.\n- Include tenant, organization, or user scope in queries and cache tags whenever data is not global.\n"
     },
     {
       "name": "nextjs",
-      "target": ".agents/skills/nextjs/SKILL.md",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
       "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
     }
   ],
@@ -73,20 +73,6 @@
       "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"
     ],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "stripe-billing",
-        "stripe",
-        "drizzle",
-        "nextjs"
-      ],
-      "rules": [
-        "verify-webhooks",
-        "dedupe-events",
-        "map-entitlements",
-        "never-trust-client-prices"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "billingCustomers",

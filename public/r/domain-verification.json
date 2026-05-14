@@ -23,10 +23,10 @@
       "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function DomainVerificationPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Domain Verification</h1>\n        <p className=\"text-muted-foreground\">DNS TXT/CNAME verification state for tenant domains.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "domain-verification",
-      "target": ".agents/skills/domain-verification/SKILL.md",
+      "target": ".stackfoundry/skills/domain-verification/SKILL.md",
       "content": "---\nname: domain-verification\ndescription: Maintain the Domain Verification module installed by StackFoundry.\n---\n\n# Domain Verification Skill\n\n## Boundary\n\nThis module owns the Domain Verification source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/domain-verification.ts`\n- `apps/web/src/app/(console)/admin/tenancy/domain-verification/page.tsx`\n\n## Dependencies\n\n- Depends on `custom-domains`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
     }
   ],
@@ -35,16 +35,6 @@
   "meta": {
     "category": "tenancy",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "domain-verification"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "safe-defaults"
-      ]
-    }
+    "status": "experimental"
   }
 }

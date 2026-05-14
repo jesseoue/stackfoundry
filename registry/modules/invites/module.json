@@ -30,7 +30,8 @@
     ],
     "migrationRecommended": true
   },
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "invites"
     ],
@@ -39,6 +40,5 @@
       "expire-pending-invites",
       "audit-membership-changes"
     ]
-  },
-  "status": "experimental"
+  }
 }

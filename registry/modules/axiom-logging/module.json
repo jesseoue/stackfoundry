@@ -27,7 +27,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "axiom-logging",
       "axiom"
@@ -37,6 +38,5 @@
       "avoid-logging-secrets",
       "sample-noisy-events"
     ]
-  },
-  "status": "experimental"
+  }
 }

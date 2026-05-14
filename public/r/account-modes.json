@@ -31,10 +31,10 @@
       "content": "const checklist = [\n  \"Choose personal, team, or hybrid defaults\",\n  \"Document billing and invite assumptions\",\n  \"Keep provider adapters outside the shared module\",\n];\n\nexport default function AccountModesPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Account Modes</h1>\n        <p className=\"text-muted-foreground\">\n          Configure personal, team, and hybrid account behavior for SaaS apps.\n        </p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">\n            {item}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "account-modes",
-      "target": ".agents/skills/account-modes/SKILL.md",
+      "target": ".stackfoundry/skills/account-modes/SKILL.md",
       "content": "---\nname: account-modes\ndescription: Maintain the Account Modes module installed by StackFoundry.\n---\n\n# Account Modes Skill\n\n- Do not mix personal and organization data without an explicit active account context.\n- Hide organization invitations, roles, and seat billing when the app is personal-only.\n- Keep billing customer ownership aligned with the active account mode.\n- Make account switching explicit and auditable.\n- Update onboarding, navigation, and settings together when the account mode changes.\n"
     }
   ],
@@ -44,16 +44,6 @@
     "category": "tenancy",
     "env": [],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "account-modes"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "preserve-account-boundaries"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "accountModes"

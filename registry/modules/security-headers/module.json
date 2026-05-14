@@ -18,7 +18,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "security-headers"
     ],
@@ -27,6 +28,5 @@
       "verify-before-release",
       "audit-sensitive-actions"
     ]
-  },
-  "status": "experimental"
+  }
 }

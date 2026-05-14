@@ -211,6 +211,36 @@ const moduleGroups = [
   },
 ];
 
+const moduleMeta: Record<string, { tone: string; domain?: string }> = {
+  "next-saas": { tone: "foundation", domain: "nextjs.org" },
+  "drizzle-postgres": { tone: "database", domain: "drizzle.team" },
+  "drizzle-relations": { tone: "database", domain: "drizzle.team" },
+  "drizzle-soft-delete": { tone: "database", domain: "drizzle.team" },
+  "neon-postgres": { tone: "database", domain: "neon.tech" },
+  "supabase-postgres": { tone: "database", domain: "supabase.com" },
+  "cloudflare-d1": { tone: "provider", domain: "cloudflare.com" },
+  "clerk-auth": { tone: "auth", domain: "clerk.com" },
+  "stripe-billing": { tone: "billing", domain: "stripe.com" },
+  "autumn-billing": { tone: "billing", domain: "useautumn.com" },
+  "autumn-entitlements": { tone: "billing", domain: "useautumn.com" },
+  "unkey-api-keys": { tone: "api", domain: "unkey.com" },
+  "unkey-rate-limits": { tone: "api", domain: "unkey.com" },
+  "sentry-monitoring": { tone: "ops", domain: "sentry.io" },
+  "posthog-analytics": { tone: "growth", domain: "posthog.com" },
+  "resend-email": { tone: "provider", domain: "resend.com" },
+  "upstash-redis": { tone: "provider", domain: "upstash.com" },
+  "vercel-blob": { tone: "provider", domain: "vercel.com" },
+  "vercel-deploy": { tone: "provider", domain: "vercel.com" },
+  "cloudflare-workers": { tone: "provider", domain: "cloudflare.com" },
+  "cloudflare-r2": { tone: "provider", domain: "cloudflare.com" },
+  "cloudflare-queues": { tone: "provider", domain: "cloudflare.com" },
+  "cloudflare-agents-sdk": { tone: "ai", domain: "cloudflare.com" },
+  "cloudflare-mcp-server": { tone: "ai", domain: "cloudflare.com" },
+  "cloudflare-vectorize": { tone: "ai", domain: "cloudflare.com" },
+  "docs-fumadocs": { tone: "docs", domain: "fumadocs.dev" },
+  "cloudflare-pages": { tone: "docs", domain: "cloudflare.com" },
+};
+
 const manifestParts = [
   [
     "module.json",
@@ -226,7 +256,7 @@ const manifestParts = [
   ],
   [
     "skill/SKILL.md",
-    "Agent-facing guidance so future edits understand the module's boundaries, provider assumptions, and verification steps.",
+    "Maintenance guidance so future edits understand the module's boundaries, provider assumptions, and verification steps.",
   ],
   [
     "tests/checklist.md",
@@ -242,7 +272,81 @@ function Anchor({ id }: { id: string }) {
   );
 }
 
+function JsonValue({ value, lineIndex }: { value: string; lineIndex: number }) {
+  const parts = value.split(/("[^"]*")/g).filter(Boolean);
+
+  return (
+    <>
+      {parts.map((part, index) => {
+        const key = `${lineIndex}-${index}-${part}`;
+        if (part.startsWith('"')) {
+          const isEnv = /[A-Z][A-Z0-9_]+/.test(part);
+          return (
+            <span className={isEnv ? "json-env" : "json-string"} key={key}>
+              {part}
+            </span>
+          );
+        }
+
+        return (
+          <span className="json-punctuation" key={key}>
+            {part}
+          </span>
+        );
+      })}
+    </>
+  );
+}
+
+function JsonLine({ line, index }: { line: string; index: number }) {
+  const keyValue = line.match(/^(\s*)("[^"]+")(:\s*)(.*)$/);
+
+  if (keyValue) {
+    const [, indent, key, separator, value] = keyValue;
+    const isStatus = key === '"status"';
+
+    return (
+      <span className="json-line">
+        <span className="json-indent">{indent}</span>
+        <span className="json-key">{key}</span>
+        <span className="json-punctuation">{separator}</span>
+        {isStatus ? (
+          <span className="json-status">{value.replace(/,$/, "")}</span>
+        ) : (
+          <JsonValue lineIndex={index} value={value} />
+        )}
+        {isStatus && value.endsWith(",") ? <span className="json-punctuation">,</span> : null}
+      </span>
+    );
+  }
+
+  return (
+    <span className="json-line">
+      <JsonValue lineIndex={index} value={line} />
+    </span>
+  );
+}
+
 function CodeBlock({ label, children }: { label: string; children: string }) {
+  const isJson = label.endsWith(".json") || children.trimStart().startsWith("{");
+  const highlighted = children.split("\n").map((line, index) => {
+    if (isJson) {
+      return <JsonLine index={index} key={`${line}-${index}`} line={line} />;
+    }
+
+    let className = "terminal-line";
+    if (line.startsWith("$")) className += " terminal-line-command";
+    if (line.startsWith("+")) className += " terminal-line-add";
+    if (line.startsWith("!")) className += " terminal-line-warn";
+    if (line.startsWith("·")) className += " terminal-line-muted";
+
+    return (
+      <span className={className} key={`${line}-${index}`}>
+        {line}
+      </span>
+    );
+  });
+
   return (
     <div className="docs-code">
       <div className="code-head">
@@ -250,13 +354,53 @@ function CodeBlock({ label, children }: { label: string; children: string }) {
         {label}
         <em>copy</em>
       </div>
-      <pre>{children}</pre>
+      <pre>
+        <code>{highlighted}</code>
+      </pre>
     </div>
   );
 }
 
 function moduleHref(module: string) {
   return `https://github.com/jesseoue/stackfoundry/tree/main/registry/modules/${module}`;
+}
+
+function moduleTone(module: string) {
+  if (moduleMeta[module]?.tone) return moduleMeta[module].tone;
+  if (module.includes("billing") || module.includes("credit") || module.includes("quota"))
+    return "billing";
+  if (module.includes("auth") || module.includes("tenant") || module.includes("workspace"))
+    return "auth";
+  if (module.includes("api") || module.includes("webhook") || module.includes("sdk")) return "api";
+  if (module.includes("docs") || module.includes("cms") || module.includes("deploy")) return "docs";
+  if (module.includes("ai") || module.includes("model") || module.includes("rag")) return "ai";
+  if (module.includes("analytics") || module.includes("growth") || module.includes("pricing"))
+    return "growth";
+  if (module.includes("audit") || module.includes("admin") || module.includes("status"))
+    return "ops";
+  return "foundation";
+}
+
+function ModuleChip({ module }: { module: string }) {
+  const meta = moduleMeta[module];
+
+  return (
+    <a className={`docs-module-chip tone-${moduleTone(module)}`} href={moduleHref(module)}>
+      {meta?.domain ? (
+        <img
+          alt=""
+          aria-hidden="true"
+          height="16"
+          loading="lazy"
+          src={`https://www.google.com/s2/favicons?domain=${meta.domain}&sz=32`}
+          width="16"
+        />
+      ) : (
+        <span aria-hidden="true" className="docs-module-dot" />
+      )}
+      <span>{module}</span>
+    </a>
+  );
 }
 
 export default function DocsPage() {
@@ -399,7 +543,7 @@ export default function DocsPage() {
 + packages/db/src/schema/billing.ts
 + apps/web/app/api/webhooks/stripe/route.ts
 + apps/web/app/(dashboard)/billing/page.tsx
-+ .agents/skills/stripe-billing/SKILL.md
++ .stackfoundry/skills/stripe-billing/SKILL.md
 + tests/checklist.md
 ! env notes: STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 
@@ -418,8 +562,9 @@ $ pnpm stackfoundry add stripe-billing --target ./my-app`}</CodeBlock>
               <strong>Review the source</strong>
               <p>
                 A module can add routes, schema, dependencies, env documentation, tests/checklists,
-                and agent skills. Run your app's normal lint, typecheck, migration, and test flow
-                after install. Secrets belong in your environment manager, not in committed files.
+                and maintenance skills. Run your app's normal lint, typecheck, migration, and test
+                flow after install. Secrets belong in your environment manager, not in committed
+                files.
               </p>
             </section>
           </section>
@@ -441,9 +586,7 @@ $ pnpm stackfoundry add stripe-billing --target ./my-app`}</CodeBlock>
                   <p>{card.body}</p>
                   <div className="docs-chip-row">
                     {card.modules.map((module) => (
-                      <a href={moduleHref(module)} key={module}>
-                        {module}
-                      </a>
+                      <ModuleChip key={module} module={module} />
                     ))}
                   </div>
                 </div>
@@ -467,9 +610,7 @@ $ pnpm stackfoundry add stripe-billing --target ./my-app`}</CodeBlock>
                   <p>{group.summary}</p>
                   <div className="docs-chip-row">
                     {group.modules.map((module) => (
-                      <a href={moduleHref(module)} key={module}>
-                        {module}
-                      </a>
+                      <ModuleChip key={module} module={module} />
                     ))}
                   </div>
                 </section>
@@ -483,8 +624,8 @@ $ pnpm stackfoundry add stripe-billing --target ./my-app`}</CodeBlock>
             </h2>
             <p>
               Every module is more than a code snippet. It ships the implementation, the install
-              contract, human documentation, agent guidance, and verification notes needed to keep
-              it maintainable after it lands in a real app.
+              contract, human documentation, maintenance guidance, and verification notes needed to
+              keep it maintainable after it lands in a real app.
             </p>
             <CodeBlock label="registry/modules/api-keys/module.json">{`{
   "name": "api-keys",

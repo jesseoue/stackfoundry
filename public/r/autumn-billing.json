@@ -26,15 +26,15 @@
       "content": "const deployChecks = [\n  \"Create Autumn products, plans, and features before wiring production actions\",\n  \"Set AUTUMN_SECRET_KEY in preview and production environments\",\n  \"Validate checkout redirects and saved-payment flows against sandbox customers\",\n  \"Keep plan ids and price decisions in server-owned configuration\",\n];\n\nexport default function AutumnBillingPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Autumn Billing</h1>\n        <p className=\"text-muted-foreground\">\n          Optional Autumn adapter for plan attach, checkout redirects, usage billing, and plan changes.\n        </p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "autumn-billing",
-      "target": ".agents/skills/autumn-billing/SKILL.md",
+      "target": ".stackfoundry/skills/autumn-billing/SKILL.md",
       "content": "---\nname: autumn-billing\ndescription: Maintain the optional Autumn Billing adapter installed by StackFoundry.\n---\n\n# Autumn Billing Maintenance Instructions\n\n- Treat Autumn as an optional provider adapter. Keep `billing-core` and `usage-metering` as the source-owned default path.\n- Keep Autumn product, plan, and feature ids in server-owned configuration.\n- Validate client-selected plan ids against local allowlists before calling `billing.attach`.\n- Verify checkout redirects, saved-payment plan changes, upgrades, downgrades, and cancellation state mapping in sandbox.\n- Keep `module.json`, `docs.md`, and `tests/checklist.md` aligned when env vars, dependencies, or target files change.\n- Do not introduce provider lock-in outside the adapter boundary.\n"
     },
     {
       "name": "autumn",
-      "target": ".agents/skills/autumn/SKILL.md",
+      "target": ".stackfoundry/skills/autumn/SKILL.md",
       "content": "---\nname: autumn\ndescription: Autumn billing and entitlement guidance for installed modules.\n---\n\n# Autumn Guidance\n\n- Keep provider keys server-only.\n- Document entitlement names and metered features.\n- Verify checks before gating user actions.\n- Test plan changes, overages, and credit behavior.\n"
     }
   ],
@@ -47,18 +47,6 @@
     "env": [
       "AUTUMN_SECRET_KEY"
     ],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "autumn-billing",
-        "autumn"
-      ],
-      "rules": [
-        "keep-provider-boundary",
-        "map-provider-state",
-        "verify-checkout-redirects",
-        "never-trust-client-plan-ids"
-      ]
-    }
+    "status": "experimental"
   }
 }

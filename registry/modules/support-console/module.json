@@ -20,7 +20,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "support-console"
     ],
@@ -29,6 +30,5 @@
       "verify-before-release",
       "keep-provider-boundary"
     ]
-  },
-  "status": "experimental"
+  }
 }

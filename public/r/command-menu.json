@@ -27,10 +27,10 @@
       "content": "export function CommandMenu({\n  title = \"Command Menu\",\n  description = \"Keyboard-first command menu component for SaaS navigation and actions.\",\n}: {\n  title?: string;\n  description?: string;\n}) {\n  return (\n    <section className=\"rounded-lg border p-6\">\n      <h2 className=\"font-semibold\">{title}</h2>\n      <p className=\"mt-2 text-sm text-muted-foreground\">{description}</p>\n    </section>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "command-menu",
-      "target": ".agents/skills/command-menu/SKILL.md",
+      "target": ".stackfoundry/skills/command-menu/SKILL.md",
       "content": "---\nname: command-menu\ndescription: Maintain the Command Menu module installed by StackFoundry.\n---\n\n# Command Menu Skill\n\n## Boundary\n\nThis module owns the Command Menu source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/command-menu.ts`\n- `apps/web/src/components/stackfoundry/command-menu.tsx`\n- `apps/web/src/app/(console)/components/command-menu/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
     }
   ],
@@ -39,16 +39,6 @@
   "meta": {
     "category": "components",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "command-menu"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "safe-defaults"
-      ]
-    }
+    "status": "experimental"
   }
 }

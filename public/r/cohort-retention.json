@@ -8,10 +8,10 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "cohort-retention",
-      "target": ".agents/skills/cohort-retention/SKILL.md",
+      "target": ".stackfoundry/skills/cohort-retention/SKILL.md",
       "content": "---\nname: cohort-retention\ndescription: Maintain the Cohort Retention module installed by StackFoundry.\n---\n\n# Cohort Retention Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     }
   ],
@@ -20,15 +20,6 @@
   "meta": {
     "category": "growth",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "cohort-retention"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

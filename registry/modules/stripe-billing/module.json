@@ -42,7 +42,8 @@
     ],
     "migrationRecommended": true
   },
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "stripe-billing",
       "stripe",
@@ -55,6 +56,5 @@
       "map-entitlements",
       "never-trust-client-prices"
     ]
-  },
-  "status": "experimental"
+  }
 }

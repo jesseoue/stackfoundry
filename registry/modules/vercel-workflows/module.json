@@ -26,7 +26,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "vercel-workflows",
       "vercel"
@@ -36,6 +37,5 @@
       "use-step-for-node-logic",
       "start-workflows-from-routes"
     ]
-  },
-  "status": "experimental"
+  }
 }

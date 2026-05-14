@@ -8,15 +8,15 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "email-postmark",
-      "target": ".agents/skills/email-postmark/SKILL.md",
+      "target": ".stackfoundry/skills/email-postmark/SKILL.md",
       "content": "---\nname: email-postmark\ndescription: Maintain the Postmark Email module installed by StackFoundry.\n---\n\n# Postmark Email Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     },
     {
       "name": "postmark",
-      "target": ".agents/skills/postmark/SKILL.md",
+      "target": ".stackfoundry/skills/postmark/SKILL.md",
       "content": "---\nname: postmark\ndescription: Postmark email guidance for installed email modules.\n---\n\n# Postmark Guidance\n\n- Keep server tokens server-only.\n- Verify sender signatures/domains.\n- Document template aliases and message streams.\n- Test bounce and suppression behavior.\n"
     }
   ],
@@ -25,16 +25,6 @@
   "meta": {
     "category": "email",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "email-postmark",
-        "postmark"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

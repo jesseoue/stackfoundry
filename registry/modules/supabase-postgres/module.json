@@ -33,7 +33,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "supabase-postgres",
       "supabase"
@@ -43,6 +44,5 @@
       "never-expose-service-role",
       "server-only-admin-client"
     ]
-  },
-  "status": "experimental"
+  }
 }

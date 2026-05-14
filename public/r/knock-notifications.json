@@ -1,0 +1,68 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "knock-notifications",
+  "type": "registry:block",
+  "title": "Knock Notifications",
+  "description": "Knock adapter for hosted in-app feeds, workflow triggers, and preference-aware notification delivery.",
+  "dependencies": [
+    "@knocklabs/node",
+    "@knocklabs/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/notifications.json",
+    "https://stackfoundry.dev/r/notification-center.json"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/knock/client.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/knock/client.ts",
+      "content": "import \"server-only\";\n\nimport { Knock } from \"@knocklabs/node\";\n\nexport function getKnockClient() {\n  return new Knock({\n    apiKey: process.env.KNOCK_API_KEY,\n  });\n}\n\nexport type TriggerKnockWorkflowInput = {\n  workflowKey: string;\n  recipients: string[];\n  data?: Record<string, unknown>;\n};\n\nexport async function triggerKnockWorkflow({\n  workflowKey,\n  recipients,\n  data = {},\n}: TriggerKnockWorkflowInput) {\n  if (recipients.length === 0) {\n    throw new Error(\"Knock workflow trigger requires at least one recipient.\");\n  }\n\n  return getKnockClient().workflows.trigger(workflowKey, {\n    recipients,\n    data,\n  });\n}\n"
+    },
+    {
+      "path": "apps/web/src/components/knock/knock-inbox-provider.tsx",
+      "type": "registry:component",
+      "target": "apps/web/src/components/knock/knock-inbox-provider.tsx",
+      "content": "\"use client\";\n\nimport { KnockFeedProvider, KnockProvider } from \"@knocklabs/react\";\nimport type { ReactNode } from \"react\";\n\ntype KnockInboxProviderProps = {\n  userId: string;\n  children: ReactNode;\n};\n\nexport function KnockInboxProvider({ userId, children }: KnockInboxProviderProps) {\n  const apiKey = process.env.NEXT_PUBLIC_KNOCK_PUBLIC_API_KEY;\n  const feedId = process.env.NEXT_PUBLIC_KNOCK_FEED_CHANNEL_ID;\n\n  if (!apiKey || !feedId) {\n    return children;\n  }\n\n  return (\n    <KnockProvider apiKey={apiKey} user={{ id: userId }}>\n      <KnockFeedProvider feedId={feedId}>{children}</KnockFeedProvider>\n    </KnockProvider>\n  );\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/knock/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/vendors/knock/page.tsx",
+      "content": "const checks = [\n  \"Create a Knock environment and in-app feed channel.\",\n  \"Add server and public Knock environment variables.\",\n  \"Wrap the authenticated app shell after user identity is available.\",\n  \"Trigger workflows from server code only.\",\n  \"Verify read/unread state and preferences with a test user.\",\n];\n\nexport default function KnockNotificationsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Knock Notifications</h1>\n        <p className=\"text-muted-foreground\">\n          Optional hosted in-app feed and workflow adapter for the notification core.\n        </p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "knock-notifications",
+      "target": ".stackfoundry/skills/knock-notifications/SKILL.md",
+      "content": "---\nname: knock-notifications\ndescription: Maintain the Knock Notifications module installed by StackFoundry.\n---\n\n# Knock Notifications Skill\n\n- Keep `KNOCK_API_KEY` server-only.\n- Treat `NEXT_PUBLIC_KNOCK_PUBLIC_API_KEY` and `NEXT_PUBLIC_KNOCK_FEED_CHANNEL_ID` as browser-exposed configuration only.\n- Trigger Knock workflows from server code, not Client Components.\n- Keep app-owned notification state in `notifications` unless the app explicitly chooses hosted Knock feeds.\n- Respect notification preferences and unsubscribe requirements before triggering broad workflows.\n- Verify a test user feed, read/unread state, workflow trigger, and production environment keys before handoff.\n"
+    },
+    {
+      "name": "knock",
+      "target": ".stackfoundry/skills/knock/SKILL.md",
+      "content": "---\nname: knock\ndescription: Guide maintainers through Knock notification feed and workflow integrations.\n---\n\n# Knock Guidance\n\n- Keep the secret API key server-only.\n- Use public API key and feed channel id only as browser-exposed feed configuration.\n- Trigger workflows from server code.\n- Pass stable authenticated user ids to the Knock provider.\n- Keep preference and unsubscribe behavior explicit.\n- Verify test workflow delivery, feed read/unread state, and production env values before launch.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {
+    "KNOCK_API_KEY": "",
+    "NEXT_PUBLIC_KNOCK_PUBLIC_API_KEY": "",
+    "NEXT_PUBLIC_KNOCK_FEED_CHANNEL_ID": ""
+  },
+  "docs": "# Knock Notifications\n\nKnock adapter for hosted in-app feeds, workflow triggers, and preference-aware notification delivery.\n\n## Owns\n\n- `apps/web/src/lib/knock/client.ts`\n- `apps/web/src/components/knock/knock-inbox-provider.tsx`\n- `apps/web/src/app/(console)/admin/vendors/knock/page.tsx`\n\n## Dependencies\n\n- `registry:notifications`\n- `registry:notification-center`\n- `@knocklabs/node`\n- `@knocklabs/react`\n\n## Environment\n\n- `KNOCK_API_KEY`\n- `NEXT_PUBLIC_KNOCK_PUBLIC_API_KEY`\n- `NEXT_PUBLIC_KNOCK_FEED_CHANNEL_ID`\n\n## Setup\n\n1. Create a Knock environment.\n2. Create an in-app feed channel.\n3. Add the server API key and public feed values to preview and production environments.\n4. Wrap the authenticated app shell with the Knock feed provider after user identity is available.\n5. Trigger workflows from server code only.\n\n## Provider Boundary\n\nUse `notifications` and `notification-center` when the app should own local notification state. Use this module when the team chooses Knock for hosted feeds, workflow orchestration, and cross-channel delivery.\n\n## Verification\n\n- Confirm public keys are browser-safe and secret keys stay server-only.\n- Trigger a workflow to a test user.\n- Confirm feed read/unread state updates.\n- Confirm preferences are respected before sending broad announcements.\n",
+  "meta": {
+    "category": "notifications",
+    "env": [
+      "KNOCK_API_KEY",
+      "NEXT_PUBLIC_KNOCK_PUBLIC_API_KEY",
+      "NEXT_PUBLIC_KNOCK_FEED_CHANNEL_ID"
+    ],
+    "status": "experimental"
+  }
+}

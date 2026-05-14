@@ -33,7 +33,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "inngest-functions",
       "inngest",
@@ -44,6 +45,5 @@
       "keep-steps-idempotent",
       "log-run-ids"
     ]
-  },
-  "status": "experimental"
+  }
 }

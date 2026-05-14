@@ -8,15 +8,15 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "mcp-client",
-      "target": ".agents/skills/mcp-client/SKILL.md",
+      "target": ".stackfoundry/skills/mcp-client/SKILL.md",
       "content": "---\nname: mcp-client\ndescription: Maintain the MCP Client module installed by StackFoundry.\n---\n\n# MCP Client Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     },
     {
       "name": "mcp",
-      "target": ".agents/skills/mcp/SKILL.md",
+      "target": ".stackfoundry/skills/mcp/SKILL.md",
       "content": "---\nname: mcp\ndescription: MCP guidance for installed client/server modules.\n---\n\n# Mcp Guidance\n\n- Keep server credentials and OAuth secrets server-only.\n- Document tool schemas and trust boundaries.\n- Validate tool inputs before side effects.\n- Verify connection, auth, and error handling.\n"
     }
   ],
@@ -25,16 +25,6 @@
   "meta": {
     "category": "ai",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "mcp-client",
-        "mcp"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

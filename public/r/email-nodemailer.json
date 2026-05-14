@@ -8,15 +8,15 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "email-nodemailer",
-      "target": ".agents/skills/email-nodemailer/SKILL.md",
+      "target": ".stackfoundry/skills/email-nodemailer/SKILL.md",
       "content": "---\nname: email-nodemailer\ndescription: Maintain the Nodemailer Email module installed by StackFoundry.\n---\n\n# Nodemailer Email Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     },
     {
       "name": "nodemailer",
-      "target": ".agents/skills/nodemailer/SKILL.md",
+      "target": ".stackfoundry/skills/nodemailer/SKILL.md",
       "content": "---\nname: nodemailer\ndescription: Nodemailer SMTP guidance for installed email modules.\n---\n\n# Nodemailer Guidance\n\n- Keep SMTP credentials server-only.\n- Document provider limits and retry behavior.\n- Provide plain-text fallbacks.\n- Verify deliverability with a test recipient before production.\n"
     }
   ],
@@ -25,16 +25,6 @@
   "meta": {
     "category": "email",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "email-nodemailer",
-        "nodemailer"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

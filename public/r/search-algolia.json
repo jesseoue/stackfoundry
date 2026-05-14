@@ -8,15 +8,15 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "search-algolia",
-      "target": ".agents/skills/search-algolia/SKILL.md",
+      "target": ".stackfoundry/skills/search-algolia/SKILL.md",
       "content": "---\nname: search-algolia\ndescription: Maintain the Algolia module installed by StackFoundry.\n---\n\n# Algolia Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     },
     {
       "name": "algolia",
-      "target": ".agents/skills/algolia/SKILL.md",
+      "target": ".stackfoundry/skills/algolia/SKILL.md",
       "content": "---\nname: algolia\ndescription: Algolia search guidance for installed search modules.\n---\n\n# Algolia Guidance\n\n- Keep admin keys server-only.\n- Use search-only keys on the client.\n- Document index names and object id strategy.\n- Verify indexing, deletion, and relevance behavior.\n"
     }
   ],
@@ -25,16 +25,6 @@
   "meta": {
     "category": "search",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "search-algolia",
-        "algolia"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

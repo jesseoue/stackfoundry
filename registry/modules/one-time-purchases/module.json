@@ -30,7 +30,8 @@
     ],
     "migrationRecommended": true
   },
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "one-time-purchases"
     ],
@@ -39,6 +40,5 @@
       "verify-before-release",
       "fulfill-once"
     ]
-  },
-  "status": "experimental"
+  }
 }

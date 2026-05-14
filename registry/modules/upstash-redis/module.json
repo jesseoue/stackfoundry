@@ -34,7 +34,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "upstash-redis",
       "upstash"
@@ -44,6 +45,5 @@
       "namespace-keys",
       "set-rate-limit-headers"
     ]
-  },
-  "status": "experimental"
+  }
 }

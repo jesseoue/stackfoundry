@@ -28,7 +28,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "neon-postgres",
       "neon",
@@ -39,6 +40,5 @@
       "keep-migrations-committed",
       "validate-database-url"
     ]
-  },
-  "status": "experimental"
+  }
 }

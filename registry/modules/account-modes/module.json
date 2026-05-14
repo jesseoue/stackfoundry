@@ -32,7 +32,8 @@
     ],
     "migrationRecommended": true
   },
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "account-modes"
     ],
@@ -41,6 +42,5 @@
       "verify-before-release",
       "preserve-account-boundaries"
     ]
-  },
-  "status": "experimental"
+  }
 }

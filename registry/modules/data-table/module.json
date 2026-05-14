@@ -22,7 +22,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "data-table"
     ],
@@ -31,6 +32,5 @@
       "verify-before-release",
       "safe-defaults"
     ]
-  },
-  "status": "experimental"
+  }
 }

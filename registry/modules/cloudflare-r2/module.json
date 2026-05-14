@@ -22,7 +22,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "cloudflare-r2",
       "cloudflare"
@@ -32,6 +33,5 @@
       "validate-object-keys",
       "document-bucket-bindings"
     ]
-  },
-  "status": "experimental"
+  }
 }

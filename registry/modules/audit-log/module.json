@@ -30,7 +30,8 @@
     ],
     "migrationRecommended": true
   },
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "audit-log"
     ],
@@ -39,6 +40,5 @@
       "namespace-actions",
       "avoid-sensitive-metadata"
     ]
-  },
-  "status": "experimental"
+  }
 }

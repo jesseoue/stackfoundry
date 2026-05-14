@@ -27,10 +27,10 @@
       "content": "type Column<T> = { key: keyof T; label: string };\n\nexport function StackFoundryDataTable<T extends { id: string }>({\n  rows,\n  columns,\n  empty = \"No records found.\",\n}: {\n  rows: T[];\n  columns: Array<Column<T>>;\n  empty?: string;\n}) {\n  if (rows.length === 0) return <div className=\"rounded-lg border p-6 text-sm text-muted-foreground\">{empty}</div>;\n\n  return (\n    <div className=\"overflow-x-auto rounded-lg border\">\n      <table className=\"w-full text-sm\">\n        <thead>\n          <tr>{columns.map((column) => <th key={String(column.key)} className=\"p-3 text-left\">{column.label}</th>)}</tr>\n        </thead>\n        <tbody>\n          {rows.map((row) => (\n            <tr key={row.id} className=\"border-t\">\n              {columns.map((column) => <td key={String(column.key)} className=\"p-3\">{String(row[column.key] ?? \"\")}</td>)}\n            </tr>\n          ))}\n        </tbody>\n      </table>\n    </div>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "data-table",
-      "target": ".agents/skills/data-table/SKILL.md",
+      "target": ".stackfoundry/skills/data-table/SKILL.md",
       "content": "---\nname: data-table\ndescription: Maintain the Data Table module installed by StackFoundry.\n---\n\n# Data Table Skill\n\n## Boundary\n\nThis module owns the Data Table source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/data-table.ts`\n- `apps/web/src/components/stackfoundry/data-table.tsx`\n- `apps/web/src/app/(console)/components/data-table/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
     }
   ],
@@ -39,16 +39,6 @@
   "meta": {
     "category": "components",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "data-table"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "safe-defaults"
-      ]
-    }
+    "status": "experimental"
   }
 }

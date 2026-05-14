@@ -22,7 +22,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "cloudflare-workflows",
       "cloudflare"
@@ -32,6 +33,5 @@
       "log-workflow-progress",
       "test-with-wrangler"
     ]
-  },
-  "status": "experimental"
+  }
 }

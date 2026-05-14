@@ -26,7 +26,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "cloudflare-d1",
       "cloudflare"
@@ -36,6 +37,5 @@
       "bind-d1-explicitly",
       "test-with-wrangler"
     ]
-  },
-  "status": "experimental"
+  }
 }

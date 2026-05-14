@@ -29,10 +29,10 @@
       "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function TaxandVATPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Tax and VAT</h1>\n        <p className=\"text-muted-foreground\">Tax/VAT collection status, business identifiers, and tax provider adapter boundary.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "tax-vat",
-      "target": ".agents/skills/tax-vat/SKILL.md",
+      "target": ".stackfoundry/skills/tax-vat/SKILL.md",
       "content": "---\nname: tax-vat\ndescription: Maintain the Tax and VAT module installed by StackFoundry.\n---\n\n# Tax and VAT Skill\n\n## Boundary\n\nThis module owns the Tax and VAT source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `packages/db/src/schema/tax-vat.ts`\n- `apps/web/src/lib/stackfoundry/tax-vat.ts`\n- `apps/web/src/app/(console)/billing/tax/page.tsx`\n\n## Dependencies\n\n- Depends on `billing-core`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
     }
   ],
@@ -42,16 +42,6 @@
     "category": "billing",
     "env": [],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "tax-vat"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "safe-defaults"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "taxVat"

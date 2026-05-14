@@ -33,7 +33,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "sentry-monitoring",
       "sentry",
@@ -44,6 +45,5 @@
       "filter-sensitive-context",
       "set-sampling-by-env"
     ]
-  },
-  "status": "experimental"
+  }
 }

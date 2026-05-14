@@ -29,7 +29,8 @@
       "type": "registry:file"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "docs-fumadocs",
       "fumadocs",
@@ -41,6 +42,5 @@
       "verify-before-release",
       "keep-provider-boundary"
     ]
-  },
-  "status": "experimental"
+  }
 }

@@ -25,15 +25,15 @@
       "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function CloudflareR2Page() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Cloudflare R2</h1>\n        <p className=\"text-muted-foreground\">Object storage adapter for files, exports, and generated assets.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "cloudflare-r2",
-      "target": ".agents/skills/cloudflare-r2/SKILL.md",
+      "target": ".stackfoundry/skills/cloudflare-r2/SKILL.md",
       "content": "---\nname: cloudflare-r2\ndescription: Maintain the Cloudflare R2 vendor registry block installed by StackFoundry.\n---\n\n# Cloudflare R2 Skill\n\n## Boundary\n\nThis block owns the Cloudflare R2 integration example only. Keep product-specific business logic outside the vendor adapter until the app has chosen this provider.\n\n## Source Files\n\n- `cloudflare/r2/storage.ts`\n- `apps/web/src/app/(console)/admin/cloudflare/r2/page.tsx`\n\n## Dependencies\n\n- `wrangler (dev)`\n\n## Environment\n\n- No vendor env vars declared.\n\n## Deployment Checks\n\n- Create the vendor project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current vendor docs.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one vendor.\n"
     },
     {
       "name": "cloudflare",
-      "target": ".agents/skills/cloudflare/SKILL.md",
+      "target": ".stackfoundry/skills/cloudflare/SKILL.md",
       "content": "---\nname: cloudflare\ndescription: Cloudflare platform guidance for installed Workers, storage, and edge modules.\n---\n\n# Cloudflare Guidance\n\n- Keep bindings explicit in config and docs.\n- Do not commit wrangler secrets or account credentials.\n- Document local dev, preview, and production deployment commands.\n- Verify bindings, routes, and logs after deploy.\n"
     }
   ],
@@ -42,17 +42,6 @@
   "meta": {
     "category": "storage",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "cloudflare-r2",
-        "cloudflare"
-      ],
-      "rules": [
-        "private-by-default",
-        "validate-object-keys",
-        "document-bucket-bindings"
-      ]
-    }
+    "status": "experimental"
   }
 }

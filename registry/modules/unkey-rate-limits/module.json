@@ -28,7 +28,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "unkey-rate-limits",
       "unkey"
@@ -38,6 +39,5 @@
       "return-standard-limit-headers",
       "avoid-client-side-root-key"
     ]
-  },
-  "status": "experimental"
+  }
 }

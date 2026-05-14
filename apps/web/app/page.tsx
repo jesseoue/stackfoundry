@@ -216,8 +216,8 @@ export default function Page() {
           <div className="hero-copy">
             <div className="eyebrow">
               <span className="dot" aria-hidden="true" />
-              <span>v0.1 public preview</span>
-              <span className="muted-label">for Next.js, Drizzle, Vercel</span>
+              <span>Production SaaS source registry</span>
+              <span className="muted-label">billing · auth · docs · ops · adapters</span>
             </div>
 
             <h1 className="display">

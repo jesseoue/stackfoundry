@@ -22,7 +22,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "cloudflare-kv",
       "cloudflare"
@@ -32,6 +33,5 @@
       "namespace-keys",
       "document-eventual-consistency"
     ]
-  },
-  "status": "experimental"
+  }
 }

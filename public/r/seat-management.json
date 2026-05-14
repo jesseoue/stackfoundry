@@ -30,10 +30,10 @@
       "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function SeatManagementPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Seat Management</h1>\n        <p className=\"text-muted-foreground\">Seat limits, assigned seats, and over-limit handling for B2B billing.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "seat-management",
-      "target": ".agents/skills/seat-management/SKILL.md",
+      "target": ".stackfoundry/skills/seat-management/SKILL.md",
       "content": "---\nname: seat-management\ndescription: Maintain the Seat Management module installed by StackFoundry.\n---\n\n# Seat Management Skill\n\n## Boundary\n\nThis module owns the Seat Management source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `packages/db/src/schema/seat-management.ts`\n- `apps/web/src/lib/stackfoundry/seat-management.ts`\n- `apps/web/src/app/(console)/billing/seats/page.tsx`\n\n## Dependencies\n\n- Depends on `billing-core`\n- Depends on `orgs-rbac`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
     }
   ],
@@ -43,16 +43,6 @@
     "category": "billing",
     "env": [],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "seat-management"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "safe-defaults"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "seatManagement"

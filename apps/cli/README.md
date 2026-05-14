@@ -5,6 +5,7 @@ The CLI is the local install engine for StackFoundry registry modules.
 ## Responsibilities
 
 - List modules and presets.
+- Browse canonical categories and search modules.
 - Validate registry source.
 - Build registry-compatible output.
 - Install modules or presets into a target app.
@@ -23,6 +24,10 @@ Shared logic is imported through workspace package aliases:
 
 ```bash
 pnpm cli list
+pnpm cli categories
+pnpm cli list --category billing
+pnpm cli search webhook
+pnpm cli info stripe-billing
 pnpm cli presets
 pnpm cli doctor
 pnpm cli build

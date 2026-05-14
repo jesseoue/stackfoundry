@@ -23,10 +23,10 @@
       "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function InputValidationPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Input Validation</h1>\n        <p className=\"text-muted-foreground\">Shared Zod validation helpers for server routes and forms.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "input-validation",
-      "target": ".agents/skills/input-validation/SKILL.md",
+      "target": ".stackfoundry/skills/input-validation/SKILL.md",
       "content": "---\nname: input-validation\ndescription: Maintain the Input Validation module installed by StackFoundry.\n---\n\n# Input Validation Skill\n\n## Boundary\n\nThis module owns the Input Validation source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/input-validation.ts`\n- `apps/web/src/app/(console)/admin/security/input-validation/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
     }
   ],
@@ -35,16 +35,6 @@
   "meta": {
     "category": "security",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "input-validation"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "safe-defaults"
-      ]
-    }
+    "status": "experimental"
   }
 }

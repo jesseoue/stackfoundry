@@ -8,10 +8,10 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "sdk-snippets",
-      "target": ".agents/skills/sdk-snippets/SKILL.md",
+      "target": ".stackfoundry/skills/sdk-snippets/SKILL.md",
       "content": "---\nname: sdk-snippets\ndescription: Maintain the SDK Snippets module installed by StackFoundry.\n---\n\n# SDK Snippets Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     }
   ],
@@ -20,15 +20,6 @@
   "meta": {
     "category": "api",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "sdk-snippets"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

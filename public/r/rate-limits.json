@@ -29,10 +29,10 @@
       "content": "const rules = [\n  { key: \"api.public\", limit: 120, window: \"60 seconds\" },\n  { key: \"auth.login\", limit: 10, window: \"5 minutes\" },\n];\n\nexport default function RateLimitsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Rate Limits</h1>\n        <p className=\"text-muted-foreground\">Define and review request limits for product and API surfaces.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {rules.map((rule) => (\n          <div key={rule.key} className=\"rounded-lg border p-4\">\n            <p className=\"font-medium\">{rule.key}</p>\n            <p className=\"text-sm text-muted-foreground\">{rule.limit} requests per {rule.window}</p>\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "rate-limits",
-      "target": ".agents/skills/rate-limits/SKILL.md",
+      "target": ".stackfoundry/skills/rate-limits/SKILL.md",
       "content": "---\nname: rate-limits\ndescription: Maintain the Rate Limits module installed by StackFoundry.\n---\n\n# Rate Limits Maintenance Instructions\n\n- Preserve the module boundary described in `docs.md`.\n- Keep public APIs small and typed.\n- Update tests/checklist.md when behavior changes.\n- Do not introduce secrets, generated machine metadata, or provider lock-in.\n- Keep Drizzle schema exports documented in module.json.\n"
     }
   ],
@@ -42,16 +42,6 @@
     "category": "operations",
     "env": [],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "rate-limits"
-      ],
-      "rules": [
-        "fail-closed-for-abuse",
-        "separate-subjects",
-        "document-bypass-rules"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "rateLimitRules",

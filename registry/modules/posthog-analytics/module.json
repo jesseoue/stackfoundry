@@ -30,7 +30,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "posthog-analytics",
       "posthog"
@@ -40,6 +41,5 @@
       "respect-consent",
       "disable-automatic-pageview-duplicates"
     ]
-  },
-  "status": "experimental"
+  }
 }

@@ -29,10 +29,10 @@
       "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function CouponsPromotionsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Coupons Promotions</h1>\n        <p className=\"text-muted-foreground\">Coupon, promotion code, and referral discount tracking.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "coupons-promotions",
-      "target": ".agents/skills/coupons-promotions/SKILL.md",
+      "target": ".stackfoundry/skills/coupons-promotions/SKILL.md",
       "content": "---\nname: coupons-promotions\ndescription: Maintain the Coupons Promotions module installed by StackFoundry.\n---\n\n# Coupons Promotions Skill\n\n## Boundary\n\nThis module owns the Coupons Promotions source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `packages/db/src/schema/coupons-promotions.ts`\n- `apps/web/src/lib/stackfoundry/coupons-promotions.ts`\n- `apps/web/src/app/(console)/billing/coupons/page.tsx`\n\n## Dependencies\n\n- Depends on `billing-core`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
     }
   ],
@@ -42,16 +42,6 @@
     "category": "billing",
     "env": [],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "coupons-promotions"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "safe-defaults"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "couponsPromotions"

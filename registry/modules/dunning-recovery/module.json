@@ -31,7 +31,8 @@
     ],
     "migrationRecommended": true
   },
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "dunning-recovery"
     ],
@@ -40,6 +41,5 @@
       "verify-before-release",
       "safe-defaults"
     ]
-  },
-  "status": "experimental"
+  }
 }

@@ -30,7 +30,8 @@
     ],
     "migrationRecommended": true
   },
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "data-retention"
     ],
@@ -39,6 +40,5 @@
       "verify-before-release",
       "keep-provider-boundary"
     ]
-  },
-  "status": "experimental"
+  }
 }

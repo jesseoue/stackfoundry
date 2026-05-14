@@ -8,10 +8,10 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "slack-notifications",
-      "target": ".agents/skills/slack-notifications/SKILL.md",
+      "target": ".stackfoundry/skills/slack-notifications/SKILL.md",
       "content": "---\nname: slack-notifications\ndescription: Maintain the Slack Notifications module installed by StackFoundry.\n---\n\n# Slack Notifications Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     }
   ],
@@ -20,15 +20,6 @@
   "meta": {
     "category": "notifications",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "slack-notifications"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

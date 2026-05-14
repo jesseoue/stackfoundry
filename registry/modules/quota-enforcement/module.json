@@ -21,7 +21,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "quota-enforcement"
     ],
@@ -30,6 +31,5 @@
       "verify-before-release",
       "audit-sensitive-actions"
     ]
-  },
-  "status": "experimental"
+  }
 }

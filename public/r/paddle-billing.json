@@ -8,15 +8,15 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "paddle-billing",
-      "target": ".agents/skills/paddle-billing/SKILL.md",
+      "target": ".stackfoundry/skills/paddle-billing/SKILL.md",
       "content": "---\nname: paddle-billing\ndescription: Maintain the Paddle Billing module installed by StackFoundry.\n---\n\n# Paddle Billing Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     },
     {
       "name": "paddle",
-      "target": ".agents/skills/paddle/SKILL.md",
+      "target": ".stackfoundry/skills/paddle/SKILL.md",
       "content": "---\nname: paddle\ndescription: Paddle billing guidance for installed billing modules.\n---\n\n# Paddle Guidance\n\n- Verify webhook signatures.\n- Keep product and price ids server-owned.\n- Document merchant-of-record tax assumptions.\n- Test subscription, payment failed, refund, and cancellation events.\n"
     }
   ],
@@ -25,16 +25,6 @@
   "meta": {
     "category": "billing",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "paddle-billing",
-        "paddle"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

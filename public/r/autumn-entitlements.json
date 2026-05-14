@@ -26,15 +26,15 @@
       "content": "const deployChecks = [\n  \"Model boolean, metered, and credit features in Autumn before enforcing gates\",\n  \"Use check before work and track after successful work unless check-and-consume is intentional\",\n  \"Set AUTUMN_SECRET_KEY in preview and production environments\",\n  \"Keep local entitlement names mapped to Autumn feature ids\",\n];\n\nexport default function AutumnEntitlementsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Autumn Entitlements</h1>\n        <p className=\"text-muted-foreground\">\n          Optional Autumn adapter for feature checks, metered usage, credits, and upgrade context.\n        </p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "autumn-entitlements",
-      "target": ".agents/skills/autumn-entitlements/SKILL.md",
+      "target": ".stackfoundry/skills/autumn-entitlements/SKILL.md",
       "content": "---\nname: autumn-entitlements\ndescription: Maintain the optional Autumn Entitlements adapter installed by StackFoundry.\n---\n\n# Autumn Entitlements Maintenance Instructions\n\n- Treat Autumn as an optional provider adapter. Keep `entitlements` and `plan-gating` as the source-owned default path.\n- Map local entitlement names to Autumn feature ids in one server-side boundary.\n- Use `check` before expensive work and `track` after successful work unless check-and-consume is explicitly required.\n- Include idempotency keys when tracking usage from retryable requests or jobs.\n- Test boolean features, metered features, exhausted included usage, overage-enabled usage, and denied upgrade prompts.\n- Do not introduce provider lock-in outside the adapter boundary.\n"
     },
     {
       "name": "autumn",
-      "target": ".agents/skills/autumn/SKILL.md",
+      "target": ".stackfoundry/skills/autumn/SKILL.md",
       "content": "---\nname: autumn\ndescription: Autumn billing and entitlement guidance for installed modules.\n---\n\n# Autumn Guidance\n\n- Keep provider keys server-only.\n- Document entitlement names and metered features.\n- Verify checks before gating user actions.\n- Test plan changes, overages, and credit behavior.\n"
     }
   ],
@@ -47,18 +47,6 @@
     "env": [
       "AUTUMN_SECRET_KEY"
     ],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "autumn-entitlements",
-        "autumn"
-      ],
-      "rules": [
-        "keep-provider-boundary",
-        "check-before-consuming",
-        "use-idempotency-keys",
-        "preserve-local-plan-gates"
-      ]
-    }
+    "status": "experimental"
   }
 }

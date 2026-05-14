@@ -29,10 +29,10 @@
       "content": "const tasks = [\n  \"Configure defaults\",\n  \"Connect persistence or provider adapter\",\n  \"Verify production checklist\",\n];\n\nexport default function EnterpriseSSOPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Enterprise SSO</h1>\n        <p className=\"text-muted-foreground\">SAML/OIDC connection metadata, enforcement policy, and setup checklist.</p>\n      </div>\n      <ul className=\"grid gap-3\">\n        {tasks.map((task) => (\n          <li key={task} className=\"rounded-lg border p-4 text-sm\">{task}</li>\n        ))}\n      </ul>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "enterprise-sso",
-      "target": ".agents/skills/enterprise-sso/SKILL.md",
+      "target": ".stackfoundry/skills/enterprise-sso/SKILL.md",
       "content": "---\nname: enterprise-sso\ndescription: Maintain the Enterprise SSO module installed by StackFoundry.\n---\n\n# Enterprise SSO Maintenance Instructions\n\n- Preserve the ownership and setup guidance in `docs.md`.\n- Keep source templates small and provider-neutral.\n- Update `tests/checklist.md` with behavior changes.\n- Do not commit secrets, local state, or generated machine metadata.\n- Keep Drizzle schema exports synchronized with `module.json`.\n"
     }
   ],
@@ -42,16 +42,6 @@
     "category": "auth",
     "env": [],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "enterprise-sso"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "audit-sensitive-actions"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "enterpriseSso"

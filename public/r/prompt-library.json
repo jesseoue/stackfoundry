@@ -8,10 +8,10 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "prompt-library",
-      "target": ".agents/skills/prompt-library/SKILL.md",
+      "target": ".stackfoundry/skills/prompt-library/SKILL.md",
       "content": "---\nname: prompt-library\ndescription: Maintain the Prompt Library module installed by StackFoundry.\n---\n\n# Prompt Library Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     }
   ],
@@ -20,15 +20,6 @@
   "meta": {
     "category": "ai",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "prompt-library"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

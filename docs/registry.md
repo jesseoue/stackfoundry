@@ -21,7 +21,7 @@ Each module has:
 - `env`: required environment variables
 - `files`: files installed into the target app
 - `drizzle`: schema/migration metadata
-- `agents`: maintenance instruction metadata
+- `maintenance`: maintenance skill and review metadata
 - `status`: planned, experimental, stable
 
 ## Registry Model

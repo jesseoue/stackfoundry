@@ -1,4 +1,4 @@
-# Agent Skills
+# Maintenance Skills
 
 Every module includes module-specific maintenance instructions in:
 
@@ -24,11 +24,11 @@ Technology guidance that applies to multiple modules lives in:
 registry/skills/<technology>/SKILL.md
 ```
 
-Reference shared skills from `module.json` with `agents.skills`:
+Reference shared skills from `module.json` in `maintenance.skills`:
 
 ```json
 {
-  "agents": {
+  "maintenance": {
     "skills": ["stripe-billing", "stripe", "drizzle", "nextjs"]
   }
 }
@@ -39,18 +39,14 @@ By default, a skill named the same as the module is read from `skill/SKILL.md`. 
 For modules that need a custom source or install location, use an object entry:
 
 ```json
-{
-  "agents": {
-    "skills": [
-      "stripe-billing",
-      {
-        "name": "stripe",
-        "source": "agent/stripe-skill.md",
-        "target": ".agents/skills/stripe/SKILL.md"
-      }
-    ]
+[
+  "stripe-billing",
+  {
+    "name": "stripe",
+    "source": "skill/stripe-skill.md",
+    "target": ".stackfoundry/skills/stripe/SKILL.md"
   }
-}
+]
 ```
 
 ## Installed Location
@@ -58,10 +54,10 @@ For modules that need a custom source or install location, use an object entry:
 When a module is installed, module and technology skills are copied to:
 
 ```text
-.agents/skills/<skill>/SKILL.md
+.stackfoundry/skills/<skill>/SKILL.md
 ```
 
-Generated registry blocks also embed `agentSkills`, so installs from `https://stackfoundry.dev/r/<module>.json` carry the same maintenance guidance as local module installs.
+Generated registry blocks also embed `maintenanceSkills`, so installs from `https://stackfoundry.dev/r/<module>.json` carry the same maintenance guidance as local module installs.
 
 Module skills should explain the files owned by the module, required environment variables, deployment checks, and invariants that future maintainers must preserve. Shared technology skills should stay provider- or framework-level and avoid repeating module-specific instructions.
 

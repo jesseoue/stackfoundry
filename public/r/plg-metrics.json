@@ -8,10 +8,10 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "plg-metrics",
-      "target": ".agents/skills/plg-metrics/SKILL.md",
+      "target": ".stackfoundry/skills/plg-metrics/SKILL.md",
       "content": "---\nname: plg-metrics\ndescription: Maintain the PLG Metrics module installed by StackFoundry.\n---\n\n# PLG Metrics Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     }
   ],
@@ -20,15 +20,6 @@
   "meta": {
     "category": "growth",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "plg-metrics"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

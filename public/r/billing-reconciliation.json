@@ -30,10 +30,10 @@
       "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function BillingReconciliationPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Billing Reconciliation</h1>\n        <p className=\"text-muted-foreground\">Provider/database drift checks and reconciliation job status.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "billing-reconciliation",
-      "target": ".agents/skills/billing-reconciliation/SKILL.md",
+      "target": ".stackfoundry/skills/billing-reconciliation/SKILL.md",
       "content": "---\nname: billing-reconciliation\ndescription: Maintain the Billing Reconciliation module installed by StackFoundry.\n---\n\n# Billing Reconciliation Skill\n\n## Boundary\n\nThis module owns the Billing Reconciliation source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `packages/db/src/schema/billing-reconciliation.ts`\n- `apps/web/src/lib/stackfoundry/billing-reconciliation.ts`\n- `apps/web/src/app/(console)/billing/reconciliation/page.tsx`\n\n## Dependencies\n\n- Depends on `billing-core`\n- Depends on `background-jobs`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
     }
   ],
@@ -43,16 +43,6 @@
     "category": "billing",
     "env": [],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "billing-reconciliation"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "safe-defaults"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "billingReconciliation"

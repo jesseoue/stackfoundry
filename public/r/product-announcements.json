@@ -24,10 +24,10 @@
       "content": "const checklist = [\n  \"Choose audience and channel.\",\n  \"Preview in-app, banner, and email variants.\",\n  \"Respect notification preferences.\",\n  \"Coordinate with changelog and roadmap updates.\",\n];\n\nexport default function ProductAnnouncementsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Product Announcements</h1>\n        <p className=\"text-muted-foreground\">Launch, release, and maintenance notices across product channels.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">\n            {item}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "product-announcements",
-      "target": ".agents/skills/product-announcements/SKILL.md",
+      "target": ".stackfoundry/skills/product-announcements/SKILL.md",
       "content": "---\nname: product-announcements\ndescription: Maintain the Product Announcements module installed by StackFoundry.\n---\n\n# Product Announcements Skill\n\n- Respect notification preferences and unsubscribe requirements.\n- Keep customer-facing announcement copy separate from internal launch notes.\n- Require explicit audience, channel, scheduled time, and rollback notes.\n- Coordinate shipped announcements with changelog, roadmap, and lifecycle email.\n- Verify preview rendering before sending or publishing.\n"
     }
   ],
@@ -36,16 +36,6 @@
   "meta": {
     "category": "communications",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "product-announcements"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "respect-notification-preferences"
-      ]
-    }
+    "status": "experimental"
   }
 }

@@ -24,10 +24,10 @@
       "content": "const items = [\n  { title: \"Configure\", description: \"Set ownership, defaults, and permissions.\" },\n  { title: \"Operate\", description: \"Review status, recent activity, and unresolved work.\" },\n  { title: \"Verify\", description: \"Run the checklist before enabling this module in production.\" },\n];\n\nexport default function ApiUsageDashboardPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">API Usage Dashboard</h1>\n        <p className=\"text-muted-foreground\">Per-key usage cards, request totals, errors, and limit visibility.</p>\n      </div>\n      <div className=\"grid gap-3 md:grid-cols-3\">\n        {items.map((item) => (\n          <section key={item.title} className=\"rounded-lg border p-4\">\n            <h2 className=\"font-medium\">{item.title}</h2>\n            <p className=\"text-sm text-muted-foreground\">{item.description}</p>\n          </section>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "api-usage-dashboard",
-      "target": ".agents/skills/api-usage-dashboard/SKILL.md",
+      "target": ".stackfoundry/skills/api-usage-dashboard/SKILL.md",
       "content": "---\nname: api-usage-dashboard\ndescription: Maintain the API Usage Dashboard module installed by StackFoundry.\n---\n\n# API Usage Dashboard Maintenance Instructions\n\n- Preserve the module ownership described in `docs.md`.\n- Keep default source templates compact, typed, and provider-neutral.\n- Update `tests/checklist.md` when behavior changes.\n- Do not commit secrets, local state, or generated machine metadata.\n"
     }
   ],
@@ -36,16 +36,6 @@
   "meta": {
     "category": "developer-platform",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "api-usage-dashboard"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "keep-provider-boundary"
-      ]
-    }
+    "status": "experimental"
   }
 }

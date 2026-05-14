@@ -34,7 +34,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "resend-email",
       "resend"
@@ -44,6 +45,5 @@
       "include-plain-text-fallback",
       "avoid-email-threading"
     ]
-  },
-  "status": "experimental"
+  }
 }

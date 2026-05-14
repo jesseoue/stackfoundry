@@ -8,15 +8,15 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "linear-integration",
-      "target": ".agents/skills/linear-integration/SKILL.md",
+      "target": ".stackfoundry/skills/linear-integration/SKILL.md",
       "content": "---\nname: linear-integration\ndescription: Maintain the Linear Integration module installed by StackFoundry.\n---\n\n# Linear Integration Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     },
     {
       "name": "linear",
-      "target": ".agents/skills/linear/SKILL.md",
+      "target": ".stackfoundry/skills/linear/SKILL.md",
       "content": "---\nname: linear\ndescription: Linear integration guidance for installed modules.\n---\n\n# Linear Guidance\n\n- Keep API keys and webhook secrets server-only.\n- Document workspace, team, and project mappings.\n- Verify webhook signatures when enabled.\n- Test issue creation and sync idempotency.\n"
     }
   ],
@@ -25,16 +25,6 @@
   "meta": {
     "category": "project-management",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "linear-integration",
-        "linear"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

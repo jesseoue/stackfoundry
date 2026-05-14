@@ -3,7 +3,7 @@
 - [Registry](./registry.md)
 - [Modules](./modules.md)
 - [Providers](./providers.md)
-- [Maintenance instructions](./agents.md)
+- [Maintenance instructions](./maintenance.md)
 - [Repository map](./repository.md)
 - [Registry compatibility](./registry-compat.md)
 

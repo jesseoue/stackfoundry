@@ -21,10 +21,10 @@
       "content": "export type WorkspaceSettingsSection = {\n  id: string;\n  title: string;\n  href: string;\n};\n\nexport const workspaceSettingsSections: WorkspaceSettingsSection[] = [\n  { id: \"members\", title: \"Members\", href: \"/settings/workspace\" },\n  { id: \"billing\", title: \"Billing\", href: \"/settings/workspace/billing\" },\n  { id: \"security\", title: \"Security\", href: \"/settings/workspace/security\" },\n];\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "workspace-settings",
-      "target": ".agents/skills/workspace-settings/SKILL.md",
+      "target": ".stackfoundry/skills/workspace-settings/SKILL.md",
       "content": "---\nname: workspace-settings\ndescription: Maintain the Workspace Settings module installed by StackFoundry.\n---\n\n# Workspace Settings Maintenance Instructions\n\n- Preserve the module boundary described in `docs.md`.\n- Keep public APIs small and typed.\n- Update tests/checklist.md when behavior changes.\n- Do not introduce secrets, generated machine metadata, or provider lock-in.\n"
     }
   ],
@@ -33,16 +33,6 @@
   "meta": {
     "category": "auth",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "workspace-settings"
-      ],
-      "rules": [
-        "enforce-org-membership",
-        "scope-settings-by-workspace",
-        "audit-sensitive-changes"
-      ]
-    }
+    "status": "experimental"
   }
 }

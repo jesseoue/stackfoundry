@@ -9,7 +9,8 @@
   "registryDependencies": [],
   "env": [],
   "files": [],
-  "agents": {
+  "status": "planned",
+  "maintenance": {
     "skills": [
       "plg-metrics"
     ],
@@ -17,6 +18,5 @@
       "document-invariants",
       "verify-before-release"
     ]
-  },
-  "status": "planned"
+  }
 }

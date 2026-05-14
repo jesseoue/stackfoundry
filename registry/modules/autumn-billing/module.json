@@ -25,7 +25,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "autumn-billing",
       "autumn"
@@ -36,6 +37,5 @@
       "verify-checkout-redirects",
       "never-trust-client-plan-ids"
     ]
-  },
-  "status": "experimental"
+  }
 }

@@ -29,10 +29,10 @@
       "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function IdempotencyKeysPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Idempotency Keys</h1>\n        <p className=\"text-muted-foreground\">Idempotency-Key storage and replay helpers for mutating endpoints.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "idempotency-keys",
-      "target": ".agents/skills/idempotency-keys/SKILL.md",
+      "target": ".stackfoundry/skills/idempotency-keys/SKILL.md",
       "content": "---\nname: idempotency-keys\ndescription: Maintain the Idempotency Keys module installed by StackFoundry.\n---\n\n# Idempotency Keys Skill\n\n## Boundary\n\nThis module owns the Idempotency Keys source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `packages/db/src/schema/idempotency-keys.ts`\n- `apps/web/src/lib/stackfoundry/idempotency-keys.ts`\n- `apps/web/src/app/(console)/developers/idempotency/page.tsx`\n\n## Dependencies\n\n- Depends on `drizzle-postgres`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
     }
   ],
@@ -42,16 +42,6 @@
     "category": "developer-platform",
     "env": [],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "idempotency-keys"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "safe-defaults"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "idempotencyKeys"

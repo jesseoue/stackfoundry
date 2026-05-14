@@ -79,6 +79,7 @@ The registry now includes core modules, vendor examples, and registry-compatible
 ### Growth and Analytics
 
 - `posthog-analytics`
+- `tinybird-analytics`
 - `plg-metrics`
 - `aarrr-dashboard`
 - `activation-onboarding`
@@ -95,6 +96,7 @@ The registry now includes core modules, vendor examples, and registry-compatible
 - `docs-help-center`
 - `api-docs`
 - `seo`
+- `ai-seo`
 
 ### Operations
 
@@ -115,7 +117,9 @@ The registry now includes core modules, vendor examples, and registry-compatible
 - `trigger-dev-jobs`
 - `vercel-workflows`
 - `upstash-redis`
+- `knock-notifications`
 - `resend-email`
+- `tinybird-analytics`
 - `posthog-analytics`
 - `arcjet-security`
 

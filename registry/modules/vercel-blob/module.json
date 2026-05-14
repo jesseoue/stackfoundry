@@ -28,7 +28,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "vercel-blob",
       "vercel"
@@ -38,6 +39,5 @@
       "choose-public-vs-private-explicitly",
       "store-metadata-in-db"
     ]
-  },
-  "status": "experimental"
+  }
 }

@@ -20,7 +20,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "billing-portal"
     ],
@@ -29,6 +30,5 @@
       "verify-before-release",
       "safe-defaults"
     ]
-  },
-  "status": "experimental"
+  }
 }

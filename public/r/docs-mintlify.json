@@ -35,20 +35,20 @@
       "content": "# Mintlify Deployment Guide\n\nUse Mintlify when documentation should deploy as a hosted docs site outside the main app.\n\n## Preview\n\n```bash\ncd docs/mintlify\nmint dev\n```\n\n## Deploy\n\n1. Create or open the Mintlify project.\n2. Connect the Git repository.\n3. Set the docs root to `docs/mintlify` if the repository also contains application code.\n4. Confirm the production docs URL.\n5. Record the URL in the target repository's README or deployment notes.\n\n## Verify\n\n- `mint dev` works locally.\n- The production docs URL loads.\n- Navigation links resolve.\n- Introduction and quickstart pages have title and description frontmatter.\n# Mintlify Deployment Guide\n\nUse Mintlify when documentation should deploy as a hosted docs site outside the main app.\n\n## Preview\n\nRun from the docs root:\n\n```bash\ncd docs/mintlify\nmint dev\n```\n\nThe local preview should render the navigation from `docs.json` and the MDX pages in this directory.\n\n## Deploy\n\n1. Create or open the Mintlify project.\n2. Connect the Git repository.\n3. Set the docs root to `docs/mintlify` if the repository also contains application code.\n4. Confirm the production docs URL.\n5. Record the URL in the target repository's README or deployment notes.\n\n## Verify\n\n- `mint dev` works locally.\n- The production docs URL loads.\n- Navigation links resolve.\n- Introduction and quickstart pages have title and description frontmatter.\n- Any custom domain has DNS configured and TLS active.\n# Mintlify Deployment Guide\n\nUse Mintlify when documentation should deploy as a hosted docs site outside the main app.\n\n## Preview\n\nRun from the docs root:\n\n```bash\ncd docs/mintlify\nmint dev\n```\n\nThe local preview should render the navigation from `docs.json` and the MDX pages in this directory.\n\n## Deploy\n\n1. Create or open the Mintlify project.\n2. Connect the Git repository.\n3. Set the docs root to `docs/mintlify` if the repository also contains application code.\n4. Confirm the production docs URL.\n5. Record the URL in the target repository's README or deployment notes.\n\n## Verify\n\n- `mint dev` works locally.\n- The production docs URL loads.\n- Navigation links resolve.\n- Introduction and quickstart pages have title and description frontmatter.\n- Any custom domain has DNS configured and TLS active.\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "docs-mintlify",
-      "target": ".agents/skills/docs-mintlify/SKILL.md",
+      "target": ".stackfoundry/skills/docs-mintlify/SKILL.md",
       "content": "---\nname: docs-mintlify\ndescription: Maintain the Mintlify Docs module installed by StackFoundry.\n---\n\n# Mintlify Docs Maintenance Instructions\n\n- Use this module when docs should deploy as a hosted documentation workspace.\n- Keep Mintlify files under `docs/mintlify` unless the user chooses a different docs root.\n- Run `mint dev` from the directory that contains `docs.json`.\n- Help the user connect the docs repository and record the production docs URL.\n- Keep navigation in `docs.json` aligned with MDX files.\n---\nname: docs-mintlify\ndescription: Maintain the Mintlify Docs module installed by StackFoundry.\n---\n\n# Mintlify Docs Skill\n\n## Purpose\n\nHosted documentation workspace starter with Mintlify configuration, pages, and deployment guidance.\n\n## Ownership\n\n- `docs/mintlify/docs.json`\n- `docs/mintlify/introduction.mdx`\n- `docs/mintlify/quickstart.mdx`\n- `docs/mintlify/deployment.md`\n\n## Defaults\n\n- Keep the module source-owned and easy to replace.\n- Keep provider-specific code in this module only when the module is explicitly provider-specific.\n- Keep shared domain behavior provider-neutral.\n- Keep env vars server-only unless the variable is intentionally public and prefixed accordingly.\n\n## Safety Rules\n\n- Never add secrets, provider credentials, private customer data, local caches, or generated machine metadata.\n- Document auth, tenant, billing, and data-access assumptions before changing behavior.\n- Add or preserve audit guidance for sensitive state changes.\n- Prefer explicit failures over silent fallback behavior for production paths.\n\n## Change Checklist\n\n- Update `module.json` when files, dependencies, env vars, status, or registry dependencies change.\n- Update `docs.md` when setup, ownership, provider boundaries, or deployment behavior changes.\n- Update `tests/checklist.md` when verification expectations change.\n- Run `pnpm registry:doctor` and a module install dry-run before handoff.\n"
     },
     {
       "name": "mintlify",
-      "target": ".agents/skills/mintlify/SKILL.md",
+      "target": ".stackfoundry/skills/mintlify/SKILL.md",
       "content": "---\nname: mintlify\ndescription: Mintlify guidance for installed docs modules.\n---\n\n# Mintlify Guidance\n\n- Use Mintlify for hosted docs workspaces.\n- Run mint dev from the docs.json directory.\n- Keep navigation aligned with MDX files.\n- Record production docs URL and custom domain settings.\n"
     },
     {
       "name": "docs-hosting",
-      "target": ".agents/skills/docs-hosting/SKILL.md",
+      "target": ".stackfoundry/skills/docs-hosting/SKILL.md",
       "content": "---\nname: docs-hosting\ndescription: Documentation hosting guidance for installed docs modules.\n---\n\n# Docs Hosting Guidance\n\n- Choose in-app docs or hosted docs explicitly.\n- Record preview URL, production URL, docs root, and owner.\n- Verify local preview and production deploy.\n- Check metadata, sitemap, and broken links.\n"
     }
   ],
@@ -57,18 +57,6 @@
   "meta": {
     "category": "docs",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "docs-mintlify",
-        "mintlify",
-        "docs-hosting"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "keep-provider-boundary"
-      ]
-    }
+    "status": "experimental"
   }
 }

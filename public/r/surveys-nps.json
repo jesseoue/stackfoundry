@@ -8,10 +8,10 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "surveys-nps",
-      "target": ".agents/skills/surveys-nps/SKILL.md",
+      "target": ".stackfoundry/skills/surveys-nps/SKILL.md",
       "content": "---\nname: surveys-nps\ndescription: Maintain the Surveys and NPS module installed by StackFoundry.\n---\n\n# Surveys and NPS Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     }
   ],
@@ -20,15 +20,6 @@
   "meta": {
     "category": "growth",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "surveys-nps"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

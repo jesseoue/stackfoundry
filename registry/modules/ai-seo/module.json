@@ -1,0 +1,46 @@
+{
+  "name": "ai-seo",
+  "type": "module",
+  "category": "marketing",
+  "title": "AI SEO",
+  "description": "llms.txt, llms-full.txt, and AI sitemap routes for AI-ready discovery.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "seo"
+  ],
+  "env": [
+    "NEXT_PUBLIC_SITE_URL"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/ai-seo.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/llms.txt/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/llms-full.txt/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/ai-sitemap.json/route.ts",
+      "type": "registry:file"
+    }
+  ],
+  "status": "experimental",
+  "maintenance": {
+    "skills": [
+      "ai-seo",
+      "nextjs",
+      "docs-hosting"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "keep-canonical-context-current"
+    ]
+  }
+}

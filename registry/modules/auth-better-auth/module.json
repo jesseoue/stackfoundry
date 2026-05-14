@@ -31,7 +31,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "auth-better-auth",
       "better-auth",
@@ -42,6 +43,5 @@
       "protect-secret",
       "document-enabled-plugins"
     ]
-  },
-  "status": "experimental"
+  }
 }

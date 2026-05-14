@@ -25,7 +25,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "autumn-entitlements",
       "autumn"
@@ -36,6 +37,5 @@
       "use-idempotency-keys",
       "preserve-local-plan-gates"
     ]
-  },
-  "status": "experimental"
+  }
 }

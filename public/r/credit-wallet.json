@@ -30,10 +30,10 @@
       "content": "const checklist = [\n  \"Grant credits through checkout, admin action, or promotion.\",\n  \"Consume credits with an idempotency key for every billable action.\",\n  \"Block usage before a balance can become negative.\",\n  \"Show low-balance and upgrade prompts before users get stuck.\",\n];\n\nexport default function CreditWalletPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Credit Wallet</h1>\n        <p className=\"text-muted-foreground\">Prepaid credit ledger for AI, usage, and credit-pack billing.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\nconst checklist = [\n  \"Grant credits through checkout, admin action, or promotion.\",\n  \"Consume credits with an idempotency key for every billable action.\",\n  \"Block usage before a balance can become negative.\",\n  \"Show low-balance and upgrade prompts before users get stuck.\",\n];\n\nexport default function CreditWalletPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Credit Wallet</h1>\n        <p className=\"text-muted-foreground\">Prepaid credit ledger for AI, usage, and credit-pack billing.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">\n            {item}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "credit-wallet",
-      "target": ".agents/skills/credit-wallet/SKILL.md",
+      "target": ".stackfoundry/skills/credit-wallet/SKILL.md",
       "content": "---\nname: credit-wallet\ndescription: Maintain the Credit Wallet module installed by StackFoundry.\n---\n\n# Credit Wallet Skill\n\n## Purpose\n\nUse this module for prepaid credit systems, AI token wallets, usage top-ups, and admin-issued credits.\n\n## Safety Rules\n\n- Derive balances from the ledger instead of storing mutable balance as the source of truth.\n- Require idempotency keys for consumption tied to requests, jobs, or inference ids.\n- Never allow silent negative balances.\n- Record source, actor, and expiration for credit grants when available.\n\n## Change Checklist\n\n- Update `module.json`, `docs.md`, and `tests/checklist.md` when file targets or invariants change.\n- Verify grant, consume, refund, expiration, and insufficient-credit paths.\n- Run `pnpm registry:doctor` and a module install dry-run before handoff.\n"
     }
   ],
@@ -43,16 +43,6 @@
     "category": "billing",
     "env": [],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "credit-wallet"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "never-allow-negative-balance"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "creditWalletLedger"

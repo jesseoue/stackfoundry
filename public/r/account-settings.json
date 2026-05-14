@@ -21,10 +21,10 @@
       "content": "export type AccountSettingsSection = {\n  id: string;\n  title: string;\n  href: string;\n};\n\nexport const accountSettingsSections: AccountSettingsSection[] = [\n  { id: \"profile\", title: \"Profile\", href: \"/settings/account\" },\n  { id: \"security\", title: \"Security\", href: \"/settings/account/security\" },\n  { id: \"notifications\", title: \"Notifications\", href: \"/settings/account/notifications\" },\n];\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "account-settings",
-      "target": ".agents/skills/account-settings/SKILL.md",
+      "target": ".stackfoundry/skills/account-settings/SKILL.md",
       "content": "---\nname: account-settings\ndescription: Maintain the Account Settings module installed by StackFoundry.\n---\n\n# Account Settings Maintenance Instructions\n\n- Preserve the module boundary described in `docs.md`.\n- Keep public APIs small and typed.\n- Update tests/checklist.md when behavior changes.\n- Do not introduce secrets, generated machine metadata, or provider lock-in.\n"
     }
   ],
@@ -33,16 +33,6 @@
   "meta": {
     "category": "auth",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "account-settings"
-      ],
-      "rules": [
-        "separate-user-and-workspace-settings",
-        "protect-security-actions",
-        "confirm-destructive-actions"
-      ]
-    }
+    "status": "experimental"
   }
 }

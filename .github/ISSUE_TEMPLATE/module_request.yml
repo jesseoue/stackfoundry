@@ -21,4 +21,4 @@ body:
     id: systems
     attributes:
       label: Systems involved
-      description: UI, routes, schemas, env, docs, tests, agent skills, providers.
+      description: UI, routes, schemas, env, docs, tests, maintenance skills, providers.

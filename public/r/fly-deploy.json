@@ -8,15 +8,15 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "fly-deploy",
-      "target": ".agents/skills/fly-deploy/SKILL.md",
+      "target": ".stackfoundry/skills/fly-deploy/SKILL.md",
       "content": "---\nname: fly-deploy\ndescription: Maintain the Fly Deploy module installed by StackFoundry.\n---\n\n# Fly Deploy Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     },
     {
       "name": "fly",
-      "target": ".agents/skills/fly/SKILL.md",
+      "target": ".stackfoundry/skills/fly/SKILL.md",
       "content": "---\nname: fly\ndescription: Fly.io deployment guidance for installed deploy modules.\n---\n\n# Fly Guidance\n\n- Document app names, regions, volumes, and secrets.\n- Keep deploy tokens out of source.\n- Verify health checks and rollback path.\n- Record production URL and region choices.\n"
     }
   ],
@@ -25,16 +25,6 @@
   "meta": {
     "category": "deploy",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "fly-deploy",
-        "fly"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

@@ -8,10 +8,10 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "next-saas",
-      "target": ".agents/skills/next-saas/SKILL.md",
+      "target": ".stackfoundry/skills/next-saas/SKILL.md",
       "content": "---\nname: next-saas\ndescription: Maintain the Next SaaS module installed by StackFoundry.\n---\n\n# Next SaaS Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     }
   ],
@@ -20,15 +20,6 @@
   "meta": {
     "category": "foundation",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "next-saas"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

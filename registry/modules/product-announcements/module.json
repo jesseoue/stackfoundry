@@ -21,7 +21,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "product-announcements"
     ],
@@ -30,6 +31,5 @@
       "verify-before-release",
       "respect-notification-preferences"
     ]
-  },
-  "status": "experimental"
+  }
 }

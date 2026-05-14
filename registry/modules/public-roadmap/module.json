@@ -20,7 +20,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "public-roadmap"
     ],
@@ -29,6 +30,5 @@
       "verify-before-release",
       "avoid-private-roadmap-leaks"
     ]
-  },
-  "status": "experimental"
+  }
 }

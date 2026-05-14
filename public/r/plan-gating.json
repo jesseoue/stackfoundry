@@ -23,10 +23,10 @@
       "content": "const items = [\n  { title: \"Configure\", description: \"Set ownership, defaults, and permissions.\" },\n  { title: \"Operate\", description: \"Review status, recent activity, and unresolved work.\" },\n  { title: \"Verify\", description: \"Run the checklist before enabling this module in production.\" },\n];\n\nexport default function PlanGatingPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Plan Gating</h1>\n        <p className=\"text-muted-foreground\">Server-side plan checks and upgrade prompt surfaces.</p>\n      </div>\n      <div className=\"grid gap-3 md:grid-cols-3\">\n        {items.map((item) => (\n          <section key={item.title} className=\"rounded-lg border p-4\">\n            <h2 className=\"font-medium\">{item.title}</h2>\n            <p className=\"text-sm text-muted-foreground\">{item.description}</p>\n          </section>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "plan-gating",
-      "target": ".agents/skills/plan-gating/SKILL.md",
+      "target": ".stackfoundry/skills/plan-gating/SKILL.md",
       "content": "---\nname: plan-gating\ndescription: Maintain the Plan Gating module installed by StackFoundry.\n---\n\n# Plan Gating Maintenance Instructions\n\n- Preserve the module ownership described in `docs.md`.\n- Keep default source templates compact, typed, and provider-neutral.\n- Update `tests/checklist.md` when behavior changes.\n- Do not commit secrets, local state, or generated machine metadata.\n"
     }
   ],
@@ -35,16 +35,6 @@
   "meta": {
     "category": "billing",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "plan-gating"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "keep-provider-boundary"
-      ]
-    }
+    "status": "experimental"
   }
 }

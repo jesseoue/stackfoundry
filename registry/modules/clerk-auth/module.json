@@ -40,7 +40,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "clerk-auth",
       "clerk",
@@ -51,6 +52,5 @@
       "server-first-auth",
       "keep-authorization-in-app-code"
     ]
-  },
-  "status": "experimental"
+  }
 }

@@ -35,20 +35,20 @@
       "content": "const deployChecks = [\n  \"Create the vendor project and add production env vars\",\n  \"Run the included smoke route after deploy\",\n  \"Document alerting, retries, and rollback behavior\",\n];\n\nexport default function SentryMonitoringPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Sentry Monitoring</h1>\n        <p className=\"text-muted-foreground\">Error monitoring and release-aware diagnostics for Next.js deployments.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {deployChecks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "sentry-monitoring",
-      "target": ".agents/skills/sentry-monitoring/SKILL.md",
+      "target": ".stackfoundry/skills/sentry-monitoring/SKILL.md",
       "content": "---\nname: sentry-monitoring\ndescription: Maintain the Sentry Monitoring vendor registry block installed by StackFoundry.\n---\n\n# Sentry Monitoring Skill\n\n## Boundary\n\nThis block owns the Sentry Monitoring integration example only. Keep product-specific business logic outside the vendor adapter until the app has chosen this provider.\n\n## Source Files\n\n- `apps/web/src/lib/sentry/capture.ts`\n- `apps/web/sentry.client.config.ts`\n- `apps/web/sentry.server.config.ts`\n- `apps/web/src/app/(console)/admin/vendors/sentry/page.tsx`\n\n## Dependencies\n\n- `@sentry/nextjs`\n\n## Environment\n\n- `NEXT_PUBLIC_SENTRY_DSN`\n- `SENTRY_AUTH_TOKEN`\n- `SENTRY_ORG`\n- `SENTRY_PROJECT`\n\n## Deployment Checks\n\n- Create the vendor project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current vendor docs.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one vendor.\n"
     },
     {
       "name": "sentry",
-      "target": ".agents/skills/sentry/SKILL.md",
+      "target": ".stackfoundry/skills/sentry/SKILL.md",
       "content": "---\nname: sentry\ndescription: Sentry monitoring guidance for installed observability modules.\n---\n\n# Sentry Guidance\n\n- Keep DSN and auth token usage documented.\n- Scrub PII and secrets before capture.\n- Document release, environment, and sampling behavior.\n- Verify errors are captured in preview before production.\n"
     },
     {
       "name": "nextjs",
-      "target": ".agents/skills/nextjs/SKILL.md",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
       "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
     }
   ],
@@ -67,18 +67,6 @@
       "SENTRY_ORG",
       "SENTRY_PROJECT"
     ],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "sentry-monitoring",
-        "sentry",
-        "nextjs"
-      ],
-      "rules": [
-        "upload-source-maps-in-ci",
-        "filter-sensitive-context",
-        "set-sampling-by-env"
-      ]
-    }
+    "status": "experimental"
   }
 }

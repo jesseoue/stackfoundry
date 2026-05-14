@@ -29,10 +29,10 @@
       "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function FeatureRequestsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Feature Requests</h1>\n        <p className=\"text-muted-foreground\">Feature request intake, status, votes, and roadmap handoff.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "feature-requests",
-      "target": ".agents/skills/feature-requests/SKILL.md",
+      "target": ".stackfoundry/skills/feature-requests/SKILL.md",
       "content": "---\nname: feature-requests\ndescription: Maintain the Feature Requests module installed by StackFoundry.\n---\n\n# Feature Requests Skill\n\n## Boundary\n\nThis module owns the Feature Requests source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `packages/db/src/schema/feature-requests.ts`\n- `apps/web/src/lib/stackfoundry/feature-requests.ts`\n- `apps/web/src/app/(console)/admin/support/feature-requests/page.tsx`\n\n## Dependencies\n\n- Depends on `support-console`\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
     }
   ],
@@ -42,16 +42,6 @@
     "category": "support",
     "env": [],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "feature-requests"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "safe-defaults"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "featureRequests"

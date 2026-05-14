@@ -27,10 +27,10 @@
       "content": "\"use client\";\n\nimport { createContext, useContext, useMemo, useState, type ReactNode } from \"react\";\n\ntype Toast = { id: string; title: string; description?: string };\ntype ToastContextValue = { toasts: Toast[]; notify: (toast: Omit<Toast, \"id\">) => void; dismiss: (id: string) => void };\n\nconst ToastContext = createContext<ToastContextValue | undefined>(undefined);\n\nexport function StackFoundryToastProvider({ children }: { children: ReactNode }) {\n  const [toasts, setToasts] = useState<Toast[]>([]);\n  const value = useMemo(() => ({\n    toasts,\n    notify: (toast: Omit<Toast, \"id\">) => setToasts((items) => [...items, { ...toast, id: crypto.randomUUID() }]),\n    dismiss: (id: string) => setToasts((items) => items.filter((toast) => toast.id !== id)),\n  }), [toasts]);\n\n  return <ToastContext.Provider value={value}>{children}</ToastContext.Provider>;\n}\n\nexport function useStackFoundryToasts() {\n  const value = useContext(ToastContext);\n  if (!value) throw new Error(\"useStackFoundryToasts must be used within StackFoundryToastProvider\");\n  return value;\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "toast-notifications",
-      "target": ".agents/skills/toast-notifications/SKILL.md",
+      "target": ".stackfoundry/skills/toast-notifications/SKILL.md",
       "content": "---\nname: toast-notifications\ndescription: Maintain the Toast Notifications module installed by StackFoundry.\n---\n\n# Toast Notifications Skill\n\n## Boundary\n\nThis module owns the Toast Notifications source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/toast-notifications.ts`\n- `apps/web/src/components/stackfoundry/toast-notifications.tsx`\n- `apps/web/src/app/(console)/components/toasts/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
     }
   ],
@@ -39,16 +39,6 @@
   "meta": {
     "category": "components",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "toast-notifications"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "safe-defaults"
-      ]
-    }
+    "status": "experimental"
   }
 }

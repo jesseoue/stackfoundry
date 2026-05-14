@@ -30,7 +30,8 @@
     ],
     "migrationRecommended": true
   },
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "bug-reports"
     ],
@@ -39,6 +40,5 @@
       "verify-before-release",
       "safe-defaults"
     ]
-  },
-  "status": "experimental"
+  }
 }

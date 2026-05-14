@@ -8,15 +8,15 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "vercel-deploy",
-      "target": ".agents/skills/vercel-deploy/SKILL.md",
+      "target": ".stackfoundry/skills/vercel-deploy/SKILL.md",
       "content": "---\nname: vercel-deploy\ndescription: Maintain the Vercel Deploy module installed by StackFoundry.\n---\n\n# Vercel Deploy Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     },
     {
       "name": "vercel",
-      "target": ".agents/skills/vercel/SKILL.md",
+      "target": ".stackfoundry/skills/vercel/SKILL.md",
       "content": "---\nname: vercel\ndescription: Vercel platform guidance for installed deployment and storage modules.\n---\n\n# Vercel Guidance\n\n- Document project linking and environment variable ownership.\n- Keep server-only secrets out of public env vars.\n- Verify preview and production deployment paths.\n- Record deployment URL and rollback notes.\n"
     }
   ],
@@ -25,16 +25,6 @@
   "meta": {
     "category": "deploy",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "vercel-deploy",
-        "vercel"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

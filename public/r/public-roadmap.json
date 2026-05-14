@@ -23,10 +23,10 @@
       "content": "import { roadmapStatusLabels, type RoadmapItem } from \"@/lib/stackfoundry/public-roadmap\";\n\nconst items: RoadmapItem[] = [\n  {\n    title: \"Team controls\",\n    description: \"Richer member roles, invitations, and audit visibility.\",\n    status: \"in-progress\",\n  },\n  {\n    title: \"Usage insights\",\n    description: \"Better visibility into usage, limits, and billing impact.\",\n    status: \"planned\",\n  },\n  {\n    title: \"Public changelog\",\n    description: \"Customer-facing release notes for shipped improvements.\",\n    status: \"shipped\",\n  },\n];\n\nexport default function RoadmapPage() {\n  return (\n    <main className=\"mx-auto flex max-w-5xl flex-col gap-8 px-6 py-12\">\n      <div>\n        <h1 className=\"text-4xl font-semibold tracking-tight\">Roadmap</h1>\n        <p className=\"mt-3 text-muted-foreground\">What is planned, in progress, and recently shipped.</p>\n      </div>\n      <div className=\"grid gap-4\">\n        {items.map((item) => (\n          <section key={item.title} className=\"rounded-lg border p-4\">\n            <p className=\"text-xs font-medium uppercase tracking-wide text-muted-foreground\">\n              {roadmapStatusLabels[item.status]}\n            </p>\n            <h2 className=\"mt-2 font-medium\">{item.title}</h2>\n            <p className=\"mt-1 text-sm text-muted-foreground\">{item.description}</p>\n          </section>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "public-roadmap",
-      "target": ".agents/skills/public-roadmap/SKILL.md",
+      "target": ".stackfoundry/skills/public-roadmap/SKILL.md",
       "content": "---\nname: public-roadmap\ndescription: Maintain the Public Roadmap module installed by StackFoundry.\n---\n\n# Public Roadmap Skill\n\n- Never expose private customer data, security plans, or revenue commitments.\n- Keep roadmap statuses simple and truthful.\n- Link public feature requests only when they are safe to share.\n- Keep shipped roadmap items aligned with changelog and announcements.\n- Verify the public page, metadata, and empty state before handoff.\n"
     }
   ],
@@ -35,16 +35,6 @@
   "meta": {
     "category": "support",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "public-roadmap"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "avoid-private-roadmap-leaks"
-      ]
-    }
+    "status": "experimental"
   }
 }

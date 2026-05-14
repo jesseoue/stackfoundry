@@ -37,15 +37,15 @@
       "content": "export const DEFAULT_AI_MODEL = process.env.AI_GATEWAY_MODEL;\n\nexport function getSelectedModel(model?: string) {\n  const selected = model || DEFAULT_AI_MODEL;\n  if (!selected) {\n    throw new Error(\"AI_GATEWAY_MODEL is not set.\");\n  }\n  return selected;\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "ai-chat",
-      "target": ".agents/skills/ai-chat/SKILL.md",
+      "target": ".stackfoundry/skills/ai-chat/SKILL.md",
       "content": "---\nname: ai-chat\ndescription: Maintain the AI Chat module installed by StackFoundry.\n---\n\n# AI Chat Maintenance Instructions\n\n- Keep provider/model selection server-controlled.\n- Use `DefaultChatTransport` with manually managed input state.\n- Return UI message streams from server routes.\n- Keep prompt defaults in `lib/ai/prompts.ts`.\n- Do not hardcode a long-lived provider key in source.\n"
     },
     {
       "name": "ai-sdk",
-      "target": ".agents/skills/ai-sdk/SKILL.md",
+      "target": ".stackfoundry/skills/ai-sdk/SKILL.md",
       "content": "---\nname: ai-sdk\ndescription: AI SDK guidance for installed AI modules.\n---\n\n# Ai Sdk Guidance\n\n- Keep provider keys server-only.\n- Stream responses deliberately and handle tool errors.\n- Validate tool inputs and outputs.\n- Document model ids, fallback behavior, and cost-sensitive paths.\n"
     }
   ],
@@ -60,16 +60,6 @@
       "AI_GATEWAY_API_KEY",
       "AI_GATEWAY_MODEL"
     ],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "ai-chat",
-        "ai-sdk"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "experimental"
   }
 }

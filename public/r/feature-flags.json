@@ -29,10 +29,10 @@
       "content": "const flags = [\n  { key: \"new_onboarding\", enabled: true, scope: \"20% rollout\" },\n  { key: \"admin_console_v2\", enabled: false, scope: \"staff only\" },\n];\n\nexport default function FeatureFlagsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Feature Flags</h1>\n        <p className=\"text-muted-foreground\">Control progressive rollouts without adding a provider dependency.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {flags.map((flag) => (\n          <div key={flag.key} className=\"flex items-center justify-between rounded-lg border p-4\">\n            <div>\n              <p className=\"font-medium\">{flag.key}</p>\n              <p className=\"text-sm text-muted-foreground\">{flag.scope}</p>\n            </div>\n            <span className=\"text-sm\">{flag.enabled ? \"Enabled\" : \"Disabled\"}</span>\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "feature-flags",
-      "target": ".agents/skills/feature-flags/SKILL.md",
+      "target": ".stackfoundry/skills/feature-flags/SKILL.md",
       "content": "---\nname: feature-flags\ndescription: Maintain the Feature Flags module installed by StackFoundry.\n---\n\n# Feature Flags Maintenance Instructions\n\n- Preserve the module boundary described in `docs.md`.\n- Keep public APIs small and typed.\n- Update tests/checklist.md when behavior changes.\n- Do not introduce secrets, generated machine metadata, or provider lock-in.\n- Keep Drizzle schema exports documented in module.json.\n"
     }
   ],
@@ -42,16 +42,6 @@
     "category": "growth",
     "env": [],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "feature-flags"
-      ],
-      "rules": [
-        "stable-evaluation",
-        "default-closed",
-        "document-rollouts"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "featureFlags"

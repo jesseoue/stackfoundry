@@ -18,7 +18,8 @@
       "type": "registry:file"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "workspace-settings"
     ],
@@ -27,6 +28,5 @@
       "scope-settings-by-workspace",
       "audit-sensitive-changes"
     ]
-  },
-  "status": "experimental"
+  }
 }

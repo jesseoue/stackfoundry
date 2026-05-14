@@ -181,6 +181,39 @@
       ]
     },
     {
+      "name": "ai-seo",
+      "type": "registry:block",
+      "title": "AI SEO",
+      "description": "llms.txt, llms-full.txt, and AI sitemap routes for AI-ready discovery.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/seo.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/ai-seo.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/ai-seo.ts"
+        },
+        {
+          "path": "apps/web/src/app/llms.txt/route.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/app/llms.txt/route.ts"
+        },
+        {
+          "path": "apps/web/src/app/llms-full.txt/route.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/app/llms-full.txt/route.ts"
+        },
+        {
+          "path": "apps/web/src/app/ai-sitemap.json/route.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/app/ai-sitemap.json/route.ts"
+        }
+      ]
+    },
+    {
       "name": "ai-tools",
       "type": "registry:block",
       "title": "AI Tools",
@@ -2273,6 +2306,38 @@
       ]
     },
     {
+      "name": "knock-notifications",
+      "type": "registry:block",
+      "title": "Knock Notifications",
+      "description": "Knock adapter for hosted in-app feeds, workflow triggers, and preference-aware notification delivery.",
+      "dependencies": [
+        "@knocklabs/node",
+        "@knocklabs/react"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/notifications.json",
+        "https://stackfoundry.dev/r/notification-center.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/knock/client.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/knock/client.ts"
+        },
+        {
+          "path": "apps/web/src/components/knock/knock-inbox-provider.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/knock/knock-inbox-provider.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/vendors/knock/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/vendors/knock/page.tsx"
+        }
+      ]
+    },
+    {
       "name": "legal-pages",
       "type": "registry:block",
       "title": "Legal Pages",
@@ -3725,6 +3790,30 @@
           "path": "apps/web/src/app/(console)/billing/trials/page.tsx",
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/trials/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tinybird-analytics",
+      "type": "registry:block",
+      "title": "Tinybird Analytics",
+      "description": "Tinybird Events API adapter for high-volume product, usage, and AI analytics event streams.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/plg-metrics.json",
+        "https://stackfoundry.dev/r/usage-metering.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/tinybird/analytics.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/tinybird/analytics.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/vendors/tinybird/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/vendors/tinybird/page.tsx"
         }
       ]
     },

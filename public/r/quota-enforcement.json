@@ -24,10 +24,10 @@
       "content": "const tasks = [\n  \"Configure defaults\",\n  \"Connect persistence or provider adapter\",\n  \"Verify production checklist\",\n];\n\nexport default function QuotaEnforcementPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Quota Enforcement</h1>\n        <p className=\"text-muted-foreground\">Plan quota definitions, usage checks, and limit messaging.</p>\n      </div>\n      <ul className=\"grid gap-3\">\n        {tasks.map((task) => (\n          <li key={task} className=\"rounded-lg border p-4 text-sm\">{task}</li>\n        ))}\n      </ul>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "quota-enforcement",
-      "target": ".agents/skills/quota-enforcement/SKILL.md",
+      "target": ".stackfoundry/skills/quota-enforcement/SKILL.md",
       "content": "---\nname: quota-enforcement\ndescription: Maintain the Quota Enforcement module installed by StackFoundry.\n---\n\n# Quota Enforcement Maintenance Instructions\n\n- Preserve the ownership and setup guidance in `docs.md`.\n- Keep source templates small and provider-neutral.\n- Update `tests/checklist.md` with behavior changes.\n- Do not commit secrets, local state, or generated machine metadata.\n"
     }
   ],
@@ -36,16 +36,6 @@
   "meta": {
     "category": "billing",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "quota-enforcement"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "audit-sensitive-actions"
-      ]
-    }
+    "status": "experimental"
   }
 }

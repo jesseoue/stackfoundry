@@ -31,15 +31,15 @@
       "content": "const checks = [\n  \"Install vendor package and configure env\",\n  \"Run the local example path\",\n  \"Add auth, retries, and audit events before production\",\n];\n\nexport default function VercelWorkflowsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Vercel Workflows</h1>\n        <p className=\"text-muted-foreground\">Durable functions with step boundaries, retries, logging, and run IDs.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">{check}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "vercel-workflows",
-      "target": ".agents/skills/vercel-workflows/SKILL.md",
+      "target": ".stackfoundry/skills/vercel-workflows/SKILL.md",
       "content": "---\nname: vercel-workflows\ndescription: Maintain the Vercel Workflows vendor registry block installed by StackFoundry.\n---\n\n# Vercel Workflows Skill\n\n## Boundary\n\nThis block owns the Vercel Workflows integration example only. Keep product-specific business logic outside the vendor adapter until the app has chosen this provider.\n\n## Source Files\n\n- `apps/web/src/workflows/welcome.ts`\n- `apps/web/src/app/api/workflows/welcome/route.ts`\n- `apps/web/src/app/(console)/admin/workflows/vercel/page.tsx`\n\n## Dependencies\n\n- `workflow`\n\n## Environment\n\n- No vendor env vars declared.\n\n## Deployment Checks\n\n- Create the vendor project/resource before deploying.\n- Add env vars to preview and production environments.\n- Run the included smoke route, task, worker, or helper after deploy.\n- Confirm logs do not include secrets, tokens, raw webhook payloads, or customer data.\n\n## Maintenance Rules\n\n- Keep SDK imports and examples aligned with current vendor docs.\n- Keep secrets server-only and out of client components.\n- Update `module.json`, `docs.md`, and `tests/checklist.md` together when dependencies, env vars, or files change.\n- Prefer small provider adapters over coupling shared domain modules to one vendor.\n"
     },
     {
       "name": "vercel",
-      "target": ".agents/skills/vercel/SKILL.md",
+      "target": ".stackfoundry/skills/vercel/SKILL.md",
       "content": "---\nname: vercel\ndescription: Vercel platform guidance for installed deployment and storage modules.\n---\n\n# Vercel Guidance\n\n- Document project linking and environment variable ownership.\n- Keep server-only secrets out of public env vars.\n- Verify preview and production deployment paths.\n- Record deployment URL and rollback notes.\n"
     }
   ],
@@ -48,17 +48,6 @@
   "meta": {
     "category": "workflow",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "vercel-workflows",
-        "vercel"
-      ],
-      "rules": [
-        "use-workflow-directive",
-        "use-step-for-node-logic",
-        "start-workflows-from-routes"
-      ]
-    }
+    "status": "experimental"
   }
 }

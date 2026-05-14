@@ -8,15 +8,15 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "cloudflare-durable-objects",
-      "target": ".agents/skills/cloudflare-durable-objects/SKILL.md",
+      "target": ".stackfoundry/skills/cloudflare-durable-objects/SKILL.md",
       "content": "---\nname: cloudflare-durable-objects\ndescription: Maintain the Cloudflare Durable Objects module installed by StackFoundry.\n---\n\n# Cloudflare Durable Objects Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     },
     {
       "name": "cloudflare",
-      "target": ".agents/skills/cloudflare/SKILL.md",
+      "target": ".stackfoundry/skills/cloudflare/SKILL.md",
       "content": "---\nname: cloudflare\ndescription: Cloudflare platform guidance for installed Workers, storage, and edge modules.\n---\n\n# Cloudflare Guidance\n\n- Keep bindings explicit in config and docs.\n- Do not commit wrangler secrets or account credentials.\n- Document local dev, preview, and production deployment commands.\n- Verify bindings, routes, and logs after deploy.\n"
     }
   ],
@@ -25,16 +25,6 @@
   "meta": {
     "category": "edge",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "cloudflare-durable-objects",
-        "cloudflare"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

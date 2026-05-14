@@ -8,10 +8,10 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "playwright-e2e",
-      "target": ".agents/skills/playwright-e2e/SKILL.md",
+      "target": ".stackfoundry/skills/playwright-e2e/SKILL.md",
       "content": "---\nname: playwright-e2e\ndescription: Maintain the Playwright E2E module installed by StackFoundry.\n---\n\n# Playwright E2E Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     }
   ],
@@ -20,15 +20,6 @@
   "meta": {
     "category": "foundation",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "playwright-e2e"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

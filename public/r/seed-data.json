@@ -8,10 +8,10 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "seed-data",
-      "target": ".agents/skills/seed-data/SKILL.md",
+      "target": ".stackfoundry/skills/seed-data/SKILL.md",
       "content": "---\nname: seed-data\ndescription: Maintain the Seed Data module installed by StackFoundry.\n---\n\n# Seed Data Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     }
   ],
@@ -20,15 +20,6 @@
   "meta": {
     "category": "foundation",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "seed-data"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

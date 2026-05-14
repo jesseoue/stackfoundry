@@ -29,10 +29,10 @@
       "content": "const exampleEvents = [\n  { action: \"billing.subscription_updated\", actor: \"system\", resource: \"subscription\" },\n  { action: \"api_key.created\", actor: \"user_123\", resource: \"api_key\" },\n  { action: \"workspace.member_invited\", actor: \"user_456\", resource: \"invite\" },\n];\n\nexport default function AuditLogPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Audit Log</h1>\n        <p className=\"text-muted-foreground\">Review sensitive account, workspace, and system events.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {exampleEvents.map((event) => (\n          <div key={event.action} className=\"rounded-lg border p-4\">\n            <p className=\"font-medium\">{event.action}</p>\n            <p className=\"text-sm text-muted-foreground\">{event.actor} changed {event.resource}</p>\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "audit-log",
-      "target": ".agents/skills/audit-log/SKILL.md",
+      "target": ".stackfoundry/skills/audit-log/SKILL.md",
       "content": "---\nname: audit-log\ndescription: Maintain the Audit Log module installed by StackFoundry.\n---\n\n# Audit Log Maintenance Instructions\n\n- Preserve the module boundary described in `docs.md`.\n- Keep public APIs small and typed.\n- Update tests/checklist.md when behavior changes.\n- Do not introduce secrets, generated machine metadata, or provider lock-in.\n- Keep Drizzle schema exports documented in module.json.\n"
     }
   ],
@@ -42,16 +42,6 @@
     "category": "operations",
     "env": [],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "audit-log"
-      ],
-      "rules": [
-        "append-only-events",
-        "namespace-actions",
-        "avoid-sensitive-metadata"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "auditLogEvents"

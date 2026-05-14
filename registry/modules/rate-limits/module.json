@@ -31,7 +31,8 @@
     ],
     "migrationRecommended": true
   },
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "rate-limits"
     ],
@@ -40,6 +41,5 @@
       "separate-subjects",
       "document-bypass-rules"
     ]
-  },
-  "status": "experimental"
+  }
 }

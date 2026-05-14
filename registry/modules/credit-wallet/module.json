@@ -31,7 +31,8 @@
     ],
     "migrationRecommended": true
   },
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "credit-wallet"
     ],
@@ -40,6 +41,5 @@
       "verify-before-release",
       "never-allow-negative-balance"
     ]
-  },
-  "status": "experimental"
+  }
 }

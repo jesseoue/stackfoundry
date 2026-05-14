@@ -22,7 +22,7 @@ pnpm cli add preset next-saas --target /tmp/stackfoundry-next-saas --dry-run
 
 - Registry dependencies install before dependent modules.
 - Source files land in canonical app paths.
-- `.agents/skills/*` maintenance guidance is installed.
+- `.stackfoundry/skills/*` maintenance guidance is installed.
 - `.env.stackfoundry.*.example` files are generated for modules with env vars.
 - Existing files are not overwritten silently.
 

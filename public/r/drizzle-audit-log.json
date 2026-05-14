@@ -8,15 +8,15 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "drizzle-audit-log",
-      "target": ".agents/skills/drizzle-audit-log/SKILL.md",
+      "target": ".stackfoundry/skills/drizzle-audit-log/SKILL.md",
       "content": "---\nname: drizzle-audit-log\ndescription: Maintain the Drizzle Audit Log module installed by StackFoundry.\n---\n\n# Drizzle Audit Log Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     },
     {
       "name": "drizzle",
-      "target": ".agents/skills/drizzle/SKILL.md",
+      "target": ".stackfoundry/skills/drizzle/SKILL.md",
       "content": "---\nname: drizzle\ndescription: Maintain Drizzle ORM and Postgres code installed by StackFoundry modules.\n---\n\n# Drizzle Operating Instructions\n\n- Keep database access in server-only code.\n- Add schema changes under `packages/db/src/schema` and export shared tables from the schema barrel.\n- Generate and commit migrations when schema changes are intended.\n- Use typed query helpers instead of raw SQL unless the query needs a documented escape hatch.\n- Include tenant, organization, or user scope in queries and cache tags whenever data is not global.\n"
     }
   ],
@@ -25,16 +25,6 @@
   "meta": {
     "category": "database",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "drizzle-audit-log",
-        "drizzle"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

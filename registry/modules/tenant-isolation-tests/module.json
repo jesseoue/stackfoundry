@@ -18,7 +18,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "tenant-isolation-tests"
     ],
@@ -27,6 +28,5 @@
       "verify-before-release",
       "safe-defaults"
     ]
-  },
-  "status": "experimental"
+  }
 }

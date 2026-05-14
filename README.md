@@ -152,6 +152,7 @@ pnpm build               # build the website
 pnpm check               # full verification
 
 pnpm registry:list       # list modules
+pnpm registry:categories # list canonical module categories
 pnpm registry:presets    # list presets
 pnpm registry:doctor     # validate registry source
 pnpm registry:build      # generate public/r
@@ -168,7 +169,7 @@ pnpm test:registry:install  # real preset install smoke tests
 - [Registry](./docs/registry.md)
 - [Modules](./docs/modules.md)
 - [Providers](./docs/providers.md)
-- [Maintainer skills](./docs/agents.md)
+- [Maintenance skills](./docs/maintenance.md)
 - [Repository map](./docs/repository.md)
 - [Registry compatibility](./docs/registry-compat.md)
 

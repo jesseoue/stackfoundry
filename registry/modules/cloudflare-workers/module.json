@@ -27,7 +27,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "cloudflare-workers",
       "cloudflare"
@@ -37,6 +38,5 @@
       "use-wrangler-config",
       "keep-secrets-out-of-vars"
     ]
-  },
-  "status": "experimental"
+  }
 }

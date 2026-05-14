@@ -1,0 +1,42 @@
+{
+  "name": "tinybird-analytics",
+  "type": "integration",
+  "category": "analytics",
+  "title": "Tinybird Analytics",
+  "description": "Tinybird Events API adapter for high-volume product, usage, and AI analytics event streams.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "plg-metrics",
+    "usage-metering"
+  ],
+  "env": [
+    "TINYBIRD_TOKEN",
+    "TINYBIRD_API_URL",
+    "TINYBIRD_ANALYTICS_DATASOURCE"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/tinybird/analytics.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/tinybird/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "status": "experimental",
+  "maintenance": {
+    "skills": [
+      "tinybird-analytics",
+      "tinybird",
+      "nextjs"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "batch-large-event-streams",
+      "keep-provider-boundary"
+    ]
+  }
+}

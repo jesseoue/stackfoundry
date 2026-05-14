@@ -112,6 +112,18 @@
       ]
     },
     {
+      "name": "ai-seo",
+      "type": "registry:block",
+      "title": "AI SEO",
+      "description": "llms.txt, llms-full.txt, and AI sitemap routes for agent-ready discovery.",
+      "files": [
+        {
+          "path": "registry/modules/ai-seo/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "ai-tools",
       "type": "registry:block",
       "title": "AI Tools",
@@ -1360,6 +1372,18 @@
       ]
     },
     {
+      "name": "knock-notifications",
+      "type": "registry:block",
+      "title": "Knock Notifications",
+      "description": "Knock adapter for hosted in-app feeds, workflow triggers, and preference-aware notification delivery.",
+      "files": [
+        {
+          "path": "registry/modules/knock-notifications/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "legal-pages",
       "type": "registry:block",
       "title": "Legal Pages",
@@ -2243,6 +2267,18 @@
       "files": [
         {
           "path": "registry/modules/trial-management/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "tinybird-analytics",
+      "type": "registry:block",
+      "title": "Tinybird Analytics",
+      "description": "Tinybird Events API adapter for high-volume product, usage, and AI analytics event streams.",
+      "files": [
+        {
+          "path": "registry/modules/tinybird-analytics/module.json",
           "type": "registry:file"
         }
       ]

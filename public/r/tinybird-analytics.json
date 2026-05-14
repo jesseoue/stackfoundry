@@ -1,0 +1,59 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tinybird-analytics",
+  "type": "registry:block",
+  "title": "Tinybird Analytics",
+  "description": "Tinybird Events API adapter for high-volume product, usage, and AI analytics event streams.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/plg-metrics.json",
+    "https://stackfoundry.dev/r/usage-metering.json"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/tinybird/analytics.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/tinybird/analytics.ts",
+      "content": "import \"server-only\";\n\nexport type TinybirdAnalyticsEvent = {\n  timestamp?: string;\n  event: string;\n  userId?: string;\n  accountId?: string;\n  sessionId?: string;\n  route?: string;\n  properties?: Record<string, unknown>;\n};\n\nexport type IngestTinybirdAnalyticsOptions = {\n  events: TinybirdAnalyticsEvent[];\n  dataSource?: string;\n};\n\nconst defaultApiUrl = \"https://api.tinybird.co\";\n\nfunction getTinybirdConfig(dataSource?: string) {\n  const token = process.env.TINYBIRD_TOKEN;\n  const apiUrl = process.env.TINYBIRD_API_URL ?? defaultApiUrl;\n  const targetDataSource = dataSource ?? process.env.TINYBIRD_ANALYTICS_DATASOURCE;\n\n  if (!token) {\n    throw new Error(\"TINYBIRD_TOKEN is required to ingest analytics events.\");\n  }\n  if (!targetDataSource) {\n    throw new Error(\"TINYBIRD_ANALYTICS_DATASOURCE is required to ingest analytics events.\");\n  }\n\n  return { token, apiUrl, dataSource: targetDataSource };\n}\n\nfunction serializeEvents(events: TinybirdAnalyticsEvent[]) {\n  return events\n    .map((event) =>\n      JSON.stringify({\n        timestamp: event.timestamp ?? new Date().toISOString(),\n        event: event.event,\n        user_id: event.userId,\n        account_id: event.accountId,\n        session_id: event.sessionId,\n        route: event.route,\n        properties: event.properties ?? {},\n      }),\n    )\n    .join(\"\\n\");\n}\n\nexport async function ingestTinybirdAnalytics({\n  events,\n  dataSource,\n}: IngestTinybirdAnalyticsOptions) {\n  if (events.length === 0) return { ingested: 0 };\n\n  const config = getTinybirdConfig(dataSource);\n  const response = await fetch(`${config.apiUrl}/v0/events?name=${config.dataSource}`, {\n    method: \"POST\",\n    headers: {\n      authorization: `Bearer ${config.token}`,\n      \"content-type\": \"application/x-ndjson\",\n    },\n    body: serializeEvents(events),\n  });\n\n  if (!response.ok) {\n    throw new Error(`Tinybird analytics ingest failed with ${response.status}`);\n  }\n\n  return { ingested: events.length };\n}\n\nexport function createTinybirdAnalyticsEvent(event: TinybirdAnalyticsEvent) {\n  return {\n    timestamp: event.timestamp ?? new Date().toISOString(),\n    event: event.event,\n    userId: event.userId,\n    accountId: event.accountId,\n    sessionId: event.sessionId,\n    route: event.route,\n    properties: event.properties ?? {},\n  };\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/vendors/tinybird/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/admin/vendors/tinybird/page.tsx",
+      "content": "const checks = [\n  \"Create a Tinybird data source for analytics events.\",\n  \"Use an ingest token scoped to that data source.\",\n  \"Batch newline-delimited JSON events for high-volume paths.\",\n  \"Keep event names and identifier fields stable.\",\n  \"Exclude secrets, raw prompts, and private customer data.\",\n];\n\nexport default function TinybirdAnalyticsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Tinybird Analytics</h1>\n        <p className=\"text-muted-foreground\">\n          High-volume product, usage, and AI analytics ingestion through Tinybird Events API.\n        </p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checks.map((check) => (\n          <div key={check} className=\"rounded-lg border p-4 text-sm\">\n            {check}\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "tinybird-analytics",
+      "target": ".stackfoundry/skills/tinybird-analytics/SKILL.md",
+      "content": "---\nname: tinybird-analytics\ndescription: Maintain the Tinybird Analytics module installed by StackFoundry.\n---\n\n# Tinybird Analytics Skill\n\n- Keep `TINYBIRD_TOKEN` server-only.\n- Use `TINYBIRD_API_URL` and `TINYBIRD_ANALYTICS_DATASOURCE` to target the right workspace and data source.\n- Batch newline-delimited JSON events for high-volume paths.\n- Keep event names, user/account identifiers, and metadata shape stable.\n- Avoid sending secrets, private customer data, raw prompts, or unbounded payloads.\n- Keep Tinybird resource files and deployment notes in sync if the app adds `.datasource` or `.pipe` files later.\n"
+    },
+    {
+      "name": "tinybird",
+      "target": ".stackfoundry/skills/tinybird/SKILL.md",
+      "content": "---\nname: tinybird\ndescription: Guide maintainers through Tinybird analytics ingestion and high-volume event pipelines.\n---\n\n# Tinybird Guidance\n\n- Use Tinybird for high-volume analytics and operational event streams that need fast SQL/API serving.\n- Keep ingest tokens server-only.\n- Use newline-delimited JSON batches with the Events API for throughput.\n- Keep data source schemas stable once production data is flowing.\n- Avoid secrets, raw prompts, private customer data, and unbounded payloads.\n- Document data source names, ingest tokens, pipes, API endpoints, and deployment targets before launch.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {
+    "TINYBIRD_TOKEN": "",
+    "TINYBIRD_API_URL": "",
+    "TINYBIRD_ANALYTICS_DATASOURCE": ""
+  },
+  "docs": "# Tinybird Analytics\n\nTinybird Events API adapter for high-volume product, usage, and AI analytics event streams.\n\n## Owns\n\n- `apps/web/src/lib/tinybird/analytics.ts`\n- `apps/web/src/app/(console)/admin/vendors/tinybird/page.tsx`\n\n## Dependencies\n\n- `registry:plg-metrics`\n- `registry:usage-metering`\n\n## Environment\n\n- `TINYBIRD_TOKEN`\n- `TINYBIRD_API_URL`\n- `TINYBIRD_ANALYTICS_DATASOURCE`\n\n## Use Cases\n\n- high-volume clickstream and product analytics\n- usage events that need fast aggregation\n- AI token, model, latency, and cost events\n- operational event streams that outgrow app database tables\n\n## Implementation Notes\n\nThis adapter uses Tinybird's Events API with newline-delimited JSON batching. Keep the app-owned event taxonomy in `plg-metrics`; use this module when the team chooses Tinybird as the analytics ingestion and serving layer.\n\n## Verification\n\n- Create the Tinybird data source before production ingestion.\n- Use an ingest token scoped to the target data source.\n- Batch events instead of sending one request per event in high-volume paths.\n- Confirm no secrets, raw prompts, or private customer data are sent as analytics payloads.\n",
+  "meta": {
+    "category": "analytics",
+    "env": [
+      "TINYBIRD_TOKEN",
+      "TINYBIRD_API_URL",
+      "TINYBIRD_ANALYTICS_DATASOURCE"
+    ],
+    "status": "experimental"
+  }
+}

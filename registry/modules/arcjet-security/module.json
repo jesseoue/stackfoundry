@@ -28,7 +28,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "arcjet-security",
       "arcjet",
@@ -39,6 +40,5 @@
       "test-deny-paths",
       "document-mode-live-vs-dry-run"
     ]
-  },
-  "status": "experimental"
+  }
 }

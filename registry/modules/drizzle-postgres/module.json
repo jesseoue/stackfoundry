@@ -46,7 +46,8 @@
     "schemaExports": [],
     "migrationRecommended": true
   },
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "drizzle-postgres",
       "drizzle"
@@ -56,6 +57,5 @@
       "schema-barrel",
       "commit-migrations"
     ]
-  },
-  "status": "experimental"
+  }
 }

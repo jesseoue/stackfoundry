@@ -20,7 +20,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "invoices"
     ],
@@ -29,6 +30,5 @@
       "verify-before-release",
       "keep-provider-boundary"
     ]
-  },
-  "status": "experimental"
+  }
 }

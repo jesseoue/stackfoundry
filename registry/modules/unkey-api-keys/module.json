@@ -33,7 +33,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "unkey-api-keys",
       "unkey"
@@ -43,6 +44,5 @@
       "scope-keys-by-owner",
       "verify-on-server"
     ]
-  },
-  "status": "experimental"
+  }
 }

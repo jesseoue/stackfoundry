@@ -30,7 +30,8 @@
     ],
     "migrationRecommended": true
   },
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "api-keys",
       "drizzle",
@@ -42,6 +43,5 @@
       "scope-checks",
       "audit-key-events"
     ]
-  },
-  "status": "experimental"
+  }
 }

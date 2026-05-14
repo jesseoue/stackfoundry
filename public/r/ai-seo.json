@@ -1,0 +1,66 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-seo",
+  "type": "registry:block",
+  "title": "AI SEO",
+  "description": "llms.txt, llms-full.txt, and AI sitemap routes for AI-ready discovery.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/seo.json"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/ai-seo.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/ai-seo.ts",
+      "content": "export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? \"https://example.com\";\n\nexport type AiSeoPage = {\n  title: string;\n  path: string;\n  description: string;\n  audience: string;\n};\n\nexport const aiSeoPages: AiSeoPage[] = [\n  {\n    title: \"Home\",\n    path: \"/\",\n    description: \"StackFoundry positioning, install flow, module previews, and product overview.\",\n    audience: \"founders, builders, platform teams, and AI systems evaluating SaaS module coverage\",\n  },\n  {\n    title: \"Docs\",\n    path: \"/docs\",\n    description: \"How to install, review, author, and maintain source-delivered SaaS modules.\",\n    audience: \"developers and automation installing or maintaining modules\",\n  },\n  {\n    title: \"Registry\",\n    path: \"/registry\",\n    description: \"Catalog of modules, presets, provider adapters, and registry families.\",\n    audience: \"teams choosing SaaS capabilities, provider adapters, and install paths\",\n  },\n  {\n    title: \"Registry Index\",\n    path: \"/r/registry.json\",\n    description: \"Machine-readable registry index for StackFoundry source modules.\",\n    audience: \"registry clients and automation\",\n  },\n];\n\nexport function absoluteUrl(path: string) {\n  return new URL(path, siteUrl).toString();\n}\n\nexport function renderLlmsTxt() {\n  const links = aiSeoPages\n    .map((page) => `- [${page.title}](${absoluteUrl(page.path)}): ${page.description}`)\n    .join(\"\\n\");\n\n  return `# StackFoundry\\n\\n> Install production SaaS modules as editable source code. StackFoundry is a public source registry for billing, auth, docs, API products, operations, analytics, provider adapters, and optional AI modules.\\n\\n## Primary Pages\\n\\n${links}\\n\\n## Machine-Readable Surfaces\\n\\n- [Registry JSON](${absoluteUrl(\"/r/registry.json\")}): Public registry index.\\n- [AI Sitemap](${absoluteUrl(\"/ai-sitemap.json\")}): JSON summary of AI-discoverable pages.\\n- [Full AI Context](${absoluteUrl(\"/llms-full.txt\")}): Expanded context for systems that prefer one fetch.\\n\\n## Notes For Automation\\n\\n- The registry is the product; presets are only bundles of modules.\\n- Modules install source files, docs, env notes, checklists, and maintenance skills.\\n- Provider modules are adapters, not base dependencies.\\n`;\n}\n\nexport function renderLlmsFullTxt() {\n  const pages = aiSeoPages\n    .map(\n      (page) =>\n        `## ${page.title}\\n\\nURL: ${absoluteUrl(page.path)}\\nAudience: ${page.audience}\\nSummary: ${page.description}`,\n    )\n    .join(\"\\n\\n\");\n\n  return `# StackFoundry Full AI Context\\n\\nStackFoundry helps teams install production SaaS modules as editable source code. Modules include source files, documentation, environment notes, verification checklists, and maintainer skills so teams can safely review what lands in an app.\\n\\n${pages}\\n\\n## Coverage\\n\\nStackFoundry covers foundation, database, auth and tenancy, billing, API products, operations, observability, analytics and growth, docs, SEO, support, security, storage, deployment, provider adapters, and optional AI modules.\\n\\n## Positioning\\n\\nUse StackFoundry when a team wants production SaaS capabilities without adopting a black-box starter. The installed code belongs to the target repository and can be edited, reviewed, diffed, migrated, and removed like normal source.\\n`;\n}\n\nexport function getAiSitemap() {\n  return {\n    name: \"StackFoundry\",\n    description: \"Install production SaaS modules as editable source code.\",\n    generatedAt: new Date().toISOString(),\n    pages: aiSeoPages.map((page) => ({ ...page, url: absoluteUrl(page.path) })),\n    feeds: {\n      llms: absoluteUrl(\"/llms.txt\"),\n      llmsFull: absoluteUrl(\"/llms-full.txt\"),\n      registry: absoluteUrl(\"/r/registry.json\"),\n    },\n  };\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/llms.txt/route.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/app/llms.txt/route.ts",
+      "content": "import { renderLlmsTxt } from \"@/lib/stackfoundry/ai-seo\";\n\nexport const dynamic = \"force-static\";\n\nexport function GET() {\n  return new Response(renderLlmsTxt(), {\n    headers: {\n      \"content-type\": \"text/markdown; charset=utf-8\",\n      \"cache-control\": \"public, max-age=3600, s-maxage=86400\",\n    },\n  });\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/llms-full.txt/route.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/app/llms-full.txt/route.ts",
+      "content": "import { renderLlmsFullTxt } from \"@/lib/stackfoundry/ai-seo\";\n\nexport const dynamic = \"force-static\";\n\nexport function GET() {\n  return new Response(renderLlmsFullTxt(), {\n    headers: {\n      \"content-type\": \"text/markdown; charset=utf-8\",\n      \"cache-control\": \"public, max-age=3600, s-maxage=86400\",\n    },\n  });\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/ai-sitemap.json/route.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/app/ai-sitemap.json/route.ts",
+      "content": "import { getAiSitemap } from \"@/lib/stackfoundry/ai-seo\";\n\nexport const dynamic = \"force-static\";\n\nexport function GET() {\n  return Response.json(getAiSitemap(), {\n    headers: {\n      \"cache-control\": \"public, max-age=3600, s-maxage=86400\",\n    },\n  });\n}\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "ai-seo",
+      "target": ".stackfoundry/skills/ai-seo/SKILL.md",
+      "content": "---\nname: ai-seo\ndescription: Maintain the AI SEO module installed by StackFoundry.\n---\n\n# AI SEO Skill\n\n- Treat `llms.txt` as AI-discovery infrastructure, not a guaranteed ranking signal.\n- Keep `llms.txt` concise: canonical links with short descriptions.\n- Keep `llms-full.txt` factual and free of secrets, private customer data, and internal-only claims.\n- Update AI sitemap entries when public routes, docs, or registry surfaces change.\n- Verify `/llms.txt`, `/llms-full.txt`, `/ai-sitemap.json`, `/robots.txt`, and `/sitemap.xml` before release.\n- Keep `NEXT_PUBLIC_SITE_URL` accurate before trusting absolute URLs.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    },
+    {
+      "name": "docs-hosting",
+      "target": ".stackfoundry/skills/docs-hosting/SKILL.md",
+      "content": "---\nname: docs-hosting\ndescription: Documentation hosting guidance for installed docs modules.\n---\n\n# Docs Hosting Guidance\n\n- Choose in-app docs or hosted docs explicitly.\n- Record preview URL, production URL, docs root, and owner.\n- Verify local preview and production deploy.\n- Check metadata, sitemap, and broken links.\n"
+    }
+  ],
+  "envVars": {
+    "NEXT_PUBLIC_SITE_URL": ""
+  },
+  "docs": "# AI SEO\n\n`llms.txt`, `llms-full.txt`, and AI sitemap routes for AI-ready discovery.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/ai-seo.ts`\n- `apps/web/src/app/llms.txt/route.ts`\n- `apps/web/src/app/llms-full.txt/route.ts`\n- `apps/web/src/app/ai-sitemap.json/route.ts`\n\n## Why This Exists\n\nAI search and agent tools need concise, canonical context that is cheaper to parse than arbitrary HTML. This module publishes an opinionated index and expanded context file without claiming ranking guarantees.\n\n## Environment\n\n- `NEXT_PUBLIC_SITE_URL`\n\n## Maintenance\n\n- Keep page summaries short, factual, and canonical.\n- Include only public pages and public machine-readable resources.\n- Update `llms.txt`, `llms-full.txt`, sitemap, metadata, and docs together when routes change.\n- Do not include private customer data, secrets, roadmap commitments, or internal-only implementation notes.\n",
+  "meta": {
+    "category": "marketing",
+    "env": [
+      "NEXT_PUBLIC_SITE_URL"
+    ],
+    "status": "experimental"
+  }
+}

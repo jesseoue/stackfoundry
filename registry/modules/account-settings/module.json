@@ -18,7 +18,8 @@
       "type": "registry:file"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "account-settings"
     ],
@@ -27,6 +28,5 @@
       "protect-security-actions",
       "confirm-destructive-actions"
     ]
-  },
-  "status": "experimental"
+  }
 }

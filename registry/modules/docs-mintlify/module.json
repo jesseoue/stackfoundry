@@ -28,7 +28,8 @@
       "type": "registry:file"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "docs-mintlify",
       "mintlify",
@@ -39,6 +40,5 @@
       "verify-before-release",
       "keep-provider-boundary"
     ]
-  },
-  "status": "experimental"
+  }
 }

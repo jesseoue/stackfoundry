@@ -8,10 +8,10 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "aarrr-dashboard",
-      "target": ".agents/skills/aarrr-dashboard/SKILL.md",
+      "target": ".stackfoundry/skills/aarrr-dashboard/SKILL.md",
       "content": "---\nname: aarrr-dashboard\ndescription: Maintain the AARRR Dashboard module installed by StackFoundry.\n---\n\n# AARRR Dashboard Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     }
   ],
@@ -20,15 +20,6 @@
   "meta": {
     "category": "growth",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "aarrr-dashboard"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

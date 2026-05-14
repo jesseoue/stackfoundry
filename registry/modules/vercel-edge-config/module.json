@@ -28,7 +28,8 @@
       "type": "registry:page"
     }
   ],
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "vercel-edge-config",
       "vercel"
@@ -38,6 +39,5 @@
       "keep-values-small",
       "document-fallbacks"
     ]
-  },
-  "status": "experimental"
+  }
 }

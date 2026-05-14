@@ -30,7 +30,8 @@
     ],
     "migrationRecommended": true
   },
-  "agents": {
+  "status": "experimental",
+  "maintenance": {
     "skills": [
       "feature-flags"
     ],
@@ -39,6 +40,5 @@
       "default-closed",
       "document-rollouts"
     ]
-  },
-  "status": "experimental"
+  }
 }

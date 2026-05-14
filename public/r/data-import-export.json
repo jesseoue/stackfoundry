@@ -8,10 +8,10 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "data-import-export",
-      "target": ".agents/skills/data-import-export/SKILL.md",
+      "target": ".stackfoundry/skills/data-import-export/SKILL.md",
       "content": "---\nname: data-import-export\ndescription: Maintain the Data Import Export module installed by StackFoundry.\n---\n\n# Data Import Export Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     }
   ],
@@ -20,15 +20,6 @@
   "meta": {
     "category": "operations",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "data-import-export"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

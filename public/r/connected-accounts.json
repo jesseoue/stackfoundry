@@ -29,10 +29,10 @@
       "content": "const tasks = [\n  \"Configure defaults\",\n  \"Connect persistence or provider adapter\",\n  \"Verify production checklist\",\n];\n\nexport default function ConnectedAccountsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Connected Accounts</h1>\n        <p className=\"text-muted-foreground\">OAuth account linking, provider metadata, and disconnect controls.</p>\n      </div>\n      <ul className=\"grid gap-3\">\n        {tasks.map((task) => (\n          <li key={task} className=\"rounded-lg border p-4 text-sm\">{task}</li>\n        ))}\n      </ul>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "connected-accounts",
-      "target": ".agents/skills/connected-accounts/SKILL.md",
+      "target": ".stackfoundry/skills/connected-accounts/SKILL.md",
       "content": "---\nname: connected-accounts\ndescription: Maintain the Connected Accounts module installed by StackFoundry.\n---\n\n# Connected Accounts Maintenance Instructions\n\n- Preserve the ownership and setup guidance in `docs.md`.\n- Keep source templates small and provider-neutral.\n- Update `tests/checklist.md` with behavior changes.\n- Do not commit secrets, local state, or generated machine metadata.\n- Keep Drizzle schema exports synchronized with `module.json`.\n"
     }
   ],
@@ -42,16 +42,6 @@
     "category": "auth",
     "env": [],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "connected-accounts"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "audit-sensitive-actions"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "connectedAccounts"

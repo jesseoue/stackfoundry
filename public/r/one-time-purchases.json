@@ -29,10 +29,10 @@
       "content": "const checklist = [\n  \"Create orders server-side before redirecting to checkout.\",\n  \"Mark orders paid from verified provider events.\",\n  \"Fulfill each paid order once.\",\n  \"Link refunds and disputes back to the original order.\",\n];\n\nexport default function OneTimePurchasesPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">One-Time Purchases</h1>\n        <p className=\"text-muted-foreground\">One-off payments, add-ons, lifetime deals, and fulfillment tracking.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "one-time-purchases",
-      "target": ".agents/skills/one-time-purchases/SKILL.md",
+      "target": ".stackfoundry/skills/one-time-purchases/SKILL.md",
       "content": "---\nname: one-time-purchases\ndescription: Maintain the One-Time Purchases module installed by StackFoundry.\n---\n\n# One-Time Purchases Skill\n\n## Purpose\n\nUse this module for add-ons, credit packs, lifetime deals, and other one-off payment records.\n\n## Safety Rules\n\n- Fulfill only after a verified provider event, not after a redirect.\n- Preserve provider, provider order id, amount, currency, product key, and fulfillment status.\n- Make fulfillment idempotent and safe to retry.\n- Keep refunds and disputes tied back to the original order record.\n\n## Change Checklist\n\n- Update `module.json`, `docs.md`, and `tests/checklist.md` when file targets or invariants change.\n- Test completed, failed, refunded, disputed, and already-fulfilled paths.\n- Run `pnpm registry:doctor` and a module install dry-run before handoff.\n"
     }
   ],
@@ -42,16 +42,6 @@
     "category": "billing",
     "env": [],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "one-time-purchases"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "fulfill-once"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "oneTimePurchases"

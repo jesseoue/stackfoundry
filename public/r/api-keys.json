@@ -29,20 +29,20 @@
       "content": "export default function ApiKeysPage() {\n  return (\n    <main className=\"flex flex-col gap-4 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">API Keys</h1>\n        <p className=\"text-muted-foreground\">Create, scope, rotate, and revoke API keys.</p>\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "api-keys",
-      "target": ".agents/skills/api-keys/SKILL.md",
+      "target": ".stackfoundry/skills/api-keys/SKILL.md",
       "content": "---\nname: api-keys\ndescription: Maintain the API keys module installed by StackFoundry.\n---\n\n# API Keys Operating Instructions\n\n- Never store plaintext keys.\n- Store key prefixes only for display.\n- Hash key secrets with a strong one-way hash.\n- Scope every key to a user, account, or organization.\n- Log create, rotate, revoke, and failed verification events.\n- When adding scopes, update docs, tests, and UI labels together.\n"
     },
     {
       "name": "drizzle",
-      "target": ".agents/skills/drizzle/SKILL.md",
+      "target": ".stackfoundry/skills/drizzle/SKILL.md",
       "content": "---\nname: drizzle\ndescription: Maintain Drizzle ORM and Postgres code installed by StackFoundry modules.\n---\n\n# Drizzle Operating Instructions\n\n- Keep database access in server-only code.\n- Add schema changes under `packages/db/src/schema` and export shared tables from the schema barrel.\n- Generate and commit migrations when schema changes are intended.\n- Use typed query helpers instead of raw SQL unless the query needs a documented escape hatch.\n- Include tenant, organization, or user scope in queries and cache tags whenever data is not global.\n"
     },
     {
       "name": "nextjs",
-      "target": ".agents/skills/nextjs/SKILL.md",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
       "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
     }
   ],
@@ -52,19 +52,6 @@
     "category": "developer-platform",
     "env": [],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "api-keys",
-        "drizzle",
-        "nextjs"
-      ],
-      "rules": [
-        "hash-keys",
-        "never-store-plaintext",
-        "scope-checks",
-        "audit-key-events"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "apiKeys"

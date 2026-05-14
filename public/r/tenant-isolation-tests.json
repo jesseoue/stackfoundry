@@ -21,10 +21,10 @@
       "content": "const checklist = [\n  \"Confirm ownership boundaries\",\n  \"Wire persistence and authorization\",\n  \"Run smoke checks before production\",\n];\n\nexport default function TenantIsolationTestsPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Tenant Isolation Tests</h1>\n        <p className=\"text-muted-foreground\">Test helpers and checklist for cross-tenant isolation assertions.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {checklist.map((item) => (\n          <div key={item} className=\"rounded-lg border p-4 text-sm\">{item}</div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "tenant-isolation-tests",
-      "target": ".agents/skills/tenant-isolation-tests/SKILL.md",
+      "target": ".stackfoundry/skills/tenant-isolation-tests/SKILL.md",
       "content": "---\nname: tenant-isolation-tests\ndescription: Maintain the Tenant Isolation Tests module installed by StackFoundry.\n---\n\n# Tenant Isolation Tests Skill\n\n## Boundary\n\nThis module owns the Tenant Isolation Tests source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/tenant-isolation-tests.ts`\n- `apps/web/src/app/(console)/admin/tenancy/isolation-tests/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
     }
   ],
@@ -33,16 +33,6 @@
   "meta": {
     "category": "tenancy",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "tenant-isolation-tests"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "safe-defaults"
-      ]
-    }
+    "status": "experimental"
   }
 }

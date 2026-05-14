@@ -8,15 +8,15 @@
   "devDependencies": [],
   "registryDependencies": [],
   "files": [],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "search-meilisearch",
-      "target": ".agents/skills/search-meilisearch/SKILL.md",
+      "target": ".stackfoundry/skills/search-meilisearch/SKILL.md",
       "content": "---\nname: search-meilisearch\ndescription: Maintain the Meilisearch module installed by StackFoundry.\n---\n\n# Meilisearch Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
     },
     {
       "name": "meilisearch",
-      "target": ".agents/skills/meilisearch/SKILL.md",
+      "target": ".stackfoundry/skills/meilisearch/SKILL.md",
       "content": "---\nname: meilisearch\ndescription: Meilisearch guidance for installed search modules.\n---\n\n# Meilisearch Guidance\n\n- Keep master/admin keys server-only.\n- Document index and filterable attribute setup.\n- Use scoped search keys where applicable.\n- Verify indexing, deletion, and search latency.\n"
     }
   ],
@@ -25,16 +25,6 @@
   "meta": {
     "category": "search",
     "env": [],
-    "status": "planned",
-    "agents": {
-      "skills": [
-        "search-meilisearch",
-        "meilisearch"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release"
-      ]
-    }
+    "status": "planned"
   }
 }

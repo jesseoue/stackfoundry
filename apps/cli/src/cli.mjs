@@ -13,9 +13,11 @@ import {
 } from "@stackfoundry/registry";
 import {
   isEnvVarName,
+  isUnsafePublicEnvName,
   isKebabCase,
   requiredModuleFields,
   requiredPresetFields,
+  validModuleCategories,
   validModuleStatuses,
   validModuleTypes,
   validRegistryFileTypes,
@@ -30,7 +32,7 @@ const __filename = fileURLToPath(import.meta.url);
 const repoRoot = path.resolve(path.dirname(__filename), "../../..");
 const { modulesRoot, presetsRoot, skillsRoot, webPublicRegistryRoot } =
   createRegistryPaths(repoRoot);
-const defaultSkillsTarget = ".agents/skills";
+const defaultSkillsTarget = ".stackfoundry/skills";
 const registryIndexSchema = "https://ui.shadcn.com/schema/registry.json";
 const registryItemSchema = "https://ui.shadcn.com/schema/registry-item.json";
 
@@ -38,8 +40,11 @@ function usage() {
   console.log(`StackFoundry
 
 Usage:
-  stackfoundry list
+  stackfoundry list [--category <name>] [--status <status>]
+  stackfoundry categories
   stackfoundry presets
+  stackfoundry search <query>
+  stackfoundry info <module>
   stackfoundry validate
   stackfoundry doctor
   stackfoundry build
@@ -50,6 +55,10 @@ Usage:
   stackfoundry diff <registry-item-url-or-file> [--target <dir>]
 
 Examples:
+  stackfoundry categories
+  stackfoundry list --category billing
+  stackfoundry search webhook
+  stackfoundry info stripe-billing
   stackfoundry add api-keys --target ./app
   stackfoundry add preset vendor-examples --target ./app
   stackfoundry add https://stackfoundry.dev/r/api-keys.json --target ./app
@@ -69,6 +78,11 @@ function parseArgs(argv) {
     moduleName = undefined;
   }
 
+  if (command === "list" && firstArg?.startsWith("--")) {
+    moduleName = undefined;
+    rest.unshift(firstArg);
+  }
+
   for (let i = 0; i < rest.length; i += 1) {
     const arg = rest[i];
     if (arg === "--target") {
@@ -77,6 +91,10 @@ function parseArgs(argv) {
       flags.dryRun = true;
     } else if (arg === "--force") {
       flags.force = true;
+    } else if (arg === "--category") {
+      flags.category = rest[++i];
+    } else if (arg === "--status") {
+      flags.status = rest[++i];
     } else {
       throw new Error(`Unknown option: ${arg}`);
     }
@@ -108,7 +126,7 @@ function normalizeSkillEntry(entry) {
 }
 
 function getSkillEntries(manifest) {
-  const entries = manifest.agents?.skills?.length ? manifest.agents.skills : [manifest.name];
+  const entries = manifest.maintenance?.skills?.length ? manifest.maintenance.skills : [manifest.name];
   return entries.map(normalizeSkillEntry);
 }
 
@@ -131,7 +149,7 @@ function resolveSkillTarget(skill) {
   return skill.target ?? `${defaultSkillsTarget}/${skill.name}/SKILL.md`;
 }
 
-async function readModuleAgentSkills(moduleDir, manifest) {
+async function readModuleMaintenanceSkills(moduleDir, manifest) {
   const skills = [];
   for (const skill of getSkillEntries(manifest)) {
     const source = resolveSkillPath(moduleDir, manifest, skill);
@@ -158,6 +176,9 @@ async function validateModule(moduleDir) {
   if (!isKebabCase(manifest.name)) errors.push("name must be kebab-case");
   if (!validModuleTypes.has(manifest.type))
     errors.push("type must be module, integration, or page");
+  if (!validModuleCategories.has(manifest.category)) {
+    errors.push(`category must be one of: ${[...validModuleCategories].sort().join(", ")}`);
+  }
   if (!validModuleStatuses.has(manifest.status)) {
     errors.push("status must be planned, experimental, or stable");
   }
@@ -169,6 +190,9 @@ async function validateModule(moduleDir) {
   if (!Array.isArray(manifest.env)) errors.push("env must be an array");
   for (const key of manifest.env ?? []) {
     if (!isEnvVarName(key)) errors.push(`env var must be SCREAMING_SNAKE_CASE: ${key}`);
+    if (isUnsafePublicEnvName(key)) {
+      errors.push(`public env var must not expose secret-like values: ${key}`);
+    }
   }
 
   const filesDir = path.join(moduleDir, "files");
@@ -207,10 +231,11 @@ async function validateModule(moduleDir) {
   }
   for (const [index, skill] of getSkillEntries(manifest).entries()) {
     if (!skill) {
-      errors.push(`agents.skills[${index}] must be a string or object`);
+      errors.push(`maintenance.skills[${index}] must be a string or object`);
       continue;
     }
-    if (!isKebabCase(skill.name)) errors.push(`agents.skills[${index}].name must be kebab-case`);
+    if (!isKebabCase(skill.name))
+      errors.push(`maintenance.skills[${index}].name must be kebab-case`);
     if (skill.source && !isSafeRelativePath(skill.source)) {
       errors.push(`${skill.name}: skill source must be a safe relative path`);
     }
@@ -257,7 +282,7 @@ async function getModuleInstallFiles(name, visited = new Set()) {
     files.push({ moduleName: name, path: relative, hash: await hashFile(filePath) });
   }
 
-  for (const skill of await readModuleAgentSkills(dir, manifest)) {
+  for (const skill of await readModuleMaintenanceSkills(dir, manifest)) {
     files.push({
       moduleName: name,
       path: skill.target,
@@ -350,13 +375,173 @@ async function validateRegistry() {
   return errors;
 }
 
-async function listModules() {
+const categoryLabels = {
+  ai: "AI",
+  analytics: "Analytics",
+  api: "API",
+  auth: "Auth",
+  backend: "Backend",
+  billing: "Billing",
+  communications: "Communications",
+  compliance: "Compliance",
+  components: "Components",
+  content: "Content",
+  database: "Database",
+  deploy: "Deploy",
+  "developer-platform": "Developer Platform",
+  devops: "DevOps",
+  docs: "Docs",
+  edge: "Edge",
+  email: "Email",
+  foundation: "Foundation",
+  growth: "Growth",
+  iac: "IaC",
+  integrations: "Integrations",
+  marketing: "Marketing",
+  media: "Media",
+  networking: "Networking",
+  notifications: "Notifications",
+  observability: "Observability",
+  operations: "Operations",
+  platform: "Platform",
+  "project-management": "Project Management",
+  queue: "Queue",
+  search: "Search",
+  security: "Security",
+  storage: "Storage",
+  support: "Support",
+  tenancy: "Tenancy",
+  workflow: "Workflow",
+};
+
+function categoryLabel(category) {
+  return categoryLabels[category] ?? category;
+}
+
+function formatCount(count, singular, plural = `${singular}s`) {
+  return `${count} ${count === 1 ? singular : plural}`;
+}
+
+async function readAllModuleManifests() {
   const names = await listModuleNames(modulesRoot);
-  for (const name of names.sort()) {
+  const modules = [];
+  for (const name of names) {
     const { manifest } = await getModule(name);
+    modules.push(manifest);
+  }
+  return modules.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function moduleMatchesQuery(manifest, query) {
+  const haystack = [
+    manifest.name,
+    manifest.title,
+    manifest.description,
+    manifest.category,
+    manifest.status,
+    ...(manifest.dependencies ?? []),
+    ...(manifest.devDependencies ?? []),
+    ...(manifest.registryDependencies ?? []),
+    ...(manifest.env ?? []),
+  ]
+    .join(" ")
+    .toLowerCase();
+  return haystack.includes(query.toLowerCase());
+}
+
+function printModuleRow(manifest) {
+  const category = categoryLabel(manifest.category).padEnd(20);
+  const status = manifest.status.padEnd(12);
+  console.log(`${manifest.name.padEnd(26)} ${category} ${status} ${manifest.description}`);
+}
+
+async function listModules(flags = {}) {
+  let modules = await readAllModuleManifests();
+  if (flags.category) {
+    modules = modules.filter((manifest) => manifest.category === flags.category);
+  }
+  if (flags.status) {
+    modules = modules.filter((manifest) => manifest.status === flags.status);
+  }
+
+  if (modules.length === 0) {
+    console.log("No modules found.");
+    return;
+  }
+
+  console.log(
+    `StackFoundry modules (${formatCount(modules.length, "module")})${
+      flags.category ? ` in ${categoryLabel(flags.category)}` : ""
+    }${flags.status ? ` with status ${flags.status}` : ""}`,
+  );
+  console.log("");
+  for (const manifest of modules) {
+    printModuleRow(manifest);
+  }
+}
+
+async function listCategories() {
+  const modules = await readAllModuleManifests();
+  const counts = new Map();
+  for (const category of validModuleCategories) {
+    counts.set(category, 0);
+  }
+  for (const manifest of modules) {
+    counts.set(manifest.category, (counts.get(manifest.category) ?? 0) + 1);
+  }
+
+  console.log(`StackFoundry categories (${formatCount(counts.size, "category", "categories")})`);
+  console.log("");
+  for (const [category, count] of [...counts.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
+    console.log(`${category.padEnd(22)} ${String(count).padStart(3)}  ${categoryLabel(category)}`);
+  }
+  console.log("");
+  console.log("Tip: stackfoundry list --category billing");
+}
+
+async function searchModules(query) {
+  if (!query) throw new Error("search requires a query");
+  const modules = (await readAllModuleManifests()).filter((manifest) =>
+    moduleMatchesQuery(manifest, query),
+  );
+  console.log(`Search results for "${query}" (${formatCount(modules.length, "module")})`);
+  console.log("");
+  for (const manifest of modules) {
+    printModuleRow(manifest);
+  }
+}
+
+async function showModuleInfo(name) {
+  if (!name) throw new Error("info requires a module name");
+  const { manifest } = await getModule(name);
+  console.log(`${manifest.title} (${manifest.name})`);
+  console.log(manifest.description);
+  console.log("");
+  console.log(`category: ${manifest.category} (${categoryLabel(manifest.category)})`);
+  console.log(`type:     ${manifest.type}`);
+  console.log(`status:   ${manifest.status}`);
+  if (manifest.registryDependencies.length > 0) {
+    console.log(`registry deps: ${manifest.registryDependencies.join(", ")}`);
+  }
+  if (manifest.dependencies.length > 0) {
+    console.log(`dependencies:  ${manifest.dependencies.join(", ")}`);
+  }
+  if (manifest.devDependencies.length > 0) {
+    console.log(`dev deps:      ${manifest.devDependencies.join(", ")}`);
+  }
+  if (manifest.env.length > 0) {
+    console.log(`env:           ${manifest.env.join(", ")}`);
+  }
+  if (getSkillEntries(manifest).length > 0) {
     console.log(
-      `${manifest.name.padEnd(18)} ${manifest.status.padEnd(12)} ${manifest.description}`,
+      `skills:        ${getSkillEntries(manifest)
+        .map((skill) => skill.name)
+        .join(", ")}`,
     );
+  }
+  console.log(`files:         ${formatCount(manifest.files.length, "file")}`);
+  for (const file of manifest.files) {
+    console.log(`  - ${file.path}`);
   }
 }
 
@@ -392,7 +577,7 @@ async function addModule(name, flags, visited = new Set()) {
 
   const filesDir = path.join(dir, "files");
   const sourceFiles = await listFiles(filesDir);
-  const agentSkills = await readModuleAgentSkills(dir, manifest);
+  const maintenanceSkills = await readModuleMaintenanceSkills(dir, manifest);
   const installed = await loadInstallManifest(flags.target);
   const installedFiles = {};
 
@@ -414,7 +599,7 @@ async function addModule(name, flags, visited = new Set()) {
     installedFiles[normalized] = sourceHash;
   }
 
-  for (const skill of agentSkills) {
+  for (const skill of maintenanceSkills) {
     const sourceHash = hashContent(skill.content);
     await writeFileWithSafety({
       sourceHash,
@@ -442,7 +627,7 @@ async function addModule(name, flags, visited = new Set()) {
       dependencies: manifest.dependencies,
       devDependencies: manifest.devDependencies,
       env: manifest.env,
-      agentSkills: agentSkills.map((skill) => ({ name: skill.name, target: skill.target })),
+      maintenanceSkills: maintenanceSkills.map((skill) => ({ name: skill.name, target: skill.target })),
     };
     await saveInstallManifest(flags.target, installed);
   }
@@ -493,7 +678,7 @@ async function addRegistryItem(specifier, flags, visited = new Set()) {
     installedFiles[relative] = sourceHash;
   }
 
-  for (const skill of item.agentSkills ?? []) {
+  for (const skill of item.maintenanceSkills ?? []) {
     if (!skill.content)
       throw new Error(
         `${item.name}: ${skill.name ?? skill.target} is missing embedded skill content`,
@@ -534,7 +719,7 @@ async function addRegistryItem(specifier, flags, visited = new Set()) {
       dependencies: item.dependencies ?? [],
       devDependencies: item.devDependencies ?? [],
       env: envVars,
-      agentSkills: (item.agentSkills ?? []).map((skill) => ({
+      maintenanceSkills: (item.maintenanceSkills ?? []).map((skill) => ({
         name: skill.name,
         target: skill.target ?? `${defaultSkillsTarget}/${skill.name}/SKILL.md`,
       })),
@@ -566,7 +751,7 @@ async function diffModule(name, flags) {
     }
   }
 
-  for (const skill of await readModuleAgentSkills(dir, manifest)) {
+  for (const skill of await readModuleMaintenanceSkills(dir, manifest)) {
     const dest = path.join(flags.target, skill.target);
     if (!existsSync(dest)) {
       console.log(`missing  ${skill.target}`);
@@ -613,7 +798,7 @@ async function diffRegistryItem(specifier, flags, visited = new Set()) {
     }
   }
 
-  for (const skill of item.agentSkills ?? []) {
+  for (const skill of item.maintenanceSkills ?? []) {
     const relative = skill.target ?? `${defaultSkillsTarget}/${skill.name}/SKILL.md`;
     const dest = path.join(flags.target, relative);
     if (!existsSync(dest)) {
@@ -727,7 +912,7 @@ async function buildRegistry() {
     const filesDir = path.join(dir, "files");
     const files = [];
     const docsPath = path.join(dir, "docs.md");
-    const agentSkills = await readModuleAgentSkills(dir, manifest);
+    const maintenanceSkills = await readModuleMaintenanceSkills(dir, manifest);
 
     for (const file of manifest.files) {
       const source = path.join(filesDir, file.path);
@@ -749,14 +934,13 @@ async function buildRegistry() {
       devDependencies: manifest.devDependencies,
       registryDependencies: manifest.registryDependencies.map(toRegistryDependency),
       files,
-      agentSkills,
+      maintenanceSkills,
       envVars: Object.fromEntries(manifest.env.map((key) => [key, ""])),
       docs: existsSync(docsPath) ? await readFile(docsPath, "utf8") : undefined,
       meta: {
         category: manifest.category,
         env: manifest.env,
         status: manifest.status,
-        agents: manifest.agents,
         drizzle: manifest.drizzle,
       },
     };
@@ -781,8 +965,11 @@ async function main() {
     return;
   }
 
-  if (command === "list") return listModules();
+  if (command === "list") return listModules(flags);
+  if (command === "categories") return listCategories();
   if (command === "presets") return listPresets();
+  if (command === "search") return searchModules(moduleName);
+  if (command === "info") return showModuleInfo(moduleName);
   if (command === "build") return buildRegistry();
   if (command === "validate" || command === "doctor") {
     const errors = await validateRegistry();

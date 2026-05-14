@@ -29,10 +29,10 @@
       "content": "const invites = [\n  { email: \"teammate@example.com\", role: \"member\", status: \"pending\" },\n  { email: \"admin@example.com\", role: \"admin\", status: \"accepted\" },\n];\n\nexport default function WorkspaceInvitesPage() {\n  return (\n    <main className=\"flex flex-col gap-6 p-6\">\n      <div>\n        <h1 className=\"text-2xl font-semibold\">Workspace Invites</h1>\n        <p className=\"text-muted-foreground\">Send, resend, and revoke invitations for a workspace.</p>\n      </div>\n      <div className=\"grid gap-3\">\n        {invites.map((invite) => (\n          <div key={invite.email} className=\"flex items-center justify-between rounded-lg border p-4\">\n            <div>\n              <p className=\"font-medium\">{invite.email}</p>\n              <p className=\"text-sm text-muted-foreground\">{invite.role}</p>\n            </div>\n            <span className=\"text-sm\">{invite.status}</span>\n          </div>\n        ))}\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "invites",
-      "target": ".agents/skills/invites/SKILL.md",
+      "target": ".stackfoundry/skills/invites/SKILL.md",
       "content": "---\nname: invites\ndescription: Maintain the Invites module installed by StackFoundry.\n---\n\n# Invites Maintenance Instructions\n\n- Preserve the module boundary described in `docs.md`.\n- Keep public APIs small and typed.\n- Update tests/checklist.md when behavior changes.\n- Do not introduce secrets, generated machine metadata, or provider lock-in.\n- Keep Drizzle schema exports documented in module.json.\n"
     }
   ],
@@ -42,16 +42,6 @@
     "category": "auth",
     "env": [],
     "status": "experimental",
-    "agents": {
-      "skills": [
-        "invites"
-      ],
-      "rules": [
-        "hash-invite-tokens",
-        "expire-pending-invites",
-        "audit-membership-changes"
-      ]
-    },
     "drizzle": {
       "schemaExports": [
         "workspaceInvites"

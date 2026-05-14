@@ -27,10 +27,10 @@
       "content": "\"use client\";\n\nimport { Component, type ErrorInfo, type ReactNode } from \"react\";\n\ntype Props = { children: ReactNode; fallback?: ReactNode };\ntype State = { error?: Error };\n\nexport class StackFoundryErrorBoundary extends Component<Props, State> {\n  state: State = {};\n\n  static getDerivedStateFromError(error: Error) {\n    return { error };\n  }\n\n  componentDidCatch(error: Error, info: ErrorInfo) {\n    console.error(\"stackfoundry.error_boundary\", { error, info });\n  }\n\n  render() {\n    if (this.state.error) {\n      return this.props.fallback ?? <div role=\"alert\">Something went wrong.</div>;\n    }\n\n    return this.props.children;\n  }\n}\n"
     }
   ],
-  "agentSkills": [
+  "maintenanceSkills": [
     {
       "name": "error-boundaries",
-      "target": ".agents/skills/error-boundaries/SKILL.md",
+      "target": ".stackfoundry/skills/error-boundaries/SKILL.md",
       "content": "---\nname: error-boundaries\ndescription: Maintain the Error Boundaries module installed by StackFoundry.\n---\n\n# Error Boundaries Skill\n\n## Boundary\n\nThis module owns the Error Boundaries source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/error-boundaries.ts`\n- `apps/web/src/components/stackfoundry/error-boundaries.tsx`\n- `apps/web/src/app/(console)/components/error-boundaries/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- Preserve tenant, permission, and data-safety boundaries.\n- Keep examples small, typed, and replaceable.\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
     }
   ],
@@ -39,16 +39,6 @@
   "meta": {
     "category": "components",
     "env": [],
-    "status": "experimental",
-    "agents": {
-      "skills": [
-        "error-boundaries"
-      ],
-      "rules": [
-        "document-invariants",
-        "verify-before-release",
-        "safe-defaults"
-      ]
-    }
+    "status": "experimental"
   }
 }
