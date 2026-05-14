@@ -1,13 +1,18 @@
 # Registry Package
 
-Reserved for registry loading and graph operations.
+Registry loading and file-system helpers for StackFoundry.
 
-Future responsibilities:
+## Owns
 
-- Load module and preset manifests.
-- Resolve registry dependency graphs.
-- Detect dependency cycles and install path collisions.
-- Build shadcn-compatible registry item JSON.
-- Expose reusable helpers for CLI, tests, and the website.
+- Repository registry paths.
+- JSON loading.
+- Recursive file listing.
+- File/content hashing.
+- Module and preset manifest loading.
+- Generated registry item loading from local files or StackFoundry registry URLs.
 
-Current owner: `apps/cli/src/cli.mjs`.
+## Does Not Own
+
+- Manifest policy.
+- File write safety.
+- CLI argument parsing.

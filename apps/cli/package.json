@@ -6,6 +6,12 @@
   "bin": {
     "stackfoundry": "./src/cli.mjs"
   },
+  "dependencies": {
+    "@stackfoundry/generator": "workspace:*",
+    "@stackfoundry/registry": "workspace:*",
+    "@stackfoundry/schema": "workspace:*",
+    "@stackfoundry/utils": "workspace:*"
+  },
   "scripts": {
     "check": "node --check src/cli.mjs"
   }

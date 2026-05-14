@@ -22,7 +22,20 @@ importers:
         specifier: 2.4.15
         version: 2.4.15
 
-  apps/cli: {}
+  apps/cli:
+    dependencies:
+      '@stackfoundry/generator':
+        specifier: workspace:*
+        version: link:../../packages/generator
+      '@stackfoundry/registry':
+        specifier: workspace:*
+        version: link:../../packages/registry
+      '@stackfoundry/schema':
+        specifier: workspace:*
+        version: link:../../packages/schema
+      '@stackfoundry/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
 
   apps/web:
     dependencies:
@@ -54,6 +67,14 @@ importers:
       typescript:
         specifier: latest
         version: 6.0.3
+
+  packages/generator: {}
+
+  packages/registry: {}
+
+  packages/schema: {}
+
+  packages/utils: {}
 
 packages:
 

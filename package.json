@@ -16,9 +16,9 @@
     "dev": "pnpm dev:web",
     "build": "pnpm build:web",
     "check": "pnpm check:registry && pnpm check:web",
-    "check:registry": "pnpm registry:doctor && pnpm lint:cli && pnpm registry:build && pnpm shadcn:verify && pnpm test:registry",
+    "check:registry": "pnpm registry:doctor && pnpm lint:cli && pnpm lint:packages && pnpm registry:build && pnpm shadcn:verify && pnpm test:registry",
     "check:web": "pnpm lint:web && pnpm typecheck:web && pnpm build:web",
-    "lint": "pnpm lint:cli && pnpm lint:web",
+    "lint": "pnpm lint:cli && pnpm lint:packages && pnpm lint:web",
     "lint:cli": "node --check apps/cli/src/cli.mjs",
     "lint:web": "biome check apps/web",
     "lint:web:fix": "biome check --write apps/web",
@@ -51,7 +51,8 @@
     "registry:add:block:api-keys": "pnpm cli add https://stackfoundry.dev/r/api-keys.json",
     "registry:add:block:vendors": "pnpm cli add https://stackfoundry.dev/r/vendor-examples.json",
     "registry:dry:block:api-keys": "pnpm cli add https://stackfoundry.dev/r/api-keys.json --dry-run",
-    "registry:dry:block:vendors": "pnpm cli add https://stackfoundry.dev/r/vendor-examples.json --dry-run"
+    "registry:dry:block:vendors": "pnpm cli add https://stackfoundry.dev/r/vendor-examples.json --dry-run",
+    "lint:packages": "node --check packages/schema/src/index.mjs && node --check packages/utils/src/index.mjs && node --check packages/registry/src/index.mjs && node --check packages/generator/src/index.mjs"
   },
   "dependencies": {
     "next": "latest",

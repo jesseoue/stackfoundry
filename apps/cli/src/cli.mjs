@@ -1,18 +1,34 @@
 #!/usr/bin/env node
-import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
 import { mkdir, readFile, readdir, stat, writeFile, copyFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createEnvExample, writeFileWithSafety } from "@stackfoundry/generator";
+import {
+  createRegistryPaths,
+  getModule as loadModule,
+  getPreset as loadPreset,
+  hashContent,
+  hashFile,
+  listFiles,
+  listModuleNames,
+  readJson,
+  readRegistryItem as loadRegistryItem,
+} from "@stackfoundry/registry";
+import {
+  isEnvVarName,
+  isKebabCase,
+  requiredModuleFields,
+  requiredPresetFields,
+  validModuleStatuses,
+  validModuleTypes,
+  validRegistryFileTypes,
+} from "@stackfoundry/schema";
+import { isHttpUrl, isRegistryItemSpecifier, toPosixPath } from "@stackfoundry/utils";
 
 const __filename = fileURLToPath(import.meta.url);
 const repoRoot = path.resolve(path.dirname(__filename), "../../..");
-const registryRoot = path.join(repoRoot, "registry");
-const modulesRoot = path.join(registryRoot, "modules");
-const presetsRoot = path.join(registryRoot, "presets");
-
-const requiredModuleFields = ["name", "type", "category", "title", "description", "files", "status"];
-const requiredPresetFields = ["name", "title", "description", "modules", "status"];
+const { modulesRoot, presetsRoot } = createRegistryPaths(repoRoot);
 
 function usage() {
   console.log(`StackFoundry
@@ -65,85 +81,16 @@ function parseArgs(argv) {
   return { command, moduleName, presetName, flags };
 }
 
-async function readJson(filePath) {
-  return JSON.parse(await readFile(filePath, "utf8"));
-}
-
-function isHttpUrl(value) {
-  try {
-    const url = new URL(value);
-    return url.protocol === "http:" || url.protocol === "https:";
-  } catch {
-    return false;
-  }
-}
-
-function isRegistryItemSpecifier(value) {
-  return isHttpUrl(value) || value.endsWith(".json") || value.includes("/r/");
-}
-
-function getLocalRegistryPathFromUrl(url) {
-  if (url.hostname !== "stackfoundry.dev") return undefined;
-  if (!url.pathname.startsWith("/r/") || !url.pathname.endsWith(".json")) return undefined;
-
-  return path.join(repoRoot, "public", url.pathname);
-}
-
 async function readRegistryItem(specifier) {
-  if (isHttpUrl(specifier)) {
-    const url = new URL(specifier);
-    const localPath = getLocalRegistryPathFromUrl(url);
-    if (localPath && existsSync(localPath)) return readJson(localPath);
-
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`Unable to fetch registry item: ${specifier}`);
-    return response.json();
-  }
-
-  const filePath = path.resolve(specifier);
-  return readJson(filePath);
-}
-
-async function hashFile(filePath) {
-  const content = await readFile(filePath);
-  return createHash("sha256").update(content).digest("hex");
-}
-
-async function listFiles(dir) {
-  if (!existsSync(dir)) return [];
-  const entries = await readdir(dir);
-  const files = [];
-
-  for (const entry of entries) {
-    const full = path.join(dir, entry);
-    const info = await stat(full);
-    if (info.isDirectory()) {
-      files.push(...(await listFiles(full)));
-    } else {
-      files.push(full);
-    }
-  }
-
-  return files;
+  return loadRegistryItem(repoRoot, specifier);
 }
 
 async function getModule(name) {
-  const modulePath = path.join(modulesRoot, name, "module.json");
-  if (!existsSync(modulePath)) {
-    throw new Error(`Unknown module: ${name}`);
-  }
-  return {
-    dir: path.dirname(modulePath),
-    manifest: await readJson(modulePath),
-  };
+  return loadModule(modulesRoot, name);
 }
 
 async function getPreset(name) {
-  const presetPath = path.join(presetsRoot, `${name}.json`);
-  if (!existsSync(presetPath)) {
-    throw new Error(`Unknown preset: ${name}`);
-  }
-  return readJson(presetPath);
+  return loadPreset(presetsRoot, name);
 }
 
 async function validateModule(moduleDir) {
@@ -156,9 +103,9 @@ async function validateModule(moduleDir) {
     if (!(field in manifest)) errors.push(`missing field: ${field}`);
   }
   if (manifest.name !== moduleName) errors.push(`manifest name must match directory: ${moduleName}`);
-  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(manifest.name ?? "")) errors.push("name must be kebab-case");
-  if (!["module", "integration", "page"].includes(manifest.type)) errors.push("type must be module, integration, or page");
-  if (!["planned", "experimental", "stable"].includes(manifest.status)) {
+  if (!isKebabCase(manifest.name)) errors.push("name must be kebab-case");
+  if (!validModuleTypes.has(manifest.type)) errors.push("type must be module, integration, or page");
+  if (!validModuleStatuses.has(manifest.status)) {
     errors.push("status must be planned, experimental, or stable");
   }
   if (!Array.isArray(manifest.files)) errors.push("files must be an array");
@@ -167,17 +114,17 @@ async function validateModule(moduleDir) {
   if (!Array.isArray(manifest.registryDependencies)) errors.push("registryDependencies must be an array");
   if (!Array.isArray(manifest.env)) errors.push("env must be an array");
   for (const key of manifest.env ?? []) {
-    if (!/^[A-Z][A-Z0-9_]*$/.test(key)) errors.push(`env var must be SCREAMING_SNAKE_CASE: ${key}`);
+    if (!isEnvVarName(key)) errors.push(`env var must be SCREAMING_SNAKE_CASE: ${key}`);
   }
 
   const filesDir = path.join(moduleDir, "files");
   const sourceFiles = await listFiles(filesDir);
-  const relativeFiles = sourceFiles.map((file) => path.relative(filesDir, file).split(path.sep).join("/"));
+  const relativeFiles = sourceFiles.map((file) => toPosixPath(path.relative(filesDir, file)));
   const declaredFiles = new Set();
 
   for (const file of manifest.files ?? []) {
     if (!file.path) errors.push("file entry missing path");
-    if (!["registry:file", "registry:page", "registry:component", "registry:hook"].includes(file.type)) {
+    if (!validRegistryFileTypes.has(file.type)) {
       errors.push(`${file.path}: unsupported file type ${file.type}`);
     }
     if (declaredFiles.has(file.path)) errors.push(`duplicate file declaration: ${file.path}`);
@@ -224,7 +171,7 @@ async function getModuleInstallFiles(name, visited = new Set()) {
 
   const filesDir = path.join(dir, "files");
   for (const filePath of await listFiles(filesDir)) {
-    const relative = path.relative(filesDir, filePath).split(path.sep).join("/");
+    const relative = toPosixPath(path.relative(filesDir, filePath));
     files.push({ moduleName: name, path: relative, hash: await hashFile(filePath) });
   }
 
@@ -238,11 +185,11 @@ async function getModuleInstallFiles(name, visited = new Set()) {
   }
 
   if (manifest.env.length > 0) {
-    const content = manifest.env.map((key) => `${key}=`).join("\n") + "\n";
+    const content = createEnvExample(manifest.env);
     files.push({
       moduleName: name,
       path: `.env.stackfoundry.${name}.example`,
-      hash: createHash("sha256").update(content).digest("hex"),
+      hash: hashContent(content),
     });
   }
 
@@ -322,12 +269,7 @@ async function validateRegistry() {
 }
 
 async function listModules() {
-  const names = [];
-  for (const name of await readdir(modulesRoot)) {
-    if ((await stat(path.join(modulesRoot, name))).isDirectory()) {
-      names.push(name);
-    }
-  }
+  const names = await listModuleNames(modulesRoot);
   for (const name of names.sort()) {
     const { manifest } = await getModule(name);
     console.log(`${manifest.name.padEnd(18)} ${manifest.status.padEnd(12)} ${manifest.description}`);
@@ -355,28 +297,6 @@ async function saveInstallManifest(target, manifest) {
   await writeFile(path.join(dir, "installed.json"), `${JSON.stringify(manifest, null, 2)}\n`);
 }
 
-async function writeFileWithSafety({ sourceHash, content, relative, target, flags }) {
-  const dest = path.join(target, relative);
-  const destExists = existsSync(dest);
-
-  if (destExists) {
-    const same = (await hashFile(dest)) === sourceHash;
-    if (!same && !flags.force) {
-      throw new Error(`Refusing to overwrite modified file: ${relative}. Use --force or inspect with diff.`);
-    }
-  }
-
-  if (!flags.dryRun) {
-    await mkdir(path.dirname(dest), { recursive: true });
-    if (destExists && flags.force) {
-      await copyFile(dest, `${dest}.stackfoundry.bak`);
-    }
-    await writeFile(dest, content);
-  }
-
-  console.log(`${flags.dryRun ? "would write" : "wrote"} ${relative}`);
-}
-
 async function addModule(name, flags, visited = new Set()) {
   if (visited.has(name)) return;
   visited.add(name);
@@ -393,9 +313,9 @@ async function addModule(name, flags, visited = new Set()) {
 
   for (const source of sourceFiles) {
     const relative = path.relative(filesDir, source);
-    const normalized = relative.split(path.sep).join("/");
+    const normalized = toPosixPath(relative);
     const content = await readFile(source, "utf8");
-    const sourceHash = createHash("sha256").update(content).digest("hex");
+    const sourceHash = hashContent(content);
 
     await writeFileWithSafety({
       sourceHash,
@@ -403,6 +323,7 @@ async function addModule(name, flags, visited = new Set()) {
       relative,
       target: flags.target,
       flags,
+      hashFile,
     });
 
     installedFiles[normalized] = sourceHash;
@@ -421,9 +342,9 @@ async function addModule(name, flags, visited = new Set()) {
 
   if (manifest.env.length > 0) {
     const envPath = path.join(flags.target, `.env.stackfoundry.${name}.example`);
-    const content = manifest.env.map((key) => `${key}=`).join("\n") + "\n";
+    const content = createEnvExample(manifest.env);
     if (!flags.dryRun) await writeFile(envPath, content);
-    installedFiles[`.env.stackfoundry.${name}.example`] = createHash("sha256").update(content).digest("hex");
+    installedFiles[`.env.stackfoundry.${name}.example`] = hashContent(content);
     console.log(`${flags.dryRun ? "would write" : "wrote"} .env.stackfoundry.${name}.example`);
   }
 
@@ -472,13 +393,14 @@ async function addRegistryItem(specifier, flags, visited = new Set()) {
     if (!file.content) throw new Error(`${item.name}: ${file.path} is missing embedded content`);
 
     const relative = file.target ?? file.path;
-    const sourceHash = createHash("sha256").update(file.content).digest("hex");
+    const sourceHash = hashContent(file.content);
     await writeFileWithSafety({
       sourceHash,
       content: file.content,
       relative,
       target: flags.target,
       flags,
+      hashFile,
     });
     installedFiles[relative] = sourceHash;
   }
@@ -486,9 +408,9 @@ async function addRegistryItem(specifier, flags, visited = new Set()) {
   const envVars = Object.keys(item.envVars ?? {});
   if (envVars.length > 0) {
     const relative = `.env.stackfoundry.${item.name}.example`;
-    const content = envVars.map((key) => `${key}=`).join("\n") + "\n";
-    const sourceHash = createHash("sha256").update(content).digest("hex");
-    await writeFileWithSafety({ sourceHash, content, relative, target: flags.target, flags });
+    const content = createEnvExample(envVars);
+    const sourceHash = hashContent(content);
+    await writeFileWithSafety({ sourceHash, content, relative, target: flags.target, flags, hashFile });
     installedFiles[relative] = sourceHash;
   }
 
@@ -549,7 +471,7 @@ async function diffRegistryItem(specifier, flags, visited = new Set()) {
       changes += 1;
       continue;
     }
-    const sourceHash = createHash("sha256").update(file.content ?? "").digest("hex");
+    const sourceHash = hashContent(file.content ?? "");
     if ((await hashFile(dest)) !== sourceHash) {
       console.log(`changed  ${relative}`);
       changes += 1;

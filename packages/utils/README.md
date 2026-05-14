@@ -1,7 +1,15 @@
 # Utils Package
 
-Reserved for small shared helpers.
+Small shared helpers with no StackFoundry product policy.
 
-Only move code here when it is used by more than one package or app. Avoid product behavior, registry policy, or provider assumptions in this package.
+## Owns
 
-Current owner: `apps/cli/src/cli.mjs`.
+- Path normalization.
+- URL detection.
+- Registry item specifier detection.
+
+## Rules
+
+- Do not add registry policy here.
+- Do not add provider-specific behavior here.
+- Prefer keeping helpers local unless more than one package needs them.

@@ -1,12 +1,16 @@
 # Generator Package
 
-Reserved for install and update generation logic.
+Install/update generation helpers for StackFoundry.
 
-Future responsibilities:
+## Owns
 
-- Resolve files from registry modules into target paths.
-- Render generated metadata such as env examples and install manifests.
-- Support diff/update plans before files are written.
-- Keep overwrite safety rules shared between CLI and any future programmatic API.
+- `.env.stackfoundry.<module>.example` content rendering.
+- Safe target file writes.
+- Backup behavior when `--force` is used.
+- Shared write semantics for source modules and generated registry blocks.
 
-Current owner: `apps/cli/src/cli.mjs`.
+## Does Not Own
+
+- Registry graph resolution.
+- Manifest validation.
+- CLI argument parsing.

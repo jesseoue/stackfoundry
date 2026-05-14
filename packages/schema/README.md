@@ -1,12 +1,17 @@
 # Schema Package
 
-Reserved for typed schemas and validation.
+Schema constants and validation primitives for StackFoundry registry source.
 
-Future responsibilities:
+## Owns
 
-- Define module manifest schemas.
-- Define preset schemas.
-- Validate public registry output.
-- Keep CLI validation and website rendering on the same contract.
+- Required manifest and preset fields.
+- Valid module types.
+- Valid module statuses.
+- Valid registry file types.
+- Basic identifier checks such as kebab-case module names and env var names.
 
-Current owner: `apps/cli/src/cli.mjs`.
+## Does Not Own
+
+- Reading manifests from disk.
+- Dependency graph traversal.
+- Installing files into target projects.

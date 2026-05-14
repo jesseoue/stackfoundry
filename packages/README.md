@@ -1,14 +1,20 @@
 # Packages
 
-This directory is reserved for extracted workspace packages.
+This directory contains reusable internals for the StackFoundry CLI and registry build pipeline.
 
-Keep code in `apps/cli` until a boundary is useful to more than one caller. When a package becomes real, it should include its own `package.json`, README, tests, and ownership notes.
+The split mirrors the shape of mature source registry CLIs: the executable stays thin, while schema rules, registry IO, generation helpers, and utilities live behind package boundaries.
 
-## Reserved Boundaries
+## Packages
 
-- `generator/` will own install/update rendering primitives.
-- `registry/` will own registry loading, dependency graph checks, and generated output helpers.
-- `schema/` will own manifest and preset schemas.
-- `utils/` will own small shared helpers that have no product-specific behavior.
+- `schema/` owns manifest constants and validation primitives.
+- `registry/` owns registry paths, JSON loading, file listing, hashing, and registry item loading.
+- `generator/` owns install-time file rendering helpers and overwrite safety.
+- `utils/` owns small shared helpers with no product policy.
 
-Do not add empty package exports just to satisfy structure. Add code here only when the boundary reduces coupling.
+## Rules
+
+- Keep product policy out of `utils`.
+- Keep IO helpers in `registry`.
+- Keep write safety in `generator`.
+- Keep validation constants in `schema`.
+- Move CLI code into packages only when it reduces coupling or is needed by more than one caller.
