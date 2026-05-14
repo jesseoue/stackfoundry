@@ -60,17 +60,19 @@ The `build` command generates registry-compatible JSON files under:
 
 ```text
 public/r/
-  registry.json
+  registry.json            # registry index
   drizzle-postgres.json
   api-keys.json
   stripe-billing.json
-  vendor-examples.json
+  vendor-examples.json     # installable aggregate preset block
   presets/
-    next-saas.json
+    next-saas.json         # StackFoundry preset manifest
 ```
 
-This mirrors the source-registry pattern: registry item JSON embeds file contents and target paths while module metadata stays in `registry/modules/<module>/module.json`.
+This mirrors the source-registry pattern: `/r/registry.json` is the registry index, while registry item JSON embeds file contents and target paths. Module metadata stays in `registry/modules/<module>/module.json`.
 
-Generated public items are registry-compatible `registry:block` files. Registry dependencies are emitted as absolute URLs so compatible registry clients can resolve StackFoundry dependencies.
+Generated public module and aggregate preset items are registry-compatible `registry:block` files using the shadcn registry item schema. Registry dependencies are emitted as absolute URLs so compatible registry clients can resolve StackFoundry dependencies.
+
+Files under `/r/presets/*.json` are StackFoundry preset manifests for tooling and inspection. They are not installable registry item payloads; use `/r/<preset>.json` to install a preset bundle.
 
 The build writes canonical generated output to `public/r` and mirrors it to `apps/web/public/r`. Vercel serves `/r/*.json` directly from the Next app as static JSON; no redirect is required.

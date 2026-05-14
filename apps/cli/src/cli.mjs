@@ -31,6 +31,8 @@ const repoRoot = path.resolve(path.dirname(__filename), "../../..");
 const { modulesRoot, presetsRoot, skillsRoot, webPublicRegistryRoot } =
   createRegistryPaths(repoRoot);
 const defaultSkillsTarget = ".agents/skills";
+const registryIndexSchema = "https://ui.shadcn.com/schema/registry.json";
+const registryItemSchema = "https://ui.shadcn.com/schema/registry-item.json";
 
 function usage() {
   console.log(`StackFoundry
@@ -656,8 +658,7 @@ async function buildRegistry() {
   const builtItems = [];
 
   for (const item of registry.items) {
-    const { dir, manifest } = await getModule(item.name);
-    const agentSkills = await readModuleAgentSkills(dir, manifest);
+    const { manifest } = await getModule(item.name);
     builtItems.push({
       name: manifest.name,
       type: "registry:block",
@@ -667,16 +668,15 @@ async function buildRegistry() {
       devDependencies: manifest.devDependencies,
       registryDependencies: manifest.registryDependencies.map(toRegistryDependency),
       files: manifest.files.map((file) => ({ ...file, target: file.path })),
-      agentSkills: agentSkills.map((skill) => ({ name: skill.name, target: skill.target })),
-      meta: {
-        category: manifest.category,
-        env: manifest.env,
-        status: manifest.status,
-      },
     });
   }
 
-  const builtRegistry = { ...registry, items: builtItems };
+  const builtRegistry = {
+    $schema: registryIndexSchema,
+    name: registry.name,
+    homepage: registry.homepage,
+    items: builtItems,
+  };
 
   await writeFile(
     path.join(outputDir, "registry.json"),
@@ -699,7 +699,7 @@ async function buildRegistry() {
           presetOutputPath,
           `${JSON.stringify(
             {
-              $schema: "https://ui.shadcn.com/schema/registry-item.json",
+              $schema: registryItemSchema,
               name: preset.name,
               type: "registry:block",
               title: preset.title,
@@ -740,7 +740,7 @@ async function buildRegistry() {
     }
 
     const registryItem = {
-      $schema: "https://ui.shadcn.com/schema/registry-item.json",
+      $schema: registryItemSchema,
       name: manifest.name,
       type: "registry:block",
       title: manifest.title,

@@ -293,7 +293,6 @@ export default function Page() {
             <div className="artifact-registry">
               <div className="artifact-head">
                 <span>Registry Preview</span>
-                <code>preset next-saas</code>
               </div>
               <div className="artifact-stack">
                 {heroStack.map(([name, description]) => (
@@ -536,17 +535,68 @@ export default function Page() {
                 <span />
                 registry/modules/stripe-billing/module.json
               </div>
-              <pre>{`{
-  "name": "stripe-billing",
-  "type": "module",
-  "category": "billing",
-  "registryDependencies": ["drizzle-postgres"],
-  "env": [
-    "STRIPE_SECRET_KEY",
-    "STRIPE_WEBHOOK_SECRET"
-  ],
-  "status": "experimental"
-}`}</pre>
+              <pre>
+                <code>
+                  <span className="json-line">
+                    <span className="json-punctuation">{"{"}</span>
+                  </span>
+                  <span className="json-line">
+                    <span className="json-indent">{"  "}</span>
+                    <span className="json-key">"name"</span>
+                    <span className="json-punctuation">: </span>
+                    <span className="json-string">"stripe-billing"</span>
+                    <span className="json-punctuation">,</span>
+                  </span>
+                  <span className="json-line">
+                    <span className="json-indent">{"  "}</span>
+                    <span className="json-key">"type"</span>
+                    <span className="json-punctuation">: </span>
+                    <span className="json-string">"module"</span>
+                    <span className="json-punctuation">,</span>
+                  </span>
+                  <span className="json-line">
+                    <span className="json-indent">{"  "}</span>
+                    <span className="json-key">"category"</span>
+                    <span className="json-punctuation">: </span>
+                    <span className="json-string">"billing"</span>
+                    <span className="json-punctuation">,</span>
+                  </span>
+                  <span className="json-line">
+                    <span className="json-indent">{"  "}</span>
+                    <span className="json-key">"registryDependencies"</span>
+                    <span className="json-punctuation">: [</span>
+                    <span className="json-string">"drizzle-postgres"</span>
+                    <span className="json-punctuation">],</span>
+                  </span>
+                  <span className="json-line">
+                    <span className="json-indent">{"  "}</span>
+                    <span className="json-key">"env"</span>
+                    <span className="json-punctuation">: [</span>
+                  </span>
+                  <span className="json-line">
+                    <span className="json-indent">{"    "}</span>
+                    <span className="json-env">"STRIPE_SECRET_KEY"</span>
+                    <span className="json-punctuation">,</span>
+                  </span>
+                  <span className="json-line">
+                    <span className="json-indent">{"    "}</span>
+                    <span className="json-env">"STRIPE_WEBHOOK_SECRET"</span>
+                  </span>
+                  <span className="json-line">
+                    <span className="json-indent">{"  "}</span>
+                    <span className="json-punctuation">],</span>
+                  </span>
+                  <span className="json-line">
+                    <span className="json-indent">{"  "}</span>
+                    <span className="json-key">"status"</span>
+                    <span className="json-punctuation">: </span>
+                    <span className="json-status">"experimental"</span>
+                  </span>
+                  <span className="json-line">
+                    <span className="json-punctuation">{"}"}</span>
+                  </span>
+                </code>
+              </pre>
             </div>
           </div>
         </section>

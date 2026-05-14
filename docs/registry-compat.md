@@ -31,14 +31,16 @@ pnpm stackfoundry add http://localhost:3000/r/api-keys.json --target /tmp/app
 ## How It Maps to the Registry Model
 
 - Source manifests live in `registry/modules/<name>/module.json`.
-- Public registry items are generated into `public/r/<name>.json`.
+- `/r/registry.json` is the public registry index. It uses `https://ui.shadcn.com/schema/registry.json`, lists available blocks, and is not itself installable.
+- Public installable registry items are generated into `public/r/<name>.json`.
 - The same generated output is mirrored to `apps/web/public/r` so Vercel serves `/r/<name>.json` as static JSON from the Next app.
-- Each item is emitted as `registry:block`.
+- Each module item is emitted as `registry:block` with `https://ui.shadcn.com/schema/registry-item.json`.
 - Each file includes a `target` so registry clients install it into the intended app path.
 - Internal module dependencies are emitted as full `https://stackfoundry.dev/r/<dependency>.json` registry URLs.
 - Env requirements are emitted as `envVars` and retained in `meta.env`.
 - Module and shared technology skills are emitted as `agentSkills` so registry URL installs include maintenance guidance.
-- StackFoundry CLI can install these generated items directly, including aggregate preset blocks such as `vendor-examples`.
+- StackFoundry CLI can install generated module items directly, including aggregate preset blocks such as `/r/vendor-examples.json`.
+- `/r/presets/*.json` files are StackFoundry preset manifests for tooling and inspection. They are intentionally not shadcn registry item documents; use `/r/<preset>.json` for installable preset payloads.
 
 ## StackFoundry Rules
 

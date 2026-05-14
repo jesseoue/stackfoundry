@@ -30,7 +30,9 @@ StackFoundry is a source registry. Every directory should either own product sou
 
 Run `pnpm registry:build` to regenerate `public/r`.
 
-Generated registry items are `registry:block` JSON files. They include file contents, target paths, package dependencies, registry dependency URLs, environment variables, docs, and metadata.
+`public/r/registry.json` is the shadcn-compatible registry index and is not an installable item. Generated module files such as `public/r/api-keys.json` are `registry:block` item JSON files. They include file contents, target paths, package dependencies, registry dependency URLs, environment variables, docs, and metadata.
+
+Generated aggregate preset blocks live at `public/r/<preset>.json`. Raw preset manifests live under `public/r/presets/*.json` for StackFoundry tooling and are not shadcn registry item documents.
 
 ## Verification
 

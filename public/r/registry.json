@@ -11,18 +11,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "aarrr-dashboard",
-          "target": ".agents/skills/aarrr-dashboard/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "growth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "account-deletion",
@@ -50,18 +39,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/account/deletion/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "account-deletion",
-          "target": ".agents/skills/account-deletion/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "compliance",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "account-modes",
@@ -91,18 +69,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/account/modes/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "account-modes",
-          "target": ".agents/skills/account-modes/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "tenancy",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "account-settings",
@@ -123,18 +90,7 @@
           "type": "registry:file",
           "target": "apps/web/src/lib/account-settings.ts"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "account-settings",
-          "target": ".agents/skills/account-settings/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "activation-onboarding",
@@ -144,18 +100,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "activation-onboarding",
-          "target": ".agents/skills/activation-onboarding/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "growth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "admin-console",
@@ -178,18 +123,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "admin-console",
-          "target": ".agents/skills/admin-console/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "admin-impersonation",
@@ -199,18 +133,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "admin-impersonation",
-          "target": ".agents/skills/admin-impersonation/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "ai-artifacts",
@@ -220,22 +143,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "ai-artifacts",
-          "target": ".agents/skills/ai-artifacts/SKILL.md"
-        },
-        {
-          "name": "ai-sdk",
-          "target": ".agents/skills/ai-sdk/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "ai",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "ai-chat",
@@ -270,25 +178,7 @@
           "type": "registry:file",
           "target": "apps/web/src/lib/ai/models.ts"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "ai-chat",
-          "target": ".agents/skills/ai-chat/SKILL.md"
-        },
-        {
-          "name": "ai-sdk",
-          "target": ".agents/skills/ai-sdk/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "ai",
-        "env": [
-          "AI_GATEWAY_API_KEY",
-          "AI_GATEWAY_MODEL"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "ai-tools",
@@ -298,22 +188,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "ai-tools",
-          "target": ".agents/skills/ai-tools/SKILL.md"
-        },
-        {
-          "name": "ai-sdk",
-          "target": ".agents/skills/ai-sdk/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "ai",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "api-docs",
@@ -334,18 +209,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/docs/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "api-docs",
-          "target": ".agents/skills/api-docs/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "developer-platform",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "api-errors",
@@ -366,18 +230,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/errors/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "api-errors",
-          "target": ".agents/skills/api-errors/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "developer-platform",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "api-keys",
@@ -405,26 +258,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/api-keys/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "api-keys",
-          "target": ".agents/skills/api-keys/SKILL.md"
-        },
-        {
-          "name": "drizzle",
-          "target": ".agents/skills/drizzle/SKILL.md"
-        },
-        {
-          "name": "nextjs",
-          "target": ".agents/skills/nextjs/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "developer-platform",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "api-usage-dashboard",
@@ -448,18 +282,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/usage/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "api-usage-dashboard",
-          "target": ".agents/skills/api-usage-dashboard/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "developer-platform",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "arcjet-security",
@@ -489,28 +312,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/vendors/arcjet/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "arcjet-security",
-          "target": ".agents/skills/arcjet-security/SKILL.md"
-        },
-        {
-          "name": "arcjet",
-          "target": ".agents/skills/arcjet/SKILL.md"
-        },
-        {
-          "name": "nextjs",
-          "target": ".agents/skills/nextjs/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "security",
-        "env": [
-          "ARCJET_KEY"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "audit-log",
@@ -538,18 +340,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/audit-log/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "audit-log",
-          "target": ".agents/skills/audit-log/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "auth-authjs",
@@ -559,26 +350,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "auth-authjs",
-          "target": ".agents/skills/auth-authjs/SKILL.md"
-        },
-        {
-          "name": "authjs",
-          "target": ".agents/skills/authjs/SKILL.md"
-        },
-        {
-          "name": "nextjs",
-          "target": ".agents/skills/nextjs/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "auth-better-auth",
@@ -611,29 +383,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/auth/better-auth/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "auth-better-auth",
-          "target": ".agents/skills/auth-better-auth/SKILL.md"
-        },
-        {
-          "name": "better-auth",
-          "target": ".agents/skills/better-auth/SKILL.md"
-        },
-        {
-          "name": "nextjs",
-          "target": ".agents/skills/nextjs/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [
-          "BETTER_AUTH_SECRET",
-          "BETTER_AUTH_URL"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "autumn-billing",
@@ -659,24 +409,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/vendors/autumn-billing/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "autumn-billing",
-          "target": ".agents/skills/autumn-billing/SKILL.md"
-        },
-        {
-          "name": "autumn",
-          "target": ".agents/skills/autumn/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [
-          "AUTUMN_SECRET_KEY"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "autumn-entitlements",
@@ -702,24 +435,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/vendors/autumn-entitlements/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "autumn-entitlements",
-          "target": ".agents/skills/autumn-entitlements/SKILL.md"
-        },
-        {
-          "name": "autumn",
-          "target": ".agents/skills/autumn/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [
-          "AUTUMN_SECRET_KEY"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "axiom-logging",
@@ -747,25 +463,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/vendors/axiom/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "axiom-logging",
-          "target": ".agents/skills/axiom-logging/SKILL.md"
-        },
-        {
-          "name": "axiom",
-          "target": ".agents/skills/axiom/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "observability",
-        "env": [
-          "AXIOM_TOKEN",
-          "AXIOM_DATASET"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "background-jobs",
@@ -793,18 +491,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/jobs/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "background-jobs",
-          "target": ".agents/skills/background-jobs/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "backup-restore",
@@ -832,18 +519,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/backups/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "backup-restore",
-          "target": ".agents/skills/backup-restore/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "billing-core",
@@ -871,18 +547,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/core/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "billing-core",
-          "target": ".agents/skills/billing-core/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "billing-portal",
@@ -905,18 +570,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/portal/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "billing-portal",
-          "target": ".agents/skills/billing-portal/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "billing-reconciliation",
@@ -945,18 +599,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/reconciliation/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "billing-reconciliation",
-          "target": ".agents/skills/billing-reconciliation/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "blog-changelog",
@@ -977,18 +620,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(marketing)/changelog/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "blog-changelog",
-          "target": ".agents/skills/blog-changelog/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "marketing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "bug-reports",
@@ -1016,18 +648,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/support/bug-reports/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "bug-reports",
-          "target": ".agents/skills/bug-reports/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "support",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "clerk-auth",
@@ -1070,30 +691,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/auth/clerk/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "clerk-auth",
-          "target": ".agents/skills/clerk-auth/SKILL.md"
-        },
-        {
-          "name": "clerk",
-          "target": ".agents/skills/clerk/SKILL.md"
-        },
-        {
-          "name": "nextjs",
-          "target": ".agents/skills/nextjs/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [
-          "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
-          "CLERK_SECRET_KEY",
-          "CLERK_WEBHOOK_SECRET"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "cloudflare-agents-sdk",
@@ -1103,22 +701,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "cloudflare-agents-sdk",
-          "target": ".agents/skills/cloudflare-agents-sdk/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "ai",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "cloudflare-d1",
@@ -1148,22 +731,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/cloudflare/d1/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "cloudflare-d1",
-          "target": ".agents/skills/cloudflare-d1/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "database",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "cloudflare-durable-objects",
@@ -1173,22 +741,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "cloudflare-durable-objects",
-          "target": ".agents/skills/cloudflare-durable-objects/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "edge",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "cloudflare-hyperdrive",
@@ -1198,22 +751,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "cloudflare-hyperdrive",
-          "target": ".agents/skills/cloudflare-hyperdrive/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "database",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "cloudflare-kv",
@@ -1238,22 +776,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/cloudflare/kv/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "cloudflare-kv",
-          "target": ".agents/skills/cloudflare-kv/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "storage",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "cloudflare-mcp-server",
@@ -1263,26 +786,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "cloudflare-mcp-server",
-          "target": ".agents/skills/cloudflare-mcp-server/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        },
-        {
-          "name": "mcp",
-          "target": ".agents/skills/mcp/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "ai",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "cloudflare-observability",
@@ -1292,22 +796,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "cloudflare-observability",
-          "target": ".agents/skills/cloudflare-observability/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "observability",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "cloudflare-pages",
@@ -1317,22 +806,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "cloudflare-pages",
-          "target": ".agents/skills/cloudflare-pages/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "deploy",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "cloudflare-queues",
@@ -1342,22 +816,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "cloudflare-queues",
-          "target": ".agents/skills/cloudflare-queues/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "queue",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "cloudflare-r2",
@@ -1382,22 +841,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/cloudflare/r2/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "cloudflare-r2",
-          "target": ".agents/skills/cloudflare-r2/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "storage",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "cloudflare-terraform",
@@ -1407,22 +851,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "cloudflare-terraform",
-          "target": ".agents/skills/cloudflare-terraform/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "iac",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "cloudflare-tunnel",
@@ -1432,22 +861,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "cloudflare-tunnel",
-          "target": ".agents/skills/cloudflare-tunnel/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "networking",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "cloudflare-turnstile",
@@ -1457,22 +871,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "cloudflare-turnstile",
-          "target": ".agents/skills/cloudflare-turnstile/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "security",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "cloudflare-vectorize",
@@ -1482,22 +881,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "cloudflare-vectorize",
-          "target": ".agents/skills/cloudflare-vectorize/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "ai",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "cloudflare-workers",
@@ -1525,25 +909,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/cloudflare/workers/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "cloudflare-workers",
-          "target": ".agents/skills/cloudflare-workers/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "edge",
-        "env": [
-          "CLOUDFLARE_ACCOUNT_ID",
-          "CLOUDFLARE_API_TOKEN"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "cloudflare-workers-ai",
@@ -1553,22 +919,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "cloudflare-workers-ai",
-          "target": ".agents/skills/cloudflare-workers-ai/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "ai",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "cloudflare-workflows",
@@ -1593,22 +944,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/cloudflare/workflows/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "cloudflare-workflows",
-          "target": ".agents/skills/cloudflare-workflows/SKILL.md"
-        },
-        {
-          "name": "cloudflare",
-          "target": ".agents/skills/cloudflare/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "workflow",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "cms-contentful",
@@ -1618,22 +954,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "cms-contentful",
-          "target": ".agents/skills/cms-contentful/SKILL.md"
-        },
-        {
-          "name": "contentful",
-          "target": ".agents/skills/contentful/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "content",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "cms-mdx",
@@ -1643,18 +964,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "cms-mdx",
-          "target": ".agents/skills/cms-mdx/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "content",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "cms-sanity",
@@ -1664,22 +974,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "cms-sanity",
-          "target": ".agents/skills/cms-sanity/SKILL.md"
-        },
-        {
-          "name": "sanity",
-          "target": ".agents/skills/sanity/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "content",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "cohort-retention",
@@ -1689,18 +984,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "cohort-retention",
-          "target": ".agents/skills/cohort-retention/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "growth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "command-menu",
@@ -1726,18 +1010,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/components/command-menu/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "command-menu",
-          "target": ".agents/skills/command-menu/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "components",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "connected-accounts",
@@ -1765,18 +1038,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/account/connected-accounts/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "connected-accounts",
-          "target": ".agents/skills/connected-accounts/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "contact-forms",
@@ -1804,18 +1066,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/contact-forms/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "contact-forms",
-          "target": ".agents/skills/contact-forms/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "marketing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "convex-backend",
@@ -1825,22 +1076,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "convex-backend",
-          "target": ".agents/skills/convex-backend/SKILL.md"
-        },
-        {
-          "name": "convex",
-          "target": ".agents/skills/convex/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "backend",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "convex-integration",
@@ -1850,22 +1086,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "convex-integration",
-          "target": ".agents/skills/convex-integration/SKILL.md"
-        },
-        {
-          "name": "convex",
-          "target": ".agents/skills/convex/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "backend",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "convex-realtime",
@@ -1875,22 +1096,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "convex-realtime",
-          "target": ".agents/skills/convex-realtime/SKILL.md"
-        },
-        {
-          "name": "convex",
-          "target": ".agents/skills/convex/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "backend",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "cookie-consent",
@@ -1918,18 +1124,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(marketing)/privacy/cookies/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "cookie-consent",
-          "target": ".agents/skills/cookie-consent/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "compliance",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "cors-policy",
@@ -1950,18 +1145,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/security/cors/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "cors-policy",
-          "target": ".agents/skills/cors-policy/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "security",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "coupons-promotions",
@@ -1989,18 +1173,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/coupons/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "coupons-promotions",
-          "target": ".agents/skills/coupons-promotions/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "credit-wallet",
@@ -2029,18 +1202,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/credits/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "credit-wallet",
-          "target": ".agents/skills/credit-wallet/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "csrf-protection",
@@ -2061,18 +1223,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/security/csrf/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "csrf-protection",
-          "target": ".agents/skills/csrf-protection/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "security",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "custom-domains",
@@ -2100,18 +1251,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/tenancy/custom-domains/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "custom-domains",
-          "target": ".agents/skills/custom-domains/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "tenancy",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "custom-roles",
@@ -2139,18 +1279,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/workspace/roles/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "custom-roles",
-          "target": ".agents/skills/custom-roles/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "data-export",
@@ -2178,18 +1307,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/data/export/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "data-export",
-          "target": ".agents/skills/data-export/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "compliance",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "data-import-export",
@@ -2199,18 +1317,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "data-import-export",
-          "target": ".agents/skills/data-import-export/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "data-retention",
@@ -2238,18 +1345,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/data/retention/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "data-retention",
-          "target": ".agents/skills/data-retention/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "compliance",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "data-table",
@@ -2275,18 +1371,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/components/data-table/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "data-table",
-          "target": ".agents/skills/data-table/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "components",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "datadog-monitoring",
@@ -2296,22 +1381,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "datadog-monitoring",
-          "target": ".agents/skills/datadog-monitoring/SKILL.md"
-        },
-        {
-          "name": "datadog",
-          "target": ".agents/skills/datadog/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "observability",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "dependency-audit",
@@ -2332,18 +1402,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/security/dependencies/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "dependency-audit",
-          "target": ".agents/skills/dependency-audit/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "security",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "developer-portal",
@@ -2366,18 +1425,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "developer-portal",
-          "target": ".agents/skills/developer-portal/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "developer-platform",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "docker-compose-local",
@@ -2387,18 +1435,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "docker-compose-local",
-          "target": ".agents/skills/docker-compose-local/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "devops",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "docs-fumadocs",
@@ -2431,30 +1468,7 @@
           "type": "registry:file",
           "target": "docs/fumadocs-deployment.md"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "docs-fumadocs",
-          "target": ".agents/skills/docs-fumadocs/SKILL.md"
-        },
-        {
-          "name": "fumadocs",
-          "target": ".agents/skills/fumadocs/SKILL.md"
-        },
-        {
-          "name": "docs-hosting",
-          "target": ".agents/skills/docs-hosting/SKILL.md"
-        },
-        {
-          "name": "nextjs",
-          "target": ".agents/skills/nextjs/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "docs",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "docs-mintlify",
@@ -2487,26 +1501,7 @@
           "type": "registry:file",
           "target": "docs/mintlify/deployment.md"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "docs-mintlify",
-          "target": ".agents/skills/docs-mintlify/SKILL.md"
-        },
-        {
-          "name": "mintlify",
-          "target": ".agents/skills/mintlify/SKILL.md"
-        },
-        {
-          "name": "docs-hosting",
-          "target": ".agents/skills/docs-hosting/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "docs",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "docs-help-center",
@@ -2527,18 +1522,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(marketing)/help/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "docs-help-center",
-          "target": ".agents/skills/docs-help-center/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "support",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "docs-starlight",
@@ -2548,18 +1532,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "docs-starlight",
-          "target": ".agents/skills/docs-starlight/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "docs",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "domain-verification",
@@ -2582,18 +1555,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/tenancy/domain-verification/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "domain-verification",
-          "target": ".agents/skills/domain-verification/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "tenancy",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "drizzle-audit-log",
@@ -2603,22 +1565,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "drizzle-audit-log",
-          "target": ".agents/skills/drizzle-audit-log/SKILL.md"
-        },
-        {
-          "name": "drizzle",
-          "target": ".agents/skills/drizzle/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "database",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "drizzle-multitenancy",
@@ -2628,22 +1575,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "drizzle-multitenancy",
-          "target": ".agents/skills/drizzle-multitenancy/SKILL.md"
-        },
-        {
-          "name": "drizzle",
-          "target": ".agents/skills/drizzle/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "database",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "drizzle-postgres",
@@ -2690,24 +1622,7 @@
           "type": "registry:file",
           "target": "drizzle.config.ts"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "drizzle-postgres",
-          "target": ".agents/skills/drizzle-postgres/SKILL.md"
-        },
-        {
-          "name": "drizzle",
-          "target": ".agents/skills/drizzle/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "database",
-        "env": [
-          "DATABASE_URL"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "drizzle-relations",
@@ -2717,22 +1632,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "drizzle-relations",
-          "target": ".agents/skills/drizzle-relations/SKILL.md"
-        },
-        {
-          "name": "drizzle",
-          "target": ".agents/skills/drizzle/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "database",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "drizzle-soft-delete",
@@ -2742,22 +1642,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "drizzle-soft-delete",
-          "target": ".agents/skills/drizzle-soft-delete/SKILL.md"
-        },
-        {
-          "name": "drizzle",
-          "target": ".agents/skills/drizzle/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "database",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "dunning-recovery",
@@ -2786,18 +1671,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/dunning/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "dunning-recovery",
-          "target": ".agents/skills/dunning-recovery/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "email-nodemailer",
@@ -2807,22 +1681,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "email-nodemailer",
-          "target": ".agents/skills/email-nodemailer/SKILL.md"
-        },
-        {
-          "name": "nodemailer",
-          "target": ".agents/skills/nodemailer/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "email",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "email-postmark",
@@ -2832,22 +1691,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "email-postmark",
-          "target": ".agents/skills/email-postmark/SKILL.md"
-        },
-        {
-          "name": "postmark",
-          "target": ".agents/skills/postmark/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "email",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "email-templates",
@@ -2870,18 +1714,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/email-templates/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "email-templates",
-          "target": ".agents/skills/email-templates/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "communications",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "email-verification",
@@ -2909,18 +1742,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(auth)/email-verification/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "email-verification",
-          "target": ".agents/skills/email-verification/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "empty-states",
@@ -2946,18 +1768,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/components/empty-states/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "empty-states",
-          "target": ".agents/skills/empty-states/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "components",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "enterprise-sso",
@@ -2985,18 +1796,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/workspace/sso/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "enterprise-sso",
-          "target": ".agents/skills/enterprise-sso/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "entitlements",
@@ -3024,18 +1824,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/entitlements/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "entitlements",
-          "target": ".agents/skills/entitlements/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "error-boundaries",
@@ -3061,18 +1850,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/components/error-boundaries/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "error-boundaries",
-          "target": ".agents/skills/error-boundaries/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "components",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "evals",
@@ -3082,18 +1860,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "evals",
-          "target": ".agents/skills/evals/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "ai",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "experiments",
@@ -3103,18 +1870,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "experiments",
-          "target": ".agents/skills/experiments/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "growth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "feature-adoption",
@@ -3124,18 +1880,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "feature-adoption",
-          "target": ".agents/skills/feature-adoption/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "growth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "feature-flags",
@@ -3163,18 +1908,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/feature-flags/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "feature-flags",
-          "target": ".agents/skills/feature-flags/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "growth",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "feature-requests",
@@ -3202,18 +1936,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/support/feature-requests/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "feature-requests",
-          "target": ".agents/skills/feature-requests/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "support",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "file-uploads",
@@ -3241,18 +1964,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/files/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "file-uploads",
-          "target": ".agents/skills/file-uploads/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "storage",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "firebase-backend",
@@ -3262,22 +1974,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "firebase-backend",
-          "target": ".agents/skills/firebase-backend/SKILL.md"
-        },
-        {
-          "name": "firebase",
-          "target": ".agents/skills/firebase/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "backend",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "flags-launchdarkly",
@@ -3287,22 +1984,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "flags-launchdarkly",
-          "target": ".agents/skills/flags-launchdarkly/SKILL.md"
-        },
-        {
-          "name": "launchdarkly",
-          "target": ".agents/skills/launchdarkly/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "growth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "flags-statsig",
@@ -3312,22 +1994,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "flags-statsig",
-          "target": ".agents/skills/flags-statsig/SKILL.md"
-        },
-        {
-          "name": "statsig",
-          "target": ".agents/skills/statsig/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "growth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "fly-deploy",
@@ -3337,22 +2004,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "fly-deploy",
-          "target": ".agents/skills/fly-deploy/SKILL.md"
-        },
-        {
-          "name": "fly",
-          "target": ".agents/skills/fly/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "deploy",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "geist-nova-theme",
@@ -3362,18 +2014,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "geist-nova-theme",
-          "target": ".agents/skills/geist-nova-theme/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "foundation",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "github-integration",
@@ -3403,26 +2044,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/vendors/github/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "github-integration",
-          "target": ".agents/skills/github-integration/SKILL.md"
-        },
-        {
-          "name": "github",
-          "target": ".agents/skills/github/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "integrations",
-        "env": [
-          "GITHUB_APP_ID",
-          "GITHUB_PRIVATE_KEY",
-          "GITHUB_WEBHOOK_SECRET"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "growth-alerts",
@@ -3432,18 +2054,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "growth-alerts",
-          "target": ".agents/skills/growth-alerts/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "growth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "i18n",
@@ -3453,18 +2064,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "i18n",
-          "target": ".agents/skills/i18n/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "foundation",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "idempotency-keys",
@@ -3492,18 +2092,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/idempotency/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "idempotency-keys",
-          "target": ".agents/skills/idempotency-keys/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "developer-platform",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "image-optimization",
@@ -3513,18 +2102,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "image-optimization",
-          "target": ".agents/skills/image-optimization/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "media",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "incident-management",
@@ -3552,18 +2130,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/incidents/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "incident-management",
-          "target": ".agents/skills/incident-management/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "inngest-functions",
@@ -3598,29 +2165,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/workflows/inngest/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "inngest-functions",
-          "target": ".agents/skills/inngest-functions/SKILL.md"
-        },
-        {
-          "name": "inngest",
-          "target": ".agents/skills/inngest/SKILL.md"
-        },
-        {
-          "name": "nextjs",
-          "target": ".agents/skills/nextjs/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "workflow",
-        "env": [
-          "INNGEST_EVENT_KEY",
-          "INNGEST_SIGNING_KEY"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "input-validation",
@@ -3643,18 +2188,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/security/input-validation/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "input-validation",
-          "target": ".agents/skills/input-validation/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "security",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "internal-api-trpc",
@@ -3664,18 +2198,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "internal-api-trpc",
-          "target": ".agents/skills/internal-api-trpc/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "api",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "invites",
@@ -3703,18 +2226,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/workspace/invites/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "invites",
-          "target": ".agents/skills/invites/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "invoices",
@@ -3737,18 +2249,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/invoices/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "invoices",
-          "target": ".agents/skills/invoices/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "keyset-pagination",
@@ -3769,18 +2270,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/pagination/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "keyset-pagination",
-          "target": ".agents/skills/keyset-pagination/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "developer-platform",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "legal-pages",
@@ -3801,18 +2291,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(marketing)/legal/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "legal-pages",
-          "target": ".agents/skills/legal-pages/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "marketing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "lemon-squeezy-billing",
@@ -3822,22 +2301,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "lemon-squeezy-billing",
-          "target": ".agents/skills/lemon-squeezy-billing/SKILL.md"
-        },
-        {
-          "name": "lemon-squeezy",
-          "target": ".agents/skills/lemon-squeezy/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "lifecycle-email",
@@ -3860,18 +2324,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/lifecycle-email/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "lifecycle-email",
-          "target": ".agents/skills/lifecycle-email/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "growth",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "linear-integration",
@@ -3881,22 +2334,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "linear-integration",
-          "target": ".agents/skills/linear-integration/SKILL.md"
-        },
-        {
-          "name": "linear",
-          "target": ".agents/skills/linear/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "project-management",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "loading-states",
@@ -3922,18 +2360,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/components/loading-states/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "loading-states",
-          "target": ".agents/skills/loading-states/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "components",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "login-activity",
@@ -3961,18 +2388,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/account/login-activity/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "login-activity",
-          "target": ".agents/skills/login-activity/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "maintenance-mode",
@@ -4000,18 +2416,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/maintenance/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "maintenance-mode",
-          "target": ".agents/skills/maintenance-mode/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "marketing-pages",
@@ -4032,18 +2437,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(marketing)/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "marketing-pages",
-          "target": ".agents/skills/marketing-pages/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "marketing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "mcp-client",
@@ -4053,22 +2447,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "mcp-client",
-          "target": ".agents/skills/mcp-client/SKILL.md"
-        },
-        {
-          "name": "mcp",
-          "target": ".agents/skills/mcp/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "ai",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "mfa-security",
@@ -4096,18 +2475,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/account/mfa/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "mfa-security",
-          "target": ".agents/skills/mfa-security/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "model-router",
@@ -4117,26 +2485,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "model-router",
-          "target": ".agents/skills/model-router/SKILL.md"
-        },
-        {
-          "name": "ai-sdk",
-          "target": ".agents/skills/ai-sdk/SKILL.md"
-        },
-        {
-          "name": "ai-gateway",
-          "target": ".agents/skills/ai-gateway/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "ai",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "neon-postgres",
@@ -4166,28 +2515,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/data/neon/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "neon-postgres",
-          "target": ".agents/skills/neon-postgres/SKILL.md"
-        },
-        {
-          "name": "neon",
-          "target": ".agents/skills/neon/SKILL.md"
-        },
-        {
-          "name": "drizzle",
-          "target": ".agents/skills/drizzle/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "database",
-        "env": [
-          "DATABASE_URL"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "newsletter-signups",
@@ -4215,18 +2543,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/newsletter/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "newsletter-signups",
-          "target": ".agents/skills/newsletter-signups/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "marketing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "next-saas",
@@ -4236,18 +2553,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "next-saas",
-          "target": ".agents/skills/next-saas/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "foundation",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "notification-center",
@@ -4270,18 +2576,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/notifications/center/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "notification-center",
-          "target": ".agents/skills/notification-center/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "notifications",
@@ -4309,18 +2604,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/notifications/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "notifications",
-          "target": ".agents/skills/notifications/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "oncall-alerting",
@@ -4343,18 +2627,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/operations/on-call/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "oncall-alerting",
-          "target": ".agents/skills/oncall-alerting/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "openfeature-flags",
@@ -4364,22 +2637,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "openfeature-flags",
-          "target": ".agents/skills/openfeature-flags/SKILL.md"
-        },
-        {
-          "name": "openfeature",
-          "target": ".agents/skills/openfeature/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "growth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "one-time-purchases",
@@ -4407,18 +2665,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/purchases/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "one-time-purchases",
-          "target": ".agents/skills/one-time-purchases/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "orgs-rbac",
@@ -4428,18 +2675,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "orgs-rbac",
-          "target": ".agents/skills/orgs-rbac/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "paddle-billing",
@@ -4449,22 +2685,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "paddle-billing",
-          "target": ".agents/skills/paddle-billing/SKILL.md"
-        },
-        {
-          "name": "paddle",
-          "target": ".agents/skills/paddle/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "password-reset",
@@ -4492,18 +2713,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(auth)/password-reset/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "password-reset",
-          "target": ".agents/skills/password-reset/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "permission-matrix",
@@ -4531,18 +2741,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/workspace/permissions/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "permission-matrix",
-          "target": ".agents/skills/permission-matrix/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "plan-gating",
@@ -4565,18 +2764,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/plan-gating/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "plan-gating",
-          "target": ".agents/skills/plan-gating/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "playwright-e2e",
@@ -4586,18 +2774,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "playwright-e2e",
-          "target": ".agents/skills/playwright-e2e/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "foundation",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "plg-metrics",
@@ -4607,18 +2784,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "plg-metrics",
-          "target": ".agents/skills/plg-metrics/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "growth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "posthog-analytics",
@@ -4649,25 +2815,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/vendors/posthog/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "posthog-analytics",
-          "target": ".agents/skills/posthog-analytics/SKILL.md"
-        },
-        {
-          "name": "posthog",
-          "target": ".agents/skills/posthog/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "analytics",
-        "env": [
-          "NEXT_PUBLIC_POSTHOG_KEY",
-          "NEXT_PUBLIC_POSTHOG_HOST"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "postmortem-runbook",
@@ -4690,18 +2838,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/operations/postmortems/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "postmortem-runbook",
-          "target": ".agents/skills/postmortem-runbook/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "pricing-page",
@@ -4722,18 +2859,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(marketing)/pricing/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "pricing-page",
-          "target": ".agents/skills/pricing-page/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "marketing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "product-announcements",
@@ -4757,18 +2883,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/announcements/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "product-announcements",
-          "target": ".agents/skills/product-announcements/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "communications",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "product-qualified-leads",
@@ -4778,18 +2893,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "product-qualified-leads",
-          "target": ".agents/skills/product-qualified-leads/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "growth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "prompt-library",
@@ -4799,18 +2903,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "prompt-library",
-          "target": ".agents/skills/prompt-library/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "ai",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "public-api-orpc",
@@ -4831,18 +2924,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/api/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "public-api-orpc",
-          "target": ".agents/skills/public-api-orpc/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "developer-platform",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "public-roadmap",
@@ -4865,18 +2947,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(marketing)/roadmap/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "public-roadmap",
-          "target": ".agents/skills/public-roadmap/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "support",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "quality-tooling",
@@ -4886,18 +2957,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "quality-tooling",
-          "target": ".agents/skills/quality-tooling/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "foundation",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "quota-enforcement",
@@ -4921,18 +2981,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/quotas/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "quota-enforcement",
-          "target": ".agents/skills/quota-enforcement/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "rag-starter",
@@ -4942,22 +2991,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "rag-starter",
-          "target": ".agents/skills/rag-starter/SKILL.md"
-        },
-        {
-          "name": "ai-sdk",
-          "target": ".agents/skills/ai-sdk/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "ai",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "railway-deploy",
@@ -4967,22 +3001,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "railway-deploy",
-          "target": ".agents/skills/railway-deploy/SKILL.md"
-        },
-        {
-          "name": "railway",
-          "target": ".agents/skills/railway/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "deploy",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "rate-limits",
@@ -5010,18 +3029,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/rate-limits/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "rate-limits",
-          "target": ".agents/skills/rate-limits/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "referral-loops",
@@ -5031,18 +3039,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "referral-loops",
-          "target": ".agents/skills/referral-loops/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "growth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "refunds-disputes",
@@ -5071,18 +3068,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/refunds/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "refunds-disputes",
-          "target": ".agents/skills/refunds-disputes/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "render-deploy",
@@ -5092,22 +3078,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "render-deploy",
-          "target": ".agents/skills/render-deploy/SKILL.md"
-        },
-        {
-          "name": "render",
-          "target": ".agents/skills/render/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "deploy",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "resend-email",
@@ -5143,25 +3114,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/vendors/resend/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "resend-email",
-          "target": ".agents/skills/resend-email/SKILL.md"
-        },
-        {
-          "name": "resend",
-          "target": ".agents/skills/resend/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "email",
-        "env": [
-          "RESEND_API_KEY",
-          "RESEND_FROM_EMAIL"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "scim-provisioning",
@@ -5189,18 +3142,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/workspace/scim/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "scim-provisioning",
-          "target": ".agents/skills/scim-provisioning/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "sdk-snippets",
@@ -5210,18 +3152,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "sdk-snippets",
-          "target": ".agents/skills/sdk-snippets/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "api",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "search-algolia",
@@ -5231,22 +3162,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "search-algolia",
-          "target": ".agents/skills/search-algolia/SKILL.md"
-        },
-        {
-          "name": "algolia",
-          "target": ".agents/skills/algolia/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "search",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "search-meilisearch",
@@ -5256,22 +3172,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "search-meilisearch",
-          "target": ".agents/skills/search-meilisearch/SKILL.md"
-        },
-        {
-          "name": "meilisearch",
-          "target": ".agents/skills/meilisearch/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "search",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "search-postgres",
@@ -5281,18 +3182,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "search-postgres",
-          "target": ".agents/skills/search-postgres/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "search",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "search-typesense",
@@ -5302,22 +3192,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "search-typesense",
-          "target": ".agents/skills/search-typesense/SKILL.md"
-        },
-        {
-          "name": "typesense",
-          "target": ".agents/skills/typesense/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "search",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "seat-management",
@@ -5346,18 +3221,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/seats/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "seat-management",
-          "target": ".agents/skills/seat-management/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "secrets-management",
@@ -5378,18 +3242,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/security/secrets/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "secrets-management",
-          "target": ".agents/skills/secrets-management/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "security",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "security-headers",
@@ -5410,18 +3263,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/security/headers/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "security-headers",
-          "target": ".agents/skills/security-headers/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "security",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "seed-data",
@@ -5431,18 +3273,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "seed-data",
-          "target": ".agents/skills/seed-data/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "foundation",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "sentry-monitoring",
@@ -5475,31 +3306,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/vendors/sentry/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "sentry-monitoring",
-          "target": ".agents/skills/sentry-monitoring/SKILL.md"
-        },
-        {
-          "name": "sentry",
-          "target": ".agents/skills/sentry/SKILL.md"
-        },
-        {
-          "name": "nextjs",
-          "target": ".agents/skills/nextjs/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "observability",
-        "env": [
-          "NEXT_PUBLIC_SENTRY_DSN",
-          "SENTRY_AUTH_TOKEN",
-          "SENTRY_ORG",
-          "SENTRY_PROJECT"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "seo",
@@ -5520,18 +3327,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/seo/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "seo",
-          "target": ".agents/skills/seo/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "marketing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "session-management",
@@ -5541,18 +3337,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "session-management",
-          "target": ".agents/skills/session-management/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "settings-layout",
@@ -5578,18 +3363,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/components/settings-layout/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "settings-layout",
-          "target": ".agents/skills/settings-layout/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "components",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "sidebar-shell",
@@ -5599,18 +3373,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "sidebar-shell",
-          "target": ".agents/skills/sidebar-shell/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "foundation",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "sla-management",
@@ -5633,18 +3396,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/operations/slas/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "sla-management",
-          "target": ".agents/skills/sla-management/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "slack-notifications",
@@ -5654,18 +3406,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "slack-notifications",
-          "target": ".agents/skills/slack-notifications/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "notifications",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "status-page",
@@ -5688,18 +3429,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/status/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "status-page",
-          "target": ".agents/skills/status-page/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "stripe-billing",
@@ -5734,34 +3464,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "stripe-billing",
-          "target": ".agents/skills/stripe-billing/SKILL.md"
-        },
-        {
-          "name": "stripe",
-          "target": ".agents/skills/stripe/SKILL.md"
-        },
-        {
-          "name": "drizzle",
-          "target": ".agents/skills/drizzle/SKILL.md"
-        },
-        {
-          "name": "nextjs",
-          "target": ".agents/skills/nextjs/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [
-          "STRIPE_SECRET_KEY",
-          "STRIPE_WEBHOOK_SECRET",
-          "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "supabase-postgres",
@@ -5795,26 +3498,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/data/supabase/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "supabase-postgres",
-          "target": ".agents/skills/supabase-postgres/SKILL.md"
-        },
-        {
-          "name": "supabase",
-          "target": ".agents/skills/supabase/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "database",
-        "env": [
-          "NEXT_PUBLIC_SUPABASE_URL",
-          "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY",
-          "SUPABASE_SERVICE_ROLE_KEY"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "support-console",
@@ -5837,18 +3521,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/support/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "support-console",
-          "target": ".agents/skills/support-console/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "support-widget",
@@ -5876,18 +3549,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/support/widget/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "support-widget",
-          "target": ".agents/skills/support-widget/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "support",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "surveys-nps",
@@ -5897,18 +3559,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "surveys-nps",
-          "target": ".agents/skills/surveys-nps/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "growth",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "system-health",
@@ -5929,18 +3580,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/system-health/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "system-health",
-          "target": ".agents/skills/system-health/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "t3-env",
@@ -5950,18 +3590,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "t3-env",
-          "target": ".agents/skills/t3-env/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "foundation",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "tax-vat",
@@ -5989,18 +3618,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/tax/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "tax-vat",
-          "target": ".agents/skills/tax-vat/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "tenant-context",
@@ -6028,18 +3646,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/tenancy/context/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "tenant-context",
-          "target": ".agents/skills/tenant-context/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "tenancy",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "tenant-isolation-tests",
@@ -6060,18 +3667,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/tenancy/isolation-tests/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "tenant-isolation-tests",
-          "target": ".agents/skills/tenant-isolation-tests/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "tenancy",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "theme-system",
@@ -6081,18 +3677,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "theme-system",
-          "target": ".agents/skills/theme-system/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "foundation",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "toast-notifications",
@@ -6118,18 +3703,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/components/toasts/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "toast-notifications",
-          "target": ".agents/skills/toast-notifications/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "components",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "trial-management",
@@ -6152,18 +3726,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/billing/trials/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "trial-management",
-          "target": ".agents/skills/trial-management/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "trigger-dev-jobs",
@@ -6200,25 +3763,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/workflows/trigger-dev/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "trigger-dev-jobs",
-          "target": ".agents/skills/trigger-dev-jobs/SKILL.md"
-        },
-        {
-          "name": "trigger-dev",
-          "target": ".agents/skills/trigger-dev/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "workflow",
-        "env": [
-          "TRIGGER_SECRET_KEY",
-          "TRIGGER_PROJECT_ID"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "unkey-api-keys",
@@ -6253,25 +3798,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/vendors/unkey/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "unkey-api-keys",
-          "target": ".agents/skills/unkey-api-keys/SKILL.md"
-        },
-        {
-          "name": "unkey",
-          "target": ".agents/skills/unkey/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "developer-platform",
-        "env": [
-          "UNKEY_ROOT_KEY",
-          "UNKEY_API_ID"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "unkey-rate-limits",
@@ -6301,24 +3828,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/vendors/unkey-rate-limits/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "unkey-rate-limits",
-          "target": ".agents/skills/unkey-rate-limits/SKILL.md"
-        },
-        {
-          "name": "unkey",
-          "target": ".agents/skills/unkey/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [
-          "UNKEY_ROOT_KEY"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "upstash-redis",
@@ -6354,25 +3864,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/vendors/upstash/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "upstash-redis",
-          "target": ".agents/skills/upstash-redis/SKILL.md"
-        },
-        {
-          "name": "upstash",
-          "target": ".agents/skills/upstash/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "storage",
-        "env": [
-          "UPSTASH_REDIS_REST_URL",
-          "UPSTASH_REDIS_REST_TOKEN"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "uptime-monitoring",
@@ -6395,18 +3887,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/operations/uptime/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "uptime-monitoring",
-          "target": ".agents/skills/uptime-monitoring/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "operations",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "usage-based-billing",
@@ -6416,18 +3897,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "usage-based-billing",
-          "target": ".agents/skills/usage-based-billing/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "usage-metering",
@@ -6455,18 +3925,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/usage/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "usage-metering",
-          "target": ".agents/skills/usage-metering/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "billing",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "vercel-blob",
@@ -6496,24 +3955,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/vendors/vercel-blob/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "vercel-blob",
-          "target": ".agents/skills/vercel-blob/SKILL.md"
-        },
-        {
-          "name": "vercel",
-          "target": ".agents/skills/vercel/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "storage",
-        "env": [
-          "BLOB_READ_WRITE_TOKEN"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "vercel-deploy",
@@ -6523,22 +3965,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "vercel-deploy",
-          "target": ".agents/skills/vercel-deploy/SKILL.md"
-        },
-        {
-          "name": "vercel",
-          "target": ".agents/skills/vercel/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "deploy",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "vercel-edge-config",
@@ -6568,24 +3995,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/vendors/vercel-edge-config/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "vercel-edge-config",
-          "target": ".agents/skills/vercel-edge-config/SKILL.md"
-        },
-        {
-          "name": "vercel",
-          "target": ".agents/skills/vercel/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "storage",
-        "env": [
-          "EDGE_CONFIG"
-        ],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "vercel-integration",
@@ -6595,22 +4005,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "vercel-integration",
-          "target": ".agents/skills/vercel-integration/SKILL.md"
-        },
-        {
-          "name": "vercel",
-          "target": ".agents/skills/vercel/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "deploy",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "vercel-marketplace-storage",
@@ -6620,22 +4015,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "vercel-marketplace-storage",
-          "target": ".agents/skills/vercel-marketplace-storage/SKILL.md"
-        },
-        {
-          "name": "vercel",
-          "target": ".agents/skills/vercel/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "platform",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "vercel-workflows",
@@ -6665,22 +4045,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/admin/workflows/vercel/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "vercel-workflows",
-          "target": ".agents/skills/vercel-workflows/SKILL.md"
-        },
-        {
-          "name": "vercel",
-          "target": ".agents/skills/vercel/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "workflow",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "waitlist",
@@ -6690,18 +4055,7 @@
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
-      "files": [],
-      "agentSkills": [
-        {
-          "name": "waitlist",
-          "target": ".agents/skills/waitlist/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "marketing",
-        "env": [],
-        "status": "planned"
-      }
+      "files": []
     },
     {
       "name": "webhook-delivery",
@@ -6729,18 +4083,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/developers/webhooks/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "webhook-delivery",
-          "target": ".agents/skills/webhook-delivery/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "developer-platform",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "webhook-inbox",
@@ -6768,18 +4111,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/webhooks/inbox/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "webhook-inbox",
-          "target": ".agents/skills/webhook-inbox/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "developer-platform",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "workspace-branding",
@@ -6807,18 +4139,7 @@
           "type": "registry:page",
           "target": "apps/web/src/app/(console)/settings/workspace/branding/page.tsx"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "workspace-branding",
-          "target": ".agents/skills/workspace-branding/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     },
     {
       "name": "workspace-settings",
@@ -6839,18 +4160,7 @@
           "type": "registry:file",
           "target": "apps/web/src/lib/workspace-settings.ts"
         }
-      ],
-      "agentSkills": [
-        {
-          "name": "workspace-settings",
-          "target": ".agents/skills/workspace-settings/SKILL.md"
-        }
-      ],
-      "meta": {
-        "category": "auth",
-        "env": [],
-        "status": "experimental"
-      }
+      ]
     }
   ]
 }

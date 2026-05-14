@@ -43,7 +43,7 @@
     "build:web": "pnpm --filter @stackfoundry/web build",
     "start:web": "pnpm --dir apps/web start",
     "clean": "rm -rf apps/web/.next apps/web/public/r public/r /tmp/stackfoundry-test /tmp/stackfoundry-install",
-    "registry:compat": "node --input-type=module -e \"import { readFile } from 'node:fs/promises'; const vendor = JSON.parse(await readFile('public/r/vendor-examples.json', 'utf8')); if (vendor.type !== 'registry:block') throw new Error('vendor-examples must be registry:block'); if (!vendor.registryDependencies?.every((dep) => dep.startsWith('https://stackfoundry.dev/r/'))) throw new Error('preset dependencies must be absolute registry URLs'); const apiKeys = JSON.parse(await readFile('public/r/api-keys.json', 'utf8')); if (!apiKeys.files?.every((file) => file.target)) throw new Error('registry files must include target'); if (!apiKeys.agentSkills?.some((skill) => skill.name === 'drizzle' && skill.content)) throw new Error('registry items must embed shared technology skills');\"",
+    "registry:compat": "node scripts/check-registry-compat.mjs",
     "registry:add:block:api-keys": "pnpm cli add https://stackfoundry.dev/r/api-keys.json",
     "registry:add:block:vendors": "pnpm cli add https://stackfoundry.dev/r/vendor-examples.json",
     "registry:dry:block:api-keys": "pnpm cli add https://stackfoundry.dev/r/api-keys.json --dry-run",
