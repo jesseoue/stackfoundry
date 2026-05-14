@@ -9,7 +9,7 @@ shadcn for production SaaS systems.
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 ![Next.js](https://img.shields.io/badge/Next.js-16-black)
 ![Vercel](https://img.shields.io/badge/deploy-Vercel-black)
-![Modules](https://img.shields.io/badge/modules-156-orange)
+![Modules](https://img.shields.io/badge/modules-157-orange)
 ![Recipes](https://img.shields.io/badge/recipes-9-purple)
 ![Presets](https://img.shields.io/badge/presets-13-teal)
 ![Inspired by shadcn](https://img.shields.io/badge/inspired%20by-shadcn-111111)
@@ -18,7 +18,7 @@ StackFoundry is a public source registry for the production systems SaaS teams r
 
 Modules install as source files in your app. You review the code, own the code, and keep the maintenance context that ships with it.
 
-StackFoundry installs are also coding-agent-ready: Cursor, Codex, Claude, and similar tools can inspect recipes, dry-run installs, review generated diffs, and follow included prompt packs.
+StackFoundry installs are also coding-assistant-ready: tools can inspect recipes, dry-run installs, review generated diffs, and follow included prompt packs.
 
 > [!IMPORTANT]
 > The registry is the product. Modules are the unit of value. Recipes are the guided path. Presets are convenience bundles.
@@ -45,7 +45,7 @@ pnpm stackfoundry add recipe api-saas-starter --target ./my-app
 The API SaaS recipe installs the path most developer tools, AI APIs, data APIs, and B2B platforms need first:
 
 - API key lifecycle and verification
-- agent-ready prompt packs for Cursor, Codex, Claude, and similar tools
+- one-shot prompt packs for coding-assistant install and review workflows
 - usage metering, quotas, and rate limits
 - credit wallet and Stripe billing foundations
 - webhook inbox and outbound delivery
@@ -109,7 +109,7 @@ Current source registry coverage:
 <details>
 <summary>Current scale</summary>
 
-- 156 ready module manifests
+- 157 ready module manifests
 - 36 canonical categories
 - 13 preset bundles
 - 9 architecture recipes
@@ -127,13 +127,15 @@ The public hierarchy is intentionally simple:
 
 ## Agent-Ready Installs
 
-The `agent-ready-installs` module adds prompt packs and context files for Cursor, Codex, Claude, and other coding agents:
+The `agent-ready-installs` module adds one-shot prompt packs and context files for coding assistants:
 
 ```bash
 pnpm stackfoundry add agent-ready-installs --target ./my-app --dry-run
 ```
 
-It gives agents a safe workflow for inspecting recipes, dry-running installs, reviewing diffs, checking env notes, and verifying the target app after source lands.
+It includes recipe-aligned prompts for API SaaS, minimal SaaS, enterprise SaaS, AI SaaS, customer intelligence, Cloudflare SaaS, integration marketplace, security center, and support ops installs. Each prompt defines the completed SaaS endpoint, dry-run/install workflow, expected modules, verification steps, and production handoff.
+
+It gives agents a safe workflow for inspecting recipes, dry-running installs, reviewing diffs, checking env notes, and verifying the target app after source lands with Biome lint/format, TypeScript typecheck, tests, production build, and responsive smoke checks.
 
 ## Recipes
 

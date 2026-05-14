@@ -3,23 +3,94 @@
   "positioning": "Install production SaaS infrastructure as editable source.",
   "primaryRecipe": "api-saas-starter",
   "compatibleAgentSurfaces": [
-    "Cursor",
-    "Codex",
-    "Claude",
-    "other coding agents"
+    "coding assistants",
+    "CLI-based coding agents",
+    "IDE-based coding agents",
+    "review automation"
+  ],
+  "oneShotPrompts": [
+    {
+      "name": "one-shot-api-saas",
+      "recipe": "api-saas-starter",
+      "path": ".stackfoundry/prompts/one-shot-api-saas.md",
+      "useWhen": "The app needs API keys, usage, credits, billing, docs, and webhooks as editable source."
+    },
+    {
+      "name": "one-shot-cloudflare-saas",
+      "recipe": "cloudflare-saas",
+      "path": ".stackfoundry/prompts/one-shot-cloudflare-saas.md",
+      "useWhen": "The app needs a Cloudflare-native runtime, storage, queue, workflow, security, and deploy path."
+    },
+    {
+      "name": "one-shot-minimal-saas",
+      "recipe": "saas-starter-minimal",
+      "path": ".stackfoundry/prompts/one-shot-minimal-saas.md",
+      "useWhen": "The app needs a small SaaS foundation before heavier provider decisions."
+    },
+    {
+      "name": "one-shot-enterprise-saas",
+      "recipe": "enterprise-saas",
+      "path": ".stackfoundry/prompts/one-shot-enterprise-saas.md",
+      "useWhen": "The app needs enterprise auth, access, compliance, support, and incident surfaces."
+    },
+    {
+      "name": "one-shot-ai-saas",
+      "recipe": "ai-saas-starter",
+      "path": ".stackfoundry/prompts/one-shot-ai-saas.md",
+      "useWhen": "The app needs an AI product surface with metering, quotas, and cost controls."
+    },
+    {
+      "name": "one-shot-customer-intelligence",
+      "recipe": "customer-intelligence",
+      "path": ".stackfoundry/prompts/one-shot-customer-intelligence.md",
+      "useWhen": "The app needs customer health, event ingestion, usage, and risk visibility."
+    },
+    {
+      "name": "one-shot-integration-marketplace",
+      "recipe": "integration-marketplace",
+      "path": ".stackfoundry/prompts/one-shot-integration-marketplace.md",
+      "useWhen": "The app needs connected accounts, provider adapters, integration health, webhooks, and sync visibility."
+    },
+    {
+      "name": "one-shot-security-center",
+      "recipe": "security-center",
+      "path": ".stackfoundry/prompts/one-shot-security-center.md",
+      "useWhen": "The app needs a workspace security posture, data lifecycle, secrets, dependency, and audit control center."
+    },
+    {
+      "name": "one-shot-support-ops",
+      "recipe": "support-ops",
+      "path": ".stackfoundry/prompts/one-shot-support-ops.md",
+      "useWhen": "The app needs support, feedback, incident, on-call, postmortem, status, and health workflows."
+    }
   ],
   "safeWorkflow": [
     "Run stackfoundry recipe <name> before installing.",
     "Run stackfoundry add recipe <name> --dry-run before writing files.",
     "Review module manifests, source files, dependencies, env notes, and maintenance skills.",
     "Install only after the diff is accepted.",
-    "Run the target app's lint, typecheck, migration, and test workflow.",
+    "Run the target app's Biome lint/format, TypeScript typecheck, migration, test, production build, and responsive smoke-check workflow.",
     "Never commit secrets or local provider metadata."
+  ],
+  "nextAppRouterRules": [
+    "Use route groups such as (marketing), (auth), (app), and (admin) to share layouts without changing URLs.",
+    "Keep public Route Handlers under app/api and do not colocate route.ts with page.tsx in the same segment.",
+    "Keep reusable business logic in src/lib/stackfoundry and schema in packages/db/src/schema instead of duplicating logic inside route files.",
+    "Use catch-all or optional catch-all routes only when one renderer or dispatcher truly owns nested paths with the same auth/runtime boundary.",
+    "Keep high-risk handlers such as billing webhooks, OAuth callbacks, deletion/export APIs, and provider-specific signature verification explicit."
   ],
   "recommendedCommands": {
     "inspectApiSaas": "pnpm stackfoundry recipe api-saas-starter",
     "dryRunApiSaas": "pnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run",
     "installApiSaas": "pnpm stackfoundry add recipe api-saas-starter --target ./my-app",
+    "dryRunMinimalSaas": "pnpm stackfoundry add recipe saas-starter-minimal --target ./my-app --dry-run",
+    "dryRunEnterpriseSaas": "pnpm stackfoundry add recipe enterprise-saas --target ./my-app --dry-run",
+    "dryRunAiSaas": "pnpm stackfoundry add recipe ai-saas-starter --target ./my-app --dry-run",
+    "dryRunCustomerIntelligence": "pnpm stackfoundry add recipe customer-intelligence --target ./my-app --dry-run",
+    "dryRunCloudflareSaas": "pnpm stackfoundry add recipe cloudflare-saas --target ./my-app --dry-run",
+    "dryRunIntegrationMarketplace": "pnpm stackfoundry add recipe integration-marketplace --target ./my-app --dry-run",
+    "dryRunSecurityCenter": "pnpm stackfoundry add recipe security-center --target ./my-app --dry-run",
+    "dryRunSupportOps": "pnpm stackfoundry add recipe support-ops --target ./my-app --dry-run",
     "diffApiKeys": "pnpm stackfoundry diff api-keys --target ./my-app",
     "validateRegistry": "pnpm registry:doctor"
   },

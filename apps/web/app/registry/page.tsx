@@ -336,7 +336,7 @@ const providerOptions = [
 ];
 
 const stats = [
-  ["156", "Module manifests"],
+  ["157", "Module manifests"],
   ["13", "Preset bundles"],
   ["9", "Recipes"],
   ["17", "Provider cards"],

@@ -55,7 +55,7 @@
       "name": "agent-ready-installs",
       "type": "registry:block",
       "title": "Agent-Ready Installs",
-      "description": "Prompt packs and context files for Cursor, Codex, Claude, and other coding agents to install SaaS infrastructure safely.",
+      "description": "One-shot prompt packs and context files for coding assistants to install SaaS infrastructure safely.",
       "files": [
         {
           "path": "registry/modules/agent-ready-installs/module.json",

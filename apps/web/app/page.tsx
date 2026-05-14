@@ -22,7 +22,7 @@ type LandingModuleCard = {
 };
 
 const stats = [
-  { value: "156", label: "Modules" },
+  { value: "157", label: "Modules" },
   { value: "13", label: "Presets" },
   { value: "36", label: "Categories" },
   { value: "MIT", label: "License" },
@@ -83,15 +83,15 @@ const moduleCards: LandingModuleCard[] = [
     category: "developer platform",
     version: "ready",
     description:
-      "Prompt packs and context files for Cursor, Codex, Claude, and other coding agents to install infra safely.",
+      "One-shot prompt packs and context files for coding assistants to install SaaS paths safely.",
     tags: [
       { label: "agent-ready", tone: "accent" },
-      { label: "prompts", tone: "success" },
-      { label: "Cursor/Codex/Claude", tone: "provider" },
+      { label: "one-shot prompts", tone: "success" },
+      { label: "recipe-aware", tone: "provider" },
       { label: "review workflow", tone: "skill" },
     ],
     footer: {
-      summary: "4 files · prompts · context JSON",
+      summary: "13 files · prompts · context JSON",
       actions: [{ label: "json", href: "/r/agent-ready-installs.json" }],
     },
   },

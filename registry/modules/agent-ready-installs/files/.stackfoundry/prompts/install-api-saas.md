@@ -23,7 +23,7 @@ pnpm stackfoundry add recipe api-saas-starter --target ./my-app
 ```
 
 6. Review the resulting diff.
-7. Run the target app's lint, typecheck, migration, and test commands.
+7. Run the target app's Biome lint/format, TypeScript typecheck, migration, test, production build, and responsive smoke-check commands.
 8. Do not commit secrets, `.env.local`, provider credentials, generated caches, or local provider metadata.
 
 Primary modules to expect:

@@ -17,9 +17,12 @@ Check these commands when available:
 ```bash
 pnpm stackfoundry diff api-keys --target ./my-app
 pnpm registry:doctor
+pnpm lint:web
 pnpm lint
+pnpm typecheck:web
 pnpm typecheck
 pnpm test
+pnpm build
 ```
 
 Review output format:

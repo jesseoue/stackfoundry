@@ -133,7 +133,7 @@
       "name": "agent-ready-installs",
       "type": "registry:block",
       "title": "Agent-Ready Installs",
-      "description": "Prompt packs and context files for Cursor, Codex, Claude, and other coding agents to install SaaS infrastructure safely.",
+      "description": "One-shot prompt packs and context files for coding assistants to install SaaS infrastructure safely.",
       "dependencies": [],
       "devDependencies": [],
       "registryDependencies": [],
@@ -142,6 +142,51 @@
           "path": ".stackfoundry/context/agent-ready-installs.json",
           "type": "registry:file",
           "target": ".stackfoundry/context/agent-ready-installs.json"
+        },
+        {
+          "path": ".stackfoundry/prompts/one-shot-ai-saas.md",
+          "type": "registry:file",
+          "target": ".stackfoundry/prompts/one-shot-ai-saas.md"
+        },
+        {
+          "path": ".stackfoundry/prompts/one-shot-api-saas.md",
+          "type": "registry:file",
+          "target": ".stackfoundry/prompts/one-shot-api-saas.md"
+        },
+        {
+          "path": ".stackfoundry/prompts/one-shot-cloudflare-saas.md",
+          "type": "registry:file",
+          "target": ".stackfoundry/prompts/one-shot-cloudflare-saas.md"
+        },
+        {
+          "path": ".stackfoundry/prompts/one-shot-customer-intelligence.md",
+          "type": "registry:file",
+          "target": ".stackfoundry/prompts/one-shot-customer-intelligence.md"
+        },
+        {
+          "path": ".stackfoundry/prompts/one-shot-enterprise-saas.md",
+          "type": "registry:file",
+          "target": ".stackfoundry/prompts/one-shot-enterprise-saas.md"
+        },
+        {
+          "path": ".stackfoundry/prompts/one-shot-integration-marketplace.md",
+          "type": "registry:file",
+          "target": ".stackfoundry/prompts/one-shot-integration-marketplace.md"
+        },
+        {
+          "path": ".stackfoundry/prompts/one-shot-minimal-saas.md",
+          "type": "registry:file",
+          "target": ".stackfoundry/prompts/one-shot-minimal-saas.md"
+        },
+        {
+          "path": ".stackfoundry/prompts/one-shot-security-center.md",
+          "type": "registry:file",
+          "target": ".stackfoundry/prompts/one-shot-security-center.md"
+        },
+        {
+          "path": ".stackfoundry/prompts/one-shot-support-ops.md",
+          "type": "registry:file",
+          "target": ".stackfoundry/prompts/one-shot-support-ops.md"
         },
         {
           "path": ".stackfoundry/prompts/install-api-saas.md",

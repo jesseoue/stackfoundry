@@ -53,8 +53,8 @@ const pathCards = [
   },
   {
     title: "Agent-ready installs",
-    eyebrow: "Cursor, Codex, Claude",
-    body: "Use agent-ready-installs when a coding agent should inspect recipes, run dry-runs, review diffs, and follow safe infrastructure install prompts.",
+    eyebrow: "one-shot prompts",
+    body: "Use agent-ready-installs when a coding assistant should inspect recipes, run dry-runs, review diffs, and follow safe infrastructure install prompts.",
     modules: ["agent-ready-installs", "api-saas-starter", "api-keys", "usage-metering"],
   },
   {
@@ -98,6 +98,63 @@ const pathCards = [
     eyebrow: "optional adapters",
     body: "Use Unkey modules when you want hosted key verification or hosted rate limits. They compose with the source-owned API product modules instead of replacing the registry model.",
     modules: ["unkey-api-keys", "unkey-rate-limits", "rate-limits", "api-errors", "sdk-snippets"],
+  },
+];
+
+const promptCards = [
+  {
+    title: "API SaaS",
+    prompt: "one-shot-api-saas.md",
+    recipe: "api-saas-starter",
+    body: "Keys, usage, quotas, credits, billing, docs, webhooks, and request visibility.",
+  },
+  {
+    title: "Minimal SaaS",
+    prompt: "one-shot-minimal-saas.md",
+    recipe: "saas-starter-minimal",
+    body: "Small shell, settings, database, auth boundary, billing path, health, and security.",
+  },
+  {
+    title: "Enterprise SaaS",
+    prompt: "one-shot-enterprise-saas.md",
+    recipe: "enterprise-saas",
+    body: "SSO, SCIM, RBAC, audit, compliance, support, incidents, and status workflows.",
+  },
+  {
+    title: "AI SaaS",
+    prompt: "one-shot-ai-saas.md",
+    recipe: "ai-saas-starter",
+    body: "AI SDK routes, chat UI, usage metering, quota enforcement, and cost controls.",
+  },
+  {
+    title: "Customer Intelligence",
+    prompt: "one-shot-customer-intelligence.md",
+    recipe: "customer-intelligence",
+    body: "Analytics, large event ingestion, usage data, customer health, and risk signals.",
+  },
+  {
+    title: "Cloudflare SaaS",
+    prompt: "one-shot-cloudflare-saas.md",
+    recipe: "cloudflare-saas",
+    body: "Workers, Pages, storage, queues, workflows, Durable Objects, security, and deploy path.",
+  },
+  {
+    title: "Integration Marketplace",
+    prompt: "one-shot-integration-marketplace.md",
+    recipe: "integration-marketplace",
+    body: "Connected accounts, provider adapters, permissions, health, webhooks, and sync visibility.",
+  },
+  {
+    title: "Security Center",
+    prompt: "one-shot-security-center.md",
+    recipe: "security-center",
+    body: "Security posture, MFA, browser/API controls, data lifecycle, secrets, and audit history.",
+  },
+  {
+    title: "Support Ops",
+    prompt: "one-shot-support-ops.md",
+    recipe: "support-ops",
+    body: "Support, feedback, incidents, on-call, postmortems, status updates, and health signals.",
   },
 ];
 
@@ -496,6 +553,10 @@ export default function DocsPage() {
               <span />
               Choose a path
             </a>
+            <a href="#one-shot-prompts">
+              <span />
+              One-shot prompts
+            </a>
             <a href="#module-catalog">
               <span />
               Module catalog
@@ -503,7 +564,7 @@ export default function DocsPage() {
           </div>
           <div className="docs-side-section">
             <h4>
-              Registry <strong>156</strong>
+              Registry <strong>157</strong>
             </h4>
             {moduleGroups.slice(0, 7).map((group) => (
               <a href="#module-catalog" key={group.category}>
@@ -612,9 +673,9 @@ $ pnpm stackfoundry add recipe api-saas-starter --target ./my-app`}</CodeBlock>
               <strong>Review the source</strong>
               <p>
                 A module can add routes, schema, dependencies, env documentation, tests/checklists,
-                and maintenance skills. Run your app's normal lint, typecheck, migration, and test
-                flow after install. Secrets belong in your environment manager, not in committed
-                files.
+                and maintenance skills. Run Biome lint/format, TypeScript typecheck, migration,
+                tests, production build, and responsive smoke checks after install. Secrets belong
+                in your environment manager, not in committed files.
               </p>
             </section>
           </section>
@@ -657,9 +718,33 @@ $ pnpm stackfoundry add recipe api-saas-starter --target ./my-app`}</CodeBlock>
 $ pnpm stackfoundry recipe api-saas-starter`}</CodeBlock>
           </section>
 
+          <section aria-labelledby="one-shot-prompts">
+            <h2 id="one-shot-prompts">
+              5. Use a one-shot SaaS prompt <Anchor id="one-shot-prompts" />
+            </h2>
+            <p>
+              The `agent-ready-installs` module now ships prompt files that match real recipes. Use
+              them when a coding assistant should inspect the target app, run a recipe dry-run,
+              explain the diff, ask before writing, and verify the installed source with Biome,
+              typecheck, build, tests, and responsive smoke checks.
+            </p>
+            <div className="docs-prompt-grid">
+              {promptCards.map((card) => (
+                <article className="docs-prompt-card" key={card.prompt}>
+                  <span>{card.recipe}</span>
+                  <h3>{card.title}</h3>
+                  <p>{card.body}</p>
+                  <code>{card.prompt}</code>
+                </article>
+              ))}
+            </div>
+            <CodeBlock label="terminal">{`$ pnpm stackfoundry add agent-ready-installs --target ./my-app
+$ code ./my-app/.stackfoundry/prompts/one-shot-api-saas.md`}</CodeBlock>
+          </section>
+
           <section aria-labelledby="module-catalog">
             <h2 id="module-catalog">
-              5. Module catalog <Anchor id="module-catalog" />
+              6. Module catalog <Anchor id="module-catalog" />
             </h2>
             <p>
               The registry covers foundation, data, auth and tenancy, billing, API product,
@@ -683,7 +768,7 @@ $ pnpm stackfoundry recipe api-saas-starter`}</CodeBlock>
 
           <section aria-labelledby="authoring">
             <h2 id="authoring">
-              6. Author modules with contracts <Anchor id="authoring" />
+              7. Author modules with contracts <Anchor id="authoring" />
             </h2>
             <p>
               Every module is more than a code snippet. It ships the implementation, the install
@@ -721,7 +806,7 @@ $ pnpm stackfoundry recipe api-saas-starter`}</CodeBlock>
 
           <section aria-labelledby="safety">
             <h2 id="safety">
-              7. Review and update safely <Anchor id="safety" />
+              8. Review and update safely <Anchor id="safety" />
             </h2>
             <p>
               StackFoundry is designed for normal code review. Install commands should be paired
@@ -758,12 +843,13 @@ $ pnpm stackfoundry recipe api-saas-starter`}</CodeBlock>
           </a>
           <a href="#install-existing">Existing app</a>
           <a href="#choose-path">Choose a path</a>
+          <a href="#one-shot-prompts">One-shot prompts</a>
           <a href="#module-catalog">Module catalog</a>
           <a href="#authoring">Authoring</a>
           <a href="#safety">Safety</a>
           <div className="docs-toc-meta">
             <span>Registry-first</span>
-            <span>156 modules</span>
+            <span>157 modules</span>
             <a href="https://github.com/jesseoue/stackfoundry">GitHub →</a>
           </div>
         </aside>
