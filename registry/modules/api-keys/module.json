@@ -1,39 +1,47 @@
 {
-	"name": "api-keys",
-	"type": "module",
-	"category": "developer-platform",
-	"title": "API Keys",
-	"description": "API key lifecycle, scopes, hashed storage, usage metadata, and management UI.",
-	"dependencies": [],
-	"devDependencies": [],
-	"registryDependencies": ["drizzle-postgres"],
-	"env": [],
-	"files": [
-		{
-			"path": "packages/db/src/schema/api-keys.ts",
-			"type": "registry:file"
-		},
-		{
-			"path": "apps/web/src/lib/api-keys.ts",
-			"type": "registry:file"
-		},
-		{
-			"path": "apps/web/src/app/(console)/api-keys/page.tsx",
-			"type": "registry:page"
-		}
-	],
-	"drizzle": {
-		"schemaExports": ["apiKeys"],
-		"migrationRecommended": true
-	},
-	"agents": {
-		"skills": ["api-keys", "drizzle", "nextjs"],
-		"rules": [
-			"hash-keys",
-			"never-store-plaintext",
-			"scope-checks",
-			"audit-key-events"
-		]
-	},
-	"status": "experimental"
+  "name": "api-keys",
+  "type": "module",
+  "category": "developer-platform",
+  "title": "API Keys",
+  "description": "API key lifecycle, scopes, hashed storage, usage metadata, and management UI.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "packages/db/src/schema/api-keys.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/api-keys.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/api-keys/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "apiKeys"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "api-keys",
+      "drizzle",
+      "nextjs"
+    ],
+    "rules": [
+      "hash-keys",
+      "never-store-plaintext",
+      "scope-checks",
+      "audit-key-events"
+    ]
+  },
+  "status": "experimental"
 }

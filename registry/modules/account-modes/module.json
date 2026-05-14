@@ -6,20 +6,41 @@
   "description": "Personal, team, and hybrid account mode configuration for SaaS apps.",
   "dependencies": [],
   "devDependencies": [],
-  "registryDependencies": ["drizzle-postgres", "orgs-rbac", "tenant-context"],
+  "registryDependencies": [
+    "drizzle-postgres",
+    "orgs-rbac",
+    "tenant-context"
+  ],
   "env": [],
   "files": [
-    { "path": "packages/db/src/schema/account-modes.ts", "type": "registry:file" },
-    { "path": "apps/web/src/lib/stackfoundry/account-modes.ts", "type": "registry:file" },
-    { "path": "apps/web/src/app/(console)/settings/account/modes/page.tsx", "type": "registry:page" }
+    {
+      "path": "packages/db/src/schema/account-modes.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stackfoundry/account-modes.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/settings/account/modes/page.tsx",
+      "type": "registry:page"
+    }
   ],
   "drizzle": {
-    "schemaExports": ["accountModes"],
+    "schemaExports": [
+      "accountModes"
+    ],
     "migrationRecommended": true
   },
   "agents": {
-    "skills": ["account-modes"],
-    "rules": ["document-invariants", "verify-before-release", "preserve-account-boundaries"]
+    "skills": [
+      "account-modes"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "preserve-account-boundaries"
+    ]
   },
   "status": "experimental"
 }

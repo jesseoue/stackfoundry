@@ -50,6 +50,7 @@ The registry now includes core modules, vendor examples, and registry-compatible
 - `workspace-settings`
 - `account-settings`
 - `session-management`
+- `account-modes`
 
 ### Billing
 
@@ -58,6 +59,8 @@ The registry now includes core modules, vendor examples, and registry-compatible
 - `paddle-billing`
 - `autumn-entitlements`
 - `usage-metering`
+- `one-time-purchases`
+- `credit-wallet`
 - `trial-management`
 - `plan-gating`
 
@@ -80,8 +83,18 @@ The registry now includes core modules, vendor examples, and registry-compatible
 - `aarrr-dashboard`
 - `activation-onboarding`
 - `lifecycle-email`
+- `product-announcements`
+- `public-roadmap`
 - `cohort-retention`
 - `experiments`
+
+### Docs and SEO
+
+- `docs-fumadocs`
+- `docs-mintlify`
+- `docs-help-center`
+- `api-docs`
+- `seo`
 
 ### Operations
 

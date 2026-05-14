@@ -97,13 +97,19 @@ const backlog = [
 ];
 
 const demoModules = [
-  "stripe-billing",
-  "api-keys",
   "drizzle-postgres",
   "webhook-inbox",
   "audit-log",
   "resend-email",
   "posthog-analytics",
+];
+
+const demoModuleReel = [...demoModules, demoModules[0]];
+
+const heroStack = [
+  ["stripe-billing", "Checkout, portal, webhooks"],
+  ["api-keys", "Hashed keys and scopes"],
+  ["docs-fumadocs", "Product docs shell"],
 ];
 
 const commandGroups = [
@@ -196,12 +202,8 @@ export default function Page() {
             <span className="wordmark">stackfoundry</span>
           </a>
           <div className="nav-links">
-            <a href="#modules">Modules</a>
-            <a href="#explore">Explore</a>
-            <a href="#how">Install</a>
             <a href="/registry">Registry</a>
             <a href="/docs">Docs</a>
-            <a href="#sponsors">Sponsors</a>
           </div>
           <a className="button" href="https://github.com/jesseoue/stackfoundry">
             GitHub
@@ -211,57 +213,101 @@ export default function Page() {
 
       <header className="hero">
         <div className="container hero-inner">
-          <div className="eyebrow">
-            <span className="dot" aria-hidden="true" />
-            <span>v0.1 public preview</span>
-            <span className="muted-label">for Next.js, Drizzle, Vercel</span>
+          <div className="hero-copy">
+            <div className="eyebrow">
+              <span className="dot" aria-hidden="true" />
+              <span>v0.1 public preview</span>
+              <span className="muted-label">for Next.js, Drizzle, Vercel</span>
+            </div>
+
+            <h1 className="display">
+              Install SaaS modules.
+              <br />
+              <span>Own the source.</span>
+            </h1>
+
+            <p className="lede">
+              StackFoundry is a public source registry for production SaaS modules. Add billing, API
+              keys, docs, provider adapters, and presets as editable code with docs, env notes,
+              tests, and maintenance guidance included.
+            </p>
+
+            <div className="actions">
+              <a className="button primary" href="/registry">
+                View Registry
+              </a>
+              <a className="button" href="/docs">
+                Read Docs
+              </a>
+              <a className="button ghost" href="/docs#install-existing">
+                Install a Module
+              </a>
+            </div>
+
+            <div className="hero-meta">
+              {stats.map((stat) => (
+                <div className="metric" key={stat.label}>
+                  <div className="metric-value">{stat.value}</div>
+                  <div className="metric-label">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <h1 className="display">
-            Copy the code.
-            <br />
-            <span>Own the code.</span>
-          </h1>
-
-          <p className="lede">
-            StackFoundry is a public registry for installable SaaS modules. Browse production
-            systems, add the ones your app needs, then review the source, schemas, env notes, docs,
-            and verification checklist like any other code change.
-          </p>
-
-          <div className="install">
-            <span className="prompt">$</span>
-            <code>
-              pnpm <span>cli</span> add{" "}
-              <span className="rotator" aria-hidden="true">
-                {demoModules.map((module) => (
-                  <span key={module}>{module}</span>
-                ))}
-              </span>
-              <span className="sr-only">{demoModules.join(", ")}</span>
-            </code>
-          </div>
-
-          <div className="actions">
-            <a className="button primary" href="/registry">
-              View the registry
-            </a>
-            <a className="button" href="/docs">
-              Read the docs
-            </a>
-            <a className="button ghost" href="#modules">
-              Browse modules
-            </a>
-          </div>
-
-          <div className="hero-meta">
-            {stats.map((stat) => (
-              <div className="metric" key={stat.label}>
-                <div className="metric-value">{stat.value}</div>
-                <div className="metric-label">{stat.label}</div>
+          <aside className="hero-artifact" aria-label="StackFoundry install preview">
+            <div className="artifact-terminal">
+              <div className="terminal-bar">
+                <span />
+                <span />
+                <span />
+                <strong>stackfoundry</strong>
               </div>
-            ))}
-          </div>
+              <div className="artifact-command">
+                <span className="prompt">$</span>
+                <code>
+                  pnpm stackfoundry add{" "}
+                  <span className="rotator" aria-hidden="true">
+                    {demoModuleReel.map((module, index) => (
+                      <span key={`${module}-${index}`}>{module}</span>
+                    ))}
+                  </span>
+                  <span className="sr-only">{demoModules.join(", ")}</span>
+                </code>
+              </div>
+              <div className="artifact-output">
+                <span>
+                  <strong>+</strong> source files
+                </span>
+                <span>
+                  <strong>+</strong> docs and env notes
+                </span>
+                <span>
+                  <strong>+</strong> tests/checklist.md
+                </span>
+                <span>
+                  <strong>✓</strong> dry-run diff ready
+                </span>
+              </div>
+            </div>
+
+            <div className="artifact-registry">
+              <div className="artifact-head">
+                <span>Registry Preview</span>
+                <code>preset next-saas</code>
+              </div>
+              <div className="artifact-stack">
+                {heroStack.map(([name, description]) => (
+                  <div className="artifact-module" key={name}>
+                    <span aria-hidden="true" />
+                    <div>
+                      <strong>{name}</strong>
+                      <small>{description}</small>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </aside>
         </div>
       </header>
 
@@ -298,10 +344,10 @@ export default function Page() {
               </div>
               <div className="terminal-body">
                 <div>
-                  <span className="prompt">$</span> pnpm cli add{" "}
+                  <span className="prompt">$</span> pnpm stackfoundry add{" "}
                   <span className="terminal-rotator" aria-hidden="true">
-                    {demoModules.map((module) => (
-                      <span key={module}>{module}</span>
+                    {demoModuleReel.map((module, index) => (
+                      <span key={`${module}-${index}`}>{module}</span>
                     ))}
                   </span>
                 </div>

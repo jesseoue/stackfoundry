@@ -859,10 +859,22 @@
       "name": "docs-fumadocs",
       "type": "registry:block",
       "title": "Fumadocs Docs",
-      "description": "Fumadocs docs site module.",
+      "description": "In-app Next.js documentation starter with Fumadocs setup and deployment guidance.",
       "files": [
         {
           "path": "registry/modules/docs-fumadocs/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "docs-mintlify",
+      "type": "registry:block",
+      "title": "Mintlify Docs",
+      "description": "Hosted documentation workspace starter with Mintlify configuration, pages, and deployment guidance.",
+      "files": [
+        {
+          "path": "registry/modules/docs-mintlify/module.json",
           "type": "registry:file"
         }
       ]
@@ -1696,6 +1708,18 @@
       ]
     },
     {
+      "name": "product-announcements",
+      "type": "registry:block",
+      "title": "Product Announcements",
+      "description": "In-app and email-ready product announcements for launches, releases, and maintenance notices.",
+      "files": [
+        {
+          "path": "registry/modules/product-announcements/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "product-qualified-leads",
       "type": "registry:block",
       "title": "Product Qualified Leads",
@@ -1727,6 +1751,18 @@
       "files": [
         {
           "path": "registry/modules/public-api-orpc/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "public-roadmap",
+      "type": "registry:block",
+      "title": "Public Roadmap",
+      "description": "Public roadmap board with planned, in-progress, and shipped product work.",
+      "files": [
+        {
+          "path": "registry/modules/public-roadmap/module.json",
           "type": "registry:file"
         }
       ]

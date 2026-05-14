@@ -13,11 +13,16 @@
   --accent-soft: oklch(0.3 0.09 45);
   --accent-hot: oklch(0.78 0.2 45);
   --success: oklch(0.72 0.16 145);
+  --focus: oklch(0.78 0.2 45);
   --font-display:
-    "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+    var(--font-geist-sans), "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    sans-serif;
   --font-body:
-    "SF Pro Text", -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
-  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "IBM Plex Mono", Menlo, Monaco, monospace;
+    var(--font-geist-sans), "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    sans-serif;
+  --font-mono:
+    var(--font-geist-mono), "Geist Mono", ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Monaco,
+    monospace;
   --container: 1200px;
 }
 
@@ -29,12 +34,15 @@ html {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-body);
+  overflow-x: hidden;
   scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+  text-size-adjust: 100%;
 }
 
 body {
   background: var(--bg);
-  font: 15px / 1.55 var(--font-body);
+  font: 15.5px / 1.6 var(--font-body);
   font-variant-numeric: tabular-nums;
   margin: 0;
   min-height: 100vh;
@@ -53,7 +61,7 @@ pre {
 
 .page {
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 .container {
@@ -119,7 +127,8 @@ pre {
 
 .nav-links {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 18px;
   margin-left: 8px;
 }
 
@@ -133,6 +142,7 @@ pre {
 }
 
 .button {
+  align-items: center;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 6px;
@@ -159,8 +169,14 @@ pre {
 }
 
 .button:focus-visible,
-.nav-links a:focus-visible {
-  outline: 2px solid var(--accent);
+.nav-links a:focus-visible,
+.brand:focus-visible,
+.docs-nav-links a:focus-visible,
+.docs-side-section a:focus-visible,
+.docs-toc a:focus-visible,
+.docs-chip-row a:focus-visible,
+.docs-pager a:focus-visible {
+  outline: 2px solid var(--focus);
   outline-offset: 4px;
 }
 
@@ -201,7 +217,7 @@ pre {
 
 .hero {
   overflow: hidden;
-  padding: 96px 0 80px;
+  padding: 96px 0 88px;
   position: relative;
 }
 
@@ -220,8 +236,16 @@ pre {
 }
 
 .hero-inner {
-  max-width: 920px;
+  align-items: center;
+  display: grid;
+  gap: clamp(40px, 6vw, 80px);
+  grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.86fr);
+  max-width: var(--container);
   position: relative;
+}
+
+.hero-copy {
+  min-width: 0;
 }
 
 .eyebrow {
@@ -252,18 +276,19 @@ pre {
   color: var(--muted);
 }
 
-h1.display {
+.hero .display {
   color: var(--fg);
   font-family: var(--font-display);
-  font-size: clamp(56px, 9vw, 104px);
+  font-size: clamp(48px, 7vw, 82px);
   font-weight: 600;
   letter-spacing: -0.035em;
-  line-height: 0.96;
+  line-height: 1;
   margin: 0 0 28px;
+  max-width: 820px;
   text-wrap: balance;
 }
 
-h1.display span {
+.hero .display span {
   color: var(--accent);
 }
 
@@ -276,34 +301,7 @@ h1.display span {
   text-wrap: pretty;
 }
 
-.install {
-  align-items: stretch;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  display: flex;
-  font-family: var(--font-mono);
-  font-size: 13.5px;
-  max-width: 540px;
-  overflow: hidden;
-}
-
 .prompt {
-  color: var(--accent);
-}
-
-.install .prompt {
-  color: var(--accent);
-  padding: 14px 0 14px 16px;
-}
-
-.install code {
-  color: var(--fg);
-  flex: 1;
-  padding: 14px 16px 14px 8px;
-}
-
-.install code span {
   color: var(--accent);
 }
 
@@ -312,15 +310,17 @@ h1.display span {
   color: var(--accent);
   display: inline-grid;
   height: 1.55em;
+  line-height: 1.55;
   overflow: hidden;
   vertical-align: bottom;
 }
 
 .rotator span,
 .terminal-rotator span {
-  animation: module-cycle 14s steps(7) infinite;
+  animation: module-slot-reel 10s cubic-bezier(0.72, 0, 0.2, 1) infinite;
   grid-area: 1 / 1;
   transform: translateY(calc(var(--i, 0) * 100%));
+  will-change: transform;
 }
 
 .rotator span:nth-child(1),
@@ -353,20 +353,57 @@ h1.display span {
   --i: 5;
 }
 
-.rotator span:nth-child(7),
-.terminal-rotator span:nth-child(7) {
-  --i: 6;
+@keyframes module-slot-reel {
+  0%,
+  10% {
+    transform: translateY(calc(var(--i, 0) * 100%));
+  }
+
+  18%,
+  28% {
+    transform: translateY(calc((var(--i, 0) - 1) * 100%));
+  }
+
+  36%,
+  46% {
+    transform: translateY(calc((var(--i, 0) - 2) * 100%));
+  }
+
+  54%,
+  64% {
+    transform: translateY(calc((var(--i, 0) - 3) * 100%));
+  }
+
+  72%,
+  82% {
+    transform: translateY(calc((var(--i, 0) - 4) * 100%));
+  }
+
+  90%,
+  100% {
+    transform: translateY(calc((var(--i, 0) - 5) * 100%));
+  }
 }
 
-@keyframes module-cycle {
-  to {
-    transform: translateY(calc((var(--i, 0) - 7) * 100%));
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
   }
 }
 
 .actions {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   margin-top: 24px;
 }
@@ -376,7 +413,8 @@ h1.display span {
   border-top: 1px solid var(--border);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin-top: 64px;
+  margin-top: 56px;
+  max-width: 620px;
 }
 
 .metric {
@@ -404,6 +442,168 @@ h1.display span {
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.hero-artifact {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  position: relative;
+}
+
+.hero-artifact::before {
+  background: radial-gradient(
+    circle at 50% 38%,
+    color-mix(in oklch, var(--accent) 16%, transparent),
+    transparent 64%
+  );
+  content: "";
+  filter: blur(18px);
+  inset: -48px;
+  opacity: 0.72;
+  pointer-events: none;
+  position: absolute;
+}
+
+.artifact-terminal,
+.artifact-registry {
+  background: color-mix(in oklch, var(--surface) 92%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 28px 90px color-mix(in oklch, #000 36%, transparent);
+  min-width: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.artifact-command {
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  color: var(--fg);
+  display: flex;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 18px 20px;
+  white-space: nowrap;
+}
+
+.artifact-command code {
+  color: var(--fg);
+}
+
+.artifact-command code span {
+  color: var(--accent);
+}
+
+.artifact-output {
+  display: grid;
+  gap: 9px;
+  padding: 18px 20px 20px;
+}
+
+.artifact-output span {
+  align-items: center;
+  color: var(--muted-2);
+  display: flex;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  gap: 8px;
+}
+
+.artifact-output strong {
+  color: var(--success);
+  font-weight: 510;
+}
+
+.artifact-registry {
+  padding: 16px;
+}
+
+.artifact-head {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.artifact-head span {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.artifact-head code {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 11px;
+  padding: 4px 8px;
+}
+
+.artifact-stack {
+  display: grid;
+  gap: 8px;
+}
+
+.artifact-module {
+  align-items: center;
+  background: color-mix(in oklch, var(--surface-2) 54%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 30px minmax(0, 1fr);
+  padding: 12px;
+}
+
+.artifact-module > span {
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  height: 30px;
+  position: relative;
+  width: 30px;
+}
+
+.artifact-module > span::before,
+.artifact-module > span::after {
+  background: var(--accent);
+  content: "";
+  height: 2px;
+  left: 8px;
+  position: absolute;
+}
+
+.artifact-module > span::before {
+  top: 10px;
+  width: 14px;
+}
+
+.artifact-module > span::after {
+  top: 17px;
+  width: 9px;
+}
+
+.artifact-module strong,
+.artifact-module small {
+  display: block;
+}
+
+.artifact-module strong {
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 510;
+}
+
+.artifact-module small {
+  color: var(--muted-2);
+  font-size: 12.5px;
+  margin-top: 2px;
 }
 
 .section {
@@ -884,22 +1084,22 @@ h1.display span {
   overflow-x: auto;
 }
 
-table {
+.data-panel table {
   border-collapse: collapse;
   font-size: 13px;
   min-width: 640px;
   width: 100%;
 }
 
-th,
-td {
+.data-panel th,
+.data-panel td {
   border-bottom: 1px solid var(--border);
   padding: 12px 18px;
   text-align: left;
   vertical-align: top;
 }
 
-th {
+.data-panel th {
   color: var(--muted);
   font-family: var(--font-mono);
   font-size: 10.5px;
@@ -908,16 +1108,16 @@ th {
   text-transform: uppercase;
 }
 
-td {
+.data-panel td {
   color: var(--muted-2);
 }
 
-td code {
+.data-panel td code {
   color: var(--fg);
   font-size: 12px;
 }
 
-tbody tr:last-child td {
+.data-panel tbody tr:last-child td {
   border-bottom: 0;
 }
 
@@ -1007,8 +1207,10 @@ tbody tr:last-child td {
 }
 
 .docs-page {
-  --docs-side: 272px;
-  --docs-toc: 224px;
+  --docs-side: clamp(232px, 19vw, 272px);
+  --docs-toc: clamp(184px, 16vw, 224px);
+  background: var(--bg);
+  font-family: var(--font-body);
   overflow: visible;
 }
 
@@ -1083,20 +1285,21 @@ tbody tr:last-child td {
   grid-template-columns: var(--docs-side) minmax(0, 1fr) var(--docs-toc);
   margin: 0 auto;
   max-width: 1440px;
+  padding: 0 24px;
 }
 
 .docs-sidebar,
 .docs-toc {
   align-self: start;
-  height: calc(100vh - 56px);
-  overflow-y: auto;
+  height: auto;
+  overflow: visible;
   position: sticky;
-  top: 56px;
+  top: 72px;
 }
 
 .docs-sidebar {
   border-right: 1px solid var(--border);
-  padding: 32px 24px 64px;
+  padding: 56px 28px 72px 0;
 }
 
 .docs-side-section {
@@ -1133,8 +1336,9 @@ tbody tr:last-child td {
   border-radius: 6px;
   color: var(--muted-2);
   display: flex;
-  font-size: 13.5px;
+  font-size: 13px;
   gap: 8px;
+  line-height: 1.35;
   padding: 6px 8px;
   transition:
     background 0.15s ease,
@@ -1169,8 +1373,8 @@ tbody tr:last-child td {
 
 .docs-content {
   margin: 0 auto;
-  max-width: 820px;
-  padding: 56px 48px 72px;
+  max-width: 800px;
+  padding: 56px 44px 72px;
   width: 100%;
 }
 
@@ -1211,20 +1415,20 @@ tbody tr:last-child td {
 
 .docs-content h1.doc-title {
   font-family: var(--font-display);
-  font-size: clamp(44px, 7vw, 74px);
+  font-size: clamp(38px, 5vw, 60px);
   font-weight: 600;
   letter-spacing: -0.04em;
-  line-height: 1;
+  line-height: 1.04;
   margin: 0 0 18px;
   text-wrap: balance;
 }
 
 .doc-lede {
   color: var(--muted-2);
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: clamp(16px, 1.6vw, 18px);
+  line-height: 1.68;
   margin: 0 0 18px;
-  max-width: 64ch;
+  max-width: 66ch;
   text-wrap: pretty;
 }
 
@@ -1257,13 +1461,14 @@ tbody tr:last-child td {
   align-items: baseline;
   display: flex;
   font-family: var(--font-display);
-  font-size: clamp(25px, 4vw, 34px);
+  font-size: clamp(24px, 3vw, 31px);
   font-weight: 600;
   gap: 8px;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
-  margin: 48px 0 12px;
+  letter-spacing: -0.026em;
+  line-height: 1.22;
+  margin: 52px 0 14px;
   scroll-margin-top: 76px;
+  text-wrap: balance;
 }
 
 .docs-anchor {
@@ -1280,16 +1485,17 @@ tbody tr:last-child td {
 
 .docs-content h3 {
   font-family: var(--font-display);
-  font-size: 17px;
-  letter-spacing: -0.012em;
-  line-height: 1.25;
+  font-size: 16.5px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
   margin: 0 0 8px;
 }
 
 .docs-content p,
 .docs-content li {
   color: var(--muted-2);
-  line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.72;
 }
 
 .docs-content p {
@@ -1297,11 +1503,13 @@ tbody tr:last-child td {
   max-width: 72ch;
 }
 
-.docs-page code {
+.docs-content p code,
+.docs-content li code {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 4px;
   color: var(--fg);
+  font-family: var(--font-mono);
   font-size: 0.92em;
   padding: 0.05em 0.32em;
 }
@@ -1356,8 +1564,8 @@ tbody tr:last-child td {
 
 .docs-code pre {
   color: var(--fg);
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: 12.75px;
+  line-height: 1.72;
   margin: 0;
   overflow-x: auto;
   padding: 18px 20px;
@@ -1398,7 +1606,8 @@ tbody tr:last-child td {
 .docs-path-card p,
 .docs-catalog-card p,
 .docs-manifest-card p {
-  font-size: 13px;
+  font-size: 13.5px;
+  line-height: 1.58;
   margin: 0;
 }
 
@@ -1498,7 +1707,7 @@ tbody tr:last-child td {
 
 .docs-toc {
   border-left: 1px solid var(--border);
-  padding: 56px 24px 64px 32px;
+  padding: 56px 0 72px 32px;
 }
 
 .docs-toc h5 {
@@ -1610,6 +1819,14 @@ tbody tr:last-child td {
     padding: 64px 0 48px;
   }
 
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-artifact {
+    max-width: 640px;
+  }
+
   .hero-meta,
   .modules-grid,
   .backlog,
@@ -1629,6 +1846,10 @@ tbody tr:last-child td {
     grid-template-columns: 1fr auto;
   }
 
+  .docs-layout {
+    padding: 0;
+  }
+
   .docs-search {
     display: none;
   }
@@ -1637,6 +1858,7 @@ tbody tr:last-child td {
     border-bottom: 1px solid var(--border);
     border-right: 0;
     height: auto;
+    padding: 24px;
     position: static;
   }
 
@@ -1711,14 +1933,12 @@ tbody tr:last-child td {
     grid-template-columns: 1fr;
   }
 
-  .install {
-    font-size: 12px;
-    max-width: 100%;
+  .hero .display {
+    font-size: clamp(42px, 14vw, 64px);
   }
 
-  .install code {
-    overflow-x: auto;
-    white-space: nowrap;
+  .artifact-command {
+    font-size: 12px;
   }
 
   .muted-label {
@@ -1772,12 +1992,13 @@ tbody tr:last-child td {
 
 .registry-title {
   font-family: var(--font-display);
-  font-size: clamp(52px, 8vw, 92px);
+  font-size: clamp(44px, 6.5vw, 78px);
   font-weight: 600;
-  letter-spacing: -0.052em;
-  line-height: 0.94;
+  letter-spacing: -0.044em;
+  line-height: 1;
   margin: 0;
   max-width: 920px;
+  text-wrap: balance;
 }
 
 .registry-lede {
@@ -1872,11 +2093,12 @@ tbody tr:last-child td {
 .registry-section-head h2,
 .registry-cta h2 {
   font-family: var(--font-display);
-  font-size: clamp(34px, 5vw, 58px);
+  font-size: clamp(30px, 4vw, 48px);
   font-weight: 600;
-  letter-spacing: -0.045em;
-  line-height: 0.98;
+  letter-spacing: -0.032em;
+  line-height: 1.08;
   margin: 0;
+  text-wrap: balance;
 }
 
 .registry-section-head p,

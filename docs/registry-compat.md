@@ -9,8 +9,8 @@ The goal is to publish production SaaS modules as editable source: a registry it
 With the StackFoundry CLI:
 
 ```bash
-pnpm cli add https://stackfoundry.dev/r/api-keys.json --target ./my-app
-pnpm cli add https://stackfoundry.dev/r/vendor-examples.json --target ./my-app
+pnpm stackfoundry add https://stackfoundry.dev/r/api-keys.json --target ./my-app
+pnpm stackfoundry add https://stackfoundry.dev/r/vendor-examples.json --target ./my-app
 ```
 
 ## Local Development
@@ -25,7 +25,7 @@ Then run the web app and install from the local URL:
 
 ```bash
 pnpm dev:web
-pnpm cli add http://localhost:3000/r/api-keys.json --target /tmp/app
+pnpm stackfoundry add http://localhost:3000/r/api-keys.json --target /tmp/app
 ```
 
 ## How It Maps to the Registry Model

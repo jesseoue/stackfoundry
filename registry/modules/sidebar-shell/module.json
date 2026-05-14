@@ -10,8 +10,13 @@
   "env": [],
   "files": [],
   "agents": {
-    "skills": ["sidebar-shell"],
-    "rules": ["document-invariants", "verify-before-release"]
+    "skills": [
+      "sidebar-shell"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release"
+    ]
   },
   "status": "planned"
 }

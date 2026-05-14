@@ -343,10 +343,9 @@ export default function RegistryPage() {
             <span className="wordmark">stackfoundry</span>
           </a>
           <div className="nav-links">
-            <a href="/registry">Registry</a>
             <a href="/docs">Docs</a>
             <a href="/docs#install-existing">Install</a>
-            <a href="/r/registry.json">JSON</a>
+            <a href="/r/registry.json">Registry JSON</a>
           </div>
           <a className="button" href={githubUrl}>
             GitHub
@@ -389,10 +388,10 @@ export default function RegistryPage() {
                 registry install
               </div>
               <pre>
-                <code>{`pnpm cli presets
-pnpm cli add preset next-saas
-pnpm cli add stripe-billing
-pnpm cli diff api-keys`}</code>
+                <code>{`pnpm stackfoundry presets
+pnpm stackfoundry add preset next-saas
+pnpm stackfoundry add stripe-billing
+pnpm stackfoundry diff api-keys`}</code>
               </pre>
               <div className="registry-terminal-foot">
                 Source lands in your repo for review, edits, and ownership.

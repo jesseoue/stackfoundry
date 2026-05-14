@@ -3,12 +3,32 @@
   "type": "module",
   "category": "docs",
   "title": "Fumadocs Docs",
-  "description": "Fumadocs docs site module.",
-  "dependencies": [],
-  "devDependencies": [],
-  "registryDependencies": [],
+  "description": "In-app Next.js documentation starter with Fumadocs setup and deployment guidance.",
+  "dependencies": [
+    "fumadocs-core",
+    "fumadocs-ui"
+  ],
+  "devDependencies": [
+    "fumadocs-mdx"
+  ],
+  "registryDependencies": [
+    "seo"
+  ],
   "env": [],
-  "files": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/docs/fumadocs.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(marketing)/docs/page.tsx",
+      "type": "registry:page"
+    },
+    {
+      "path": "docs/fumadocs-deployment.md",
+      "type": "registry:file"
+    }
+  ],
   "agents": {
     "skills": [
       "docs-fumadocs",
@@ -18,8 +38,9 @@
     ],
     "rules": [
       "document-invariants",
-      "verify-before-release"
+      "verify-before-release",
+      "keep-provider-boundary"
     ]
   },
-  "status": "planned"
+  "status": "experimental"
 }

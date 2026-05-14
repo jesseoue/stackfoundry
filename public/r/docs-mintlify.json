@@ -1,0 +1,74 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "docs-mintlify",
+  "type": "registry:block",
+  "title": "Mintlify Docs",
+  "description": "Hosted documentation workspace starter with Mintlify configuration, pages, and deployment guidance.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/seo.json"
+  ],
+  "files": [
+    {
+      "path": "docs/mintlify/docs.json",
+      "type": "registry:file",
+      "target": "docs/mintlify/docs.json",
+      "content": "{\n  \"$schema\": \"https://mintlify.com/docs.json\",\n  \"theme\": \"mint\",\n  \"name\": \"Product Docs\",\n  \"colors\": {\n    \"primary\": \"#18181b\",\n    \"light\": \"#ffffff\",\n    \"dark\": \"#09090b\"\n  },\n  \"navigation\": {\n    \"tabs\": [\n      {\n        \"tab\": \"Guides\",\n        \"groups\": [\n          {\n            \"group\": \"Start\",\n            \"pages\": [\n              \"introduction\",\n              \"quickstart\"\n            ]\n          }\n        ]\n      }\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "docs/mintlify/introduction.mdx",
+      "type": "registry:file",
+      "target": "docs/mintlify/introduction.mdx",
+      "content": "---\ntitle: Introduction\ndescription: Start here to understand the product and where to go next.\n---\n\n# Introduction\n\nWelcome to the product docs.\n\nUse this page to explain what the product does, who it is for, and the fastest path to first value.\n\n## Next Steps\n\n- Read the quickstart.\n- Connect the product account or workspace.\n- Review API keys, webhooks, and billing docs if those modules are installed.\n---\ntitle: Introduction\ndescription: Start here to understand the product and where to go next.\n---\n\n# Introduction\n\nWelcome to the product docs.\n\nUse this page to explain what the product does, who it is for, and the fastest path to first value.\n\n## Next Steps\n\n- Read the quickstart.\n- Connect the product account or workspace.\n- Review API keys, webhooks, and billing docs if those modules are installed.\n---\ntitle: Introduction\ndescription: Start here to understand the product and where to go next.\n---\n\n# Introduction\n\nWelcome to the product docs.\n\nUse this page to explain what the product does, who it is for, and the fastest path to first value.\n\n## Next Steps\n\n- Read the quickstart.\n- Connect the product account or workspace.\n- Review API keys, webhooks, and billing docs if those modules are installed.\n"
+    },
+    {
+      "path": "docs/mintlify/quickstart.mdx",
+      "type": "registry:file",
+      "target": "docs/mintlify/quickstart.mdx",
+      "content": "---\ntitle: Quickstart\ndescription: Get from a new account to a working setup.\n---\n\n# Quickstart\n\nUse this guide as the first user-facing setup path.\n\n## 1. Create A Workspace\n\nExplain how a user creates or joins the workspace where the product is configured.\n\n## 2. Configure The Basics\n\nList the minimum configuration needed before the user reaches first value.\n\n## 3. Verify The Setup\n\nAdd a small verification step that proves the product is working.\n---\ntitle: Quickstart\ndescription: Get from a new account to a working setup.\n---\n\n# Quickstart\n\nUse this guide as the first user-facing setup path.\n\n## 1. Create A Workspace\n\nExplain how a user creates or joins the workspace where the product is configured.\n\n## 2. Configure The Basics\n\nList the minimum configuration needed before the user reaches first value.\n\n## 3. Verify The Setup\n\nAdd a small verification step that proves the product is working.\n---\ntitle: Quickstart\ndescription: Get from a new account to a working setup.\n---\n\n# Quickstart\n\nUse this guide as the first user-facing setup path.\n\n## 1. Create A Workspace\n\nExplain how a user creates or joins the workspace where the product is configured.\n\n## 2. Configure The Basics\n\nList the minimum configuration needed before the user reaches first value.\n\n## 3. Verify The Setup\n\nAdd a small verification step that proves the product is working.\n"
+    },
+    {
+      "path": "docs/mintlify/deployment.md",
+      "type": "registry:file",
+      "target": "docs/mintlify/deployment.md",
+      "content": "# Mintlify Deployment Guide\n\nUse Mintlify when documentation should deploy as a hosted docs site outside the main app.\n\n## Preview\n\n```bash\ncd docs/mintlify\nmint dev\n```\n\n## Deploy\n\n1. Create or open the Mintlify project.\n2. Connect the Git repository.\n3. Set the docs root to `docs/mintlify` if the repository also contains application code.\n4. Confirm the production docs URL.\n5. Record the URL in the target repository's README or deployment notes.\n\n## Verify\n\n- `mint dev` works locally.\n- The production docs URL loads.\n- Navigation links resolve.\n- Introduction and quickstart pages have title and description frontmatter.\n# Mintlify Deployment Guide\n\nUse Mintlify when documentation should deploy as a hosted docs site outside the main app.\n\n## Preview\n\nRun from the docs root:\n\n```bash\ncd docs/mintlify\nmint dev\n```\n\nThe local preview should render the navigation from `docs.json` and the MDX pages in this directory.\n\n## Deploy\n\n1. Create or open the Mintlify project.\n2. Connect the Git repository.\n3. Set the docs root to `docs/mintlify` if the repository also contains application code.\n4. Confirm the production docs URL.\n5. Record the URL in the target repository's README or deployment notes.\n\n## Verify\n\n- `mint dev` works locally.\n- The production docs URL loads.\n- Navigation links resolve.\n- Introduction and quickstart pages have title and description frontmatter.\n- Any custom domain has DNS configured and TLS active.\n# Mintlify Deployment Guide\n\nUse Mintlify when documentation should deploy as a hosted docs site outside the main app.\n\n## Preview\n\nRun from the docs root:\n\n```bash\ncd docs/mintlify\nmint dev\n```\n\nThe local preview should render the navigation from `docs.json` and the MDX pages in this directory.\n\n## Deploy\n\n1. Create or open the Mintlify project.\n2. Connect the Git repository.\n3. Set the docs root to `docs/mintlify` if the repository also contains application code.\n4. Confirm the production docs URL.\n5. Record the URL in the target repository's README or deployment notes.\n\n## Verify\n\n- `mint dev` works locally.\n- The production docs URL loads.\n- Navigation links resolve.\n- Introduction and quickstart pages have title and description frontmatter.\n- Any custom domain has DNS configured and TLS active.\n"
+    }
+  ],
+  "agentSkills": [
+    {
+      "name": "docs-mintlify",
+      "target": ".agents/skills/docs-mintlify/SKILL.md",
+      "content": "---\nname: docs-mintlify\ndescription: Maintain the Mintlify Docs module installed by StackFoundry.\n---\n\n# Mintlify Docs Maintenance Instructions\n\n- Use this module when docs should deploy as a hosted documentation workspace.\n- Keep Mintlify files under `docs/mintlify` unless the user chooses a different docs root.\n- Run `mint dev` from the directory that contains `docs.json`.\n- Help the user connect the docs repository and record the production docs URL.\n- Keep navigation in `docs.json` aligned with MDX files.\n---\nname: docs-mintlify\ndescription: Maintain the Mintlify Docs module installed by StackFoundry.\n---\n\n# Mintlify Docs Skill\n\n## Purpose\n\nHosted documentation workspace starter with Mintlify configuration, pages, and deployment guidance.\n\n## Ownership\n\n- `docs/mintlify/docs.json`\n- `docs/mintlify/introduction.mdx`\n- `docs/mintlify/quickstart.mdx`\n- `docs/mintlify/deployment.md`\n\n## Defaults\n\n- Keep the module source-owned and easy to replace.\n- Keep provider-specific code in this module only when the module is explicitly provider-specific.\n- Keep shared domain behavior provider-neutral.\n- Keep env vars server-only unless the variable is intentionally public and prefixed accordingly.\n\n## Safety Rules\n\n- Never add secrets, provider credentials, private customer data, local caches, or generated machine metadata.\n- Document auth, tenant, billing, and data-access assumptions before changing behavior.\n- Add or preserve audit guidance for sensitive state changes.\n- Prefer explicit failures over silent fallback behavior for production paths.\n\n## Change Checklist\n\n- Update `module.json` when files, dependencies, env vars, status, or registry dependencies change.\n- Update `docs.md` when setup, ownership, provider boundaries, or deployment behavior changes.\n- Update `tests/checklist.md` when verification expectations change.\n- Run `pnpm registry:doctor` and a module install dry-run before handoff.\n"
+    },
+    {
+      "name": "mintlify",
+      "target": ".agents/skills/mintlify/SKILL.md",
+      "content": "---\nname: mintlify\ndescription: Mintlify guidance for installed docs modules.\n---\n\n# Mintlify Guidance\n\n- Use Mintlify for hosted docs workspaces.\n- Run mint dev from the docs.json directory.\n- Keep navigation aligned with MDX files.\n- Record production docs URL and custom domain settings.\n"
+    },
+    {
+      "name": "docs-hosting",
+      "target": ".agents/skills/docs-hosting/SKILL.md",
+      "content": "---\nname: docs-hosting\ndescription: Documentation hosting guidance for installed docs modules.\n---\n\n# Docs Hosting Guidance\n\n- Choose in-app docs or hosted docs explicitly.\n- Record preview URL, production URL, docs root, and owner.\n- Verify local preview and production deploy.\n- Check metadata, sitemap, and broken links.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Mintlify Docs\n\nHosted documentation workspace starter with Mintlify configuration, pages, and deployment guidance.\n\nUse this module when docs should live in a dedicated docs workspace and deploy through Mintlify.\n\n## Owns\n\n- `docs/mintlify/docs.json`\n- `docs/mintlify/introduction.mdx`\n- `docs/mintlify/quickstart.mdx`\n- `docs/mintlify/deployment.md`\n\n## Verification\n\n- Run `pnpm registry:doctor` after editing the module.\n- Run `pnpm cli add docs-mintlify --target /tmp/stackfoundry-docs-mintlify --dry-run`.\n- Run `mint dev` from the directory that contains `docs.json`.\n# Mintlify Docs\n\nHosted documentation workspace starter with Mintlify configuration, pages, and deployment guidance.\n\n## Why This Exists\n\nDocs modules help teams ship product documentation with a clear hosting choice and SEO ownership model.\n\nThis module has installable source files and can be smoke-tested through the registry CLI.\n\n## Owns\n\n- `docs/mintlify/docs.json`\n- `docs/mintlify/introduction.mdx`\n- `docs/mintlify/quickstart.mdx`\n- `docs/mintlify/deployment.md`\n\n## Dependencies\n\n- `registry:seo`\n\n## Environment\n\n- `NEXT_PUBLIC_DOCS_URL`\n\n## Flexibility\n\n- Keep the module boundary small and editable.\n- Prefer provider-neutral domain shapes unless this module is explicitly a provider adapter.\n- Add provider-specific behavior in an adapter module rather than coupling shared modules to one service.\n- Preserve compatibility for installed source, env files, and public registry item names.\n\n## Safety\n\n- Do not commit secrets, credentials, private customer data, local caches, or generated machine metadata.\n- Keep auth, tenancy, billing, and data-access assumptions documented before promoting the module.\n- Record audit events for sensitive state changes when the module handles users, tenants, billing, security, or data exports.\n- Keep destructive behavior opt-in and documented.\n\n## Verification\n\n- Run `pnpm registry:doctor` after editing the module.\n- Run `pnpm cli add docs-mintlify --target /tmp/stackfoundry-docs-mintlify --dry-run` before handoff.\n- If the module has source files, run a real install into a temporary target before marking it stable.\n- Update `tests/checklist.md` and `skill/SKILL.md` with behavior changes.\n\n## Maintenance\n\n- Keep `module.json`, `docs.md`, `tests/checklist.md`, and `skill/SKILL.md` in sync.\n- Keep public descriptions concise and implementation details in source files or docs.\n- Rebuild the public registry with `pnpm registry:build` after source changes.\n",
+  "meta": {
+    "category": "docs",
+    "env": [],
+    "status": "experimental",
+    "agents": {
+      "skills": [
+        "docs-mintlify",
+        "mintlify",
+        "docs-hosting"
+      ],
+      "rules": [
+        "document-invariants",
+        "verify-before-release",
+        "keep-provider-boundary"
+      ]
+    }
+  }
+}

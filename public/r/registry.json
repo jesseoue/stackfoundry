@@ -2404,11 +2404,34 @@
       "name": "docs-fumadocs",
       "type": "registry:block",
       "title": "Fumadocs Docs",
-      "description": "Fumadocs docs site module.",
-      "dependencies": [],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [],
+      "description": "In-app Next.js documentation starter with Fumadocs setup and deployment guidance.",
+      "dependencies": [
+        "fumadocs-core",
+        "fumadocs-ui"
+      ],
+      "devDependencies": [
+        "fumadocs-mdx"
+      ],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/seo.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/docs/fumadocs.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/docs/fumadocs.ts"
+        },
+        {
+          "path": "apps/web/src/app/(marketing)/docs/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(marketing)/docs/page.tsx"
+        },
+        {
+          "path": "docs/fumadocs-deployment.md",
+          "type": "registry:file",
+          "target": "docs/fumadocs-deployment.md"
+        }
+      ],
       "agentSkills": [
         {
           "name": "docs-fumadocs",
@@ -2430,7 +2453,59 @@
       "meta": {
         "category": "docs",
         "env": [],
-        "status": "planned"
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "docs-mintlify",
+      "type": "registry:block",
+      "title": "Mintlify Docs",
+      "description": "Hosted documentation workspace starter with Mintlify configuration, pages, and deployment guidance.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/seo.json"
+      ],
+      "files": [
+        {
+          "path": "docs/mintlify/docs.json",
+          "type": "registry:file",
+          "target": "docs/mintlify/docs.json"
+        },
+        {
+          "path": "docs/mintlify/introduction.mdx",
+          "type": "registry:file",
+          "target": "docs/mintlify/introduction.mdx"
+        },
+        {
+          "path": "docs/mintlify/quickstart.mdx",
+          "type": "registry:file",
+          "target": "docs/mintlify/quickstart.mdx"
+        },
+        {
+          "path": "docs/mintlify/deployment.md",
+          "type": "registry:file",
+          "target": "docs/mintlify/deployment.md"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "docs-mintlify",
+          "target": ".agents/skills/docs-mintlify/SKILL.md"
+        },
+        {
+          "name": "mintlify",
+          "target": ".agents/skills/mintlify/SKILL.md"
+        },
+        {
+          "name": "docs-hosting",
+          "target": ".agents/skills/docs-hosting/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "docs",
+        "env": [],
+        "status": "experimental"
       }
     },
     {
@@ -4661,6 +4736,41 @@
       }
     },
     {
+      "name": "product-announcements",
+      "type": "registry:block",
+      "title": "Product Announcements",
+      "description": "In-app and email-ready product announcements for launches, releases, and maintenance notices.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/notifications.json",
+        "https://stackfoundry.dev/r/email-templates.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/product-announcements.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/product-announcements.ts"
+        },
+        {
+          "path": "apps/web/src/app/(console)/admin/announcements/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/admin/announcements/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "product-announcements",
+          "target": ".agents/skills/product-announcements/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "communications",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
       "name": "product-qualified-leads",
       "type": "registry:block",
       "title": "Product Qualified Leads",
@@ -4730,6 +4840,40 @@
       ],
       "meta": {
         "category": "developer-platform",
+        "env": [],
+        "status": "experimental"
+      }
+    },
+    {
+      "name": "public-roadmap",
+      "type": "registry:block",
+      "title": "Public Roadmap",
+      "description": "Public roadmap board with planned, in-progress, and shipped product work.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "https://stackfoundry.dev/r/feature-requests.json"
+      ],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/public-roadmap.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/public-roadmap.ts"
+        },
+        {
+          "path": "apps/web/src/app/(marketing)/roadmap/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(marketing)/roadmap/page.tsx"
+        }
+      ],
+      "agentSkills": [
+        {
+          "name": "public-roadmap",
+          "target": ".agents/skills/public-roadmap/SKILL.md"
+        }
+      ],
+      "meta": {
+        "category": "support",
         "env": [],
         "status": "experimental"
       }

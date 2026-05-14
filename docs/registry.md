@@ -49,9 +49,9 @@ pnpm registry:list
 pnpm registry:presets
 pnpm registry:doctor
 pnpm registry:build
-pnpm cli add drizzle-postgres --target /path/to/app
-pnpm cli add preset next-saas --target /path/to/app
-pnpm cli diff drizzle-postgres --target /path/to/app
+pnpm stackfoundry add drizzle-postgres --target /path/to/app
+pnpm stackfoundry add preset next-saas --target /path/to/app
+pnpm stackfoundry diff drizzle-postgres --target /path/to/app
 ```
 
 ## Public Build Output

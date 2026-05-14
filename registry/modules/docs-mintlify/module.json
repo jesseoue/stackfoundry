@@ -1,0 +1,44 @@
+{
+  "name": "docs-mintlify",
+  "type": "module",
+  "category": "docs",
+  "title": "Mintlify Docs",
+  "description": "Hosted documentation workspace starter with Mintlify configuration, pages, and deployment guidance.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "seo"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "docs/mintlify/docs.json",
+      "type": "registry:file"
+    },
+    {
+      "path": "docs/mintlify/introduction.mdx",
+      "type": "registry:file"
+    },
+    {
+      "path": "docs/mintlify/quickstart.mdx",
+      "type": "registry:file"
+    },
+    {
+      "path": "docs/mintlify/deployment.md",
+      "type": "registry:file"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "docs-mintlify",
+      "mintlify",
+      "docs-hosting"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "keep-provider-boundary"
+    ]
+  },
+  "status": "experimental"
+}

@@ -40,17 +40,17 @@ The registry publishes JSON-described source blocks with dependencies, file cont
 From this repository, use the StackFoundry CLI when you want install metadata and future diff safety:
 
 ```bash
-pnpm cli add api-keys --target ./my-app
-pnpm cli add preset next-saas --target ./my-app
-pnpm cli diff api-keys --target ./my-app
+pnpm stackfoundry add api-keys --target ./my-app
+pnpm stackfoundry add preset next-saas --target ./my-app
+pnpm stackfoundry diff api-keys --target ./my-app
 ```
 
 The CLI can also install generated public registry JSON:
 
 ```bash
-pnpm cli add https://stackfoundry.dev/r/api-keys.json --target ./my-app
-pnpm cli add https://stackfoundry.dev/r/vendor-examples.json --target ./my-app
-pnpm cli diff https://stackfoundry.dev/r/api-keys.json --target ./my-app
+pnpm stackfoundry add https://stackfoundry.dev/r/api-keys.json --target ./my-app
+pnpm stackfoundry add https://stackfoundry.dev/r/vendor-examples.json --target ./my-app
+pnpm stackfoundry diff https://stackfoundry.dev/r/api-keys.json --target ./my-app
 ```
 
 ## What Is In The Registry

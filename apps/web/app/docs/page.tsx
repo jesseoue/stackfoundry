@@ -14,8 +14,8 @@ const quickStart = [
   "cd stackfoundry",
   "corepack enable && pnpm install",
   "pnpm registry:doctor",
-  "pnpm cli list",
-  "pnpm cli add api-keys --target ./my-app --dry-run",
+  "pnpm stackfoundry list",
+  "pnpm stackfoundry add api-keys --target ./my-app --dry-run",
 ];
 
 const existingAppSteps = [
@@ -279,7 +279,8 @@ export default function DocsPage() {
             <kbd>K</kbd>
           </div>
           <div className="docs-nav-links">
-            <a href="/registry.json">registry.json</a>
+            <a href="/registry">Registry</a>
+            <a href="/docs#install-existing">Install</a>
             <a href="https://github.com/jesseoue/stackfoundry">GitHub</a>
           </div>
         </div>
@@ -392,7 +393,7 @@ export default function DocsPage() {
               prints the proposed file changes, shows env notes, and leaves the review decision with
               you. After install, the source is yours to edit like any other code.
             </p>
-            <CodeBlock label="terminal">{`$ pnpm cli add stripe-billing --target ./my-app --dry-run
+            <CodeBlock label="terminal">{`$ pnpm stackfoundry add stripe-billing --target ./my-app --dry-run
 · resolving registry dependency drizzle-postgres
 · reading registry/modules/stripe-billing/module.json
 + packages/db/src/schema/billing.ts
@@ -402,8 +403,8 @@ export default function DocsPage() {
 + tests/checklist.md
 ! env notes: STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 
-$ pnpm cli diff stripe-billing --target ./my-app
-$ pnpm cli add stripe-billing --target ./my-app`}</CodeBlock>
+$ pnpm stackfoundry diff stripe-billing --target ./my-app
+$ pnpm stackfoundry add stripe-billing --target ./my-app`}</CodeBlock>
             <div className="docs-steps">
               {existingAppSteps.map(([title, body], index) => (
                 <div className="docs-step" key={title}>

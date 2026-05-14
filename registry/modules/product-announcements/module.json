@@ -1,0 +1,35 @@
+{
+  "name": "product-announcements",
+  "type": "module",
+  "category": "communications",
+  "title": "Product Announcements",
+  "description": "In-app and email-ready product announcements for launches, releases, and maintenance notices.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "notifications",
+    "email-templates"
+  ],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/product-announcements.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/admin/announcements/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "agents": {
+    "skills": [
+      "product-announcements"
+    ],
+    "rules": [
+      "document-invariants",
+      "verify-before-release",
+      "respect-notification-preferences"
+    ]
+  },
+  "status": "experimental"
+}

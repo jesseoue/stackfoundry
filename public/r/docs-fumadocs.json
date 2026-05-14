@@ -3,16 +3,42 @@
   "name": "docs-fumadocs",
   "type": "registry:block",
   "title": "Fumadocs Docs",
-  "description": "Fumadocs docs site module.",
-  "dependencies": [],
-  "devDependencies": [],
-  "registryDependencies": [],
-  "files": [],
+  "description": "In-app Next.js documentation starter with Fumadocs setup and deployment guidance.",
+  "dependencies": [
+    "fumadocs-core",
+    "fumadocs-ui"
+  ],
+  "devDependencies": [
+    "fumadocs-mdx"
+  ],
+  "registryDependencies": [
+    "https://stackfoundry.dev/r/seo.json"
+  ],
+  "files": [
+    {
+      "path": "apps/web/src/lib/docs/fumadocs.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/docs/fumadocs.ts",
+      "content": "export type DocsRoute = {\n  href: string;\n  title: string;\n  description: string;\n};\n\nexport const fumadocsRoutes: DocsRoute[] = [\n  {\n    href: \"/docs\",\n    title: \"Documentation\",\n    description: \"Product documentation landing page.\",\n  },\n  {\n    href: \"/docs/quickstart\",\n    title: \"Quickstart\",\n    description: \"First setup steps for new users.\",\n  },\n  {\n    href: \"/docs/api\",\n    title: \"API Reference\",\n    description: \"Authentication, pagination, errors, and examples.\",\n  },\n];\n\nexport const fumadocsSetupChecklist = [\n  \"Install fumadocs-core, fumadocs-ui, and fumadocs-mdx.\",\n  \"Review the root layout before adding a docs provider.\",\n  \"Merge MDX config into the target app's existing Next.js config.\",\n  \"Add docs routes to sitemap and metadata defaults.\",\n] as const;\nexport type DocsRoute = {\n  href: string;\n  title: string;\n  description: string;\n};\n\nexport const fumadocsRoutes: DocsRoute[] = [\n  {\n    href: \"/docs\",\n    title: \"Documentation\",\n    description: \"Product documentation landing page.\",\n  },\n  {\n    href: \"/docs/quickstart\",\n    title: \"Quickstart\",\n    description: \"First setup steps for new users.\",\n  },\n  {\n    href: \"/docs/api\",\n    title: \"API Reference\",\n    description: \"Authentication, pagination, errors, and examples.\",\n  },\n];\n\nexport const fumadocsSetupChecklist = [\n  \"Install fumadocs-core, fumadocs-ui, and fumadocs-mdx.\",\n  \"Wrap the docs UI with the Fumadocs provider after reviewing the root layout.\",\n  \"Wire MDX through the target app's Next.js config.\",\n  \"Add docs routes to sitemap and metadata defaults.\",\n] as const;\nexport type DocsRoute = {\n  href: string;\n  title: string;\n  description: string;\n};\n\nexport const fumadocsRoutes: DocsRoute[] = [\n  {\n    href: \"/docs\",\n    title: \"Documentation\",\n    description: \"Product documentation landing page.\",\n  },\n  {\n    href: \"/docs/quickstart\",\n    title: \"Quickstart\",\n    description: \"First setup steps for new users.\",\n  },\n  {\n    href: \"/docs/api\",\n    title: \"API Reference\",\n    description: \"Authentication, pagination, errors, and examples.\",\n  },\n];\n\nexport const fumadocsSetupChecklist = [\n  \"Install fumadocs-core, fumadocs-ui, and fumadocs-mdx.\",\n  \"Wrap the docs UI with the Fumadocs provider after reviewing the root layout.\",\n  \"Wire MDX through the target app's Next.js config.\",\n  \"Add docs routes to sitemap and metadata defaults.\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/app/(marketing)/docs/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(marketing)/docs/page.tsx",
+      "content": "import { fumadocsRoutes, fumadocsSetupChecklist } from \"@/lib/docs/fumadocs\";\n\nexport default function DocsPage() {\n  return (\n    <main className=\"mx-auto flex max-w-5xl flex-col gap-8 px-6 py-12\">\n      <section className=\"space-y-3\">\n        <p className=\"text-sm font-medium text-muted-foreground\">Documentation</p>\n        <h1 className=\"text-4xl font-semibold tracking-tight\">Docs that deploy with your app</h1>\n        <p className=\"max-w-2xl text-muted-foreground\">\n          Start with a clean docs landing page, then wire Fumadocs MDX and navigation after checking the target app's\n          existing Next.js configuration.\n        </p>\n      </section>\n\n      <section className=\"grid gap-4 md:grid-cols-3\">\n        {fumadocsRoutes.map((route) => (\n          <a key={route.href} className=\"rounded-lg border p-4 transition-colors hover:bg-muted/50\" href={route.href}>\n            <h2 className=\"font-medium\">{route.title}</h2>\n            <p className=\"mt-2 text-sm text-muted-foreground\">{route.description}</p>\n          </a>\n        ))}\n      </section>\n\n      <section className=\"rounded-lg border p-5\">\n        <h2 className=\"font-medium\">Setup checklist</h2>\n        <ul className=\"mt-3 list-disc space-y-2 pl-5 text-sm text-muted-foreground\">\n          {fumadocsSetupChecklist.map((item) => (\n            <li key={item}>{item}</li>\n          ))}\n        </ul>\n      </section>\n    </main>\n  );\n}\nimport { fumadocsRoutes, fumadocsSetupChecklist } from \"@/lib/docs/fumadocs\";\n\nexport default function DocsPage() {\n  return (\n    <main className=\"mx-auto flex max-w-5xl flex-col gap-8 px-6 py-12\">\n      <section className=\"space-y-3\">\n        <p className=\"text-sm font-medium text-muted-foreground\">Documentation</p>\n        <h1 className=\"text-4xl font-semibold tracking-tight\">Docs that deploy with your app</h1>\n        <p className=\"max-w-2xl text-muted-foreground\">\n          Start with a clean docs landing page, then wire Fumadocs MDX and navigation after checking the target app's\n          existing Next.js configuration.\n        </p>\n      </section>\n\n      <section className=\"grid gap-4 md:grid-cols-3\">\n        {fumadocsRoutes.map((route) => (\n          <a key={route.href} className=\"rounded-lg border p-4 transition-colors hover:bg-muted/50\" href={route.href}>\n            <h2 className=\"font-medium\">{route.title}</h2>\n            <p className=\"mt-2 text-sm text-muted-foreground\">{route.description}</p>\n          </a>\n        ))}\n      </section>\n\n      <section className=\"rounded-lg border p-5\">\n        <h2 className=\"font-medium\">Setup checklist</h2>\n        <ul className=\"mt-3 list-disc space-y-2 pl-5 text-sm text-muted-foreground\">\n          {fumadocsSetupChecklist.map((item) => (\n            <li key={item}>{item}</li>\n          ))}\n        </ul>\n      </section>\n    </main>\n  );\n}\nimport { fumadocsRoutes, fumadocsSetupChecklist } from \"@/lib/docs/fumadocs\";\n\nexport default function DocsPage() {\n  return (\n    <main className=\"mx-auto flex max-w-5xl flex-col gap-8 px-6 py-12\">\n      <section className=\"space-y-3\">\n        <p className=\"text-sm font-medium text-muted-foreground\">Documentation</p>\n        <h1 className=\"text-4xl font-semibold tracking-tight\">Docs that deploy with your app</h1>\n        <p className=\"max-w-2xl text-muted-foreground\">\n          Start with a clean docs landing page, then wire Fumadocs MDX and navigation after checking the target app's\n          existing Next.js configuration.\n        </p>\n      </section>\n\n      <section className=\"grid gap-4 md:grid-cols-3\">\n        {fumadocsRoutes.map((route) => (\n          <a key={route.href} className=\"rounded-lg border p-4 transition-colors hover:bg-muted/50\" href={route.href}>\n            <h2 className=\"font-medium\">{route.title}</h2>\n            <p className=\"mt-2 text-sm text-muted-foreground\">{route.description}</p>\n          </a>\n        ))}\n      </section>\n\n      <section className=\"rounded-lg border p-5\">\n        <h2 className=\"font-medium\">Setup checklist</h2>\n        <ul className=\"mt-3 list-disc space-y-2 pl-5 text-sm text-muted-foreground\">\n          {fumadocsSetupChecklist.map((item) => (\n            <li key={item}>{item}</li>\n          ))}\n        </ul>\n      </section>\n    </main>\n  );\n}\n"
+    },
+    {
+      "path": "docs/fumadocs-deployment.md",
+      "type": "registry:file",
+      "target": "docs/fumadocs-deployment.md",
+      "content": "# Fumadocs Deployment Guide\n\nUse Fumadocs when documentation should ship with the Next.js application.\n\n## Install\n\n```bash\npnpm add fumadocs-core fumadocs-ui\npnpm add -D fumadocs-mdx\n```\n\n## Wire The App\n\n1. Inspect the target app's `next.config.*`.\n2. Add the Fumadocs MDX plugin to the existing config instead of replacing the config.\n3. Inspect the root layout before adding any provider.\n4. Keep docs content, navigation, and SEO metadata in the same change.\n\n## Deploy\n\nFumadocs deploys anywhere the Next.js app deploys. Verify:\n\n- `pnpm build` passes.\n- `/docs` renders.\n- `sitemap.xml` includes public docs routes.\n- docs pages have title, description, canonical URL, and Open Graph metadata.\n# Fumadocs Deployment Guide\n\nUse Fumadocs when documentation should ship with the Next.js application.\n\n## Install\n\n```bash\npnpm add fumadocs-core fumadocs-ui\npnpm add -D fumadocs-mdx\n```\n\n## Wire The App\n\n1. Inspect the target app's `next.config.*`.\n2. Add the Fumadocs MDX plugin to the existing Next.js config instead of replacing the config.\n3. Inspect the root layout before adding the Fumadocs provider.\n4. Keep docs content, navigation, and SEO metadata in the same change.\n\n## Deploy\n\nFumadocs deploys anywhere the Next.js app deploys. Use the app's current hosting target first. If the app has no host yet, use any Next.js-compatible platform and verify:\n\n- `pnpm build` passes.\n- `/docs` renders.\n- `sitemap.xml` includes docs routes where public docs should be crawled.\n- docs pages have title, description, canonical URL, and Open Graph metadata.\n\n## Handoff\n\nRecord the chosen host, preview URL, production URL, and any environment variables in the target repository's docs.\n# Fumadocs Deployment Guide\n\nUse Fumadocs when documentation should ship with the Next.js application.\n\n## Install\n\n```bash\npnpm add fumadocs-core fumadocs-ui\npnpm add -D fumadocs-mdx\n```\n\n## Wire The App\n\n1. Inspect the target app's `next.config.*`.\n2. Add the Fumadocs MDX plugin to the existing Next.js config instead of replacing the config.\n3. Inspect the root layout before adding the Fumadocs provider.\n4. Keep docs content, navigation, and SEO metadata in the same change.\n\n## Deploy\n\nFumadocs deploys anywhere the Next.js app deploys. Use the app's current hosting target first. If the app has no host yet, use any Next.js-compatible platform and verify:\n\n- `pnpm build` passes.\n- `/docs` renders.\n- `sitemap.xml` includes docs routes where public docs should be crawled.\n- docs pages have title, description, canonical URL, and Open Graph metadata.\n\n## Handoff\n\nRecord the chosen host, preview URL, production URL, and any environment variables in the target repository's docs.\n"
+    }
+  ],
   "agentSkills": [
     {
       "name": "docs-fumadocs",
       "target": ".agents/skills/docs-fumadocs/SKILL.md",
-      "content": "---\nname: docs-fumadocs\ndescription: Maintain the Fumadocs Docs module installed by StackFoundry.\n---\n\n# Fumadocs Docs Maintenance Instructions\n\n- Keep module ownership clear.\n- Update docs with behavior changes.\n- Add verification steps before release.\n- Do not introduce provider lock-in outside the module boundary.\n"
+      "content": "---\nname: docs-fumadocs\ndescription: Maintain the Fumadocs Docs module installed by StackFoundry.\n---\n\n# Fumadocs Docs Maintenance Instructions\n\n- Use this module when docs should live inside the Next.js app.\n- Inspect the target app's `next.config.*`, root layout, and existing docs setup before wiring Fumadocs.\n- Install `fumadocs-core`, `fumadocs-ui`, and `fumadocs-mdx` only when the app is ready for the adapter.\n- Keep docs route metadata and sitemap entries in sync with public docs routes.\n- Verify local docs navigation, `pnpm build`, and the deployed docs URL.\n"
     },
     {
       "name": "fumadocs",
@@ -31,11 +57,11 @@
     }
   ],
   "envVars": {},
-  "docs": "# Fumadocs Docs\n\nFumadocs docs site module.\n\n## Status\n\nPlanned module. Source files will be added as this module graduates into active development.\n",
+  "docs": "# Fumadocs Docs\n\nIn-app Next.js documentation starter with Fumadocs setup and deployment guidance.\n\nUse this module when product docs should live inside the app and deploy with the same Next.js host.\n\n## Owns\n\n- `apps/web/src/lib/docs/fumadocs.ts`\n- `apps/web/src/app/(marketing)/docs/page.tsx`\n- `docs/fumadocs-deployment.md`\n\n## Setup\n\nInstall the dependencies declared by this module, then merge the MDX and provider changes into the target app after inspecting its current `next.config.*` and root layout.\n\n## Verification\n\n- Run `pnpm registry:doctor` after editing the module.\n- Run `pnpm cli add docs-fumadocs --target /tmp/stackfoundry-docs-fumadocs --dry-run`.\n- Verify `/docs`, sitemap behavior, metadata, and the deployment guide before marking stable.\n",
   "meta": {
     "category": "docs",
     "env": [],
-    "status": "planned",
+    "status": "experimental",
     "agents": {
       "skills": [
         "docs-fumadocs",
@@ -45,7 +71,8 @@
       ],
       "rules": [
         "document-invariants",
-        "verify-before-release"
+        "verify-before-release",
+        "keep-provider-boundary"
       ]
     }
   }

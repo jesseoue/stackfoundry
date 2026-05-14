@@ -12,4 +12,4 @@
 1. Read the [Registry](./registry.md) docs.
 2. Inspect the first modules in `registry/modules`.
 3. Run `pnpm registry:doctor`.
-4. Try `pnpm cli add api-keys --target /tmp/app --dry-run`.
+4. Try `pnpm stackfoundry add api-keys --target /tmp/app --dry-run`.

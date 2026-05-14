@@ -1,47 +1,60 @@
 {
-	"name": "stripe-billing",
-	"type": "module",
-	"category": "billing",
-	"title": "Stripe Billing",
-	"description": "Stripe checkout, billing portal, subscription sync, webhook dedupe, and entitlement mapping.",
-	"dependencies": ["stripe"],
-	"devDependencies": [],
-	"registryDependencies": ["drizzle-postgres"],
-	"env": [
-		"STRIPE_SECRET_KEY",
-		"STRIPE_WEBHOOK_SECRET",
-		"NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"
-	],
-	"files": [
-		{
-			"path": "packages/db/src/schema/billing.ts",
-			"type": "registry:file"
-		},
-		{
-			"path": "apps/web/src/lib/stripe/client.ts",
-			"type": "registry:file"
-		},
-		{
-			"path": "apps/web/src/app/api/webhooks/stripe/route.ts",
-			"type": "registry:file"
-		},
-		{
-			"path": "apps/web/src/app/(console)/billing/page.tsx",
-			"type": "registry:page"
-		}
-	],
-	"drizzle": {
-		"schemaExports": ["billingCustomers", "subscriptions", "webhookEvents"],
-		"migrationRecommended": true
-	},
-	"agents": {
-		"skills": ["stripe-billing", "stripe", "drizzle", "nextjs"],
-		"rules": [
-			"verify-webhooks",
-			"dedupe-events",
-			"map-entitlements",
-			"never-trust-client-prices"
-		]
-	},
-	"status": "experimental"
+  "name": "stripe-billing",
+  "type": "module",
+  "category": "billing",
+  "title": "Stripe Billing",
+  "description": "Stripe checkout, billing portal, subscription sync, webhook dedupe, and entitlement mapping.",
+  "dependencies": [
+    "stripe"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "drizzle-postgres"
+  ],
+  "env": [
+    "STRIPE_SECRET_KEY",
+    "STRIPE_WEBHOOK_SECRET",
+    "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"
+  ],
+  "files": [
+    {
+      "path": "packages/db/src/schema/billing.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/lib/stripe/client.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/api/webhooks/stripe/route.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/app/(console)/billing/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "drizzle": {
+    "schemaExports": [
+      "billingCustomers",
+      "subscriptions",
+      "webhookEvents"
+    ],
+    "migrationRecommended": true
+  },
+  "agents": {
+    "skills": [
+      "stripe-billing",
+      "stripe",
+      "drizzle",
+      "nextjs"
+    ],
+    "rules": [
+      "verify-webhooks",
+      "dedupe-events",
+      "map-entitlements",
+      "never-trust-client-prices"
+    ]
+  },
+  "status": "experimental"
 }
