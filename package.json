@@ -58,6 +58,11 @@
     "react": "latest",
     "react-dom": "latest"
   },
+  "pnpm": {
+    "overrides": {
+      "postcss": ">=8.5.10"
+    }
+  },
   "keywords": [
     "nextjs",
     "typescript",
