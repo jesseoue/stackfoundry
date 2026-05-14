@@ -304,14 +304,15 @@ export default function Page() {
               <article className={index === 0 ? "module-card featured" : "module-card"} key={module.name}>
                 <div className="module-head">
                   <span className="module-icon" aria-hidden="true" />
-                  <span className="module-name">{module.name}</span>
+                  <div className="module-title-block">
+                    <span className="module-name">{module.name}</span>
+                    <span className="module-category">{module.category}</span>
+                  </div>
+                  <span className="module-status">{module.status}</span>
                 </div>
                 <h3>{module.title}</h3>
                 <p>{module.description}</p>
-                <div className="module-meta">
-                  <span>{module.category}</span>
-                  <span>{module.status}</span>
-                </div>
+                <div className="module-files-label">Installs</div>
                 <ul className="file-list">
                   {module.files.map((file) => (
                     <li key={file}>
@@ -323,6 +324,10 @@ export default function Page() {
             ))}
           </div>
 
+          <div className="backlog-head">
+            <span>Next modules</span>
+            <span>planned adapters and product systems</span>
+          </div>
           <ul className="backlog">
             {backlog.map(([name, category]) => (
               <li className="module-pill" key={name}>

@@ -6,119 +6,127 @@ Install production SaaS modules as editable source code.
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![Status: Experimental](https://img.shields.io/badge/status-experimental-orange.svg)](./ROADMAP.md)
 
-StackFoundry is a source registry for full-stack app modules: auth, billing, API keys, webhooks, analytics, docs, Drizzle schemas, tests, and deployment workflows.
+StackFoundry is a source registry for production SaaS systems. It publishes installable blocks for auth, billing, API keys, webhooks, analytics, data, operations, vendor integrations, AI features, docs, tests, and deployment workflows.
 
-Every module ships with the code and the operating instructions needed to maintain it.
+Every block includes the source files and operating context needed to maintain it:
+
+- implementation files
+- package dependency metadata
+- environment variable notes
+- setup and ownership docs
+- verification checklists
+- module-scoped maintainer skills
+- install metadata for future diff/update safety
 
 No black boxes. No locked framework. Copy the code. Own the code.
 
-## Status
+## Why This Exists
 
-StackFoundry is experimental. The current repository contains the registry, the first installable modules, and a local CLI prototype. Presets are bundles of modules; modules are the product.
+Most SaaS teams rebuild the same production plumbing: billing, auth, database wiring, API keys, webhooks, analytics, file storage, background jobs, rate limits, admin tools, and provider adapters.
 
-StackFoundry sits between three familiar ideas:
+StackFoundry turns that work into a public source registry. Modules are the product. Presets are just bundles of modules.
 
-- source registries: copy code into your app so you own it
-- stack builders: choose only the systems you need
-- production SaaS kits: ship real auth, billing, database, analytics, docs, and operations surfaces
+The registry follows the shadcn distribution model: JSON-described source blocks with dependencies, file contents, and target paths. StackFoundry applies that model to full-stack SaaS capabilities instead of UI-only components.
 
-The difference is that StackFoundry modules include the implementation, the setup notes, the test checklist, and the maintenance guidance together.
+## Links
 
-## First Demo
+- Website: [stackfoundry.dev](https://stackfoundry.dev)
+- Registry index: [stackfoundry.dev/r/registry.json](https://stackfoundry.dev/r/registry.json)
+- GitHub: [github.com/jesseoue/stackfoundry](https://github.com/jesseoue/stackfoundry)
+- Issues: [github.com/jesseoue/stackfoundry/issues](https://github.com/jesseoue/stackfoundry/issues)
 
-Target workflow:
+## Install Blocks
 
-```bash
-pnpm create stackfoundry my-app
-cd my-app
-
-pnpm dlx stackfoundry add drizzle-postgres
-pnpm dlx stackfoundry add api-keys
-pnpm dlx stackfoundry add stripe-billing
-```
-
-The demo should show each module adding:
-
-- routes
-- components
-- database schema
-- environment variables
-- docs
-- tests or verification checklist
-- maintenance guidance
-- install metadata for future diff/update safety
-
-## What Works Today
+From this repository, use the StackFoundry CLI when you want install metadata and future diff safety:
 
 ```bash
-node apps/cli/src/cli.mjs list
-node apps/cli/src/cli.mjs presets
-node apps/cli/src/cli.mjs validate
-node apps/cli/src/cli.mjs build
-node apps/cli/src/cli.mjs add api-keys --target ../some-app --dry-run
-node apps/cli/src/cli.mjs add preset next-saas --target ../some-app --dry-run
-node apps/cli/src/cli.mjs diff api-keys --target ../some-app
+pnpm cli add api-keys --target ./my-app
+pnpm cli add preset next-saas --target ./my-app
+pnpm cli diff api-keys --target ./my-app
 ```
 
-Current installable modules:
+Use any shadcn-compatible registry client when you want direct source-block installation:
 
-- `drizzle-postgres`
-- `api-keys`
-- `stripe-billing`
-- `ai-chat`
+```bash
+pnpm dlx shadcn@latest add https://stackfoundry.dev/r/api-keys.json
+pnpm dlx shadcn@latest add https://stackfoundry.dev/r/stripe-billing.json
+pnpm dlx shadcn@latest add https://stackfoundry.dev/r/vendor-examples.json
+```
 
-Current presets:
+## What Is In The Registry
+
+StackFoundry includes 160+ module definitions across:
+
+- foundation: Next.js, app shell, quality tooling, env validation
+- data: Drizzle, Postgres, relations, soft delete, audit schemas
+- auth and tenancy: Clerk, Better Auth, organizations, RBAC, invites, account settings
+- billing: Stripe, billing core, entitlements, invoices, trials, usage metering
+- developer platform: API keys, public API, webhooks, docs, SDK snippets, developer portal
+- operations: admin console, support console, system health, incidents, backups, maintenance mode
+- growth and analytics: PostHog, lifecycle email, surveys, cohorts, AARRR dashboards
+- vendor examples: Vercel, Neon, Supabase, Upstash, Resend, Sentry, Axiom, Unkey, Cloudflare, Trigger.dev, Inngest
+- optional AI: chat, artifacts, model routing, tools, RAG, prompts, evals
+
+## Presets
+
+Presets compose modules into common installation paths:
 
 - `next-saas`
-- `developer-platform`
 - `b2b-saas`
+- `developer-platform`
 - `ai-saas`
 - `internal-admin`
 - `free-tier-saas`
 - `vercel-native`
 - `cloudflare-native`
+- `vendor-examples`
 
-## V1 Golden Path
+List them locally:
 
-- `next-saas`
-- `drizzle-postgres`
-- `t3-env`
-- `shadcn-sidebar-shell`
-- `api-keys`
-- `stripe-billing`
-- `webhook-inbox`
-- `audit-log`
-- `posthog-analytics`
-- `plg-metrics`
-- `aarrr-dashboard`
-- `activation-onboarding`
-- `sentry-monitoring`
-- `resend-email`
+```bash
+pnpm registry:presets
+```
 
-## Module Categories
+## Registry Model
 
-StackFoundry is designed around production SaaS systems:
+Source lives in `registry/`:
 
-- foundation: Next.js App Router, shadcn-compatible source files, Sidebar shell, Geist theme, T3 env
-- data: Drizzle, Postgres, migrations, audit log, soft delete, seed data
-- auth and tenancy: Clerk, organizations, RBAC, invitations, workspace settings
-- billing: Stripe, billing core, webhooks, entitlements, usage metering
-- developer platform: API keys, scopes, public API, webhook delivery, developer portal
-- growth: PostHog, PLG metrics, AARRR dashboards, onboarding, lifecycle email
-- operations: admin console, support console, system health, Sentry, incident tools
-- providers: Vercel, Neon, Supabase, Upstash, Cloudflare, Resend, PostHog, Sentry
-- optional AI modules: AI chat, artifacts, model routing, prompt library
+```text
+registry/
+  modules/
+    <module>/
+      module.json
+      docs.md
+      files/
+      skill/SKILL.md
+      tests/checklist.md
+  presets/
+    <preset>.json
+```
 
-## Principles
+Public registry output is generated into `public/r/`:
 
-- Registry is the product.
-- Modules are the unit of value.
-- Presets are bundles of modules.
-- Base scaffold stays small.
-- Provider modules are adapters around shared domain interfaces.
-- Never overwrite modified user files silently.
-- Track installed file hashes for diff/update safety.
-- Each module teaches maintainers how to safely change it.
+```text
+public/r/
+  registry.json
+  api-keys.json
+  stripe-billing.json
+  vendor-examples.json
+  presets/
+```
+
+Generated items are shadcn-compatible `registry:block` files with:
+
+- `dependencies`
+- `devDependencies`
+- `registryDependencies`
+- `files[].content`
+- `files[].target`
+- `envVars`
+- `docs`
+- `meta`
+
+Do not edit `public/r` by hand. Update source modules and run `pnpm registry:build`.
 
 ## Repository Layout
 
@@ -126,93 +134,56 @@ StackFoundry is designed around production SaaS systems:
 apps/
   cli/                 # StackFoundry CLI
   web/                 # public site and registry host
-packages/
-  generator/           # reserved package boundary for install/update generation
-  registry/            # reserved package boundary for registry graph helpers
-  schema/              # reserved package boundary for manifest schemas
-  utils/               # reserved package boundary for shared helpers
-registry/
-  modules/             # source-delivered modules
-  presets/             # curated module bundles
+docs/                  # product, registry, and maintainer docs
 examples/              # reproducible install walkthroughs
-docs/                  # product and maintainer docs
+packages/              # reserved package boundaries
+registry/              # source modules and presets
 scripts/               # standalone maintenance scripts
+public/r/              # generated registry output
 ```
 
-See [`docs/repository.md`](./docs/repository.md) for directory ownership rules.
+See [`docs/repository.md`](./docs/repository.md) for ownership rules.
 
-## Registry Output
-
-The registry build writes public item JSON to:
-
-```text
-public/r/
-  registry.json
-  api-keys.json
-  drizzle-postgres.json
-  stripe-billing.json
-  presets/
-```
-
-StackFoundry also emits shadcn-compatible `registry:block` items. You can install a
-single block with the shadcn CLI:
+## Commands
 
 ```bash
-pnpm dlx shadcn@latest add https://stackfoundry.dev/r/api-keys.json
+pnpm dev                 # run the website
+pnpm build               # build the website
+pnpm check               # full verification
+
+pnpm registry:list       # list modules
+pnpm registry:presets    # list presets
+pnpm registry:doctor     # validate registry source
+pnpm registry:build      # generate public/r
+pnpm shadcn:verify       # verify shadcn-compatible output
+
+pnpm test:registry:dry      # dry-run install checks
+pnpm test:registry:install  # real preset install smoke tests
 ```
 
-Preset bundles that do not conflict with module names are emitted as aggregate
-registry blocks too:
+`pnpm check` runs registry validation, CLI syntax checks, dry-run installs, real install smoke tests, registry generation, shadcn output verification, and the web build.
 
-```bash
-pnpm dlx shadcn@latest add https://stackfoundry.dev/r/vendor-examples.json
-```
+## Documentation
 
-See [`docs/shadcn.md`](./docs/shadcn.md) for local registry development and install
-details.
+- [Registry](./docs/registry.md)
+- [Modules](./docs/modules.md)
+- [Providers](./docs/providers.md)
+- [Maintainer skills](./docs/agents.md)
+- [Repository map](./docs/repository.md)
+- [shadcn-compatible registry model](./docs/shadcn.md)
 
-## Development
+## Status
 
-The current milestone is to make the first modules installable and safe to diff.
-
-Current local prototype:
-
-```bash
-pnpm check
-```
-
-Registry-only checks:
-
-```bash
-pnpm check:registry
-pnpm test:registry:install
-pnpm shadcn:verify
-```
-
-Website:
-
-```bash
-pnpm dev:web
-```
-
-Production build:
-
-```bash
-pnpm build:web
-```
-
-The website lives in `apps/web` and is configured for Vercel through the root `vercel.json`.
-Set `NEXT_PUBLIC_SITE_URL` when deploying a custom domain so metadata, sitemap, and Open Graph
-URLs resolve to the canonical production origin.
-
-## Roadmap
-
-See [`ROADMAP.md`](./ROADMAP.md).
+StackFoundry is experimental. The registry, CLI prototype, public registry output, and website are active. Module APIs and file targets can still change while the registry is being shaped.
 
 ## Contributing
 
-See [`CONTRIBUTING.md`](./CONTRIBUTING.md). Module requests are welcome through GitHub issues.
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md). Module requests and provider examples are welcome through GitHub issues.
 
 ## Security
 
-See [`SECURITY.md`](./SECURITY.md).
+See [`SECURITY.md`](./SECURITY.md). Do not open public issues for vulnerabilities or include secrets, provider tokens, private customer data, or local environment files in reports.
+
+## License
+
+MIT. See [`LICENSE`](./LICENSE).
