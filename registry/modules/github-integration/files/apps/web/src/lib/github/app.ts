@@ -11,7 +11,6 @@ function requireEnv(key: string) {
 export function createGitHubApp() {
   return new App({
     appId: requireEnv("GITHUB_APP_ID"),
-    privateKey: requireEnv("GITHUB_PRIVATE_KEY").replace(/\n/g, "
-"),
+    privateKey: requireEnv("GITHUB_PRIVATE_KEY").replace(/\\n/g, "\n"),
   });
 }

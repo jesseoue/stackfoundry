@@ -1552,13 +1552,13 @@
       ]
     },
     {
-      "name": "next-saas",
+      "name": "next-saas-shell",
       "type": "registry:block",
-      "title": "Next SaaS",
-      "description": "Base Next.js SaaS preset module with app shell, dashboard routes, and product configuration.",
+      "title": "Next SaaS Shell",
+      "description": "Provider-neutral Next.js SaaS app shell with product config, navigation, launch page, and dashboard starter.",
       "files": [
         {
-          "path": "registry/modules/next-saas/module.json",
+          "path": "registry/modules/next-saas-shell/module.json",
           "type": "registry:file"
         }
       ]

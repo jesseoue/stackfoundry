@@ -27,7 +27,7 @@ Module-specific skills stay focused on ownership, installed files, environment v
 
 ### Foundation
 
-- `next-saas`
+- `next-saas-shell`
 - `t3-env`
 - `sidebar-shell`
 - `geist-nova-theme`

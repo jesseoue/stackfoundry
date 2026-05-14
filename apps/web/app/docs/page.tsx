@@ -87,7 +87,7 @@ const moduleGroups = [
     category: "Foundation",
     summary: "Small base scaffolds and product shell pieces.",
     modules: [
-      "next-saas",
+      "next-saas-shell",
       "sidebar-shell",
       "t3-env",
       "theme-system",
@@ -226,7 +226,7 @@ const moduleGroups = [
 ];
 
 const moduleMeta: Record<string, { tone: string; domain?: string }> = {
-  "next-saas": { tone: "foundation", domain: "nextjs.org" },
+  "next-saas-shell": { tone: "foundation", domain: "nextjs.org" },
   "drizzle-postgres": { tone: "database", domain: "drizzle.team" },
   "drizzle-relations": { tone: "database", domain: "drizzle.team" },
   "drizzle-soft-delete": { tone: "database", domain: "drizzle.team" },

@@ -21,7 +21,7 @@ Providers map into shared domain systems. They should not become one-off code is
 
 - Vercel first for Next.js applications
 - Cloudflare as an optional edge/workers platform
-- Railway, Fly, and Render as future adapters
+- Railway, Fly, and Render as optional deploy adapters
 
 ### Database and Storage
 
@@ -46,4 +46,4 @@ Providers map into shared domain systems. They should not become one-off code is
 ### Optional AI
 
 - Vercel AI SDK and AI Gateway for AI modules
-- Provider-specific model routing belongs behind module adapters
+- Provider model routing belongs behind module adapters

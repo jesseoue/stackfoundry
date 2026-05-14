@@ -28,6 +28,8 @@ Each module has:
 
 StackFoundry follows a source registry pattern: source blocks are described by JSON, files are copied into the consumer app, and the consumer owns the result.
 
+The model is inspired by the shadcn registry/source-block approach, then extended for production SaaS modules with routes, server helpers, schema files, env notes, docs, verification checklists, and maintenance skills.
+
 StackFoundry adapts that model for production SaaS systems instead of UI-only components. A block may include routes, server helpers, schema files, env examples, docs, tests/checklists, and maintainer skill guidance.
 
 ## Registry Principles

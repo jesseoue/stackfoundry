@@ -293,7 +293,7 @@ const providerOptions = [
     domain: "nextjs.org",
     logo: "nextjs",
     role: "App framework",
-    modules: ["next-saas", "docs-fumadocs"],
+    modules: ["next-saas-shell", "docs-fumadocs"],
   },
   {
     name: "React",

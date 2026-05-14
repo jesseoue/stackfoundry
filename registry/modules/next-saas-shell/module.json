@@ -1,8 +1,8 @@
 {
-  "name": "next-saas",
+  "name": "next-saas-shell",
   "type": "module",
   "category": "foundation",
-  "title": "Next SaaS",
+  "title": "Next SaaS Shell",
   "description": "Provider-neutral Next.js SaaS app shell with product config, navigation, launch page, and dashboard starter.",
   "dependencies": [],
   "devDependencies": [],
@@ -33,7 +33,7 @@
   "status": "experimental",
   "maintenance": {
     "skills": [
-      "next-saas",
+      "next-saas-shell",
       "nextjs"
     ],
     "rules": [

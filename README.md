@@ -13,6 +13,8 @@ Modules install as source files in your app. You review the code, own the code, 
 > [!NOTE]
 > The registry is the product. Presets are only curated bundles of modules.
 
+StackFoundry is inspired by the shadcn registry/source-block model and applies that idea to production SaaS systems: modules ship as editable source, not opaque dependencies.
+
 ## Why Use It
 
 | Problem | StackFoundry gives you |
@@ -64,7 +66,7 @@ Current source registry coverage:
 
 | Area | Examples |
 | --- | --- |
-| Foundation | `next-saas`, `sidebar-shell`, `t3-env`, `quality-tooling`, `theme-system` |
+| Foundation | `next-saas-shell`, `sidebar-shell`, `t3-env`, `quality-tooling`, `theme-system` |
 | Database | `drizzle-postgres`, `drizzle-relations`, `neon-postgres`, `supabase-postgres`, `cloudflare-d1` |
 | Auth and tenancy | `clerk-auth`, `orgs-rbac`, `account-modes`, `invites`, `enterprise-sso`, `scim-provisioning` |
 | Billing | `stripe-billing`, `billing-core`, `entitlements`, `credit-wallet`, `one-time-purchases`, `tax-vat` |

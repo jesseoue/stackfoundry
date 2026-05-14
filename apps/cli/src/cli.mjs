@@ -587,13 +587,13 @@ async function saveInstallManifest(target, manifest) {
   await writeFile(path.join(dir, "installed.json"), `${JSON.stringify(manifest, null, 2)}\n`);
 }
 
-async function addModule(name, flags, visited = new Set()) {
+async function addModule(name, flags, visited = new Set(), context = {}) {
   if (visited.has(name)) return;
   visited.add(name);
 
   const { dir, manifest } = await getModule(name);
   for (const dependency of manifest.registryDependencies) {
-    await addModule(dependency, flags, visited);
+    await addModule(dependency, flags, visited, context);
   }
 
   const filesDir = path.join(dir, "files");
@@ -601,6 +601,12 @@ async function addModule(name, flags, visited = new Set()) {
   const maintenanceSkills = await readModuleMaintenanceSkills(dir, manifest);
   const installed = await loadInstallManifest(flags.target);
   const installedFiles = {};
+
+  if (sourceFiles.length === 0 && !context.presetName) {
+    console.log(
+      `warning: ${manifest.name} is ${manifest.status} and currently installs maintenance metadata only`,
+    );
+  }
 
   for (const source of sourceFiles) {
     const relative = path.relative(filesDir, source);
@@ -660,7 +666,7 @@ async function addPreset(name, flags) {
   const visited = new Set();
   console.log(`${flags.dryRun ? "would install" : "installing"} preset ${preset.name}`);
   for (const moduleName of preset.modules) {
-    await addModule(moduleName, flags, visited);
+    await addModule(moduleName, flags, visited, { presetName: preset.name });
   }
 }
 
@@ -682,6 +688,12 @@ async function addRegistryItem(specifier, flags, visited = new Set()) {
   const installed = await loadInstallManifest(flags.target);
   const installedFiles = {};
   console.log(`${flags.dryRun ? "would install" : "installing"} registry item ${item.name}`);
+
+  if ((item.files?.length ?? 0) === 0 && item.meta?.category !== "preset") {
+    console.log(
+      `warning: ${item.name} is ${item.meta?.status ?? "planned"} and currently installs maintenance metadata only`,
+    );
+  }
 
   for (const file of item.files ?? []) {
     if (!file.content) throw new Error(`${item.name}: ${file.path} is missing embedded content`);

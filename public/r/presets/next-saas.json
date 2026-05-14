@@ -3,6 +3,7 @@
   "title": "Next SaaS",
   "description": "Base SaaS stack with Drizzle, API keys, billing, and operating docs.",
   "modules": [
+    "next-saas-shell",
     "drizzle-postgres",
     "api-keys",
     "stripe-billing",

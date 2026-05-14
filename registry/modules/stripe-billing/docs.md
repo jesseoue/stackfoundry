@@ -13,6 +13,16 @@ This is the first concrete payment-provider adapter for the source-owned billing
 - event dedupe
 - plan/entitlement mapping
 
+## Environment
+
+Installing this module generates `.env.stackfoundry.stripe-billing.example` with:
+
+- `STRIPE_SECRET_KEY`
+- `STRIPE_WEBHOOK_SECRET`
+- `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
+
+Keep secret keys server-only and configure webhook secrets separately for preview and production.
+
 ## Rules
 
 - Verify webhook signatures.

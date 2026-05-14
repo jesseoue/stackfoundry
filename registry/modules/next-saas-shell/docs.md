@@ -1,4 +1,4 @@
-# Next SaaS
+# Next SaaS Shell
 
 Provider-neutral Next.js SaaS app shell with product config, navigation, launch page, and dashboard starter.
 
@@ -24,6 +24,6 @@ This module is intentionally provider-neutral. It does not install auth, billing
 
 ## Verification
 
-- Run `pnpm cli add next-saas --target /tmp/stackfoundry-next-saas --dry-run`.
+- Run `pnpm cli add next-saas-shell --target /tmp/stackfoundry-next-saas-shell --dry-run`.
 - Confirm no file collisions with the broader `next-saas` preset.
 - Confirm `/launch` and `/dashboard` are the intended target routes in the consuming app.

@@ -1,4 +1,4 @@
-# Next SaaS Checklist
+# Next SaaS Shell Checklist
 
 - [ ] module manifest validates
 - [ ] app config and navigation install in `apps/web/src/lib/stackfoundry`
