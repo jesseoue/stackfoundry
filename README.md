@@ -82,9 +82,10 @@ Current source registry coverage:
 <details>
 <summary>Current scale</summary>
 
-- 200+ module manifests
+- 294 module manifests
 - 36 canonical categories
-- 9 preset bundles
+- 13 preset bundles
+- 9 architecture recipes
 - provider adapters for Vercel, Cloudflare, Clerk, Supabase, Neon, Upstash, Resend, PostHog, Sentry, Axiom, Unkey, Knock, Tinybird, Trigger.dev, Inngest, GitHub, and more
 
 </details>
@@ -102,6 +103,9 @@ Current source registry coverage:
 | `vercel-native` | Vercel deployment, storage, workflows, edge config, and observability path |
 | `cloudflare-native` | Workers, D1, R2, KV, Queues, Workflows, Turnstile, and Cloudflare-native adapters |
 | `provider-adapters` | Concrete optional provider adapter examples |
+| `api-saas-starter` | API-first SaaS workflow with keys, usage, rate limits, billing, webhooks, docs, and observability |
+| `enterprise-saas` | Enterprise layer with SSO, SCIM, audit, access review, security, SLA, and support workflows |
+| `ai-saas-starter` | AI SaaS workflow with chat, model routing, prompts, evals, RAG, usage metering, and billing |
 
 ```bash
 pnpm registry:presets
@@ -158,6 +162,8 @@ registry/
       tests/checklist.md
   presets/
     <preset>.json
+  recipes/
+    <recipe>.json
   skills/
     <technology>/SKILL.md
 ```
@@ -172,6 +178,8 @@ public/r/
   provider-adapters.json       # installable aggregate preset block
   presets/
     next-saas.json           # StackFoundry preset manifest for tooling/inspection
+  recipes/
+    api-saas-starter.json    # recipe manifest with staged install order
 ```
 
 Generated installable items are `registry:block` payloads with:
@@ -256,16 +264,20 @@ See [`docs/repository.md`](./docs/repository.md) for ownership rules.
 - [Registry](./docs/registry.md)
 - [Modules](./docs/modules.md)
 - [Providers](./docs/providers.md)
+- [Recipes](./docs/recipes.md)
+- [Install order](./docs/install-order.md)
+- [Readiness](./docs/readiness.md)
+- [Conventions](./docs/conventions.md)
 - [Maintenance skills](./docs/maintenance.md)
 - [Repository map](./docs/repository.md)
 - [Registry compatibility](./docs/registry-compat.md)
 
 ## Where This Is Going
 
-- More modules graduating from planned to installable source payloads
+- More stub modules graduating to ready installable source payloads
 - Better diff/update workflows for installed modules
 - More provider adapters without making providers base dependencies
-- More production smoke paths for presets
+- More production smoke paths for presets and recipes
 - Stronger docs around migration, removal, and maintenance ownership
 
 ## Status

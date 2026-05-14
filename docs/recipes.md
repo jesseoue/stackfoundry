@@ -1,6 +1,6 @@
 # Recipes
 
-Recipes are opinionated install paths through the registry. A recipe answers "what should I install together, and in what order?" Presets remain installable bundles; recipes explain the product architecture behind those bundles.
+Recipes are opinionated install paths through the registry. A recipe answers "what should I install together, and in what order?" Presets remain installable bundles; recipes explain the product architecture behind those bundles and can be installed with `stackfoundry add recipe <name>`.
 
 ## Available Recipes
 
@@ -25,6 +25,8 @@ pnpm stackfoundry add recipe api-saas-starter --target ./my-app --dry-run
 ```
 
 Recipe definitions live in `registry/recipes/*.json` and are mirrored to `public/r/recipes/*.json` for public inspection.
+
+The most product-ready recipe path today is `api-saas-starter`, which ties together identity, API keys, usage metering, quotas, docs, webhooks, billing, and request visibility. Stub recipes intentionally include stub modules to show the direction of a complete SaaS operating system before every source payload is ready.
 
 ## Recipe Shape
 

@@ -24,7 +24,7 @@ Recipes live in `registry/recipes/*.json` and describe install order across modu
 - `files`: files installed into the target app
 - `drizzle`: schema/migration metadata
 - `maintenance`: maintenance skill and review metadata
-- `status`: planned, experimental, stable
+- `status`: ready, stub, planned, experimental, stable, or deprecated
 
 ## Registry Model
 
@@ -52,10 +52,12 @@ Installers must not overwrite modified user files silently. The installer should
 ```bash
 pnpm registry:list
 pnpm registry:presets
+pnpm stackfoundry recipes
+pnpm stackfoundry recipe api-saas-starter
 pnpm registry:doctor
 pnpm registry:build
 pnpm stackfoundry add drizzle-postgres --target /path/to/app
-pnpm stackfoundry add preset next-saas --target /path/to/app
+pnpm stackfoundry add recipe api-saas-starter --target /path/to/app --dry-run
 pnpm stackfoundry diff drizzle-postgres --target /path/to/app
 ```
 
@@ -81,5 +83,7 @@ This mirrors the source-registry pattern: `/r/registry.json` is the registry ind
 Generated public module and aggregate preset items are registry-compatible `registry:block` files using the shadcn registry item schema. Registry dependencies are emitted as absolute URLs so compatible registry clients can resolve StackFoundry dependencies.
 
 Files under `/r/presets/*.json` are StackFoundry preset manifests for tooling and inspection. They are not installable registry item payloads; use `/r/<preset>.json` to install a preset bundle.
+
+Files under `/r/recipes/*.json` are StackFoundry recipe manifests for human-readable architecture, outcomes, and staged install order. Recipes can also be installed through the StackFoundry command with `stackfoundry add recipe <name>`.
 
 The build writes canonical generated output to `public/r` and mirrors it to `apps/web/public/r`. Vercel serves `/r/*.json` directly from the Next app as static JSON; no redirect is required.

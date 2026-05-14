@@ -13,8 +13,9 @@
 
 ## Start Here
 
-1. Read the [Registry](./registry.md) docs.
+1. Read the [Registry](./registry.md), [Readiness](./readiness.md), and [Conventions](./conventions.md) docs.
 2. Inspect the [Recipes](./recipes.md) and [Install order](./install-order.md) docs.
-3. Inspect the first modules in `registry/modules`.
-4. Run `pnpm registry:doctor`.
-5. Try `pnpm stackfoundry add api-keys --target /tmp/app --dry-run`.
+3. Run `pnpm stackfoundry recipes` and `pnpm stackfoundry recipe api-saas-starter`.
+4. Inspect the first modules in `registry/modules`.
+5. Run `pnpm registry:doctor`.
+6. Try `pnpm stackfoundry add api-keys --target /tmp/app --dry-run`.

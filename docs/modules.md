@@ -1,6 +1,6 @@
 # Modules
 
-Modules are the unit of value in StackFoundry.
+Modules are the unit of value in StackFoundry. Recipes are the workflow layer that explains how modules fit together.
 
 The first installable production modules were:
 
@@ -8,7 +8,7 @@ The first installable production modules were:
 - `api-keys`
 - `stripe-billing`
 
-The registry now includes core modules, provider adapter examples, and registry-compatible public blocks. Each module should be installable into an existing app as editable source code. Presets are only bundles of modules.
+The registry now includes ready source modules, stub roadmap modules, provider adapter examples, recipes, and registry-compatible public blocks. Each ready module should be installable into an existing app as editable source code. Presets are bundles of modules; recipes are opinionated architecture paths.
 
 Use [Recipes](./recipes.md) and [Install order](./install-order.md) when you want a complete workflow instead of individual blocks.
 
@@ -37,6 +37,19 @@ See [Readiness](./readiness.md) for the meaning of `ready`, `stub`, `planned`, `
 - `geist-nova-theme`
 - `quality-tooling`
 - `playwright-e2e`
+
+### Interface Grammar
+
+- `metric-card-grid`
+- `kpi-trend-card`
+- `activity-feed`
+- `timeline`
+- `resource-header`
+- `filter-bar`
+- `saved-views`
+- `bulk-actions-bar`
+- `status-badge-system`
+- `danger-zone-card`
 
 ### Data
 
@@ -83,6 +96,10 @@ See [Readiness](./readiness.md) for the meaning of `ready`, `stub`, `planned`, `
 - `webhook-inbox`
 - `webhook-delivery`
 - `developer-portal`
+- `api-playground`
+- `request-log-explorer`
+- `usage-event-explorer`
+- `webhook-delivery-detail`
 
 ### Growth and Analytics
 
@@ -110,6 +127,10 @@ See [Readiness](./readiness.md) for the meaning of `ready`, `stub`, `planned`, `
 
 - `background-jobs`
 - `rate-limits`
+- `operator-dashboard`
+- `customer-360`
+- `account-health`
+- `customer-timeline`
 - `sentry-monitoring`
 - `axiom-logging`
 - `audit-log`
@@ -118,6 +139,8 @@ See [Readiness](./readiness.md) for the meaning of `ready`, `stub`, `planned`, `
 - `system-health`
 - `incident-management`
 - `data-import-export`
+- `replay-center`
+- `job-run-detail`
 
 ### Provider Adapter Examples
 
@@ -130,6 +153,30 @@ See [Readiness](./readiness.md) for the meaning of `ready`, `stub`, `planned`, `
 - `tinybird-analytics`
 - `posthog-analytics`
 - `arcjet-security`
+
+### Integration Marketplace
+
+- `integration-catalog`
+- `integration-detail-page`
+- `integration-install-flow`
+- `integration-health`
+- `integration-sync-logs`
+
+### Security And Compliance
+
+- `security-center`
+- `security-scorecard`
+- `security-events`
+- `access-review`
+- `api-key-risk-review`
+- `trusted-devices`
+
+### Conventions
+
+- `schema-conventions`
+- `event-taxonomy`
+- `tenant-isolation-policy`
+- `money-and-credits-conventions`
 
 ### Optional AI
 

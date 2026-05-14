@@ -9,7 +9,7 @@ StackFoundry is a source registry. Every directory should either own product sou
 - `examples/` contains install targets and walkthroughs used to prove registry modules in realistic app shapes.
 - `packages/` is reserved for extracted library packages when command behavior, registry loading, schema validation, and shared utilities outgrow `apps/cli`.
 - `public/r/` contains generated registry output. Do not edit it by hand.
-- `registry/` contains source modules and presets. This is the product surface.
+- `registry/` contains source modules, presets, recipes, and shared skills. This is the product surface.
 - `scripts/` is reserved for standalone maintenance scripts that should not live inside the StackFoundry command.
 
 ## Applications
@@ -25,6 +25,7 @@ StackFoundry is a source registry. Every directory should either own product sou
 - `registry/modules/<module>/skill/SKILL.md` gives maintainer guidance.
 - `registry/modules/<module>/tests/checklist.md` defines verification expectations.
 - `registry/presets/*.json` composes modules into installable bundles.
+- `registry/recipes/*.json` describes staged install order and workflow outcomes.
 
 ## Generated Output
 
@@ -32,7 +33,7 @@ Run `pnpm registry:build` to regenerate `public/r`.
 
 `public/r/registry.json` is the shadcn-compatible registry index and is not an installable item. Generated module files such as `public/r/api-keys.json` are `registry:block` item JSON files. They include file contents, target paths, package dependencies, registry dependency URLs, environment variables, docs, and metadata.
 
-Generated aggregate preset blocks live at `public/r/<preset>.json`. Raw preset manifests live under `public/r/presets/*.json` for StackFoundry tooling and are not shadcn registry item documents.
+Generated aggregate preset blocks live at `public/r/<preset>.json`. Raw preset manifests live under `public/r/presets/*.json` for StackFoundry tooling and are not shadcn registry item documents. Recipe manifests are mirrored under `public/r/recipes/*.json` for inspection and install-order guidance.
 
 ## Verification
 
