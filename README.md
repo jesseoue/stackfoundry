@@ -1,6 +1,6 @@
 # StackFoundry
 
-shadcn for production SaaS systems.
+Install production SaaS modules as editable source code.
 
 [![CI](https://github.com/jesseoue/stackfoundry/actions/workflows/ci.yml/badge.svg)](https://github.com/jesseoue/stackfoundry/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/jesseoue/stackfoundry/actions/workflows/codeql.yml/badge.svg)](https://github.com/jesseoue/stackfoundry/actions/workflows/codeql.yml)
@@ -12,7 +12,6 @@ shadcn for production SaaS systems.
 ![Modules](https://img.shields.io/badge/modules-157-orange)
 ![Recipes](https://img.shields.io/badge/recipes-9-purple)
 ![Presets](https://img.shields.io/badge/presets-13-teal)
-![Inspired by shadcn](https://img.shields.io/badge/inspired%20by-shadcn-111111)
 
 StackFoundry is a public source registry for the production systems SaaS teams rebuild: API keys, usage tracking, rate limits, Stripe billing, credits, webhooks, auth, docs, analytics, and operations.
 
@@ -93,24 +92,24 @@ Current source registry coverage:
 
 | Area | Examples |
 | --- | --- |
-| Foundation | `next-saas-shell`, `sidebar-shell`, `t3-env`, `quality-tooling`, `theme-system` |
-| Database | `drizzle-postgres`, `drizzle-relations`, `neon-postgres`, `supabase-postgres`, `cloudflare-d1` |
+| Foundation | `next-saas-shell`, `settings-layout`, `command-menu`, `data-table`, `loading-states` |
+| Database | `drizzle-postgres`, `neon-postgres`, `supabase-postgres`, `cloudflare-d1`, `convex-backend` |
 | Auth and tenancy | `clerk-auth`, `orgs-rbac`, `account-modes`, `invites`, `enterprise-sso`, `scim-provisioning` |
 | Billing | `stripe-billing`, `billing-core`, `entitlements`, `credit-wallet`, `one-time-purchases`, `tax-vat` |
 | API product | `api-keys`, `agent-ready-installs`, `public-api-orpc`, `webhook-inbox`, `webhook-delivery`, `api-docs` |
 | Operations | `audit-log`, `background-jobs`, `system-health`, `incident-management`, `status-page`, `oncall-alerting` |
-| Analytics and growth | `posthog-analytics`, `tinybird-analytics`, `feature-flags`, `experiments`, `lifecycle-email` |
+| Analytics and growth | `posthog-analytics`, `tinybird-analytics`, `feature-flags`, `plg-metrics`, `lifecycle-email` |
 | Notifications and comms | `notifications`, `notification-center`, `knock-notifications`, `resend-email`, `product-announcements` |
 | Docs and SEO | `docs-fumadocs`, `docs-mintlify`, `docs-help-center`, `seo`, `ai-seo` |
 | Security | `arcjet-security`, `security-headers`, `csrf-protection`, `input-validation`, `secrets-management` |
-| Storage and infra | `vercel-blob`, `vercel-edge-config`, `cloudflare-r2`, `upstash-redis`, `docker-compose-local` |
+| Storage and infra | `vercel-blob`, `vercel-edge-config`, `cloudflare-r2`, `upstash-redis`, `cloudflare-kv` |
 | Optional AI | `ai-sdk`, `ai-elements`, `ai-chat`, `ai-chatbot-sdk`, `cloudflare-agents-sdk`, `cloudflare-kumo-ui` |
 
 <details>
 <summary>Current scale</summary>
 
 - 157 ready module manifests
-- 36 canonical categories
+- 30 active module categories
 - 13 preset bundles
 - 9 architecture recipes
 - provider adapters for Vercel, Cloudflare, Clerk, Supabase, Neon, Upstash, Resend, PostHog, Sentry, Axiom, Unkey, Knock, Tinybird, Trigger.dev, Inngest, GitHub, and more

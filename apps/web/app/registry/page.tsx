@@ -81,7 +81,7 @@ const featuredPresets = [
     name: "saas-coverage",
     title: "SaaS Coverage",
     description: "A larger map of launch, security, billing, support, analytics, and ops modules.",
-    modules: ["security-headers", "system-health", "support-widget", "cohort-retention"],
+    modules: ["security-headers", "system-health", "support-widget", "tinybird-analytics"],
     tone: "Coverage",
   },
 ];
@@ -99,21 +99,15 @@ const featuredRecipes = [
     name: "enterprise-saas",
     title: "Enterprise SaaS",
     description: "SSO, SCIM, audit, security posture, access reviews, SLAs, and support ops.",
-    modules: [
-      "enterprise-sso",
-      "scim-provisioning",
-      "audit-log",
-      "security-center",
-      "sla-management",
-    ],
+    modules: ["enterprise-sso", "scim-provisioning", "audit-log", "mfa-security", "sla-management"],
     tone: "B2B",
   },
   {
     name: "customer-intelligence",
     title: "Customer Intelligence",
     description:
-      "Customer 360, account health, usage, billing, support, risk, and adoption signals.",
-    modules: ["customer-360", "account-health", "customer-timeline", "customer-risk-score"],
+      "Product analytics, large event ingestion, usage, billing, support, risk, and adoption signals.",
+    modules: ["posthog-analytics", "tinybird-analytics", "usage-metering", "plg-metrics"],
     tone: "Ops",
   },
   {
@@ -130,7 +124,7 @@ const moduleFamilies = [
     title: "Foundation",
     description:
       "Small base building blocks for layout, settings, UX states, and app shell polish.",
-    modules: ["t3-env", "sidebar-shell", "settings-layout", "command-menu", "data-table"],
+    modules: ["next-saas-shell", "settings-layout", "command-menu", "data-table", "loading-states"],
   },
   {
     title: "Database",
@@ -138,10 +132,10 @@ const moduleFamilies = [
       "Schema slices, migrations guidance, tenant-safe data patterns, and local backing stores.",
     modules: [
       "drizzle-postgres",
-      "drizzle-relations",
-      "drizzle-multitenancy",
       "neon-postgres",
       "supabase-postgres",
+      "cloudflare-d1",
+      "convex-backend",
     ],
   },
   {
@@ -193,10 +187,11 @@ const moduleFamilies = [
       "Product analytics, onboarding, lifecycle email, activation, retention, and feedback loops.",
     modules: [
       "posthog-analytics",
-      "activation-onboarding",
+      "tinybird-analytics",
+      "feature-flags",
       "lifecycle-email",
-      "surveys-nps",
-      "cohort-retention",
+      "product-announcements",
+      "public-roadmap",
     ],
   },
   {
@@ -222,10 +217,10 @@ const moduleFamilies = [
     description: "Product docs, provider deploy paths, containers, and production-readiness notes.",
     modules: [
       "docs-fumadocs",
-      "docs-starlight",
+      "docs-mintlify",
       "vercel-deploy",
       "cloudflare-workers",
-      "docker-compose-local",
+      "railway-deploy",
     ],
   },
 ];
@@ -235,7 +230,7 @@ const providerOptions = [
     name: "Drizzle",
     domain: "drizzle.team",
     role: "Database ORM",
-    modules: ["drizzle-postgres", "drizzle-relations"],
+    modules: ["drizzle-postgres", "neon-postgres"],
   },
   {
     name: "Stripe",
@@ -259,7 +254,7 @@ const providerOptions = [
     name: "Clerk",
     domain: "clerk.com",
     role: "Auth adapter",
-    modules: ["clerk-auth", "session-management"],
+    modules: ["clerk-auth", "auth-core"],
   },
   {
     name: "Resend",
@@ -271,7 +266,7 @@ const providerOptions = [
     name: "PostHog",
     domain: "posthog.com",
     role: "Analytics adapter",
-    modules: ["posthog-analytics", "feature-adoption"],
+    modules: ["posthog-analytics", "feature-flags"],
   },
   {
     name: "Sentry",
@@ -331,7 +326,7 @@ const providerOptions = [
     name: "React",
     domain: "react.dev",
     role: "UI runtime",
-    modules: ["sidebar-shell", "data-table"],
+    modules: ["data-table", "command-menu"],
   },
 ];
 
@@ -377,6 +372,8 @@ export default function RegistryPage() {
           </a>
           <div className="nav-links">
             <a href="/docs">Docs</a>
+            <a href="/blog/free-saas-starter-alternative">Blog</a>
+            <a href="/alternatives">Alternatives</a>
             <a href="/docs#install-existing">Install</a>
             <a href="/r/registry.json">Registry JSON</a>
           </div>
@@ -392,7 +389,7 @@ export default function RegistryPage() {
             <div>
               <div className="eyebrow">
                 <span className="dot" aria-hidden="true" />
-                <span>shadcn for production SaaS systems</span>
+                <span>source registry for production SaaS systems</span>
               </div>
               <h1 className="registry-title">
                 Start with API SaaS. Expand only after the wedge works.

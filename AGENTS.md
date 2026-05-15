@@ -16,7 +16,7 @@ StackFoundry is a public source registry for production SaaS modules. The sharp 
 - Current source shape: `registry/modules`, `registry/presets`, `registry/recipes`, and `registry/skills`.
 - Public generated output lives in `public/r` and `apps/web/public/r`; never edit generated registry output by hand.
 - Shared provider/framework/database/platform guidance belongs in `registry/skills/<name>/SKILL.md` and is installed to `.stackfoundry/skills/<name>/SKILL.md`.
-- Agent-ready install prompts and context belong in installable modules such as `agent-ready-installs`; keep them tool-compatible and safe for Cursor, Codex, Claude, and similar coding agents.
+- Agent-ready install prompts and context belong in installable modules such as `agent-ready-installs`; keep them tool-compatible and safe for coding assistants.
 - The hosted web app is Next.js on Vercel. Cloudflare support is an installable registry starter for consuming apps, not this repo's default deployment path.
 
 ## Quality Gates
@@ -35,8 +35,6 @@ Before moving to a new phase:
 
 Use this product positioning:
 
-> shadcn for production SaaS systems.
->
 > Install API keys, usage tracking, billing, webhooks, and production SaaS modules as editable source code.
 
 Avoid overclaiming unsupported providers. Keep launch scope narrow and credible. Lead with the API SaaS recipe before broad catalog coverage. AI-related modules are optional module categories, not the core project identity.

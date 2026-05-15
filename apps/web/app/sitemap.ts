@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { alternatives } from "./alternatives/data";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://stackfoundry.dev/";
 
@@ -22,6 +23,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    {
+      url: new URL("/blog/free-saas-starter-alternative", siteUrl).toString(),
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.75,
+    },
+    {
+      url: new URL("/alternatives", siteUrl).toString(),
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.72,
+    },
+    ...alternatives.map((alternative) => ({
+      url: new URL(`/alternatives/${alternative.slug}`, siteUrl).toString(),
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.68,
+    })),
     {
       url: new URL("/llms.txt", siteUrl).toString(),
       lastModified: new Date(),

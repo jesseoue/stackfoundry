@@ -24,7 +24,7 @@ type LandingModuleCard = {
 const stats = [
   { value: "157", label: "Modules" },
   { value: "13", label: "Presets" },
-  { value: "36", label: "Categories" },
+  { value: "30", label: "Active Categories" },
   { value: "MIT", label: "License" },
 ];
 
@@ -202,13 +202,13 @@ const moduleCards: LandingModuleCard[] = [
     name: "posthog-analytics",
     title: "PostHog Analytics",
     category: "analytics",
-    variant: "coming-soon",
-    version: "planned",
-    description: "Event taxonomy, capture helpers, consent notes, and product analytics surfaces.",
+    variant: "beta",
+    version: "ready",
+    description: "Next.js provider, pageview tracking, event capture helper, and consent notes.",
     tags: [
       { label: "analytics" },
       { label: "adapter option", tone: "provider" },
-      { label: "scheduled", tone: "warning" },
+      { label: "maintenance skill", tone: "skill" },
     ],
   },
 ];
@@ -319,7 +319,7 @@ const structuredData = {
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Any",
   description:
-    "shadcn for production SaaS systems: install API keys, usage, billing, webhooks, and SaaS modules as editable source code.",
+    "Install API keys, usage, billing, webhooks, and production SaaS modules as editable source code.",
   url: siteUrl,
   codeRepository: "https://github.com/jesseoue/stackfoundry",
   license: "https://github.com/jesseoue/stackfoundry/blob/main/LICENSE",
@@ -352,6 +352,8 @@ export default function Page() {
           <div className="nav-links">
             <a href="/registry">Registry</a>
             <a href="/docs">Docs</a>
+            <a href="/blog/free-saas-starter-alternative">Blog</a>
+            <a href="/alternatives">Alternatives</a>
           </div>
           <a className="button" href="https://github.com/jesseoue/stackfoundry">
             GitHub
@@ -364,7 +366,7 @@ export default function Page() {
           <div className="hero-copy">
             <div className="eyebrow">
               <span className="dot" aria-hidden="true" />
-              <span>shadcn for production SaaS systems</span>
+              <span>source registry for production SaaS systems</span>
               <span className="muted-label">API keys · usage · billing · webhooks</span>
             </div>
 
@@ -389,6 +391,9 @@ export default function Page() {
               </a>
               <a className="button ghost" href="/docs#install-existing">
                 Dry-run Install
+              </a>
+              <a className="button ghost" href="/blog/free-saas-starter-alternative">
+                Free SaaS Starter Guide
               </a>
             </div>
 

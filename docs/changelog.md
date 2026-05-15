@@ -6,7 +6,7 @@ This page mirrors the release changelog and keeps the latest public registry cha
 
 ### Added
 
-1. Added SaaS recipes, readiness statuses, stricter validation, and a proposal path for future complete product workflows.
+1. Added SaaS recipes, readiness statuses, and stricter validation for complete product workflows.
 2. Added recipe commands and install paths, including `api-saas-starter`, `enterprise-saas`, `ai-saas-starter`, `cloudflare-saas`, `support-ops`, `security-center`, `integration-marketplace`, and `customer-intelligence`.
 3. Added an installable `cloudflare-next-starter` module for consuming apps while keeping StackFoundry itself on the standard Next.js/Vercel path.
 4. Added Vercel AI building blocks: `ai-sdk`, `ai-elements`, and `ai-chatbot-sdk`.

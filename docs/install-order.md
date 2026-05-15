@@ -22,9 +22,8 @@ agent-ready-installs
 
 ```text
 next-saas-shell
-  -> theme-system
   -> settings-layout
-  -> t3-env
+  -> command-menu
   -> drizzle-postgres
   -> tenant-context
 ```
@@ -50,7 +49,7 @@ billing-core
   -> usage-metering
   -> quota-enforcement
   -> credit-wallet
-  -> billing-ledger / credit-ledger
+  -> invoices / billing-portal
 ```
 
 ## Developer Platform
@@ -72,12 +71,11 @@ api-keys
 
 ```text
 admin-console
-  -> customer-360
   -> audit-log
   -> support-console
   -> system-health
   -> incident-management
-  -> replay-center
+  -> status-page
 ```
 
 ## Provider Adapters
@@ -85,11 +83,11 @@ admin-console
 Provider adapters are installed after the source-owned domain module they adapt:
 
 ```text
-billing-core -> stripe-billing / autumn-billing / paddle-billing
+billing-core -> stripe-billing / autumn-billing
 api-keys -> unkey-api-keys
 rate-limits -> unkey-rate-limits
 email-templates -> resend-email
-feature-flags -> posthog-analytics / openfeature-flags
+feature-flags -> posthog-analytics
 file-uploads -> vercel-blob / cloudflare-r2
 ```
 

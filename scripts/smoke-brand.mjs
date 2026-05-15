@@ -36,8 +36,13 @@ assert(
 const aiSeo = readFileSync("apps/web/app/ai-seo.ts", "utf8");
 assert(aiSeo.includes("# StackFoundry"), "llms.txt content must be branded");
 assert(
-  aiSeo.includes("shadcn for production SaaS systems") && aiSeo.includes("api-saas-starter"),
+  aiSeo.includes("Install API keys, usage tracking, billing, webhooks") &&
+    aiSeo.includes("api-saas-starter"),
   "AI discovery content must include the core positioning",
+);
+assert(
+  aiSeo.includes("/blog/free-saas-starter-alternative"),
+  "AI discovery content must include the SEO blog",
 );
 assert(aiSeo.includes("/llms.txt"), "AI discovery content must include llms.txt");
 

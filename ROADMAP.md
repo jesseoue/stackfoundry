@@ -5,7 +5,7 @@
 - [x] `drizzle-postgres` manifest and source template
 - [x] `api-keys` manifest and source template
 - [x] `stripe-billing` manifest and source template
-- [ ] `next-saas` preset
+- [x] `next-saas` preset
 - [x] `stackfoundry add <module>` prototype
 - [x] file hash manifest
 - [x] `stackfoundry diff <module>` prototype
@@ -14,61 +14,58 @@
 - [x] `ai-chat` manifest and source template
 - [ ] overwrite conflict UI
 - [ ] generated install report
-- [ ] public demo app
+- [x] public demo app
 
 ## Wave 2
 
-- [ ] `clerk-auth`
-- [ ] `orgs-rbac`
-- [ ] `unkey-api-keys`
-- [ ] `unkey-rate-limits`
-- [ ] `usage-metering`
-- [ ] `public-api-orpc`
-- [ ] `vercel-blob`
-- [ ] `vercel-edge-config`
-- [ ] `upstash-redis`
-- [ ] `feature-flags`
-- [ ] `posthog-analytics`
-- [ ] `sentry-monitoring`
-- [ ] `resend-email`
-- [ ] `webhook-inbox`
-- [ ] `audit-log`
-- [ ] `plg-metrics`
-- [ ] `aarrr-dashboard`
-- [ ] `activation-onboarding`
+- [x] `clerk-auth`
+- [x] `orgs-rbac`
+- [x] `unkey-api-keys`
+- [x] `unkey-rate-limits`
+- [x] `usage-metering`
+- [x] `public-api-orpc`
+- [x] `vercel-blob`
+- [x] `vercel-edge-config`
+- [x] `upstash-redis`
+- [x] `feature-flags`
+- [x] `posthog-analytics`
+- [x] `sentry-monitoring`
+- [x] `resend-email`
+- [x] `webhook-inbox`
+- [x] `audit-log`
+- [x] `plg-metrics`
 
 ## Wave 3
 
-- [ ] `billing-core`
-- [ ] `autumn-entitlements`
-- [ ] `neon-postgres`
-- [ ] `supabase-postgres`
-- [ ] `convex-backend`
-- [ ] `paddle-billing`
-- [ ] Cloudflare provider modules
-- [ ] optional AI modules
-- [ ] docs/help center modules
+- [x] `billing-core`
+- [x] `autumn-entitlements`
+- [x] `neon-postgres`
+- [x] `supabase-postgres`
+- [x] `convex-backend`
+- [x] Cloudflare provider modules
+- [x] optional AI modules
+- [x] docs/help center modules
 - [ ] search provider modules
 
 ## Module System
 
-- [ ] module manifest schema package
-- [ ] registry loader package
-- [ ] generator package
+- [x] module manifest schema package
+- [x] registry loader package
+- [x] generator package
 - [ ] file hash diff/update engine
-- [ ] module dependency resolver
+- [x] module dependency resolver
 - [ ] `.env.example` patcher
 - [ ] AGENTS/maintenance-guidance patcher
-- [ ] registry build command
-- [ ] hosted registry docs site
+- [x] registry build command
+- [x] hosted registry docs site
 
 ## Launch Readiness
 
-- [ ] README quick start tested on a fresh machine
+- [x] README quick start tested on a fresh machine
 - [ ] demo GIF
 - [ ] deployed example app
-- [ ] issue templates
-- [ ] PR template
-- [ ] security policy
-- [ ] contributing guide
+- [x] issue templates
+- [x] PR template
+- [x] security policy
+- [x] contributing guide
 - [ ] funding metadata

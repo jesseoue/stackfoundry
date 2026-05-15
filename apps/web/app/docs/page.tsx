@@ -67,7 +67,7 @@ const pathCards = [
     title: "Auth: provider adapters",
     eyebrow: "optional adapters",
     body: "Use Clerk when you want managed auth and organizations, or Better Auth when you want a source-owned auth server and app-owned UI.",
-    modules: ["clerk-auth", "auth-better-auth", "session-management", "login-activity"],
+    modules: ["clerk-auth", "auth-better-auth", "password-reset", "login-activity"],
   },
   {
     title: "Billing: source-owned core",
@@ -78,13 +78,13 @@ const pathCards = [
   {
     title: "Billing: provider adapters",
     eyebrow: "optional adapters",
-    body: "Add Autumn, Paddle, Lemon Squeezy, or tax modules when the provider owns a slice of the billing workflow. They adapt around the same product concepts instead of becoming base dependencies.",
+    body: "Add Autumn, tax, refund, and dunning modules when the provider owns a slice of the billing workflow. They adapt around the same product concepts instead of becoming base dependencies.",
     modules: [
       "autumn-billing",
       "autumn-entitlements",
-      "paddle-billing",
-      "lemon-squeezy-billing",
       "tax-vat",
+      "refunds-disputes",
+      "dunning-recovery",
     ],
   },
   {
@@ -97,7 +97,13 @@ const pathCards = [
     title: "API keys: managed provider",
     eyebrow: "optional adapters",
     body: "Use Unkey modules when you want hosted key verification or hosted rate limits. They compose with the source-owned API product modules instead of replacing the registry model.",
-    modules: ["unkey-api-keys", "unkey-rate-limits", "rate-limits", "api-errors", "sdk-snippets"],
+    modules: [
+      "unkey-api-keys",
+      "unkey-rate-limits",
+      "rate-limits",
+      "api-errors",
+      "developer-portal",
+    ],
   },
 ];
 
@@ -164,12 +170,12 @@ const moduleGroups = [
     summary: "Small base scaffolds and product shell pieces.",
     modules: [
       "next-saas-shell",
-      "sidebar-shell",
-      "t3-env",
-      "theme-system",
-      "quality-tooling",
-      "playwright-e2e",
-      "seed-data",
+      "settings-layout",
+      "command-menu",
+      "data-table",
+      "loading-states",
+      "empty-states",
+      "error-boundaries",
     ],
   },
   {
@@ -177,11 +183,11 @@ const moduleGroups = [
     summary: "Schema, migrations, relations, and hosted Postgres adapters.",
     modules: [
       "drizzle-postgres",
-      "drizzle-relations",
-      "drizzle-soft-delete",
       "neon-postgres",
       "supabase-postgres",
       "cloudflare-d1",
+      "convex-backend",
+      "convex-realtime",
     ],
   },
   {
@@ -251,11 +257,10 @@ const moduleGroups = [
     modules: [
       "posthog-analytics",
       "feature-flags",
-      "experiments",
-      "activation-onboarding",
-      "cohort-retention",
-      "referral-loops",
-      "waitlist",
+      "tinybird-analytics",
+      "plg-metrics",
+      "product-announcements",
+      "public-roadmap",
       "pricing-page",
     ],
   },
@@ -292,13 +297,14 @@ const moduleGroups = [
     summary: "Documentation sites, content systems, and deploy recipes.",
     modules: [
       "docs-fumadocs",
-      "docs-starlight",
       "docs-help-center",
-      "cms-mdx",
+      "docs-mintlify",
+      "api-docs",
+      "ai-seo",
       "vercel-deploy",
       "cloudflare-pages",
       "railway-deploy",
-      "docker-compose-local",
+      "fly-deploy",
     ],
   },
 ];
@@ -307,11 +313,11 @@ const moduleMeta: Record<string, { tone: string; domain?: string }> = {
   "agent-ready-installs": { tone: "api" },
   "next-saas-shell": { tone: "foundation", domain: "nextjs.org" },
   "drizzle-postgres": { tone: "database", domain: "drizzle.team" },
-  "drizzle-relations": { tone: "database", domain: "drizzle.team" },
-  "drizzle-soft-delete": { tone: "database", domain: "drizzle.team" },
   "neon-postgres": { tone: "database", domain: "neon.tech" },
   "supabase-postgres": { tone: "database", domain: "supabase.com" },
   "cloudflare-d1": { tone: "provider", domain: "cloudflare.com" },
+  "convex-backend": { tone: "database", domain: "convex.dev" },
+  "convex-realtime": { tone: "database", domain: "convex.dev" },
   "clerk-auth": { tone: "auth", domain: "clerk.com" },
   "stripe-billing": { tone: "billing", domain: "stripe.com" },
   "autumn-billing": { tone: "billing", domain: "useautumn.com" },
@@ -530,6 +536,8 @@ export default function DocsPage() {
           </div>
           <div className="docs-nav-links">
             <a href="/registry">Registry</a>
+            <a href="/blog/free-saas-starter-alternative">Blog</a>
+            <a href="/alternatives">Alternatives</a>
             <a href="/docs#install-existing">Install</a>
             <a href="https://github.com/jesseoue/stackfoundry">GitHub</a>
           </div>
@@ -600,7 +608,7 @@ export default function DocsPage() {
           </div>
 
           <header className="docs-hero">
-            <p className="docs-kicker">shadcn for production SaaS systems</p>
+            <p className="docs-kicker">source registry for production SaaS systems</p>
             <h1 className="doc-title">Launch API SaaS plumbing. Own the source.</h1>
             <p className="doc-lede">
               Start with API keys, usage tracking, rate limits, credits, Stripe billing, docs, and

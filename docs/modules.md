@@ -10,7 +10,7 @@ The first installable production modules were:
 - `api-keys`
 - `stripe-billing`
 
-The registry now includes ready source modules, proposal-backed roadmap ideas, provider adapter examples, agent-ready install prompts, recipes, and registry-compatible public blocks. Each ready module should be installable into an existing app as editable source code. Presets are bundles of modules; recipes are opinionated architecture paths.
+The registry now includes ready source modules, provider adapter examples, agent-ready install prompts, recipes, and registry-compatible public blocks. Each ready module should be installable into an existing app as editable source code. Presets are bundles of modules; recipes are opinionated architecture paths.
 
 Use [Recipes](./recipes.md) and [Install order](./install-order.md) when you want a complete workflow instead of individual blocks. Start with `api-saas-starter` before browsing the broader catalog.
 
@@ -35,34 +35,22 @@ See [Readiness](./readiness.md) for the meaning of `ready`, `planned`, `experime
 ### Foundation
 
 - `next-saas-shell`
-- `t3-env`
-- `sidebar-shell`
-- `geist-nova-theme`
-- `quality-tooling`
-- `playwright-e2e`
-
-### Interface Grammar
-
-- `metric-card-grid`
-- `kpi-trend-card`
-- `activity-feed`
-- `timeline`
-- `resource-header`
-- `filter-bar`
-- `saved-views`
-- `bulk-actions-bar`
-- `status-badge-system`
-- `danger-zone-card`
+- `settings-layout`
+- `command-menu`
+- `data-table`
+- `loading-states`
+- `empty-states`
+- `error-boundaries`
 
 ### Data
 
 - `drizzle-postgres`
-- `drizzle-multitenancy`
-- `drizzle-relations`
-- `drizzle-audit-log`
-- `drizzle-soft-delete`
 - `neon-postgres`
 - `supabase-postgres`
+- `cloudflare-d1`
+- `cloudflare-kv`
+- `convex-backend`
+- `convex-realtime`
 
 ### Auth and Tenancy
 
@@ -73,24 +61,28 @@ See [Readiness](./readiness.md) for the meaning of `ready`, `planned`, `experime
 - `invites`
 - `workspace-settings`
 - `account-settings`
-- `session-management`
 - `account-modes`
+- `login-activity`
+- `mfa-security`
 
 ### Billing
 
 - `billing-core`
 - `stripe-billing`
-- `paddle-billing`
+- `autumn-billing`
 - `autumn-entitlements`
+- `entitlements`
 - `usage-metering`
 - `one-time-purchases`
 - `credit-wallet`
 - `trial-management`
 - `plan-gating`
+- `tax-vat`
+- `refunds-disputes`
+- `dunning-recovery`
 
 ### Developer Platform
 
-- `api-saas-starter`
 - `agent-ready-installs`
 - `api-keys`
 - `api-errors`
@@ -101,23 +93,20 @@ See [Readiness](./readiness.md) for the meaning of `ready`, `planned`, `experime
 - `webhook-inbox`
 - `webhook-delivery`
 - `developer-portal`
-- `api-playground`
-- `request-log-explorer`
-- `usage-event-explorer`
-- `webhook-delivery-detail`
+- `api-docs`
+- `api-usage-dashboard`
 
 ### Growth and Analytics
 
 - `posthog-analytics`
 - `tinybird-analytics`
 - `plg-metrics`
-- `aarrr-dashboard`
-- `activation-onboarding`
+- `feature-flags`
 - `lifecycle-email`
 - `product-announcements`
 - `public-roadmap`
-- `cohort-retention`
-- `experiments`
+- `newsletter-signups`
+- `pricing-page`
 
 ### Docs and SEO
 
@@ -132,20 +121,18 @@ See [Readiness](./readiness.md) for the meaning of `ready`, `planned`, `experime
 
 - `background-jobs`
 - `rate-limits`
-- `operator-dashboard`
-- `customer-360`
-- `account-health`
-- `customer-timeline`
 - `sentry-monitoring`
 - `axiom-logging`
 - `audit-log`
 - `admin-console`
 - `support-console`
+- `support-widget`
 - `system-health`
 - `incident-management`
-- `data-import-export`
-- `replay-center`
-- `job-run-detail`
+- `status-page`
+- `oncall-alerting`
+- `postmortem-runbook`
+- `backup-restore`
 
 ### Provider Adapter Examples
 
@@ -158,30 +145,27 @@ See [Readiness](./readiness.md) for the meaning of `ready`, `planned`, `experime
 - `tinybird-analytics`
 - `posthog-analytics`
 - `arcjet-security`
+- `github-integration`
+- `convex-integration`
 
 ### Integration Marketplace
 
-- `integration-catalog`
-- `integration-detail-page`
-- `integration-install-flow`
-- `integration-health`
-- `integration-sync-logs`
+- `connected-accounts`
+- `github-integration`
+- `resend-email`
+- `posthog-analytics`
 
 ### Security And Compliance
 
-- `security-center`
-- `security-scorecard`
-- `security-events`
-- `access-review`
-- `api-key-risk-review`
-- `trusted-devices`
-
-### Conventions
-
-- `schema-conventions`
-- `event-taxonomy`
-- `tenant-isolation-policy`
-- `money-and-credits-conventions`
+- `security-headers`
+- `csrf-protection`
+- `cors-policy`
+- `input-validation`
+- `secrets-management`
+- `dependency-audit`
+- `data-retention`
+- `data-export`
+- `account-deletion`
 
 ### Optional AI
 
@@ -190,4 +174,7 @@ See [Readiness](./readiness.md) for the meaning of `ready`, `planned`, `experime
 - `ai-chat`
 - `ai-chatbot-sdk`
 - `cloudflare-agents-sdk`
+- `cloudflare-workers-ai`
+- `cloudflare-vectorize`
+- `cloudflare-mcp-server`
 - `cloudflare-kumo-ui`
