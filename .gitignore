@@ -106,3 +106,5 @@ Desktop.ini
 *.swp
 *.swo
 *~
+.vercel
+.env*.local
