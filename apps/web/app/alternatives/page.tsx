@@ -26,7 +26,7 @@ export default function AlternativesPage() {
           <div className="nav-links">
             <a href="/registry">Registry</a>
             <a href="/docs">Docs</a>
-            <a href="/blog/free-saas-starter-alternative">Blog</a>
+            <a href="/blog/building-saas-with-source-modules">Blog</a>
           </div>
           <a className="button" href="https://github.com/jesseoue/stackfoundry">
             GitHub

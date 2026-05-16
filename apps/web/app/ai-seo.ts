@@ -29,12 +29,11 @@ export const aiSeoPages: AiSeoPage[] = [
     audience: "teams choosing API SaaS capabilities, provider adapters, and install paths",
   },
   {
-    title: "Free SaaS Starter Alternative",
-    path: "/blog/free-saas-starter-alternative",
+    title: "Build and Grow a SaaS With Source-Owned Modules",
+    path: "/blog/building-saas-with-source-modules",
     description:
-      "SEO-focused guide for teams comparing Makerkit, Supastarter, ShipFast, Gravity, Open SaaS, Nextacular, free SaaS boilerplates, and source-owned SaaS modules.",
-    audience:
-      "builders comparing SaaS starter kits, boilerplates, licensing, cost, and vendor lock-in",
+      "Practical guide to building SaaS in layers: API keys, usage, billing, webhooks, auth, analytics, support, SEO, and vendor adapters as editable source.",
+    audience: "builders planning SaaS architecture, growth loops, and production readiness",
   },
   {
     title: "SaaS Starter Alternatives",

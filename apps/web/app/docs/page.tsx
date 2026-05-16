@@ -536,7 +536,7 @@ export default function DocsPage() {
           </div>
           <div className="docs-nav-links">
             <a href="/registry">Registry</a>
-            <a href="/blog/free-saas-starter-alternative">Blog</a>
+            <a href="/blog/building-saas-with-source-modules">Blog</a>
             <a href="/alternatives">Alternatives</a>
             <a href="/docs#install-existing">Install</a>
             <a href="https://github.com/jesseoue/stackfoundry">GitHub</a>

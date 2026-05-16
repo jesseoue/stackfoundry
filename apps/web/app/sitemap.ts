@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: new URL("/blog/free-saas-starter-alternative", siteUrl).toString(),
+      url: new URL("/blog/building-saas-with-source-modules", siteUrl).toString(),
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.75,

@@ -41,8 +41,12 @@ assert(
   "AI discovery content must include the core positioning",
 );
 assert(
-  aiSeo.includes("/blog/free-saas-starter-alternative"),
+  aiSeo.includes("/blog/building-saas-with-source-modules"),
   "AI discovery content must include the SEO blog",
+);
+assert(
+  aiSeo.includes("alternatives.map") && aiSeo.includes("/alternatives/${alternative.slug}"),
+  "AI discovery content must include alternatives",
 );
 assert(aiSeo.includes("/llms.txt"), "AI discovery content must include llms.txt");
 

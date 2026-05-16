@@ -372,7 +372,7 @@ export default function RegistryPage() {
           </a>
           <div className="nav-links">
             <a href="/docs">Docs</a>
-            <a href="/blog/free-saas-starter-alternative">Blog</a>
+            <a href="/blog/building-saas-with-source-modules">Blog</a>
             <a href="/alternatives">Alternatives</a>
             <a href="/docs#install-existing">Install</a>
             <a href="/r/registry.json">Registry JSON</a>

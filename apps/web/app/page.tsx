@@ -352,7 +352,7 @@ export default function Page() {
           <div className="nav-links">
             <a href="/registry">Registry</a>
             <a href="/docs">Docs</a>
-            <a href="/blog/free-saas-starter-alternative">Blog</a>
+            <a href="/blog/building-saas-with-source-modules">Blog</a>
             <a href="/alternatives">Alternatives</a>
           </div>
           <a className="button" href="https://github.com/jesseoue/stackfoundry">
@@ -392,8 +392,8 @@ export default function Page() {
               <a className="button ghost" href="/docs#install-existing">
                 Dry-run Install
               </a>
-              <a className="button ghost" href="/blog/free-saas-starter-alternative">
-                Free SaaS Starter Guide
+              <a className="button ghost" href="/blog/building-saas-with-source-modules">
+                Build SaaS Guide
               </a>
             </div>
 
