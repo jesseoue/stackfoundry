@@ -108,6 +108,6 @@
   "homepage": "https://stackfoundry.dev",
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "2.4.15"
+    "@biomejs/biome": "2.5.2"
   }
 }
