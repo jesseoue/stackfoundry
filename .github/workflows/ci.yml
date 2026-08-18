@@ -28,7 +28,7 @@ jobs:
           persist-credentials: false
 
       - name: Label pull request
-        uses: actions/labeler@v6
+        uses: actions/labeler@v7
 
   check:
     runs-on: ubuntu-latest
