@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-card",
+  "type": "registry:block",
+  "title": "Chart Card",
+  "description": "Accessible trend chart card with Sparkline and area rendering modes.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/chart-card.ts",
+      "type": "registry:lib",
+      "target": "apps/web/src/lib/stackfoundry/chart-card.ts",
+      "content": "export type ChartCardPoint = {\n  label: string;\n  value: number;\n};\n\nexport type ChartCardSeries = {\n  id: string;\n  label: string;\n  points: ChartCardPoint[];\n};\n\nexport function getChartRange(series: ChartCardSeries[]) {\n  const values = series.flatMap((entry) => entry.points.map((point) => point.value));\n  const min = values.length > 0 ? Math.min(...values) : 0;\n  const max = values.length > 0 ? Math.max(...values) : 0;\n  const padding = (max - min) * 0.12;\n  return {\n    min: Number.isFinite(min) ? min - padding : 0,\n    max: Number.isFinite(max) ? max + padding : 1,\n  };\n}\n\nexport function formatChartValue(value: number, options?: Intl.NumberFormatOptions) {\n  return new Intl.NumberFormat(\"en-US\", {\n    maximumFractionDigits: 1,\n    notation: \"compact\",\n    ...options,\n  }).format(value);\n}\n\nexport function toAccessibleSummary(series: ChartCardSeries[]) {\n  return series\n    .map((entry) => {\n      const total = entry.points.reduce((sum, point) => sum + point.value, 0);\n      const average = entry.points.length > 0 ? total / entry.points.length : 0;\n      return `${entry.label}: ${formatChartValue(average)} average over ${entry.points.length} points`;\n    })\n    .join(\"; \");\n}\n\nexport const chartCardChecks = [\n  \"Resolve chart data on the server before rendering\",\n  \"Keep the SVG path deterministic for React server rendering\",\n  \"Expose a text summary for assistive technology and no-visual contexts\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/chart-card.tsx",
+      "type": "registry:component",
+      "target": "apps/web/src/components/stackfoundry/chart-card.tsx",
+      "content": "import { getChartRange, toAccessibleSummary, type ChartCardSeries } from \"@/lib/stackfoundry/chart-card\";\n\ntype ChartCardProps = {\n  title: string;\n  description?: string;\n  series: ChartCardSeries[];\n  variant?: \"sparkline\" | \"area\";\n  footer?: React.ReactNode;\n};\n\nfunction createPath(values: number[], min: number, max: number) {\n  const range = max - min || 1;\n  return values\n    .map((value, index) => {\n      const x = (index / Math.max(values.length - 1, 1)) * 100;\n      const y = 100 - ((value - min) / range) * 100;\n      return `${index === 0 ? \"M\" : \"L\"}${x.toFixed(2)},${y.toFixed(2)}`;\n    })\n    .join(\" \");\n}\n\nexport function StackFoundryChartCard({\n  title,\n  description,\n  series,\n  variant = \"area\",\n  footer,\n}: ChartCardProps) {\n  const { min, max } = getChartRange(series);\n  const primary = series[0];\n  const values = primary?.points.map((point) => point.value) ?? [];\n  const linePath = values.length > 1 ? createPath(values, min, max) : undefined;\n  const areaPath =\n    linePath && variant === \"area\" ? `${linePath} L100,100 L0,100 Z` : undefined;\n\n  return (\n    <section className=\"overflow-hidden rounded-xl border bg-card shadow-xs\">\n      <header className=\"flex flex-col gap-1 border-b p-5\">\n        <h2 className=\"text-base font-semibold tracking-tight\">{title}</h2>\n        {description ? <p className=\"text-sm text-muted-foreground\">{description}</p> : null}\n      </header>\n\n      <div className=\"p-5\">\n        <figure className=\"m-0\">\n          <svg\n            className={`h-56 w-full ${variant === \"sparkline\" ? \"opacity-90\" : \"\"}`}\n            viewBox=\"0 0 100 100\"\n            preserveAspectRatio=\"none\"\n            role=\"img\"\n            aria-label={`${title}. ${toAccessibleSummary(series)}`}\n          >\n            <defs>\n              <linearGradient id=\"stackfoundry-chart-fill\" x1=\"0\" x2=\"0\" y1=\"0\" y2=\"1\">\n                <stop className=\"stop-color-primary\" offset=\"0\" stopOpacity=\"0.24\" />\n                <stop className=\"stop-color-primary\" offset=\"1\" stopOpacity=\"0.02\" />\n              </linearGradient>\n            </defs>\n            {areaPath ? <path d={areaPath} fill=\"url(#stackfoundry-chart-fill)\" /> : null}\n            {linePath ? (\n              <path\n                d={linePath}\n                className=\"stroke-primary\"\n                fill=\"none\"\n                strokeWidth={variant === \"sparkline\" ? 2 : 1.5}\n                strokeLinecap=\"round\"\n                vectorEffect=\"non-scaling-stroke\"\n              />\n            ) : null}\n          </svg>\n          <figcaption className=\"sr-only\">{toAccessibleSummary(series)}</figcaption>\n        </figure>\n\n        {series.length > 1 ? (\n          <ul className=\"mt-4 flex flex-wrap gap-x-5 gap-y-2\">\n            {series.map((entry) => (\n              <li className=\"flex items-center gap-2 text-xs text-muted-foreground\" key={entry.id}>\n                <span aria-hidden=\"true\" className=\"h-2 w-2 rounded-full bg-primary\" />\n                {entry.label}\n              </li>\n            ))}\n          </ul>\n        ) : null}\n      </div>\n\n      {footer ? <footer className=\"border-t p-5 text-xs text-muted-foreground\">{footer}</footer> : null}\n    </section>\n  );\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/chart-card/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/components/chart-card/page.tsx",
+      "content": "import { StackFoundryChartCard } from \"@/components/stackfoundry/chart-card\";\n\nconst points = [\n  { label: \"Monday\", value: 8200 },\n  { label: \"Tuesday\", value: 11250 },\n  { label: \"Wednesday\", value: 9840 },\n  { label: \"Thursday\", value: 13480 },\n  { label: \"Friday\", value: 15920 },\n  { label: \"Saturday\", value: 11860 },\n  { label: \"Sunday\", value: 12410 },\n];\n\nexport default function ChartCardDemo() {\n  return (\n    <div className=\"grid gap-5\">\n      <StackFoundryChartCard\n        title=\"API requests\"\n        description=\"Request volume across the last seven days\"\n        series={[{ id: \"requests\", label: \"Requests\", points }]}\n        footer=\"Data refreshes hourly. Values are UTC.\"\n      />\n      <StackFoundryChartCard\n        title=\"Active usage\"\n        description=\"Compact trend for compact dashboard headers\"\n        series={[{ id: \"usage\", label: \"Active sessions\", points: points.slice(2) }]}\n        variant=\"sparkline\"\n      />\n    </div>\n  );\n}\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "chart-card",
+      "target": ".stackfoundry/skills/chart-card/SKILL.md",
+      "content": "---\nname: chart-card\ndescription: Maintain the Chart Card module installed by StackFoundry.\n---\n\n# Chart Card Skill\n\n## Boundary\n\nThis module owns the Chart Card source block and its safety checklist. Keep product-specific analytics and charting integrations outside the reusable block.\n\n## Shared Skills\n\nWhen framework or app-shell behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/chart-card.ts`\n- `apps/web/src/components/stackfoundry/chart-card.tsx`\n- `apps/web/src/app/(console)/components/chart-card/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- `server-resolve-display-data`\n- `keep-building-blocks-stateless`\n- `provide-chart-alternatives`\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Chart Card Module\n\nDependency-free chart container with accessible area and Sparkline rendering. It gives apps the shadcn dashboard chart structure without forcing a charting runtime; adopting apps can swap the SVG renderer for Recharts while preserving the card contract.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/chart-card.ts`\n- `apps/web/src/components/stackfoundry/chart-card.tsx`\n- `apps/web/src/app/(console)/components/chart-card/page.tsx`\n\n## Safety Notes\n\n- Resolve chart data on the server and render deterministic paths.\n- Keep charts readable without color alone.\n- Provide text alternatives and exact values where decisions are made.\n- Keep this block stateless; interactive drilldowns belong in the adopting app.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add chart-card --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "components",
+    "env": [],
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
+  }
+}

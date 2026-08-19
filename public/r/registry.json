@@ -5464,6 +5464,198 @@
         "maturity": "ready",
         "recommendedFor": []
       }
+    },
+    {
+      "name": "chart-card",
+      "type": "registry:block",
+      "title": "Chart Card",
+      "description": "Accessible trend chart card with Sparkline and area rendering modes.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/chart-card.ts",
+          "type": "registry:lib",
+          "target": "apps/web/src/lib/stackfoundry/chart-card.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/chart-card.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/chart-card.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/chart-card/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/chart-card/page.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "filter-panel",
+      "type": "registry:block",
+      "title": "Filter Panel",
+      "description": "Accessible query filter panel for data tables and operational lists.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/filter-panel.ts",
+          "type": "registry:lib",
+          "target": "apps/web/src/lib/stackfoundry/filter-panel.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/filter-panel.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/filter-panel.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/filter-panel/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/filter-panel/page.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "metric-card",
+      "type": "registry:block",
+      "title": "Metric Card",
+      "description": "KPI card with trend direction, delta, period, and comparison context.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/metric-card.ts",
+          "type": "registry:lib",
+          "target": "apps/web/src/lib/stackfoundry/metric-card.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/metric-card.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/metric-card.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/metric-card/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/metric-card/page.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "sidebar-navigation",
+      "type": "registry:block",
+      "title": "Sidebar Navigation",
+      "description": "Responsive console sidebar with sections, active state, and mobile sheet.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/sidebar-navigation.ts",
+          "type": "registry:lib",
+          "target": "apps/web/src/lib/stackfoundry/sidebar-navigation.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/sidebar-navigation.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/sidebar-navigation.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/sidebar-navigation/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/sidebar-navigation/page.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "stepper-flow",
+      "type": "registry:block",
+      "title": "Stepper Flow",
+      "description": "Accessible progress indicator for onboarding, setup, and checkout flows.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/stepper-flow.ts",
+          "type": "registry:lib",
+          "target": "apps/web/src/lib/stackfoundry/stepper-flow.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/stepper-flow.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/stepper-flow.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/stepper-flow/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/stepper-flow/page.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "timeline-activity",
+      "type": "registry:block",
+      "title": "Timeline Activity",
+      "description": "Auditable activity timeline for accounts, records, and operational objects.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/timeline-activity.ts",
+          "type": "registry:lib",
+          "target": "apps/web/src/lib/stackfoundry/timeline-activity.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/timeline-activity.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/timeline-activity.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/timeline-activity/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/timeline-activity/page.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
     }
   ]
 }

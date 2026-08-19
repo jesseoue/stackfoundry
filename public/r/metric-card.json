@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "metric-card",
+  "type": "registry:block",
+  "title": "Metric Card",
+  "description": "KPI card with trend direction, delta, period, and comparison context.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/metric-card.ts",
+      "type": "registry:lib",
+      "target": "apps/web/src/lib/stackfoundry/metric-card.ts",
+      "content": "export type MetricTrend = \"up\" | \"down\" | \"flat\";\n\nexport type MetricCardMetric = {\n  label: string;\n  value: string;\n  delta?: string;\n  trend?: MetricTrend;\n  period?: string;\n  comparison?: string;\n};\n\nexport function formatMetricDelta(delta: number, precision = 1) {\n  const formatted = Math.abs(delta).toFixed(precision);\n  if (delta > 0) return `+${formatted}%`;\n  if (delta < 0) return `-${formatted}%`;\n  return `${formatted}%`;\n}\n\nexport const metricCardChecks = [\n  \"Resolve values on the server before rendering the console page\",\n  \"Define the metric time window and comparison baseline explicitly\",\n  \"Use neutral styling for metrics where higher is not always better\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/metric-card.tsx",
+      "type": "registry:component",
+      "target": "apps/web/src/components/stackfoundry/metric-card.tsx",
+      "content": "import type { MetricCardMetric } from \"@/lib/stackfoundry/metric-card\";\n\nconst trendLabels = {\n  up: \"increased\",\n  down: \"decreased\",\n  flat: \"no change\",\n} as const;\n\nexport function StackFoundryMetricCard({ metric }: { metric: MetricCardMetric }) {\n  const trend = metric.trend ?? \"flat\";\n  const trendClass =\n    trend === \"up\"\n      ? \"text-emerald-600 dark:text-emerald-400\"\n      : trend === \"down\"\n        ? \"text-red-600 dark:text-red-400\"\n        : \"text-muted-foreground\";\n\n  return (\n    <article className=\"group relative overflow-hidden rounded-xl border bg-card p-5 shadow-xs transition-colors hover:border-border-strong\">\n      <div className=\"flex items-start justify-between gap-4\">\n        <div>\n          <p className=\"text-xs font-medium tracking-wide text-muted-foreground uppercase\">\n            {metric.label}\n          </p>\n          <p className=\"mt-3 text-3xl font-semibold tracking-tight tabular-nums\">{metric.value}</p>\n        </div>\n        {metric.delta ? (\n          <p className={`text-sm font-medium tabular-nums ${trendClass}`}>\n            <span aria-hidden=\"true\">\n              {trend === \"up\" ? \"▲\" : trend === \"down\" ? \"▼\" : \"•\"}\n            </span>{\" \"}\n            {metric.delta}\n          </p>\n        ) : null}\n      </div>\n\n      {(metric.comparison || metric.period) && (\n        <p className=\"mt-4 text-xs text-muted-foreground\">\n          {metric.comparison}\n          {metric.comparison && metric.period ? \" · \" : \"\"}\n          {metric.period}\n        </p>\n      )}\n\n      <span className=\"sr-only\">\n        {metric.label} {trendLabels[trend]} {metric.delta ? `by ${metric.delta}` : \"\"}\n      </span>\n      <div className=\"absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-border to-transparent opacity-70\" />\n    </article>\n  );\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/metric-card/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/components/metric-card/page.tsx",
+      "content": "import { StackFoundryMetricCard } from \"@/components/stackfoundry/metric-card\";\n\nconst metrics = [\n  {\n    label: \"Monthly recurring revenue\",\n    value: \"$84,250\",\n    delta: \"+12.4%\",\n    trend: \"up\" as const,\n    period: \"Last 30 days\",\n    comparison: \"vs. previous period\",\n  },\n  {\n    label: \"Active workspaces\",\n    value: \"1,204\",\n    delta: \"-2.1%\",\n    trend: \"down\" as const,\n    period: \"Last 30 days\",\n    comparison: \"vs. previous period\",\n  },\n  {\n    label: \"API latency\",\n    value: \"118 ms\",\n    delta: \"+1.2%\",\n    trend: \"flat\" as const,\n    period: \"p95 · last hour\",\n  },\n];\n\nexport default function MetricCardDemo() {\n  return (\n    <section className=\"grid gap-4 sm:grid-cols-2 xl:grid-cols-3\">\n      {metrics.map((metric) => (\n        <StackFoundryMetricCard key={metric.label} metric={metric} />\n      ))}\n    </section>\n  );\n}\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "metric-card",
+      "target": ".stackfoundry/skills/metric-card/SKILL.md",
+      "content": "---\nname: metric-card\ndescription: Maintain the Metric Card module installed by StackFoundry.\n---\n\n# Metric Card Skill\n\n## Boundary\n\nThis module owns the Metric Card source block and its safety checklist. Keep product-specific metric calculations outside the reusable block.\n\n## Shared Skills\n\nWhen framework or app-shell behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/metric-card.ts`\n- `apps/web/src/components/stackfoundry/metric-card.tsx`\n- `apps/web/src/app/(console)/components/metric-card/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- `server-resolve-display-data`\n- `keep-building-blocks-stateless`\n- `avoid-misleading-metrics`\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Metric Card Module\n\nProduction KPI card for console surfaces, with an accessible trend statement, comparison context, and a restrained shadcn-compatible visual system.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/metric-card.ts`\n- `apps/web/src/components/stackfoundry/metric-card.tsx`\n- `apps/web/src/app/(console)/components/metric-card/page.tsx`\n\n## Safety Notes\n\n- Resolve metric values and comparison windows on the server.\n- Define metric definitions before rendering directional language.\n- Use neutral styling when a higher or lower number is not universally better.\n- Keep this block stateless; product-specific metric logic belongs in the adopting app.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add metric-card --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "components",
+    "env": [],
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
+  }
+}

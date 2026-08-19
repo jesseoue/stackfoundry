@@ -1,6 +1,4 @@
 {
-  "name": "saas-coverage",
-  "title": "SaaS Coverage",
   "description": "Broad SaaS coverage blocks for tenant controls, billing operations, security, support, and reusable product components.",
   "modules": [
     "account-modes",
@@ -24,6 +22,7 @@
     "error-boundaries",
     "feature-requests",
     "feedback-collector",
+    "filter-panel",
     "idempotency-keys",
     "input-validation",
     "integration-card",
@@ -47,10 +46,13 @@
     "tax-vat",
     "tenant-context",
     "tenant-isolation-tests",
+    "timeline-activity",
     "tinybird-analytics",
     "toast-notifications",
     "uptime-monitoring",
     "workspace-switcher"
   ],
-  "status": "experimental"
+  "name": "saas-coverage",
+  "status": "experimental",
+  "title": "SaaS Coverage"
 }

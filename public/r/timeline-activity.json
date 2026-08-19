@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "timeline-activity",
+  "type": "registry:block",
+  "title": "Timeline Activity",
+  "description": "Auditable activity timeline for accounts, records, and operational objects.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/timeline-activity.ts",
+      "type": "registry:lib",
+      "target": "apps/web/src/lib/stackfoundry/timeline-activity.ts",
+      "content": "export type TimelineActivityLevel = \"info\" | \"success\" | \"warning\" | \"danger\";\n\nexport type TimelineActivityEvent = {\n  id: string;\n  actor: string;\n  action: string;\n  timestamp: string;\n  level?: TimelineActivityLevel;\n  detail?: string;\n};\n\nexport function sortTimelineEvents(events: TimelineActivityEvent[]) {\n  return [...events].sort((left, right) => right.timestamp.localeCompare(left.timestamp));\n}\n\nexport function formatTimelineTimestamp(timestamp: string) {\n  const date = new Date(timestamp);\n  if (Number.isNaN(date.getTime())) return timestamp;\n  return new Intl.DateTimeFormat(\"en-US\", {\n    dateStyle: \"medium\",\n    timeStyle: \"short\",\n  }).format(date);\n}\n\nexport const timelineActivityChecks = [\n  \"Resolve events from a tenant-scoped server query\",\n  \"Authorize the actor and object before rendering sensitive context\",\n  \"Avoid exposing raw payloads, tokens, or request bodies in activity detail\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/timeline-activity.tsx",
+      "type": "registry:component",
+      "target": "apps/web/src/components/stackfoundry/timeline-activity.tsx",
+      "content": "import { formatTimelineTimestamp, sortTimelineEvents, type TimelineActivityEvent } from \"@/lib/stackfoundry/timeline-activity\";\n\nconst levelStyles: Record<NonNullable<TimelineActivityEvent[\"level\"]>, string> = {\n  info: \"bg-primary\",\n  success: \"bg-emerald-500\",\n  warning: \"bg-amber-500\",\n  danger: \"bg-red-500\",\n};\n\nexport function StackFoundryTimelineActivity({\n  title,\n  events,\n}: {\n  title: string;\n  events: TimelineActivityEvent[];\n}) {\n  const sortedEvents = sortTimelineEvents(events);\n\n  return (\n    <section className=\"rounded-xl border bg-card p-5 shadow-xs\">\n      <header className=\"border-b pb-4\">\n        <h2 className=\"text-base font-semibold tracking-tight\">{title}</h2>\n        <p className=\"mt-1 text-xs text-muted-foreground\">\n          {sortedEvents.length} recent {sortedEvents.length === 1 ? \"event\" : \"events\"}\n        </p>\n      </header>\n\n      {sortedEvents.length === 0 ? (\n        <p className=\"py-10 text-center text-sm text-muted-foreground\">No activity yet.</p>\n      ) : (\n        <ol className=\"relative mt-5 space-y-6 before:absolute before:top-1 before:bottom-1 before:left-2 before:w-px before:bg-border\">\n          {sortedEvents.map((event) => (\n            <li className=\"relative pl-8\" key={event.id}>\n              <span\n                aria-hidden=\"true\"\n                className={`absolute top-1.5 left-0 size-4 rounded-full border-2 border-card ${levelStyles[event.level ?? \"info\"]}`}\n              />\n              <div className=\"flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1\">\n                <p className=\"text-sm font-medium\">\n                  <span className=\"text-foreground\">{event.actor}</span>{\" \"}\n                  <span className=\"text-muted-foreground\">{event.action}</span>\n                </p>\n                <time dateTime={event.timestamp} className=\"text-xs text-muted-foreground tabular-nums\">\n                  {formatTimelineTimestamp(event.timestamp)}\n                </time>\n              </div>\n              {event.detail ? <p className=\"mt-2 text-sm text-muted-foreground\">{event.detail}</p> : null}\n            </li>\n          ))}\n        </ol>\n      )}\n    </section>\n  );\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/timeline-activity/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/components/timeline-activity/page.tsx",
+      "content": "import { StackFoundryTimelineActivity } from \"@/components/stackfoundry/timeline-activity\";\n\nconst events = [\n  {\n    id: \"1\",\n    actor: \"Ana Ortiz\",\n    action: \"created an API key\",\n    timestamp: \"2026-08-19T14:12:00.000Z\",\n    level: \"info\" as const,\n    detail: \"Key scoped to production read access.\",\n  },\n  {\n    id: \"2\",\n    actor: \"Billing system\",\n    action: \"renewed the subscription\",\n    timestamp: \"2026-08-19T12:00:00.000Z\",\n    level: \"success\" as const,\n  },\n  {\n    id: \"3\",\n    actor: \"Ops automation\",\n    action: \"rotated provider credentials\",\n    timestamp: \"2026-08-18T22:30:00.000Z\",\n    level: \"warning\" as const,\n    detail: \"Rotation completed; no failed requests recorded.\",\n  },\n];\n\nexport default function TimelineActivityDemo() {\n  return <StackFoundryTimelineActivity title=\"Account activity\" events={events} />;\n}\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "timeline-activity",
+      "target": ".stackfoundry/skills/timeline-activity/SKILL.md",
+      "content": "---\nname: timeline-activity\ndescription: Maintain the Timeline Activity module installed by StackFoundry.\n---\n\n# Timeline Activity Skill\n\n## Boundary\n\nThis module owns the Timeline Activity source block and its safety checklist. Keep event persistence, authorization, and audit logging in the adopting app.\n\n## Shared Skills\n\nWhen framework or app-shell behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/timeline-activity.ts`\n- `apps/web/src/components/stackfoundry/timeline-activity.tsx`\n- `apps/web/src/app/(console)/components/timeline-activity/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- `server-resolve-display-data`\n- `tenant-scope-activity`\n- `avoid-sensitive-event-details`\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Timeline Activity Module\n\nGeneral activity timeline for accounts, records, integrations, and operational objects. It is distinct from security-specific event streams: this block focuses on readable object history with tenant-safe presentation.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/timeline-activity.ts`\n- `apps/web/src/components/stackfoundry/timeline-activity.tsx`\n- `apps/web/src/app/(console)/components/timeline-activity/page.tsx`\n\n## Safety Notes\n\n- Resolve events from a tenant-scoped server query.\n- Authorize access to actors, objects, and contextual detail.\n- Redact secrets, raw payloads, and sensitive request bodies.\n- Use a stable event identifier and UTC timestamp.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add timeline-activity --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "components",
+    "env": [],
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
+  }
+}

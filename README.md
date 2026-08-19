@@ -9,7 +9,7 @@ Install production SaaS modules as editable source code.
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 ![Next.js](https://img.shields.io/badge/Next.js-16.3-black)
 ![Vercel](https://img.shields.io/badge/deploy-Vercel-black)
-![Modules](https://img.shields.io/badge/modules-163-orange)
+![Modules](https://img.shields.io/badge/modules-169-orange)
 ![Recipes](https://img.shields.io/badge/recipes-9-purple)
 ![Presets](https://img.shields.io/badge/presets-13-teal)
 
@@ -108,7 +108,7 @@ Current source registry coverage:
 <details>
 <summary>Current scale</summary>
 
-- 163 ready module manifests
+- 169 ready module manifests
 - 30 active module categories
 - 13 preset bundles
 - 9 architecture recipes

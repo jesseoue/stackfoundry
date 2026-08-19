@@ -1,0 +1,34 @@
+{
+  "name": "filter-panel",
+  "type": "page",
+  "category": "components",
+  "title": "Filter Panel",
+  "description": "Accessible query filter panel for data tables and operational lists.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/filter-panel.ts",
+      "type": "registry:lib"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/filter-panel.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/filter-panel/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "status": "ready",
+  "maintenance": {
+    "skills": ["filter-panel", "nextjs"],
+    "rules": [
+      "server-validate-filter-input",
+      "preserve-tenant-scope",
+      "keep-building-blocks-stateless"
+    ]
+  }
+}

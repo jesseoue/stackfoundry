@@ -1951,13 +1951,85 @@
       "name": "workspace-switcher",
       "type": "registry:block",
       "title": "Workspace Switcher",
-      "description": "",
+      "description": "Accessible workspace selector with tenant-safe switch behavior.",
       "files": [
         {
           "path": "registry/modules/workspace-switcher/module.json",
           "type": "registry:file"
         }
       ]
+    },
+    {
+      "description": "Accessible trend chart card with Sparkline and area rendering modes.",
+      "files": [
+        {
+          "path": "registry/modules/chart-card/module.json",
+          "type": "registry:file"
+        }
+      ],
+      "name": "chart-card",
+      "title": "Chart Card",
+      "type": "registry:block"
+    },
+    {
+      "description": "Accessible query filter panel for data tables and operational lists.",
+      "files": [
+        {
+          "path": "registry/modules/filter-panel/module.json",
+          "type": "registry:file"
+        }
+      ],
+      "name": "filter-panel",
+      "title": "Filter Panel",
+      "type": "registry:block"
+    },
+    {
+      "description": "KPI card with trend direction, delta, period, and comparison context.",
+      "files": [
+        {
+          "path": "registry/modules/metric-card/module.json",
+          "type": "registry:file"
+        }
+      ],
+      "name": "metric-card",
+      "title": "Metric Card",
+      "type": "registry:block"
+    },
+    {
+      "description": "Responsive console sidebar with sections, active state, and mobile sheet.",
+      "files": [
+        {
+          "path": "registry/modules/sidebar-navigation/module.json",
+          "type": "registry:file"
+        }
+      ],
+      "name": "sidebar-navigation",
+      "title": "Sidebar Navigation",
+      "type": "registry:block"
+    },
+    {
+      "description": "Accessible progress indicator for onboarding, setup, and checkout flows.",
+      "files": [
+        {
+          "path": "registry/modules/stepper-flow/module.json",
+          "type": "registry:file"
+        }
+      ],
+      "name": "stepper-flow",
+      "title": "Stepper Flow",
+      "type": "registry:block"
+    },
+    {
+      "description": "Auditable activity timeline for accounts, records, and operational objects.",
+      "files": [
+        {
+          "path": "registry/modules/timeline-activity/module.json",
+          "type": "registry:file"
+        }
+      ],
+      "name": "timeline-activity",
+      "title": "Timeline Activity",
+      "type": "registry:block"
     }
   ]
 }

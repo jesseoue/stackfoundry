@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "filter-panel",
+  "type": "registry:block",
+  "title": "Filter Panel",
+  "description": "Accessible query filter panel for data tables and operational lists.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/filter-panel.ts",
+      "type": "registry:lib",
+      "target": "apps/web/src/lib/stackfoundry/filter-panel.ts",
+      "content": "export type FilterPanelOption = {\n  value: string;\n  label: string;\n};\n\nexport type FilterPanelField = {\n  id: string;\n  label: string;\n  type: \"select\" | \"search\";\n  options?: FilterPanelOption[];\n};\n\nexport type FilterPanelValues = Record<string, string>;\n\nexport function hasActiveFilters(fields: FilterPanelField[], values: FilterPanelValues) {\n  return fields.some((field) => values[field.id]?.trim().length > 0);\n}\n\nexport function toSearchQueryString(values: FilterPanelValues) {\n  const searchParams = new URLSearchParams();\n  for (const [key, value] of Object.entries(values)) {\n    if (value.trim()) searchParams.set(key, value.trim());\n  }\n  return searchParams.toString();\n}\n\nexport const filterPanelChecks = [\n  \"Parse and validate filters in the server route before querying\",\n  \"Keep tenant and authorization scopes independent from user filters\",\n  \"Encode filter state in the URL so views remain shareable and restorable\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/filter-panel.tsx",
+      "type": "registry:component",
+      "target": "apps/web/src/components/stackfoundry/filter-panel.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { hasActiveFilters, toSearchQueryString, type FilterPanelField, type FilterPanelValues } from \"@/lib/stackfoundry/filter-panel\";\n\ntype FilterPanelProps = {\n  fields: FilterPanelField[];\n  initialFilters?: FilterPanelValues;\n  onApply?: (query: string) => void;\n};\n\nexport function StackFoundryFilterPanel({\n  fields,\n  initialFilters = {},\n  onApply,\n}: FilterPanelProps) {\n  const [values, setValues] = useState<FilterPanelValues>(initialFilters);\n  const active = hasActiveFilters(fields, values);\n\n  return (\n    <form\n      className=\"rounded-xl border bg-card p-4 shadow-xs\"\n      onSubmit={(event) => {\n        event.preventDefault();\n        onApply?.(toSearchQueryString(values));\n      }}\n    >\n      <div className=\"flex items-center justify-between gap-3\">\n        <h2 className=\"text-sm font-semibold tracking-tight\">Filters</h2>\n        {active ? (\n          <button\n            type=\"button\"\n            className=\"text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline\"\n            onClick={() => {\n              const cleared = Object.fromEntries(fields.map((field) => [field.id, \"\"]));\n              setValues(cleared);\n              onApply?.(\"\");\n            }}\n          >\n            Clear all\n          </button>\n        ) : null}\n      </div>\n\n      <div className=\"mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3\">\n        {fields.map((field) => (\n          <label className=\"grid gap-1.5 text-sm\" key={field.id}>\n            <span className=\"text-xs font-medium text-muted-foreground\">{field.label}</span>\n            {field.type === \"search\" ? (\n              <input\n                type=\"search\"\n                value={values[field.id] ?? \"\"}\n                onChange={(event) => setValues((current) => ({ ...current, [field.id]: event.target.value }))}\n                className=\"h-9 rounded-md border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring\"\n              />\n            ) : (\n              <select\n                value={values[field.id] ?? \"\"}\n                onChange={(event) => setValues((current) => ({ ...current, [field.id]: event.target.value }))}\n                className=\"h-9 rounded-md border bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring\"\n              >\n                <option value=\"\">All</option>\n                {field.options?.map((option) => (\n                  <option key={option.value} value={option.value}>\n                    {option.label}\n                  </option>\n                ))}\n              </select>\n            )}\n          </label>\n        ))}\n      </div>\n\n      <div className=\"mt-4 flex justify-end\">\n        <button\n          type=\"submit\"\n          className=\"h-9 rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90\"\n        >\n          Apply filters\n        </button>\n      </div>\n    </form>\n  );\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/filter-panel/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/components/filter-panel/page.tsx",
+      "content": "import { StackFoundryFilterPanel } from \"@/components/stackfoundry/filter-panel\";\n\nconst fields = [\n  { id: \"query\", label: \"Search\", type: \"search\" as const },\n  {\n    id: \"status\",\n    label: \"Status\",\n    type: \"select\" as const,\n    options: [\n      { value: \"active\", label: \"Active\" },\n      { value: \"paused\", label: \"Paused\" },\n      { value: \"failed\", label: \"Failed\" },\n    ],\n  },\n  {\n    id: \"environment\",\n    label: \"Environment\",\n    type: \"select\" as const,\n    options: [\n      { value: \"production\", label: \"Production\" },\n      { value: \"preview\", label: \"Preview\" },\n    ],\n  },\n];\n\nexport default function FilterPanelDemo() {\n  return <StackFoundryFilterPanel fields={fields} onApply={() => undefined} />;\n}\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "filter-panel",
+      "target": ".stackfoundry/skills/filter-panel/SKILL.md",
+      "content": "---\nname: filter-panel\ndescription: Maintain the Filter Panel module installed by StackFoundry.\n---\n\n# Filter Panel Skill\n\n## Boundary\n\nThis module owns the Filter Panel source block and its safety checklist. Keep product-specific query construction and authorization outside the reusable block.\n\n## Shared Skills\n\nWhen framework or app-shell behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/filter-panel.ts`\n- `apps/web/src/components/stackfoundry/filter-panel.tsx`\n- `apps/web/src/app/(console)/components/filter-panel/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- `server-validate-filter-input`\n- `preserve-tenant-scope`\n- `keep-building-blocks-stateless`\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Filter Panel Module\n\nOperational filter panel for data tables, event streams, and support queues. The UI encodes user intent; the adopting app validates it on the server and composes it with tenant scope.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/filter-panel.ts`\n- `apps/web/src/components/stackfoundry/filter-panel.tsx`\n- `apps/web/src/app/(console)/components/filter-panel/page.tsx`\n\n## Safety Notes\n\n- Validate every filter server-side before it reaches a query.\n- Keep authorization and tenant scopes separate from user filters.\n- Keep filter state in the URL for shareable and restorable views.\n- Do not use client filters as an authorization boundary.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add filter-panel --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "components",
+    "env": [],
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
+  }
+}

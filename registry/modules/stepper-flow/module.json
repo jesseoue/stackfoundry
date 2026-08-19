@@ -1,0 +1,34 @@
+{
+  "name": "stepper-flow",
+  "type": "page",
+  "category": "components",
+  "title": "Stepper Flow",
+  "description": "Accessible progress indicator for onboarding, setup, and checkout flows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/stepper-flow.ts",
+      "type": "registry:lib"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/stepper-flow.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/stepper-flow/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "status": "ready",
+  "maintenance": {
+    "skills": ["stepper-flow", "nextjs"],
+    "rules": [
+      "server-validate-step-transition",
+      "preserve-completed-step-data",
+      "keep-building-blocks-stateless"
+    ]
+  }
+}

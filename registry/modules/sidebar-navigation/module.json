@@ -1,0 +1,34 @@
+{
+  "name": "sidebar-navigation",
+  "type": "page",
+  "category": "components",
+  "title": "Sidebar Navigation",
+  "description": "Responsive console sidebar with sections, active state, and mobile sheet.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/sidebar-navigation.ts",
+      "type": "registry:lib"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/sidebar-navigation.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/sidebar-navigation/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "status": "ready",
+  "maintenance": {
+    "skills": ["sidebar-navigation", "nextjs"],
+    "rules": [
+      "authorize-navigation-groups",
+      "keep-navigation-server-derived",
+      "keep-building-blocks-stateless"
+    ]
+  }
+}

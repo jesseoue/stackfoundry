@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sidebar-navigation",
+  "type": "registry:block",
+  "title": "Sidebar Navigation",
+  "description": "Responsive console sidebar with sections, active state, and mobile sheet.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/sidebar-navigation.ts",
+      "type": "registry:lib",
+      "target": "apps/web/src/lib/stackfoundry/sidebar-navigation.ts",
+      "content": "export type SidebarNavigationItem = {\n  id: string;\n  label: string;\n  href: string;\n  badge?: string | number;\n};\n\nexport type SidebarNavigationGroup = {\n  id: string;\n  label: string;\n  items: SidebarNavigationItem[];\n};\n\nexport function filterSidebarNavigation(\n  groups: SidebarNavigationGroup[],\n  canSeeItem: (item: SidebarNavigationItem) => boolean = () => true,\n) {\n  return groups\n    .map((group) => ({\n      ...group,\n      items: group.items.filter(canSeeItem),\n    }))\n    .filter((group) => group.items.length > 0);\n}\n\nexport const sidebarNavigationChecks = [\n  \"Derive navigation and permission-sensitive links from the server\",\n  \"Hide links the user cannot open; do not rely on disabled styling\",\n  \"Keep route transitions keyboard reachable and focus visible\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/sidebar-navigation.tsx",
+      "type": "registry:component",
+      "target": "apps/web/src/components/stackfoundry/sidebar-navigation.tsx",
+      "content": "\"use client\";\n\nimport { useId, useState } from \"react\";\nimport { filterSidebarNavigation, type SidebarNavigationGroup } from \"@/lib/stackfoundry/sidebar-navigation\";\n\ntype SidebarNavigationProps = {\n  brand: string;\n  groups: SidebarNavigationGroup[];\n  activeHref: string;\n  footer?: React.ReactNode;\n};\n\nfunction SidebarContent({\n  brand,\n  groups,\n  activeHref,\n  footer,\n  onNavigate,\n}: SidebarNavigationProps & { onNavigate?: () => void }) {\n  const visibleGroups = filterSidebarNavigation(groups);\n\n  return (\n    <div className=\"flex h-full flex-col bg-card\">\n      <div className=\"flex h-14 items-center border-b px-4\">\n        <span className=\"font-semibold tracking-tight\">{brand}</span>\n      </div>\n\n      <nav aria-label={`${brand} navigation`} className=\"flex-1 space-y-5 overflow-y-auto px-3 py-4\">\n        {visibleGroups.map((group) => (\n          <section key={group.id}>\n            <h2 className=\"px-2 pb-2 text-[0.68rem] font-semibold tracking-widest text-muted-foreground uppercase\">\n              {group.label}\n            </h2>\n            <ul className=\"space-y-1\">\n              {group.items.map((item) => {\n                const active = item.href === activeHref;\n                return (\n                  <li key={item.id}>\n                    <a\n                      href={item.href}\n                      aria-current={active ? \"page\" : undefined}\n                      onClick={onNavigate}\n                      className={`flex items-center justify-between rounded-md px-2 py-2 text-sm transition-colors ${\n                        active\n                          ? \"bg-primary/10 font-medium text-primary\"\n                          : \"text-muted-foreground hover:bg-muted hover:text-foreground\"\n                      }`}\n                    >\n                      <span>{item.label}</span>\n                      {item.badge !== undefined ? (\n                        <span className=\"rounded-full bg-muted px-2 py-0.5 text-[0.68rem] tabular-nums\">\n                          {item.badge}\n                        </span>\n                      ) : null}\n                    </a>\n                  </li>\n                );\n              })}\n            </ul>\n          </section>\n        ))}\n      </nav>\n\n      {footer ? <div className=\"border-t p-4 text-xs text-muted-foreground\">{footer}</div> : null}\n    </div>\n  );\n}\n\nexport function StackFoundrySidebarNavigation(props: SidebarNavigationProps) {\n  const [open, setOpen] = useState(false);\n  const mobilePanelId = useId();\n\n  return (\n    <>\n      <button\n        type=\"button\"\n        className=\"inline-flex h-9 w-9 items-center justify-center rounded-md border bg-background text-sm lg:hidden\"\n        aria-expanded={open}\n        aria-controls={mobilePanelId}\n        onClick={() => setOpen(true)}\n      >\n        <span aria-hidden=\"true\">☰</span>\n        <span className=\"sr-only\">Open navigation</span>\n      </button>\n\n      <aside className=\"fixed inset-y-0 left-0 hidden w-64 border-r lg:block\">\n        <SidebarContent {...props} />\n      </aside>\n\n      {open ? (\n        <div className=\"fixed inset-0 z-50 lg:hidden\">\n          <button\n            type=\"button\"\n            aria-label=\"Close navigation\"\n            className=\"absolute inset-0 bg-background/70 backdrop-blur-sm\"\n            onClick={() => setOpen(false)}\n          />\n          <div\n            id={mobilePanelId}\n            className=\"absolute inset-y-0 left-0 w-72 border-r shadow-lg\"\n            role=\"dialog\"\n            aria-modal=\"true\"\n            aria-label={`${props.brand} navigation`}\n          >\n            <SidebarContent {...props} onNavigate={() => setOpen(false)} />\n          </div>\n        </div>\n      ) : null}\n    </>\n  );\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/sidebar-navigation/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/components/sidebar-navigation/page.tsx",
+      "content": "import { StackFoundrySidebarNavigation } from \"@/components/stackfoundry/sidebar-navigation\";\n\nconst groups = [\n  {\n    id: \"overview\",\n    label: \"Overview\",\n    items: [\n      { id: \"dashboard\", label: \"Dashboard\", href: \"/dashboard\" },\n      { id: \"analytics\", label: \"Analytics\", href: \"/analytics\" },\n    ],\n  },\n  {\n    id: \"operations\",\n    label: \"Operations\",\n    items: [\n      { id: \"requests\", label: \"API requests\", href: \"/requests\", badge: 12 },\n      { id: \"security\", label: \"Security\", href: \"/security\" },\n      { id: \"settings\", label: \"Settings\", href: \"/settings\" },\n    ],\n  },\n];\n\nexport default function SidebarNavigationDemo() {\n  return (\n    <StackFoundrySidebarNavigation\n      brand=\"Acme Console\"\n      groups={groups}\n      activeHref=\"/dashboard\"\n      footer=\"Workspace: Acme · Pro plan\"\n    />\n  );\n}\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "sidebar-navigation",
+      "target": ".stackfoundry/skills/sidebar-navigation/SKILL.md",
+      "content": "---\nname: sidebar-navigation\ndescription: Maintain the Sidebar Navigation module installed by StackFoundry.\n---\n\n# Sidebar Navigation Skill\n\n## Boundary\n\nThis module owns the Sidebar Navigation source block and its safety checklist. Keep app routing rules and authorization data outside the reusable block.\n\n## Shared Skills\n\nWhen framework or app-shell behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/sidebar-navigation.ts`\n- `apps/web/src/components/stackfoundry/sidebar-navigation.tsx`\n- `apps/web/src/app/(console)/components/sidebar-navigation/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- `authorize-navigation-groups`\n- `keep-navigation-server-derived`\n- `keep-building-blocks-stateless`\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Sidebar Navigation Module\n\nResponsive shadcn-style console sidebar with grouped navigation, active state, and an accessible mobile sheet. Navigation remains server-derived, so adopting apps control authorization and route visibility.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/sidebar-navigation.ts`\n- `apps/web/src/components/stackfoundry/sidebar-navigation.tsx`\n- `apps/web/src/app/(console)/components/sidebar-navigation/page.tsx`\n\n## Safety Notes\n\n- Resolve navigation items and authorization on the server.\n- Hide inaccessible routes; disabled links leak surface area.\n- Keep focus visible and keep the mobile panel keyboard reachable.\n- Do not store user-specific navigation preferences in shared source.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add sidebar-navigation --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "components",
+    "env": [],
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
+  }
+}

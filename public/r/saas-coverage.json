@@ -26,6 +26,7 @@
     "https://stackfoundry.dev/r/error-boundaries.json",
     "https://stackfoundry.dev/r/feature-requests.json",
     "https://stackfoundry.dev/r/feedback-collector.json",
+    "https://stackfoundry.dev/r/filter-panel.json",
     "https://stackfoundry.dev/r/idempotency-keys.json",
     "https://stackfoundry.dev/r/input-validation.json",
     "https://stackfoundry.dev/r/integration-card.json",
@@ -49,6 +50,7 @@
     "https://stackfoundry.dev/r/tax-vat.json",
     "https://stackfoundry.dev/r/tenant-context.json",
     "https://stackfoundry.dev/r/tenant-isolation-tests.json",
+    "https://stackfoundry.dev/r/timeline-activity.json",
     "https://stackfoundry.dev/r/tinybird-analytics.json",
     "https://stackfoundry.dev/r/toast-notifications.json",
     "https://stackfoundry.dev/r/uptime-monitoring.json",
@@ -81,6 +83,7 @@
       "error-boundaries",
       "feature-requests",
       "feedback-collector",
+      "filter-panel",
       "idempotency-keys",
       "input-validation",
       "integration-card",
@@ -104,11 +107,12 @@
       "tax-vat",
       "tenant-context",
       "tenant-isolation-tests",
+      "timeline-activity",
       "tinybird-analytics",
       "toast-notifications",
       "uptime-monitoring",
       "workspace-switcher"
     ],
-    "moduleCount": 48
+    "moduleCount": 50
   }
 }

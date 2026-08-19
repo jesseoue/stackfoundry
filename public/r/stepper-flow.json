@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stepper-flow",
+  "type": "registry:block",
+  "title": "Stepper Flow",
+  "description": "Accessible progress indicator for onboarding, setup, and checkout flows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/stepper-flow.ts",
+      "type": "registry:lib",
+      "target": "apps/web/src/lib/stackfoundry/stepper-flow.ts",
+      "content": "export type StepperFlowStep = {\n  id: string;\n  label: string;\n  description?: string;\n};\n\nexport function getStepperState(steps: StepperFlowStep[], activeStepId: string) {\n  const activeIndex = steps.findIndex((step) => step.id === activeStepId);\n  if (activeIndex < 0) {\n    return {\n      activeIndex: 0,\n      completedCount: 0,\n      completionRatio: 0,\n      nextStep: steps[0] ?? undefined,\n    };\n  }\n\n  return {\n    activeIndex,\n    completedCount: activeIndex,\n    completionRatio: steps.length > 0 ? activeIndex / steps.length : 0,\n    nextStep: steps[activeIndex + 1],\n  };\n}\n\nexport const stepperFlowChecks = [\n  \"Validate step transitions and completion on the server\",\n  \"Persist completed work before allowing destructive or paid transitions\",\n  \"Expose progress semantically rather than relying on color alone\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/stepper-flow.tsx",
+      "type": "registry:component",
+      "target": "apps/web/src/components/stackfoundry/stepper-flow.tsx",
+      "content": "import { getStepperState, type StepperFlowStep } from \"@/lib/stackfoundry/stepper-flow\";\n\ntype StepperFlowProps = {\n  title: string;\n  steps: StepperFlowStep[];\n  activeStepId: string;\n};\n\nexport function StackFoundryStepperFlow({ title, steps, activeStepId }: StepperFlowProps) {\n  const { activeIndex, completedCount, completionRatio } = getStepperState(steps, activeStepId);\n  const progressPercent = Math.round(Math.max(0, Math.min(1, completionRatio)) * 100);\n\n  return (\n    <section className=\"rounded-xl border bg-card p-5 shadow-xs\">\n      <header className=\"flex flex-wrap items-end justify-between gap-4\">\n        <div>\n          <h2 className=\"text-base font-semibold tracking-tight\">{title}</h2>\n          <p className=\"mt-1 text-sm text-muted-foreground\">\n            Step {activeIndex + 1} of {steps.length} · {completedCount} completed\n          </p>\n        </div>\n        <p className=\"text-sm font-medium tabular-nums\">{progressPercent}%</p>\n      </header>\n\n      <div\n        className=\"mt-5 h-2 overflow-hidden rounded-full bg-muted\"\n        role=\"progressbar\"\n        aria-valuemin={0}\n        aria-valuemax={100}\n        aria-valuenow={progressPercent}\n        aria-label={`${title} completion`}\n      >\n        <div className=\"h-full rounded-full bg-primary transition-[width] duration-500\" style={{ width: `${progressPercent}%` }} />\n      </div>\n\n      <ol className=\"mt-6 grid gap-4 md:grid-cols-3\">\n        {steps.map((step, index) => {\n          const state = index < activeIndex ? \"complete\" : index === activeIndex ? \"current\" : \"upcoming\";\n          return (\n            <li\n              key={step.id}\n              aria-current={state === \"current\" ? \"step\" : undefined}\n              className={`rounded-lg border p-4 transition-colors ${\n                state === \"current\" ? \"border-primary/50 bg-primary/5\" : \"bg-background\"\n              }`}\n            >\n              <div className=\"flex items-start gap-3\">\n                <span\n                  aria-hidden=\"true\"\n                  className={`grid size-7 shrink-0 place-items-center rounded-full border text-xs font-semibold ${\n                    state === \"complete\"\n                      ? \"border-transparent bg-primary text-primary-foreground\"\n                      : state === \"current\"\n                        ? \"border-primary text-primary\"\n                        : \"text-muted-foreground\"\n                  }`}\n                >\n                  {state === \"complete\" ? \"✓\" : index + 1}\n                </span>\n                <div>\n                  <p className=\"text-sm font-medium\">{step.label}</p>\n                  <p className=\"mt-1 text-xs text-muted-foreground\">\n                    {state === \"complete\" ? \"Completed · \" : state === \"current\" ? \"Current · \" : \"\"}\n                    {step.description}\n                  </p>\n                </div>\n              </div>\n            </li>\n          );\n        })}\n      </ol>\n    </section>\n  );\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/stepper-flow/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/components/stepper-flow/page.tsx",
+      "content": "import { StackFoundryStepperFlow } from \"@/components/stackfoundry/stepper-flow\";\n\nconst steps = [\n  { id: \"workspace\", label: \"Create workspace\", description: \"Name and default region\" },\n  { id: \"team\", label: \"Invite team\", description: \"Optional during setup\" },\n  { id: \"connect\", label: \"Connect data\", description: \"Add your first integration\" },\n];\n\nexport default function StepperFlowDemo() {\n  return <StackFoundryStepperFlow title=\"Workspace setup\" steps={steps} activeStepId=\"connect\" />;\n}\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "stepper-flow",
+      "target": ".stackfoundry/skills/stepper-flow/SKILL.md",
+      "content": "---\nname: stepper-flow\ndescription: Maintain the Stepper Flow module installed by StackFoundry.\n---\n\n# Stepper Flow Skill\n\n## Boundary\n\nThis module owns the Stepper Flow source block and its safety checklist. Keep flow persistence, payment, and business transition rules outside the reusable block.\n\n## Shared Skills\n\nWhen framework or app-shell behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/stepper-flow.ts`\n- `apps/web/src/components/stackfoundry/stepper-flow.tsx`\n- `apps/web/src/app/(console)/components/stepper-flow/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- `server-validate-step-transition`\n- `preserve-completed-step-data`\n- `keep-building-blocks-stateless`\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Stepper Flow Module\n\nProgress surface for onboarding, setup, migration, and checkout flows. The component communicates progress; the adopting app owns state persistence and server-side transition validation.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/stepper-flow.ts`\n- `apps/web/src/components/stackfoundry/stepper-flow.tsx`\n- `apps/web/src/app/(console)/components/stepper-flow/page.tsx`\n\n## Safety Notes\n\n- Validate step transitions on the server.\n- Persist completed work before paid or destructive transitions.\n- Keep progress readable through text, order, and semantic state.\n- Keep the display block stateless and derive it from server-resolved state.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add stepper-flow --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "components",
+    "env": [],
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
+  }
+}

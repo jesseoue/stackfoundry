@@ -1,0 +1,34 @@
+{
+  "name": "chart-card",
+  "type": "page",
+  "category": "components",
+  "title": "Chart Card",
+  "description": "Accessible trend chart card with Sparkline and area rendering modes.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/chart-card.ts",
+      "type": "registry:lib"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/chart-card.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/chart-card/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "status": "ready",
+  "maintenance": {
+    "skills": ["chart-card", "nextjs"],
+    "rules": [
+      "server-resolve-display-data",
+      "keep-building-blocks-stateless",
+      "provide-chart-alternatives"
+    ]
+  }
+}

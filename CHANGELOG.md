@@ -4,6 +4,8 @@
 
 ### Added
 
+- Added the Product Dashboard registry wave: `metric-card`, `chart-card`, `sidebar-navigation`, `filter-panel`, `stepper-flow`, and `timeline-activity`.
+
 - Added category-specific maintenance invariants across the full SaaS module registry.
 - Upgraded core API error, pagination, usage metering, and system health modules from placeholder scaffolds to typed production helpers.
 
