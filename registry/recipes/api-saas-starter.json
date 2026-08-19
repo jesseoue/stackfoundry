@@ -1,4 +1,5 @@
 {
+  "name": "api-saas-starter",
   "title": "API SaaS Starter",
   "description": "The API-first SaaS wedge: keys, usage tracking, quotas, credits, Stripe billing, docs, webhooks, and request visibility.",
   "category": "developer-platform",
@@ -66,7 +67,6 @@
       ]
     }
   ],
-  "name": "api-saas-starter",
   "modules": [
     "agent-ready-installs",
     "auth-core",

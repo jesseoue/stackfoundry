@@ -2732,6 +2732,38 @@
       }
     },
     {
+      "name": "feedback-collector",
+      "type": "registry:block",
+      "title": "Feedback Collector",
+      "description": "Satisfaction score and structured feedback form with submission states.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/feedback-collector.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/feedback-collector.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/feedback-collector.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/feedback-collector.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/feedback-collector/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/feedback-collector/page.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
       "name": "file-uploads",
       "type": "registry:block",
       "title": "File Uploads",
@@ -2966,6 +2998,38 @@
       ],
       "meta": {
         "category": "security",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "integration-card",
+      "type": "registry:block",
+      "title": "Integration Card",
+      "description": "Connection card for marketplace integrations with status and sync metadata.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/integration-card.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/integration-card.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/integration-card.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/integration-card.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/integration-card/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/integration-card/page.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components",
         "status": "ready",
         "maturity": "ready",
         "recommendedFor": []
@@ -3492,6 +3556,38 @@
       }
     },
     {
+      "name": "onboarding-checklist",
+      "type": "registry:block",
+      "title": "Onboarding Checklist",
+      "description": "Progress checklist with next-best actions and completion state.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/onboarding-checklist.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/onboarding-checklist.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/onboarding-checklist.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/onboarding-checklist.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/onboarding-checklist/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/onboarding-checklist/page.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
       "name": "oncall-alerting",
       "type": "registry:block",
       "title": "On-call Alerting",
@@ -3930,6 +4026,38 @@
       }
     },
     {
+      "name": "quota-meters",
+      "type": "registry:block",
+      "title": "Quota Meters",
+      "description": "Progressive usage meters for API, seat, and storage entitlements.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/quota-meters.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/quota-meters.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/quota-meters.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/quota-meters.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/quota-meters/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/quota-meters/page.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
       "name": "railway-deploy",
       "type": "registry:block",
       "title": "Railway Deploy",
@@ -4163,6 +4291,38 @@
       ],
       "meta": {
         "category": "security",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "security-activity",
+      "type": "registry:block",
+      "title": "Security Activity",
+      "description": "Security event timeline with severity, actor, and timestamp display.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/security-activity.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/security-activity.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/security-activity.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/security-activity.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/security-activity/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/security-activity/page.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components",
         "status": "ready",
         "maturity": "ready",
         "recommendedFor": []
@@ -5261,6 +5421,38 @@
       ],
       "meta": {
         "category": "auth",
+        "status": "ready",
+        "maturity": "ready",
+        "recommendedFor": []
+      }
+    },
+    {
+      "name": "workspace-switcher",
+      "type": "registry:block",
+      "title": "Workspace Switcher",
+      "description": "Accessible workspace selector with tenant-safe switch behavior.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "apps/web/src/lib/stackfoundry/workspace-switcher.ts",
+          "type": "registry:file",
+          "target": "apps/web/src/lib/stackfoundry/workspace-switcher.ts"
+        },
+        {
+          "path": "apps/web/src/components/stackfoundry/workspace-switcher.tsx",
+          "type": "registry:component",
+          "target": "apps/web/src/components/stackfoundry/workspace-switcher.tsx"
+        },
+        {
+          "path": "apps/web/src/app/(console)/components/workspace-switcher/page.tsx",
+          "type": "registry:page",
+          "target": "apps/web/src/app/(console)/components/workspace-switcher/page.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components",
         "status": "ready",
         "maturity": "ready",
         "recommendedFor": []

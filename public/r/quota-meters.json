@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "quota-meters",
+  "type": "registry:block",
+  "title": "Quota Meters",
+  "description": "Progressive usage meters for API, seat, and storage entitlements.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/quota-meters.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/quota-meters.ts",
+      "content": "export type QuotaMetersConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createQuotaMetersConfig(config: QuotaMetersConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const quotaMetersChecks = [\n  \"Read quota values from the tenant-scoped usage service\",\n  \"Never trust client-submitted usage for enforcement\",\n  \"Keep meter labels synchronized with entitlement definitions\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/quota-meters.tsx",
+      "type": "registry:component",
+      "target": "apps/web/src/components/stackfoundry/quota-meters.tsx",
+      "content": "export type QuotaMeterItem = {\n  id: string;\n  label: string;\n  used: number;\n  limit: number;\n  unit?: string;\n};\n\nfunction formatValue(value: number, unit?: string) {\n  return unit ? `${value.toLocaleString()} ${unit}` : value.toLocaleString();\n}\n\nexport function StackFoundryQuotaMeters({ items }: { items: QuotaMeterItem[] }) {\n  return (\n    <section className=\"rounded-lg border p-5\">\n      <h2 className=\"font-semibold\">Usage</h2>\n      <dl className=\"mt-4 space-y-4\">\n        {items.map((item) => {\n          const percentage = item.limit > 0 ? Math.min(100, Math.round((item.used / item.limit) * 100)) : 0;\n          const tone =\n            percentage >= 90 ? \"bg-destructive\" : percentage >= 75 ? \"bg-warning\" : \"bg-primary\";\n\n          return (\n            <div key={item.id}>\n              <div className=\"flex items-center justify-between text-sm\">\n                <dt>{item.label}</dt>\n                <dd className=\"text-muted-foreground\">\n                  {formatValue(item.used, item.unit)} / {formatValue(item.limit, item.unit)}\n                </dd>\n              </div>\n              <div\n                className=\"mt-2 h-2 overflow-hidden rounded-full bg-muted\"\n                role=\"progressbar\"\n                aria-valuemin={0}\n                aria-valuemax={item.limit}\n                aria-valuenow={item.used}\n                aria-label={`${item.label} usage`}\n              >\n                <div className={`h-full ${tone}`} style={{ width: `${percentage}%` }} />\n              </div>\n            </div>\n          );\n        })}\n      </dl>\n    </section>\n  );\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/quota-meters/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/components/quota-meters/page.tsx",
+      "content": "import { StackFoundryQuotaMeters } from \"@/components/stackfoundry/quota-meters\";\n\nconst items = [\n  { id: \"requests\", label: \"API requests\", used: 842_500, limit: 1_000_000, unit: \"requests\" },\n  { id: \"seats\", label: \"Team seats\", used: 18, limit: 25 },\n  { id: \"storage\", label: \"File storage\", used: 64, limit: 100, unit: \"GB\" },\n];\n\nexport default function QuotaMetersDemo() {\n  return <StackFoundryQuotaMeters items={items} />;\n}\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "quota-meters",
+      "target": ".stackfoundry/skills/quota-meters/SKILL.md",
+      "content": "---\nname: quota-meters\ndescription: Maintain the Quota Meters module installed by StackFoundry.\n---\n\n# Quota Meters Skill\n\n## Boundary\n\nThis module owns the Quota Meters source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Shared Skills\n\nWhen framework or app-shell behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/quota-meters.ts`\n- `apps/web/src/components/stackfoundry/quota-meters.tsx`\n- `apps/web/src/app/(console)/components/quota-meters/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- `tenant-scoped-usage`\n- `server-owned-enforcement`\n- `sync-entitlement-labels`\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Quota Meters Module\n\nProgressive usage meters for API, seat, and storage entitlements.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/quota-meters.ts`\n- `apps/web/src/components/stackfoundry/quota-meters.tsx`\n- `apps/web/src/app/(console)/components/quota-meters/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add quota-meters --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "components",
+    "env": [],
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
+  }
+}

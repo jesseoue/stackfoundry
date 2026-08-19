@@ -47,6 +47,15 @@
 - [x] docs/help center modules
 - [ ] search provider modules
 
+## Product UI Wave
+
+- [x] `workspace-switcher`
+- [x] `quota-meters`
+- [x] `onboarding-checklist`
+- [x] `security-activity`
+- [x] `integration-card`
+- [x] `feedback-collector`
+
 ## Module System
 
 - [x] module manifest schema package

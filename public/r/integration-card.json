@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "integration-card",
+  "type": "registry:block",
+  "title": "Integration Card",
+  "description": "Connection card for marketplace integrations with status and sync metadata.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/integration-card.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/integration-card.ts",
+      "content": "export type IntegrationCardConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createIntegrationCardConfig(config: IntegrationCardConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const integrationCardChecks = [\n  \"Load connection state and credentials only on the server\",\n  \"Scope every integration to the selected workspace\",\n  \"Route OAuth and webhook secrets through the app's secrets manager\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/integration-card.tsx",
+      "type": "registry:component",
+      "target": "apps/web/src/components/stackfoundry/integration-card.tsx",
+      "content": "export type IntegrationCardProps = {\n  id: string;\n  name: string;\n  description: string;\n  category: string;\n  status: \"connected\" | \"available\" | \"error\";\n  lastSyncedAt?: string | Date;\n  onConnect?: () => void;\n  onManage?: () => void;\n};\n\nconst statusLabels = {\n  connected: \"Connected\",\n  available: \"Available\",\n  error: \"Needs attention\",\n} as const;\n\nfunction formatDateTime(value: string | Date) {\n  return new Intl.DateTimeFormat(undefined, { dateStyle: \"medium\", timeStyle: \"short\" }).format(new Date(value));\n}\n\nexport function StackFoundryIntegrationCard({\n  name,\n  description,\n  category,\n  status,\n  lastSyncedAt,\n  onConnect,\n  onManage,\n}: Omit<IntegrationCardProps, \"id\">) {\n  return (\n    <article className=\"flex h-full flex-col gap-3 rounded-lg border p-5\">\n      <div className=\"flex items-start justify-between gap-3\">\n        <div>\n          <h3 className=\"font-semibold\">{name}</h3>\n          <p className=\"text-xs uppercase tracking-wide text-muted-foreground\">{category}</p>\n        </div>\n        <span\n          className={`rounded-full px-2 py-0.5 text-xs ${\n            status === \"connected\" ? \"bg-primary/10 text-primary\" : status === \"error\" ? \"bg-destructive/10 text-destructive\" : \"bg-muted text-muted-foreground\"\n          }`}\n        >\n          {statusLabels[status]}\n        </span>\n      </div>\n\n      <p className=\"text-sm text-muted-foreground\">{description}</p>\n\n      <div className=\"mt-auto space-y-3\">\n        {lastSyncedAt ? (\n          <p className=\"text-xs text-muted-foreground\">Last synced {formatDateTime(lastSyncedAt)}</p>\n        ) : null}\n        {status === \"available\" && onConnect ? (\n          <button type=\"button\" className=\"w-full rounded-md bg-primary px-3 py-2 text-sm text-primary-foreground\" onClick={onConnect}>\n            Connect\n          </button>\n        ) : null}\n        {status !== \"available\" && onManage ? (\n          <button type=\"button\" className=\"w-full rounded-md border px-3 py-2 text-sm\" onClick={onManage}>\n            Manage\n          </button>\n        ) : null}\n      </div>\n    </article>\n  );\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/integration-card/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/components/integration-card/page.tsx",
+      "content": "import { StackFoundryIntegrationCard } from \"@/components/stackfoundry/integration-card\";\n\nexport default function IntegrationCardDemo() {\n  return (\n    <div className=\"grid gap-4 sm:grid-cols-2\">\n      <StackFoundryIntegrationCard\n        name=\"GitHub\"\n        description=\"Sync repository activity, issues, and pull requests.\"\n        category=\"Developer tools\"\n        status=\"connected\"\n        lastSyncedAt=\"2026-08-19T15:20:00Z\"\n        onManage={() => undefined}\n      />\n      <StackFoundryIntegrationCard\n        name=\"Linear\"\n        description=\"Create and resolve issues from product events.\"\n        category=\"Project management\"\n        status=\"available\"\n        onConnect={() => undefined}\n      />\n    </div>\n  );\n}\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "integration-card",
+      "target": ".stackfoundry/skills/integration-card/SKILL.md",
+      "content": "---\nname: integration-card\ndescription: Maintain the Integration Card module installed by StackFoundry.\n---\n\n# Integration Card Skill\n\n## Boundary\n\nThis module owns the Integration Card source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Shared Skills\n\nWhen framework or app-shell behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/integration-card.ts`\n- `apps/web/src/components/stackfoundry/integration-card.tsx`\n- `apps/web/src/app/(console)/components/integration-card/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- `server-side-credentials`\n- `workspace-scoped-connections`\n- `secrets-manager-only`\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Integration Card Module\n\nConnection card for marketplace integrations with status and sync metadata.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/integration-card.ts`\n- `apps/web/src/components/stackfoundry/integration-card.tsx`\n- `apps/web/src/app/(console)/components/integration-card/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add integration-card --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "components",
+    "env": [],
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
+  }
+}

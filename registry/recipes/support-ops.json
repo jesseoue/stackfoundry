@@ -1,4 +1,5 @@
 {
+  "name": "support-ops",
   "title": "Support Ops",
   "description": "Support and operations recipe for customer context, bug reports, feature requests, incidents, on-call, and postmortems.",
   "category": "operations",
@@ -30,7 +31,6 @@
       ]
     }
   ],
-  "name": "support-ops",
   "modules": [
     "support-console",
     "support-widget",

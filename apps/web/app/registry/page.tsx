@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ModuleCard, type ModuleTag } from "../components/module-card";
 
 const githubUrl = "https://github.com/jesseoue/stackfoundry";
@@ -331,7 +332,7 @@ const providerOptions = [
 ];
 
 const stats = [
-  ["157", "Module manifests"],
+  ["163", "Module manifests"],
   ["13", "Preset bundles"],
   ["9", "Recipes"],
   ["17", "Provider cards"],
@@ -345,13 +346,14 @@ function ProviderLogo({ name, domain }: { name: string; domain: string }) {
   return (
     <span className="registry-logo-wrap" aria-hidden="true">
       <span>{name.slice(0, 1)}</span>
-      <img
+      <Image
         src={`https://www.google.com/s2/favicons?domain=${domain}&sz=64`}
         alt=""
         width="32"
         height="32"
         loading="lazy"
         referrerPolicy="no-referrer"
+        unoptimized
       />
     </span>
   );

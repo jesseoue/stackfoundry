@@ -1,0 +1,37 @@
+{
+  "name": "feedback-collector",
+  "type": "module",
+  "category": "components",
+  "title": "Feedback Collector",
+  "description": "Satisfaction score and structured feedback form with submission states.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/feedback-collector.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/feedback-collector.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/feedback-collector/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "status": "ready",
+  "maintenance": {
+    "skills": [
+      "feedback-collector",
+      "nextjs"
+    ],
+    "rules": [
+      "authenticated-server-action",
+      "rate-limit-writes",
+      "no-secret-ingestion"
+    ]
+  }
+}

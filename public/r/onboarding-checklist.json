@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "onboarding-checklist",
+  "type": "registry:block",
+  "title": "Onboarding Checklist",
+  "description": "Progress checklist with next-best actions and completion state.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/onboarding-checklist.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/onboarding-checklist.ts",
+      "content": "export type OnboardingChecklistConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createOnboardingChecklistConfig(config: OnboardingChecklistConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const onboardingChecklistChecks = [\n  \"Resolve completion state from tenant-specific product data\",\n  \"Keep next-best actions tied to the current account role\",\n  \"Never expose another workspace's onboarding state\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/onboarding-checklist.tsx",
+      "type": "registry:component",
+      "target": "apps/web/src/components/stackfoundry/onboarding-checklist.tsx",
+      "content": "export type OnboardingTask = {\n  id: string;\n  title: string;\n  description?: string;\n  href?: string;\n  completed: boolean;\n};\n\nexport function StackFoundryOnboardingChecklist({ tasks }: { tasks: OnboardingTask[] }) {\n  const completed = tasks.filter((task) => task.completed).length;\n  const percentage = tasks.length > 0 ? Math.round((completed / tasks.length) * 100) : 0;\n\n  return (\n    <section className=\"rounded-lg border p-5\">\n      <div className=\"flex items-center justify-between\">\n        <h2 className=\"font-semibold\">Getting started</h2>\n        <span className=\"text-sm text-muted-foreground\">{completed}/{tasks.length}</span>\n      </div>\n      <div className=\"mt-2 h-2 overflow-hidden rounded-full bg-muted\" role=\"progressbar\" aria-valuemin={0} aria-valuemax={tasks.length} aria-valuenow={completed} aria-label=\"Onboarding progress\">\n        <div className=\"h-full bg-primary\" style={{ width: `${percentage}%` }} />\n      </div>\n\n      <ol className=\"mt-4 space-y-3\">\n        {tasks.map((task) => {\n          const content = (\n            <>\n              <span aria-hidden=\"true\" className={`grid size-5 place-items-center rounded-full border text-xs ${task.completed ? \"border-primary bg-primary text-primary-foreground\" : \"\"}`}>\n                {task.completed ? \"✓\" : task.href ? \"→\" : \"\"}\n              </span>\n              <span>\n                <span className=\"text-sm font-medium\">{task.title}</span>\n                {task.description ? <span className=\"block text-sm text-muted-foreground\">{task.description}</span> : null}\n              </span>\n            </>\n          );\n\n          return (\n            <li key={task.id}>\n              {task.href ? (\n                <a href={task.href} className=\"flex gap-3 rounded-md p-2 hover:bg-muted\">\n                  {content}\n                </a>\n              ) : (\n                <div className=\"flex gap-3 p-2\">{content}</div>\n              )}\n            </li>\n          );\n        })}\n      </ol>\n    </section>\n  );\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/onboarding-checklist/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/components/onboarding-checklist/page.tsx",
+      "content": "import { StackFoundryOnboardingChecklist } from \"@/components/stackfoundry/onboarding-checklist\";\n\nconst tasks = [\n  { id: \"invite\", title: \"Invite your team\", description: \"Collaborators can join with the correct role.\", completed: true },\n  { id: \"keys\", title: \"Create an API key\", description: \"Use scoped keys for each integration.\", completed: false },\n  { id: \"billing\", title: \"Add billing details\", completed: false },\n];\n\nexport default function OnboardingChecklistDemo() {\n  return <StackFoundryOnboardingChecklist tasks={tasks} />;\n}\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "onboarding-checklist",
+      "target": ".stackfoundry/skills/onboarding-checklist/SKILL.md",
+      "content": "---\nname: onboarding-checklist\ndescription: Maintain the Onboarding Checklist module installed by StackFoundry.\n---\n\n# Onboarding Checklist Skill\n\n## Boundary\n\nThis module owns the Onboarding Checklist source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Shared Skills\n\nWhen framework or app-shell behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/onboarding-checklist.ts`\n- `apps/web/src/components/stackfoundry/onboarding-checklist.tsx`\n- `apps/web/src/app/(console)/components/onboarding-checklist/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- `tenant-specific-state`\n- `role-aware-actions`\n- `no-cross-workspace-data`\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Onboarding Checklist Module\n\nProgress checklist with next-best actions and completion state.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/onboarding-checklist.ts`\n- `apps/web/src/components/stackfoundry/onboarding-checklist.tsx`\n- `apps/web/src/app/(console)/components/onboarding-checklist/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add onboarding-checklist --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "components",
+    "env": [],
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
+  }
+}

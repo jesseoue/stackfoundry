@@ -2,7 +2,6 @@
   "name": "ai-saas-starter",
   "title": "AI SaaS Starter",
   "description": "AI SaaS starter with Vercel AI SDK chat, AI Elements, usage metering, quotas, analytics, and monitoring.",
-  "status": "experimental",
   "modules": [
     "next-saas-shell",
     "clerk-auth",
@@ -15,5 +14,6 @@
     "ai-chatbot-sdk",
     "posthog-analytics",
     "sentry-monitoring"
-  ]
+  ],
+  "status": "experimental"
 }

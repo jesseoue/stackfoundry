@@ -1,4 +1,5 @@
 {
+  "name": "enterprise-saas",
   "title": "Enterprise SaaS",
   "description": "Enterprise controls for identity, access, audit, security posture, support, and SLA operations.",
   "category": "security",
@@ -46,7 +47,6 @@
       ]
     }
   ],
-  "name": "enterprise-saas",
   "modules": [
     "auth-core",
     "custom-roles",

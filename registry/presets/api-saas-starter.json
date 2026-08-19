@@ -2,7 +2,6 @@
   "name": "api-saas-starter",
   "title": "API SaaS Starter",
   "description": "API-first SaaS starter with API keys, usage tracking, rate limits, credits, Stripe billing, webhooks, docs, and observability.",
-  "status": "ready",
   "modules": [
     "agent-ready-installs",
     "next-saas-shell",
@@ -34,5 +33,6 @@
     "audit-log",
     "support-console",
     "system-health"
-  ]
+  ],
+  "status": "ready"
 }

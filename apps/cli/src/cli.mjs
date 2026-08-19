@@ -372,6 +372,9 @@ async function validateRegistry(flags = {}) {
     itemNames.add(item.name);
     if (item.type !== "registry:block")
       errors.push(`${item.name}: registry item type must be registry:block`);
+    if (!existsSync(path.join(modulesRoot, item.name, "module.json"))) {
+      errors.push(`${item.name}: registry item does not match a module directory`);
+    }
   }
 
   for (const moduleDir of moduleDirs) {
@@ -737,8 +740,12 @@ async function mergeGitignoreEntries({ target, entries, flags, installedFiles })
   const relative = ".gitignore";
   const gitignorePath = path.join(target, relative);
   const existing = existsSync(gitignorePath) ? await readFile(gitignorePath, "utf8") : "";
-  const lines = existing.split(/\r?\n/);
-  const existingEntries = new Set(lines.map((line) => line.trim()).filter(Boolean));
+  const existingEntries = new Set(
+    existing
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter(Boolean),
+  );
   const missing = entries.filter((entry) => !existingEntries.has(entry));
 
   if (missing.length === 0) {
@@ -746,8 +753,7 @@ async function mergeGitignoreEntries({ target, entries, flags, installedFiles })
     return;
   }
 
-  const prefix = existing.trimEnd();
-  const content = `${prefix ? `${prefix}\n\n` : ""}# StackFoundry generated build output\n${missing.join("\n")}\n`;
+  const content = buildGitignoreContent(existing, missing);
   if (!flags.dryRun) await writeFile(gitignorePath, content);
   installedFiles[relative] = hashContent(content);
   console.log(`${flags.dryRun ? "would update" : "updated"} ${relative}`);
@@ -1020,7 +1026,92 @@ async function diffModule(name, flags) {
     }
   }
 
+  changes += await diffMergedTargets({
+    target: flags.target,
+    packageScripts: manifest.packageScripts,
+    gitignore: manifest.gitignore,
+    envVars: manifest.env,
+    flags: { ...flags, name },
+  });
+
   process.exitCode = changes > 0 ? 1 : 0;
+}
+
+function diffMergeTarget({ label, relative, expected, actual }) {
+  if (actual === expected) {
+    console.log(`same     ${relative}`);
+    return 0;
+  }
+
+  console.log(`${label.padEnd(8)} ${relative}`);
+  return 1;
+}
+
+async function readOptionalFile(filePath) {
+  return existsSync(filePath) ? await readFile(filePath, "utf8") : undefined;
+}
+
+function buildGitignoreContent(existing, missing) {
+  const separator = existing && !existing.endsWith("\n") ? "\n" : "";
+  const blankLine = existing.trimEnd() ? "\n" : "";
+  return `${existing}${separator}${blankLine}# StackFoundry generated build output\n${missing.join("\n")}\n`;
+}
+
+async function diffMergedTargets({ target, packageScripts, gitignore, envVars, flags }) {
+  let changes = 0;
+
+  for (const [relative, scripts] of Object.entries(packageScripts ?? {})) {
+    if (!isSafeRelativePath(relative) || !relative.endsWith("package.json")) {
+      throw new Error(`packageScripts target must be a safe package.json path: ${relative}`);
+    }
+
+    const packagePath = path.join(target, relative);
+    const actual = await readOptionalFile(packagePath);
+    if (actual === undefined) {
+      console.log(`missing  ${relative}`);
+      changes += 1;
+      continue;
+    }
+
+    const packageJson = JSON.parse(actual);
+    const nextScripts = { ...(packageJson.scripts ?? {}), ...scripts };
+    const expected = `${JSON.stringify({ ...packageJson, scripts: nextScripts }, null, 2)}\n`;
+    changes += diffMergeTarget({ label: "changed", relative, expected, actual });
+  }
+
+  if (gitignore?.length) {
+    const relative = ".gitignore";
+    const gitignorePath = path.join(target, relative);
+    const existing = (await readOptionalFile(gitignorePath)) ?? "";
+    const existingEntries = new Set(
+      existing
+        .split(/\r?\n/)
+        .map((line) => line.trim())
+        .filter(Boolean),
+    );
+    const missing = gitignore.filter((entry) => !existingEntries.has(entry));
+    const expected =
+      missing.length === 0
+        ? existing
+        : buildGitignoreContent(existing, missing);
+    const actual = existing;
+    changes += diffMergeTarget({ label: "changed", relative, expected, actual });
+  }
+
+  if (envVars.length > 0) {
+    const relative = `.env.stackfoundry.${flags.name}.example`;
+    const expected = createEnvExample(envVars);
+    const dest = path.join(target, relative);
+    const actual = await readOptionalFile(dest);
+    if (actual === undefined) {
+      console.log(`missing  ${relative}`);
+      changes += 1;
+    } else {
+      changes += diffMergeTarget({ label: "changed", relative, expected, actual });
+    }
+  }
+
+  return changes;
 }
 
 async function diffRegistryItem(specifier, flags, visited = new Set()) {
@@ -1067,6 +1158,14 @@ async function diffRegistryItem(specifier, flags, visited = new Set()) {
       console.log(`same     ${relative}`);
     }
   }
+
+  changes += await diffMergedTargets({
+    target: flags.target,
+    packageScripts: item.meta?.packageScripts,
+    gitignore: item.meta?.gitignore,
+    envVars: Object.keys(item.envVars ?? {}),
+    flags: { ...flags, name: item.name },
+  });
 
   process.exitCode = changes > 0 ? 1 : process.exitCode;
 }

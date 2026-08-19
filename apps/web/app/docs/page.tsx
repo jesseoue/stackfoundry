@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Docs",
@@ -433,7 +434,7 @@ function CodeBlock({ label, children }: { label: string; children: string }) {
   const isTerminal = label === "terminal";
   const highlighted = children.split("\n").map((line, index) => {
     if (isJson) {
-      return <JsonLine index={index} key={`${line}-${index}`} line={line} />;
+      return <JsonLine index={index} key={index} line={line} />;
     }
 
     let className = "terminal-line";
@@ -443,7 +444,7 @@ function CodeBlock({ label, children }: { label: string; children: string }) {
     if (line.startsWith("·")) className += " terminal-line-muted";
 
     return (
-      <span className={className} key={`${line}-${index}`}>
+      <span className={className} key={index}>
         {line}
       </span>
     );
@@ -499,13 +500,14 @@ function ModuleChip({ module }: { module: string }) {
   return (
     <a className={`docs-module-chip tone-${moduleTone(module)}`} href={moduleHref(module)}>
       {meta?.domain ? (
-        <img
+        <Image
           alt=""
           aria-hidden="true"
           height="16"
           loading="lazy"
           src={`https://www.google.com/s2/favicons?domain=${meta.domain}&sz=32`}
           width="16"
+          unoptimized
         />
       ) : (
         <span aria-hidden="true" className="docs-module-dot" />
@@ -572,7 +574,7 @@ export default function DocsPage() {
           </div>
           <div className="docs-side-section">
             <h4>
-              Registry <strong>157</strong>
+              Registry <strong>163</strong>
             </h4>
             {moduleGroups.slice(0, 7).map((group) => (
               <a href="#module-catalog" key={group.category}>
@@ -857,7 +859,7 @@ $ code ./my-app/.stackfoundry/prompts/one-shot-api-saas.md`}</CodeBlock>
           <a href="#safety">Safety</a>
           <div className="docs-toc-meta">
             <span>Registry-first</span>
-            <span>157 modules</span>
+            <span>163 modules</span>
             <a href="https://github.com/jesseoue/stackfoundry">GitHub →</a>
           </div>
         </aside>

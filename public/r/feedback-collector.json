@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feedback-collector",
+  "type": "registry:block",
+  "title": "Feedback Collector",
+  "description": "Satisfaction score and structured feedback form with submission states.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/feedback-collector.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/feedback-collector.ts",
+      "content": "export type FeedbackCollectorConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createFeedbackCollectorConfig(config: FeedbackCollectorConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const feedbackCollectorChecks = [\n  \"Persist feedback through an authenticated tenant-scoped server action\",\n  \"Rate-limit submissions before writing to storage\",\n  \"Never include secrets or unrelated customer data in free-text feedback\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/feedback-collector.tsx",
+      "type": "registry:component",
+      "target": "apps/web/src/components/stackfoundry/feedback-collector.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\n\nconst satisfactionLabels = [\"Very frustrated\", \"Frustrated\", \"Neutral\", \"Satisfied\", \"Very satisfied\"] as const;\nconst satisfactionValues = [1, 2, 3, 4, 5] as const;\n\nexport function StackFoundryFeedbackCollector({\n  onSubmit,\n}: {\n  onSubmit: (feedback: { score: (typeof satisfactionValues)[number]; message: string }) => Promise<void> | void;\n}) {\n  const [score, setScore] = useState<(typeof satisfactionValues)[number] | undefined>();\n  const [message, setMessage] = useState(\"\");\n  const [state, setState] = useState<\"idle\" | \"submitting\" | \"submitted\" | \"error\">(\"idle\");\n\n  async function submit() {\n    if (!score || state === \"submitting\") return;\n\n    setState(\"submitting\");\n    try {\n      await onSubmit({ score, message: message.trim() });\n      setState(\"submitted\");\n    } catch {\n      setState(\"error\");\n    }\n  }\n\n  if (state === \"submitted\") {\n    return (\n      <section className=\"rounded-lg border p-5\">\n        <h2 className=\"font-semibold\">Thank you</h2>\n        <p className=\"mt-2 text-sm text-muted-foreground\">Your feedback was recorded for the product team.</p>\n      </section>\n    );\n  }\n\n  return (\n    <section className=\"rounded-lg border p-5\">\n      <h2 className=\"font-semibold\">How is StackFoundry working for you?</h2>\n\n      <fieldset className=\"mt-4\">\n        <legend className=\"text-sm text-muted-foreground\">Select a satisfaction score</legend>\n        <div className=\"mt-2 flex flex-wrap gap-2\">\n          {satisfactionValues.map((value, index) => (\n            <button\n              key={value}\n              type=\"button\"\n              aria-pressed={score === value}\n              className={`size-10 rounded-md border text-sm ${score === value ? \"border-primary bg-primary/10\" : \"\"}`}\n              onClick={() => setScore(value)}\n              title={satisfactionLabels[index]}\n            >\n              {value}\n            </button>\n          ))}\n        </div>\n      </fieldset>\n\n      <label className=\"mt-4 block text-sm font-medium\" htmlFor=\"feedback-message\">\n        What would make it better?\n      </label>\n      <textarea\n        id=\"feedback-message\"\n        className=\"mt-2 min-h-24 w-full rounded-md border p-3 text-sm\"\n        maxLength={1000}\n        value={message}\n        onChange={(event) => setMessage(event.target.value)}\n      />\n\n      {state === \"error\" ? <p className=\"mt-2 text-sm text-destructive\">Unable to save feedback. Please try again.</p> : null}\n\n      <button\n        type=\"button\"\n        className=\"mt-4 rounded-md bg-primary px-4 py-2 text-sm text-primary-foreground disabled:opacity-50\"\n        disabled={!score || state === \"submitting\"}\n        onClick={submit}\n      >\n        {state === \"submitting\" ? \"Sending…\" : \"Send feedback\"}\n      </button>\n    </section>\n  );\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/feedback-collector/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/components/feedback-collector/page.tsx",
+      "content": "import { StackFoundryFeedbackCollector } from \"@/components/stackfoundry/feedback-collector\";\n\nexport default function FeedbackCollectorDemo() {\n  return <StackFoundryFeedbackCollector onSubmit={async () => undefined} />;\n}\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "feedback-collector",
+      "target": ".stackfoundry/skills/feedback-collector/SKILL.md",
+      "content": "---\nname: feedback-collector\ndescription: Maintain the Feedback Collector module installed by StackFoundry.\n---\n\n# Feedback Collector Skill\n\n## Boundary\n\nThis module owns the Feedback Collector source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Shared Skills\n\nWhen framework or app-shell behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/feedback-collector.ts`\n- `apps/web/src/components/stackfoundry/feedback-collector.tsx`\n- `apps/web/src/app/(console)/components/feedback-collector/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- `authenticated-server-action`\n- `rate-limit-writes`\n- `no-secret-ingestion`\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Feedback Collector Module\n\nSatisfaction score and structured feedback form with submission states.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/feedback-collector.ts`\n- `apps/web/src/components/stackfoundry/feedback-collector.tsx`\n- `apps/web/src/app/(console)/components/feedback-collector/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add feedback-collector --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "components",
+    "env": [],
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
+  }
+}

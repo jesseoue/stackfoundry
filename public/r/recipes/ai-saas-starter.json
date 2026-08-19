@@ -1,4 +1,5 @@
 {
+  "name": "ai-saas-starter",
   "title": "AI SaaS Starter",
   "description": "AI product path with Vercel AI SDK chat, AI Elements, quotas, usage billing, and optional Cloudflare AI building blocks.",
   "category": "ai",
@@ -35,7 +36,6 @@
       ]
     }
   ],
-  "name": "ai-saas-starter",
   "modules": [
     "ai-sdk",
     "ai-elements",

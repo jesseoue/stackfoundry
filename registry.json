@@ -964,6 +964,18 @@
       ]
     },
     {
+      "name": "feedback-collector",
+      "type": "registry:block",
+      "title": "Feedback Collector",
+      "description": "",
+      "files": [
+        {
+          "path": "registry/modules/feedback-collector/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "file-uploads",
       "type": "registry:block",
       "title": "File Uploads",
@@ -1043,6 +1055,18 @@
       "files": [
         {
           "path": "registry/modules/input-validation/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "integration-card",
+      "type": "registry:block",
+      "title": "Integration Card",
+      "description": "",
+      "files": [
+        {
+          "path": "registry/modules/integration-card/module.json",
           "type": "registry:file"
         }
       ]
@@ -1240,6 +1264,18 @@
       ]
     },
     {
+      "name": "onboarding-checklist",
+      "type": "registry:block",
+      "title": "Onboarding Checklist",
+      "description": "",
+      "files": [
+        {
+          "path": "registry/modules/onboarding-checklist/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "oncall-alerting",
       "type": "registry:block",
       "title": "On-call Alerting",
@@ -1408,6 +1444,18 @@
       ]
     },
     {
+      "name": "quota-meters",
+      "type": "registry:block",
+      "title": "Quota Meters",
+      "description": "",
+      "files": [
+        {
+          "path": "registry/modules/quota-meters/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
       "name": "railway-deploy",
       "type": "registry:block",
       "title": "Railway Deploy",
@@ -1487,6 +1535,18 @@
       "files": [
         {
           "path": "registry/modules/secrets-management/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "security-activity",
+      "type": "registry:block",
+      "title": "Security Activity",
+      "description": "",
+      "files": [
+        {
+          "path": "registry/modules/security-activity/module.json",
           "type": "registry:file"
         }
       ]
@@ -1883,6 +1943,18 @@
       "files": [
         {
           "path": "registry/modules/workspace-settings/module.json",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "workspace-switcher",
+      "type": "registry:block",
+      "title": "Workspace Switcher",
+      "description": "",
+      "files": [
+        {
+          "path": "registry/modules/workspace-switcher/module.json",
           "type": "registry:file"
         }
       ]

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "security-activity",
+  "type": "registry:block",
+  "title": "Security Activity",
+  "description": "Security event timeline with severity, actor, and timestamp display.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/security-activity.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/security-activity.ts",
+      "content": "export type SecurityActivityConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createSecurityActivityConfig(config: SecurityActivityConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const securityActivityChecks = [\n  \"Render only the current account's security events\",\n  \"Redact tokens, IP-level identity data, and personal data before display\",\n  \"Preserve audit-log immutability in the backing event store\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/security-activity.tsx",
+      "type": "registry:component",
+      "target": "apps/web/src/components/stackfoundry/security-activity.tsx",
+      "content": "export type SecurityActivityEvent = {\n  id: string;\n  title: string;\n  description?: string;\n  occurredAt: string | Date;\n  severity: \"info\" | \"warning\" | \"critical\";\n  actor?: string;\n};\n\nconst severityLabels = {\n  info: \"Information\",\n  warning: \"Warning\",\n  critical: \"Critical\",\n} as const;\n\nfunction formatDateTime(value: string | Date) {\n  return new Intl.DateTimeFormat(undefined, {\n    dateStyle: \"medium\",\n    timeStyle: \"short\",\n  }).format(new Date(value));\n}\n\nexport function StackFoundrySecurityActivity({ events }: { events: SecurityActivityEvent[] }) {\n  return (\n    <section className=\"rounded-lg border p-5\">\n      <h2 className=\"font-semibold\">Security activity</h2>\n\n      {events.length === 0 ? (\n        <p className=\"mt-3 text-sm text-muted-foreground\">No recent security events.</p>\n      ) : (\n        <ol className=\"mt-4 space-y-4\">\n          {events.map((event) => (\n            <li key={event.id} className=\"relative border-l pl-4\">\n              <span\n                aria-hidden=\"true\"\n                className={`absolute -left-[5px] top-1.5 size-2.5 rounded-full ${\n                  event.severity === \"critical\" ? \"bg-destructive\" : event.severity === \"warning\" ? \"bg-warning\" : \"bg-primary\"\n                }`}\n              />\n              <div className=\"flex flex-wrap items-center justify-between gap-2\">\n                <h3 className=\"text-sm font-medium\">{event.title}</h3>\n                <span className={`text-xs ${event.severity === \"critical\" ? \"text-destructive\" : \"text-muted-foreground\"}`}>\n                  {severityLabels[event.severity]}\n                </span>\n              </div>\n              {event.description ? <p className=\"mt-1 text-sm text-muted-foreground\">{event.description}</p> : null}\n              <p className=\"mt-1 text-xs text-muted-foreground\">\n                {formatDateTime(event.occurredAt)}\n                {event.actor ? ` • ${event.actor}` : \"\"}\n              </p>\n            </li>\n          ))}\n        </ol>\n      )}\n    </section>\n  );\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/security-activity/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/components/security-activity/page.tsx",
+      "content": "import { StackFoundrySecurityActivity } from \"@/components/stackfoundry/security-activity\";\n\nconst events = [\n  {\n    id: \"event-1\",\n    title: \"New API key created\",\n    description: \"Scoped key for production integrations.\",\n    occurredAt: new Date(\"2026-08-19T15:30:00Z\"),\n    severity: \"info\",\n    actor: \"jesse@example.com\",\n  },\n  {\n    id: \"event-2\",\n    title: \"MFA enabled\",\n    occurredAt: new Date(\"2026-08-19T14:00:00Z\"),\n    severity: \"info\",\n  },\n  {\n    id: \"event-3\",\n    title: \"Repeated failed sign-in attempts\",\n    description: \"Challenge was required before the next attempt.\",\n    occurredAt: new Date(\"2026-08-18T22:12:00Z\"),\n    severity: \"warning\",\n  },\n];\n\nexport default function SecurityActivityDemo() {\n  return <StackFoundrySecurityActivity events={events} />;\n}\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "security-activity",
+      "target": ".stackfoundry/skills/security-activity/SKILL.md",
+      "content": "---\nname: security-activity\ndescription: Maintain the Security Activity module installed by StackFoundry.\n---\n\n# Security Activity Skill\n\n## Boundary\n\nThis module owns the Security Activity source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Shared Skills\n\nWhen framework or app-shell behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/security-activity.ts`\n- `apps/web/src/components/stackfoundry/security-activity.tsx`\n- `apps/web/src/app/(console)/components/security-activity/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- `tenant-scoped-events`\n- `redact-sensitive-details`\n- `immutable-audit-source`\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Security Activity Module\n\nSecurity event timeline with severity, actor, and timestamp display.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/security-activity.ts`\n- `apps/web/src/components/stackfoundry/security-activity.tsx`\n- `apps/web/src/app/(console)/components/security-activity/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add security-activity --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "components",
+    "env": [],
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
+  }
+}

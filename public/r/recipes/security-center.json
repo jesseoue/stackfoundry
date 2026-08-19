@@ -1,4 +1,5 @@
 {
+  "name": "security-center",
   "title": "Security Center",
   "description": "Unified B2B security posture recipe for MFA, access reviews, API key risk, secrets, events, retention, and export/deletion.",
   "category": "security",
@@ -35,7 +36,6 @@
       ]
     }
   ],
-  "name": "security-center",
   "modules": [
     "mfa-security",
     "security-headers",

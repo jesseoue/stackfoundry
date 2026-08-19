@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "workspace-switcher",
+  "type": "registry:block",
+  "title": "Workspace Switcher",
+  "description": "Accessible workspace selector with tenant-safe switch behavior.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/workspace-switcher.ts",
+      "type": "registry:file",
+      "target": "apps/web/src/lib/stackfoundry/workspace-switcher.ts",
+      "content": "export type WorkspaceSwitcherConfig = {\n  key: string;\n  enabled?: boolean;\n  metadata?: Record<string, unknown>;\n};\n\nexport function createWorkspaceSwitcherConfig(config: WorkspaceSwitcherConfig) {\n  return {\n    key: config.key,\n    enabled: config.enabled ?? true,\n    metadata: config.metadata ?? {},\n  };\n}\n\nexport const workspaceSwitcherChecks = [\n  \"Resolve workspaces from the authenticated tenant context\",\n  \"Verify the user can access every workspace returned by the server\",\n  \"Audit workspace switches when cross-workspace history is sensitive\",\n] as const;\n"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/workspace-switcher.tsx",
+      "type": "registry:component",
+      "target": "apps/web/src/components/stackfoundry/workspace-switcher.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\n\nexport type WorkspaceSwitcherWorkspace = {\n  id: string;\n  name: string;\n  plan?: string;\n};\n\nexport function StackFoundryWorkspaceSwitcher({\n  workspaces,\n  activeWorkspaceId,\n  onSelect,\n}: {\n  workspaces: WorkspaceSwitcherWorkspace[];\n  activeWorkspaceId: string;\n  onSelect: (workspace: WorkspaceSwitcherWorkspace) => void;\n}) {\n  const [open, setOpen] = useState(false);\n  const activeWorkspace = workspaces.find((workspace) => workspace.id === activeWorkspaceId);\n\n  return (\n    <div className=\"relative inline-block text-left\">\n      <button\n        type=\"button\"\n        aria-expanded={open}\n        aria-haspopup=\"listbox\"\n        className=\"flex min-w-56 items-center justify-between rounded-md border px-3 py-2 text-sm\"\n        onClick={() => setOpen((value) => !value)}\n      >\n        <span className=\"font-medium\">{activeWorkspace?.name ?? \"Select workspace\"}</span>\n        <span aria-hidden=\"true\">▾</span>\n      </button>\n\n      {open ? (\n        <ul\n          role=\"listbox\"\n          aria-label=\"Workspaces\"\n          className=\"absolute z-20 mt-1 w-full rounded-md border bg-background p-1 shadow-sm\"\n        >\n          {workspaces.map((workspace) => (\n            <li key={workspace.id} role=\"option\" aria-selected={workspace.id === activeWorkspaceId}>\n              <button\n                type=\"button\"\n                className=\"w-full rounded px-2 py-1.5 text-left text-sm hover:bg-muted\"\n                onClick={() => {\n                  onSelect(workspace);\n                  setOpen(false);\n                }}\n              >\n                <span>{workspace.name}</span>\n                {workspace.plan ? <span className=\"ml-2 text-xs text-muted-foreground\">{workspace.plan}</span> : null}\n              </button>\n            </li>\n          ))}\n        </ul>\n      ) : null}\n    </div>\n  );\n}\n"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/workspace-switcher/page.tsx",
+      "type": "registry:page",
+      "target": "apps/web/src/app/(console)/components/workspace-switcher/page.tsx",
+      "content": "import { StackFoundryWorkspaceSwitcher } from \"@/components/stackfoundry/workspace-switcher\";\n\nconst workspaces = [\n  { id: \"workspace-1\", name: \"Acme\", plan: \"Pro\" },\n  { id: \"workspace-2\", name: \"Globex\", plan: \"Team\" },\n];\n\nexport default function WorkspaceSwitcherDemo() {\n  return (\n    <StackFoundryWorkspaceSwitcher\n      workspaces={workspaces}\n      activeWorkspaceId={workspaces[0].id}\n      onSelect={() => undefined}\n    />\n  );\n}\n"
+    }
+  ],
+  "maintenanceSkills": [
+    {
+      "name": "workspace-switcher",
+      "target": ".stackfoundry/skills/workspace-switcher/SKILL.md",
+      "content": "---\nname: workspace-switcher\ndescription: Maintain the Workspace Switcher module installed by StackFoundry.\n---\n\n# Workspace Switcher Skill\n\n## Boundary\n\nThis module owns the Workspace Switcher source block and its safety checklist. Keep business-specific behavior outside the reusable block until an app adopts it.\n\n## Shared Skills\n\nWhen framework or app-shell behavior changes, load the installed shared skill before editing implementation details:\n\n- `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)\n\n## Source Files\n\n- `apps/web/src/lib/stackfoundry/workspace-switcher.ts`\n- `apps/web/src/components/stackfoundry/workspace-switcher.tsx`\n- `apps/web/src/app/(console)/components/workspace-switcher/page.tsx`\n\n## Dependencies\n\n- No registry dependencies.\n\n## Maintenance Rules\n\n- `server-scoped-workspaces`\n- `audit-sensitive-switches`\n- `fail-closed-access`\n- Update docs and checklist with behavior changes.\n- Do not add secrets, credentials, or generated machine metadata.\n"
+    },
+    {
+      "name": "nextjs",
+      "target": ".stackfoundry/skills/nextjs/SKILL.md",
+      "content": "---\nname: nextjs\ndescription: Maintain Next.js App Router code installed by StackFoundry modules.\n---\n\n# Next.js Operating Instructions\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/nextjs/SKILL.md`\n- Registry source: `registry/skills/nextjs/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep server-only data access out of Client Components.\n- Put route handlers under `app/api` and UI routes under the relevant App Router segment.\n- Prefer Server Components for data loading and add `\"use client\"` only for interactivity.\n- Keep public environment variables prefixed with `NEXT_PUBLIC_`; keep secrets server-only.\n- Re-run typecheck and build after changing route handlers, layouts, or shared app configuration.\n"
+    }
+  ],
+  "envVars": {},
+  "docs": "# Workspace Switcher Module\n\nAccessible workspace selector with tenant-safe switch behavior.\n\n## Owns\n\n- `apps/web/src/lib/stackfoundry/workspace-switcher.ts`\n- `apps/web/src/components/stackfoundry/workspace-switcher.tsx`\n- `apps/web/src/app/(console)/components/workspace-switcher/page.tsx`\n\n## Safety Notes\n\n- Keep tenant, permission, and billing boundaries explicit.\n- Validate all server inputs before side effects.\n- Record audit events for sensitive state changes.\n- Do not commit secrets, credentials, local caches, or provider tokens.\n\n## Maintenance\n\n- Update `module.json`, `docs.md`, `skill/SKILL.md`, and `tests/checklist.md` together.\n- Verify install output with `pnpm stackfoundry add workspace-switcher --target /tmp/app --dry-run`.\n",
+  "meta": {
+    "category": "components",
+    "env": [],
+    "status": "ready",
+    "maturity": "ready",
+    "recommendedFor": []
+  }
+}

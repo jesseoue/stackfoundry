@@ -7,9 +7,9 @@ Install production SaaS modules as editable source code.
 [![Dependency Review](https://github.com/jesseoue/stackfoundry/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/jesseoue/stackfoundry/actions/workflows/dependency-review.yml)
 [![Release](https://img.shields.io/github/v/release/jesseoue/stackfoundry?label=release)](https://github.com/jesseoue/stackfoundry/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
-![Next.js](https://img.shields.io/badge/Next.js-16-black)
+![Next.js](https://img.shields.io/badge/Next.js-16.3-black)
 ![Vercel](https://img.shields.io/badge/deploy-Vercel-black)
-![Modules](https://img.shields.io/badge/modules-157-orange)
+![Modules](https://img.shields.io/badge/modules-163-orange)
 ![Recipes](https://img.shields.io/badge/recipes-9-purple)
 ![Presets](https://img.shields.io/badge/presets-13-teal)
 
@@ -108,7 +108,7 @@ Current source registry coverage:
 <details>
 <summary>Current scale</summary>
 
-- 157 ready module manifests
+- 163 ready module manifests
 - 30 active module categories
 - 13 preset bundles
 - 9 architecture recipes

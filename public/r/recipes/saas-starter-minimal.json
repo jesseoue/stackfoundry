@@ -1,4 +1,5 @@
 {
+  "name": "saas-starter-minimal",
   "title": "SaaS Starter Minimal",
   "description": "A compact SaaS foundation with shell, settings, auth boundary, billing path, database, and environment conventions.",
   "category": "foundation",
@@ -50,7 +51,6 @@
       ]
     }
   ],
-  "name": "saas-starter-minimal",
   "modules": [
     "next-saas-shell",
     "settings-layout",

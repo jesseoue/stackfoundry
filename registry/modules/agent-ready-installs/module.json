@@ -64,7 +64,13 @@
   ],
   "status": "ready",
   "maintenance": {
-    "skills": ["agent-ready-installs"],
-    "rules": ["dry-run-before-install", "review-generated-diffs", "never-commit-secrets"]
+    "skills": [
+      "agent-ready-installs"
+    ],
+    "rules": [
+      "dry-run-before-install",
+      "review-generated-diffs",
+      "never-commit-secrets"
+    ]
   }
 }

@@ -1,4 +1,5 @@
 {
+  "name": "integration-marketplace",
   "title": "Integration Marketplace",
   "description": "SaaS integration marketplace recipe for catalog, install flow, permissions, OAuth callback, health, webhooks, and sync logs.",
   "category": "integrations",
@@ -24,7 +25,6 @@
       ]
     }
   ],
-  "name": "integration-marketplace",
   "modules": [
     "connected-accounts",
     "github-integration",

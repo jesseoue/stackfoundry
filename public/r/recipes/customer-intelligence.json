@@ -1,4 +1,5 @@
 {
+  "name": "customer-intelligence",
   "title": "Customer Intelligence",
   "description": "Customer 360 and account intelligence recipe for usage, billing, support, risk, expansion, and product adoption.",
   "category": "operations",
@@ -21,10 +22,16 @@
       "modules": [
         "usage-metering"
       ]
+    },
+    {
+      "name": "feedback",
+      "modules": [
+        "feedback-collector"
+      ]
     }
   ],
-  "name": "customer-intelligence",
   "modules": [
+    "feedback-collector",
     "posthog-analytics",
     "tinybird-analytics",
     "usage-metering"

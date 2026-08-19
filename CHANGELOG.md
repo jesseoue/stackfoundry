@@ -4,6 +4,17 @@
 
 ### Added
 
+- Added the Product UI registry wave: `workspace-switcher`, `quota-meters`, `onboarding-checklist`, `security-activity`, `integration-card`, and `feedback-collector`.
+- Added complete `stackfoundry diff` coverage for package scripts, `.gitignore` merges, and generated environment examples.
+- Added registry validation that every registry index item resolves to an installed source module.
+
+### Changed
+
+- Pinned all runtime and development dependencies to reproducible supported versions and upgraded to Node 24, Next.js 16.3, React 19.2, Biome 2.5, and pnpm 10.34.
+- Updated GitHub Actions to current supported versions while preserving Dependabot-managed tags.
+- Normalized module, preset, and recipe manifest formatting without changing registry semantics.
+- Preserved existing target `.gitignore` content when appending StackFoundry-generated entries.
+
 - Added SaaS recipes, readiness statuses, and stricter validation for complete product workflows.
 - Added recipe commands and install paths, including `api-saas-starter`, `enterprise-saas`, `ai-saas-starter`, `cloudflare-saas`, `support-ops`, `security-center`, `integration-marketplace`, and `customer-intelligence`.
 - Added an installable `cloudflare-next-starter` module for consuming apps while keeping StackFoundry itself on the standard Next.js/Vercel path.

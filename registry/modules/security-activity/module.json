@@ -1,0 +1,37 @@
+{
+  "name": "security-activity",
+  "type": "module",
+  "category": "components",
+  "title": "Security Activity",
+  "description": "Security event timeline with severity, actor, and timestamp display.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "env": [],
+  "files": [
+    {
+      "path": "apps/web/src/lib/stackfoundry/security-activity.ts",
+      "type": "registry:file"
+    },
+    {
+      "path": "apps/web/src/components/stackfoundry/security-activity.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "apps/web/src/app/(console)/components/security-activity/page.tsx",
+      "type": "registry:page"
+    }
+  ],
+  "status": "ready",
+  "maintenance": {
+    "skills": [
+      "security-activity",
+      "nextjs"
+    ],
+    "rules": [
+      "tenant-scoped-events",
+      "redact-sensitive-details",
+      "immutable-audit-source"
+    ]
+  }
+}

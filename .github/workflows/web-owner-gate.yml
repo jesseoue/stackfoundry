@@ -15,7 +15,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Block unauthorized apps/web changes
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const allowedActor = "jesseoue";
