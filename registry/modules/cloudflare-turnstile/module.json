@@ -29,8 +29,10 @@
       "cloudflare"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "fail-closed",
+      "audit-sensitive-actions",
+      "never-log-secrets",
+      "verify-provider-failure-mode"
     ]
   }
 }

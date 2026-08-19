@@ -29,8 +29,9 @@
       "vercel"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "tenant-scope-platform-state",
+      "audit-sensitive-actions",
+      "verify-provider-limits"
     ]
   }
 }

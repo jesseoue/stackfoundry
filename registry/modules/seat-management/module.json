@@ -39,9 +39,9 @@
       "drizzle"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "safe-defaults"
+      "server-authorize-plan-state",
+      "idempotent-money-mutations",
+      "audit-billing-changes"
     ]
   }
 }

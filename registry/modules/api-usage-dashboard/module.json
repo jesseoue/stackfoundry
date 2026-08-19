@@ -28,9 +28,9 @@
       "nextjs"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "keep-provider-boundary"
+      "validate-public-input",
+      "version-public-contracts",
+      "never-leak-provider-errors"
     ]
   }
 }

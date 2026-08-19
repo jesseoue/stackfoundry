@@ -29,8 +29,9 @@
       "convex"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "validate-public-input",
+      "tenant-scope-every-query",
+      "never-leak-provider-errors"
     ]
   }
 }

@@ -1,21 +1,35 @@
-export type SystemHealthItem = {
-  key: string;
-  title: string;
-  status?: "active" | "draft" | "archived";
-  metadata?: Record<string, unknown>;
+import "server-only";
+
+export type HealthDependency = {
+  name: string;
+  status: "healthy" | "degraded" | "down";
+  latencyMs?: number;
+  required: boolean;
 };
 
-export function createSystemHealthItem(item: SystemHealthItem) {
-  return {
-    key: item.key,
-    title: item.title,
-    status: item.status ?? "active",
-    metadata: item.metadata ?? {},
-  };
+export type HealthCheckResult = {
+  status: "healthy" | "degraded" | "down";
+  dependencies: HealthDependency[];
+  checkedAt: string;
+};
+
+export function summarizeHealth(dependencies: HealthDependency[]): HealthCheckResult {
+  const checkedAt = new Date().toISOString();
+  if (dependencies.some((dependency) => dependency.required && dependency.status === "down")) {
+    return { status: "down", dependencies, checkedAt };
+  }
+  if (dependencies.some((dependency) => dependency.status !== "healthy")) {
+    return { status: "degraded", dependencies, checkedAt };
+  }
+  return { status: "healthy", dependencies, checkedAt };
+}
+
+export function healthStatus(result: HealthCheckResult) {
+  return result.status === "healthy" ? 200 : result.status === "degraded" ? 200 : 503;
 }
 
 export const systemHealthChecklist = [
-  "Confirm ownership boundaries",
-  "Wire persistence or provider adapter",
-  "Add audit events for sensitive changes",
+  "Check every required dependency before reporting healthy",
+  "Keep dependency latency and failure status tenant-safe",
+  "Alert before required dependencies report down",
 ] as const;

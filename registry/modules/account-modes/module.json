@@ -40,9 +40,9 @@
       "drizzle"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "preserve-account-boundaries"
+      "separate-user-and-workspace-modes",
+      "protect-security-actions",
+      "audit-mode-changes"
     ]
   }
 }

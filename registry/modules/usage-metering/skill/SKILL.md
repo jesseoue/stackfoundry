@@ -5,6 +5,15 @@ description: Maintain the Usage Metering module installed by StackFoundry.
 
 # Usage Metering Maintenance Instructions
 
+## Invariants
+
+- Require tenant scope and a positive quantity for every event.
+- Write events idempotently so retries do not double-count usage.
+- Aggregate high-volume events outside the request path.
+- Reconcile metered totals with billing before invoicing.
+
+## Maintenance
+
 - Preserve the module ownership described in `docs.md`.
 - Keep default source templates compact, typed, and provider-neutral.
 - Update `tests/checklist.md` when behavior changes.
@@ -19,4 +28,3 @@ When provider, framework, or database behavior changes, load the installed share
 - `.stackfoundry/skills/drizzle/SKILL.md` (source: `registry/skills/drizzle/SKILL.md`)
 
 Keep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.
-

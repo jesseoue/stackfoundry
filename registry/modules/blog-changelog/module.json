@@ -25,9 +25,9 @@
       "nextjs"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "keep-provider-boundary"
+      "keep-public-content-static",
+      "avoid-private-data-leaks",
+      "verify-canonical-urls"
     ]
   }
 }

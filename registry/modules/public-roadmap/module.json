@@ -27,9 +27,9 @@
       "nextjs"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "avoid-private-roadmap-leaks"
+      "keep-public-roadmap-source-owned",
+      "avoid-private-roadmap-leaks",
+      "verify-public-review-workflow"
     ]
   }
 }

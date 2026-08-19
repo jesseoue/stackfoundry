@@ -4,6 +4,14 @@
 
 ### Added
 
+- Added category-specific maintenance invariants across the full SaaS module registry.
+- Upgraded core API error, pagination, usage metering, and system health modules from placeholder scaffolds to typed production helpers.
+
+### Changed
+
+- Normalized helper file types to `registry:lib` across upgraded modules.
+- Aligned module guidance with current Vercel best practices: Node.js 24, Fluid Compute, server-side authorization, tenant-scoped data access, and production-safe error handling.
+
 - Upgraded AI modules to AI SDK 7 with the current Gateway provider and UI message stream response APIs.
 - Pinned current shadcn-compatible building-block dependencies: TanStack Table 9.1, CMDK 1.1, and Sonner 2.0.
 - Added complete current shadcn registry item types, including base, font, and item.

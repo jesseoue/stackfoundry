@@ -29,8 +29,9 @@
       "cloudflare"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "tenant-scope-network-config",
+      "fail-closed",
+      "audit-routing-changes"
     ]
   }
 }

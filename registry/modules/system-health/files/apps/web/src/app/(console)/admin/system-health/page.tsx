@@ -1,8 +1,14 @@
-const items = [
-  { title: "Configure", description: "Set ownership, defaults, and permissions." },
-  { title: "Operate", description: "Review status, recent activity, and unresolved work." },
-  { title: "Verify", description: "Run the checklist before enabling this module in production." },
+const dependencies = [
+  { name: "Postgres", status: "healthy", latencyMs: 12, required: true },
+  { name: "Object storage", status: "healthy", latencyMs: 38, required: true },
+  { name: "Email provider", status: "degraded", latencyMs: 410, required: false },
 ];
+
+const statusTone = {
+  healthy: "text-green-600",
+  degraded: "text-amber-600",
+  down: "text-red-600",
+} as const;
 
 export default function SystemHealthPage() {
   return (
@@ -11,13 +17,27 @@ export default function SystemHealthPage() {
         <h1 className="text-2xl font-semibold">System Health</h1>
         <p className="text-muted-foreground">Health checks, dependency status, and incident readiness UI.</p>
       </div>
-      <div className="grid gap-3 md:grid-cols-3">
-        {items.map((item) => (
-          <section key={item.title} className="rounded-lg border p-4">
-            <h2 className="font-medium">{item.title}</h2>
-            <p className="text-sm text-muted-foreground">{item.description}</p>
-          </section>
-        ))}
+      <div className="overflow-x-auto rounded-lg border">
+        <table className="w-full text-sm">
+          <thead>
+            <tr>
+              <th className="p-3 text-left">Dependency</th>
+              <th className="p-3 text-left">Status</th>
+              <th className="p-3 text-left">Latency</th>
+              <th className="p-3 text-left">Required</th>
+            </tr>
+          </thead>
+          <tbody>
+            {dependencies.map((dependency) => (
+              <tr key={dependency.name} className="border-t">
+                <td className="p-3">{dependency.name}</td>
+                <td className={`p-3 ${statusTone[dependency.status]}`}>{dependency.status}</td>
+                <td className="p-3">{dependency.latencyMs} ms</td>
+                <td className="p-3">{dependency.required ? "Yes" : "No"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </main>
   );

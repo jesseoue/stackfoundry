@@ -39,8 +39,8 @@
       "drizzle"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
+      "server-authorize-plan-state",
+      "idempotent-money-mutations",
       "never-allow-negative-balance"
     ]
   }

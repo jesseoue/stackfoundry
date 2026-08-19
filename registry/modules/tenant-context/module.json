@@ -38,9 +38,9 @@
       "drizzle"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "safe-defaults"
+      "tenant-scope-every-query",
+      "fail-closed-on-missing-tenant",
+      "audit-tenant-changes"
     ]
   }
 }

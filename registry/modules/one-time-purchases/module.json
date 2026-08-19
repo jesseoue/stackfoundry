@@ -38,8 +38,8 @@
       "drizzle"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
+      "server-authorize-plan-state",
+      "idempotent-money-mutations",
       "fulfill-once"
     ]
   }

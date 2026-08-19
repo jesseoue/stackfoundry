@@ -38,9 +38,9 @@
       "nextjs"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "keep-provider-boundary"
+      "keep-public-docs-source-owned",
+      "avoid-private-data-leaks",
+      "verify-install-path"
     ]
   }
 }

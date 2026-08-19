@@ -29,8 +29,9 @@
       "fly"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "verify-build-and-deploy",
+      "keep-provider-credentials-server-only",
+      "document-rollback"
     ]
   }
 }

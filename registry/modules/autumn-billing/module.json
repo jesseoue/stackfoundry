@@ -33,10 +33,10 @@
       "nextjs"
     ],
     "rules": [
-      "keep-provider-boundary",
       "map-provider-state",
       "verify-checkout-redirects",
-      "never-trust-client-plan-ids"
+      "never-trust-client-plan-ids",
+      "server-authorize-plan-state"
     ]
   }
 }

@@ -28,9 +28,9 @@
       "nextjs"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "respect-notification-preferences"
+      "respect-notification-preferences",
+      "tenant-scope-recipients",
+      "audit-sensitive-messages"
     ]
   }
 }

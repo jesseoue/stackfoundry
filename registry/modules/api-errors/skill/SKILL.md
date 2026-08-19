@@ -5,6 +5,15 @@ description: Maintain the API Errors module installed by StackFoundry.
 
 # API Errors Maintenance Instructions
 
+## Invariants
+
+- Use the shared error catalog and HTTP status mapping.
+- Keep error messages public-safe and actionable.
+- Never expose stack traces, provider errors, or internal details.
+- Include a request ID when the platform provides one.
+
+## Maintenance
+
 - Preserve the ownership and setup guidance in `docs.md`.
 - Keep source templates small and provider-neutral.
 - Update `tests/checklist.md` with behavior changes.
@@ -17,4 +26,3 @@ When provider, framework, or database behavior changes, load the installed share
 - `.stackfoundry/skills/nextjs/SKILL.md` (source: `registry/skills/nextjs/SKILL.md`)
 
 Keep this module skill focused on ownership, installed files, env vars, deployment checks, and module-specific invariants.
-

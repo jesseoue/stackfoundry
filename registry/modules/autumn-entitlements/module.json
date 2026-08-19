@@ -33,10 +33,10 @@
       "nextjs"
     ],
     "rules": [
-      "keep-provider-boundary",
       "check-before-consuming",
       "use-idempotency-keys",
-      "preserve-local-plan-gates"
+      "preserve-local-plan-gates",
+      "server-authorize-plan-state"
     ]
   }
 }

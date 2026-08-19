@@ -29,8 +29,9 @@
       "cloudflare"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "tenant-scope-every-query",
+      "use-parameterized-queries",
+      "run-migrations-with-changes"
     ]
   }
 }

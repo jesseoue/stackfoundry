@@ -26,9 +26,9 @@
       "docs-hosting"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "keep-provider-boundary"
+      "tenant-scope-support-data",
+      "redact-personal-data",
+      "confirm-sensitive-actions"
     ]
   }
 }

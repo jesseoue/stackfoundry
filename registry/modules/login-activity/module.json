@@ -38,9 +38,10 @@
       "drizzle"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "audit-sensitive-actions"
+      "tenant-scope-every-query",
+      "authorize-before-render",
+      "audit-sensitive-actions",
+      "redact-personal-data"
     ]
   }
 }

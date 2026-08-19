@@ -38,9 +38,9 @@
       "drizzle"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "safe-defaults"
+      "validate-public-input",
+      "version-public-contracts",
+      "never-leak-provider-errors"
     ]
   }
 }

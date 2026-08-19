@@ -27,9 +27,10 @@
       "nextjs"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "safe-defaults"
+      "fail-closed",
+      "audit-sensitive-actions",
+      "never-log-secrets",
+      "validate-public-input"
     ]
   }
 }

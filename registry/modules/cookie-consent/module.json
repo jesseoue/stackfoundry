@@ -38,9 +38,10 @@
       "drizzle"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "audit-sensitive-actions"
+      "tenant-scope-compliance-data",
+      "audit-sensitive-actions",
+      "verify-retention-and-recovery",
+      "audit-consent-changes"
     ]
   }
 }

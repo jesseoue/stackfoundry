@@ -29,9 +29,9 @@
       "nextjs"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "safe-defaults"
+      "server-resolve-display-data",
+      "authorize-row-actions",
+      "keep-building-blocks-stateless"
     ]
   }
 }

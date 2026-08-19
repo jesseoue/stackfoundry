@@ -39,9 +39,9 @@
       "ai-sdk"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "keep-canonical-context-current"
+      "keep-canonical-context-current",
+      "avoid-private-data-leaks",
+      "verify-canonical-urls"
     ]
   }
 }

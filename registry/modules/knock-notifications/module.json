@@ -40,10 +40,9 @@
       "nextjs"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "keep-provider-boundary",
-      "respect-notification-preferences"
+      "respect-notification-preferences",
+      "tenant-scope-recipients",
+      "audit-sensitive-messages"
     ]
   }
 }

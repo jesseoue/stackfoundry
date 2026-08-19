@@ -29,8 +29,9 @@
       "cloudflare"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "review-infrastructure-changes",
+      "protect-state-and-secrets",
+      "verify-plan-before-apply"
     ]
   }
 }

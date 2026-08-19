@@ -25,9 +25,10 @@
       "nextjs"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "audit-sensitive-actions"
+      "fail-closed",
+      "audit-sensitive-actions",
+      "never-log-secrets",
+      "audit-routing-changes"
     ]
   }
 }

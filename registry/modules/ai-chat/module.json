@@ -45,8 +45,9 @@
       "nextjs"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "keep-model-routing-server-side",
+      "validate-public-input",
+      "track-cost-sensitive-calls"
     ]
   }
 }

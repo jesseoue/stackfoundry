@@ -17,7 +17,7 @@
     },
     {
       "path": "apps/web/src/lib/usage-metering.ts",
-      "type": "registry:file"
+      "type": "registry:lib"
     },
     {
       "path": "apps/web/src/app/(console)/usage/page.tsx",
@@ -38,9 +38,9 @@
       "drizzle"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "keep-provider-boundary"
+      "server-authorize-plan-state",
+      "idempotent-money-mutations",
+      "audit-billing-changes"
     ]
   }
 }

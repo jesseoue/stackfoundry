@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "apps/web/src/lib/api-errors.ts",
-      "type": "registry:file"
+      "type": "registry:lib"
     },
     {
       "path": "apps/web/src/app/(console)/developers/errors/page.tsx",
@@ -25,9 +25,9 @@
       "nextjs"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "audit-sensitive-actions"
+      "validate-public-input",
+      "version-public-contracts",
+      "never-leak-provider-errors"
     ]
   }
 }

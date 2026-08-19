@@ -440,7 +440,7 @@
       "files": [
         {
           "path": "apps/web/src/lib/api-errors.ts",
-          "type": "registry:file",
+          "type": "registry:lib",
           "target": "apps/web/src/lib/api-errors.ts"
         },
         {
@@ -3114,7 +3114,7 @@
       "files": [
         {
           "path": "apps/web/src/lib/keyset-pagination.ts",
-          "type": "registry:file",
+          "type": "registry:lib",
           "target": "apps/web/src/lib/keyset-pagination.ts"
         },
         {
@@ -4671,7 +4671,7 @@
       "files": [
         {
           "path": "apps/web/src/lib/system-health.ts",
-          "type": "registry:file",
+          "type": "registry:lib",
           "target": "apps/web/src/lib/system-health.ts"
         },
         {
@@ -5084,7 +5084,7 @@
         },
         {
           "path": "apps/web/src/lib/usage-metering.ts",
-          "type": "registry:file",
+          "type": "registry:lib",
           "target": "apps/web/src/lib/usage-metering.ts"
         },
         {

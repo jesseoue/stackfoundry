@@ -28,9 +28,9 @@
       "nextjs"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release",
-      "audit-sensitive-actions"
+      "server-authorize-plan-state",
+      "idempotent-money-mutations",
+      "audit-billing-changes"
     ]
   }
 }

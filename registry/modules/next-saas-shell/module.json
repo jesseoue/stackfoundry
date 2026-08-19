@@ -37,8 +37,9 @@
       "nextjs"
     ],
     "rules": [
-      "document-invariants",
-      "verify-before-release"
+      "keep-base-scaffold-small",
+      "tenant-scope-every-query",
+      "verify-install-path"
     ]
   }
 }
