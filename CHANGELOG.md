@@ -4,6 +4,9 @@
 
 ### Added
 
+- Added Playwright E2E coverage for the public site, registry JSON contract, navigation, docs, alternatives, responsive Chromium runs, console errors, and failed requests.
+- Added a dedicated CI E2E job with Chromium dependency setup and failure-report upload.
+
 - Refined the public site with a cooler high-contrast palette, gradient brand mark, cleaner docs reading column, stronger homepage hierarchy, and clearer alternatives comparisons.
 
 - Added the Product Dashboard registry wave: `metric-card`, `chart-card`, `sidebar-navigation`, `filter-panel`, `stepper-flow`, and `timeline-activity`.

@@ -50,7 +50,7 @@ jobs:
         run: pnpm install --frozen-lockfile --ignore-scripts
 
       - name: Run quality gates
-        run: pnpm check
+        run: pnpm check && pnpm test:e2e
 
       - name: Install Vercel command
         run: npm install --global vercel@latest

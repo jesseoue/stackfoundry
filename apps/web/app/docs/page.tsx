@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Docs",
@@ -511,18 +510,17 @@ function moduleTone(module: string) {
 
 function ModuleChip({ module }: { module: string }) {
   const meta = moduleMeta[module];
+  const domain = meta?.domain;
 
   return (
     <a className={`docs-module-chip tone-${moduleTone(module)}`} href={moduleHref(module)}>
-      {meta?.domain ? (
-        <Image
-          alt=""
+      {domain ? (
+        <span
           aria-hidden="true"
-          height="16"
-          loading="lazy"
-          src={`https://www.google.com/s2/favicons?domain=${meta.domain}&sz=32`}
-          width="16"
-          unoptimized
+          className="docs-module-favicon"
+          style={{
+            backgroundImage: `url(https://www.google.com/s2/favicons?domain=${domain}&sz=32)`,
+          }}
         />
       ) : (
         <span aria-hidden="true" className="docs-module-dot" />

@@ -2056,6 +2056,17 @@ pre {
   width: 5px;
 }
 
+.docs-module-favicon {
+  background-color: var(--surface);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  border-radius: 4px;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+}
+
 .tone-foundation {
   --chip-accent: oklch(0.75 0.12 260);
 }
@@ -2827,13 +2838,15 @@ pre {
   width: 42px;
 }
 
-.registry-logo-wrap img {
+.registry-logo-image {
   background: var(--surface-2);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px 28px;
   border-radius: 8px;
-  height: 32px;
-  object-fit: contain;
+  height: 28px;
   position: absolute;
-  width: 32px;
+  width: 28px;
 }
 
 .registry-cta {

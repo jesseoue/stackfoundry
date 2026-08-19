@@ -18,11 +18,14 @@
     "check": "pnpm check:registry && pnpm check:web",
     "check:registry": "pnpm registry:doctor && pnpm lint:command && pnpm lint:packages && pnpm registry:build && pnpm registry:compat && pnpm test:brand && pnpm test:registry",
     "check:web": "pnpm lint:web && pnpm typecheck:web && pnpm build:web",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:report": "playwright show-report",
     "lint": "pnpm lint:command && pnpm lint:packages && pnpm lint:web",
     "lint:web": "biome check apps/web",
     "lint:web:fix": "biome check --write apps/web",
     "typecheck:web": "pnpm --filter @stackfoundry/web typecheck",
-    "test": "pnpm test:registry",
+    "test": "pnpm test:registry && pnpm test:e2e",
     "test:brand": "node scripts/smoke-brand.mjs",
     "test:registry": "pnpm test:registry:dry && pnpm test:registry:install",
     "test:registry:dry": "rm -rf /tmp/stackfoundry-test && mkdir -p /tmp/stackfoundry-test && pnpm stackfoundry list >/dev/null && pnpm stackfoundry presets >/dev/null && pnpm stackfoundry add next-saas-shell --target /tmp/stackfoundry-test/next-saas-module >/dev/null && test -f /tmp/stackfoundry-test/next-saas-module/apps/web/src/components/stackfoundry/app-shell.tsx && pnpm stackfoundry add auth-core --target /tmp/stackfoundry-test/auth-core >/dev/null && test -f /tmp/stackfoundry-test/auth-core/docs/auth-architecture.md && pnpm stackfoundry add cloudflare-pages --target /tmp/stackfoundry-test/cloudflare-pages >/dev/null && test -f /tmp/stackfoundry-test/cloudflare-pages/apps/web/src/lib/stackfoundry/providers/cloudflare-pages.ts && pnpm stackfoundry add railway-deploy --target /tmp/stackfoundry-test/railway-deploy >/dev/null && test -f /tmp/stackfoundry-test/railway-deploy/apps/web/src/lib/stackfoundry/providers/railway-deploy.ts && pnpm stackfoundry add api-keys --target /tmp/stackfoundry-test >/dev/null && pnpm stackfoundry diff api-keys --target /tmp/stackfoundry-test >/dev/null && pnpm stackfoundry add preset next-saas --target /tmp/stackfoundry-test --dry-run >/dev/null && pnpm stackfoundry add preset provider-adapters --target /tmp/stackfoundry-test --dry-run >/dev/null && pnpm stackfoundry add preset saas-coverage --target /tmp/stackfoundry-test --dry-run >/dev/null && pnpm stackfoundry add public/r/api-keys.json --target /tmp/stackfoundry-test --dry-run >/dev/null && pnpm stackfoundry add public/r/provider-adapters.json --target /tmp/stackfoundry-test --dry-run >/dev/null",
@@ -108,6 +111,7 @@
   "homepage": "https://stackfoundry.dev",
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "2.5.9"
+    "@biomejs/biome": "2.5.9",
+    "@playwright/test": "1.62.1"
   }
 }
