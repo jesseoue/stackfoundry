@@ -5,8 +5,8 @@
   "title": "AI SDK",
   "description": "Vercel AI SDK model configuration, streaming helpers, and gateway-ready defaults.",
   "dependencies": [
-    "ai",
-    "@ai-sdk/gateway"
+    "ai@7.0.69",
+    "@ai-sdk/gateway@4.0.55"
   ],
   "devDependencies": [],
   "registryDependencies": [],

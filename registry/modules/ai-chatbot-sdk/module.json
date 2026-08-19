@@ -5,9 +5,9 @@
   "title": "AI Chatbot SDK",
   "description": "Vercel AI SDK and AI Elements chatbot shell for a source-owned conversational interface.",
   "dependencies": [
-    "ai",
-    "@ai-sdk/react",
-    "@ai-sdk/gateway"
+    "ai@7.0.69",
+    "@ai-sdk/react@4.0.72",
+    "@ai-sdk/gateway@4.0.55"
   ],
   "devDependencies": [],
   "registryDependencies": [

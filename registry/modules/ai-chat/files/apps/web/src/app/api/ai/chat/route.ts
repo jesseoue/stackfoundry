@@ -1,4 +1,10 @@
-import { convertToModelMessages, streamText, type UIMessage } from "ai";
+import {
+  convertToModelMessages,
+  createUIMessageStreamResponse,
+  streamText,
+  toUIMessageStream,
+  type UIMessage,
+} from "ai";
 
 import { getSelectedModel } from "@/lib/ai/models";
 import { chatSystemPrompt } from "@/lib/ai/prompts";
@@ -25,11 +31,13 @@ export async function POST(request: Request) {
   try {
     const result = streamText({
       model: getSelectedModel(body.model),
-      system: chatSystemPrompt,
+      instructions: chatSystemPrompt,
       messages: convertToModelMessages(messages),
     });
 
-    return result.toUIMessageStreamResponse();
+    return createUIMessageStreamResponse({
+      stream: toUIMessageStream({ stream: result.stream }),
+    });
   } catch (error) {
     return Response.json(
       { error: error instanceof Error ? error.message : "Unable to start chat stream." },

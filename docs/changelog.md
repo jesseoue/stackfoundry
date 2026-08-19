@@ -4,6 +4,14 @@
 
 ### Added
 
+- Upgraded AI modules to AI SDK 7 with the current Gateway provider and UI message stream response APIs.
+- Pinned current shadcn-compatible building-block dependencies: TanStack Table 9.1, CMDK 1.1, and Sonner 2.0.
+- Added complete current shadcn registry item types, including base, font, and item.
+
+### Changed
+
+- Simplified AI client transports and server streaming to match current AI SDK examples.
+
 - Added current shadcn registry file-type support for libs, UI primitives, hooks, styles, themes, and standalone blocks.
 - Upgraded the data table to TanStack Table, the command menu to CMDK, and toast notifications to Sonner.
 

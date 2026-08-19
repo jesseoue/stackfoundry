@@ -217,9 +217,10 @@
       "title": "AI Chat",
       "description": "AI SDK chat route, model selector, message persistence, and prompt input.",
       "dependencies": [
-        "ai",
-        "@ai-sdk/react",
-        "@ai-sdk/gateway"
+        "ai@7.0.69",
+        "@ai-sdk/react@4.0.72",
+        "@ai-sdk/gateway@4.0.55",
+        "lucide-react"
       ],
       "devDependencies": [],
       "registryDependencies": [
@@ -260,9 +261,9 @@
       "title": "AI Chatbot SDK",
       "description": "Vercel AI SDK and AI Elements chatbot shell for a source-owned conversational interface.",
       "dependencies": [
-        "ai",
-        "@ai-sdk/react",
-        "@ai-sdk/gateway"
+        "ai@7.0.69",
+        "@ai-sdk/react@4.0.72",
+        "@ai-sdk/gateway@4.0.55"
       ],
       "devDependencies": [],
       "registryDependencies": [
@@ -338,8 +339,8 @@
       "title": "AI SDK",
       "description": "Vercel AI SDK model configuration, streaming helpers, and gateway-ready defaults.",
       "dependencies": [
-        "ai",
-        "@ai-sdk/gateway"
+        "ai@7.0.69",
+        "@ai-sdk/gateway@4.0.55"
       ],
       "devDependencies": [],
       "registryDependencies": [],
@@ -1675,7 +1676,7 @@
       "title": "Command Menu",
       "description": "Keyboard-first command menu component for SaaS navigation and actions.",
       "dependencies": [
-        "cmdk"
+        "cmdk@1.1.1"
       ],
       "devDependencies": [],
       "registryDependencies": [],
@@ -2166,7 +2167,7 @@
       "title": "Data Table",
       "description": "Typed table shell with empty/loading/error slots and row actions.",
       "dependencies": [
-        "@tanstack/react-table"
+        "@tanstack/react-table@9.1.2"
       ],
       "devDependencies": [],
       "registryDependencies": [],
@@ -4817,7 +4818,7 @@
       "title": "Toast Notifications",
       "description": "Accessible toast queue component for action feedback.",
       "dependencies": [
-        "sonner"
+        "sonner@2.0.8"
       ],
       "devDependencies": [],
       "registryDependencies": [],

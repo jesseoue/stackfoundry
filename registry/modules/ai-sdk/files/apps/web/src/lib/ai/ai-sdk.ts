@@ -1,12 +1,13 @@
-import { createOpenAI } from "@ai-sdk/gateway";
+import { createGateway } from "ai";
 
-const gateway = createOpenAI({
-  apiKey: process.env.AI_GATEWAY_API_KEY,
-  baseURL: process.env.AI_GATEWAY_BASE_URL,
+const gateway = createGateway({
+  baseURL: process.env.AI_GATEWAY_BASE_URL || "https://ai-gateway.vercel.sh/v4/ai",
 });
 
 export function getAIGatewayModel(model?: string) {
-  return gateway(process.env.AI_GATEWAY_MODEL || model || "gpt-5");
+  const selected = process.env.AI_GATEWAY_MODEL || model;
+  if (!selected) throw new Error("AI_GATEWAY_MODEL or a model argument is required.");
+  return gateway(selected);
 }
 
 export function assertAIGatewayConfigured() {

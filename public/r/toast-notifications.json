@@ -5,7 +5,7 @@
   "title": "Toast Notifications",
   "description": "Accessible toast queue component for action feedback.",
   "dependencies": [
-    "sonner"
+    "sonner@2.0.8"
   ],
   "devDependencies": [],
   "registryDependencies": [],

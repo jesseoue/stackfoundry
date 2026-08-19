@@ -69,6 +69,9 @@ export const validRegistryFileTypes = new Set([
   "registry:component",
   "registry:style",
   "registry:theme",
+  "registry:base",
+  "registry:font",
+  "registry:item",
 ]);
 
 export function isKebabCase(value) {

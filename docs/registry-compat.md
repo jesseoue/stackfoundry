@@ -36,7 +36,7 @@ pnpm stackfoundry add http://localhost:3000/r/api-keys.json --target /tmp/app
 - The same generated output is mirrored to `apps/web/public/r` so Vercel serves `/r/<name>.json` as static JSON from the Next app.
 - Each module item is emitted as `registry:block` with `https://ui.shadcn.com/schema/registry-item.json`.
 - Each file includes a `target` so registry clients install it into the intended app path.
-- File types use the current shadcn registry vocabulary, including `registry:lib`, `registry:ui`, `registry:hook`, `registry:component`, `registry:page`, `registry:file`, `registry:block`, `registry:style`, and `registry:theme`.
+- File types use the current shadcn registry vocabulary, including `registry:base`, `registry:lib`, `registry:ui`, `registry:hook`, `registry:component`, `registry:page`, `registry:file`, `registry:block`, `registry:style`, `registry:theme`, `registry:font`, and `registry:item`.
 - Internal module dependencies are emitted as full `https://stackfoundry.dev/r/<dependency>.json` registry URLs.
 - Env requirements are emitted as `envVars` and retained in `meta.env`.
 - Module and shared technology skills are emitted as `maintenanceSkills` so registry URL installs include maintenance guidance.

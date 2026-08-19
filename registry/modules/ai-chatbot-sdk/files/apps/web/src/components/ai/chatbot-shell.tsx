@@ -2,14 +2,15 @@
 
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 import { AIConversation, AIMessage, AIPromptInput, AIStatus } from "@/components/ai-elements";
 
 export function ChatbotShell() {
   const [input, setInput] = useState("");
-  const transport = useMemo(() => new DefaultChatTransport({ api: "/api/ai/chat" }), []);
-  const { messages, sendMessage, status } = useChat({ transport });
+  const { messages, sendMessage, status } = useChat({
+    transport: new DefaultChatTransport({ api: "/api/ai/chat" }),
+  });
   const disabled = status === "submitted" || status === "streaming";
 
   function submit() {

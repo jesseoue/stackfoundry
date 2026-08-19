@@ -1,9 +1,9 @@
 ---
 name: ai-sdk
-description: Vercel AI SDK 5 guidance for installed model routing and streaming modules.
+description: Vercel AI SDK 7 guidance for installed model routing and streaming modules.
 ---
 
-# AI SDK Guidance
+# AI SDK 7 Guidance
 
 ## Installed Location
 
@@ -15,7 +15,9 @@ Load this skill before changing installed model, chat, tool, or streaming code.
 ## Model and transport rules
 
 - Keep model construction server-only and keys out of `NEXT_PUBLIC_`.
-- Use AI SDK 5 message APIs (`UIMessage`, `convertToModelMessages`, `toUIMessageStreamResponse`) consistently.
+- Use AI SDK 7 message APIs (`UIMessage`, `convertToModelMessages`, `toUIMessageStream`) consistently.
+- Return UI streams with `createUIMessageStreamResponse`.
+- Use `DefaultChatTransport` in the client and `sendMessage({ text })`; do not pass a legacy `api` option directly to `useChat`.
 - Configure model providers once in a shared server helper; do not duplicate provider credentials in route handlers.
 - Prefer AI Gateway model IDs and centralized routing for provider fallback and cost control.
 - Validate request bodies before creating a model or streaming a response.

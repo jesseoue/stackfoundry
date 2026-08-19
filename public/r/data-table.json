@@ -5,7 +5,7 @@
   "title": "Data Table",
   "description": "Typed table shell with empty/loading/error slots and row actions.",
   "dependencies": [
-    "@tanstack/react-table"
+    "@tanstack/react-table@9.1.2"
   ],
   "devDependencies": [],
   "registryDependencies": [],

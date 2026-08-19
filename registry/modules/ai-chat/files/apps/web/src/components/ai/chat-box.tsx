@@ -3,12 +3,13 @@
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { ArrowUpIcon, SquareIcon } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 export function ChatBox() {
   const [input, setInput] = useState("");
-  const transport = useMemo(() => new DefaultChatTransport({ api: "/api/ai/chat" }), []);
-  const { messages, sendMessage, status, stop } = useChat({ transport });
+  const { messages, sendMessage, status, stop } = useChat({
+    transport: new DefaultChatTransport({ api: "/api/ai/chat" }),
+  });
   const running = status === "submitted" || status === "streaming";
 
   function submit() {
@@ -38,7 +39,7 @@ export function ChatBox() {
           placeholder="Ask a question..."
         />
         {running ? (
-          <button className="rounded-md border px-3" type="button" onClick={stop}>
+          <button className="rounded-md border px-3" type="button" onClick={() => stop()}>
             <SquareIcon />
           </button>
         ) : (

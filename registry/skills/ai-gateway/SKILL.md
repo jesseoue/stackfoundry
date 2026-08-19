@@ -15,7 +15,9 @@ Load this skill before changing installed model routing or gateway configuration
 ## Routing rules
 
 - Keep `AI_GATEWAY_API_KEY` server-only.
-- Configure `AI_GATEWAY_BASE_URL` only when routing through a gateway endpoint.
+- Configure `AI_GATEWAY_BASE_URL` only when overriding the current AI Gateway endpoint.
+- Prefer `createGateway` or a gateway model string such as `openai/gpt-5.4`.
+- On Vercel, OIDC can authenticate model requests without a local API key.
 - Define deterministic model IDs and fallback order before adding runtime model choice.
 - Keep provider/model complexity hidden from product UI.
 

@@ -5,9 +5,9 @@
   "title": "AI Chatbot SDK",
   "description": "Vercel AI SDK and AI Elements chatbot shell for a source-owned conversational interface.",
   "dependencies": [
-    "ai",
-    "@ai-sdk/react",
-    "@ai-sdk/gateway"
+    "ai@7.0.69",
+    "@ai-sdk/react@4.0.72",
+    "@ai-sdk/gateway@4.0.55"
   ],
   "devDependencies": [],
   "registryDependencies": [
@@ -19,7 +19,7 @@
       "path": "apps/web/src/components/ai/chatbot-shell.tsx",
       "type": "registry:component",
       "target": "apps/web/src/components/ai/chatbot-shell.tsx",
-      "content": "\"use client\";\n\nimport { useChat } from \"@ai-sdk/react\";\nimport { DefaultChatTransport } from \"ai\";\nimport { useMemo, useState } from \"react\";\n\nimport { AIConversation, AIMessage, AIPromptInput, AIStatus } from \"@/components/ai-elements\";\n\nexport function ChatbotShell() {\n  const [input, setInput] = useState(\"\");\n  const transport = useMemo(() => new DefaultChatTransport({ api: \"/api/ai/chat\" }), []);\n  const { messages, sendMessage, status } = useChat({ transport });\n  const disabled = status === \"submitted\" || status === \"streaming\";\n\n  function submit() {\n    const text = input.trim();\n    if (!text || disabled) return;\n    sendMessage({ text });\n    setInput(\"\");\n  }\n\n  return (\n    <AIConversation>\n      {messages.map((message) => (\n        <AIMessage key={message.id} message={message} />\n      ))}\n      <AIStatus status={status} />\n      <AIPromptInput disabled={disabled} value={input} onSubmit={submit} onValueChange={setInput} />\n    </AIConversation>\n  );\n}\n"
+      "content": "\"use client\";\n\nimport { useChat } from \"@ai-sdk/react\";\nimport { DefaultChatTransport } from \"ai\";\nimport { useState } from \"react\";\n\nimport { AIConversation, AIMessage, AIPromptInput, AIStatus } from \"@/components/ai-elements\";\n\nexport function ChatbotShell() {\n  const [input, setInput] = useState(\"\");\n  const { messages, sendMessage, status } = useChat({\n    transport: new DefaultChatTransport({ api: \"/api/ai/chat\" }),\n  });\n  const disabled = status === \"submitted\" || status === \"streaming\";\n\n  function submit() {\n    const text = input.trim();\n    if (!text || disabled) return;\n    sendMessage({ text });\n    setInput(\"\");\n  }\n\n  return (\n    <AIConversation>\n      {messages.map((message) => (\n        <AIMessage key={message.id} message={message} />\n      ))}\n      <AIStatus status={status} />\n      <AIPromptInput disabled={disabled} value={input} onSubmit={submit} onValueChange={setInput} />\n    </AIConversation>\n  );\n}\n"
     },
     {
       "path": "apps/web/src/app/(console)/ai/chatbot/page.tsx",
@@ -37,7 +37,7 @@
     {
       "name": "ai-sdk",
       "target": ".stackfoundry/skills/ai-sdk/SKILL.md",
-      "content": "---\nname: ai-sdk\ndescription: Vercel AI SDK 5 guidance for installed model routing and streaming modules.\n---\n\n# AI SDK Guidance\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/ai-sdk/SKILL.md`\n- Registry source: `registry/skills/ai-sdk/SKILL.md`\n\nLoad this skill before changing installed model, chat, tool, or streaming code.\n\n## Model and transport rules\n\n- Keep model construction server-only and keys out of `NEXT_PUBLIC_`.\n- Use AI SDK 5 message APIs (`UIMessage`, `convertToModelMessages`, `toUIMessageStreamResponse`) consistently.\n- Configure model providers once in a shared server helper; do not duplicate provider credentials in route handlers.\n- Prefer AI Gateway model IDs and centralized routing for provider fallback and cost control.\n- Validate request bodies before creating a model or streaming a response.\n\n## Streaming and errors\n\n- Return `400` for invalid JSON before model invocation.\n- Handle tool-call errors explicitly and avoid leaking provider stack traces.\n- Document model IDs, expected latency, token cost, and fallback behavior.\n- Test streaming success, invalid JSON, provider errors, and tool failures.\n\n## Ownership boundaries\n\n- Keep UI components provider-agnostic.\n- Keep provider-specific transport and credentials in server-only helpers.\n- Record cost-sensitive calls and audit autonomous actions.\n"
+      "content": "---\nname: ai-sdk\ndescription: Vercel AI SDK 7 guidance for installed model routing and streaming modules.\n---\n\n# AI SDK 7 Guidance\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/ai-sdk/SKILL.md`\n- Registry source: `registry/skills/ai-sdk/SKILL.md`\n\nLoad this skill before changing installed model, chat, tool, or streaming code.\n\n## Model and transport rules\n\n- Keep model construction server-only and keys out of `NEXT_PUBLIC_`.\n- Use AI SDK 7 message APIs (`UIMessage`, `convertToModelMessages`, `toUIMessageStream`) consistently.\n- Return UI streams with `createUIMessageStreamResponse`.\n- Use `DefaultChatTransport` in the client and `sendMessage({ text })`; do not pass a legacy `api` option directly to `useChat`.\n- Configure model providers once in a shared server helper; do not duplicate provider credentials in route handlers.\n- Prefer AI Gateway model IDs and centralized routing for provider fallback and cost control.\n- Validate request bodies before creating a model or streaming a response.\n\n## Streaming and errors\n\n- Return `400` for invalid JSON before model invocation.\n- Handle tool-call errors explicitly and avoid leaking provider stack traces.\n- Document model IDs, expected latency, token cost, and fallback behavior.\n- Test streaming success, invalid JSON, provider errors, and tool failures.\n\n## Ownership boundaries\n\n- Keep UI components provider-agnostic.\n- Keep provider-specific transport and credentials in server-only helpers.\n- Record cost-sensitive calls and audit autonomous actions.\n"
     },
     {
       "name": "nextjs",

@@ -5,9 +5,10 @@
   "title": "AI Chat",
   "description": "AI SDK chat route, model selector, message persistence, and prompt input.",
   "dependencies": [
-    "ai",
-    "@ai-sdk/react",
-    "@ai-sdk/gateway"
+    "ai@7.0.69",
+    "@ai-sdk/react@4.0.72",
+    "@ai-sdk/gateway@4.0.55",
+    "lucide-react"
   ],
   "devDependencies": [],
   "registryDependencies": [
