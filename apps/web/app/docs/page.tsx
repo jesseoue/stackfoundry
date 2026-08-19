@@ -38,6 +38,21 @@ const existingAppSteps = [
   ],
 ];
 
+const docPrinciples = [
+  {
+    title: "Source over magic",
+    body: "Every install writes normal files you can read, diff, edit, and delete.",
+  },
+  {
+    title: "Dry-run before trust",
+    body: "Inspect proposed files, dependencies, env notes, and skills before accepting them.",
+  },
+  {
+    title: "Providers stay replaceable",
+    body: "Adapters are explicit modules, not hidden dependencies buried in a preset.",
+  },
+];
+
 const pathCards = [
   {
     title: "API SaaS: prove the wedge first",
@@ -574,7 +589,7 @@ export default function DocsPage() {
           </div>
           <div className="docs-side-section">
             <h4>
-              Registry <strong>163</strong>
+              Registry <strong>169</strong>
             </h4>
             {moduleGroups.slice(0, 7).map((group) => (
               <a href="#module-catalog" key={group.category}>
@@ -611,11 +626,11 @@ export default function DocsPage() {
 
           <header className="docs-hero">
             <p className="docs-kicker">source registry for production SaaS systems</p>
-            <h1 className="doc-title">Launch API SaaS plumbing. Own the source.</h1>
+            <h1 className="doc-title">Ship API SaaS systems without losing the source.</h1>
             <p className="doc-lede">
-              Start with API keys, usage tracking, rate limits, credits, Stripe billing, docs, and
-              webhooks. The registry is the product; modules are the unit of value; recipes are the
-              path; presets are only bundles you can inspect, dry-run, install, and maintain.
+              Start with the API SaaS recipe: keys, metering, quotas, credits, Stripe billing, docs,
+              and signed webhooks. Inspect every file before install, then keep the source and
+              maintenance context in your repository.
             </p>
             <div className="doc-meta">
               <span>module-first</span>
@@ -632,6 +647,15 @@ export default function DocsPage() {
               billing, operations, analytics, deployment, and AI capabilities remain modules you add
               deliberately, not hard dependencies hidden in a preset.
             </p>
+          </section>
+
+          <section className="docs-principles" aria-label="Documentation principles">
+            {docPrinciples.map((principle) => (
+              <article key={principle.title}>
+                <h3>{principle.title}</h3>
+                <p>{principle.body}</p>
+              </article>
+            ))}
           </section>
 
           <section aria-labelledby="quick-start">
@@ -859,7 +883,7 @@ $ code ./my-app/.stackfoundry/prompts/one-shot-api-saas.md`}</CodeBlock>
           <a href="#safety">Safety</a>
           <div className="docs-toc-meta">
             <span>Registry-first</span>
-            <span>163 modules</span>
+            <span>169 modules</span>
             <a href="https://github.com/jesseoue/stackfoundry">GitHub →</a>
           </div>
         </aside>

@@ -37,16 +37,17 @@ export default function AlternativesPage() {
       <article className="blog-article">
         <header className="blog-hero">
           <p className="section-eyebrow">SaaS Starter Alternatives</p>
-          <h1>Compare the starter kits people search before choosing source-owned modules.</h1>
+          <h1>Compare SaaS starters before you give up the source.</h1>
           <p>
-            Makerkit, Supastarter, ShipFast, Gravity, Open SaaS, Nextacular, and BoxyHQ all solve
-            different SaaS starter problems. StackFoundry is the free source-registry path for teams
-            that want installable modules, recipe dry-runs, and provider adapters they can replace.
+            Each starter makes useful trade-offs. This guide keeps the comparison honest: who each
+            kit serves best, what it includes, and when a module registry is the better fit. The
+            short version — use a starter when you want the whole shell; use StackFoundry when the
+            hard SaaS systems matter more than the app skeleton.
           </p>
         </header>
 
         <section className="blog-section">
-          <h2>Alternative pages</h2>
+          <h2>Side-by-side alternatives</h2>
           <div className="blog-comparison">
             {alternatives.map((alternative) => (
               <a
@@ -56,10 +57,13 @@ export default function AlternativesPage() {
               >
                 <div>
                   <span>{alternative.model}</span>
-                  <h3>{alternative.title}</h3>
+                  <h3>{alternative.name}</h3>
                 </div>
-                <p>{alternative.description}</p>
-                <p>{alternative.chooseStackFoundryWhen}</p>
+                <p>{alternative.bestFor}</p>
+                <p>
+                  <strong>Choose StackFoundry when:</strong> {alternative.chooseStackFoundryWhen}
+                </p>
+                <em>Read the comparison →</em>
               </a>
             ))}
           </div>

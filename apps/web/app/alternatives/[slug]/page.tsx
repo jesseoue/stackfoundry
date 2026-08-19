@@ -84,7 +84,7 @@ export default async function AlternativeDetailPage({ params }: AlternativePageP
         </section>
 
         <section className="blog-section">
-          <h2>What {alternative.name} is known for</h2>
+          <h2>What {alternative.name} does well</h2>
           <div className="blog-grid">
             {alternative.whatTheyHave.map((item) => (
               <div className="blog-card" key={item}>
@@ -108,6 +108,16 @@ export default async function AlternativeDetailPage({ params }: AlternativePageP
         <section className="blog-section">
           <h2>When to choose StackFoundry instead</h2>
           <p>{alternative.chooseStackFoundryWhen}</p>
+          <div className="blog-comparison-matrix">
+            <div>
+              <h3>Choose {alternative.name}</h3>
+              <p>{alternative.bestFor}</p>
+            </div>
+            <div>
+              <h3>Choose StackFoundry</h3>
+              <p>{alternative.chooseStackFoundryWhen}</p>
+            </div>
+          </div>
           <div className="blog-keywords">
             {alternative.keywords.map((keyword) => (
               <span key={keyword}>{keyword}</span>

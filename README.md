@@ -110,7 +110,7 @@ Current source registry coverage:
 
 - 169 ready module manifests
 - 30 active module categories
-- 13 preset bundles
+- 14 preset bundles
 - 9 architecture recipes
 - provider adapters for Vercel, Cloudflare, Clerk, Supabase, Neon, Upstash, Resend, PostHog, Sentry, Axiom, Unkey, Knock, Tinybird, Trigger.dev, Inngest, GitHub, and more
 

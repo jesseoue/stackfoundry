@@ -4,6 +4,8 @@
 
 ### Added
 
+- Refined the public site with a cooler high-contrast palette, gradient brand mark, cleaner docs reading column, stronger homepage hierarchy, and clearer alternatives comparisons.
+
 - Added the Product Dashboard registry wave: `metric-card`, `chart-card`, `sidebar-navigation`, `filter-panel`, `stepper-flow`, and `timeline-activity`.
 
 - Added category-specific maintenance invariants across the full SaaS module registry.

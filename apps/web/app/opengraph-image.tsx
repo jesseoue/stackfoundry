@@ -13,7 +13,7 @@ export default function Image() {
       style={{
         width: "100%",
         height: "100%",
-        background: "#070707",
+        background: "#080f16",
         color: "#fffaf4",
         display: "flex",
         padding: 0,
@@ -37,7 +37,7 @@ export default function Image() {
           position: "absolute",
           inset: 0,
           background:
-            "radial-gradient(circle at 16% 20%, rgba(255, 151, 46, 0.76), transparent 28%), radial-gradient(circle at 92% 6%, rgba(255, 87, 34, 0.62), transparent 35%), radial-gradient(circle at 82% 88%, rgba(114, 255, 179, 0.2), transparent 30%), linear-gradient(135deg, rgba(255,140,40,0.24), transparent 54%)",
+            "radial-gradient(circle at 16% 20%, rgba(88, 200, 255, 0.56), transparent 30%), radial-gradient(circle at 92% 6%, rgba(80, 151, 245, 0.52), transparent 35%), radial-gradient(circle at 82% 88%, rgba(94, 224, 163, 0.2), transparent 30%), linear-gradient(135deg, rgba(72, 168, 240, 0.2), transparent 54%)",
         }}
       />
       <div
@@ -54,9 +54,9 @@ export default function Image() {
           transform: "rotate(-12deg)",
         }}
       >
-        <div style={{ width: 620, height: 78, background: "#ff9b38", borderRadius: 18 }} />
-        <div style={{ width: 470, height: 78, background: "#ff7a1a", borderRadius: 18 }} />
-        <div style={{ width: 300, height: 78, background: "#ffc15a", borderRadius: 18 }} />
+        <div style={{ width: 620, height: 78, background: "#6fd2ff", borderRadius: 18 }} />
+        <div style={{ width: 470, height: 78, background: "#48a8f0", borderRadius: 18 }} />
+        <div style={{ width: 300, height: 78, background: "#5ee0a3", borderRadius: 18 }} />
       </div>
       <div
         style={{
@@ -106,9 +106,9 @@ export default function Image() {
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
             <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
-              <div style={{ width: 44, height: 8, background: "#ff9b38", borderRadius: 2 }} />
-              <div style={{ width: 32, height: 8, background: "#ff9b38", borderRadius: 2 }} />
-              <div style={{ width: 20, height: 8, background: "#ff9b38", borderRadius: 2 }} />
+              <div style={{ width: 44, height: 8, background: "#6fd2ff", borderRadius: 2 }} />
+              <div style={{ width: 32, height: 8, background: "#48a8f0", borderRadius: 2 }} />
+              <div style={{ width: 20, height: 8, background: "#5ee0a3", borderRadius: 2 }} />
             </div>
             <div style={{ fontFamily: "monospace", fontSize: 31, letterSpacing: -1 }}>
               stackfoundry
@@ -116,8 +116,8 @@ export default function Image() {
           </div>
           <div
             style={{
-              background: "rgba(255, 154, 56, 0.14)",
-              border: "1px solid rgba(255,154,56,0.42)",
+              background: "rgba(111, 210, 255, 0.12)",
+              border: "1px solid rgba(111, 210, 255, 0.38)",
               color: "#ffd39d",
               display: "flex",
               fontFamily: "monospace",
@@ -199,7 +199,7 @@ export default function Image() {
             ))}
           </div>
           <div style={{ color: "#ffffff", display: "flex", fontFamily: "monospace", fontSize: 25 }}>
-            stackfoundry<span style={{ color: "#ff9b38" }}>.dev</span>
+            stackfoundry<span style={{ color: "#6fd2ff" }}>.dev</span>
           </div>
         </div>
       </div>

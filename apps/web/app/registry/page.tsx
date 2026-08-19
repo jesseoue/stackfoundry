@@ -332,8 +332,8 @@ const providerOptions = [
 ];
 
 const stats = [
-  ["163", "Module manifests"],
-  ["13", "Preset bundles"],
+  ["169", "Module manifests"],
+  ["14", "Preset bundles"],
   ["9", "Recipes"],
   ["17", "Provider cards"],
 ];
@@ -394,12 +394,12 @@ export default function RegistryPage() {
                 <span>source registry for production SaaS systems</span>
               </div>
               <h1 className="registry-title">
-                Start with API SaaS. Expand only after the wedge works.
+                Install the API wedge first. Expand only when your product needs it.
               </h1>
               <p className="registry-lede">
-                Install API keys, usage tracking, rate limits, credits, Stripe billing, webhooks,
-                API docs, and operating checks as editable source. Modules are the product. Recipes
-                explain the path. Presets are convenience bundles.
+                Browse 169 source-owned modules, 14 presets, and 9 guided recipes. Every module
+                declares its files, dependencies, env needs, maintenance skills, and verification
+                checklist before it touches your app.
               </p>
               <div className="registry-actions">
                 <a className="button primary" href="/docs#install-existing">

@@ -1,20 +1,20 @@
 :root {
   color-scheme: dark;
-  --bg: oklch(0.145 0 0);
-  --surface: oklch(0.185 0 0);
-  --surface-2: oklch(0.22 0 0);
-  --fg: oklch(0.985 0 0);
-  --muted: oklch(0.65 0 0);
-  --muted-2: oklch(0.78 0 0);
-  --border: oklch(0.27 0 0);
-  --border-strong: oklch(0.38 0 0);
-  --accent: oklch(0.7 0.17 45);
-  --accent-fg: oklch(0.16 0.04 50);
-  --accent-soft: oklch(0.3 0.09 45);
-  --accent-hot: oklch(0.78 0.2 45);
-  --success: oklch(0.72 0.16 145);
-  --warn: oklch(0.8 0.16 80);
-  --focus: oklch(0.78 0.2 45);
+  --bg: oklch(0.128 0.011 259);
+  --surface: oklch(0.168 0.014 259);
+  --surface-2: oklch(0.207 0.018 259);
+  --fg: oklch(0.982 0.004 250);
+  --muted: oklch(0.682 0.015 250);
+  --muted-2: oklch(0.807 0.008 250);
+  --border: oklch(0.278 0.019 255);
+  --border-strong: oklch(0.401 0.026 255);
+  --accent: oklch(0.728 0.163 212);
+  --accent-fg: oklch(0.149 0.027 248);
+  --accent-soft: oklch(0.313 0.059 220);
+  --accent-hot: oklch(0.802 0.137 205);
+  --success: oklch(0.756 0.145 158);
+  --warn: oklch(0.817 0.137 79);
+  --focus: oklch(0.802 0.137 205);
   --font-display:
     var(--font-geist-sans), "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
     sans-serif;
@@ -95,27 +95,38 @@ pre {
 
 .mark {
   display: grid;
-  gap: 3px;
-  width: 22px;
+  gap: 4px;
+  width: 24px;
 }
 
 .mark span {
-  background: var(--accent);
-  border-radius: 1px;
+  border-radius: 2px;
   display: block;
-  height: 3px;
+  height: 5px;
 }
 
 .mark span:nth-child(1) {
-  width: 22px;
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    color-mix(in oklch, var(--accent) 30%, transparent)
+  );
 }
 
 .mark span:nth-child(2) {
-  width: 16px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-hot),
+    color-mix(in oklch, var(--accent-hot) 28%, transparent)
+  );
 }
 
 .mark span:nth-child(3) {
-  width: 10px;
+  background: linear-gradient(
+    90deg,
+    var(--success),
+    color-mix(in oklch, var(--success) 22%, transparent)
+  );
 }
 
 .wordmark {
@@ -123,7 +134,7 @@ pre {
   font-family: var(--font-mono);
   font-size: 14px;
   font-weight: 510;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em;
 }
 
 .nav-links {
@@ -215,6 +226,86 @@ pre {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+.docs-principles {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 0 56px;
+  overflow: hidden;
+}
+
+.docs-principles article {
+  border-left: 1px solid var(--border);
+  padding: 22px;
+}
+
+.docs-principles article:first-child {
+  border-left: 0;
+}
+
+.docs-principles h3 {
+  color: var(--fg);
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+
+.docs-principles p {
+  color: var(--muted-2);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.blog-comparison-card {
+  display: grid;
+  gap: 14px;
+  min-height: 100%;
+}
+
+.blog-comparison-card em {
+  color: var(--accent);
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 510;
+}
+
+.blog-comparison-card strong {
+  color: var(--fg);
+  font-weight: 510;
+}
+
+.blog-comparison-matrix {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.blog-comparison-matrix > div {
+  border-left: 1px solid var(--border);
+  padding: 24px;
+}
+
+.blog-comparison-matrix > div:first-child {
+  border-left: 0;
+}
+
+.blog-comparison-matrix h3 {
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+
+.blog-comparison-matrix p {
+  color: var(--muted-2);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
 }
 
 .hero {
@@ -1529,8 +1620,8 @@ pre {
 
 .docs-content {
   margin: 0 auto;
-  max-width: 800px;
-  padding: 56px 44px 72px;
+  max-width: 760px;
+  padding: 56px 32px 72px;
   width: 100%;
 }
 
@@ -1657,6 +1748,13 @@ pre {
 .docs-content p {
   margin: 0 0 18px;
   max-width: 72ch;
+}
+
+.docs-content section p,
+.docs-content section li,
+.docs-content section dd {
+  text-align: justify;
+  hyphens: auto;
 }
 
 .docs-content p code,

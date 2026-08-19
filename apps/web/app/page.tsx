@@ -22,9 +22,9 @@ type LandingModuleCard = {
 };
 
 const stats = [
-  { value: "157", label: "Modules" },
-  { value: "13", label: "Presets" },
-  { value: "30", label: "Active Categories" },
+  { value: "169", label: "Modules" },
+  { value: "14", label: "Presets" },
+  { value: "9", label: "Guided Recipes" },
   { value: "MIT", label: "License" },
 ];
 
@@ -377,14 +377,14 @@ export default function Page() {
             </h1>
 
             <p className="lede">
-              Install API keys, usage tracking, rate limits, Stripe billing, credits, webhooks,
-              docs, and operating checks into an existing app as editable source code. Modules are
-              the product; recipes are the path; presets are only convenience bundles.
+              StackFoundry installs the hard API product work — keys, metering, quotas, credits,
+              Stripe billing, signed webhooks, docs, and operations — into your repository as
+              readable source. Dry-run it, review every file, then own the maintenance path.
             </p>
 
             <div className="actions">
               <a className="button primary" href="/registry">
-                Start with API SaaS
+                Dry-run API SaaS
               </a>
               <a className="button" href="/docs">
                 Read Docs
@@ -461,10 +461,11 @@ export default function Page() {
         <section className="section" id="how">
           <div className="section-head">
             <div className="section-eyebrow">Install</div>
-            <h2>One command. The full module lands in your repo.</h2>
+            <h2>A reviewable path from dry run to owned source.</h2>
             <p>
-              The strongest first path is API SaaS: keys, usage, quotas, credits, billing, docs,
-              webhooks, and request visibility installed as normal source files.
+              Run the recipe in dry-run mode and inspect the exact files, dependencies, env notes,
+              and checklists first. Install only after the review passes, with no hidden runtime and
+              no provider decision made for you.
             </p>
           </div>
 
@@ -526,10 +527,11 @@ export default function Page() {
         <section className="section" id="modules">
           <div className="section-head">
             <div className="section-eyebrow">Modules</div>
-            <h2>Lead with the modules people already need to monetize an API.</h2>
+            <h2>Start with the systems that turn traffic into revenue.</h2>
             <p>
-              The registry is broad, but the public wedge is narrow: API keys, usage, quotas,
-              billing, webhooks, docs, and operations that land in an existing app as source.
+              These are representative modules from a 169-module registry. Each one ships source,
+              docs, maintenance guidance, and verification context, so the fastest path does not
+              become unmaintainable technical debt.
             </p>
           </div>
 

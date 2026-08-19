@@ -1,7 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="StackFoundry">
   <title>StackFoundry</title>
-  <rect width="64" height="64" rx="10" fill="#151515"/>
-  <rect x="14" y="18" width="36" height="7" fill="#d18135"/>
-  <rect x="14" y="29" width="27" height="7" fill="#d18135"/>
-  <rect x="14" y="40" width="17" height="7" fill="#d18135"/>
+  <defs>
+    <linearGradient id="stack" x1="12" y1="18" x2="52" y2="46" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6fd2ff"/>
+      <stop offset=".55" stop-color="#48a8f0"/>
+      <stop offset="1" stop-color="#5ee0a3"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#101720"/>
+  <rect x="13" y="17" width="38" height="8" rx="3" fill="url(#stack)"/>
+  <rect x="13" y="28" width="28" height="8" rx="3" fill="url(#stack)" opacity=".92"/>
+  <rect x="13" y="39" width="17" height="8" rx="3" fill="url(#stack)" opacity=".84"/>
 </svg>
