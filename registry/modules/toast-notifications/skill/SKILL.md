@@ -25,11 +25,12 @@ Keep this module skill focused on ownership, installed files, env vars, deployme
 
 ## Dependencies
 
-- No registry dependencies.
+- `sonner` supplies accessible toast rendering and positioning.
 
 ## Maintenance Rules
 
 - Preserve tenant, permission, and data-safety boundaries.
+- Keep user-facing errors generic and log details server-side.
 - Keep examples small, typed, and replaceable.
 - Update docs and checklist with behavior changes.
 - Do not add secrets, credentials, or generated machine metadata.

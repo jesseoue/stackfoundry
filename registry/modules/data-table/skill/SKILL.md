@@ -25,11 +25,12 @@ Keep this module skill focused on ownership, installed files, env vars, deployme
 
 ## Dependencies
 
-- No registry dependencies.
+- `@tanstack/react-table` supplies typed columns, sorting, and row models.
 
 ## Maintenance Rules
 
 - Preserve tenant, permission, and data-safety boundaries.
+- Keep rows display-only and authorize actions independently.
 - Keep examples small, typed, and replaceable.
 - Update docs and checklist with behavior changes.
 - Do not add secrets, credentials, or generated machine metadata.

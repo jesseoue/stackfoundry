@@ -4,14 +4,16 @@
   "category": "components",
   "title": "Command Menu",
   "description": "Keyboard-first command menu component for SaaS navigation and actions.",
-  "dependencies": [],
+  "dependencies": [
+    "cmdk"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
   "env": [],
   "files": [
     {
       "path": "apps/web/src/lib/stackfoundry/command-menu.ts",
-      "type": "registry:file"
+      "type": "registry:lib"
     },
     {
       "path": "apps/web/src/components/stackfoundry/command-menu.tsx",

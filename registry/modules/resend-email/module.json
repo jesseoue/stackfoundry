@@ -23,7 +23,7 @@
     },
     {
       "path": "apps/web/src/emails/welcome-email.tsx",
-      "type": "registry:file"
+      "type": "registry:component"
     },
     {
       "path": "apps/web/src/app/api/providers/resend/send-welcome/route.ts",

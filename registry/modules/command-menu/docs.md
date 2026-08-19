@@ -10,6 +10,9 @@ Keyboard-first command menu component for SaaS navigation and actions.
 
 ## Safety Notes
 
+- Build action lists from role-aware server data.
+- Do not expose commands the current user cannot execute.
+- Keep destructive actions behind explicit confirmation.
 - Keep tenant, permission, and billing boundaries explicit.
 - Validate all server inputs before side effects.
 - Record audit events for sensitive state changes.

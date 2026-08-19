@@ -25,11 +25,12 @@ Keep this module skill focused on ownership, installed files, env vars, deployme
 
 ## Dependencies
 
-- No registry dependencies.
+- `cmdk` supplies the composable command palette primitives.
 
 ## Maintenance Rules
 
 - Preserve tenant, permission, and data-safety boundaries.
+- Build action lists from role-aware server data and hide unauthorized actions.
 - Keep examples small, typed, and replaceable.
 - Update docs and checklist with behavior changes.
 - Do not add secrets, credentials, or generated machine metadata.

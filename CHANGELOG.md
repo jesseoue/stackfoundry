@@ -4,6 +4,14 @@
 
 ### Added
 
+- Added current shadcn registry file-type support for libs, UI primitives, hooks, styles, themes, and standalone blocks.
+- Upgraded the data table to TanStack Table, the command menu to CMDK, and toast notifications to Sonner.
+
+### Changed
+
+- Updated Vercel AI SDK and AI Gateway guidance for the AI SDK 5 server transport, streaming, fallback, and cost model.
+- Normalized installable React files to `registry:component` and helper files to typed registry library items.
+
 - Added the Product UI registry wave: `workspace-switcher`, `quota-meters`, `onboarding-checklist`, `security-activity`, `integration-card`, and `feedback-collector`.
 - Added complete `stackfoundry diff` coverage for package scripts, `.gitignore` merges, and generated environment examples.
 - Added registry validation that every registry index item resolves to an installed source module.

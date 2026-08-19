@@ -21,7 +21,7 @@
     },
     {
       "path": "apps/web/src/emails/welcome-email.tsx",
-      "type": "registry:file",
+      "type": "registry:component",
       "target": "apps/web/src/emails/welcome-email.tsx",
       "content": "import { Body, Button, Container, Head, Heading, Html, Preview, Text } from \"@react-email/components\";\n\nexport function WelcomeEmail({ name, actionUrl }: { name: string; actionUrl: string }) {\n  return (\n    <Html lang=\"en\">\n      <Head />\n      <Preview>Welcome to your workspace</Preview>\n      <Body style={{ background: \"#ffffff\", fontFamily: \"sans-serif\" }}>\n        <Container>\n          <Heading>Welcome, {name}</Heading>\n          <Text>Your account is ready. Open the dashboard to finish setup.</Text>\n          <Button href={actionUrl}>Open dashboard</Button>\n        </Container>\n      </Body>\n    </Html>\n  );\n}\n"
     },

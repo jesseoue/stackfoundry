@@ -36,6 +36,7 @@ pnpm stackfoundry add http://localhost:3000/r/api-keys.json --target /tmp/app
 - The same generated output is mirrored to `apps/web/public/r` so Vercel serves `/r/<name>.json` as static JSON from the Next app.
 - Each module item is emitted as `registry:block` with `https://ui.shadcn.com/schema/registry-item.json`.
 - Each file includes a `target` so registry clients install it into the intended app path.
+- File types use the current shadcn registry vocabulary, including `registry:lib`, `registry:ui`, `registry:hook`, `registry:component`, `registry:page`, `registry:file`, `registry:block`, `registry:style`, and `registry:theme`.
 - Internal module dependencies are emitted as full `https://stackfoundry.dev/r/<dependency>.json` registry URLs.
 - Env requirements are emitted as `envVars` and retained in `meta.env`.
 - Module and shared technology skills are emitted as `maintenanceSkills` so registry URL installs include maintenance guidance.
@@ -45,7 +46,7 @@ pnpm stackfoundry add http://localhost:3000/r/api-keys.json --target /tmp/app
 
 ## StackFoundry Rules
 
-- Registry blocks are SaaS modules, not UI components.
+- Registry blocks are source-owned product capabilities; UI building blocks are a supported subset, not the whole registry.
 - Module source lives in `registry/modules`; generated registry JSON lives in `public/r`.
 - Presets compose modules and can be emitted as aggregate blocks when the preset name does not collide with a module name.
 - Shared technology skills live in `registry/skills` and can be referenced by the source manifest's skill list.

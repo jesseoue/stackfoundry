@@ -13,7 +13,7 @@ export function createToastNotificationsConfig(config: ToastNotificationsConfig)
 }
 
 export const toastNotificationsChecks = [
-  "Validate tenant and permission boundaries",
-  "Record audit events for sensitive changes",
-  "Document deployment and rollback behavior",
+  "Render the provider once in the app layout",
+  "Keep API errors generic in user-facing messages",
+  "Log detailed failures server-side without exposing secrets",
 ] as const;

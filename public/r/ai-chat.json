@@ -36,7 +36,7 @@
       "path": "apps/web/src/lib/ai/models.ts",
       "type": "registry:file",
       "target": "apps/web/src/lib/ai/models.ts",
-      "content": "export const DEFAULT_AI_MODEL = process.env.AI_GATEWAY_MODEL;\n\nexport function getSelectedModel(model?: string) {\n  const selected = model || DEFAULT_AI_MODEL;\n  if (!selected) {\n    throw new Error(\"AI_GATEWAY_MODEL is not set.\");\n  }\n  return selected;\n}\n"
+      "content": "import { getAIGatewayModel } from \"@/lib/ai/ai-sdk\";\n\nexport function getSelectedModel(model?: string) {\n  return getAIGatewayModel(model);\n}\n"
     }
   ],
   "maintenanceSkills": [
@@ -48,7 +48,7 @@
     {
       "name": "ai-sdk",
       "target": ".stackfoundry/skills/ai-sdk/SKILL.md",
-      "content": "---\nname: ai-sdk\ndescription: AI SDK guidance for installed AI modules.\n---\n\n# Ai Sdk Guidance\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/ai-sdk/SKILL.md`\n- Registry source: `registry/skills/ai-sdk/SKILL.md`\n\nAgents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.\n\n- Keep provider keys server-only.\n- Stream responses deliberately and handle tool errors.\n- Validate tool inputs and outputs.\n- Document model ids, fallback behavior, and cost-sensitive paths.\n"
+      "content": "---\nname: ai-sdk\ndescription: Vercel AI SDK 5 guidance for installed model routing and streaming modules.\n---\n\n# AI SDK Guidance\n\n## Installed Location\n\n- Installed target: `.stackfoundry/skills/ai-sdk/SKILL.md`\n- Registry source: `registry/skills/ai-sdk/SKILL.md`\n\nLoad this skill before changing installed model, chat, tool, or streaming code.\n\n## Model and transport rules\n\n- Keep model construction server-only and keys out of `NEXT_PUBLIC_`.\n- Use AI SDK 5 message APIs (`UIMessage`, `convertToModelMessages`, `toUIMessageStreamResponse`) consistently.\n- Configure model providers once in a shared server helper; do not duplicate provider credentials in route handlers.\n- Prefer AI Gateway model IDs and centralized routing for provider fallback and cost control.\n- Validate request bodies before creating a model or streaming a response.\n\n## Streaming and errors\n\n- Return `400` for invalid JSON before model invocation.\n- Handle tool-call errors explicitly and avoid leaking provider stack traces.\n- Document model IDs, expected latency, token cost, and fallback behavior.\n- Test streaming success, invalid JSON, provider errors, and tool failures.\n\n## Ownership boundaries\n\n- Keep UI components provider-agnostic.\n- Keep provider-specific transport and credentials in server-only helpers.\n- Record cost-sensitive calls and audit autonomous actions.\n"
     },
     {
       "name": "nextjs",
@@ -58,6 +58,7 @@
   ],
   "envVars": {
     "AI_GATEWAY_API_KEY": "",
+    "AI_GATEWAY_BASE_URL": "",
     "AI_GATEWAY_MODEL": ""
   },
   "docs": "# AI Chat Module\n\nAdds a minimal Vercel AI SDK chat endpoint and client component using current `useChat` semantics.\n\nThis module credits Vercel AI SDK for the `useChat`, `DefaultChatTransport`, UI message parts, and `toUIMessageStreamResponse()` patterns.\n\n## Owns\n\n- `/api/ai/chat` route\n- chat prompt component\n- model/env helper\n- prompt defaults\n\n## Requirements\n\n- `AI_GATEWAY_API_KEY`\n- `AI_GATEWAY_MODEL`\n\n## Verification\n\n- API route returns a UI message stream.\n- Client component sends messages with `DefaultChatTransport`.\n- Missing model returns a readable error instead of a failed stream.\n",
@@ -65,6 +66,7 @@
     "category": "ai",
     "env": [
       "AI_GATEWAY_API_KEY",
+      "AI_GATEWAY_BASE_URL",
       "AI_GATEWAY_MODEL"
     ],
     "status": "ready",

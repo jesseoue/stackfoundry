@@ -10,6 +10,8 @@ Typed table shell with empty/loading/error slots and row actions.
 
 ## Safety Notes
 
+- Rows are display data only; resolve them with tenant-scoped server queries.
+- Row actions must be authorized independently from table visibility.
 - Keep tenant, permission, and billing boundaries explicit.
 - Validate all server inputs before side effects.
 - Record audit events for sensitive state changes.

@@ -60,10 +60,15 @@ export const validModuleCategories = new Set([
   "workflow",
 ]);
 export const validRegistryFileTypes = new Set([
+  "registry:lib",
+  "registry:ui",
+  "registry:hook",
+  "registry:block",
   "registry:file",
   "registry:page",
   "registry:component",
-  "registry:hook",
+  "registry:style",
+  "registry:theme",
 ]);
 
 export function isKebabCase(value) {

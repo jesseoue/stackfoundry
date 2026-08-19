@@ -19,11 +19,11 @@
   "files": [
     {
       "path": "apps/web/src/components/providers/posthog-provider.tsx",
-      "type": "registry:file"
+      "type": "registry:component"
     },
     {
       "path": "apps/web/src/components/analytics/track-button.tsx",
-      "type": "registry:file"
+      "type": "registry:component"
     },
     {
       "path": "apps/web/src/app/(console)/admin/providers/posthog/page.tsx",

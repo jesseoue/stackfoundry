@@ -234,7 +234,9 @@ async function validateModule(moduleDir) {
   for (const file of manifest.files ?? []) {
     if (!file.path) errors.push("file entry missing path");
     if (!validRegistryFileTypes.has(file.type)) {
-      errors.push(`${file.path}: unsupported file type ${file.type}`);
+      errors.push(
+        `${file.path}: unsupported file type ${file.type}; expected one of ${[...validRegistryFileTypes].join(", ")}`,
+      );
     }
     if (declaredFiles.has(file.path)) errors.push(`duplicate file declaration: ${file.path}`);
     declaredFiles.add(file.path);

@@ -237,6 +237,7 @@ Generated installable items are `registry:block` payloads with:
 - docs
 - metadata
 - embedded maintenance skills
+- current shadcn registry file types for components, pages, hooks, libs, styles, themes, and source files
 
 > [!IMPORTANT]
 > Do not edit `public/r` by hand. Update `registry/modules`, `registry/presets`, or `registry/skills`, then run `pnpm registry:build`.

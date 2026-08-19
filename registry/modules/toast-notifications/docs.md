@@ -10,6 +10,8 @@ Accessible toast queue component for action feedback.
 
 ## Safety Notes
 
+- Render the provider once in the app layout.
+- Keep user-facing error text generic and log details server-side.
 - Keep tenant, permission, and billing boundaries explicit.
 - Validate all server inputs before side effects.
 - Record audit events for sensitive state changes.

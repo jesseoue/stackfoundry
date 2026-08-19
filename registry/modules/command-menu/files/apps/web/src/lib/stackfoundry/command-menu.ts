@@ -13,7 +13,7 @@ export function createCommandMenuConfig(config: CommandMenuConfig) {
 }
 
 export const commandMenuChecks = [
-  "Validate tenant and permission boundaries",
-  "Record audit events for sensitive changes",
-  "Document deployment and rollback behavior",
+  "Build action lists from role-aware server data",
+  "Avoid exposing commands the current user cannot execute",
+  "Keep destructive actions behind explicit confirmation",
 ] as const;

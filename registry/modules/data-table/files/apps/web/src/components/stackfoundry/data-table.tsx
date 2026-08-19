@@ -1,26 +1,63 @@
-type Column<T> = { key: keyof T; label: string };
+import {
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+  type ColumnDef,
+  type SortingState,
+} from "@tanstack/react-table";
+import { useState } from "react";
 
-export function StackFoundryDataTable<T extends { id: string }>({
+export function StackFoundryDataTable<T>({
   rows,
   columns,
   empty = "No records found.",
 }: {
-  rows: T[];
-  columns: Array<Column<T>>;
+  rows: Array<T & { id: string }>;
+  columns: Array<ColumnDef<T>>;
   empty?: string;
 }) {
-  if (rows.length === 0) return <div className="rounded-lg border p-6 text-sm text-muted-foreground">{empty}</div>;
+  const [sorting, setSorting] = useState<SortingState>([]);
+  const table = useReactTable({
+    data: rows,
+    columns,
+    state: { sorting },
+    onSortingChange: setSorting,
+    getCoreRowModel: getCoreRowModel(),
+  });
+
+  if (rows.length === 0) {
+    return <div className="rounded-lg border p-6 text-sm text-muted-foreground">{empty}</div>;
+  }
 
   return (
     <div className="overflow-x-auto rounded-lg border">
       <table className="w-full text-sm">
         <thead>
-          <tr>{columns.map((column) => <th key={String(column.key)} className="p-3 text-left">{column.label}</th>)}</tr>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <tr key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <th key={header.id} className="p-3 text-left">
+                  {header.column.getCanSort() ? (
+                    <button type="button" onClick={header.column.getToggleSortingHandler()}>
+                      {flexRender(header.column.columnDef.header, header.getContext())}
+                      {{ asc: " ↑", desc: " ↓" }[header.column.getIsSorted() as string] ?? ""}
+                    </button>
+                  ) : (
+                    flexRender(header.column.columnDef.header, header.getContext())
+                  )}
+                </th>
+              ))}
+            </tr>
+          ))}
         </thead>
         <tbody>
-          {rows.map((row) => (
+          {table.getRowModel().rows.map((row) => (
             <tr key={row.id} className="border-t">
-              {columns.map((column) => <td key={String(column.key)} className="p-3">{String(row[column.key] ?? "")}</td>)}
+              {row.getVisibleCells().map((cell) => (
+                <td key={cell.id} className="p-3">
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </td>
+              ))}
             </tr>
           ))}
         </tbody>

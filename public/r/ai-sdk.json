@@ -15,7 +15,7 @@
       "path": "apps/web/src/lib/ai/ai-sdk.ts",
       "type": "registry:file",
       "target": "apps/web/src/lib/ai/ai-sdk.ts",
-      "content": "export const DEFAULT_AI_MODEL = process.env.AI_GATEWAY_MODEL;\n\nexport function getAIGatewayModel(model?: string) {\n  const selected = model || DEFAULT_AI_MODEL;\n  if (!selected) {\n    throw new Error(\"AI_GATEWAY_MODEL is not set.\");\n  }\n  return selected;\n}\n\nexport function assertAIGatewayConfigured() {\n  if (!process.env.AI_GATEWAY_API_KEY) {\n    throw new Error(\"AI_GATEWAY_API_KEY is not set.\");\n  }\n}\n"
+      "content": "import { createOpenAI } from \"@ai-sdk/gateway\";\n\nconst gateway = createOpenAI({\n  apiKey: process.env.AI_GATEWAY_API_KEY,\n  baseURL: process.env.AI_GATEWAY_BASE_URL,\n});\n\nexport function getAIGatewayModel(model?: string) {\n  return gateway(process.env.AI_GATEWAY_MODEL || model || \"gpt-5\");\n}\n\nexport function assertAIGatewayConfigured() {\n  if (!process.env.AI_GATEWAY_API_KEY) {\n    throw new Error(\"AI_GATEWAY_API_KEY is not set.\");\n  }\n}\n"
     },
     {
       "path": "apps/web/src/lib/ai/streaming.ts",
@@ -38,6 +38,7 @@
   ],
   "envVars": {
     "AI_GATEWAY_API_KEY": "",
+    "AI_GATEWAY_BASE_URL": "",
     "AI_GATEWAY_MODEL": ""
   },
   "docs": "# AI SDK\n\nVercel AI SDK model configuration, streaming helpers, and gateway-ready defaults.\n\nThis module is inspired by Vercel's AI SDK guidance for model abstraction, UI message streaming, and gateway-based provider routing.\n\n## Owns\n\n- `apps/web/src/lib/ai/ai-sdk.ts`\n- `apps/web/src/lib/ai/streaming.ts`\n\n## Dependencies\n\n- `ai`\n- `@ai-sdk/gateway`\n\n## Environment\n\n- `AI_GATEWAY_API_KEY`\n- `AI_GATEWAY_MODEL`\n\n## Maintenance\n\n- Keep provider keys server-only.\n- Prefer AI SDK provider and gateway abstractions over direct provider SDK imports.\n- Use UI message streams for chat surfaces.\n- Document model IDs, fallback behavior, and cost-sensitive paths.\n",
@@ -45,6 +46,7 @@
     "category": "ai",
     "env": [
       "AI_GATEWAY_API_KEY",
+      "AI_GATEWAY_BASE_URL",
       "AI_GATEWAY_MODEL"
     ],
     "status": "ready",

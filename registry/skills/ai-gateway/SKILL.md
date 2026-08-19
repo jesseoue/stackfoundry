@@ -1,18 +1,27 @@
 ---
 name: ai-gateway
-description: AI Gateway guidance for installed model routing modules.
+description: Vercel AI Gateway guidance for installed routing, fallback, and cost controls.
 ---
 
-# Ai Gateway Guidance
+# AI Gateway Guidance
 
 ## Installed Location
 
 - Installed target: `.stackfoundry/skills/ai-gateway/SKILL.md`
 - Registry source: `registry/skills/ai-gateway/SKILL.md`
 
-Agents maintaining an installed module should load this shared skill from the installed target when provider, framework, database, SDK, or platform behavior is involved. Keep provider-specific API details here instead of duplicating them inside module maintenance skills.
+Load this skill before changing installed model routing or gateway configuration.
 
-- Document model routing and provider fallback rules.
-- Keep gateway and provider credentials server-only.
-- Track cost-sensitive calls.
-- Verify fallback and error handling paths.
+## Routing rules
+
+- Keep `AI_GATEWAY_API_KEY` server-only.
+- Configure `AI_GATEWAY_BASE_URL` only when routing through a gateway endpoint.
+- Define deterministic model IDs and fallback order before adding runtime model choice.
+- Keep provider/model complexity hidden from product UI.
+
+## Cost and safety
+
+- Track tokens and spend by tenant when usage affects billing.
+- Use a server-side allowlist for user-selectable models.
+- Fail closed when routing or provider configuration is missing.
+- Verify primary, fallback, and error paths before release.
